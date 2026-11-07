@@ -1,0 +1,223 @@
+{
+  "slug": "modules-docs",
+  "title": "دوال جاهزة، مكتبات وتوثيق: كيف منقسم برنامج",
+  "he": "פונקציות מובנות, מודולים ותיעוד",
+  "ref": "שבוע 5",
+  "minutes": 17,
+  "desc": "الدوال الجاهزة بـ Python (פונקציות מובנות) متل len و max و abs، مكتبة math بـ import، كيف منتعلّم أداة لحالنا بـ help، توثيق الدوال (תיעוד)، وكيف منقسم مشكلة كبيرة لدوال صغيرة (תכנות מודולרי והפשטה).",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> السيلابوس بيطلب إنكم تعرفوا «تلاقوا وتدمجوا بالكود دوال جاهزة»، «تتعلّموا أدوات لحالكم»، وتطبّقوا «הפשטה, תכנות מודולרי ותיעוד». بالوظايف هاد بيوفّر ساعات، وبالامتحان لازم تعرفوا إمتى مسموح تستعملوا دالة جاهزة وإمتى لأ.</p><ol><li>دوال جاهزة: <code dir=\"ltr\">len abs max min sum round</code></li><li>مكتبة: <code dir=\"ltr\">import math</code></li><li>تعلّم لحالك: <code dir=\"ltr\">help</code> والتوثيق الرسمي</li><li>تقسيم لدوال وتوثيق بـ docstring</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما في حساب معروف (جذر، أكبر قيمة)، وكل ما البرنامج صار أطول من 20 سطر.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"تكتب مشكلة كبيرة كدالة رئيسية بتستدعي دوال صغيرة. كل دالة بتعمل إشي واحد، وفينا نفحصها لحالها.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"58.44\" y=\"15\" width=\"71.12\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">main</text><rect class=\"fk-chip t-hu\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">المشكلة</text><rect class=\"fk-chip t-1 solid\" x=\"180.88\" y=\"15\" width=\"118.24\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">is_prime</text><rect class=\"fk-chip t-1\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"240.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">دالة</text><rect class=\"fk-chip t-3 solid\" x=\"320.99\" y=\"15\" width=\"130.01999999999998\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">digit_sum</text><rect class=\"fk-chip t-3\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-3\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">دالة</text></svg>",
+      "alt": "تكتب مشكلة كبيرة كدالة رئيسية بتستدعي دوال صغيرة. كل دالة بتعمل إشي واحد، وفينا نفحصها لحالها.",
+      "caption": "تكتب مشكلة كبيرة كدالة رئيسية بتستدعي دوال صغيرة. كل دالة بتعمل إشي واحد، وفينا نفحصها لحالها."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p><b>פונקציה מובנת</b> (built-in) جاهزة بـ Python بدون import: <code dir=\"ltr\">len</code>، <code dir=\"ltr\">abs</code>، <code dir=\"ltr\">max</code>… <b>מודול</b> (module) هو ملف دوال جاهزة لازم نجيبه أول: <code dir=\"ltr\">import math</code> وبعدين <code dir=\"ltr\">math.sqrt(16)</code>. <b>הפשטה</b> (abstraction) معناها نستعمل دالة حسب <b>شو</b> بتعمل، بدون ما نفكّر <b>كيف</b>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>ما حدا بيكتب كل إشي من الصفر. الشطارة إنكم تعرفوا شو موجود، تقروا وصفه، وتستعملوه صح. وبنفس الطريقة، دالة كتبتوها وعطيتوها اسم واضح وتوثيق بتصير «جاهزة» لباقي البرنامج.</p>"
+    },
+    {
+      "t": "h",
+      "text": "دوال جاهزة ومكتبات"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 100\" role=\"img\" aria-label=\"مكتبة: منجيبها مرة بأول الملف، وبعدين اسم المكتبة، نقطة، واسم الدالة.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"334.0\" y=\"20\" width=\"136\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"402.0\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">import math</text><line class=\"fk-line t-mut\" x1=\"332.0\" y1=\"46\" x2=\"322.0\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"310.0,46 322.0,53.0 322.0,39.0\"/><rect class=\"fk-chip t-hu\" x=\"172.0\" y=\"20\" width=\"136\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"51.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">math.sqrt(16)</text><line class=\"fk-line t-mut\" x1=\"170.0\" y1=\"46\" x2=\"160.0\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"148.0,46 160.0,53.0 160.0,39.0\"/><rect class=\"fk-chip t-2 solid\" x=\"10.0\" y=\"20\" width=\"136\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"78.0\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4.0</text></svg>",
+      "alt": "مكتبة: منجيبها مرة بأول الملف، وبعدين اسم المكتبة، نقطة، واسم الدالة.",
+      "caption": "مكتبة: منجيبها مرة بأول الملف، وبعدين اسم المكتبة، نقطة، واسم الدالة."
+    },
+    {
+      "t": "p",
+      "html": "<p>أهم الدوال الجاهزة بالكورس: <code dir=\"ltr\">len(x)</code> طول قائمة أو نص، <code dir=\"ltr\">abs(x)</code> قيمة مطلقة، <code dir=\"ltr\">max</code> و<code dir=\"ltr\">min</code> (لكذا عدد أو لقائمة)، <code dir=\"ltr\">sum(lst)</code> مجموع قائمة، <code dir=\"ltr\">round(x, k)</code> تدوير لـ k خانات، <code dir=\"ltr\">sorted(lst)</code> نسخة مرتّبة، وكمان <code dir=\"ltr\">int</code>، <code dir=\"ltr\">float</code>، <code dir=\"ltr\">str</code> و<code dir=\"ltr\">type</code> اللي بتعرفوهم.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مكتبة (מודול) هي مجموعة دوال بملف منفصل. <code dir=\"ltr\">import math</code> بيجيب مكتبة الرياضيات، ومنستعمل دوالها مع اسمها قبل ونقطة: <code dir=\"ltr\">math.sqrt(x)</code> جذر، <code dir=\"ltr\">math.floor(x)</code> تدوير لتحت، <code dir=\"ltr\">math.ceil(x)</code> تدوير لفوق، و<code dir=\"ltr\">math.pi</code>. في كمان <code dir=\"ltr\">random</code> لأعداد عشوائية (<code dir=\"ltr\">random.randint(1, 6)</code> متل حجر نرد).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p><b>كيف تتعلّموا أداة لحالكم؟</b> (هاي كمان من أهداف الكورس.) <code dir=\"ltr\">help(abs)</code> بالـ IDE بيطبع وصف الدالة: شو بتقبل وشو بترجّع. التوثيق الرسمي على docs.python.org (الـ tutorial مذكور بالسيلابوس) فيه كل دالة مع أمثلة. وAI مسموح لتسألوه «شو بتعمل هالدالة؟»، بس جرّبوا دايماً بكود صغير قبل ما تعتمدوا.</p>"
+    },
+    {
+      "t": "h",
+      "text": "تقسيم وتوثيق"
+    },
+    {
+      "t": "p",
+      "html": "<p><b>תכנות מודולרי</b>: بدل برنامج طويل واحد، منقسم المشكلة لمهمّات صغيرة، ولكل مهمّة دالة. «اطبعوا كل الأعداد الأوّلية اللي مجموع خاناتها زوجي» بتصير: <code dir=\"ltr\">is_prime(n)</code>، <code dir=\"ltr\">digit_sum(n)</code>، ودالة رئيسية بتجمعهم. كل دالة قصيرة، فينا نفحصها لحالها، وإذا لقينا غلط منعرف وين.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p><b>תיעוד</b>: أول سطر جوّا الدالة ممكن يكون نص بتلات تنصيصات <code dir=\"ltr\">\"\"\"…\"\"\"</code> اسمه docstring: شو الدالة بتقبل وشو بترجّع. <code dir=\"ltr\">help</code> بيعرضه. وتعليقات <code dir=\"ltr\">#</code> بتشرح سطر مش واضح. بالوظايف، الفحص الشفهي بالمختبر بيسألكم عن كودكم، والتوثيق بيساعدكم تتذكروا.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p><b>انتبهوا بالامتحان:</b> كتير أسئلة بتقول «ללא שימוש בפונקציות מובנות» أو «אין להשתמש ב-sort». هون بدهم تكتبوا الألغوريتم لحالكم (متل الأكبر بحلقة). إذا السؤال ما منع، <code dir=\"ltr\">len</code> دايماً مسموحة عملياً.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 288\" role=\"img\" aria-label=\"الدوال الجاهزة اللي رح تستعملوها أكتر إشي.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الدالة</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">شو بتعمل</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">len(x)</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الطول</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">abs(x)</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">قيمة مطلقة</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">max / min</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"166.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">أكبر / أصغر</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">sum(lst)</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مجموع</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"230\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"254.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">sorted(lst)</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"230\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"254.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">نسخة مرتّبة</text></svg>",
+      "alt": "الدوال الجاهزة اللي رح تستعملوها أكتر إشي.",
+      "caption": "الدوال الجاهزة اللي رح تستعملوها أكتر إشي."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "import math\n\ndef hypot(a, b):\n    \"\"\"Return the hypotenuse of a right triangle with legs a and b.\"\"\"\n    return math.sqrt(a * a + b * b)\n\nprint(hypot(3, 4))\nprint(max(3, 9, 4), min([5, 2, 8]), abs(-7))\nprint(round(math.pi, 2), math.floor(7.8), math.ceil(7.2))",
+      "out": "5.0\n9 2 7\n3.14 7 8"
+    },
+    {
+      "t": "method",
+      "title": "كيف تقسموا سؤال كبير لدوال، 3 خطوات",
+      "steps": [
+        "<b>شو المهمّات؟</b> اكتبوا السؤال كجملة، وكل فعل («افحص إذا أوّلي»، «احسب مجموع خانات») بيصير دالة.",
+        "<b>اكتبوا وافحصوا كل دالة لحالها</b> مع docstring، وجرّبوها على 2–3 قيم بتعرفوا جوابها.",
+        "<b>اجمعوا</b> الدالة الرئيسية بتستدعي الصغار، وبتصير قصيرة ومقروءة."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: دوال جاهزة على قائمة",
+      "html": "<p>كل سطر دالة جاهزة وحدة. ليش <code dir=\"ltr\">sorted</code> ما غيّرت a؟ لأنه بترجّع قائمة <b>جديدة</b> مرتّبة، والأصلية بتضل متل ما هي.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [7, -3, 12, 5]\nprint(len(a), sum(a))\nprint(max(a), min(a))\nprint(sorted(a))\nprint(a)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">4 21\n12 -3\n[-3, 5, 7, 12]\n[7, -3, 12, 5]</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال متوسط: مكتبة math",
+      "html": "<p>محيط ومساحة دائرة نصف قطرها 3. ليش <code dir=\"ltr\">round</code>؟ لأنه <code dir=\"ltr\">math.pi</code> إلو 15 خانة، وبدنا جواب مقروء.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">import math\n\nr = 3\nprint(round(2 * math.pi * r, 2))\nprint(round(math.pi * r ** 2, 2))\nprint(math.sqrt(49), math.floor(-2.5))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">18.85\n28.27\n7.0 -3</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال للامتحان: تقسيم لدوال",
+      "html": "<p>السؤال: «اطبعوا كل الأعداد الأوّلية بين 2 و 30 اللي مجموع خاناتها زوجي». قسمناه لدالتين صغار ودالة رئيسية. ليش أحسن؟ لأنه فحصنا is_prime و digit_sum كل وحدة لحالها، والرئيسية صارت 4 أسطر.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def is_prime(n):\n    \"\"\"True if n is prime.\"\"\"\n    if n &lt; 2:\n        return False\n    d = 2\n    while d * d &lt;= n:\n        if n % d == 0:\n            return False\n        d += 1\n    return True\n\ndef digit_sum(n):\n    \"\"\"Sum of the digits of n &gt;= 0.\"\"\"\n    s = 0\n    while n &gt; 0:\n        s += n % 10\n        n //= 10\n    return s\n\ndef main():\n    for k in range(2, 31):\n        if is_prime(k) and digit_sum(k) % 2 == 0:\n            print(k, end=\" \")\n    print()\n\nmain()</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">2 11 13 17 19 </pre></div></div><p>الأوّليات لحد 30: 2، 3، 5، 7، 11، 13، 17، 19، 23، 29. اللي مجموع خاناتها زوجي: 2، 11 (1+1)، 13 (1+3)، 17 (1+7)، 19 (1+9). الـ 23 و 29 مجموعهم 5 و 11، فرديين. ولاحظوا إنه الدالة الرئيسية بتنقرا متل جملة السؤال.</p>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "مسموح أستعمل <code dir=\"ltr\">max</code> و<code dir=\"ltr\">sorted</code> بالامتحان؟",
+          "a": "<p>حسب السؤال. إذا بيقول «ללא שימוש בפונקציות מובנות» أو بيطلب تكتبوا الفرز، لأ: بدهم الألغوريتم. إذا ما منع، مسموح. وإذا مش متأكدين، اكتبوا الحلقة لحالكم: دايماً صح.</p>"
+        },
+        {
+          "q": "شو الفرق بين <code dir=\"ltr\">sorted(a)</code> و<code dir=\"ltr\">a.sort()</code>؟",
+          "a": "<code dir=\"ltr\">sorted</code> دالة جاهزة بترجّع قائمة جديدة وما بتلمس الأصلية. <code dir=\"ltr\">a.sort()</code> מתודה بترتّب a نفسها وبترجّع None.<pre class=\"code\" dir=\"ltr\">a = [3, 1, 2]\nb = sorted(a)\nr = a.sort()\nprint(a, b, r)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">[1, 2, 3] [1, 2, 3] None</pre>"
+        },
+        {
+          "q": "شو الفرق بين دالة (<code dir=\"ltr\">len(s)</code>) والمتودة (<code dir=\"ltr\">s.upper()</code>)؟",
+          "a": "<p>الدالة بتاخد القيمة بين قوسين. المتودة (מתודה، method) دالة «تابعة» لنوع معيّن، وبتنكتب بعد القيمة ونقطة. للنصوص والقوائم في متودات كتير، منشوفها بالفصول 6 و 7.</p>"
+        },
+        {
+          "q": "ليش <code dir=\"ltr\">math.sqrt</code> ومش بس <code dir=\"ltr\">sqrt</code>؟",
+          "a": "<p>لأنه الدالة جوّا مكتبة math. الاسم الكامل بيمنع لخبطة لو في دالتين بنفس الاسم بمكتبات مختلفة. في كمان <code dir=\"ltr\">from math import sqrt</code> لتكتبوا <code dir=\"ltr\">sqrt</code> لحالها.</p><pre class=\"code\" dir=\"ltr\">from math import sqrt\nprint(sqrt(81))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">9.0</pre>"
+        },
+        {
+          "q": "شو هو dict (מילון)؟ لازم أعرفه؟",
+          "a": "<p>قاموس بيربط مفتاح بقيمة: <code dir=\"ltr\">{\"dana\": 90}</code>. هو بكتاب Think Python، بس مش من مواضيع سيلابوس 61741، فالكورس والامتحان مبنيين على قوائم ونصوص. tuple (متل قائمة ما بتتغيّر) بيطلع عندنا بس لما دالة بترجّع أكتر من قيمة.</p>"
+        },
+        {
+          "q": "شو لازم يكون بالـ docstring؟",
+          "a": "<p>جملة وحدة أو تنتين: شو الدالة بتقبل (والشروط عليه، متل «<bdi dir=\"ltr\">n &gt;= 0</bdi>»)، وشو بترجّع. مش كيف بتشتغل من جوّا: هاد مكانه بتعليقات <code dir=\"ltr\">#</code> إذا لازم.</p>"
+        }
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 128\" role=\"img\" aria-label=\"a.sort() بترتّب بمكانها وبترجّع None.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"250\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-good\" x=\"355\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح</text><text class=\"fk-t t-good\" x=\"355\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">a.sort()</text><text class=\"fk-t t-good\" x=\"355\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">a صارت مرتّبة</text><rect class=\"fk-chip t-bad\" x=\"20\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-bad\" x=\"125\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط</text><text class=\"fk-t t-bad\" x=\"125\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">a = a.sort()</text><text class=\"fk-t t-bad\" x=\"125\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">a ← None</text></svg>",
+      "alt": "a.sort() بترتّب بمكانها وبترجّع None.",
+      "caption": "<bdi dir=\"ltr\">a.sort()</bdi> بترتّب بمكانها وبترجّع None."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">sqrt(16)</code> بدون import",
+          "yes": "<code dir=\"ltr\">import math</code> بأول الملف، وبعدين <code dir=\"ltr\">math.sqrt(16)</code>"
+        },
+        {
+          "no": "<code dir=\"ltr\">a = a.sort()</code>",
+          "yes": "<code dir=\"ltr\">a.sort()</code> لحالها (بترجّع None)، أو <code dir=\"ltr\">a = sorted(a)</code>"
+        },
+        {
+          "no": "برنامج كامل جوّا دالة وحدة طويلة",
+          "yes": "دالة لكل مهمّة، كل وحدة بتنفحص لحالها"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">import math\nprint(math.floor(7.8) + math.ceil(2.1))</pre></div>",
+        "answer": [
+          "10"
+        ],
+        "hint": "floor لتحت، ceil لفوق.",
+        "solution": "<p>تدوير 7.8 لتحت بيعطي 7، وتدوير 2.1 لفوق بيعطي 3. المجموع 10.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">10</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [4, -9, 6]\nprint(max(a) - min(a) + abs(a[1]))</pre></div>",
+        "answer": [
+          "24"
+        ],
+        "hint": "6 − (−9) + 9.",
+        "solution": "<p>الأكبر 6 والأصغر −9، فالفرق 15. القيمة المطلقة لـ −9 هي 9، والمجموع 24.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">24</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [3, 1, 2]\nb = sorted(a)\nprint(a[0], b[0])</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">3 1</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">1 1</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">3 3</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "sorted بتغيّر a؟",
+        "solution": "<p>sorted بترجّع قائمة جديدة مرتّبة وما بتلمس a، فأول عنصر بـ a بيضل 3، وأول عنصر بالقائمة المرتّبة 1.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">3 1</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "פונקציה מובנת",
+      "back": "دالة جاهزة بدون import: len، abs، max، min، sum، round، sorted."
+    },
+    {
+      "t": "card",
+      "front": "מודול",
+      "back": "ملف دوال جاهزة: <code dir=\"ltr\">import math</code> ← <code dir=\"ltr\">math.sqrt(x)</code>."
+    }
+  ]
+}

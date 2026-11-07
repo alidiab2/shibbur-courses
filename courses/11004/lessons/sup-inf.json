@@ -1,0 +1,274 @@
+{
+  "slug": "sup-inf",
+  "title": "الحدّ، sup وinf ومسلّمة الاكتمال",
+  "he": "חסם עליון ותחתון, אקסיומת השלמות",
+  "ref": "הרצאה 1 · חוברת עמ׳ 5-7 (§1.1)",
+  "minutes": 20,
+  "desc": "شو يعني مجموعة محدودة، الفرق بين max وsup، كيف منلاقي sup وinf لمجموعة، الصياغة مع ε، ومسلّمة الاكتمال اللي عليها مبني كل الكورس. حدوا 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بأول محاضرات حدوا 1 ببراوده بيعرّفوا sup وinf، وبالامتحان بيجي سؤال «اوجدوا sup وinf، وهل هن max وmin؟» أو «أثبتوا إنه \\(M=\\sup A\\)». وكمان مبرهنات كتير بعدين (متتالية رتيبة ومحدودة، فايرشتراس) برهانها مبني على مسلّمة الاكتمال.</p><ol><li>مجموعة محدودة من فوق ومن تحت</li><li>الحدّ الأصغر: sup، والفرق بينه وبين max</li><li>الصياغة مع \\(\\varepsilon\\): كيف منثبت إنه عدد هو الـ sup</li><li>مسلّمة الاكتمال: ليش \\(\\mathbb R\\) مش متل \\(\\mathbb Q\\)</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما يطلبوا «מצאו חסם עליון ותחתון, האם יש מקסימום?» أو «הוכיחו ש-\\(M=\\sup A\\)».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"A= 1- 1n : النقاط الزرق بتقرّب لـ 1 وما بتوصلها. كل عدد من 1 ولفوق (الأخضر) هو חסם מלעיל، وأصغرهم 1، فهو الـ sup.\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"20\" y1=\"110\" x2=\"454.0\" y2=\"110.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"466,110 454.0,103.0 454.0,117.0\"/><line class=\"fk-line t-mut\" x1=\"30.0\" y1=\"104\" x2=\"30.0\" y2=\"116\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"30.0\" y=\"140\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">−0.5</text><line class=\"fk-line t-mut\" x1=\"114.0\" y1=\"104\" x2=\"114.0\" y2=\"116\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"114.0\" y=\"140\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><line class=\"fk-line t-mut\" x1=\"198.0\" y1=\"104\" x2=\"198.0\" y2=\"116\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"198.0\" y=\"140\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0.5</text><line class=\"fk-line t-mut\" x1=\"282.0\" y1=\"104\" x2=\"282.0\" y2=\"116\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"282.0\" y=\"140\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><line class=\"fk-line t-mut\" x1=\"366.0\" y1=\"104\" x2=\"366.0\" y2=\"116\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"366.0\" y=\"140\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1.5</text><line class=\"fk-line t-mut\" x1=\"450.0\" y1=\"104\" x2=\"450.0\" y2=\"116\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"450.0\" y=\"140\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">2</text><circle class=\"fk-dot t-hu\" cx=\"114.0\" cy=\"110\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"198.0\" cy=\"110\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"226.00000000000003\" cy=\"110\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"240.0\" cy=\"110\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"248.4\" cy=\"110\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"254.00000000000006\" cy=\"110\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"258.0\" cy=\"110\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"261.0\" cy=\"110\" r=\"7\"/><line class=\"fk-line t-good\" x1=\"282.0\" y1=\"110\" x2=\"450.0\" y2=\"110\" stroke-width=\"8\"/><circle class=\"fk-dot t-good hollow\" cx=\"282.0\" cy=\"110\" r=\"9\"/><rect class=\"fk-chip t-good solid\" x=\"216.99\" y=\"33\" width=\"130.01999999999998\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"282.0\" y=\"58.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">sup A = 1</text><rect class=\"fk-chip t-hu\" x=\"13.650000000000006\" y=\"141\" width=\"200.7\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-hu\" x=\"114.0\" y=\"166.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">inf A = 0 = min</text><text class=\"fk-t t-good\" x=\"382.8\" y=\"82\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">חסמים מלעיל</text></svg>",
+      "alt": "A= 1- 1n : النقاط الزرق بتقرّب لـ 1 وما بتوصلها. كل عدد من 1 ولفوق (الأخضر) هو חסם מלעיל، وأصغرهم 1، فهو الـ sup.",
+      "caption": "\\(A=\\{1-\\frac1n\\}\\): النقاط الزرق بتقرّب لـ 1 وما بتوصلها. كل عدد من 1 ولفوق (الأخضر) هو חסם מלעיל، وأصغرهم 1، فهو الـ sup."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(M=\\sup A\\) إذا: (1) \\(M\\) حدّ من فوق، يعني \\(a\\le M\\) لكل \\(a\\in A\\)؛ (2) ما في حدّ أصغر منه، يعني لكل \\(\\varepsilon&gt;0\\) في \\(a\\in A\\) مع \\(a&gt;M-\\varepsilon\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "من وين إجا هالموضوع؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>خذوا المجموعة \\(A=[0,1)\\): كل الأعداد من 0 لـ 1، بدون الـ 1. شو أكبر عدد فيها؟ 0.9؟ لأ، 0.99 أكبر. 0.999؟ لأ، 0.9999 أكبر. ما في أكبر عدد! بس واضح إنه 1 هو «السقف» تبعها. هاد السقف اسمه الحدّ العلوي (חסם עליון) أو sup، وهو مش لازم يكون جوّا المجموعة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>نبلّش بالتعريفات. عدد \\(M\\) اسمه حدّ من فوق (חסם מלעיל) لـ \\(A\\) إذا كل عناصر \\(A\\) أصغر أو بساووه. المجموعة اسمها محدودة من فوق (חסומה מלעיל) إذا في إلها حدّ من فوق واحد على الأقل. ولو في واحد، في كتير: إذا 1 حدّ، كمان 2 و100 حدود. الـ sup هو <b>أصغر</b> حدّ من فوق. بنفس الطريقة: حدّ من تحت (חסם מלרע)، والـ inf (חסם תחתון) هو <b>أكبر</b> حدّ من تحت.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>شو الفرق بين sup وmax؟ الـ max (מקסימום) هو عنصر بالمجموعة أكبر من الكل. إذا في max، هو نفسه الـ sup. بس ممكن يكون sup بدون max، متل \\([0,1)\\): الـ sup هو 1 وما في max. والـ inf تبعها 0، وهو جوّا المجموعة، فهو كمان min.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>هلأ السؤال الكبير: هل لكل مجموعة محدودة في sup؟ بالأعداد الحقيقية (\\(\\mathbb R\\)) آه، وهاد اسمه مسلّمة الاكتمال (אקסיומת השלמות). بالأعداد النسبية (\\(\\mathbb Q\\)، الكسور) لأ: المجموعة \\(\\{x\\in\\mathbb Q: x^2&lt;2\\}\\) محدودة، بس السقف تبعها هو \\(\\sqrt2\\) اللي مش كسر. يعني بـ \\(\\mathbb Q\\) في «ثقب» مكان \\(\\sqrt2\\)، وبـ \\(\\mathbb R\\) ما في ثقوب. على هالحقيقة مبنية مبرهنات الفصول الجاي.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>الـ sup هو السقف اللي لازق بالمجموعة: كل العناصر تحته، وأي إشي أوطى منه شوي بيصير في عنصر فوقه.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"الصياغة مع ε: أي عدد أصغر من الـ sup بشوي ( M- ، الأحمر) مش حدّ، لأنه في عنصر من المجموعة (الأزرق) فوقه.\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"20\" y1=\"90\" x2=\"454.0\" y2=\"90.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"466,90 454.0,83.0 454.0,97.0\"/><line class=\"fk-line t-mut\" x1=\"30.0\" y1=\"84\" x2=\"30.0\" y2=\"96\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"30.0\" y=\"120\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">−0.5</text><line class=\"fk-line t-mut\" x1=\"114.0\" y1=\"84\" x2=\"114.0\" y2=\"96\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"114.0\" y=\"120\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><line class=\"fk-line t-mut\" x1=\"198.0\" y1=\"84\" x2=\"198.0\" y2=\"96\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"198.0\" y=\"120\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0.5</text><line class=\"fk-line t-mut\" x1=\"282.0\" y1=\"84\" x2=\"282.0\" y2=\"96\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"282.0\" y=\"120\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><line class=\"fk-line t-mut\" x1=\"366.0\" y1=\"84\" x2=\"366.0\" y2=\"96\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"366.0\" y=\"120\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1.5</text><line class=\"fk-line t-mut\" x1=\"450.0\" y1=\"84\" x2=\"450.0\" y2=\"96\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"450.0\" y=\"120\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">2</text><line class=\"fk-line t-good\" x1=\"282.0\" y1=\"90\" x2=\"450.0\" y2=\"90\" stroke-width=\"7\"/><circle class=\"fk-dot t-good\" cx=\"282.0\" cy=\"90\" r=\"8\"/><circle class=\"fk-dot t-bad\" cx=\"248.4\" cy=\"90\" r=\"8\"/><circle class=\"fk-dot t-hu\" cx=\"273.6\" cy=\"90\" r=\"8\"/><rect class=\"fk-chip t-bad solid\" x=\"210.05\" y=\"23\" width=\"76.7\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-on\" x=\"248.4\" y=\"45.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">M − ε</text><rect class=\"fk-chip t-good solid\" x=\"296.03\" y=\"23\" width=\"139.94\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-on\" x=\"366.0\" y=\"45.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">حدود من فوق</text></svg>",
+      "alt": "الصياغة مع ε: أي عدد أصغر من الـ sup بشوي ( M- ، الأحمر) مش حدّ، لأنه في عنصر من المجموعة (الأزرق) فوقه.",
+      "caption": "الصياغة مع ε: أي عدد أصغر من الـ sup بشوي (\\(M-\\varepsilon\\)، الأحمر) مش حدّ، لأنه في عنصر من المجموعة (الأزرق) فوقه."
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: حدّ من فوق ومجموعة محدودة (חסם מלעיל, קבוצה חסומה)",
+      "html": "<p>\\(M\\) حدّ من فوق لـ \\(A\\) إذا \\(\\forall a\\in A:\\ a\\le M\\). \\(A\\) محدودة (חסומה) إذا محدودة من فوق ومن تحت، يعني في \\(K\\) مع \\(|a|\\le K\\) لكل \\(a\\in A\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: الحدّ العلوي والسفلي (סופרמום ואינפימום)",
+      "html": "<p>\\(\\sup A\\) هو أصغر حدّ من فوق لـ \\(A\\). \\(\\inf A\\) هو أكبر حدّ من تحت. إذا \\(\\sup A\\in A\\) فهو \\(\\max A\\)، وإذا \\(\\inf A\\in A\\) فهو \\(\\min A\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "rule",
+      "title": "مسلّمة الاكتمال (אקסיומת השלמות)",
+      "html": "<p>لكل مجموعة غير فاضية ومحدودة من فوق في \\(\\mathbb R\\) في sup في \\(\\mathbb R\\).</p><p>بنفس الشي: لكل مجموعة غير فاضية ومحدودة من تحت في inf.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "مبرهنة: الصياغة مع ε للـ sup (אפיון הסופרמום)",
+      "html": "<p>\\(M=\\sup A\\) إذا وبس إذا \\(M\\) حدّ من فوق، ولكل \\(\\varepsilon&gt;0\\) في \\(a\\in A\\) بحيث \\(a&gt;M-\\varepsilon\\).</p><div class=\"proof\"><div class=\"tt\">فكرة البرهان</div><p>إذا \\(M\\) هو أصغر حدّ، فـ \\(M-\\varepsilon\\) (اللي أصغر منه) مش حدّ، يعني في عنصر أكبر منه. وبالعكس: إذا لكل \\(\\varepsilon\\) في عنصر فوق \\(M-\\varepsilon\\)، فما في حدّ أصغر من \\(M\\)، لأنه لو \\(K&lt;M\\) حدّ، منختار \\(\\varepsilon=M-K\\) ومنلاقي عنصر فوقه، تناقض.</p></div>"
+    },
+    {
+      "t": "method",
+      "title": "اوجدوا sup وinf لمجموعة من شكل \\(\\{a_n\\}\\)، 4 خطوات",
+      "steps": [
+        "<b>اكتبوا:</b> أول كم عنصر: \\(a_1,a_2,a_3\\). هيك بتشوفوا إذا بيطلعوا، بينزلوا أو بينطّوا.",
+        "<b>النهاية:</b> احسبوا \\(\\lim a_n\\). إذا المتتالية رتيبة، النهاية هي الطرف التاني.",
+        "<b>خمّنوا:</b> إذا بتطلع: \\(\\inf=a_1=\\min\\) و\\(\\sup=\\lim\\). إذا بتنزل: بالعكس.",
+        "<b>برهنوا:</b> إنه التخمين حدّ (متباينة)، وإنه ما في أصغر منه (الصياغة مع \\(\\varepsilon\\))."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: \\(A=[0,1)\\)",
+      "html": "<p>مجال مفتوح من اليمين.</p><p>حدّ من فوق: 1، لأنه كل \\(a\\in A\\) أصغر من 1. وكمان 2 حدّ، بس 1 أصغر.</p><p>هل في حدّ أصغر من 1؟ لأ: لأي \\(M&lt;1\\) العدد \\(\\frac{M+1}{2}\\) (النص بين \\(M\\) و1) بالمجموعة وأكبر من \\(M\\). لهيك \\(\\sup A=1\\).</p><p>1 مش بالمجموعة، فما في max. الـ inf هو 0 وهو بالمجموعة، فهو min.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال متوسط: \\(A=\\{1-\\frac1n: n\\in\\mathbb N\\}\\)",
+      "html": "<p>متل الرسمة.</p><p>أول عناصر: \\(0,\\frac12,\\frac23,\\dots\\). كل مرة أكبر، لأنه منطرح كسر أصغر.</p><p>\\(\\inf A=0\\) (أول عنصر وهو الأصغر)، فهو min.</p><p>\\(1-\\frac1n&lt;1\\) دايماً، فـ 1 حدّ. ولـ \\(\\varepsilon&gt;0\\) منختار \\(n&gt;\\frac1\\varepsilon\\)، وهيك \\(1-\\frac1n&gt;1-\\varepsilon\\). فـ \\(\\sup A=1\\) وما في max.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"السؤال: a n= 2n+1 n+1 . النقاط بتطلع من 32 وبتقرّب لـ 2 بدون ما توصلها: = = 32 و =2 بدون max.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"46\" y1=\"262\" x2=\"448.0\" y2=\"262.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"460,262 448.0,255.0 448.0,269.0\"/><line class=\"fk-line t-ink\" x1=\"46.0\" y1=\"262\" x2=\"46.0\" y2=\"24.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"46.0,12 39.0,24.0 53.0,24.0\"/><text class=\"fk-t t-ink\" x=\"452\" y=\"288\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">n</text><text class=\"fk-t t-ink\" x=\"28.0\" y=\"22\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">aₙ</text><line class=\"fk-line t-good dash\" x1=\"46.0\" y1=\"78.44444444444449\" x2=\"446.0\" y2=\"78.44444444444449\" stroke-width=\"2\"/><line class=\"fk-line t-hu dash\" x1=\"46.0\" y1=\"209.55555555555557\" x2=\"446.0\" y2=\"209.55555555555557\" stroke-width=\"2\"/><circle class=\"fk-dot t-hu\" cx=\"79.33333333333334\" cy=\"209.55555555555557\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"112.66666666666667\" cy=\"165.85185185185185\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"146.0\" cy=\"144.00000000000003\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"179.33333333333334\" cy=\"130.8888888888889\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"212.66666666666666\" cy=\"122.14814814814818\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"246.0\" cy=\"115.90476190476193\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"279.33333333333337\" cy=\"111.22222222222226\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"312.6666666666667\" cy=\"107.58024691358028\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"346.0\" cy=\"104.66666666666671\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"379.3333333333333\" cy=\"102.28282828282829\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"412.6666666666667\" cy=\"100.29629629629633\" r=\"7\"/><rect class=\"fk-chip t-good solid\" x=\"313.7766666666667\" y=\"35.22222222222223\" width=\"97.78\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-on\" x=\"362.6666666666667\" y=\"58.17222222222223\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">sup = 2</text><rect class=\"fk-chip t-hu solid\" x=\"73.23666666666668\" y=\"213.53333333333336\" width=\"118.86\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-on\" x=\"132.66666666666669\" y=\"236.48333333333335\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">min = 3/2</text></svg>",
+      "alt": "السؤال: a n= 2n+1 n+1 . النقاط بتطلع من 32 وبتقرّب لـ 2 بدون ما توصلها: = = 32 و =2 بدون max.",
+      "caption": "السؤال: \\(a_n=\\frac{2n+1}{n+1}\\). النقاط بتطلع من \\(\\frac32\\) وبتقرّب لـ 2 بدون ما توصلها: \\(\\inf=\\min=\\frac32\\) و\\(\\sup=2\\) بدون max."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: \\(A=\\left\\{\\dfrac{2n+1}{n+1}: n\\in\\mathbb N\\right\\}\\). اوجدوا \\(\\sup A\\) و\\(\\inf A\\)، وهل هن max وmin؟",
+      "steps": [
+        {
+          "label": "منكتب بشكل أوضح",
+          "body": "\\(\\frac{2n+1}{n+1}=2-\\frac{1}{n+1}\\)"
+        },
+        {
+          "label": "المتتالية بتطلع، فأصغر عنصر \\(n=1\\)",
+          "body": "\\(a_1=\\frac32=\\min A=\\inf A\\)"
+        },
+        {
+          "label": "2 حدّ من فوق: \\(\\frac1{n+1}&gt;0\\)",
+          "body": "\\(a_n&lt;2\\)"
+        },
+        {
+          "label": "ما في حدّ أصغر: لـ \\(\\varepsilon\\) منختار \\(n+1&gt;\\frac1\\varepsilon\\)",
+          "body": "\\(\\lim a_n=2=\\sup A\\)"
+        },
+        {
+          "label": "2 مش عنصر: \\(\\frac1{n+1}\\) بيروح لـ 0 بس ما بيوصله، فما في max",
+          "body": "\\(a_n\\ne 2\\)"
+        }
+      ],
+      "a": "الجواب \\(\\inf A=\\min A=\\frac32\\)، \\(\\sup A=2\\) وما في max"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"نفس الـ sup (1) بالحالتين. شمال الـ 1 جوّا المجموعة (نقطة مليانة) فهو max؛ يمين الـ 1 برّا (نقطة فاضية) فما في max.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"30\" y1=\"204.70588235294116\" x2=\"212.0\" y2=\"204.7\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"224,204.70588235294116 212.0,197.7 212.0,211.7\"/><line class=\"fk-line t-ink\" x1=\"61.76470588235294\" y1=\"240\" x2=\"61.8\" y2=\"38.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"61.76470588235294,26 54.8,38.0 68.8,38.0\"/><text class=\"fk-t t-ink\" x=\"216\" y=\"230.70588235294116\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-ink\" x=\"43.76470588235294\" y=\"36\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><line class=\"fk-line t-good\" x1=\"61.76470588235294\" y1=\"204.70588235294116\" x2=\"167.64705882352942\" y2=\"87.05882352941177\" stroke-width=\"3\"/><circle class=\"fk-dot t-good\" cx=\"61.76470588235294\" cy=\"204.70588235294116\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"167.64705882352942\" cy=\"87.05882352941177\" r=\"7\"/><text class=\"fk-t t-good\" x=\"120\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">فيه max</text><line class=\"fk-line t-ink\" x1=\"270\" y1=\"204.70588235294116\" x2=\"452.0\" y2=\"204.7\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"464,204.70588235294116 452.0,197.7 452.0,211.7\"/><line class=\"fk-line t-ink\" x1=\"301.7647058823529\" y1=\"240\" x2=\"301.8\" y2=\"38.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"301.7647058823529,26 294.8,38.0 308.8,38.0\"/><text class=\"fk-t t-ink\" x=\"456\" y=\"230.70588235294116\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-ink\" x=\"283.7647058823529\" y=\"36\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><line class=\"fk-line t-bad\" x1=\"301.7647058823529\" y1=\"204.70588235294116\" x2=\"407.6470588235294\" y2=\"87.05882352941177\" stroke-width=\"3\"/><circle class=\"fk-dot t-bad\" cx=\"301.7647058823529\" cy=\"204.70588235294116\" r=\"7\"/><circle class=\"fk-dot t-bad hollow\" cx=\"407.6470588235294\" cy=\"87.05882352941177\" r=\"7\"/><line class=\"fk-line t-mut dash\" x1=\"270.0\" y1=\"87.05882352941177\" x2=\"450.0\" y2=\"87.05882352941177\" stroke-width=\"2\"/><text class=\"fk-t t-bad\" x=\"360\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">ما فيه max</text></svg>",
+      "alt": "نفس الـ sup (1) بالحالتين. شمال الـ 1 جوّا المجموعة (نقطة مليانة) فهو max؛ يمين الـ 1 برّا (نقطة فاضية) فما في max.",
+      "caption": "نفس الـ sup (1) بالحالتين. شمال الـ 1 جوّا المجموعة (نقطة مليانة) فهو max؛ يمين الـ 1 برّا (نقطة فاضية) فما في max."
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش منحتاج sup إذا في max؟",
+          "a": "<p>لأنه كتير مجموعات ما إلها max، متل \\([0,1)\\) أو \\(\\{1-\\frac1n\\}\\). بس دايماً (إذا محدودة) إلها sup. الـ sup هو «الـ max اللي دايماً موجود»، ولهيك كل النظريات بتستعمله.</p>"
+        },
+        {
+          "q": "هل الـ sup لازم يكون بالمجموعة؟",
+          "a": "<p>لأ. ممكن يكون بالمجموعة (وهيك هو max)، وممكن لأ. بـ \\([0,1]\\) الـ sup هو 1 وهو بالمجموعة؛ بـ \\([0,1)\\) هو 1 ومش بالمجموعة. بالحالتين الـ sup هو 1.</p>"
+        },
+        {
+          "q": "شو بصير لو المجموعة مش محدودة من فوق، متل \\(\\mathbb N\\)؟",
+          "a": "<p>ما في عدد حقيقي حدّ إلها، فما في sup بـ \\(\\mathbb R\\). بعض المحاضرين بيكتبوا \\(\\sup\\mathbb N=\\infty\\) كاختصار، بس \\(\\infty\\) مش عدد. والـ inf تبع \\(\\mathbb N\\) هو 1 وهو min.</p>"
+        },
+        {
+          "q": "ليش مش كفاية نحكي «الـ sup هو حدّ من فوق»؟",
+          "a": "<p>لأنه في كتير حدود من فوق: لـ \\([0,1)\\) كل عدد \\(\\ge1\\) حدّ. الـ sup هو <b>الأصغر</b> فيهم، ولهيك البرهان دايماً جزئين: حدّ، وما في حدّ أصغر. الجزء التاني هو اللي بيطلبوه مع \\(\\varepsilon\\).</p>"
+        },
+        {
+          "q": "من وين بعرف إنه المسلّمة صح؟",
+          "a": "<p>هي مسلّمة (אקסיומה)، يعني فرضية أساسية ما منبرهنها: هيك معرّفة الأعداد الحقيقية. الفكرة إنه خط الأعداد «مليان» بدون ثقوب. بالأعداد النسبية مش صحيحة (المثال مع \\(\\sqrt2\\))، ولهيك حدوا ما بتشتغل بالكسور بس.</p>"
+        },
+        {
+          "q": "بالامتحان، كيف بكتب البرهان إنه \\(M=\\sup A\\)؟",
+          "a": "<p>جملتين: «لكل \\(a\\in A\\): \\(a\\le M\\) لأنه…» (متباينة)، و«يكن \\(\\varepsilon&gt;0\\). منختار \\(a=\\dots\\in A\\)، ومنفحص إنه \\(a&gt;M-\\varepsilon\\)». الاختيار عادة \\(a_n\\) مع \\(n\\) كبير كفاية، متل بتعريف نهاية متتالية بالفصل الجاي.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(\\sup[0,1)\\) مش موجود لأنه 1 مش بالمجموعة",
+          "yes": "الـ sup هو 1؛ اللي مش موجود هو الـ max"
+        },
+        {
+          "no": "كل حدّ من فوق هو sup",
+          "yes": "الـ sup هو أصغر حدّ من فوق، وهو واحد بس"
+        },
+        {
+          "no": "بالبرهان كتبت بس «\\(a\\le M\\) لكل \\(a\\)»",
+          "yes": "لازم كمان: لكل \\(\\varepsilon\\) في عنصر \\(a&gt;M-\\varepsilon\\)"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(A=\\left\\{\\frac{(-1)^n}{n}: n\\in\\mathbb N\\right\\}\\). قديش \\(\\sup A\\)؟",
+        "answer": [
+          "1/2",
+          "0.5"
+        ],
+        "hint": "اكتبوا العناصر: \\(-1,\\frac12,-\\frac13,\\frac14,\\dots\\)",
+        "solution": "<p>العناصر الموجبة هي \\(n\\) الزوجي: \\(\\frac12,\\frac14,\\dots\\)، وأكبرهم \\(\\frac12\\). العناصر السالبة كلها أصغر. فالـ sup هو \\(\\frac12\\)، وهو بالمجموعة، فهو كمان max.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "لنفس المجموعة \\(\\left\\{\\frac{(-1)^n}{n}\\right\\}\\)، قديش \\(\\inf A\\)؟",
+        "answer": [
+          "-1"
+        ],
+        "hint": "شو أصغر عنصر سالب؟",
+        "solution": "<p>العناصر السالبة هي \\(-1,-\\frac13,-\\frac15,\\dots\\)، وكل وحدة أكبر من اللي قبلها. أصغرهم \\(-1\\) (لـ \\(n=1\\))، فـ \\(\\inf A=\\min A=-1\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "\\(A=\\{x: x^2&lt;4\\}\\). شو \\(\\sup A\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(4\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(2\\)"
+          },
+          {
+            "v": "3",
+            "html": "ما في sup"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "\\(x^2&lt;4\\) يعني \\(-2&lt;x&lt;2\\).",
+        "solution": "<p>المجموعة هي المجال المفتوح \\((-2,2)\\). أصغر حدّ من فوق هو 2، بس 2 مش جوّا (لأنه \\(2^2=4\\) مش أصغر من 4)، فالـ sup هو 2 وما في max.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "הוכח/הפרך: لكل مجموعة غير فاضية ومحدودة من فوق في \\(\\mathbb R\\) في max.",
+        "options": [
+          {
+            "v": "1",
+            "html": "صحيح: منبرهن (הוכח)"
+          },
+          {
+            "v": "2",
+            "html": "غلط: منلاقي مثال مضاد (הפרך)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "جرّبوا مجال مفتوح.",
+        "solution": "<p>غلط. مثال مضاد (דוגמה נגדית): \\(A=[0,1)\\) محدودة من فوق بـ 1، بس ما في عنصر أكبر من الكل، لأنه لكل \\(a&lt;1\\) العدد \\(\\frac{a+1}2\\) بالمجموعة وأكبر. المسلّمة بتضمن sup، مش max.</p>"
+      }
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بعرف \\(\\mathbb N,\\mathbb Z,\\mathbb Q,\\mathbb R\\) وبثبت إنه عدد مش نسبي بالنفي.",
+        "بحل \\(|x-a|&lt;r\\) و\\(|x-a|&gt;r\\) وبكتب مجال وجوار.",
+        "بلاقي sup وinf وبفرّق بينهم وبين max وmin."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

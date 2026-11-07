@@ -1,0 +1,201 @@
+{
+  "slug": "basic-gates",
+  "title": "البوابات AND، OR وNOT",
+  "he": "שערים לוגיים",
+  "ref": "הרצאה 6 · תרגול 7",
+  "minutes": 14,
+  "desc": "البوابات المنطقية الأساسية (שערים לוגיים) بكورس 61740: رمز كل بوابة، جدول القيم تبعها، بوابات بأكتر من مدخلين، وكيف بتحسبوا مخرج شبكة بوابات صغيرة.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> البوابة هي التعبير البولياني بشكل قطعة كهربائية. بالامتحان بتشوفوا رسمة دائرة وبيسألوا شو المخرج، أو بيعطوكم تعبير وبيطلبوا ترسموه. لازم تعرفوا الرموز بالشكل.</p><ol><li>رمز AND، OR وNOT</li><li>جدول قيم لكل بوابة</li><li>بوابة بـ 3 مداخل أو أكتر</li><li>حساب مخرج شبكة لمدخل معيّن</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما يكون بالسؤال رسمة دائرة، أو «שרטטו את המעגל».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 250\" role=\"img\" aria-label=\"AND: المخرج 1 بس بالسطر الأخير، لما كل المداخل 1.\" class=\"fk\"><path class=\"fk-line t-mut\" d=\"M40 95 L110 95\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"26\" y=\"102\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><path class=\"fk-line t-mut\" d=\"M40 155 L110 155\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"26\" y=\"162\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><path class=\"fk-chip t-ink\" d=\"M105 80.0H150.0A45.0 45.0 0 0 1 150.0 170.0H105Z\" stroke-width=\"3\"/><path class=\"fk-line t-hu\" d=\"M195.0 125 L221.0 125\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"235.0\" y=\"132\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">F</text><text class=\"fk-t t-mut\" x=\"158\" y=\"225\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AND</text><text class=\"fk-t t-mut\" x=\"313.0\" y=\"54\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"359.0\" y=\"54\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-hu\" x=\"405.0\" y=\"54\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">F</text><text class=\"fk-t t-ink\" x=\"313.0\" y=\"91\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"359.0\" y=\"91\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"405.0\" y=\"91\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"313.0\" y=\"127\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"359.0\" y=\"127\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"405.0\" y=\"127\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"313.0\" y=\"163\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"359.0\" y=\"163\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"405.0\" y=\"163\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"292\" y=\"176\" width=\"134\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"313.0\" y=\"199\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"359.0\" y=\"199\" font-size=\"19\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"405.0\" y=\"199\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text></svg>",
+      "alt": "AND: المخرج 1 بس بالسطر الأخير، لما كل المداخل 1.",
+      "caption": "AND: المخرج 1 بس بالسطر الأخير، لما كل المداخل 1."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>بوابة AND بتعطي 1 بس إذا <b>كل</b> المداخل 1. بوابة OR بتعطي 0 بس إذا <b>كل</b> المداخل 0. بوابة NOT بتقلب.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>البوابة المنطقية (שער לוגי) هي دائرة صغيرة بتاخد فولتات (عالي = 1، واطي = 0) وبتطلّع فولت حسب جدول قيم ثابت. بنرسمها بشكل متفق عليه، فبتقدروا تقروا أي رسمة دائرة متل ما بتقروا تعبير.</p>"
+    },
+    {
+      "t": "h",
+      "text": "الرموز"
+    },
+    {
+      "t": "p",
+      "html": "<p>الـ AND (שער וגם) شكله متل حرف D: ظهر مستقيم وقدّام مدوّر. الـ OR (שער או) شكله متل رأس سهم مقوّس: ظهر مقعّر وقدّام مدبّب. الـ NOT (מהפך) هو مثلث مع دائرة صغيرة بالراس. الدائرة الصغيرة (בועה) معناها دايماً «اقلب»، وبتشوفوها كمان على NAND وNOR بالدرس الجاي.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بوابة AND أو OR ممكن يكون إلها 3 مداخل أو أكتر. AND بـ 3 مداخل هو \\(ABC\\): 1 بس إذا التلاتة 1. OR بـ 3 مداخل هو \\(A+B+C\\): 0 بس إذا التلاتة 0. هاد بيشتغل لأنه AND وOR تجميعيين (קיבוץ): \\((AB)C=A(BC)\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "حساب مخرج شبكة"
+    },
+    {
+      "t": "p",
+      "html": "<p>شبكة بوابات (רשת שערים) هي بوابات موصولة: مخرج وحدة بيدخل لوحدة تانية. لحساب المخرج لمدخل معيّن منمشي من الشمال (المداخل) لليمين (المخرج)، ومنكتب على كل خط القيمة اللي عليه. لكتابة تعبير للشبكة كلها منعمل نفس الإشي بس منكتب تعابير بدل أرقام، متل بالرسمة تحت.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 220\" role=\"img\" aria-label=\"منمشي من الشمال لليمين: كل خط بنكتب عليه شو بيحمل، لحد ما نوصل لـ F = AB + C'.\" class=\"fk\"><path class=\"fk-line t-mut\" d=\"M40 50 L120 50\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-mut\" d=\"M40 100 L120 100\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"24\" y=\"57\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-ink\" x=\"24\" y=\"107\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-ink\" x=\"24\" y=\"177\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C</text><path class=\"fk-chip t-ink\" d=\"M120 45.0H150.0A30.0 30.0 0 0 1 150.0 105.0H120Z\" stroke-width=\"3\"/><path class=\"fk-line t-mut\" d=\"M40 170 L130 170\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M130 150.0L170.0 170L130 190.0Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"173.5\" cy=\"170\" r=\"3.5\" stroke-width=\"3\"/><path class=\"fk-line t-1\" d=\"M180.0 75 L270 75 L270 105 L300 105\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-2\" d=\"M177.0 170 L270 170 L270 140 L300 140\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-1\" x=\"220\" y=\"65\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AB</text><text class=\"fk-t t-2\" x=\"220\" y=\"160\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C'</text><path class=\"fk-chip t-ink\" d=\"M296 89.5Q344.75 89.5 367.5 122Q344.75 154.5 296 154.5Q314.2 122 296 89.5Z\" stroke-width=\"3\"/><path class=\"fk-line t-hu\" d=\"M367.5 122 L387.5 122\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"399.5\" y=\"160\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">F</text></svg>",
+      "alt": "منمشي من الشمال لليمين: كل خط بنكتب عليه شو بيحمل، لحد ما نوصل لـ F = AB + C'.",
+      "caption": "منمشي من الشمال لليمين: كل خط بنكتب عليه شو بيحمل، لحد ما نوصل لـ F = AB + C'."
+    },
+    {
+      "t": "method",
+      "title": "مخرج شبكة لمدخل معيّن: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>اكتبوا القيم</b> على خطوط المداخل.",
+        "<b>بوابة بوابة</b> من الشمال لليمين: كل بوابة كل مداخلها معروفة، احسبوا مخرجها واكتبوه على الخط.",
+        "<b>وصلتوا للمخرج</b> هاد الجواب. لتعبير: نفس الإشي بس اكتبوا تعابير."
+      ]
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: بالرسمة: \\(F=AB+C'\\). شو \\(F\\) لما \\(A=1,\\,B=0,\\,C=0\\)؟",
+      "steps": [
+        {
+          "label": "بوابة AND",
+          "body": "\\(AB=1\\cdot0=0\\)"
+        },
+        {
+          "label": "بوابة NOT",
+          "body": "\\(C'=0'=1\\)"
+        },
+        {
+          "label": "بوابة OR",
+          "body": "\\(F=0+1=1\\)"
+        }
+      ],
+      "a": "الجواب \\(F=1\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: AND بـ 3 مداخل",
+      "html": "<p>متى \\(F=ABC\\) بيساوي 1؟</p><p>بس بالسطر \\(A=B=C=1\\)، يعني سطر واحد من 8. بباقي الأسطر في 0 واحد على الأقل، فالمخرج 0.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 192\" role=\"img\" aria-label=\"AND و OR جنب بعض: AND بدّه كل المداخل 1 (سطر واحد بس)، وOR بكفيه مدخل واحد 1 (تلات أسطر).\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"132.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"204.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-hu\" x=\"276.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AND</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">OR</text><line class=\"fk-line t-grid\" x1=\"96.0\" y1=\"40\" x2=\"384.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"12\" x2=\"240.0\" y2=\"176\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"145\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"276.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text></svg>",
+      "alt": "AND و OR جنب بعض: AND بدّه كل المداخل 1 (سطر واحد بس)، وOR بكفيه مدخل واحد 1 (تلات أسطر).",
+      "caption": "AND و OR جنب بعض: AND بدّه كل المداخل 1 (سطر واحد بس)، وOR بكفيه مدخل واحد 1 (تلات أسطر)."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "OR بيعطي 1 بس لما واحد بالزبط 1",
+          "yes": "OR بيعطي 1 لما واحد <b>على الأقل</b> 1 (كمان لما الاتنين)"
+        },
+        {
+          "no": "الدائرة الصغيرة زينة",
+          "yes": "الدائرة (בועה) معناها NOT على هاد الخط"
+        },
+        {
+          "no": "منحسب من المخرج للمداخل",
+          "yes": "منحسب من المداخل (شمال) للمخرج (يمين)"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(F=(A+B)C\\). شو \\(F\\) لما \\(A=0,\\,B=1,\\,C=1\\)؟",
+        "answer": [
+          "1"
+        ],
+        "hint": "أول الـ OR، بعدين الـ AND.",
+        "solution": "<p>أول بوابة OR: \\(A+B=0+1=1\\). بعدين بوابة AND مع \\(C\\): \\(1\\cdot1=1\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(F=A'+BC\\). قديش سطر من 8 بجدول القيم فيه \\(F=1\\)؟",
+        "answer": [
+          "5"
+        ],
+        "hint": "عدّوا الأسطر مع \\(A=0\\) أول.",
+        "solution": "<p>\\(A'=1\\) بالأسطر الأربعة اللي فيها \\(A=0\\). من الأسطر اللي فيها \\(A=1\\)، بس \\(111\\) فيه \\(BC=1\\). المجموع \\(4+1=5\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "شبكة: \\(A\\) و\\(B\\) بيدخلوا لـ OR، المخرج بيدخل لـ NOT. شو التعبير؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\((A+B)'\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(A'+B'\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(A'B\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(AB\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "اكتبوا على كل خط شو بيحمل.",
+        "solution": "<p>مخرج الـ OR هو \\(A+B\\)، والـ NOT بيقلبه: \\((A+B)'\\). حسب دي-مورغان هاد كمان \\(A'B'\\).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو هي البوابة بالحقيقة؟",
+          "a": "دائرة إلكترونية صغيرة من ترانزستورات. جهد عالي على المدخل معناه 1 وجهد واطي معناه 0، والمخرج بيصير حسب جدول القيم تقريباً فوراً. بالكورس منتعامل معها كصندوق: بس جدول القيم مهم."
+        },
+        {
+          "q": "بوابة AND بتقدر يكون إلها 3 مداخل أو أكتر؟",
+          "a": "آه. AND بـ 3 مداخل بتعطي 1 بس إذا التلاتة 1، وOR بـ 3 مداخل بتعطي 0 بس إذا التلاتة 0. هي نفس إشي متل بوابتين بمدخلين ورا بعض، بس مرسومة كوحدة."
+        },
+        {
+          "q": "شو معنى الدائرة الصغيرة على المدخل أو المخرج؟",
+          "a": "هي NOT. على المخرج بتقلب الجواب (هيك بيطلع NAND من AND). على المدخل بتقلب المدخل قبل ما يدخل. ما في داعي ترسموا بوابة NOT كاملة."
+        },
+        {
+          "q": "ليش منحسب مخرج الشبكة من المداخل للمخرج؟",
+          "a": "لأنه كل بوابة بتحتاج تعرف مداخلها قبل ما تحسب. فمنبلّش بالبوابات اللي مداخلها هنّي مداخل الدائرة، منكتب الجواب على السلك، ومنكمّل للبوابة اللي بعدها لحد المخرج."
+        },
+        {
+          "q": "شو الفرق بين \\(F\\) بجدول القيم و\\(F\\) بالرسمة؟",
+          "a": "ولا فرق: الجدول والرسمة والتعبير هنّي تلات طرق لوصف نفس الدالة. بالامتحان بيعطوكم وحدة منهم وبيطلبوا تانية، وهاد كل الدروس عن الصور القانونية."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "בועה (دائرة صغيرة)",
+      "back": "الدائرة الصغيرة على مدخل أو مخرج بوابة معناها NOT."
+    }
+  ]
+}

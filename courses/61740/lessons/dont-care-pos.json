@@ -1,0 +1,222 @@
+{
+  "slug": "dont-care-pos",
+  "title": "خلايا «ما بتفرق» وPOS من الأصفار",
+  "he": "אדישויות ומפת קרנו ל-POS",
+  "ref": "הרצאה 7 · תרגול 8",
+  "minutes": 17,
+  "desc": "خلايا ما بتفرق (don't care، X) بمفتاح كارنو بكورس 61740: متى بتطلع، كيف بتستعملوها لتكبير مجموعات، وكيف بتطلّعوا ضرب مجاميع قصير من تجميع الأصفار.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بأسئلة التصميم كتير بيطلع مداخل ما بتصير أبداً (مثلاً رقم BCD أكبر من 9). هاي الخلايا X، وبتقدروا تستعملوها لتكبير مجموعات. وكمان بيطلبوا POS من المفتاح.</p><ol><li>شو يعني X (לא אכפת / אדיש)</li><li>X جوّا مجموعة: مسموح، مش لازم</li><li>تجميع الأصفار لـ POS</li><li>سؤال امتحان مع X</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما يكتبوا \\(F=\\Sigma m(\\dots)+d(\\dots)\\)، أو «מכפלת סכומים מינימלית».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 436 316\" role=\"img\" aria-label=\"الـ X بالخلايا 0 و2 ساعدوا يصير عنا صف كامل: A'B'. والـ X بخلية 5 ما استعملناه. F = CD + A'B'.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"70.0\" y=\"42\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AB\\CD</text><text class=\"fk-t t-mut\" x=\"147.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00</text><text class=\"fk-t t-mut\" x=\"221.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">01</text><text class=\"fk-t t-mut\" x=\"295.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-mut\" x=\"369.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"96.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"154.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">01</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"212.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"270.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-2\" x=\"147.0\" y=\"98.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">X</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"221.0\" y=\"98.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"295.0\" y=\"98.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-2\" x=\"369.0\" y=\"98.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">X</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"147.0\" y=\"156.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-2\" x=\"221.0\" y=\"156.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">X</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"295.0\" y=\"156.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"369.0\" y=\"156.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"147.0\" y=\"214.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">12</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"221.0\" y=\"214.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">13</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"295.0\" y=\"214.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">15</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"369.0\" y=\"214.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">14</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"147.0\" y=\"272.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"221.0\" y=\"272.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">9</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"295.0\" y=\"272.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">11</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"369.0\" y=\"272.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-line t-1\" x=\"263.0\" y=\"65\" width=\"64\" height=\"222\" rx=\"16\" fill=\"none\" stroke-width=\"4\"/><rect class=\"fk-line t-2\" x=\"119.0\" y=\"69\" width=\"278\" height=\"40\" rx=\"16\" fill=\"none\" stroke-width=\"4\"/></svg>",
+      "alt": "الـ X بالخلايا 0 و2 ساعدوا يصير عنا صف كامل: A'B'. والـ X بخلية 5 ما استعملناه. F = CD + A'B'.",
+      "caption": "الـ X بالخلايا 0 و2 ساعدوا يصير عنا صف كامل: A'B'. والـ X بخلية 5 ما استعملناه. F = CD + A'B'."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>خلية X بتنحسب <b>1 إذا بتكبّر مجموعة</b>، و<b>0 إذا لا</b>. ولا مجموعة بتكون كلها X.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>إذا مدخل عمره ما رح يصير، ما بيهمنا شو الدائرة بتطلّع عليه. فمنختار القيمة اللي بتعطينا دائرة أقصر، ولكل خلية X لحالها.</p>"
+    },
+    {
+      "t": "h",
+      "text": "من وين بتيجي الـ X؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>مثال: دائرة بتاخد رقم عشري بـ BCD (4 بِتات، 0 لـ 9). التركيبات 10 لـ 15 ما بتصير أبداً. بالمفتاح منكتب فيهم X ومنسمّيهم don't care (אדישות / לא אכפת). بالسؤال بيكتبوهم \\(d(10,11,12,13,14,15)\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لما منجمّع: إذا X بيخلّي مجموعة 2 تصير 4، أو 4 تصير 8، منحسبه 1. إذا ما بيفيد، منتركه برّا. ما في أي التزام نغطّي X. وبالآخر ما في مجموعة كل خلاياها X، لأنها بتزيد حد بدون سبب.</p>"
+    },
+    {
+      "t": "h",
+      "text": "POS من الأصفار"
+    },
+    {
+      "t": "p",
+      "html": "<p>لضرب مجاميع قصير: منجمّع <b>الأصفار</b> بنفس القواعد. كل مجموعة أصفار بتعطي حد جمع، بس بالعكس: متغيّر ثابت 0 بينكتب \\(x\\)، وثابت 1 بينكتب \\(x'\\). وبعدين منضرب الحدود. السبب: مجموعة الأصفار هي حد بـ \\(F'\\)، ودي-مورغان بيقلبه.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مثلاً أصفار بالخلايا 4، 5، 12، 13 (\\(B=1,C=0\\)) بتعطي الحد \\((B'+C)\\). منيح تفحصوا: \\(B'+C\\) بيساوي 0 بس لما \\(B=1\\) و\\(C=0\\)، يعني بالزبط بهالخلايا.</p>"
+    },
+    {
+      "t": "method",
+      "title": "POS من المفتاح: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>جمّعوا الأصفار</b> بنفس القواعد (والـ X إذا بيفيد).",
+        "<b>اقروا حد جمع</b> لكل مجموعة: ثابت 0 بيصير \\(x\\)، ثابت 1 بيصير \\(x'\\)، وبيناتهم +.",
+        "<b>اضربوا</b> كل الحدود، كل واحد بقوس."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 436 316\" role=\"img\" aria-label=\"الجواب بالمفتاح: X بالخلية 5 بتكبّر المجموعة الأولى لمربّع (A'D). الـ X بـ 0 و2 ما بتساعد، فبتضل برّا.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"70.0\" y=\"42\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AB\\CD</text><text class=\"fk-t t-mut\" x=\"147.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00</text><text class=\"fk-t t-mut\" x=\"221.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">01</text><text class=\"fk-t t-mut\" x=\"295.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-mut\" x=\"369.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"96.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"154.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">01</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"212.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"270.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-2\" x=\"147.0\" y=\"98.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">X</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"221.0\" y=\"98.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"295.0\" y=\"98.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-2\" x=\"369.0\" y=\"98.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">X</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"147.0\" y=\"156.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-2\" x=\"221.0\" y=\"156.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">X</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"295.0\" y=\"156.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"369.0\" y=\"156.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"147.0\" y=\"214.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">12</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"221.0\" y=\"214.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">13</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"295.0\" y=\"214.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">15</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"369.0\" y=\"214.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">14</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"147.0\" y=\"272.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"221.0\" y=\"272.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">9</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"295.0\" y=\"272.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">11</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"369.0\" y=\"272.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-line t-1\" x=\"189.0\" y=\"65\" width=\"138\" height=\"106\" rx=\"16\" fill=\"none\" stroke-width=\"4\"/><rect class=\"fk-line t-2\" x=\"267.0\" y=\"69\" width=\"56\" height=\"214\" rx=\"16\" fill=\"none\" stroke-width=\"4\"/></svg>",
+      "alt": "الجواب بالمفتاح: X بالخلية 5 بتكبّر المجموعة الأولى لمربّع (A'D). الـ X بـ 0 و2 ما بتساعد، فبتضل برّا.",
+      "caption": "الجواب بالمفتاح: X بالخلية 5 بتكبّر المجموعة الأولى لمربّع (A'D). الـ X بـ 0 و2 ما بتساعد، فبتضل برّا."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: بسّطوا \\(F(A,B,C,D)=\\Sigma m(1,3,7,11,15)+d(0,2,5)\\).",
+      "steps": [
+        {
+          "label": "عامود \\(CD=11\\)",
+          "body": "3، 7، 15، 11: \\(C=D=1\\)، الحد \\(CD\\)"
+        },
+        {
+          "label": "خلية 1 لسا مش مغطّاية",
+          "body": "مع X بـ 0 و2: الصف الأول 0، 1، 3، 2، الحد \\(A'B'\\)"
+        },
+        {
+          "label": "X بخلية 5",
+          "body": "ما منحتاجه: كل الـ 1 مغطّاين"
+        },
+        {
+          "label": "اجمعوا",
+          "body": "\\(F=CD+A'B'\\)"
+        }
+      ],
+      "a": "الجواب \\(F=CD+A'B'\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: POS",
+      "html": "<p>\\(F=\\Sigma m(0,1,2,5,8,9,10)\\). اكتبوا POS قصير.</p><p>الأصفار: 3، 4، 6، 7، 11، 12، 13، 14، 15. الصف \\(AB=11\\) (12–15) بيعطي \\((A'+B')\\)، العامود \\(CD=11\\) (3، 7، 11، 15) بيعطي \\((C'+D')\\)، والخلايا 4، 6، 12، 14 (\\(B=1,D=0\\)) بتعطي \\((B'+D)\\). \\(F=(A'+B')(C'+D')(B'+D)\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"خلية X هي حرّة: بتنحسب 1 لما بتساعد، و0 لما لا. ولا مجموعة بتكون كلها X.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">لازم نغطّي كل الـ X</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">X بتدخل بس إذا بتكبّر مجموعة</text></svg>",
+      "alt": "خلية X هي حرّة: بتنحسب 1 لما بتساعد، و0 لما لا. ولا مجموعة بتكون كلها X.",
+      "caption": "خلية X هي حرّة: بتنحسب 1 لما بتساعد، و0 لما لا. ولا مجموعة بتكون كلها X."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "لازم نغطّي كل X",
+          "yes": "X بنغطّيه بس إذا بيكبّر مجموعة"
+        },
+        {
+          "no": "مجموعة أصفار \\(B=1,C=0\\) بتعطي \\((B+C')\\)",
+          "yes": "بتعطي \\((B'+C)\\): بالأصفار الثابت 1 بياخد فاصلة"
+        },
+        {
+          "no": "مجموعة من X بس",
+          "yes": "ممنوع: بتزيد حد ما إلو لزوم"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "بسّطوا \\(F(A,B,C)=\\Sigma m(1,3,7)+d(5)\\).",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(C\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(A'C\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(BC\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(A'B'\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "حسبوا الـ X 1.",
+        "solution": "<p>مع X بخلية 5، الخلايا 1، 3، 5، 7 هنّي العامودين \\(C=1\\) كاملين: مجموعة 4، والجواب \\(F=C\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "شو حد الجمع لمجموعة أصفار بالخلايا 0، 1، 4، 5 (بـ \\(A,B,C,D\\))؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(A+C\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(A'+C'\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(AC\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(A'C'\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "شو الثابت؟ وبعدين اقلبوا القاعدة.",
+        "solution": "<p>بهالخلايا \\(A=0\\) و\\(C=0\\) ثابتين. بالأصفار الثابت 0 بينكتب بدون فاصلة: \\((A+C)\\). بيساوي 0 بس لما \\(A=C=0\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "دائرة بتاخد رقم BCD (0–9) بـ 4 بِتات. قديش خلية X بالمفتاح؟",
+        "answer": [
+          "6"
+        ],
+        "hint": "قديش تركيبة ما بتصير؟",
+        "solution": "<p>4 بِتات بيعطوا 16 تركيبة. BCD بيستعمل 10 منهم (0 لـ 9)، فالباقي \\(16-10=6\\) خلايا ما بتفرق.</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش مسموح أختار أنا شو قيمة X؟",
+          "a": "لأنه يا التركيبة ما بتصير أبداً (متل 1010 بـ BCD)، يا ما حدا بيطلّع عالمخرج فيها. بكل الحالات اللي بتصير بالحقيقة الجواب نفسه، فاختيار X هو بس لنقصّر المعادلة."
+        },
+        {
+          "q": "لازم أغطّي كل الـ X؟",
+          "a": "لا. X بتدخل لمجموعة بس إذا بتكبّرها. X اللي ما بتساعد بتضل برّا، وكأنها 0."
+        },
+        {
+          "q": "بـ POS كيف بتعامل مع X؟",
+          "a": "نفس القاعدة بس على الأصفار: X بتنحسب 0 إذا بتكبّر مجموعة أصفار. وكمان هون ولا مجموعة بتكون كلها X."
+        },
+        {
+          "q": "كيف بكتب دالة فيها X؟",
+          "a": "\\(F=\\Sigma m(\\dots)+d(\\dots)\\): الـ \\(d\\) هي الخلايا اللي ما بتفرق. بالعبري «אדישויות». بالـ POS: \\(F=\\Pi M(\\dots)\\cdot d(\\dots)\\)."
+        },
+        {
+          "q": "ليش أحياناً POS أقصر من SOP؟",
+          "a": "لأنه مجموعات الأصفار ممكن تكون أكبر أو أقل من مجموعات الآحاد. إذا الأصفار قليلة ومتجمّعة، POS بيطلع أقصر. منيح تفحصوا الاتنين إذا السؤال بيقول «הביטוי המינימלי»."
+        }
+      ]
+    }
+  ]
+}

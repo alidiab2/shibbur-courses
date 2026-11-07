@@ -1,0 +1,211 @@
+{
+  "slug": "decoder-encoder",
+  "title": "المفكّك (Decoder) والمرمّز (Encoder)",
+  "he": "מפענח ומקודד",
+  "ref": "הרצאה 7 · תרגול 8",
+  "minutes": 16,
+  "desc": "المفكّك (Decoder، מפענח) والمرمّز (Encoder، מקודד) بكورس 61740: Di=1 إذا وبس إذا i هو المدخل، تنفيذ دالة بـ Decoder وOR، Enable، والمرمّز مع أولوية (מקודד עדיפות).",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> المفكّك بيحوّل رقم ثنائي لخط واحد شاعل. هيك بتختاروا خلية ذاكرة، جهاز، أو مينترم. بالامتحان «ממשו בעזרת מפענח ושער OR» سؤال كلاسيكي.</p><ol><li>المفكّك n→2ⁿ: خط واحد شاعل</li><li>كل مخرج هو مينترم</li><li>دالة = OR على مخارج</li><li>المرمّز وأولوية</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما يذكروا מפענח/DEC أو מקודד/ENC، أو يطلبوا تنفيذ كذا دالة مع بعض.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"المدخل 101 = 5، فبس D5 بيطلع 1. كل مخرج Di هو المينترم mi.\" class=\"fk\"><rect class=\"fk-chip t-ink\" x=\"160\" y=\"20\" width=\"120\" height=\"260\" rx=\"10\" stroke-width=\"3\"/><text class=\"fk-t t-mut\" x=\"220\" y=\"155\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">DEC</text><text class=\"fk-t t-mut\" x=\"220\" y=\"178\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3→8</text><path class=\"fk-line t-hu\" d=\"M70 90 L160 90\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"30\" y=\"97\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A₂=1</text><path class=\"fk-line t-mut\" d=\"M70 140 L160 140\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"30\" y=\"147\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A₁=0</text><path class=\"fk-line t-hu\" d=\"M70 190 L160 190\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"30\" y=\"197\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A₀=1</text><path class=\"fk-line t-mut\" d=\"M280 40 L370 40\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"392\" y=\"46\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D0</text><text class=\"fk-t t-mut\" x=\"440\" y=\"46\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><path class=\"fk-line t-mut\" d=\"M280 71 L370 71\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"392\" y=\"77\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D1</text><text class=\"fk-t t-mut\" x=\"440\" y=\"77\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><path class=\"fk-line t-mut\" d=\"M280 102 L370 102\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"392\" y=\"108\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D2</text><text class=\"fk-t t-mut\" x=\"440\" y=\"108\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><path class=\"fk-line t-mut\" d=\"M280 133 L370 133\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"392\" y=\"139\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D3</text><text class=\"fk-t t-mut\" x=\"440\" y=\"139\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><path class=\"fk-line t-mut\" d=\"M280 164 L370 164\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"392\" y=\"170\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D4</text><text class=\"fk-t t-mut\" x=\"440\" y=\"170\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><path class=\"fk-line t-hu\" d=\"M280 195 L370 195\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"392\" y=\"201\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D5</text><text class=\"fk-t t-hu\" x=\"440\" y=\"201\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><path class=\"fk-line t-mut\" d=\"M280 226 L370 226\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"392\" y=\"232\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D6</text><text class=\"fk-t t-mut\" x=\"440\" y=\"232\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><path class=\"fk-line t-mut\" d=\"M280 257 L370 257\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"392\" y=\"263\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D7</text><text class=\"fk-t t-mut\" x=\"440\" y=\"263\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "المدخل 101 = 5، فبس D5 بيطلع 1. كل مخرج Di هو المينترم mi.",
+      "caption": "المدخل 101 = 5، فبس D5 بيطلع 1. كل مخرج Di هو المينترم mi."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>بالمفكّك: \\(D_i=1\\) <b>إذا وبس إذا</b> \\(i\\) هو الرقم على المداخل. يعني \\(D_i=m_i\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>المفكّك هو كل المينترمات جاهزين. لأنه كل دالة هي مجموع مينترمات، بتاخدوا المخارج اللي بدكم إياها وبتعملولهم OR.</p>"
+    },
+    {
+      "t": "h",
+      "text": "المفكّك (מפענח)"
+    },
+    {
+      "t": "p",
+      "html": "<p>مفكّك \\(n\\to2^n\\) إلو \\(n\\) مداخل و\\(2^n\\) مخارج. بكل لحظة بالزبط مخرج واحد هو 1: اللي رقمه مكتوب على المداخل. بالرسمة: المدخل \\(101=5\\)، فبس \\(D_5\\) شاعل. مع Enable: لما \\(E=0\\) كل المخارج 0.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لأنه \\(D_i\\) هو 1 بس بالسطر \\(i\\)، هو بالزبط المينترم \\(m_i\\). فلتنفيذ \\(F=\\Sigma m(1,4,6)\\) منوصّل \\(D_1,D_4,D_6\\) لبوابة OR. والحلو: نفس المفكّك بيخدم كذا دالة مع بعض، كل وحدة بـ OR تبعها.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 224\" role=\"img\" aria-label=\"مرمّز 4→2: بس I2 شاعل، فالمخرج هو رقمه بالثنائي: Y1Y0 = 10.\" class=\"fk\"><rect class=\"fk-chip t-ink\" x=\"165.0\" y=\"16\" width=\"150\" height=\"192\" rx=\"12\"/><text class=\"fk-t t-mut\" x=\"240\" y=\"114.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ENC</text><path class=\"fk-line t-mut\" d=\"M70 54.4 L165.0 54.4\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"60.4\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">I0</text><path class=\"fk-line t-mut\" d=\"M70 92.8 L165.0 92.8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"98.8\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">I1</text><path class=\"fk-line t-hu\" d=\"M70 131.2 L165.0 131.2\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"64\" y=\"137.2\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">I2=1</text><path class=\"fk-line t-mut\" d=\"M70 169.6 L165.0 169.6\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"175.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">I3</text><path class=\"fk-line t-hu\" d=\"M315.0 80.0 L410 80.0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"416\" y=\"86.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">Y1=1</text><path class=\"fk-line t-mut\" d=\"M315.0 144.0 L410 144.0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"416\" y=\"150.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">Y0=0</text></svg>",
+      "alt": "مرمّز 4→2: بس I2 شاعل، فالمخرج هو رقمه بالثنائي: Y1Y0 = 10.",
+      "caption": "مرمّز 4→2: بس I2 شاعل، فالمخرج هو رقمه بالثنائي: Y1Y0 = 10."
+    },
+    {
+      "t": "h",
+      "text": "المرمّز (מקודד)"
+    },
+    {
+      "t": "p",
+      "html": "<p>المرمّز هو العكس: \\(2^n\\) مداخل، واحد منهم 1، والمخرج هو رقمه بالثنائي (\\(n\\) بِتات). مثلاً مرمّز 4→2: إذا \\(I_2=1\\) المخرج \\(10\\). المعادلات بسيطة: البِت الأدنى \\(Y_0=I_1+I_3\\)، والأعلى \\(Y_1=I_2+I_3\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بس شو بيصير إذا اتنين مداخل 1 مع بعض؟ المرمّز العادي بيطلّع غلط. المرمّز مع أولوية (מקודד עדיפות) بيطلّع رقم المدخل الأعلى اللي هو 1، وعادةً في مخرج \\(V\\) بيقول إذا في أي مدخل 1 أصلاً.</p>"
+    },
+    {
+      "t": "method",
+      "title": "دالة بمفكّك وOR: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>اكتبوا \\(F\\) كـ \\(\\Sigma m\\)</b> من الجدول أو بفتح التعبير.",
+        "<b>وصّلوا</b> المتغيّرات لمداخل المفكّك بالترتيب (الأول للبِت الأعلى).",
+        "<b>OR</b> على المخارج \\(D_i\\) اللي أرقامهم بالـ \\(\\Sigma m\\). إذا في كتير: OR على الباقيين وNOT (أو NOR)."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 328\" role=\"img\" aria-label=\"المعطى كجدول: F = 1 بالأسطر 2، 3، 5 و7. كل سطر منهم هو مخرج Dᵢ من المفكّك، ومنوصّلهم لـ OR.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"132.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"204.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-mut\" x=\"276.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">F</text><line class=\"fk-line t-grid\" x1=\"96.0\" y1=\"40\" x2=\"384.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"312.0\" y1=\"12\" x2=\"312.0\" y2=\"312\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"111\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"145\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"200\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"213\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"234\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"268\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"281\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"302\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text></svg>",
+      "alt": "المعطى كجدول: F = 1 بالأسطر 2، 3، 5 و7. كل سطر منهم هو مخرج Dᵢ من المفكّك، ومنوصّلهم لـ OR.",
+      "caption": "المعطى كجدول: F = 1 بالأسطر 2، 3، 5 و7. كل سطر منهم هو مخرج Dᵢ من المفكّك، ومنوصّلهم لـ OR."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: نفّذوا \\(F=A'B+AC\\) بمفكّك 3→8 وبوابة OR.",
+      "steps": [
+        {
+          "label": "\\(A'B\\)",
+          "body": "\\(A=0,B=1\\): الأسطر \\(010=2\\) و\\(011=3\\)"
+        },
+        {
+          "label": "\\(AC\\)",
+          "body": "\\(A=1,C=1\\): الأسطر \\(101=5\\) و\\(111=7\\)"
+        },
+        {
+          "label": "OR",
+          "body": "\\(F=D_2+D_3+D_5+D_7\\)"
+        }
+      ],
+      "a": "الجواب: OR على \\(D_2,D_3,D_5,D_7\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: مرمّز مع أولوية",
+      "html": "<p>مرمّز أولوية 4→2، المداخل \\(I_3I_2I_1I_0=0110\\). شو المخرج؟</p><p>المداخل \\(I_1\\) و\\(I_2\\) شاعلين. الأعلى هو \\(I_2\\)، فالمخرج \\(Y_1Y_0=10\\)، و\\(V=1\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"بكل لحظة بالزبط مخرج واحد هو 1، أو ولا واحد إذا التفعيل 0.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بالمفكّك كذا مخرج شاعلين</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بالمفكّك مخرج واحد بس شاعل</text></svg>",
+      "alt": "بكل لحظة بالزبط مخرج واحد هو 1، أو ولا واحد إذا التفعيل 0.",
+      "caption": "بكل لحظة بالزبط مخرج واحد هو 1، أو ولا واحد إذا التفعيل 0."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "بالمفكّك كذا مخرج ممكن يكونوا 1",
+          "yes": "بالزبط مخرج واحد (أو ولا واحد إذا \\(E=0\\))"
+        },
+        {
+          "no": "مفكّك 3→8: المداخل 8",
+          "yes": "3 مداخل و\\(2^3=8\\) مخارج"
+        },
+        {
+          "no": "مرمّز عادي مع مدخلين 1 بيعطي الأعلى",
+          "yes": "هاد بس مرمّز مع أولوية. العادي بيطلّع غلط"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "مفكّك 3→8، المداخل \\(A_2A_1A_0=110\\). أي مخرج \\(D_i\\) شاعل؟ اكتبوا \\(i\\).",
+        "answer": [
+          "6"
+        ],
+        "hint": "حوّلوا للعشري.",
+        "solution": "<p>المداخل بالثنائي \\(110_2=4+2=6\\)، فبس المخرج \\(D_6\\) بيساوي 1 وكل الباقي 0.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "دالة فيها 5 مينترمات بـ 3 متغيّرات. قديش مدخل لازم لبوابة الـ OR بعد المفكّك؟",
+        "answer": [
+          "5"
+        ],
+        "hint": "مدخل لكل مينترم.",
+        "solution": "<p>كل مينترم هو مخرج واحد من المفكّك، فبوابة الـ OR بدها 5 مداخل. (أو: NOR على الـ 3 الباقيين.)</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "مرمّز 4→2 عادي: شو \\(Y_0\\) (البِت الأدنى)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(I1+I3\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(I2+I3\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(I0+I1\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(I1I3\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "لأي مداخل البِت الأدنى 1؟",
+        "solution": "<p>\\(Y_0=1\\) لما رقم المدخل الشاعل فردي: 1 (\\(01\\)) أو 3 (\\(11\\)). فـ \\(Y_0=I_1+I_3\\).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش بالمفكّك \\(D_i\\) هو بالزبط المينترم \\(m_i\\)؟",
+          "a": "لأنه \\(D_i\\) بيساوي 1 بس لما المداخل بتكتب الرقم \\(i\\)، يعني بسطر واحد بس بجدول القيم. وهاد بالزبط تعريف المينترم \\(m_i\\). فمفكّك 3→8 هو 8 بوابات AND جاهزين، كل وحدة مينترم."
+        },
+        {
+          "q": "شو بصير بالمرمّز العادي إذا مدخلين 1 مع بعض؟",
+          "a": "المخرج بيطلع OR على الرقمين، وهاد ممكن يكون رقم تالت. مثلاً \\(I_1\\) و\\(I_2\\) مع بعض: \\(01+10=11\\)، كأنه \\(I_3\\). لهيك في مرمّز مع أولوية، اللي بيطلّع رقم المدخل الأعلى."
+        },
+        {
+          "q": "ليش تنفيذ دالة بالمفكّك محتاج OR؟",
+          "a": "لأنه كل مخرج هو مينترم واحد، و\\(F\\) هو مجموع مينترمات. الـ OR هو «المجموع». إذا في مينترمات كتير، أقصر نعمل NOR على المخارج اللي <b>مش</b> بالدالة: \\(F\\) هو 1 إذا ولا واحد منهم شاعل."
+        },
+        {
+          "q": "شو المخرج \\(V\\) بالمرمّز مع أولوية؟",
+          "a": "\\(V=1\\) إذا في أي مدخل 1. بدونه ما في فرق بين «\\(I_0\\) شاعل» و«ولا مدخل شاعل»، لأنه الاتنين بيطلّعوا \\(00\\)."
+        }
+      ]
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "ببسّط مع خلايا ما بتفرق.",
+        "بنفّذ دالة بمفكّك وبوابة OR."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

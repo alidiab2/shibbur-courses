@@ -1,0 +1,234 @@
+{
+  "slug": "independence",
+  "title": "الارتباط والاستقلال الخطي",
+  "he": "תלות לינארית",
+  "ref": "חוברת §7.2 · מטלה 6",
+  "minutes": 18,
+  "desc": "متى مجموعة متجهات مرتبطة خطياً (תלויה לינארית) ومتى مستقلة، الفحص بالدرج أو بالمحدّدة، وكيف نلاقي العلاقة بينهم. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> «האם הקבוצה תלויה לינארית? אם כן, הביעו אחד הווקטורים כצירוף של האחרים» هو من أهداف الكورس الرسمية، وبيطلع بكل امتحان تقريباً.</p><ol><li>التعريف: حل صفري بس</li><li>المعنى: ولا متجه زيادة</li><li>الفحص بالرتبة أو المحدّدة</li><li>إيجاد العلاقة</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> «ת\"ל» (תלויה לינארית) أو «בת\"ל» (בלתי תלויה) بالسؤال.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"w جوّا المستوى اللي بيولّدوه u, v، فـ u,v,w مرتبطة. متجه برّا المستوى بيزيد اتجاه جديد، فالمجموعة بتضل مستقلة.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"210.0\" y1=\"220.0\" x2=\"121.5\" y2=\"284.2\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"111.79200000000002,291.28 125.6,289.9 117.4,278.6\"/><text class=\"fk-t t-ink\" x=\"97.79200000000002\" y=\"307.28\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><line class=\"fk-line t-ink\" x1=\"210.0\" y1=\"220.0\" x2=\"356.4\" y2=\"220.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"368.4,220.0 356.4,213.0 356.4,227.0\"/><text class=\"fk-t t-ink\" x=\"382.4\" y=\"227.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-ink\" x1=\"210.0\" y1=\"220.0\" x2=\"210.0\" y2=\"73.6\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"210.0,61.60000000000002 203.0,73.6 217.0,73.6\"/><text class=\"fk-t t-ink\" x=\"210.0\" y=\"53.60000000000002\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">z</text><polygon class=\"t-mut\" points=\"172.3,237.6 109.8,250.2 317.1,172.5 379.7,159.8\" style=\"fill:var(--c);fill-opacity:0.14;stroke:var(--c);stroke-width:2;\"/><line class=\"fk-line t-1\" x1=\"210.0\" y1=\"220.0\" x2=\"193.3\" y2=\"223.4\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"181.584,225.76 194.7,230.2 192.0,216.5\"/><line class=\"fk-line t-2\" x1=\"210.0\" y1=\"220.0\" x2=\"314.0\" y2=\"181.0\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"325.2,176.8 311.5,174.5 316.4,187.6\"/><line class=\"fk-line t-bad\" x1=\"210.0\" y1=\"220.0\" x2=\"141.3\" y2=\"240.7\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"129.82080000000002,244.192 143.3,247.4 139.3,234.0\"/><line class=\"fk-line t-good\" x1=\"210.0\" y1=\"220.0\" x2=\"210.0\" y2=\"92.8\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"210.0,80.80000000000001 203.0,92.8 217.0,92.8\"/><rect class=\"fk-chip t-1\" x=\"165.584\" y=\"238.76\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-1\" x=\"185.584\" y=\"264.40999999999997\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">u</text><rect class=\"fk-chip t-2\" x=\"311.2\" y=\"129.8\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-2\" x=\"331.2\" y=\"155.45000000000002\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">v</text><rect class=\"fk-chip t-bad solid\" x=\"69.82080000000002\" y=\"233.192\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"89.82080000000002\" y=\"258.842\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">w</text><text class=\"fk-t t-bad\" x=\"99.82080000000002\" y=\"290.192\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بنفس المستوى: תלויה</text><rect class=\"fk-chip t-good solid\" x=\"216.22\" y=\"67.80000000000001\" width=\"47.56\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"93.45000000000002\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">e₃</text><text class=\"fk-t t-good\" x=\"400\" y=\"52\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">برّا المستوى: בלתי תלויה</text></svg>",
+      "alt": "w جوّا المستوى اللي بيولّدوه u, v، فـ u,v,w مرتبطة. متجه برّا المستوى بيزيد اتجاه جديد، فالمجموعة بتضل مستقلة.",
+      "caption": "\\(w\\) جوّا المستوى اللي بيولّدوه \\(u, v\\)، فـ \\(\\{u,v,w\\}\\) مرتبطة. متجه برّا المستوى بيزيد اتجاه جديد، فالمجموعة بتضل مستقلة."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(\\{v_1,\\dots,v_k\\}\\) مستقلة إذا \\(a_1v_1+\\dots+a_kv_k=0\\) بيجبر <b>كل \\(a_i=0\\)</b>. لـ \\(n\\) متجهات بـ \\(\\mathbb R^n\\): مستقلة \\(\\iff\\det\\neq0\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: في متجه زيادة؟",
+      "html": "<p>مجموعة مرتبطة (תלויה) معناها في متجه واحد على الأقل بنقدر نوصله من الباقيين، فما بيزيد اتجاه جديد. بالرسمة \\(w\\) قاعد بمستوى \\(u\\) و\\(v\\)، فما بيوسّع إشي. مستقلة (בלתי תלויה) معناها كل متجه بيزيد اتجاه ما كان موجود.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: مرتبطة / مستقلة <bdi dir=\"rtl\">(תלויה / בלתי תלויה לינארית)</bdi>",
+      "html": "<p>\\(\\{v_1,\\dots,v_n\\}\\) مرتبطة (ת\"ל) إذا في \\(\\alpha_1,\\dots,\\alpha_n\\) <b>مش كلهم صفر</b> مع \\(\\alpha_1v_1+\\dots+\\alpha_nv_n=0\\). وإلا مستقلة (בת\"ל).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: مع الصفر <bdi dir=\"rtl\">(משפט 7.35)</bdi>",
+      "html": "<p>مجموعة فيها متجه الصفر مرتبطة.</p><p><b>فكرة البرهان:</b> \\(1\\cdot0+0v_2+\\dots+0v_n=0\\)، والمعامل الأول 1، مش صفر.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نتيجة: واحد تركيب من الباقي <bdi dir=\"rtl\">(מסקנה 7.36)</bdi>",
+      "html": "<p>\\(\\{v_1,\\dots,v_n\\}\\) (\\(n\\ge2\\)) مرتبطة \\(\\iff\\) واحد منهم تركيب خطي من الباقي.</p><p><b>فكرة البرهان:</b> إذا \\(\\alpha_1v_1+\\dots=0\\) مع \\(\\alpha_i\\neq0\\)، منقسم على \\(\\alpha_i\\) ومنعبّر عن \\(v_i\\). والعكس: \\(v_i=\\sum\\beta_jv_j\\) بيعطي \\(\\sum\\beta_jv_j-v_i=0\\) مع معامل \\(-1\\neq0\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نتيجة: فحص بالرتبة <bdi dir=\"rtl\">(מסקנה 7.40)</bdi>",
+      "html": "<p>\\(v_1,\\dots,v_k\\in F^n\\) مستقلة \\(\\iff\\operatorname{rank}A=k\\)، و\\(A\\) هي المصفوفة اللي أسطرها (أو أعمدتها) \\(v_i\\). خاصة: أكتر من \\(n\\) متجهات بـ \\(F^n\\) دايماً مرتبطة.</p><p><b>فكرة البرهان:</b> استقلال = النظام \\(\\sum\\alpha_iv_i=0\\) إله بس الحل التافه = ما في متغيّرات حرّة = الرتبة \\(k\\). و\\(k&gt;n\\) بيعطي رتبة \\(\\le n&lt;k\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"تلات متجهات: إذا w طالع من المستوى اللي u, v بيولّدوه، الكل مستقل. إذا w جوّا المستوى، هو تركيب منهم: مرتبطة.\" class=\"fk\"><polygon class=\"t-hu\" points=\"104.8,172.0 30.4,226.0 150.4,226.0 224.8,172.0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:var(--c);stroke-width:2;\"/><line class=\"fk-line t-1\" x1=\"120.0\" y1=\"190.0\" x2=\"90.0\" y2=\"211.8\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"80.32,218.8 94.1,217.4 85.9,206.1\"/><line class=\"fk-line t-2\" x1=\"120.0\" y1=\"190.0\" x2=\"172.0\" y2=\"190.0\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"184.0,190.0 172.0,183.0 172.0,197.0\"/><line class=\"fk-line t-good\" x1=\"120.0\" y1=\"190.0\" x2=\"132.0\" y2=\"121.0\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"134.07999999999998,109.2 125.1,119.8 138.9,122.2\"/><text class=\"fk-t t-good\" x=\"120\" y=\"30\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مستقلة</text><text class=\"fk-t t-good\" x=\"120\" y=\"258\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">w برّا المستوى</text><polygon class=\"t-hu\" points=\"344.8,172.0 270.4,226.0 390.4,226.0 464.8,172.0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:var(--c);stroke-width:2;\"/><line class=\"fk-line t-1\" x1=\"360.0\" y1=\"190.0\" x2=\"330.0\" y2=\"211.8\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"320.32,218.8 334.1,217.4 325.9,206.1\"/><line class=\"fk-line t-2\" x1=\"360.0\" y1=\"190.0\" x2=\"412.0\" y2=\"190.0\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"424.0,190.0 412.0,183.0 412.0,197.0\"/><line class=\"fk-line t-bad\" x1=\"360.0\" y1=\"190.0\" x2=\"370.4\" y2=\"197.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"380.15999999999997,204.4 374.5,191.7 366.3,203.1\"/><text class=\"fk-t t-bad\" x=\"360\" y=\"30\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مرتبطة</text><text class=\"fk-t t-bad\" x=\"360\" y=\"258\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">w جوّا المستوى</text></svg>",
+      "alt": "تلات متجهات: إذا w طالع من المستوى اللي u, v بيولّدوه، الكل مستقل. إذا w جوّا المستوى، هو تركيب منهم: مرتبطة.",
+      "caption": "تلات متجهات: إذا \\(w\\) طالع من المستوى اللي \\(u, v\\) بيولّدوه، الكل مستقل. إذا \\(w\\) جوّا المستوى، هو تركيب منهم: مرتبطة."
+    },
+    {
+      "t": "h",
+      "text": "التعريف والمعنى"
+    },
+    {
+      "t": "p",
+      "html": "<p>دايماً \\(0\\cdot v_1+\\dots+0\\cdot v_k=0\\)، هاد الحل التافه (הפתרון הטריוויאלי). المجموعة مرتبطة إذا في حل تاني، يعني معاملات مش كلها صفر بتعطي صفر. من هيك حل منقدر نعبّر عن متجه معامله مش صفر بالباقيين.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>حالات سريعة: مجموعة فيها \\(0\\) دايماً مرتبطة. متجهين مرتبطين بالزبط لما واحد مضاعف التاني. أكتر من \\(n\\) متجهات بـ \\(\\mathbb R^n\\) دايماً مرتبطة (متغيّرات أكتر من معادلات بالنظام المتجانس، فبيضل متغيّر حر).</p>"
+    },
+    {
+      "t": "h",
+      "text": "الفحص"
+    },
+    {
+      "t": "p",
+      "html": "<p>حطّوا المتجهات كأعمدة بمصفوفة \\(A\\) وحلّوا \\(Ax=0\\). إذا الرتبة = عدد المتجهات، ما في متغيّرات حرّة، بس الحل الصفري، فمستقلة. إذا الرتبة أصغر، مرتبطة، والحل غير الصفري بيعطي العلاقة. لما المصفوفة مربعة، المحدّدة أسرع: \\(\\det\\neq0\\) مستقلة، \\(\\det=0\\) مرتبطة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: متجهين",
+      "html": "<p>هل \\(\\{(2,-1,4),(-6,3,-12)\\}\\) مرتبطة؟</p><ol><li>\\((-6,3,-12)=-3\\cdot(2,-1,4)\\)<br><span class=\"why-line\">كل إحداثي مضروب بنفس العدد \\(-3\\).</span></li><li>\\(3\\cdot(2,-1,4)+1\\cdot(-6,3,-12)=0\\)<br><span class=\"why-line\">تركيب بمعاملات مش صفر بيعطي صفر.</span></li><li>الجواب: مرتبطة.<br><span class=\"why-line\">متجهين على نفس الخط.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): كثيرات حدود",
+      "html": "<p>هل \\(\\{1+x,\\;x+x^2,\\;1+x^2\\}\\) مستقلة بـ \\(\\mathbb R_2[x]\\)؟</p><ol><li>معاملات كأعمدة: \\(\\begin{pmatrix}1&amp;0&amp;1\\\\1&amp;1&amp;0\\\\0&amp;1&amp;1\\end{pmatrix}\\)<br><span class=\"why-line\">سطر للثابت، سطر لـ \\(x\\)، سطر لـ \\(x^2\\).</span></li><li>\\(\\det=1\\cdot1-0+1\\cdot1=2\\neq0\\)<br><span class=\"why-line\">تطوير حسب السطر الأول.</span></li><li>مستقلة.<br><span class=\"why-line\">رتبة 3 = عدد المتجهات، فما في حل غير تافه لـ \\(a(1+x)+b(x+x^2)+c(1+x^2)=0\\).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>إذا كل زوج من \\(\\{u,v,w\\}\\) مستقل، فـ \\(\\{u,v,w\\}\\) مستقلة.<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>\\(u=(1,0)\\)، \\(v=(0,1)\\)، \\(w=(1,1)\\)<br><span class=\"why-line\">ولا واحد مضاعف للتاني.</span></li><li>كل زوج مستقل.<br><span class=\"why-line\">متجهين مرتبطين بس إذا واحد مضاعف التاني.</span></li><li>بس \\(u+v-w=0\\) ⇐ مرتبطة.<br><span class=\"why-line\">وكمان: 3 متجهات بـ \\(\\mathbb R^2\\) دايماً مرتبطة.</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "ارتباط أو استقلال، 3 خطوات",
+      "steps": [
+        "<b>عدّوا:</b> أكتر من \\(n\\) متجهات بـ \\(\\mathbb R^n\\)؟ مرتبطة فوراً.",
+        "<b>أعمدة:</b> مربعة: \\(\\det\\). مش مربعة: درج وقارنوا الرتبة بعدد المتجهات.",
+        "<b>علاقة:</b> إذا مرتبطة: حلّوا \\(Ax=0\\) وخدوا حل مش صفر."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 242\" role=\"img\" aria-label=\"المعطى: v 1, v 2, v 3 كأعمدة. بعد الدرج في عمود بلا مفتاح (التالت)، فالرتبة 2 أصغر من 3: مرتبطة.\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"6\" y=\"56\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"30.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"58\" y=\"56\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"82.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu solid\" x=\"110\" y=\"56\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"134.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"100\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"30.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"58\" y=\"100\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"82.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu solid\" x=\"110\" y=\"100\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"134.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"144\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"30.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"58\" y=\"144\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"82.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu solid\" x=\"110\" y=\"144\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"134.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><line class=\"fk-line t-hu\" x1=\"164\" y1=\"122.0\" x2=\"306.0\" y2=\"122.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"318.0,122.0 306.0,115.0 306.0,129.0\"/><text class=\"fk-t t-hu\" x=\"241.0\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">درج</text><rect class=\"fk-chip t-good solid\" x=\"324.0\" y=\"56\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"348.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"376.0\" y=\"56\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"400.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"428.0\" y=\"56\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"452.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"324.0\" y=\"100\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"348.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-good solid\" x=\"376.0\" y=\"100\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"400.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−3</text><rect class=\"fk-chip t-mut\" x=\"428.0\" y=\"100\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"452.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-bad solid\" x=\"324.0\" y=\"144\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"348.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-bad solid\" x=\"376.0\" y=\"144\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"400.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-bad solid\" x=\"428.0\" y=\"144\" width=\"48\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"452.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "المعطى: v 1, v 2, v 3 كأعمدة. بعد الدرج في عمود بلا مفتاح (التالت)، فالرتبة 2 أصغر من 3: مرتبطة.",
+      "caption": "المعطى: \\(v_1, v_2, v_3\\) كأعمدة. بعد الدرج في عمود بلا مفتاح (التالت)، فالرتبة 2 أصغر من 3: مرتبطة."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: هل \\(v_1=(1,2,3)\\)، \\(v_2=(2,1,0)\\)، \\(v_3=(0,3,6)\\) مرتبطة؟ إذا أه، عبّروا عن \\(v_3\\) بالباقيين.",
+      "steps": [
+        {
+          "label": "المحدّدة (أعمدة)",
+          "body": "\\(\\det\\begin{pmatrix}1&amp;2&amp;0\\\\2&amp;1&amp;3\\\\3&amp;0&amp;6\\end{pmatrix}=0\\)"
+        },
+        {
+          "label": "الرتبة",
+          "body": "\\(\\operatorname{rank}=2&lt;3\\)"
+        },
+        {
+          "label": "av_1+bv_2=v_3",
+          "body": "\\(a+2b=0,\\;2a+b=3\\Rightarrow a=2,\\,b=-1\\)"
+        },
+        {
+          "label": "فحص",
+          "body": "\\(2v_1-v_2=(0,3,6)\\)"
+        }
+      ],
+      "a": "مرتبطة: \\(v_3=2v_1-v_2\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"كل زوج مستقل، بس التلاتة مرتبطين: (1,1)=(1,0)+(0,1). الاستقلال لازم ينفحص للمجموعة كلها سوا.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"132.60869565217394\" y1=\"24\" x2=\"132.60869565217394\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"297.82608695652175\" y1=\"24\" x2=\"297.82608695652175\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"203.8095238095238\" x2=\"430\" y2=\"203.8095238095238\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"91.42857142857144\" x2=\"430\" y2=\"91.42857142857144\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"203.8095238095238\" x2=\"432.0\" y2=\"203.8\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,203.8095238095238 432.0,196.8 432.0,210.8\"/><line class=\"fk-line t-ink\" x1=\"132.60869565217394\" y1=\"260\" x2=\"132.6\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"132.60869565217394,10 125.6,22.0 139.6,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"229.8095238095238\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-ink\" x=\"114.60869565217394\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-1\" x1=\"132.60869565217394\" y1=\"203.8095238095238\" x2=\"285.8\" y2=\"203.8\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"297.82608695652175,203.8095238095238 285.8,196.8 285.8,210.8\"/><line class=\"fk-line t-2\" x1=\"132.60869565217394\" y1=\"203.8095238095238\" x2=\"132.6\" y2=\"103.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"132.60869565217394,91.42857142857144 125.6,103.4 139.6,103.4\"/><line class=\"fk-line t-bad\" x1=\"132.60869565217394\" y1=\"203.8095238095238\" x2=\"287.9\" y2=\"98.2\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"297.82608695652175,91.42857142857144 284.0,92.4 291.8,104.0\"/><rect class=\"fk-chip t-1 solid\" x=\"310.8695652173913\" y=\"212.9047619047619\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"330.8695652173913\" y=\"238.5547619047619\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">u</text><rect class=\"fk-chip t-2 solid\" x=\"63.04347826086956\" y=\"61.190476190476176\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"83.04347826086956\" y=\"86.84047619047618\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">v</text><rect class=\"fk-chip t-bad solid\" x=\"302.4221739130435\" y=\"33.0952380952381\" width=\"106.46\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"355.6521739130435\" y=\"58.7452380952381\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">w = u+v</text></svg>",
+      "alt": "كل زوج مستقل، بس التلاتة مرتبطين: (1,1)=(1,0)+(0,1). الاستقلال لازم ينفحص للمجموعة كلها سوا.",
+      "caption": "كل زوج مستقل، بس التلاتة مرتبطين: \\((1,1)=(1,0)+(0,1)\\). الاستقلال لازم ينفحص للمجموعة كلها سوا."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(\\{(1,0),(0,1),(1,1)\\}\\) مستقلة لأنه ولا وحدة مضاعف لتانية",
+          "yes": "3 متجهات بـ \\(\\mathbb R^2\\) دايماً مرتبطة: \\((1,1)=(1,0)+(0,1)\\)"
+        },
+        {
+          "no": "مرتبطة معناها كل متجه تركيب للباقي",
+          "yes": "معناها <b>في</b> متجه واحد على الأقل هيك"
+        },
+        {
+          "no": "الحل الصفري موجود، فالمجموعة مرتبطة",
+          "yes": "الحل الصفري دايماً موجود. مرتبطة إذا في حل <b>تاني</b>"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش \\(\\{0\\}\\) مرتبطة؟ ما في «متجهين» يرتبطوا.",
+          "a": "التعريف مش عن «متجهين»، عن معاملات: \\(5\\cdot0=0\\) و\\(5\\neq0\\)، فلقينا تركيب غير تافه بيعطي صفر."
+        },
+        {
+          "q": "إذا شلت متجه من مجموعة مستقلة، بتضل مستقلة؟",
+          "a": "آه. لو المجموعة الصغيرة مرتبطة، نفس التركيب (مع معامل 0 للمتجه المشلول) بيخلّي الكبيرة مرتبطة. والعكس: زيادة متجه على مرتبطة بتضلّها مرتبطة."
+        },
+        {
+          "q": "بمجموعة مرتبطة، أيّ متجه بشيل؟",
+          "a": "واحد معامله مش صفر بالعلاقة. مثلاً \\(u+v-w=0\\): كل واحد منهم بينشال. متجه معامله صفر بالعلاقة الوحيدة، شيله ما بيساعد."
+        },
+        {
+          "q": "مستقلة بتعتمد على الحقل؟",
+          "a": "آه. \\(\\{1, i\\}\\) مستقلة بـ \\(\\mathbb C\\) كفضاء فوق \\(\\mathbb R\\) (ما في \\(a,b\\) حقيقيين مش صفر مع \\(a+bi=0\\))، ومرتبطة فوق \\(\\mathbb C\\): \\(i\\cdot1+(-1)\\cdot i=0\\)."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "لأي \\(k\\) المجموعة \\(\\{(1,k),(2,4)\\}\\) مرتبطة؟",
+        "answer": [
+          "2"
+        ],
+        "hint": "\\(\\det=0\\).",
+        "solution": "<p>المحدّدة للمصفوفة اللي أعمدتها المتجهين هي \\(4-2k\\). منساويها لصفر: \\(k=2\\)، ووقتها \\((2,4)=2\\cdot(1,2)\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "احسبوا \\(\\det\\) للمصفوفة اللي أعمدتها \\((1,0,0)\\)، \\((1,1,0)\\)، \\((1,1,1)\\). (وبالتالي: مستقلة؟)",
+        "answer": [
+          "1"
+        ],
+        "hint": "المصفوفة مثلثية.",
+        "solution": "<p>المصفوفة مثلثية عليا والقطر كله 1، فالمحدّدة \\(1\\cdot1\\cdot1=1\\neq0\\)، والمتجهات التلاتة مستقلة.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "4 متجهات بـ \\(\\mathbb R^3\\). شو أكيد صحيح؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "مرتبطة"
+          },
+          {
+            "v": "2",
+            "html": "مستقلة"
+          },
+          {
+            "v": "3",
+            "html": "بيعتمد على المتجهات"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "كم متغيّر حر بيضل بنظام 3×4 متجانس؟",
+        "solution": "<p>بالنظام المتجانس في 3 معادلات و4 مجاهيل، فبيضل متغيّر حر واحد على الأقل وفي حل غير صفري، فالمجموعة دايماً مرتبطة.</p>"
+      }
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "slug": "binary-search",
+  "title": "البحث الثنائي (חיפוש בינארי)",
+  "he": "חיפוש בינארי",
+  "ref": "שבוע 9",
+  "minutes": 18,
+  "desc": "البحث الثنائي (חיפוש בינארי) على قائمة مرتّبة بـ Python: lo و hi و mid، ليش O(log n) مقابل O(n) للبحث الخطّي، جدول متابعة لكل جولة، وأشهر الغلطات بالحدود.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> البحث الثنائي هو أشهر ألغوريتم بالأسبوع 9، وبيطلع بالامتحان كتتبّع («רשמו את ערכי low, high, mid בכל סיבוב») أو ككتابة. ومنه منفهم ليش O(log n) قوية هالقد.</p><ol><li>الشرط: القائمة مرتّبة</li><li>lo، hi و mid</li><li>كل جولة بتشيل نص اللي ضل</li><li>O(log n): مليون عنصر بـ 20 مقارنة</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما في بحث بقائمة مرتّبة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"كل جولة منقارن مع النص (mid). 23 أكبر من 16؟ منكبّ النص الشمال كله. وهيك لحد ما نلاقيه.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"240\" y=\"24\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بندوّر على 23</text><text class=\"fk-t t-mut\" x=\"44.0\" y=\"74\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"62.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"80.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"102.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"120.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-hu\" x=\"142.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"160.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-hu\" x=\"182.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"200.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">12</text><rect class=\"fk-chip t-2 solid\" x=\"222.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">16</text><rect class=\"fk-chip t-hu\" x=\"262.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"280.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">23</text><rect class=\"fk-chip t-hu\" x=\"302.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"320.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">38</text><rect class=\"fk-chip t-hu\" x=\"342.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"360.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">56</text><rect class=\"fk-chip t-hu\" x=\"382.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"400.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">72</text><rect class=\"fk-chip t-hu\" x=\"422.0\" y=\"44\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"440.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">91</text><text class=\"fk-t t-mut\" x=\"44.0\" y=\"144\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut dash\" x=\"62.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"80.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut dash\" x=\"102.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"120.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-mut dash\" x=\"142.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"160.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-mut dash\" x=\"182.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"200.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">12</text><rect class=\"fk-chip t-mut dash\" x=\"222.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">16</text><rect class=\"fk-chip t-hu\" x=\"262.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"280.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">23</text><rect class=\"fk-chip t-hu\" x=\"302.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"320.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">38</text><rect class=\"fk-chip t-2 solid\" x=\"342.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"360.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">56</text><rect class=\"fk-chip t-hu\" x=\"382.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"400.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">72</text><rect class=\"fk-chip t-hu\" x=\"422.0\" y=\"114\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"440.0\" y=\"140.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">91</text><text class=\"fk-t t-mut\" x=\"44.0\" y=\"214\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut dash\" x=\"62.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"80.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut dash\" x=\"102.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"120.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-mut dash\" x=\"142.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"160.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-mut dash\" x=\"182.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"200.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">12</text><rect class=\"fk-chip t-mut dash\" x=\"222.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">16</text><rect class=\"fk-chip t-2 solid\" x=\"262.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"280.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">23</text><rect class=\"fk-chip t-hu\" x=\"302.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"320.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">38</text><rect class=\"fk-chip t-mut dash\" x=\"342.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"360.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">56</text><rect class=\"fk-chip t-mut dash\" x=\"382.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"400.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">72</text><rect class=\"fk-chip t-mut dash\" x=\"422.0\" y=\"184\" width=\"36\" height=\"42\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"440.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">91</text></svg>",
+      "alt": "كل جولة منقارن مع النص (mid). 23 أكبر من 16؟ منكبّ النص الشمال كله. وهيك لحد ما نلاقيه.",
+      "caption": "كل جولة منقارن مع النص <bdi dir=\"ltr\">(mid). 23</bdi> أكبر من 16؟ منكبّ النص الشمال كله. وهيك لحد ما نلاقيه."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>بقائمة <b>مرتّبة</b>: قارنوا مع النص. أكبر؟ <code dir=\"ltr\">lo = mid + 1</code>. أصغر؟ <code dir=\"ltr\">hi = mid - 1</code>. بتوقفوا لما لقيتوا، أو لما <code dir=\"ltr\">lo &gt; hi</code>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>متل لعبة «فكّرت بعدد بين 1 و 100»: أحسن سؤال هو «أكبر من 50؟»، لأنه كيف ما كان الجواب، شلنا النص. 100 ← 50 ← 25 … بسبع أسئلة بتعرفوا العدد.</p>"
+    },
+    {
+      "t": "h",
+      "text": "ليش بيشتغل، وليش سريع؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"كل جولة: mid بالنص بين lo و hi. إذا الهدف أكبر من a[mid]، النص الشمال كله بينشال.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"82.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"112.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"112.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"146.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"176.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-mut\" x=\"176.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"210.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"274.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"304.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">12</text><text class=\"fk-t t-mut\" x=\"304.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"338.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"368.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">16</text><text class=\"fk-t t-mut\" x=\"368.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><line class=\"fk-line t-hu\" x1=\"112.0\" y1=\"18\" x2=\"112.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"112.0,62 119.0,50.0 105.0,50.0\"/><text class=\"fk-t t-hu\" x=\"118.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">lo</text><line class=\"fk-line t-2\" x1=\"240.0\" y1=\"18\" x2=\"240.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"240.0,62 247.0,50.0 233.0,50.0\"/><text class=\"fk-t t-2\" x=\"246.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">mid</text><line class=\"fk-line t-hu\" x1=\"368.0\" y1=\"18\" x2=\"368.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"368.0,62 375.0,50.0 361.0,50.0\"/><text class=\"fk-t t-hu\" x=\"374.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">hi</text></svg>",
+      "alt": "كل جولة: mid بالنص بين lo و hi. إذا الهدف أكبر من a[mid]، النص الشمال كله بينشال.",
+      "caption": "كل جولة: mid بالنص بين lo و hi. إذا الهدف أكبر من <bdi dir=\"ltr\">a[mid]</bdi>، النص الشمال كله بينشال."
+    },
+    {
+      "t": "p",
+      "html": "<p>البحث الخطّي بيمرق واحد واحد: بأسوأ حالة n مقارنة. البحث الثنائي بيستغل الترتيب: إذا x أكبر من <code dir=\"ltr\">a[mid]</code>، أكيد x مش بالشمال من mid (كلهم أصغر)، فمنشيلهم كلهم بمقارنة وحدة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>lo و hi هنّي حدود الجزء اللي لسّا ممكن x يكون فيه (مع الحدود). بالأول <code dir=\"ltr\">lo = 0</code> و<code dir=\"ltr\">hi = len(a) - 1</code>. كل جولة <code dir=\"ltr\">mid = (lo + hi) // 2</code>. ليش <code dir=\"ltr\">mid + 1</code> ومش mid؟ لأنه mid نفسه فحصناه وطلع مش x، فما في داعي نخلّيه.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كل جولة الجزء بيصغر للنص، فبعد k جولات ضل \\(n/2^k\\). منوقف لما يضل عنصر واحد، يعني \\(k=\\log_2 n\\). لـ مليون عنصر: 20 جولة بدل مليون. هاد O(log n).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>إذا x مش موجود، lo و hi بيقربوا لحد ما <code dir=\"ltr\">lo &gt; hi</code>، والجزء فاضي: منرجّع -1. والشرط الأساسي: القائمة مرتّبة. على قائمة مش مرتّبة البحث الثنائي بيعطي جواب غلط بدون أي خطأ.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"البحث الثنائي: كل جولة بتنصّف، فمليون عنصر بدهم 20 جولة بس. البحث الخطي بده مليون.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"32.85\" font-size=\"11\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">جولات بأسوأ حالة</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1,000</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1,000,000</text><rect class=\"fk-chip t-good solid\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">20</text></svg>",
+      "alt": "البحث الثنائي: كل جولة بتنصّف، فمليون عنصر بدهم 20 جولة بس. البحث الخطي بده مليون.",
+      "caption": "البحث الثنائي: كل جولة بتنصّف، فمليون عنصر بدهم 20 جولة بس. البحث الخطي بده مليون."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def binary_search(a, x):\n    lo = 0\n    hi = len(a) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if a[mid] == x:\n            return mid\n        elif a[mid] < x:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\n\na = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]\nprint(binary_search(a, 23), binary_search(a, 7))",
+      "out": "5 -1"
+    },
+    {
+      "t": "html",
+      "html": "<div class=\"compare\"><div class=\"ok\"><b>بحث خطّي O(n)</b><p>أي قائمة، مرتّبة أو لا.</p><p>n = 1,000,000 ← لحد مليون مقارنة.</p></div><div class=\"no\"><b>بحث ثنائي O(log n)</b><p>بس قائمة مرتّبة.</p><p>n = 1,000,000 ← لحد 20 مقارنة.</p></div></div>"
+    },
+    {
+      "t": "method",
+      "title": "تتبّع بحث ثنائي بالامتحان، 3 خطوات",
+      "steps": [
+        "<b>جدول</b> أعمدة lo، hi، mid، <code dir=\"ltr\">a[mid]</code>.",
+        "<b>كل جولة</b> mid = (lo + hi) // 2، قارنوا، وغيّروا lo أو hi.",
+        "<b>الوقوف</b> لقيتوا ← mid. lo &gt; hi ← -1."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: بحث عن 7",
+      "html": "<p>سبع عناصر مرتّبة. ليش جولة وحدة بس؟ لأنه mid = (0 + 6) // 2 = 3، و a[3] بالزبط 7.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [1, 3, 5, 7, 9, 11, 13]\nx = 7\nlo, hi = 0, len(a) - 1\nwhile lo &lt;= hi:\n    mid = (lo + hi) // 2\n    print(\"lo\", lo, \"hi\", hi, \"mid\", mid)\n    if a[mid] == x:\n        break\n    elif a[mid] &lt; x:\n        lo = mid + 1\n    else:\n        hi = mid - 1</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">lo 0 hi 6 mid 3</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: عدد مش موجود",
+      "html": "<p>منبحث عن 7. شوفوا كيف lo و hi بيقطعوا بعض.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]\nx = 7\nlo, hi = 0, len(a) - 1\nfound = -1\nwhile lo &lt;= hi:\n    mid = (lo + hi) // 2\n    if a[mid] == x:\n        found = mid\n        break\n    elif a[mid] &lt; x:\n        lo = mid + 1\n    else:\n        hi = mid - 1\nprint(found, lo, hi)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">-1 2 1</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">lo</bdi></th><th><bdi dir=\"ltr\">hi</bdi></th><th><bdi dir=\"ltr\">mid</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">lo, hi = 0, len(a) - 1</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">mid = (lo + hi) // 2</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">hi = mid - 1</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">mid = (lo + hi) // 2</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">lo = mid + 1</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">mid = (lo + hi) // 2</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">hi = mid - 1</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(found, lo, hi)</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">-1 2 1</bdi></td></tr></tbody></table></div><p>بالآخر lo = 2 و hi = 1: الجزء فاضي. ولاحظوا إنه lo وقف بالمكان اللي لازم نحط فيه 7 لنحافظ على الترتيب.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"معطيات السؤال: 10 عناصر مرتّبة، lo = 0 و hi = 9، ومنبحث عن 56.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"22.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"42.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"42.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"66.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"86.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-mut\" x=\"86.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"110.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"130.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><text class=\"fk-t t-mut\" x=\"130.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"154.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"174.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">12</text><text class=\"fk-t t-mut\" x=\"174.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"198.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"218.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">16</text><text class=\"fk-t t-mut\" x=\"218.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-hu\" x=\"242.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"262.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">23</text><text class=\"fk-t t-mut\" x=\"262.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-hu\" x=\"286.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"306.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">38</text><text class=\"fk-t t-mut\" x=\"306.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-hu\" x=\"330.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"350.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">56</text><text class=\"fk-t t-mut\" x=\"350.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-hu\" x=\"374.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"394.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">72</text><text class=\"fk-t t-mut\" x=\"394.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-hu\" x=\"418.0\" y=\"90\" width=\"40\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"438.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">91</text><text class=\"fk-t t-mut\" x=\"438.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">9</text><line class=\"fk-line t-hu\" x1=\"42.0\" y1=\"18\" x2=\"42.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"42.0,62 49.0,50.0 35.0,50.0\"/><text class=\"fk-t t-hu\" x=\"48.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">lo</text><line class=\"fk-line t-hu\" x1=\"438.0\" y1=\"18\" x2=\"438.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"438.0,62 445.0,50.0 431.0,50.0\"/><text class=\"fk-t t-hu\" x=\"444.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">hi</text></svg>",
+      "alt": "معطيات السؤال: 10 عناصر مرتّبة، lo = 0 و hi = 9، ومنبحث عن 56.",
+      "caption": "معطيات السؤال: 10 عناصر مرتّبة، <bdi dir=\"ltr\">lo = 0</bdi> و <bdi dir=\"ltr\">hi = 9</bdi>، ومنبحث عن 56."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: تتبّعوا البحث عن 56. كم جولة؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]\nx = 56\nlo, hi = 0, 9\nrounds = 0\nwhile lo &lt;= hi:\n    mid = (lo + hi) // 2\n    rounds += 1\n    if a[mid] == x:\n        break\n    elif a[mid] &lt; x:\n        lo = mid + 1\n    else:\n        hi = mid - 1\nprint(mid, rounds)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">7 2</pre></div></div>",
+      "steps": [
+        {
+          "label": "<bdi dir=\"ltr\">mid = 4</bdi>، <bdi dir=\"ltr\">a[4] = 16 &lt; 56</bdi>",
+          "body": "<code dir=\"ltr\">lo = 5</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">mid = 7</bdi>، <bdi dir=\"ltr\">a[7] = 56</bdi>",
+          "body": "<code dir=\"ltr\">لقيناه</code>"
+        },
+        {
+          "label": "جولتين بس",
+          "body": "<code dir=\"ltr\">7 2</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">7 2</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">lo</bdi></th><th><bdi dir=\"ltr\">hi</bdi></th><th><bdi dir=\"ltr\">mid</bdi></th><th><bdi dir=\"ltr\">rounds</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">lo, hi = 0, 9</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">rounds = 0</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">mid = (lo + hi) // 2</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">rounds += 1</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">lo = mid + 1</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">mid = (lo + hi) // 2</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\">7</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">rounds += 1</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\">7</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(mid, rounds)</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\">7</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">7 2</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش لازم القائمة تكون مرتّبة؟",
+          "a": "<p>لأنه القرار «شيل النص الشمال» مبني على إنه كل اللي شمال mid أصغر من <bdi dir=\"ltr\">a[mid]</bdi>. بقائمة مش مرتّبة هاد مش صحيح، والبحث ممكن يشيل النص اللي فيه العنصر.</p>"
+        },
+        {
+          "q": "ليش <code dir=\"ltr\">lo &lt;= hi</code> ومش <code dir=\"ltr\">lo &lt; hi</code>؟",
+          "a": "<p>لما <bdi dir=\"ltr\">lo == hi</bdi> في لسّا عنصر واحد ما فحصناه. مع <code dir=\"ltr\">&lt;</code> كنا رح نوقف قبل ما نفحصه، ونقول «مش موجود» بالغلط.</p>"
+        },
+        {
+          "q": "ليش <code dir=\"ltr\">mid + 1</code> ومش <code dir=\"ltr\">mid</code>؟",
+          "a": "<p><bdi dir=\"ltr\">a[mid]</bdi> فحصناه وهو مش الهدف، فما في داعي يضل بالمجال. وإذا ما شلناه، ممكن lo و hi يعلقوا بنفس المكان والحلقة ما توقف.</p>"
+        },
+        {
+          "q": "كم جولة بأسوأ حالة؟",
+          "a": "<p>تقريباً \\(\\log_2 n\\) زائد واحد. كل جولة بتنصّف المجال.</p><pre class=\"code\" dir=\"ltr\">import math\nfor n in [10, 1000, 1000000]:\n    print(n, math.floor(math.log2(n)) + 1)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">10 4\n1000 10\n1000000 20</pre>"
+        },
+        {
+          "q": "شو بيصير إذا العنصر مكرّر؟",
+          "a": "<p>البحث بيرجّع مكان واحد منهم، مش بالضرورة الأول. إذا السؤال بدّه أول ظهور، لازم تعديل: لما نلاقيه، منحفظ المكان ومنكمّل نبحث بالنص الشمال.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "بحث ثنائي على قائمة مش مرتّبة",
+          "yes": "لازم مرتّبة، وإلا الجواب غلط بدون خطأ"
+        },
+        {
+          "no": "<code dir=\"ltr\">lo = mid</code> بدل <code dir=\"ltr\">mid + 1</code>",
+          "yes": "ممكن حلقة ما بتخلص لما lo و hi جيران"
+        },
+        {
+          "no": "<code dir=\"ltr\">while lo &lt; hi</code>",
+          "yes": "<code dir=\"ltr\">while lo &lt;= hi</code>: لما يضل عنصر واحد لازم نفحصه"
+        },
+        {
+          "no": "<code dir=\"ltr\">mid = (lo + hi) / 2</code>",
+          "yes": "<code dir=\"ltr\">//</code>: المكان لازم عدد صحيح"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>بقائمة مرتّبة فيها 1000 عنصر، أكبر عدد جولات ممكن بالبحث الثنائي هو تقريباً log₂1000. شو بيطبع الكود اللي بيحسبه بالزبط؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">n = 1000\nr = 0\nwhile n &gt; 0:\n    n //= 2\n    r += 1\nprint(r)</pre></div>",
+        "answer": [
+          "10"
+        ],
+        "hint": "كل جولة بتنصّف.",
+        "solution": "<p>منحسب كم مرة فينا ننصّف 1000 لحد ما يضل ولا إشي: 500، 250، 125، 62، 31، 15، 7، 3، 1، 0. عشر جولات.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">10</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟ <bdi dir=\"ltr\">(mid</bdi> بأول جولتين)</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [1, 3, 5, 7, 9, 11, 13]\nx = 3\nlo, hi = 0, 6\nfor _ in range(2):\n    mid = (lo + hi) // 2\n    print(mid, end=\" \")\n    if a[mid] &lt; x:\n        lo = mid + 1\n    else:\n        hi = mid - 1</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">3 1</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">3 4</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">3 2</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "a[3] = 7 أكبر من 3.",
+        "solution": "<p>بالجولة الأولى mid هو 3 و<code dir=\"ltr\">a[3]</code> هو 7 أكبر من 3، فـ hi صار 2. بالتانية \\((0+2)/\\!/2=1\\).</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">3 1 </pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>ليش بالبحث الثنائي منكتب <code dir=\"ltr\">lo = mid + 1</code> مش <code dir=\"ltr\">lo = mid</code>؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "لأنه mid انفحص وطلع مش x، فما في داعي نخلّيه، ومع <code dir=\"ltr\">lo = mid</code> ممكن الحلقة ما تخلص"
+          },
+          {
+            "v": "2",
+            "html": "لأنه القائمة بتبلّش من 1"
+          },
+          {
+            "v": "3",
+            "html": "عشان نوصل أسرع للآخر"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "solution": "<p>العنصر بـ mid فحصناه وما كان x. إذا خلّيناه، لما lo و hi جيران رح يطلع نفس mid كل جولة والحلقة ما بتخلص.</p>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "חיפוש בינארי",
+      "back": "بحث ثنائي على قائمة مرتّبة: mid = (lo+hi)//2، بنشيل النص كل جولة. O(log n)."
+    }
+  ]
+}

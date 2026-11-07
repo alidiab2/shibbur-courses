@@ -1,0 +1,243 @@
+{
+  "slug": "types",
+  "title": "أنواع البيانات والتحويل بينها",
+  "he": "טיפוסי נתונים",
+  "ref": "שבוע 2",
+  "minutes": 15,
+  "desc": "الأنواع الأساسية بـ Python: int و float و str و bool، الأمر type، التحويل بين الأنواع، وليش 7/2 بيعطي 3.5 مش 3.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> كل قيمة بـ Python إلها نوع (טיפוס)، والنوع بيقرّر شو بيصير بالعمليات: <code dir=\"ltr\">2 + 3</code> عدد، و<code dir=\"ltr\">\"2\" + \"3\"</code> نص. نص أسئلة «شو بيطبع؟» بالامتحان مبنية على هالفرق.</p><ol><li>الأنواع: <code dir=\"ltr\">int</code>، <code dir=\"ltr\">float</code>، <code dir=\"ltr\">str</code>، <code dir=\"ltr\">bool</code></li><li>الأمر <code dir=\"ltr\">type</code></li><li>القسمة <code dir=\"ltr\">/</code> دايماً بتعطي float</li><li>التحويل: <code dir=\"ltr\">int()</code>، <code dir=\"ltr\">float()</code>، <code dir=\"ltr\">str()</code></li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما يكون في عمليات بين قيم من أنواع مختلفة، أو قسمة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"أربع صناديق، أربع أنواع. نفس الرقم 7 ممكن يكون عدد أو نص، وهاد بيغيّر كل إشي.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"45.33\" y=\"15\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"75.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">int</text><rect class=\"fk-chip t-hu\" x=\"28.0\" y=\"66\" width=\"94\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"75.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-3 solid\" x=\"143.55\" y=\"15\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"185.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">float</text><rect class=\"fk-chip t-3\" x=\"138.0\" y=\"66\" width=\"94\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-3\" x=\"185.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3.5</text><rect class=\"fk-chip t-1 solid\" x=\"265.33\" y=\"15\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"295.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">str</text><rect class=\"fk-chip t-1\" x=\"248.0\" y=\"66\" width=\"94\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"295.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">'7'</text><rect class=\"fk-chip t-2 solid\" x=\"369.44\" y=\"15\" width=\"71.12\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"405.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">bool</text><rect class=\"fk-chip t-2\" x=\"358.0\" y=\"66\" width=\"94\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"405.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text></svg>",
+      "alt": "أربع صناديق، أربع أنواع. نفس الرقم 7 ممكن يكون عدد أو نص، وهاد بيغيّر كل إشي.",
+      "caption": "أربع صناديق، أربع أنواع. نفس الرقم 7 ممكن يكون عدد أو نص، وهاد بيغيّر كل إشي."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>النوع بيقرّر شو بتعمل العملية. <code dir=\"ltr\">/</code> بترجّع <b>دايماً float</b>، حتى <code dir=\"ltr\">6 / 2</code> بيعطي <code dir=\"ltr\">3.0</code>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>القيمة بالذاكرة هي بتات، والنوع (טיפוס) بيحكي لـ Python كيف يقراها: كعدد صحيح، عدد عشري، نص، أو صح/غلط. المتغيّر نفسه ما إلو نوع ثابت: نوعه هو نوع القيمة اللي فيه هلّق.</p>"
+    },
+    {
+      "t": "h",
+      "text": "الأنواع الأربعة"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 244\" role=\"img\" aria-label=\"نفس الرقم، أربع أنواع. النوع بيقرّر شو العمليات بتعمل.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">القيمة</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">النوع</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">int</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7.0</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">float</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">\"7\"</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">str</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7 &gt; 3</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">bool</text></svg>",
+      "alt": "نفس الرقم، أربع أنواع. النوع بيقرّر شو العمليات بتعمل.",
+      "caption": "نفس الرقم، أربع أنواع. النوع بيقرّر شو العمليات بتعمل."
+    },
+    {
+      "t": "p",
+      "html": "<p><code dir=\"ltr\">int</code> (מספר שלם): عدد صحيح متل 7 أو -12 أو 1000000. بـ Python ما في حد لحجمه. <code dir=\"ltr\">float</code> (מספר ממשי): عدد مع فاصلة عشرية متل 3.5 أو 2.0. لاحظوا إنه 2.0 مش نفس نوع 2، حتى لو القيمة نفسها.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p><code dir=\"ltr\">str</code> (מחרוזת): نص بين تنصيص، حتى لو جوّاه أرقام: <code dir=\"ltr\">\"2026\"</code> نص. <code dir=\"ltr\">bool</code> (בוליאני): بس قيمتين، <code dir=\"ltr\">True</code> و<code dir=\"ltr\">False</code> (بحرف كبير بالأول). منستعمله بالشروط بالفصل الجاي.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لما بنخلط int و float بعملية، النتيجة float: <code dir=\"ltr\">2 + 1.5</code> بيعطي <code dir=\"ltr\">3.5</code>، و<code dir=\"ltr\">2 * 1.0</code> بيعطي <code dir=\"ltr\">2.0</code>. والقسمة العادية <code dir=\"ltr\">/</code> دايماً float. بدكم عدد صحيح؟ في قسمة خاصة <code dir=\"ltr\">//</code> بالدرس الجاي.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>التحويل: <code dir=\"ltr\">int(3.9)</code> بيقطع الكسر وبيعطي 3 (مش تقريب!). <code dir=\"ltr\">str(25)</code> بيعطي النص <code dir=\"ltr\">'25'</code>، مفيد لما بدنا نلزق رقم بجملة. <code dir=\"ltr\">float(\"2\")</code> بيعطي 2.0.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 128\" role=\"img\" aria-label=\"نص وعدد ما بينجمعوا: حوّلوا أول.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"250\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-good\" x=\"355\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح</text><text class=\"fk-t t-good\" x=\"355\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">int(\"5\") + 1</text><text class=\"fk-t t-good\" x=\"355\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-bad\" x=\"20\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-bad\" x=\"125\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط</text><text class=\"fk-t t-bad\" x=\"125\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">\"5\" + 1</text><text class=\"fk-t t-bad\" x=\"125\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">TypeError</text></svg>",
+      "alt": "نص وعدد ما بينجمعوا: حوّلوا أول.",
+      "caption": "نص وعدد ما بينجمعوا: حوّلوا أول."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "print(type(7), type(3.5))\nprint(type(\"7\"), type(True))\nprint(6 / 2, 7 / 2)\nprint(int(3.9), str(25) + \"!\")",
+      "out": "<class 'int'> <class 'float'>\n<class 'str'> <class 'bool'>\n3.0 3.5\n3 25!"
+    },
+    {
+      "t": "method",
+      "title": "كيف تعرفوا نوع النتيجة، 3 أسئلة",
+      "steps": [
+        "<b>في <code dir=\"ltr\">/</code>؟</b> النتيجة float.",
+        "<b>في float واحد على الأقل؟</b> النتيجة float.",
+        "<b>كل شي int، وبدون <code dir=\"ltr\">/</code>؟</b> النتيجة int."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: شو نوع كل قيمة؟",
+      "html": "<p>الدالة <code dir=\"ltr\">type</code> بتحكيلنا نوع القيمة. ليش مهم؟ لأنه النوع بيقرّر شو العمليات بتعمل: <code dir=\"ltr\">+</code> بين أعداد بتجمع، وبين نصوص بتلزق.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">print(type(7))\nprint(type(7.0))\nprint(type(\"7\"))\nprint(type(7 &gt; 3))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">&lt;class 'int'&gt;\n&lt;class 'float'&gt;\n&lt;class 'str'&gt;\n&lt;class 'bool'&gt;</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: كيلو وغرام",
+      "html": "<p>المستخدم بيدخل وزن بالغرامات، ومنطبعه بالكيلو. القسمة على 1000 بتعطي float، حتى لو الوزن 3000.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">g = int(input())\nkg = g / 1000\nprint(kg)\nprint(\"weight: \" + str(kg) + \" kg\")</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة (المدخلات: <bdi dir=\"ltr\">3000</bdi>)</div><pre dir=\"ltr\">3.0\nweight: 3.0 kg</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">g</bdi></th><th><bdi dir=\"ltr\">kg</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">g = int(input())</code></td><td><bdi dir=\"ltr\">3000</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">kg = g / 1000</code></td><td><bdi dir=\"ltr\">3000</bdi></td><td><bdi dir=\"ltr\">3.0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(kg)</code></td><td><bdi dir=\"ltr\">3000</bdi></td><td><bdi dir=\"ltr\">3.0</bdi></td><td><bdi dir=\"ltr\">3.0</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(\"weight: \" + str(kg) + \" kg\")</code></td><td><bdi dir=\"ltr\">3000</bdi></td><td><bdi dir=\"ltr\">3.0</bdi></td><td><bdi dir=\"ltr\">weight: 3.0 kg</bdi></td></tr></tbody></table></div><p>لاحظوا إنه طلع <code dir=\"ltr\">3.0</code> مش <code dir=\"ltr\">3</code>. وبالسطر الأخير لازم <code dir=\"ltr\">str</code>، لأنه ما فينا نجمع نص مع عدد.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"قبل السؤال: أي نوع بيطلع من كل عملية.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">العملية</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">النتيجة</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">int / int</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"77.9\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">float دايماً</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">int * int</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">int</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"166.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">int + float</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">float</text></svg>",
+      "alt": "قبل السؤال: أي نوع بيطلع من كل عملية.",
+      "caption": "قبل السؤال: أي نوع بيطلع من كل عملية."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع، وشو نوع كل متغيّر بالآخر؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = 5\nb = 2\nc = a / b\nd = a * b\ne = c + d\nprint(c, d, e)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">2.5 10 12.5</pre></div></div>",
+      "steps": [
+        {
+          "label": "قسمة <code dir=\"ltr\">/</code>: float",
+          "body": "<code dir=\"ltr\">c = 2.5</code>"
+        },
+        {
+          "label": "ضرب int بـ int: int",
+          "body": "<code dir=\"ltr\">d = 10</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">float + int</bdi>: float",
+          "body": "<code dir=\"ltr\">e = 12.5</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">2.5 10 12.5</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">a</bdi></th><th><bdi dir=\"ltr\">b</bdi></th><th><bdi dir=\"ltr\">c</bdi></th><th><bdi dir=\"ltr\">d</bdi></th><th><bdi dir=\"ltr\">e</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = 5</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">b = 2</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">c = a / b</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">2.5</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">d = a * b</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">2.5</bdi></td><td><bdi dir=\"ltr\">10</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">e = c + d</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">2.5</bdi></td><td><bdi dir=\"ltr\">10</bdi></td><td><bdi dir=\"ltr\">12.5</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(c, d, e)</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">2.5</bdi></td><td><bdi dir=\"ltr\">10</bdi></td><td><bdi dir=\"ltr\">12.5</bdi></td><td><bdi dir=\"ltr\">2.5 10 12.5</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش <code dir=\"ltr\">6 / 2</code> بيعطي <code dir=\"ltr\">3.0</code> ومش 3؟",
+          "a": "<p>لأنه <code dir=\"ltr\">/</code> بـ Python بترجّع دايماً float، حتى لو القسمة «طالعة صح». بدكم عدد صحيح؟ استعملوا <code dir=\"ltr\">//</code> (الدرس الجاي).</p><pre class=\"code\" dir=\"ltr\">print(6 / 2, 7 / 2, 6 // 2)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">3.0 3.5 3</pre>"
+        },
+        {
+          "q": "ليش <code dir=\"ltr\">0.1 + 0.2</code> مش بالزبط 0.3؟",
+          "a": "<p>الحاسوب بيحفظ float بالأصفار والآحاد، وفي كسور (متل 0.1) ما إلها تمثيل دقيق، متل ما <bdi dir=\"ltr\">1/3</bdi> ما إلها كتابة عشرية منتهية. الفرق صغير كتير، بس لهيك ما منقارن float بـ <code dir=\"ltr\">==</code> بحسابات دقيقة.</p><pre class=\"code\" dir=\"ltr\">print(0.1 + 0.2)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">0.30000000000000004</pre>"
+        },
+        {
+          "q": "<code dir=\"ltr\">int(3.9)</code> بيدوّر لـ 4؟",
+          "a": "<p>لأ. <code dir=\"ltr\">int</code> بيقصّ الكسر، ما بيدوّر. للتدوير في <code dir=\"ltr\">round</code>.</p><pre class=\"code\" dir=\"ltr\">print(int(3.9), int(-3.9), round(3.9))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">3 -3 4</pre>"
+        },
+        {
+          "q": "شو الفرق بين <code dir=\"ltr\">5</code> و <code dir=\"ltr\">\"5\"</code>؟",
+          "a": "<p>الأول عدد <bdi dir=\"ltr\">(int)</bdi> فينا نحسب فيه. التاني نص <bdi dir=\"ltr\">(str)</bdi> فيه حرف واحد. <code dir=\"ltr\">5 + 1</code> بيعطي 6، و<code dir=\"ltr\">\"5\" + 1</code> بيوقع بـ TypeError لأنه Python ما بيعرف إذا بدكم جمع أو لزق.</p><pre class=\"code\" dir=\"ltr\">print(\"5\" + 1)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">TypeError: can only concatenate str (not \"int\") to str</pre>"
+        },
+        {
+          "q": "شو هو <code dir=\"ltr\">bool</code>؟",
+          "a": "<p>نوع إلو قيمتين بس: <code dir=\"ltr\">True</code> و <code dir=\"ltr\">False</code>. هو نتيجة كل مقارنة (<code dir=\"ltr\">7 &gt; 3</code>)، ومنستعمله بالشروط بالفصل 3.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">\"5\" + 3</code> بيعطي 8",
+          "yes": "خطأ <code dir=\"ltr\">TypeError</code>: لازم <code dir=\"ltr\">int(\"5\") + 3</code>"
+        },
+        {
+          "no": "<code dir=\"ltr\">int(2.7)</code> بيعطي 3",
+          "yes": "بيعطي 2: int بيقطع، ما بيقرّب"
+        },
+        {
+          "no": "<code dir=\"ltr\">8 / 2</code> بيعطي 4",
+          "yes": "بيعطي <code dir=\"ltr\">4.0</code>: <code dir=\"ltr\">/</code> دايماً float"
+        },
+        {
+          "no": "<code dir=\"ltr\">true</code>",
+          "yes": "<code dir=\"ltr\">True</code>: بحرف كبير"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "html": "<p>هاد الكود بيوقف بخطأ. شغّلوه وشوفوا الرسالة:</p>"
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "x = \"5\" + 3",
+      "out": "TypeError: can only concatenate str (not \"int\") to str"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">print(9 / 3)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">3</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">3.0</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">3.33</bdi>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "شو نوع نتيجة <code dir=\"ltr\">/</code>؟",
+        "solution": "<p>القسمة العادية <code dir=\"ltr\">/</code> بترجّع دايماً float، حتى لو القسمة بتطلع صحيحة، فبينطبع 3.0.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">3.0</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">x = int(7.8) + int(\"2\")\nprint(x)</pre></div>",
+        "answer": [
+          "9"
+        ],
+        "hint": "int بيقطع الكسر.",
+        "solution": "<p><code dir=\"ltr\">int(7.8)</code> بيقطع الكسر وبيعطي 7، و<code dir=\"ltr\">int(\"2\")</code> بيحوّل النص للعدد 2. المجموع 9.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">9</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = 4\nb = 2.0\nprint(a * b)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">8</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">8.0</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">42.0</bdi>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "int ضرب float.",
+        "solution": "<p>لما في float واحد بالعملية، النتيجة float. فـ 4 ضرب 2.0 بيعطي 8.0.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">8.0</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "טיפוס",
+      "back": "نوع القيمة: <code dir=\"ltr\">int</code> صحيح، <code dir=\"ltr\">float</code> عشري، <code dir=\"ltr\">str</code> نص، <code dir=\"ltr\">bool</code> صح/غلط."
+    }
+  ]
+}

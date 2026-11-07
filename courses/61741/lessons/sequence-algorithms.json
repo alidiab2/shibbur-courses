@@ -1,0 +1,215 @@
+{
+  "slug": "sequence-algorithms",
+  "title": "ألغوريتمات على قوائم",
+  "he": "אלגוריתמים על סדרות",
+  "ref": "שבוע 6",
+  "minutes": 18,
+  "desc": "ألغوريتمات على قوائم بأسلوب امتحان كورس מבוא למדעי המחשב: مجموع وعدّ بشرط، أكبر قيمة ومكانها، بحث خطّي (חיפוש לינארי)، فحص إذا مرتّبة، وقلب قائمة بمكانها.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> نفس ألغوريتمات الفصل 4، بس هلّق على قائمة. وفي ألغوريتمات جديدة بتعتمد على المكان: مقارنة جيران، قلب، بحث. هاي «القطع» اللي بتنبني منها أغلب أسئلة القوائم بالامتحان.</p><ol><li>بحث خطّي (חיפוש לינארי): مكان أول ظهور أو -1</li><li>مكان الأكبر</li><li>مرتّبة؟ مقارنة كل عنصر مع جاره</li><li>قلب قائمة بالتبديل من الطرفين</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل سؤال «כתבו פונקציה שמקבלת רשימה…».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"فحص ترتيب: منقارن كل جوز جيران a[i] وa[i+1]. أول جوز بالعكس كافي لنقول «لا».\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"70.0\" y=\"122\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">a =</text><rect class=\"fk-chip t-hu\" x=\"82.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"112.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"112.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"146.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"176.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-mut\" x=\"176.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"210.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"274.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"304.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-mut\" x=\"304.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"338.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"368.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-mut\" x=\"368.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><line class=\"fk-line t-2\" x1=\"176.0\" y1=\"18\" x2=\"176.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"176.0,62 183.0,50.0 169.0,50.0\"/><text class=\"fk-t t-2\" x=\"182.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">i</text><line class=\"fk-line t-2\" x1=\"240.0\" y1=\"18\" x2=\"240.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"240.0,62 247.0,50.0 233.0,50.0\"/><text class=\"fk-t t-2\" x=\"246.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">i+1</text></svg>",
+      "alt": "فحص ترتيب: منقارن كل جوز جيران a[i] وa[i+1]. أول جوز بالعكس كافي لنقول «لا».",
+      "caption": "فحص ترتيب: منقارن كل جوز جيران <code dir=\"ltr\">a[i]</code> و<code dir=\"ltr\">a[i+1]</code>. أول جوز بالعكس كافي لنقول «لا»."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>ألغوريتم بيقارن <code dir=\"ltr\">a[i]</code> مع <code dir=\"ltr\">a[i + 1]</code> لازم يوقف عند <code dir=\"ltr\">len(a) − 2</code>، يعني <code dir=\"ltr\">range(len(a) - 1)</code>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>بأغلب الألغوريتمات على قوائم في سؤالين: «على شو بمرق؟» (كل العناصر، أو كل الجيران) و«متى بوقف؟» (بالآخر، أو أول ما لاقيت). return جوّا الحلقة هو الطريقة النظيفة للوقوف بكير.</p>"
+    },
+    {
+      "t": "h",
+      "text": "البحث والجيران"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"بحث خطي عن 7: منمرق من المكان 0 لقدّام، ومنوقف أول ما نلاقيه (بالمكان 1).\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"102.0\" y=\"122\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">a =</text><rect class=\"fk-chip t-hu\" x=\"114.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"144.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"178.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"208.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-mut\" x=\"208.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"242.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"272.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"272.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"306.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"336.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><line class=\"fk-line t-2\" x1=\"208.0\" y1=\"18\" x2=\"208.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"208.0,62 215.0,50.0 201.0,50.0\"/><text class=\"fk-t t-2\" x=\"214.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">لقيناه</text></svg>",
+      "alt": "بحث خطي عن 7: منمرق من المكان 0 لقدّام، ومنوقف أول ما نلاقيه (بالمكان 1).",
+      "caption": "بحث خطي عن 7: منمرق من المكان 0 لقدّام، ومنوقف أول ما نلاقيه (بالمكان 1)."
+    },
+    {
+      "t": "p",
+      "html": "<p>بحث خطّي (חיפוש לינארי): بدنا نعرف وين x بالقائمة. منمرق على الأماكن من الأول، وأول ما <code dir=\"ltr\">a[i] == x</code> منرجّع i. إذا خلصت الحلقة وما لقينا، منرجّع -1 (اتفاق: «مش موجود»). بأسوأ حالة منمرق على كل العناصر، فوقته بيكبر مع طول القائمة، ورح نقارنه بالبحث الثنائي بالفصل 9.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مكان الأكبر: نفس فكرة الأكبر، بس منحفظ المكان <code dir=\"ltr\">best</code> بدل القيمة، ومنقارن <code dir=\"ltr\">a[i] &gt; a[best]</code>. هيك عنا الاتنين: المكان، والقيمة <code dir=\"ltr\">a[best]</code>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مرتّبة تصاعدياً؟ كل عنصر لازم يكون أصغر أو بيساوي اللي بعده. منمرق على i من 0 لـ len−2، وإذا لقينا <code dir=\"ltr\">a[i] &gt; a[i+1]</code> منرجّع False. إذا ما لقينا ولا جوز بالعكس، True. لاحظوا إنه هون كمان «True» برّا الحلقة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>قلب قائمة بمكانها: منبدّل الأول مع الآخر، التاني مع اللي قبل الآخر، وهيك لحد النص. i من 0 لـ <code dir=\"ltr\">len(a) // 2</code> (بدون)، وجوزه <code dir=\"ltr\">len(a) - 1 - i</code>. إذا كمّلنا لآخر القائمة، منرجع نقلبها للترتيب الأصلي.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"جيران: a[i] و a[i + 1]. آخر i مسموح هو len(a) - 2، وإلا a[i + 1] بيطلع برّا.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"102.0\" y=\"122\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">a =</text><rect class=\"fk-chip t-hu\" x=\"114.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"144.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"178.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"208.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-mut\" x=\"208.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"242.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"272.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-mut\" x=\"272.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"306.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"336.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><line class=\"fk-line t-hu\" x1=\"272.0\" y1=\"18\" x2=\"272.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"272.0,62 279.0,50.0 265.0,50.0\"/><text class=\"fk-t t-hu\" x=\"278.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">i</text><line class=\"fk-line t-2\" x1=\"336.0\" y1=\"18\" x2=\"336.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"336.0,62 343.0,50.0 329.0,50.0\"/><text class=\"fk-t t-2\" x=\"342.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">i + 1</text></svg>",
+      "alt": "جيران: a[i] و a[i + 1]. آخر i مسموح هو len(a) - 2، وإلا a[i + 1] بيطلع برّا.",
+      "caption": "جيران: <bdi dir=\"ltr\">a[i]</bdi> و <bdi dir=\"ltr\">a[i + 1]</bdi>. آخر i مسموح هو <bdi dir=\"ltr\">len(a) - 2</bdi>، وإلا <bdi dir=\"ltr\">a[i + 1]</bdi> بيطلع برّا."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def find(a, x):\n    for i in range(len(a)):\n        if a[i] == x:\n            return i\n    return -1\n\ndef is_sorted(a):\n    for i in range(len(a) - 1):\n        if a[i] > a[i + 1]:\n            return False\n    return True\n\nprint(find([5, 8, 2, 8], 8), find([5, 8], 3))\nprint(is_sorted([1, 4, 4, 7]), is_sorted([1, 5, 3]))",
+      "out": "1 -1\nTrue False"
+    },
+    {
+      "t": "method",
+      "title": "كيف تكتبوا دالة على قائمة، 3 أسئلة",
+      "steps": [
+        "<b>قيم أو أماكن؟</b> بدنا المكان أو الجار؟ ← <code dir=\"ltr\">range(len(a))</code>.",
+        "<b>لوين الحلقة؟</b> جيران ← <code dir=\"ltr\">range(len(a) - 1)</code>. لنص القائمة ← <code dir=\"ltr\">len(a) // 2</code>.",
+        "<b>متى بنرجّع؟</b> أول ما لقينا ← return جوّا. «ولا واحد» ← return بعد الحلقة."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: بحث خطي",
+      "html": "<p>منمرق على الأماكن، وأول ما نلاقي x منحفظ المكان ومنطلع بـ break. ليش pos بيبلّش -1؟ لأنه إذا ما لقينا، -1 بتحكي «مش موجود» وما بتنلخبط مع مكان حقيقي من range.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [4, 7, 1, 7]\nx = 7\npos = -1\nfor i in range(len(a)):\n    if a[i] == x:\n        pos = i\n        break\nprint(pos)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">1</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">i</bdi></th><th><bdi dir=\"ltr\">pos</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = [4, 7, 1, 7]</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">pos = -1</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(len(a)):</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(len(a)):</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">pos = i</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(pos)</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">1</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: قلب قائمة بمكانها",
+      "html": "<p>منبدّل من الطرفين لحد النص. بقائمة من 5، الوسط (مكان 2) بيضل مكانه.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [1, 2, 3, 4, 5]\nn = len(a)\nfor i in range(n // 2):\n    a[i], a[n - 1 - i] = a[n - 1 - i], a[i]\nprint(a)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">[5, 4, 3, 2, 1]</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">i</bdi></th><th><bdi dir=\"ltr\">a</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = [1, 2, 3, 4, 5]</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">[1, 2, 3, 4, 5]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(n // 2):</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">[1, 2, 3, 4, 5]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a[i], a[n - 1 - i] = a[n - 1 - i], a[i]</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">[5, 2, 3, 4, 1]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(n // 2):</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">[5, 2, 3, 4, 1]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a[i], a[n - 1 - i] = a[n - 1 - i], a[i]</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">[5, 4, 3, 2, 1]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(a)</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">[5, 4, 3, 2, 1]</bdi></td><td><bdi dir=\"ltr\">[5, 4, 3, 2, 1]</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"معطيات السؤال: best بيبلّش 0، والمقارنة a[i] > a[best] (قيمة مع قيمة). انتبهوا للـ 9 التانية.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"70.0\" y=\"82\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">a =</text><rect class=\"fk-chip t-hu\" x=\"82.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"112.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"112.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"146.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"176.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-mut\" x=\"176.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"210.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"274.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"304.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-mut\" x=\"304.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"338.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"368.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-mut\" x=\"368.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text></svg>",
+      "alt": "معطيات السؤال: best بيبلّش 0، والمقارنة a[i] > a[best] (قيمة مع قيمة). انتبهوا للـ 9 التانية.",
+      "caption": "معطيات السؤال: best بيبلّش 0، والمقارنة <bdi dir=\"ltr\">a[i]</bdi> &gt; <bdi dir=\"ltr\">a[best]</bdi> (قيمة مع قيمة). انتبهوا للـ 9 التانية."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بترجّع الدالة لـ <bdi dir=\"ltr\">[3, 9, 2, 9, 5]</bdi>؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def where_max(a):\n    best = 0\n    for i in range(1, len(a)):\n        if a[i] &gt; a[best]:\n            best = i\n    return best\n\nprint(where_max([3, 9, 2, 9, 5]))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">1</pre></div></div>",
+      "steps": [
+        {
+          "label": "best بيبلّش 0 (القيمة 3)",
+          "body": "<code dir=\"ltr\">best = 0</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">i=1</bdi>: <bdi dir=\"ltr\">9 &gt; 3</bdi>",
+          "body": "<code dir=\"ltr\">best = 1</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">i=3</bdi>: <bdi dir=\"ltr\">9 &gt; 9</bdi>؟ لا: منحفظ أول ظهور",
+          "body": "<code dir=\"ltr\">best = 1</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">1</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">i</bdi></th><th><bdi dir=\"ltr\">best</bdi></th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">best = 0</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">0</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(1, len(a)):</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">0</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">best = i</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">1</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(1, len(a)):</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">1</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(1, len(a)):</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">1</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(1, len(a)):</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">1</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "<code dir=\"ltr\">for x in a</code> ولا <code dir=\"ltr\">for i in range(len(a))</code>؟",
+          "a": "<p>إذا بدكم القيم بس (مجموع، عدّ): <code dir=\"ltr\">for x in a</code> أقصر. إذا بدكم المكان (وين لقيت، مقارنة مع الجار، تغيير العنصر): <code dir=\"ltr\">range(len(a))</code>.</p>"
+        },
+        {
+          "q": "ليش منرجّع -1 لما مش موجود؟ مش <code dir=\"ltr\">a[-1]</code> مكان صحيح؟",
+          "a": "<p>صح، بـ Python <code dir=\"ltr\">a[-1]</code> هو آخر عنصر، بس الدالة بترجّع مكان من 0 لـ <code dir=\"ltr\">len(a) - 1</code>، فـ -1 ما ممكن تكون جواب حقيقي. اللي بيستدعي لازم يفحص <code dir=\"ltr\">if pos == -1</code> قبل ما يستعملها كمكان.</p>"
+        },
+        {
+          "q": "كيف بقارن كل عنصر بجاره بدون IndexError؟",
+          "a": "<p>الحلقة لحد <code dir=\"ltr\">len(a) - 1</code>: هيك آخر i هو اللي قبل الأخير، و <code dir=\"ltr\">a[i + 1]</code> دايماً موجود.</p><pre class=\"code\" dir=\"ltr\">a = [1, 3, 3, 7]\nfor i in range(len(a) - 1):\n    if a[i] == a[i + 1]:\n        print(\"same at\", i)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">same at 1</pre>"
+        },
+        {
+          "q": "لازم القائمة تكون مرتّبة لنبحث فيها؟",
+          "a": "<p>للبحث الخطي لأ: بيشتغل على أي قائمة، بس بيمرق على الكل بأسوأ حالة <bdi dir=\"ltr\">(O(n))</bdi>. القائمة المرتّبة بتسمح ببحث أسرع كتير، البحث الثنائي بالفصل 9.</p>"
+        },
+        {
+          "q": "ليش «أكبر» بيبلّش من <code dir=\"ltr\">a[0]</code> ومش من 0؟",
+          "a": "<p>لأنه إذا كل العناصر سالبة، 0 بيربح وهو مش بالقائمة. <code dir=\"ltr\">a[0]</code> دايماً من القائمة، ومنكمّل المقارنة من المكان 1.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">for i in range(len(a)):</code> مع <code dir=\"ltr\">a[i + 1]</code>",
+          "yes": "بآخر دورة <code dir=\"ltr\">a[len(a)]</code>: IndexError. <code dir=\"ltr\">range(len(a) - 1)</code>"
+        },
+        {
+          "no": "<code dir=\"ltr\">else: return -1</code> جوّا حلقة البحث",
+          "yes": "بيرجّع بعد أول عنصر. <code dir=\"ltr\">return -1</code> بعد الحلقة"
+        },
+        {
+          "no": "القلب لآخر القائمة <code dir=\"ltr\">range(n)</code>",
+          "yes": "لنص القائمة <code dir=\"ltr\">range(n // 2)</code>، وإلا بترجع متل ما كانت"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [4, 7, 1, 7, 3]\nc = 0\nfor i in range(len(a) - 1):\n    if a[i] &lt; a[i + 1]:\n        c += 1\nprint(c)</pre></div>",
+        "answer": [
+          "2"
+        ],
+        "hint": "كم جوز جيران فيه الأول أصغر؟",
+        "solution": "<p>الجيران هنّي (4,7) و(7,1) و(1,7) و(7,3). الأول أصغر من التاني بجوزين بس: (4,7) و(1,7).</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">2</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def find(a, x):\n    for i in range(len(a)):\n        if a[i] == x:\n            return i\n    return -1\n\nprint(find([6, 2, 6, 9], 6) + find([1, 2], 5))</pre></div>",
+        "answer": [
+          "-1"
+        ],
+        "hint": "أول ظهور، و-1 إذا مش موجود.",
+        "solution": "<p>أول ظهور للـ 6 بالمكان 0 لأنه البحث بيوقف أول ما يلاقي، والـ 5 مش موجودة بالقائمة التانية فبترجع -1. المجموع -1.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">-1</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [1, 2, 3, 4]\nfor i in range(len(a)):\n    a[i], a[len(a) - 1 - i] = a[len(a) - 1 - i], a[i]\nprint(a)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[4, 3, 2, 1]</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[1, 2, 3, 4]</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[4, 2, 3, 1]</bdi>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "الحلقة لآخر القائمة، مش لنصها.",
+        "solution": "<p>بالنص الأول قلبنا القائمة، وبالنص التاني بدّلنا نفس الأزواج مرة تانية، فرجعت متل ما كانت بالأول.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">[1, 2, 3, 4]</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "חיפוש לינארי",
+      "back": "بحث خطّي: منمرق من الأول، ومنرجّع أول مكان فيه x، أو -1."
+    }
+  ]
+}

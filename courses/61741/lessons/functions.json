@@ -1,0 +1,228 @@
+{
+  "slug": "functions",
+  "title": "دوال: def، بارامترات و return",
+  "he": "פונקציה",
+  "ref": "שבוע 5",
+  "minutes": 18,
+  "desc": "كيف منعرّف دالة (פונקציה) بـ Python بـ def، شو الفرق بين البارامتر (פרמטר) والارجومنت (ארגומנט)، والفرق الكبير بين return و print، مع تتبّع استدعاء دالة.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> برنامج حقيقي بيتكرّر فيه نفس الحساب بأماكن كتير. الدالة بتعطي اسم لقطعة كود، ومنستدعيها وقت ما بدنا. بالامتحان أغلب الأسئلة بتبلّش بـ «כתבו פונקציה שמקבלת… ומחזירה…».</p><ol><li><code dir=\"ltr\">def</code>: تعريف دالة</li><li>بارامترات (פרמטרים): المدخلات</li><li><code dir=\"ltr\">return</code>: المخرجات</li><li>return أو print؟ أهم فرق بالفصل</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما في حساب بيتكرّر، أو السؤال بيطلب פונקציה.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"الدالة متل ماكنة: بتدخلها قيمة (פרמטר)، بتشتغل جوّا، وبترجّع قيمة (ערך מוחזר) لمكان ما استدعيناها.\" class=\"fk\"><rect class=\"fk-chip t-1 solid\" x=\"74.0\" y=\"15\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x</text><rect class=\"fk-chip t-1\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut solid\" x=\"174.99\" y=\"15\" width=\"130.01999999999998\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">square(x)</text><rect class=\"fk-chip t-mut\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">→</text><rect class=\"fk-chip t-hu solid\" x=\"338.66\" y=\"15\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">return</text><rect class=\"fk-chip t-hu\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text></svg>",
+      "alt": "الدالة متل ماكنة: بتدخلها قيمة (פרמטר)، بتشتغل جوّا، وبترجّع قيمة (ערך מוחזר) لمكان ما استدعيناها.",
+      "caption": "الدالة متل ماكنة: بتدخلها قيمة (פרמטר)، بتشتغل جوّا، وبترجّع قيمة (ערך מוחזר) لمكان ما استدعيناها."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p><code dir=\"ltr\">return</code> <b>بترجّع</b> قيمة للي استدعى، وبتوقف الدالة فوراً. <code dir=\"ltr\">print</code> بس <b>بتطبع</b> على الشاشة، والقيمة ما بتوصل لحدا. دالة بدون return بترجّع <code dir=\"ltr\">None</code>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>تعريف الدالة (<code dir=\"ltr\">def</code>) ما بيشغّل إشي: بس بيعلّم Python وصفة جديدة. الكود جوّا بيشتغل كل مرة منستدعي الدالة باسمها مع قيم بين قوسين.</p>"
+    },
+    {
+      "t": "h",
+      "text": "كيف بتشتغل الدالة؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 100\" role=\"img\" aria-label=\"مسار استدعاء: الأرجومنت بيتحط بالبارامتر، الجسم بيشتغل، و return بترجّع القيمة لمكان الاستدعاء.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"374.0\" y=\"20\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"421.5\" y=\"51.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">square(3)</text><line class=\"fk-line t-mut\" x1=\"372.0\" y1=\"46\" x2=\"362.0\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"350.0,46 362.0,53.0 362.0,39.0\"/><rect class=\"fk-chip t-hu\" x=\"253.0\" y=\"20\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"300.5\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x = 3</text><line class=\"fk-line t-mut\" x1=\"251.0\" y1=\"46\" x2=\"241.0\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"229.0,46 241.0,53.0 241.0,39.0\"/><rect class=\"fk-chip t-hu\" x=\"132.0\" y=\"20\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"179.5\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x * x</text><line class=\"fk-line t-mut\" x1=\"130.0\" y1=\"46\" x2=\"120.0\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"108.0,46 120.0,53.0 120.0,39.0\"/><rect class=\"fk-chip t-2 solid\" x=\"11.0\" y=\"20\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"58.5\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">return 9</text></svg>",
+      "alt": "مسار استدعاء: الأرجومنت بيتحط بالبارامتر، الجسم بيشتغل، و return بترجّع القيمة لمكان الاستدعاء.",
+      "caption": "مسار استدعاء: الأرجومنت بيتحط بالبارامتر، الجسم بيشتغل، و return بترجّع القيمة لمكان الاستدعاء."
+    },
+    {
+      "t": "p",
+      "html": "<p><code dir=\"ltr\">def square(x): return x * x</code> بتعرّف دالة اسمها square مع بارامتر واحد x. لما منكتب <code dir=\"ltr\">square(3)</code>، Python بيعمل x = 3، بينفّذ جسم الدالة، ولما يوصل لـ return بيرجع لمكان الاستدعاء ومعو القيمة 9. هيك <code dir=\"ltr\">y = square(3) + 1</code> بيعطي y = 10.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>البارامتر هو الاسم بالتعريف (x)، والارجومنت (ארגומנט) هو القيمة اللي بنبعتها بالاستدعاء (3). بالترتيب: الارجومنت الأول للبارامتر الأول، وهيك.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>return أو print؟ إذا السؤال بيقول «מחזירה» بدها return، و«מדפיסה» بدها print. دالة بتطبع بدل ما ترجّع ما فينا نستعمل نتيجتها بحساب: <code dir=\"ltr\">square(3) + 1</code> رح يطلع خطأ لأنه None + 1. وكمان: return بتوقف الدالة، فكل سطر بعدها بنفس البلوك ما بيشتغل. فينا نستعمل هاد عن قصد، متل <code dir=\"ltr\">return False</code> أول ما نلاقي قاسم.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>دالة بترجّع bool اسمها عادة بيبلّش بـ is: <code dir=\"ltr\">is_even(n)</code>. فينا نحطها مباشرة بـ if: <code dir=\"ltr\">if is_even(7):</code>.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 162\" role=\"img\" aria-label=\"print بتطبع وخلص؛ return بترجّع قيمة فينا نحسب فيها.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"250\" y=\"40\" width=\"210\" height=\"116\" rx=\"10\"/><text class=\"fk-t t-good\" x=\"355\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح</text><text class=\"fk-t t-good\" x=\"355\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">def f(x):</text><text class=\"fk-t t-good\" x=\"355\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">return x + 1</text><text class=\"fk-t t-good\" x=\"355\" y=\"134\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">f(2) * 10 ← 30</text><rect class=\"fk-chip t-bad\" x=\"20\" y=\"40\" width=\"210\" height=\"116\" rx=\"10\"/><text class=\"fk-t t-bad\" x=\"125\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط</text><text class=\"fk-t t-bad\" x=\"125\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">def g(x):</text><text class=\"fk-t t-bad\" x=\"125\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">print(x + 1)</text><text class=\"fk-t t-bad\" x=\"125\" y=\"134\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">g(2) * 10 ← خطأ</text></svg>",
+      "alt": "print بتطبع وخلص؛ return بترجّع قيمة فينا نحسب فيها.",
+      "caption": "print بتطبع وخلص؛ return بترجّع قيمة فينا نحسب فيها."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def square(x):\n    return x * x\n\ndef is_even(n):\n    return n % 2 == 0\n\ny = square(3) + 1\nprint(y)\nprint(is_even(7), is_even(10))\nprint(square(square(2)))",
+      "out": "10\nFalse True\n16"
+    },
+    {
+      "t": "html",
+      "html": "<div class=\"compare\"><div class=\"ok\"><b>بترجّع: فينا نستعملها</b><p><code dir=\"ltr\">def f(x): return x + 1</code></p><p><code dir=\"ltr\">f(2) * 10</code> ← 30</p></div><div class=\"no\"><b>بتطبع بس</b><p><code dir=\"ltr\">def g(x): print(x + 1)</code></p><p><code dir=\"ltr\">g(2) * 10</code> ← خطأ: <code dir=\"ltr\">None * 10</code></p></div></div>"
+    },
+    {
+      "t": "method",
+      "title": "كيف تكتبوا دالة بالامتحان، 3 خطوات",
+      "steps": [
+        "<b>الكوتيرت</b> اسم واضح، وبارامتر لكل إشي «بتقبله» الدالة.",
+        "<b>الجسم</b> نفس الألغوريتمات من الفصل 4، على البارامترات بدل input.",
+        "<b>النهاية</b> «מחזירה» ← return. «מדפיסה» ← print. وافحصوا كل مسار بيوصل لـ return."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: دالة سطر واحد",
+      "html": "<p>دالة بتضاعف. ليش منكتب <code dir=\"ltr\">print(double(4))</code> ومش بس <code dir=\"ltr\">double(4)</code>؟ لأنه الدالة <b>بترجّع</b> 8 وما بتطبعه؛ إذا ما طبعنا أو حفظنا، القيمة بتروح.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def double(x):\n    return 2 * x\n\nprint(double(4))\nprint(double(double(3)))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">8\n12</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: عدد أوّلي كدالة",
+      "html": "<p>نفس فحص الأوّلي، بس هلّق return False أول ما نلاقي قاسم، وما في داعي لعلم.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def is_prime(n):\n    if n &lt; 2:\n        return False\n    d = 2\n    while d * d &lt;= n:\n        if n % d == 0:\n            return False\n        d += 1\n    return True\n\nfor k in [1, 7, 9, 13]:\n    print(k, is_prime(k))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">1 False\n7 True\n9 False\n13 True</pre></div></div><p>الـ <code dir=\"ltr\">return True</code> برّا الحلقة: منوصلها بس إذا الحلقة خلصت بدون ما نلاقي قاسم.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"الاستدعاء f(3, 8): الأرجومنتات بتروح للبارامترات بالترتيب، a = 3 و b = 8.\" class=\"fk\"><rect class=\"fk-chip t-1 solid\" x=\"74.0\" y=\"15\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a</text><rect class=\"fk-chip t-1\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-3 solid\" x=\"220.0\" y=\"15\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">b</text><rect class=\"fk-chip t-3\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-3\" x=\"240.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-hu solid\" x=\"338.66\" y=\"15\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">return</text><rect class=\"fk-chip t-hu\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">?</text></svg>",
+      "alt": "الاستدعاء f(3, 8): الأرجومنتات بتروح للبارامترات بالترتيب، a = 3 و b = 8.",
+      "caption": "الاستدعاء <bdi dir=\"ltr\">f(3, 8)</bdi>: الأرجومنتات بتروح للبارامترات بالترتيب، <bdi dir=\"ltr\">a = 3</bdi> و <bdi dir=\"ltr\">b = 8</bdi>."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def f(a, b):\n    if a &gt; b:\n        return a - b\n    return b - a\n\nx = f(3, 8)\ny = f(x, 2)\nz = f(y, y)\nprint(x, y, z)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">5 3 0</pre></div></div>",
+      "steps": [
+        {
+          "label": "<code dir=\"ltr\">f(3, 8)</code>: 3 مش أكبر، فـ 8 − 3",
+          "body": "<code dir=\"ltr\">x = 5</code>"
+        },
+        {
+          "label": "<code dir=\"ltr\">f(5, 2)</code>: 5 أكبر",
+          "body": "<code dir=\"ltr\">y = 3</code>"
+        },
+        {
+          "label": "<code dir=\"ltr\">f(3, 3)</code>: مش أكبر، 3 − 3",
+          "body": "<code dir=\"ltr\">z = 0</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">5 3 0</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">x</bdi></th><th><bdi dir=\"ltr\">y</bdi></th><th><bdi dir=\"ltr\">z</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">def f(a, b):</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">x = f(3, 8)</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">y = f(x, 2)</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">z = f(y, y)</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(x, y, z)</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">5 3 0</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "لازم الدالة يكون إلها بارامترات؟",
+          "a": "<p>لأ. <code dir=\"ltr\">def hello():</code> بدون بارامترات مسموح، والاستدعاء بيضل مع أقواس فاضية: <code dir=\"ltr\">hello()</code>. بدون الأقواس ما بتنستدعى.</p>"
+        },
+        {
+          "q": "بقدر أرجّع أكتر من قيمة؟",
+          "a": "<p>آه، بفاصلة: <code dir=\"ltr\">return a, b</code>. Python بيرجّعهم مع بعض كـ tuple (זוג סדור، متل قائمة ما بتتغيّر)، وفينا نفرطهم لمتغيرين.</p><pre class=\"code\" dir=\"ltr\">def div_mod(a, b):\n    return a // b, a % b\n\nq, r = div_mod(17, 5)\nprint(q, r)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">3 2</pre>"
+        },
+        {
+          "q": "لازم أعرّف الدالة قبل ما أستدعيها؟",
+          "a": "<p>آه، بترتيب التنفيذ. Python بيقرا من فوق لتحت، وإذا وصل لاستدعاء قبل ما شاف <code dir=\"ltr\">def</code>، ما بيعرف الاسم.</p><pre class=\"code\" dir=\"ltr\">print(sq(3))\n\ndef sq(x):\n    return x * x</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">NameError: name 'sq' is not defined</pre>"
+        },
+        {
+          "q": "بقدر دالة تستدعي دالة تانية؟",
+          "a": "<p>أكيد، وهيك منبني برامج كبيرة: دوال صغيرة، كل وحدة بتعمل إشي واحد، ودالة أكبر بتستعملهم. بالفصل 10 كمان رح نشوف دالة بتستدعي <b>حالها</b>.</p>"
+        },
+        {
+          "q": "شو بيصير بـ <code dir=\"ltr\">return</code> بدون قيمة؟",
+          "a": "<p>الدالة بتوقف وبترجّع <code dir=\"ltr\">None</code>. منستعملها لنطلع بكير من دالة بتطبع بس.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">print</code> بدل <code dir=\"ltr\">return</code> لما السؤال بيقول «מחזירה»",
+          "yes": "<code dir=\"ltr\">return</code>، والطباعة برّا الدالة"
+        },
+        {
+          "no": "كود بعد <code dir=\"ltr\">return</code> بنفس البلوك بيشتغل",
+          "yes": "return بتوقف الدالة فوراً"
+        },
+        {
+          "no": "<code dir=\"ltr\">return True</code> بـ else جوّا الحلقة",
+          "yes": "بعد الحلقة: بس لما فحصنا الكل"
+        },
+        {
+          "no": "تعريف الدالة بيشغّلها",
+          "yes": "بس الاستدعاء <code dir=\"ltr\">f(…)</code> بيشغّلها"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def add(a, b):\n    return a + b\n    print(\"done\")\n\nprint(add(2, add(3, 4)))</pre></div>",
+        "answer": [
+          "9"
+        ],
+        "hint": "الاستدعاء الداخلي أول. وشو بيصير بعد return؟",
+        "solution": "<p>أول الاستدعاء الداخلي <code dir=\"ltr\">add(3, 4)</code> بيرجّع 7، بعدين <code dir=\"ltr\">add(2, 7)</code> بيرجّع 9. سطر الطباعة بعد return ما بيشتغل أبداً.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">9</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def show(x):\n    print(x * 2)\n\nr = show(5)\nprint(r)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">10<br>10</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">10<br>None</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">None</bdi>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "show بترجّع إشي؟",
+        "solution": "<p>show بتطبع 10، بس ما فيها return، فبترجّع None اللي بتنحط بـ r، وبالسطر الأخير بينطبع None.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">10\nNone</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def g(n):\n    if n % 3 == 0:\n        return 1\n    if n % 2 == 0:\n        return 2\n    return 3\n\nprint(g(6) + g(4) + g(5))</pre></div>",
+        "answer": [
+          "6"
+        ],
+        "hint": "كل return بتوقف.",
+        "solution": "<p>الـ 6 بتنقسم على 3 فبترجّع 1. الـ 4 مش على 3 بس زوجية فبترجّع 2. الـ 5 ولا وحدة فبترجّع 3. المجموع 6.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">6</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "פונקציה",
+      "back": "دالة: <code dir=\"ltr\">def name(params):</code>. بتشتغل بس لما نستدعيها."
+    },
+    {
+      "t": "card",
+      "front": "ערך מוחזר",
+      "back": "القيمة اللي بترجّعها <code dir=\"ltr\">return</code>. بدون return: <code dir=\"ltr\">None</code>."
+    }
+  ]
+}

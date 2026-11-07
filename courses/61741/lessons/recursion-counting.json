@@ -1,0 +1,231 @@
+{
+  "slug": "recursion-counting",
+  "title": "رجعية للعدّ والاختيار: كم طريقة؟",
+  "he": "רקורסיה: ספירה ובחירה",
+  "ref": "שבוע 11",
+  "minutes": 17,
+  "desc": "أسئلة رجعية ما إلها حل سهل بحلقة: كم طريقة لطلوع درج بخطوة أو خطوتين، هل في مجموعة جزئية مجموعها k (סכום תת־קבוצה)، وكل الكلمات من حروف معطاة، مع شجرة القرارات.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> أصعب سؤال رجعية بالامتحان عادة من هالنوع: «כמה דרכים…» أو «האם קיימת תת־קבוצה…». الحل دايماً نفس الفكرة: بكل خطوة في خيارين (أو أكتر)، ومنجرّب الاتنين رجعياً.</p><ol><li>خيارين بكل خطوة ← استدعائين</li><li>عدّ: منجمع النتائج</li><li>وجود: or بين الخيارات</li><li>شجرة قرارات</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما في «כמה דרכים»، «האם אפשר»، أو «כל האפשרויות».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 214\" role=\"img\" aria-label=\"طلوع درج: من كل درجة يا خطوة يا خطوتين. كل فرع خيار، والطرق = مجموع طرق الفرعين.\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"130\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"350\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"130\" y1=\"132\" x2=\"70\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"130\" y1=\"132\" x2=\"190\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"350\" y1=\"132\" x2=\"290\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"350\" y1=\"132\" x2=\"410\" y2=\"164\" stroke-width=\"2\"/><rect class=\"fk-chip t-hu\" x=\"198.0\" y=\"24\" width=\"84\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"48.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">سلّم 4</text><rect class=\"fk-chip t-hu\" x=\"100.0\" y=\"94\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"130.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"320.0\" y=\"94\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"350.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-2\" x=\"40.0\" y=\"164\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"70.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-2\" x=\"160.0\" y=\"164\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"190.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-2\" x=\"260.0\" y=\"164\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"290.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-2\" x=\"380.0\" y=\"164\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"410.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "طلوع درج: من كل درجة يا خطوة يا خطوتين. كل فرع خيار، والطرق = مجموع طرق الفرعين.",
+      "caption": "طلوع درج: من كل درجة يا خطوة يا خطوتين. كل فرع خيار، والطرق = مجموع طرق الفرعين."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>بكل خطوة: <b>جرّبوا كل خيار</b> باستدعاء رجعي. للعدّ ← <b>اجمعوا</b> النتائج. لسؤال «هل في؟» ← <b>or</b>. والوقوف: نجحنا (رجّعوا 1 / True) أو فشلنا (0 / False).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>بدل ما نفكّر بكل الطرق مرة وحدة، منفكّر بأول قرار بس: «خطوة وحدة أو تنتين؟» أو «آخد هالعنصر أو لا؟». بعد القرار ضلّت نفس المشكلة بس أصغر، وهون الرجعية بتشتغل.</p>"
+    },
+    {
+      "t": "h",
+      "text": "عدّ ووجود"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 214\" role=\"img\" aria-label=\"درج من 3 بخطوات 1 أو 2: كل استدعاء بيتفرّع حسب الخطوة الأولى. الأوراق هنّي الطرق: 3.\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"140\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"340\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"140\" y1=\"132\" x2=\"90\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"140\" y1=\"132\" x2=\"190\" y2=\"164\" stroke-width=\"2\"/><rect class=\"fk-chip t-hu\" x=\"192.5\" y=\"24\" width=\"95\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"48.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ways(3)</text><rect class=\"fk-chip t-hu\" x=\"92.5\" y=\"94\" width=\"95\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"140.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ways(2)</text><rect class=\"fk-chip t-2\" x=\"292.5\" y=\"94\" width=\"95\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"340.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ways(1)</text><rect class=\"fk-chip t-2\" x=\"42.5\" y=\"164\" width=\"95\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"90.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ways(1)</text><rect class=\"fk-chip t-2\" x=\"142.5\" y=\"164\" width=\"95\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"190.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ways(0)</text></svg>",
+      "alt": "درج من 3 بخطوات 1 أو 2: كل استدعاء بيتفرّع حسب الخطوة الأولى. الأوراق هنّي الطرق: 3.",
+      "caption": "درج من 3 بخطوات 1 أو 2: كل استدعاء بيتفرّع حسب الخطوة الأولى. الأوراق هنّي الطرق: 3."
+    },
+    {
+      "t": "p",
+      "html": "<p>درج فيه n درجة، كل مرة بتطلعوا 1 أو 2. كم طريقة؟ أول خطوة يا 1 (وبيضل n−1) يا 2 (وبيضل n−2)، فالطرق \\(W(n)=W(n-1)+W(n-2)\\). الوقوف: n == 0 طريقة وحدة (وصلنا)، n &lt; 0 صفر طرق (قفزنا فوق الآخر). هاي فيبوناتشي بلبس تاني!</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مجموعة جزئية بمجموع k (סכום תת־קבוצה): لكل عنصر في قرار: ناخدو (فالمطلوب صار k − a[i]) أو ما ناخدو (k ضل). إذا واحد من الخيارين نجح، في حل: <code dir=\"ltr\">or</code>. الوقوف: k == 0 ← True (لقينا). خلصت العناصر و k مش صفر ← False.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>هالنوع تعقيده O(2ⁿ) لأنه كل عنصر إلو خيارين. هاد منيح لـ n صغير (عشرين تلاتين)، وبالامتحان n صغير دايماً. المهم إنه الكود قصير وصح.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>نصيحة للكتابة: اكتبوا أول الوقوف (نجاح، فشل)، وبعدين سطر واحد فيه كل الخيارات. إذا الكود طلع أطول من 8 أسطر، غالباً في تعقيد زيادة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"نفس شجرة الاختيارات، بس طريقة جمع النتائج بتتغيّر حسب السؤال.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"298.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"352.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">السؤال</text><rect class=\"fk-chip t-hu solid\" x=\"186.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الوقوف</text><rect class=\"fk-chip t-hu solid\" x=\"74.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"128.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الخطوة</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">كم طريقة؟</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">1 أو 0</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">جمع (+)</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">في طريقة؟</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"121.9\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True / False</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">or</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"166.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">أحسن طريقة؟</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">قيمة</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">min / max</text></svg>",
+      "alt": "نفس شجرة الاختيارات، بس طريقة جمع النتائج بتتغيّر حسب السؤال.",
+      "caption": "نفس شجرة الاختيارات، بس طريقة جمع النتائج بتتغيّر حسب السؤال."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def ways(n):\n    if n == 0:\n        return 1\n    if n < 0:\n        return 0\n    return ways(n - 1) + ways(n - 2)\n\ndef subset_sum(a, k, i=0):\n    if k == 0:\n        return True\n    if i == len(a):\n        return False\n    return subset_sum(a, k - a[i], i + 1) or subset_sum(a, k, i + 1)\n\nprint(ways(4), ways(10))\nprint(subset_sum([3, 7, 1, 8], 11), subset_sum([3, 7, 1, 8], 6))",
+      "out": "5 89\nTrue False"
+    },
+    {
+      "t": "method",
+      "title": "سؤال «كم طريقة / هل في»، 3 خطوات",
+      "steps": [
+        "<b>الوقوف</b> متى نجحنا؟ متى فشلنا أكيد؟",
+        "<b>القرار</b> شو الخيارات بالخطوة الأولى؟ كل خيار ← استدعاء على مشكلة أصغر.",
+        "<b>التركيب</b> عدّ ← +. وجود ← or."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: درج بخطوات 1 أو 2",
+      "html": "<p>الخطوة الأولى يا 1 يا 2، والباقي مشكلة أصغر. ليش <code dir=\"ltr\">n &lt;= 1</code> بيرجّع 1؟ لدرج من 0 أو 1 في طريقة وحدة بس.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def ways(n):\n    if n &lt;= 1:\n        return 1\n    return ways(n - 1) + ways(n - 2)\n\nfor n in range(1, 6):\n    print(n, ways(n))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">1 1\n2 2\n3 3\n4 5\n5 8</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: كل الكلمات بطول n من حرفين",
+      "html": "<p>منطبع كل الكلمات بطول 3 من a و b. كل مكان فيه قرار: a أو b. prefix هو اللي بنيناه لهلّق.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def words(prefix, n):\n    if len(prefix) == n:\n        print(prefix, end=\" \")\n        return\n    words(prefix + \"a\", n)\n    words(prefix + \"b\", n)\n\nwords(\"\", 3)\nprint()</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">aaa aab aba abb baa bab bba bbb </pre></div></div><p>8 كلمات = \\(2^3\\). الترتيب هو ترتيب الشجرة: الفرع الشمالي (a) بيخلص كله قبل اليمين.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"معطيات السؤال: حالتين وقوف، وكل استدعاء بيتفرّع لخطوة 1 وخطوة 3.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">w(n)</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">أقل من 0</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غير هيك</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"164.85\" font-size=\"11\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">w(n − 1) + w(n − 3)</text></svg>",
+      "alt": "معطيات السؤال: حالتين وقوف، وكل استدعاء بيتفرّع لخطوة 1 وخطوة 3.",
+      "caption": "معطيات السؤال: حالتين وقوف، وكل استدعاء بيتفرّع لخطوة 1 وخطوة 3."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع؟ (عدّ طرق بخطوات 1 أو 3)<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def w(n):\n    if n == 0:\n        return 1\n    if n &lt; 0:\n        return 0\n    return w(n - 1) + w(n - 3)\n\nprint(w(5))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">4</pre></div></div>",
+      "steps": [
+        {
+          "label": "<bdi dir=\"ltr\">w(0)=1</bdi>، <bdi dir=\"ltr\">w(1)=1</bdi>، <bdi dir=\"ltr\">w(2)=1</bdi>",
+          "body": "<code dir=\"ltr\">خطوات 1 بس</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">w(3) = w(2) + w(0)</bdi>",
+          "body": "<code dir=\"ltr\">2</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">w(4) = w(3) + w(1)</bdi>",
+          "body": "<code dir=\"ltr\">3</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">w(5) = w(4) + w(2)</bdi>",
+          "body": "<code dir=\"ltr\">4</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">4</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">def w(n):</code></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(w(5))</code></td><td><bdi dir=\"ltr\">4</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش <bdi dir=\"ltr\">n == 0</bdi> بترجّع 1 ومش 0؟",
+          "a": "<p>وصلنا بالزبط للآخر، يعني الطريق اللي مشيناه هو طريقة صحيحة وحدة. 0 كانت رح تمحي كل الطرق.</p>"
+        },
+        {
+          "q": "وليش <bdi dir=\"ltr\">n &lt; 0</bdi> بترجّع 0؟",
+          "a": "<p>قفزنا أبعد من الآخر، فهاد الطريق مش طريقة. لازم يكون فحصها قبل أي استدعاء، وإلا الرجعية ما بتوقف.</p>"
+        },
+        {
+          "q": "شو الفرق بين «كم طريقة؟» و «في طريقة؟»؟",
+          "a": "<p>العدّ بيجمع النتائج من كل الفروع <bdi dir=\"ltr\">(+)</bdi>. الوجود بيكفيه فرع واحد صح <bdi dir=\"ltr\">(or)</bdi>، ومنرجّع <bdi dir=\"ltr\">True/False</bdi>. نفس الشجرة.</p><pre class=\"code\" dir=\"ltr\">def can(a, i, target):\n    if target == 0:\n        return True\n    if i == len(a) or target &lt; 0:\n        return False\n    return can(a, i + 1, target - a[i]) or can(a, i + 1, target)\n\nprint(can([3, 5, 9], 0, 14), can([3, 5, 9], 0, 7))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">True False</pre>"
+        },
+        {
+          "q": "ليش هالدوال بطيئة؟",
+          "a": "<p>كل استدعاء بيتفرّع لاتنين، فعدد الاستدعاءات أُسّي (حوالي 2ⁿ). بالكورس هاد مقبول، وبالامتحان بيسألوا «מהי הסיבוכיות» وبدهم <bdi dir=\"ltr\">O(2</bdi>ⁿ).</p>"
+        },
+        {
+          "q": "كيف بفكّر بسؤال «كم طريقة»؟",
+          "a": "<p>شو القرار الأول؟ (خطوة 1 أو 3؛ ناخد العنصر أو لأ). لكل خيار، شو المشكلة الأصغر؟ اجمعوا. وبعدين حالات الوقوف: نجحنا <bdi dir=\"ltr\">(1)</bdi>، فشلنا <bdi dir=\"ltr\">(0)</bdi>.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "نسيان الوقوف السالب <code dir=\"ltr\">n &lt; 0</code>",
+          "yes": "بدونه w(n − 2) بينزل للأبد"
+        },
+        {
+          "no": "بالوجود: <code dir=\"ltr\">and</code> بين الخيارين",
+          "yes": "بيكفي خيار واحد ينجح: <code dir=\"ltr\">or</code>"
+        },
+        {
+          "no": "فحص <code dir=\"ltr\">i == len(a)</code> قبل <code dir=\"ltr\">k == 0</code>",
+          "yes": "k == 0 أول، وإلا حل بيستعمل آخر عنصر بيضيع"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def ways(n):\n    if n == 0:\n        return 1\n    if n &lt; 0:\n        return 0\n    return ways(n - 1) + ways(n - 2)\n\nprint(ways(5))</pre></div>",
+        "answer": [
+          "8"
+        ],
+        "hint": "1، 1، 2، 3، 5، 8.",
+        "solution": "<p>\\(W(n)=W(n-1)+W(n-2)\\) مع \\(W(0)=1\\) و\\(W(1)=1\\): السلسلة 1، 1، 2، 3، 5، 8، فطرق 5 درجات هي 8.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">8</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def can(a, k, i=0):\n    if k == 0:\n        return True\n    if i == len(a):\n        return False\n    return can(a, k - a[i], i + 1) or can(a, k, i + 1)\n\nprint(can([2, 4, 6], 5), can([2, 4, 6], 10))</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">False True</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">True True</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">False False</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "كل الأعداد زوجية.",
+        "solution": "<p>كل الأعداد زوجية، فأي مجموع منهم زوجي وما بيطلع 5 أبداً. أما 10 فهي \\(4+6\\)، فالجواب التاني True.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">False True</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>كم كلمة؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">count = 0\ndef gen(s, n):\n    global count\n    if len(s) == n:\n        count += 1\n        return\n    for ch in \"xyz\":\n        gen(s + ch, n)\n\ngen(\"\", 2)\nprint(count)</pre></div>",
+        "answer": [
+          "9"
+        ],
+        "hint": "3 خيارات لكل مكان.",
+        "solution": "<p>لكل مكان من المكانين في تلات خيارات من x و y و z، فعدد الكلمات \\(3\\cdot3=9\\)، وكل وحدة بتزيد العدّاد مرة.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">9</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "סכום תת־קבוצה",
+      "back": "لكل عنصر: ناخدو (k − a[i]) أو لا. وجود ← or. الوقوف: k == 0 نجاح."
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بكتب رجعية على قائمة ببارامتر مكان i بدل التقطيع.",
+        "بكتب بحث ثنائي رجعي مع return على كل استدعاء.",
+        "بحسب تعقيد دالة رجعية: عدد الاستدعاءات × الشغل المحلي.",
+        "بعرف ليش فيبوناتشي الرجعي O(2ⁿ) تقريباً.",
+        "بحل «كم طريقة» و«هل في مجموعة جزئية» بخيارين."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

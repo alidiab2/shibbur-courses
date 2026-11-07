@@ -1,0 +1,239 @@
+{
+  "slug": "basis-dim",
+  "title": "أساس، بُعد وإحداثيات",
+  "he": "בסיס, מימד וקואורדינטות",
+  "ref": "חוברת §7.3, §7.5 (עמ׳ 70, 80) · מטלה 6",
+  "minutes": 18,
+  "desc": "الأساس (בסיס): مستقلة ومولّدة، البُعد (מימד) dim V، الأساس القانوني، وإحداثيات متجه [v]_B حسب أساس. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بعد ما عرفنا الاستقلال والتوليد، الأساس هو التنين مع بعض. سؤال «מצאו בסיס ומימד» و«מצאו את \\([v]_B\\)» بيطلعوا كتير.</p><ol><li>أساس = مستقلة + مولّدة</li><li>البُعد: عدد متجهات الأساس</li><li>أساسات قانونية</li><li>الإحداثيات \\([v]_B\\)</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> «בסיס»، «מימד»، «וקטור הקואורדינטות».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"بالشبكة المايلة تبع الأساس B= b 1,b 2 النقطة v=(2,4) هي «3 خطوات على b 1 وخطوة على b 2». هاي إحداثياتها [v] B.\" class=\"fk\"><clipPath id=\"gm08-1\"><rect x=\"30\" y=\"20\" width=\"420\" height=\"280\"/></clipPath><g clip-path=\"url(#gm08-1)\"><line class=\"fk-line t-grid\" x1=\"104\" y1=\"366\" x2=\"104\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"104\" y1=\"366\" x2=\"376\" y2=\"366\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"138\" y1=\"366\" x2=\"138\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"104\" y1=\"332\" x2=\"376\" y2=\"332\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"172\" y1=\"366\" x2=\"172\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"104\" y1=\"298\" x2=\"376\" y2=\"298\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"206\" y1=\"366\" x2=\"206\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"104\" y1=\"264\" x2=\"376\" y2=\"264\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"240\" y1=\"366\" x2=\"240\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"104\" y1=\"230\" x2=\"376\" y2=\"230\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"274\" y1=\"366\" x2=\"274\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"104\" y1=\"196\" x2=\"376\" y2=\"196\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"308\" y1=\"366\" x2=\"308\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"104\" y1=\"162\" x2=\"376\" y2=\"162\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"342\" y1=\"366\" x2=\"342\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"104\" y1=\"128\" x2=\"376\" y2=\"128\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"376\" y1=\"366\" x2=\"376\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"104\" y1=\"94\" x2=\"376\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-hu\" x1=\"240\" y1=\"1046\" x2=\"-576\" y2=\"230\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"240\" y1=\"1046\" x2=\"1056\" y2=\"230\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"274\" y1=\"1012\" x2=\"-542\" y2=\"196\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"206\" y1=\"1012\" x2=\"1022\" y2=\"196\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"308\" y1=\"978\" x2=\"-508\" y2=\"162\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"172\" y1=\"978\" x2=\"988\" y2=\"162\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"342\" y1=\"944\" x2=\"-474\" y2=\"128\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"138\" y1=\"944\" x2=\"954\" y2=\"128\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"376\" y1=\"910\" x2=\"-440\" y2=\"94\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"104\" y1=\"910\" x2=\"920\" y2=\"94\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"410\" y1=\"876\" x2=\"-406\" y2=\"60\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"70\" y1=\"876\" x2=\"886\" y2=\"60\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"444\" y1=\"842\" x2=\"-372\" y2=\"26\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"36\" y1=\"842\" x2=\"852\" y2=\"26\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"478\" y1=\"808\" x2=\"-338\" y2=\"-8\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"2\" y1=\"808\" x2=\"818\" y2=\"-8\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"512\" y1=\"774\" x2=\"-304\" y2=\"-42\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-32\" y1=\"774\" x2=\"784\" y2=\"-42\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"546\" y1=\"740\" x2=\"-270\" y2=\"-76\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-66\" y1=\"740\" x2=\"750\" y2=\"-76\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"580\" y1=\"706\" x2=\"-236\" y2=\"-110\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-100\" y1=\"706\" x2=\"716\" y2=\"-110\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"614\" y1=\"672\" x2=\"-202\" y2=\"-144\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-134\" y1=\"672\" x2=\"682\" y2=\"-144\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"648\" y1=\"638\" x2=\"-168\" y2=\"-178\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-168\" y1=\"638\" x2=\"648\" y2=\"-178\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"682\" y1=\"604\" x2=\"-134\" y2=\"-212\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-202\" y1=\"604\" x2=\"614\" y2=\"-212\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"716\" y1=\"570\" x2=\"-100\" y2=\"-246\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-236\" y1=\"570\" x2=\"580\" y2=\"-246\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"750\" y1=\"536\" x2=\"-66\" y2=\"-280\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-270\" y1=\"536\" x2=\"546\" y2=\"-280\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"784\" y1=\"502\" x2=\"-32\" y2=\"-314\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-304\" y1=\"502\" x2=\"512\" y2=\"-314\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"818\" y1=\"468\" x2=\"2\" y2=\"-348\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-338\" y1=\"468\" x2=\"478\" y2=\"-348\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"852\" y1=\"434\" x2=\"36\" y2=\"-382\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-372\" y1=\"434\" x2=\"444\" y2=\"-382\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"886\" y1=\"400\" x2=\"70\" y2=\"-416\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-406\" y1=\"400\" x2=\"410\" y2=\"-416\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"920\" y1=\"366\" x2=\"104\" y2=\"-450\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-440\" y1=\"366\" x2=\"376\" y2=\"-450\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"954\" y1=\"332\" x2=\"138\" y2=\"-484\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-474\" y1=\"332\" x2=\"342\" y2=\"-484\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"988\" y1=\"298\" x2=\"172\" y2=\"-518\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-508\" y1=\"298\" x2=\"308\" y2=\"-518\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1022\" y1=\"264\" x2=\"206\" y2=\"-552\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-542\" y1=\"264\" x2=\"274\" y2=\"-552\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1056\" y1=\"230\" x2=\"240\" y2=\"-586\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-576\" y1=\"230\" x2=\"240\" y2=\"-586\" stroke-width=\"1.4\"/></g><line class=\"fk-line t-1\" x1=\"240\" y1=\"230\" x2=\"265.5\" y2=\"204.5\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"274,196 260.6,199.5 270.5,209.4\"/><line class=\"fk-line t-2\" x1=\"240\" y1=\"230\" x2=\"214.5\" y2=\"204.5\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"206,196 209.5,209.4 219.4,199.5\"/><line class=\"fk-line t-ink\" x1=\"240\" y1=\"230\" x2=\"302.6\" y2=\"104.7\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"308,94 296.4,101.6 308.9,107.9\"/><circle class=\"fk-dot t-ink\" cx=\"308\" cy=\"94\" r=\"8\"/><rect class=\"fk-chip t-1 solid\" x=\"280.22\" y=\"191\" width=\"47.56\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"304.0\" y=\"216.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">b₁</text><rect class=\"fk-chip t-2 solid\" x=\"152.22\" y=\"181\" width=\"47.56\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"176.0\" y=\"206.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">b₂</text><rect class=\"fk-chip t-ink\" x=\"225.43\" y=\"45\" width=\"177.14\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-ink\" x=\"314.0\" y=\"70.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">v = 3b₁ + 1b₂</text><text class=\"fk-t t-hu\" x=\"420\" y=\"300\" font-size=\"19\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">[v]_B = (3, 1)</text></svg>",
+      "alt": "بالشبكة المايلة تبع الأساس B= b 1,b 2 النقطة v=(2,4) هي «3 خطوات على b 1 وخطوة على b 2». هاي إحداثياتها [v] B.",
+      "caption": "بالشبكة المايلة تبع الأساس \\(B=\\{b_1,b_2\\}\\) النقطة \\(v=(2,4)\\) هي «3 خطوات على \\(b_1\\) وخطوة على \\(b_2\\)». هاي إحداثياتها \\([v]_B\\)."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>أساس (בסיס) = مجموعة <b>مستقلة</b> و<b>مولّدة</b>. كل أساس إله نفس العدد من المتجهات: \\(\\dim V\\). وكل \\(v\\) إله كتابة وحيدة \\(v=a_1b_1+\\dots+a_nb_n\\)، و\\([v]_B=(a_1,\\dots,a_n)\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: نظام إحداثيات",
+      "html": "<p>الأساس هو مجموعة اتجاهات بتوصلوا فيها لكل مكان (مولّدة) وبدون ولا اتجاه زيادة (مستقلة). لهيك كل نقطة إلها عنوان وحيد بالخطوات على هالاتجاهات. الأساس العادي \\((1,0),(0,1)\\) بيعطي الشبكة المربعة، وأساس تاني بيعطي شبكة مايلة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: أساس وبُعد <bdi dir=\"rtl\">(בסיס, מימד)</bdi>",
+      "html": "<p>\\(B=\\{v_1,\\dots,v_n\\}\\) أساس لـ \\(V\\) إذا (1) مستقلة و(2) \\(\\operatorname{sp}B=V\\). \\(\\dim V=n\\) هو عدد المتجهات بأي أساس.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: كل الأساسات نفس العدد <bdi dir=\"rtl\">(טענה 7.52, משפט 7.53)</bdi>",
+      "html": "<p>بـ \\(V\\) كل مجموعة مستقلة صغيرة أو بتساوي كل مجموعة مولّدة. لهيك كل أساسات \\(V\\) إلهم نفس العدد.</p><p><b>فكرة البرهان:</b> إذا \\(m\\) متجهات مستقلة و\\(k\\) مولّدين مع \\(m&gt;k\\): كل مستقل تركيب من الـ \\(k\\)، فبنحصل على نظام متجانس فيه \\(m\\) مجاهيل و\\(k&lt;m\\) معادلات، وإله حل غير تافه: تناقض. أساسين: كل واحد مستقل والتاني مولّد، فـ \\(m\\le k\\) و\\(k\\le m\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: تحت فضاء والبُعد <bdi dir=\"rtl\">(טענה 7.56)</bdi>",
+      "html": "<p>إذا \\(U\\subseteq V\\) تحت فضاء، فـ \\(\\dim U\\le\\dim V\\)، ومساواة \\(\\iff U=V\\).</p><p><b>فكرة البرهان:</b> أساس لـ \\(U\\) هو مجموعة مستقلة بـ \\(V\\)، فعدده \\(\\le\\dim V\\). إذا \\(\\dim U=\\dim V\\)، أساس \\(U\\) هو \\(n\\) متجهات مستقلة بفضاء بُعده \\(n\\)، فهو أساس لـ \\(V\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: \\(n\\) متجهات ببُعد \\(n\\) <bdi dir=\"rtl\">(משפט 7.58)</bdi>",
+      "html": "<p>إذا \\(\\dim V=n\\) و\\(|B|=n\\): \\(B\\) مستقلة \\(\\iff\\) \\(B\\) مولّدة \\(\\iff\\) \\(B\\) أساس.</p><p><b>فكرة البرهان:</b> مستقلة وما بتولّد؟ كان منقدر نزيد متجه مش بالـ sp وتضل مستقلة: \\(n+1\\) مستقلين، تناقض. مولّدة ومش مستقلة؟ منشيل متجه ويضل مولّد: \\(n-1\\) مولّدين، تناقض.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: إحداثيات <bdi dir=\"rtl\">(טענה 7.74, משפט 7.80)</bdi>",
+      "html": "<p>إذا \\(B\\) أساس، كل \\(v\\) إله كتابة <b>وحيدة</b> \\(v=\\alpha_1v_1+\\dots+\\alpha_nv_n\\)، و\\([v]_B=(\\alpha_1,\\dots,\\alpha_n)^t\\). و\\([v+u]_B=[v]_B+[u]_B\\)، \\([kv]_B=k[v]_B\\).</p><p><b>فكرة البرهان:</b> لو في كتابتين، منطرحهم: \\(\\sum(\\alpha_i-\\beta_i)v_i=0\\)، والاستقلال بيعطي \\(\\alpha_i=\\beta_i\\). (نتيجة 7.81: \\(S\\) مستقلة \\(\\iff\\) متجهات الإحداثيات تبعها مستقلة بـ \\(F^n\\).)</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 148\" role=\"img\" aria-label=\"أساس معياري لكل فضاء، وعدد متجهاته هو البُعد. R 2[x] و R 3 نفس البُعد: الإحداثيات (a,b,c) بتمثّل a+bx+cx 2.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"10.0\" y=\"8\" width=\"146.66666666666666\" height=\"132\" rx=\"14\"/><text class=\"fk-t t-hu\" x=\"83.33333333333333\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ℝ³</text><text class=\"fk-t t-ink\" x=\"83.33333333333333\" y=\"76\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">e₁, e₂, e₃</text><text class=\"fk-t t-ink\" x=\"83.33333333333333\" y=\"110\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">dim = 3</text><rect class=\"fk-chip t-1\" x=\"166.66666666666666\" y=\"8\" width=\"146.66666666666666\" height=\"132\" rx=\"14\"/><text class=\"fk-t t-1\" x=\"240.0\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ℝ₂[x]</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"76\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1 , x , x²</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"110\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">dim = 3</text><rect class=\"fk-chip t-2\" x=\"323.3333333333333\" y=\"8\" width=\"146.66666666666666\" height=\"132\" rx=\"14\"/><text class=\"fk-t t-2\" x=\"396.66666666666663\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ℝ²ˣ²</text><text class=\"fk-t t-ink\" x=\"396.66666666666663\" y=\"76\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">4 مصفوفات</text><text class=\"fk-t t-ink\" x=\"396.66666666666663\" y=\"110\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">dim = 4</text></svg>",
+      "alt": "أساس معياري لكل فضاء، وعدد متجهاته هو البُعد. R 2[x] و R 3 نفس البُعد: الإحداثيات (a,b,c) بتمثّل a+bx+cx 2.",
+      "caption": "أساس معياري لكل فضاء، وعدد متجهاته هو البُعد. \\(\\mathbb R_2[x]\\) و\\(\\mathbb R^3\\) نفس البُعد: الإحداثيات \\((a,b,c)\\) بتمثّل \\(a+bx+cx^2\\)."
+    },
+    {
+      "t": "h",
+      "text": "البُعد"
+    },
+    {
+      "t": "p",
+      "html": "<p>كل الأساسات لنفس الفضاء فيها نفس العدد من المتجهات، وهاد البُعد (מימד). \\(\\dim\\mathbb R^n=n\\)، \\(\\dim F_n[x]=n+1\\) (الأساس \\(1,x,\\dots,x^n\\))، و\\(\\dim F^{m\\times n}=mn\\). مثلاً \\(\\dim\\mathbb R_2[x]=3\\) و\\(\\dim\\mathbb R^{2\\times2}=4\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>اختصار مهم: بفضاء بُعده \\(n\\)، مجموعة من \\(n\\) متجهات هي أساس إذا هي مستقلة <b>أو</b> مولّدة، واحدة منهم بتكفي. يعني لـ 3 متجهات بـ \\(\\mathbb R^3\\) بيكفي \\(\\det\\neq0\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "أساس لتحت فضاء"
+    },
+    {
+      "t": "p",
+      "html": "<p>لـ \\(W\\) معطى بمعادلات (متل \\(x+y+z=0\\)): حلّوا النظام، اكتبوا الحل العام بالبارامترات، والمتجهات اللي جنب البارامترات هي أساس. عددهم هو عدد المتغيّرات الحرّة، وهو \\(\\dim W\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "الإحداثيات"
+    },
+    {
+      "t": "p",
+      "html": "<p>\\([v]_B\\) هو متجه المعاملات بالكتابة الوحيدة. لتلاقوه، حلّوا \\(a_1b_1+\\dots+a_nb_n=v\\): نظام مع \\(b_i\\) كأعمدة. انتبهوا إنه الترتيب بالأساس مهم: إذا بدّلتوا \\(b_1\\) و\\(b_2\\)، الإحداثيات بتتبدّل.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: أساس لتحت فضاء",
+      "html": "<p>لاقوا أساس وبُعد لـ \\(W=\\{(x,y,z)\\mid x+y+z=0\\}\\).</p><ol><li>\\(y=s,\\;z=t,\\;x=-s-t\\)<br><span class=\"why-line\">معادلة وحدة بـ 3 متغيّرات: متغيّرين حرّين.</span></li><li>\\((x,y,z)=s(-1,1,0)+t(-1,0,1)\\)<br><span class=\"why-line\">منفصل حسب البارامترات.</span></li><li>أساس \\(\\{(-1,1,0),(-1,0,1)\\}\\)، \\(\\dim W=2\\)<br><span class=\"why-line\">المتجهين مولّدين (من الحل العام) ومستقلين (مش مضاعفات).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): إحداثيات بـ \\(\\mathbb R_2[x]\\)",
+      "html": "<p>\\(B=\\{1,\\;1+x,\\;1+x+x^2\\}\\). لاقوا \\([p]_B\\) لـ \\(p=3+2x+x^2\\).</p><ol><li>\\(a\\cdot1+b(1+x)+c(1+x+x^2)=3+2x+x^2\\)<br><span class=\"why-line\">منكتب \\(p\\) كتركيب من الأساس.</span></li><li>\\(x^2\\): \\(c=1\\)؛ \\(x\\): \\(b+c=2\\)؛ ثابت: \\(a+b+c=3\\)<br><span class=\"why-line\">منقارن معاملات (كثيرين حدود متساويين بس إذا كل المعاملات متساوية).</span></li><li>\\(c=1,\\;b=1,\\;a=1\\) ⇐ \\([p]_B=(1,1,1)^t\\)<br><span class=\"why-line\">تعويض من فوق لتحت.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>كل 3 متجهات بـ \\(\\mathbb R^3\\) هم أساس.<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>\\(\\{(1,0,0),(2,0,0),(0,0,1)\\}\\)<br><span class=\"why-line\">التاني مضاعف للأول.</span></li><li>مرتبطة: \\(2(1,0,0)-(2,0,0)=0\\)<br><span class=\"why-line\">تركيب غير تافه بيعطي صفر.</span></li><li>مش أساس.<br><span class=\"why-line\">نظرية 7.58 بتحكي: 3 متجهات بـ \\(\\mathbb R^3\\) أساس <b>إذا</b> مستقلة (أو مولّدة). العدد لحاله ما بيكفي.</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "إحداثيات \\([v]_B\\)، 3 خطوات",
+      "steps": [
+        "<b>أساس؟:</b> افحصوا \\(\\det\\neq0\\) للأعمدة \\(b_i\\) (إذا مش معطى إنه أساس).",
+        "<b>نظام:</b> \\([b_1\\;\\cdots\\;b_n\\mid v]\\) ودرج.",
+        "<b>اقروا وافحصوا:</b> \\([v]_B=(a_1,\\dots,a_n)\\)، وافحصوا \\(\\sum a_ib_i=v\\)."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 236\" role=\"img\" aria-label=\"المعطى: متجهات B كأعمدة وv بآخر عمود. حل النظام هو الإحداثيات: v=3b 1+1b 2+1b 3.\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"6\" y=\"56\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"28.0\" y=\"80.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"54\" y=\"56\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"76.0\" y=\"80.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"102\" y=\"56\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"124.0\" y=\"80.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu solid\" x=\"150\" y=\"56\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"172.0\" y=\"80.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">|4</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"98\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"28.0\" y=\"122.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"54\" y=\"98\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"76.0\" y=\"122.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"102\" y=\"98\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"124.0\" y=\"122.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu solid\" x=\"150\" y=\"98\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"172.0\" y=\"122.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">|2</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"140\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"28.0\" y=\"164.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"54\" y=\"140\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"76.0\" y=\"164.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"102\" y=\"140\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"124.0\" y=\"164.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu solid\" x=\"150\" y=\"140\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"172.0\" y=\"164.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">|4</text><line class=\"fk-line t-hu\" x1=\"200\" y1=\"119.0\" x2=\"414.0\" y2=\"119.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"426.0,119.0 414.0,112.0 414.0,126.0\"/><text class=\"fk-t t-hu\" x=\"313.0\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">حل</text><rect class=\"fk-chip t-good solid\" x=\"432.0\" y=\"56\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"454.0\" y=\"80.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-good solid\" x=\"432.0\" y=\"98\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"454.0\" y=\"122.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-good solid\" x=\"432.0\" y=\"140\" width=\"44\" height=\"38\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"454.0\" y=\"164.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text></svg>",
+      "alt": "المعطى: متجهات B كأعمدة وv بآخر عمود. حل النظام هو الإحداثيات: v=3b 1+1b 2+1b 3.",
+      "caption": "المعطى: متجهات \\(B\\) كأعمدة و\\(v\\) بآخر عمود. حل النظام هو الإحداثيات: \\(v=3b_1+1b_2+1b_3\\)."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: \\(B=\\{(1,0,1),(0,1,1),(1,1,0)\\}\\). برهنوا إنه أساس لـ \\(\\mathbb R^3\\) ولاقوا \\([v]_B\\) لـ \\(v=(4,2,4)\\).",
+      "steps": [
+        {
+          "label": "أساس",
+          "body": "\\(\\det\\begin{pmatrix}1&amp;0&amp;1\\\\0&amp;1&amp;1\\\\1&amp;1&amp;0\\end{pmatrix}=-2\\neq0\\)"
+        },
+        {
+          "label": "النظام",
+          "body": "\\(a+c=4,\\;b+c=2,\\;a+b=4\\)"
+        },
+        {
+          "label": "مجموع الكل",
+          "body": "\\(2(a+b+c)=10\\Rightarrow a+b+c=5\\)"
+        },
+        {
+          "label": "كل واحد",
+          "body": "\\(a=5-2=3,\\;b=5-4=1,\\;c=5-4=1\\)"
+        },
+        {
+          "label": "فحص",
+          "body": "\\(3(1,0,1)+(0,1,1)+(1,1,0)=(4,2,4)\\)"
+        }
+      ],
+      "a": "\\([v]_B=(3,1,1)\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 148\" role=\"img\" aria-label=\"نفس المتجه، نفس الأساس بترتيب تاني، إحداثيات مقلوبة. الترتيب بالأساس جزء منه.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"10.0\" y=\"8\" width=\"225.0\" height=\"132\" rx=\"14\"/><text class=\"fk-t t-good\" x=\"122.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B = (b₁ , b₂)</text><text class=\"fk-t t-ink\" x=\"122.5\" y=\"76\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">v = 3b₁ + 1b₂</text><text class=\"fk-t t-ink\" x=\"122.5\" y=\"110\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">[v] = (3 , 1)</text><rect class=\"fk-chip t-hu\" x=\"245.0\" y=\"8\" width=\"225.0\" height=\"132\" rx=\"14\"/><text class=\"fk-t t-hu\" x=\"357.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B = (b₂ , b₁)</text><text class=\"fk-t t-ink\" x=\"357.5\" y=\"76\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">v = 1b₂ + 3b₁</text><text class=\"fk-t t-ink\" x=\"357.5\" y=\"110\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">[v] = (1 , 3)</text></svg>",
+      "alt": "نفس المتجه، نفس الأساس بترتيب تاني، إحداثيات مقلوبة. الترتيب بالأساس جزء منه.",
+      "caption": "نفس المتجه، نفس الأساس بترتيب تاني، إحداثيات مقلوبة. الترتيب بالأساس جزء منه."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(\\dim\\mathbb R_2[x]=2\\)",
+          "yes": "الأساس \\(1,x,x^2\\): البُعد 3"
+        },
+        {
+          "no": "\\([v]_B\\) هو \\(v\\) نفسه",
+          "yes": "بس للأساس القانوني. لأساس تاني لازم تحلّوا نظام"
+        },
+        {
+          "no": "3 متجهات مولّدة لـ \\(W\\) فـ \\(\\dim W=3\\)",
+          "yes": "لازم كمان مستقلة. ممكن \\(\\dim W\\) أصغر"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش كل الأساسات إلها نفس العدد؟",
+          "a": "لأنه مستقل ما بيقدر يكون أكبر من مولّد (نظرية 7.52). كل أساس هو الاتنين، فأي أساسين بيحصروا بعض. هاد اللي بيخلّي «البُعد» رقم واحد واضح."
+        },
+        {
+          "q": "الفضاء \\(\\{0\\}\\) شو أساسه وبُعده؟",
+          "a": "الأساس هو المجموعة الفاضية \\(\\emptyset\\) (مستقلة بالتعريف، و\\(\\operatorname{sp}\\emptyset=\\{0\\}\\))، فـ \\(\\dim\\{0\\}=0\\). \\(\\{0\\}\\) مش أساس لأنها مرتبطة."
+        },
+        {
+          "q": "ليش \\(\\dim\\mathbb R_n[x]=n+1\\) ومش \\(n\\)؟",
+          "a": "لأنه الأساس \\(1,x,\\dots,x^n\\) فيه \\(n+1\\) متجهات: الثابت \\(1\\) كمان واحد منهم. \\(\\mathbb R_2[x]\\): \\(a+bx+cx^2\\)، 3 معاملات، بُعد 3."
+        },
+        {
+          "q": "ليش الترتيب بالأساس مهم للإحداثيات؟",
+          "a": "لأنه \\([v]_B\\) هو قائمة مرتّبة: أول رقم للمتجه الأول بالأساس. لو بدّلنا \\(v_1, v_2\\) بالأساس، الرقمين بيتبدّلوا. بالعبري بيحكوا «בסיס סדור»."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "شو \\(\\dim\\mathbb R^{2\\times3}\\) (مصفوفات 2×3)؟",
+        "answer": [
+          "6"
+        ],
+        "hint": "كم خانة حرّة في؟",
+        "solution": "<p>كل خانة من الست خانات بتتحرّك لحالها، والأساس هو 6 مصفوفات فيها 1 بمكان واحد وأصفار بالباقي، فالبُعد 6.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "شو \\(\\dim W\\) لـ \\(W=\\{(x,y,z,w)\\mid x+y=0,\\;z-w=0\\}\\)؟",
+        "answer": [
+          "2"
+        ],
+        "hint": "متغيّرات ناقص رتبة.",
+        "solution": "<p>في 4 متغيّرات ومعادلتين مستقلتين، فالرتبة 2 وبيضل \\(4-2=2\\) متغيّرات حرّة، يعني \\(\\dim W=2\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(B=\\{(1,1),(1,-1)\\}\\). لاقوا \\([v]_B\\) لـ \\(v=(5,1)\\). اكتبوا \\((a,b)\\).",
+        "answer": [
+          "(3,2)",
+          "3,2"
+        ],
+        "hint": "\\(a+b=5\\)، \\(a-b=1\\).",
+        "solution": "<p>منجمع المعادلتين \\(a+b=5\\) و\\(a-b=1\\): \\(2a=6\\) يعني \\(a=3\\)، و\\(b=2\\). فحص: \\(3(1,1)+2(1,-1)=(5,1)\\).</p>"
+      }
+    }
+  ]
+}

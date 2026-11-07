@@ -1,0 +1,230 @@
+{
+  "slug": "broad-limits",
+  "title": "النهاية بالمعنى الواسع ونهايات مشهورة",
+  "he": "התכנסות במובן הרחב",
+  "ref": "הרצאה 7 · חוברת עמ׳ 32-38 (§3.1)",
+  "minutes": 20,
+  "desc": "متى منقول aₙ→∞، متتالية متقاربة بالمعنى الواسع، حساب مع ∞، متتالية رتيبة وغير محدودة، والنهايات المشهورة nᵖ، ⁿ√a، ⁿ√n، qⁿ، aⁿ/n! وn!/nⁿ وكسر كثيرات حدود. حدوا 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بالمحاضرة السابعة بيعرّفوا «התכנסות במובן הרחב» ومنها بيطلع سلّم النهايات المشهورة اللي منستعمله بكل حساب: بنهايات متتاليات، بنهايات دوال، وبالآخر باختبارات المتسلسلات. بالامتحان بيطلبوا «הוכיחו לפי הגדרה ש-\\(a_n\\to\\infty\\)» وحسابات مع \\(n!\\) و\\(q^n\\).</p><ol><li>تعريف \\(a_n\\to\\infty\\) بـ \\(M\\) و\\(N\\)</li><li>حساب مع \\(\\infty\\) وأشكال مش معرّفة</li><li>رتيبة وغير محدودة \\(\\Rightarrow\\pm\\infty\\)</li><li>سلّم السرعات والنهايات المشهورة</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما المتتالية بتكبر بلا حدود، أو فيها \\(n!\\)، \\(q^n\\) أو \\(\\sqrt[n]{\\ }\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"a n : لكل سقف M مهما كان عالي، في مكان N ومن بعده كل الحدود فوق M . المتتالية ممكن تتأرجح، بس بالآخر بتضل فوق أي خط.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"50\" y1=\"280.0\" x2=\"442.0\" y2=\"280.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"454,280.0 442.0,273.0 442.0,287.0\"/><line class=\"fk-line t-ink\" x1=\"50.0\" y1=\"280\" x2=\"50.0\" y2=\"28.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"50.0,16 43.0,28.0 57.0,28.0\"/><text class=\"fk-t t-ink\" x=\"446\" y=\"306.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">n</text><text class=\"fk-t t-ink\" x=\"32.0\" y=\"26\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">aₙ</text><line class=\"fk-line t-bad dash\" x1=\"50.0\" y1=\"137.14285714285714\" x2=\"440.0\" y2=\"137.14285714285714\" stroke-width=\"2\"/><circle class=\"fk-dot t-hu\" cx=\"81.2\" cy=\"232.09032197114655\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"112.4\" cy=\"211.8108061847971\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"143.6\" cy=\"221.38857114071902\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"174.8\" cy=\"235.60008911814032\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"206.0\" cy=\"224.96158123796923\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"237.2\" cy=\"182.83626779281877\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"268.4\" cy=\"131.5361929029004\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"299.6\" cy=\"101.80863404916497\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"330.8\" cy=\"104.56719695565155\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"362.0\" cy=\"120.8578968174775\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"393.2\" cy=\"119.28536451966798\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"424.4\" cy=\"84.87760421430127\" r=\"7\"/><rect class=\"fk-chip t-bad solid\" x=\"92.4\" y=\"96.71428571428572\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"112.4\" y=\"122.36428571428573\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">M</text><line class=\"fk-line t-mut dash\" x1=\"315.2\" y1=\"280.0\" x2=\"315.2\" y2=\"30.0\" stroke-width=\"2\"/><rect class=\"fk-chip t-mut\" x=\"295.2\" y=\"25.285714285714278\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-mut\" x=\"315.2\" y=\"50.935714285714276\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">N</text></svg>",
+      "alt": "a n : لكل سقف M مهما كان عالي، في مكان N ومن بعده كل الحدود فوق M . المتتالية ممكن تتأرجح، بس بالآخر بتضل فوق أي خط.",
+      "caption": "\\(a_n\\to\\infty\\): لكل سقف \\(M\\) مهما كان عالي، في مكان \\(N\\) ومن بعده كل الحدود فوق \\(M\\). المتتالية ممكن تتأرجح، بس بالآخر بتضل فوق أي خط."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(a_n\\to\\infty\\) إذا لكل \\(M\\) في \\(N\\) بحيث \\(a_n&gt;M\\) لكل \\(n&gt;N\\). \\(\\sqrt[n]a\\to1\\) (\\(a&gt;0\\))، \\(\\sqrt[n]n\\to1\\)، \\(q^n\\to0\\) لـ \\(|q|&lt;1\\)، \\(\\frac{a^n}{n!}\\to0\\)، \\(\\frac{n!}{n^n}\\to0\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "من وين إجا هالموضوع؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>متتالية متل \\(a_n=n^2\\) ما إلها نهاية عدد، بس هي مش «فوضى» متل \\((-1)^n\\): هي رايحة باتجاه واضح، لفوق. منقول إنها متقاربة بالمعنى الواسع (מתכנסת במובן הרחב) لـ \\(\\infty\\): مهما اخترنا سقف \\(M\\)، من مكان معيّن كل الحدود فوقه. الفرق عن التعريف العادي: هناك شريط \\(\\varepsilon\\) حوالين \\(L\\)، وهون «سقف» \\(M\\) لازم نعدّيه. و\\(a_n\\to-\\infty\\) بنفس الشكل مع \\(a_n&lt;-M\\). متتالية رايحة لـ \\(\\pm\\infty\\) أكيد مش محدودة، فهي متباعدة بالمعنى العادي.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>حساب مع \\(\\infty\\): \\(\\infty+\\) محدودة \\(=\\infty\\)، \\(\\infty\\cdot c=\\infty\\) لـ \\(c&gt;0\\)، و\\(\\frac{1}{a_n}\\to0\\) إذا \\(a_n\\to\\infty\\). بس في أشكال مش معرّفة (אי-ודאות): \\(\\infty-\\infty\\)، \\(0\\cdot\\infty\\)، \\(\\frac\\infty\\infty\\)، \\(1^\\infty\\). هون لازم نرتّب قبل ما نحكي. ومبرهنة مهمة: متتالية رتيبة <b>وغير محدودة</b> بتروح لـ \\(\\pm\\infty\\). مع مبرهنة الرتيبة والمحدودة، هيك كل متتالية رتيبة إلها نهاية بالمعنى الواسع.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>النهايات المشهورة كلها من مقارنة سرعات. \\(\\ln n\\) أبطأ من أي قوة \\(n^p\\)، وكل قوة أبطأ من أي أُسّية \\(a^n\\) (\\(a&gt;1\\))، والأُسّية أبطأ من \\(n!\\)، و\\(n!\\) أبطأ من \\(n^n\\). وجذر من درجة \\(n\\) بيسحب كل شي لـ 1: \\(\\sqrt[n]5\\to1\\) و\\(\\sqrt[n]n\\to1\\). و\\(q^n\\): لـ \\(|q|&lt;1\\) لـ 0، لـ \\(q=1\\) ثابتة، لـ \\(q&gt;1\\) لـ \\(\\infty\\)، ولـ \\(q\\le-1\\) ما إلها نهاية. وكسر كثيرات حدود بيعتمد على الدرجات: نفس الدرجة، نسبة المعاملات الكبار. درجة البسط أصغر، 0. أكبر، \\(\\pm\\infty\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>\\(\\infty\\) مش عدد، هو «اتجاه». والنهايات المشهورة هي سباق سرعات: مين بيكبر أسرع بيقرّر، والأبطأ على الأسرع رايح لـ 0.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 230\" role=\"img\" aria-label=\"سلّم السرعات لـ n : n n p a n n! n n . الأبطأ مقسوم على الأسرع بيروح لـ 0، مثلاً 2 n n! 0 و n! n n 0 .\" class=\"fk\"><rect class=\"fk-chip t-mut solid\" x=\"14\" y=\"60\" width=\"80\" height=\"60\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"54.0\" y=\"97.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ln n</text><rect class=\"fk-chip t-hu solid\" x=\"107\" y=\"60\" width=\"80\" height=\"60\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"147.0\" y=\"97.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">nᵖ</text><text class=\"fk-t t-ink\" x=\"100\" y=\"98\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">≪</text><rect class=\"fk-chip t-2 solid\" x=\"200\" y=\"60\" width=\"80\" height=\"60\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"97.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">aⁿ</text><text class=\"fk-t t-ink\" x=\"193\" y=\"98\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">≪</text><rect class=\"fk-chip t-good solid\" x=\"293\" y=\"60\" width=\"80\" height=\"60\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"333.0\" y=\"97.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n!</text><text class=\"fk-t t-ink\" x=\"286\" y=\"98\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">≪</text><rect class=\"fk-chip t-bad solid\" x=\"386\" y=\"60\" width=\"80\" height=\"60\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"426.0\" y=\"97.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">nⁿ</text><text class=\"fk-t t-ink\" x=\"379\" y=\"98\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">≪</text><text class=\"fk-t t-ink\" x=\"240\" y=\"170\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">كل وحدة أبطأ من اللي على يسارها</text><text class=\"fk-t t-mut\" x=\"240\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">(a &gt; 1, p &gt; 0)</text></svg>",
+      "alt": "سلّم السرعات لـ n : n n p a n n! n n . الأبطأ مقسوم على الأسرع بيروح لـ 0، مثلاً 2 n n! 0 و n! n n 0 .",
+      "caption": "سلّم السرعات لـ \\(n\\to\\infty\\): \\(\\ln n\\ll n^p\\ll a^n\\ll n!\\ll n^n\\). الأبطأ مقسوم على الأسرع بيروح لـ 0، مثلاً \\(\\frac{2^n}{n!}\\to0\\) و\\(\\frac{n!}{n^n}\\to0\\)."
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: نهاية \\(\\infty\\) (גבול במובן הרחב)",
+      "html": "<p>\\(\\lim a_n=\\infty\\) إذا لكل \\(M&gt;0\\) في \\(N\\) بحيث \\(a_n&gt;M\\) لكل \\(n&gt;N\\). و\\(\\lim a_n=-\\infty\\) إذا \\(a_n&lt;-M\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "rule",
+      "title": "نهايات مشهورة (\\(n\\to\\infty\\))",
+      "html": "<p>\\(\\sqrt[n]a\\to1\\) (\\(a&gt;0\\))، \\(\\sqrt[n]n\\to1\\)، \\(\\frac{n^p}{a^n}\\to0\\) (\\(a&gt;1\\))</p><p>\\(q^n\\to0\\) لـ \\(|q|&lt;1\\)؛ \\(\\to\\infty\\) لـ \\(q&gt;1\\)؛ ما في لـ \\(q\\le-1\\)</p><p>\\(\\frac{a^n}{n!}\\to0\\)، \\(\\frac{n!}{n^n}\\to0\\)</p><p>رتيبة وغير محدودة \\(\\Rightarrow\\pm\\infty\\)</p>"
+    },
+    {
+      "t": "method",
+      "title": "«הוכיחו לפי הגדרה ש-\\(a_n\\to\\infty\\)»، 3 خطوات",
+      "steps": [
+        "<b>اكتبوا:</b> «יהי \\(M&gt;0\\)». بدنا \\(N\\) مع \\(a_n&gt;M\\).",
+        "<b>صغّروا:</b> \\(a_n\\) لتعبير أبسط من تحت: \\(a_n\\ge\\) شي سهل.",
+        "<b>حلّوا:</b> الشي السهل \\(&gt;M\\) لـ \\(n\\)، ومنه \\(N\\)."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: \\(\\sqrt n\\to\\infty\\) بالتعريف",
+      "html": "<p>متل الطريقة.</p><p>يهي \\(M&gt;0\\). بدنا \\(\\sqrt n&gt;M\\)، يعني \\(n&gt;M^2\\). ليش منربّع؟ لأنه الطرفين موجبين، فالترتيب ما بيتغيّر.</p><p>منوخد \\(N=M^2\\). مثلاً لـ \\(M=100\\): \\(N=10000\\)، و\\(\\sqrt{10001}&gt;100\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال متوسط: \\(\\lim\\frac{3^n+n^5}{3^{n+1}-2}\\)",
+      "html": "<p>مين الأسرع؟ \\(3^n\\).</p><p>منقسم فوق وتحت على \\(3^n\\): \\(\\frac{1+n^5/3^n}{3-2/3^n}\\). ليش على \\(3^n\\)؟ لأنه هو الأسرع، فكل الباقي بيصير صغير.</p><p>\\(\\frac{n^5}{3^n}\\to0\\) (قوة على أُسّية) و\\(\\frac2{3^n}\\to0\\)، فالنهاية \\(\\frac13\\).</p>"
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: احسبوا \\(\\lim_{n\\to\\infty}\\sqrt[n]{2^n+5^n}\\)",
+      "steps": [
+        {
+          "label": "الأكبر \\(5^n\\)",
+          "body": "\\(5^n\\le2^n+5^n\\le2\\cdot5^n\\)"
+        },
+        {
+          "label": "جذر لكل الأطراف",
+          "body": "\\(5\\le\\sqrt[n]{2^n+5^n}\\le5\\sqrt[n]2\\)"
+        },
+        {
+          "label": "ساندويش",
+          "body": "\\(\\sqrt[n]2\\to1\\)"
+        }
+      ],
+      "a": "الجواب 5"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"شمال: q=-0.7 ، الحدود بتتبدّل إشارتها وبتصغر لـ 0. يمين: q=-1 ، بتقفز بين -1 و1 للأبد وما إلها نهاية.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"30\" y1=\"140.0\" x2=\"212.0\" y2=\"140.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"224,140.0 212.0,133.0 212.0,147.0\"/><line class=\"fk-line t-ink\" x1=\"30\" y1=\"240\" x2=\"30.0\" y2=\"38.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"30,26 23.0,38.0 37.0,38.0\"/><text class=\"fk-t t-ink\" x=\"216\" y=\"166.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-ink\" x=\"12\" y=\"36\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><line class=\"fk-line t-mut dash\" x1=\"30.0\" y1=\"140.0\" x2=\"210.0\" y2=\"140.0\" stroke-width=\"2\"/><circle class=\"fk-dot t-good\" cx=\"41.25\" cy=\"227.5\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"63.75\" cy=\"78.75\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"86.25\" cy=\"182.875\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"108.75\" cy=\"109.98750000000001\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"131.25\" cy=\"161.00875\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"153.75\" cy=\"125.29387499999999\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"176.25\" cy=\"150.2942875\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"198.75\" cy=\"132.79399875000001\" r=\"7\"/><text class=\"fk-t t-good\" x=\"120\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">|q| &lt; 1: لصفر</text><line class=\"fk-line t-ink\" x1=\"270\" y1=\"140.0\" x2=\"452.0\" y2=\"140.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"464,140.0 452.0,133.0 452.0,147.0\"/><line class=\"fk-line t-ink\" x1=\"270\" y1=\"240\" x2=\"270.0\" y2=\"38.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"270,26 263.0,38.0 277.0,38.0\"/><text class=\"fk-t t-ink\" x=\"456\" y=\"166.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-ink\" x=\"252\" y=\"36\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><line class=\"fk-line t-mut dash\" x1=\"270.0\" y1=\"140.0\" x2=\"450.0\" y2=\"140.0\" stroke-width=\"2\"/><circle class=\"fk-dot t-bad\" cx=\"281.25\" cy=\"211.42857142857144\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"303.75\" cy=\"68.57142857142856\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"326.25\" cy=\"211.42857142857144\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"348.75\" cy=\"68.57142857142856\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"371.25\" cy=\"211.42857142857144\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"393.75\" cy=\"68.57142857142856\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"416.25\" cy=\"211.42857142857144\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"438.75\" cy=\"68.57142857142856\" r=\"7\"/><text class=\"fk-t t-bad\" x=\"360\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">q = −1: ما في</text></svg>",
+      "alt": "شمال: q=-0.7 ، الحدود بتتبدّل إشارتها وبتصغر لـ 0. يمين: q=-1 ، بتقفز بين -1 و1 للأبد وما إلها نهاية.",
+      "caption": "شمال: \\(q=-0.7\\)، الحدود بتتبدّل إشارتها وبتصغر لـ 0. يمين: \\(q=-1\\)، بتقفز بين \\(-1\\) و1 للأبد وما إلها نهاية."
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"جذر من درجة n بيسحب لـ 1: [n]5 (البرتقالي) و [n]n (الأزرق) التنين بيقرّبوا للخط 1.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"46\" y1=\"262.0\" x2=\"448.0\" y2=\"262.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"460,262.0 448.0,255.0 448.0,269.0\"/><line class=\"fk-line t-ink\" x1=\"46\" y1=\"262\" x2=\"46.0\" y2=\"24.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"46,12 39.0,24.0 53.0,24.0\"/><text class=\"fk-t t-ink\" x=\"452\" y=\"288.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">n</text><text class=\"fk-t t-ink\" x=\"28\" y=\"22\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><line class=\"fk-line t-good dash\" x1=\"46.0\" y1=\"183.33333333333331\" x2=\"446.0\" y2=\"183.33333333333331\" stroke-width=\"2\"/><circle class=\"fk-dot t-hu\" cx=\"62.66666666666667\" cy=\"183.33333333333331\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"96.0\" cy=\"150.7485330933165\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"129.33333333333331\" cy=\"148.54303380248388\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"162.66666666666669\" cy=\"150.7485330933165\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"196.0\" cy=\"153.46126663171776\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"229.33333333333334\" cy=\"155.9568491716808\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"262.66666666666663\" cy=\"158.12308584318492\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"296.0\" cy=\"159.98195503412057\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"329.3333333333333\" cy=\"161.58058344860632\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"362.6666666666667\" cy=\"162.96453427219217\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"396.0\" cy=\"164.1720820708935\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"429.3333333333333\" cy=\"165.23406022786628\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"62.66666666666667\" cy=\"-131.33333333333331\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"96.0\" cy=\"86.09598577001654\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"129.33333333333331\" cy=\"127.48189219476652\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"162.66666666666669\" cy=\"144.365895877264\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"196.0\" cy=\"153.46126663171776\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"229.33333333333334\" cy=\"159.130708433736\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"262.66666666666663\" cy=\"162.9980825495096\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"296.0\" cy=\"165.80289579381696\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"329.3333333333333\" cy=\"167.92936360596838\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"362.6666666666667\" cy=\"169.59664314374248\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"396.0\" cy=\"170.9387776073752\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"429.3333333333333\" cy=\"172.04231956147692\" r=\"7\"/><rect class=\"fk-chip t-2 solid\" x=\"108.19\" y=\"40.46666666666667\" width=\"55.620000000000005\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-on\" x=\"136.0\" y=\"63.41666666666667\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ⁿ√5</text><rect class=\"fk-chip t-hu solid\" x=\"218.19\" y=\"115.20000000000002\" width=\"55.620000000000005\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-on\" x=\"246.0\" y=\"138.15\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ⁿ√n</text></svg>",
+      "alt": "جذر من درجة n بيسحب لـ 1: [n]5 (البرتقالي) و [n]n (الأزرق) التنين بيقرّبوا للخط 1.",
+      "caption": "جذر من درجة \\(n\\) بيسحب لـ 1: \\(\\sqrt[n]5\\) (البرتقالي) و\\(\\sqrt[n]n\\) (الأزرق) التنين بيقرّبوا للخط 1."
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "\\(\\infty-\\infty\\) ليش مش 0؟",
+          "a": "<p>لأنه بيعتمد مين أسرع. \\(n^2-n\\to\\infty\\)، \\(n-n^2\\to-\\infty\\)، و\\((n+5)-n\\to5\\). كلهم «\\(\\infty-\\infty\\)». لازم نرتّب (عامل مشترك، مرافق) قبل ما نحكي.</p>"
+        },
+        {
+          "q": "متتالية غير محدودة لازم تروح لـ \\(\\infty\\)؟",
+          "a": "<p>لأ. \\(a_n=n(-1)^n\\) غير محدودة بس بتقفز بين كبير موجب وكبير سالب، فما إلها نهاية حتى بالمعنى الواسع. بس إذا كمان رتيبة، آه.</p>"
+        },
+        {
+          "q": "ليش \\(\\sqrt[n]n\\to1\\) إذا \\(n\\) بيكبر؟",
+          "a": "<p>الجذر من درجة \\(n\\) بيكبر كمان مع \\(n\\) وبيغلب. \\(\\sqrt[n]n=e^{\\frac{\\ln n}{n}}\\)، و\\(\\frac{\\ln n}{n}\\to0\\) لأنه \\(\\ln\\) أبطأ من \\(n\\). فالنتيجة \\(e^0=1\\).</p>"
+        },
+        {
+          "q": "كيف بتذكّر مين أسرع؟",
+          "a": "<p>جرّبوا \\(n=20\\): \\(\\ln20\\approx3\\)، \\(20^2=400\\)، \\(2^{20}\\approx10^6\\)، \\(20!\\approx2\\cdot10^{18}\\)، \\(20^{20}=10^{26}\\). الفرق بيكبر بسرعة.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(1^\\infty=1\\)",
+          "yes": "\\(\\left(1+\\frac1n\\right)^n\\to e\\). \\(1^\\infty\\) شكل مش معرّف"
+        },
+        {
+          "no": "\\(\\frac{n!}{2^n}\\to0\\) لأنه المقام أُسّي",
+          "yes": "العاملي أسرع من الأُسّية: \\(\\frac{n!}{2^n}\\to\\infty\\)"
+        },
+        {
+          "no": "\\(a_n\\to\\infty\\) يعني \\(a_n\\) صاعدة",
+          "yes": "\\(n+2\\sin n\\) رايحة لـ \\(\\infty\\) ومش صاعدة"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش \\(\\lim\\dfrac{2n^3-n}{5n^3+4n^2}\\)؟ (كسر)",
+        "answer": [
+          "2/5",
+          "0.4"
+        ],
+        "hint": "نفس الدرجة.",
+        "solution": "<div class=\"disp-wrap\"><div class=\"disp\">\\[\\frac{2-1/n^2}{5+4/n}\\to\\frac25\\]</div></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "\\(\\lim\\dfrac{n^{10}}{1.1^n}\\) هي:",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(0\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(1\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(\\infty\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "قوة ضد أُسّية.",
+        "solution": "<p>كل قوة \\(n^p\\) أبطأ من أي أُسّية \\(a^n\\) مع \\(a&gt;1\\)، حتى \\(1.1^n\\). فالكسر رايح لـ 0، بس بيطوّل كتير قبل.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "הוכח/הפרך: كل متتالية رتيبة إلها نهاية بالمعنى الواسع.",
+        "options": [
+          {
+            "v": "1",
+            "html": "صحيح: منبرهن (הוכח)"
+          },
+          {
+            "v": "2",
+            "html": "غلط: منلاقي مثال مضاد (הפרך)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "محدودة أو مش محدودة.",
+        "solution": "<p>صحيح. إذا رتيبة ومحدودة، متقاربة لعدد (مبرهنة الرتيبة). إذا رتيبة ومش محدودة، بتروح لـ \\(\\infty\\) (صاعدة) أو \\(-\\infty\\) (نازلة). بالحالتين في نهاية بالمعنى الواسع.</p>"
+      }
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بثبت نهاية متتالية بالتعريف وبلاقي \\(N\\).",
+        "بستعمل قوانين النهايات، الساندويش والمتتالية الرتيبة.",
+        "بحسب نهايات \\(1^\\infty\\) مع \\(e\\).",
+        "بثبت \\(a_n\\to\\infty\\) وبعرف سلّم السرعات."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

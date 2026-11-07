@@ -1,0 +1,215 @@
+{
+  "slug": "state-table",
+  "title": "من دائرة لمعادلات وجدول حالات",
+  "he": "ניתוח מערכת סינכרונית",
+  "ref": "הרצאה 9 · תרגול 10",
+  "minutes": 18,
+  "desc": "تحليل دائرة متزامنة (מערכת סינכרונית) بكورس 61740: معادلات المداخل للقلّابات، معادلات الحالة الجاية، وجدول الحالات (טבלת מצבים) مع المخرج، لقلّابات D وJK.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> سؤال التحليل هو نص الجزء التتابعي بالامتحان: بيعطوكم رسمة فيها قلّابات وبوابات، وبيطلبوا معادلات، جدول حالات، ومخطّط حالات. هاد الدرس بيعطيكم الطريق كامل.</p><ol><li>الحالة = قيم القلّابات</li><li>معادلات المداخل من الرسمة</li><li>الحالة الجاية من معادلة القلّاب</li><li>جدول الحالات</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما في رسمة فيها قلّابات وبيقولوا «נתחו את המעגל».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 250\" role=\"img\" aria-label=\"دائرة متزامنة: المنطق التركيبي بيحسب من المدخل والحالة (A, B) شو يدخل للقلّابات، والساعة بتحدّث الحالة.\" class=\"fk\"><rect class=\"fk-chip t-1\" x=\"150\" y=\"30\" width=\"170\" height=\"90\" rx=\"12\" stroke-width=\"3\"/><text class=\"fk-t t-1\" x=\"235\" y=\"70\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">منطق تركيبي</text><text class=\"fk-t t-1\" x=\"235\" y=\"98\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">DA, DB, y</text><rect class=\"fk-chip t-2\" x=\"170\" y=\"160\" width=\"130\" height=\"62\" rx=\"12\" stroke-width=\"3\"/><text class=\"fk-t t-2\" x=\"235\" y=\"198\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">قلّابات A, B</text><line class=\"fk-line t-ink\" x1=\"40\" y1=\"60\" x2=\"138.0\" y2=\"60.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"150,60 138.0,53.0 138.0,67.0\"/><text class=\"fk-t t-ink\" x=\"95.0\" y=\"50.0\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><line class=\"fk-line t-hu\" x1=\"320\" y1=\"60\" x2=\"428.0\" y2=\"60.0\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"440,60 428.0,53.0 428.0,67.0\"/><text class=\"fk-t t-hu\" x=\"380.0\" y=\"50.0\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-1\" x1=\"290\" y1=\"120\" x2=\"290.0\" y2=\"148.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"290,160 297.0,148.0 283.0,148.0\"/><text class=\"fk-t t-1\" x=\"330\" y=\"146\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D</text><path class=\"fk-line t-2\" d=\"M170 191 L110 191 L110 100\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><line class=\"fk-line t-2\" x1=\"110\" y1=\"100\" x2=\"138.0\" y2=\"100.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"150,100 138.0,93.0 138.0,107.0\"/><text class=\"fk-t t-2\" x=\"80\" y=\"150\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A, B</text><line class=\"fk-line t-mut\" x1=\"235\" y1=\"248\" x2=\"235.0\" y2=\"234.0\" stroke-width=\"2.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"235,222 228.0,234.0 242.0,234.0\"/><text class=\"fk-t t-mut\" x=\"270\" y=\"244\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">CLK</text></svg>",
+      "alt": "دائرة متزامنة: المنطق التركيبي بيحسب من المدخل والحالة (A, B) شو يدخل للقلّابات، والساعة بتحدّث الحالة.",
+      "caption": "دائرة متزامنة: المنطق التركيبي بيحسب من المدخل والحالة (A, B) شو يدخل للقلّابات، والساعة بتحدّث الحالة."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>الحالة الجاية (\\(Q^+\\)) = <b>معادلة القلّاب</b> بعد ما نعوّض فيها <b>معادلات المداخل</b> من الرسمة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>الدائرة المتزامنة هي دائرة تركيبية عادية، بس قسم من مخارجها (مداخل القلّابات) بيرجع على الساعة الجاية كمداخل. التحليل هو بالزبط تحليل الجزء التركيبي، مع خطوة زيادة: معادلة القلّاب.</p>"
+    },
+    {
+      "t": "h",
+      "text": "شو هي «الحالة»؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>الحالة (מצב) هي قيم كل القلّابات مع بعض. دائرة فيها قلّابين \\(A,B\\) إلها 4 حالات: 00، 01، 10، 11. المخرج والحالة الجاية بيعتمدوا على الحالة الحالية وعلى المدخل \\(x\\). كل حافة ساعة الدائرة بتنقل من حالة لحالة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 324\" role=\"img\" aria-label=\"التحليل كطريق: من الرسمة للمعادلات، منها للحالة الجاية، وبالآخر جدول ومخطّط.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"70\" y=\"8\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"33.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الرسمة</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"49\" x2=\"240.0\" y2=\"57.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,69 247.0,57.0 233.0,57.0\"/><rect class=\"fk-chip t-hu\" x=\"70\" y=\"70\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"95.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">معادلات المداخل</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"111\" x2=\"240.0\" y2=\"119.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,131 247.0,119.0 233.0,119.0\"/><rect class=\"fk-chip t-hu\" x=\"70\" y=\"132\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"157.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">معادلة القلّاب</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"173\" x2=\"240.0\" y2=\"181.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,193 247.0,181.0 233.0,181.0\"/><rect class=\"fk-chip t-hu\" x=\"70\" y=\"194\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"219.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">جدول حالات</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"235\" x2=\"240.0\" y2=\"243.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,255 247.0,243.0 233.0,243.0\"/><rect class=\"fk-chip t-2 solid\" x=\"70\" y=\"256\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"281.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مخطّط حالات</text></svg>",
+      "alt": "التحليل كطريق: من الرسمة للمعادلات، منها للحالة الجاية، وبالآخر جدول ومخطّط.",
+      "caption": "التحليل كطريق: من الرسمة للمعادلات، منها للحالة الجاية، وبالآخر جدول ومخطّط."
+    },
+    {
+      "t": "h",
+      "text": "ثلاث خطوات"
+    },
+    {
+      "t": "p",
+      "html": "<p>أول: معادلات المداخل (משוואות כניסה). منقرا من الرسمة شو بيدخل لكل قلّاب، متل تحليل دائرة عادية. بالمثال: \\(D_A=Ax+Bx\\)، \\(D_B=A'x\\)، والمخرج \\(y=(A+B)x'\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>تاني: معادلات الحالة الجاية. بقلّاب D سهل: \\(A^+=D_A\\). بقلّاب JK منعوّض بـ \\(Q^+=JQ'+K'Q\\)، بـ T بـ \\(Q^+=T\\oplus Q\\). ومنبسّط إذا بدنا.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>تالت: جدول الحالات. سطر لكل تركيبة (حالة حالية، مدخل)، ومنحسب الحالة الجاية والمخرج. بـ 2 قلّابات ومدخل واحد في 8 أسطر.</p>"
+    },
+    {
+      "t": "html",
+      "html": "<div class=\"tbl\"><table class=\"t\" dir=\"ltr\"><thead><tr><th>A</th><th>B</th><th>x</th><th>A⁺</th><th>B⁺</th><th>y</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr></tbody></table></div>"
+    },
+    {
+      "t": "method",
+      "title": "تحليل دائرة متزامنة: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>معادلات المداخل</b> لكل قلّاب (D، T، أو J وK) وللمخرج، من الرسمة.",
+        "<b>الحالة الجاية</b> عوّضوا بمعادلة القلّاب (من ورقة العزر).",
+        "<b>جدول الحالات</b> كل تركيبة حالة ومدخل: الحالة الجاية والمخرج."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 328\" role=\"img\" aria-label=\"المعطى كجدول حالات كامل. السطرين الملوّنين هنّي الحالة AB = 01 مع x = 0 ومع x = 1.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"60.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"132.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-mut\" x=\"204.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-hu\" x=\"276.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A⁺</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B⁺</text><text class=\"fk-t t-hu\" x=\"420.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-grid\" x1=\"24.0\" y1=\"40\" x2=\"456.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"12\" x2=\"240.0\" y2=\"312\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"60.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"420.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"60.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"420.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"26.0\" y=\"111\" width=\"428\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"60.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-hu\" x=\"276.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-hu\" x=\"420.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"26.0\" y=\"145\" width=\"428\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"60.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"276.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"420.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"60.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"200\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"200\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"420.0\" y=\"200\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"60.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"234\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"234\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"420.0\" y=\"234\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"60.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"268\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"268\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"420.0\" y=\"268\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"60.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"302\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"302\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"420.0\" y=\"302\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "المعطى كجدول حالات كامل. السطرين الملوّنين هنّي الحالة AB = 01 مع x = 0 ومع x = 1.",
+      "caption": "المعطى كجدول حالات كامل. السطرين الملوّنين هنّي الحالة AB = 01 مع x = 0 ومع x = 1."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: بالدائرة \\(D_A=Ax+Bx\\)، \\(D_B=A'x\\)، \\(y=(A+B)x'\\). الحالة \\(AB=01\\). شو بيصير مع \\(x=1\\) ومع \\(x=0\\)؟",
+      "steps": [
+        {
+          "label": "\\(x=1\\): \\(D_A\\)",
+          "body": "\\(0\\cdot1+1\\cdot1=1\\)"
+        },
+        {
+          "label": "\\(x=1\\): \\(D_B\\) و\\(y\\)",
+          "body": "\\(D_B=1\\cdot1=1\\)، \\(y=(0+1)\\cdot0=0\\): الحالة الجاية 11"
+        },
+        {
+          "label": "\\(x=0\\)",
+          "body": "\\(D_A=0\\)، \\(D_B=0\\)، \\(y=(0+1)\\cdot1=1\\): الحالة الجاية 00"
+        }
+      ],
+      "a": "الجواب: \\(x=1\\to\\) 11 مع \\(y=0\\)؛ \\(x=0\\to\\) 00 مع \\(y=1\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: قلّاب JK",
+      "html": "<p>قلّاب JK مع \\(J=x\\) و\\(K=Q'\\). شو \\(Q^+\\)؟</p><p>\\(Q^+=JQ'+K'Q=xQ'+(Q')'Q=xQ'+Q\\). وحسب \\(Q+Q'x=Q+x\\): \\(Q^+=Q+x\\). يعني القلّاب بيصير 1 أول ما يجي \\(x=1\\)، وبيضل.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"بس بقلّاب D المدخل هو الحالة الجاية. بـ JK لازم نعوّض بمعادلة القلّاب.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">JK:  Q⁺ = J</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">JK:  Q⁺ = JQ' + K'Q</text></svg>",
+      "alt": "بس بقلّاب D المدخل هو الحالة الجاية. بـ JK لازم نعوّض بمعادلة القلّاب.",
+      "caption": "بس بقلّاب D المدخل هو الحالة الجاية. بـ JK لازم نعوّض بمعادلة القلّاب."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "بـ JK: \\(Q^+=J\\)",
+          "yes": "بـ JK منعوّض بـ \\(Q^+=JQ'+K'Q\\). بس بـ D \\(Q^+=D\\)"
+        },
+        {
+          "no": "جدول الحالات بـ 4 أسطر (بس الحالات)",
+          "yes": "سطر لكل حالة <b>ولكل</b> قيمة مدخل: \\(4\\times2=8\\)"
+        },
+        {
+          "no": "المخرج بيتحسب من الحالة الجاية",
+          "yes": "المخرج من الحالة <b>الحالية</b> والمدخل"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "نفس الدائرة: الحالة \\(AB=10\\)، \\(x=1\\). شو الحالة الجاية كعدد ثنائي \\(A^+B^+\\)؟",
+        "answer": [
+          "10"
+        ],
+        "hint": "احسبوا \\(D_A\\) و\\(D_B\\).",
+        "solution": "<p>\\(D_A=1\\cdot1+0\\cdot1=1\\) و\\(D_B=A'x=0\\cdot1=0\\). فالحالة الجاية \\(A^+B^+=10\\)، يعني الدائرة بتضل بنفس الحالة.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "دائرة فيها 3 قلّابات ومدخلين. قديش سطر بجدول الحالات؟",
+        "answer": [
+          "32"
+        ],
+        "hint": "حالات × تركيبات مداخل.",
+        "solution": "<p>3 قلّابات بيعطوا \\(2^3=8\\) حالات، ومدخلين بيعطوا \\(2^2=4\\) تركيبات. المجموع \\(8\\cdot4=32\\) سطر.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "قلّاب T مع \\(T=x\\). شو \\(Q^+\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(x\\oplus Q\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(x\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(xQ\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(x+Q\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "معادلة T.",
+        "solution": "<p>معادلة قلّاب T من ورقة العزر هي \\(Q^+=T\\oplus Q\\). منعوّض \\(T=x\\) ومنحصل \\(Q^+=x\\oplus Q\\).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو يعني «حالة» بالزبط؟",
+          "a": "الحالة (מצב) هي القيم اللي محفوظة بالقلّابات هلّق. بقلّابين في 4 حالات ممكنة: 00، 01، 10، 11. هي «ذاكرة» الدائرة: كل اللي لازم تعرفه عن الماضي عشان تقرّر شو تعمل."
+        },
+        {
+          "q": "لازم أكتب بالجدول كمان حالات ما بنوصلها؟",
+          "a": "بالتحليل آه: سطر لكل تركيبة حالة ومدخل. ممكن تطلع حالة ما بتوصلولها من البداية، وهاد مهم: بيقلّكم إذا الدائرة ممكن تعلق لو اشتغلت فيها بالغلط."
+        },
+        {
+          "q": "ليش منعوّض معادلات المداخل بمعادلة القلّاب، مش بس منحسب D؟",
+          "a": "لـ D ما في فرق، لأنه \\(Q^+=D\\). بس لـ T وJK المدخل مش هو الحالة الجاية: \\(T=1\\) يعني «اقلب». لهيك منحسب المداخل أول، وبعدين منطلّع \\(Q^+\\) من معادلة القلّاب."
+        },
+        {
+          "q": "المخرج \\(y\\) بيتغيّر مع الحافة؟",
+          "a": "إذا \\(y\\) بيعتمد بس على الحالة (Moore)، بيتغيّر بس لما الحالة بتتغيّر، يعني بعد الحافة. إذا بيعتمد كمان على المدخل (Mealy)، بيتغيّر فوراً لما المدخل بيتغيّر، حتى بين حافتين."
+        },
+        {
+          "q": "كيف بعرف من الرسمة إذا هي Mealy ولا Moore؟",
+          "a": "اكتبوا معادلة المخرج. إذا فيها \\(x\\) (المدخل)، هي Mealy. إذا فيها بس \\(Q\\)-ات، هي Moore."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "טבלת מצבים (جدول حالات)",
+      "back": "جدول فيه لكل حالة حالية ولكل مدخل: الحالة الجاية والمخرج."
+    }
+  ]
+}

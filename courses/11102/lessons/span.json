@@ -1,0 +1,242 @@
+{
+  "slug": "span",
+  "title": "تركيب خطي وفضاء مولَّد",
+  "he": "צירוף לינארי ופרישה",
+  "ref": "חוברת §7.2 (עמ׳ 61) · מטלה 6",
+  "minutes": 16,
+  "desc": "التركيب الخطي (צירוף לינארי)، الفضاء المولَّد sp(S) (פרישה)، وكيف منكتب متجه كتركيب خطي بحل نظام معادلات. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> «כתבו את \\(w\\) כצירוף לינארי של…» و«האם \\(w\\in\\operatorname{sp}(S)\\)» هم أسئلة مباشرة من أهداف الكورس. كل واحد منهم هو نظام معادلات بشكل تاني.</p><ol><li>تركيب خطي</li><li>\\(\\operatorname{sp}(S)\\)</li><li>السؤال = نظام</li><li>متى \\(S\\) بتولّد كل الفضاء</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> «צירוף לינארי»، «פורשת»، «\\(\\operatorname{sp}\\)».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"sp u,v هو كل التركيبات au+bv: مستوى كامل بيمرق بالصفر. كل نقطة فيه بتوصلولها بـ a خطوات على u وb على v.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"210.0\" y1=\"220.0\" x2=\"121.5\" y2=\"284.2\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"111.79200000000002,291.28 125.6,289.9 117.4,278.6\"/><text class=\"fk-t t-ink\" x=\"97.79200000000002\" y=\"307.28\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><line class=\"fk-line t-ink\" x1=\"210.0\" y1=\"220.0\" x2=\"356.4\" y2=\"220.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"368.4,220.0 356.4,213.0 356.4,227.0\"/><text class=\"fk-t t-ink\" x=\"382.4\" y=\"227.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-ink\" x1=\"210.0\" y1=\"220.0\" x2=\"210.0\" y2=\"73.6\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"210.0,61.60000000000002 203.0,73.6 217.0,73.6\"/><text class=\"fk-t t-ink\" x=\"210.0\" y=\"53.60000000000002\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">z</text><polygon class=\"t-hu\" points=\"163.6,241.3 101.1,254.0 320.0,171.9 382.5,159.2\" style=\"fill:var(--c);fill-opacity:0.16;stroke:var(--c);stroke-width:2;\"/><line class=\"fk-line t-1\" x1=\"210.0\" y1=\"220.0\" x2=\"193.3\" y2=\"223.4\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"181.584,225.76 194.7,230.2 192.0,216.5\"/><line class=\"fk-line t-2\" x1=\"210.0\" y1=\"220.0\" x2=\"314.0\" y2=\"181.0\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"325.2,176.8 311.5,174.5 316.4,187.6\"/><line class=\"fk-line t-hu\" x1=\"210.0\" y1=\"220.0\" x2=\"285.8\" y2=\"187.3\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"296.784,182.56 283.0,180.9 288.5,193.7\"/><circle class=\"fk-dot t-hu\" cx=\"296.784\" cy=\"182.56\" r=\"8\"/><line class=\"fk-line t-mut dash\" x1=\"181.584\" y1=\"225.76\" x2=\"296.784\" y2=\"182.56\" stroke-width=\"2\"/><line class=\"fk-line t-mut dash\" x1=\"325.2\" y1=\"176.8\" x2=\"296.784\" y2=\"182.56\" stroke-width=\"2\"/><rect class=\"fk-chip t-1\" x=\"135.584\" y=\"232.76\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-1\" x=\"155.584\" y=\"258.40999999999997\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">u</text><rect class=\"fk-chip t-2\" x=\"311.2\" y=\"129.8\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-2\" x=\"331.2\" y=\"155.45000000000002\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">v</text><rect class=\"fk-chip t-hu solid\" x=\"305.334\" y=\"157.56\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"346.784\" y=\"183.21\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">u + v</text><text class=\"fk-t t-hu\" x=\"400\" y=\"300\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">sp{u, v}</text></svg>",
+      "alt": "sp u,v هو كل التركيبات au+bv: مستوى كامل بيمرق بالصفر. كل نقطة فيه بتوصلولها بـ a خطوات على u وb على v.",
+      "caption": "\\(\\operatorname{sp}\\{u,v\\}\\) هو كل التركيبات \\(au+bv\\): مستوى كامل بيمرق بالصفر. كل نقطة فيه بتوصلولها بـ \\(a\\) خطوات على \\(u\\) و\\(b\\) على \\(v\\)."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(w\\in\\operatorname{sp}\\{v_1,\\dots,v_k\\}\\iff\\) للنظام \\(a_1v_1+\\dots+a_kv_k=w\\) <b>في حل</b>. المتجهات بتصير أعمدة بالمصفوفة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: وصفة من مكوّنات",
+      "html": "<p>التركيب الخطي هو وصفة: \\(a\\) من \\(u\\) و\\(b\\) من \\(v\\). السؤال «هل \\(w\\) بـ \\(\\operatorname{sp}\\)» معناه: هل في وصفة بتطلّع \\(w\\) من هالمكوّنات؟ والمكوّنات بتصير أعمدة، والكميات \\(a, b\\) هي المجاهيل.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: تركيب خطي وفضاء مولَّد <bdi dir=\"rtl\">(צירוף לינארי, פרישה)</bdi>",
+      "html": "<p>تركيب خطي لـ \\(v_1,\\dots,v_k\\): \\(\\alpha_1v_1+\\dots+\\alpha_kv_k\\). \\(\\operatorname{sp}\\{v_1,\\dots,v_k\\}\\) هي مجموعة كل التركيبات الخطية.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: المولَّد تحت فضاء <bdi dir=\"rtl\">(טענה 7.21)</bdi>",
+      "html": "<p>\\(\\operatorname{sp}\\{v_1,\\dots,v_k\\}\\) تحت فضاء لـ \\(V\\)، وهو أصغر تحت فضاء فيه \\(v_1,\\dots,v_k\\).</p><p><b>فكرة البرهان:</b> \\(0=0v_1+\\dots+0v_k\\). مجموع تركيبين هو تركيب (منجمع المعاملات)، وكمان مضاعف. وكل تحت فضاء فيه \\(v_i\\) لازم يحتوي كل تركيباتهم، لأنه مغلق.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نتيجة: زيادة متجه من جوّا <bdi dir=\"rtl\">(מסקנה 7.23)</bdi>",
+      "html": "<p>إذا \\(u\\in\\operatorname{sp}\\{v_1,\\dots,v_k\\}\\) فـ \\(\\operatorname{sp}\\{v_1,\\dots,v_k,u\\}=\\operatorname{sp}\\{v_1,\\dots,v_k\\}\\).</p><p><b>فكرة البرهان:</b> كل تركيب فيه \\(u\\) منقدر نبدّل \\(u\\) بتركيبه من الـ \\(v_i\\). يعني \\(u\\) «ما بيزيد إشي جديد».</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: عمليات على المتجهات <bdi dir=\"rtl\">(טענה 7.27)</bdi>",
+      "html": "<p>تبديل متجهين، ضرب متجه بعدد مش صفر، أو زيادة مضاعف متجه على متجه تاني: ما بيغيّروا الفضاء المولَّد.</p><p><b>فكرة البرهان:</b> كل متجه جديد هو تركيب من القدام، والعكس (العمليات بترجع). لهيك منقدر ندرج المتجهات كأسطر بدون ما يتغيّر الـ \\(\\operatorname{sp}\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 210\" role=\"img\" aria-label=\"متجه واحد بيولّد مستقيم بالصفر (كل مضاعفاته). متجهين مش على نفس الخط بيولّدوا مستوى كامل (كل التركيبات).\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"10.0\" y=\"8\" width=\"225.0\" height=\"194\" rx=\"14\"/><text class=\"fk-t t-hu\" x=\"122.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">sp{v}</text><line class=\"fk-line t-hu dash\" x1=\"20.0\" y1=\"171.0\" x2=\"225.0\" y2=\"71.0\" stroke-width=\"3\"/><line class=\"fk-line t-hu\" x1=\"122.5\" y1=\"121.0\" x2=\"151.8\" y2=\"106.4\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"162.5,101.0 148.6,100.1 154.9,112.6\"/><circle class=\"fk-dot t-ink\" cx=\"122.5\" cy=\"121.0\" r=\"5\"/><rect class=\"fk-chip t-hu\" x=\"245.0\" y=\"8\" width=\"225.0\" height=\"194\" rx=\"14\"/><text class=\"fk-t t-hu\" x=\"357.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">sp{u, v}</text><polygon class=\"t-hu\" points=\"255.0,184.0 420.0,184.0 460.0,58.0 295.0,58.0\" style=\"fill:var(--c);fill-opacity:0.2;stroke:var(--c);stroke-width:2;\"/><line class=\"fk-line t-1\" x1=\"357.5\" y1=\"121.0\" x2=\"389.6\" y2=\"125.4\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"401.5,127.0 390.6,118.4 388.7,132.3\"/><line class=\"fk-line t-2\" x1=\"357.5\" y1=\"121.0\" x2=\"367.4\" y2=\"94.3\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"371.5,83.0 360.8,91.8 373.9,96.7\"/><circle class=\"fk-dot t-ink\" cx=\"357.5\" cy=\"121.0\" r=\"5\"/></svg>",
+      "alt": "متجه واحد بيولّد مستقيم بالصفر (كل مضاعفاته). متجهين مش على نفس الخط بيولّدوا مستوى كامل (كل التركيبات).",
+      "caption": "متجه واحد بيولّد مستقيم بالصفر (كل مضاعفاته). متجهين مش على نفس الخط بيولّدوا مستوى كامل (كل التركيبات)."
+    },
+    {
+      "t": "h",
+      "text": "التعريفات"
+    },
+    {
+      "t": "p",
+      "html": "<p>تركيب خطي (צירוף לינארי) لـ \\(v_1,\\dots,v_k\\) هو \\(a_1v_1+\\dots+a_kv_k\\) لأي أعداد \\(a_i\\). الفضاء المولَّد (פרישה) \\(\\operatorname{sp}(S)\\) هو مجموعة كل التركيبات الخطية لمتجهات \\(S\\). هو دايماً تحت فضاء (فيه الصفر مع كل المعاملات صفر، ومسكّر للجمع والضرب)، وهو أصغر تحت فضاء فيه \\(S\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بـ \\(\\mathbb R^3\\): \\(\\operatorname{sp}\\) لمتجه واحد مش صفر هو مستقيم بيمرق بالصفر. لمتجهين مش على نفس الخط: مستوى بيمرق بالصفر (متل الرسمة). لتلاتة مش بنفس المستوى: كل \\(\\mathbb R^3\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "من سؤال لنظام"
+    },
+    {
+      "t": "p",
+      "html": "<p>لتكتبوا \\(w\\) كتركيب خطي، اكتبوا \\(a_1v_1+\\dots+a_kv_k=w\\) إحداثي إحداثي. هاد نظام معادلات خطية مجاهيله \\(a_i\\)، والمصفوفة الموسّعة إلها \\(v_i\\) كأعمدة و\\(w\\) بالآخر. درجوا: إذا في سطر مستحيل، \\(w\\notin\\operatorname{sp}(S)\\). غير هيك، الحل بيعطي المعاملات.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>\\(S\\) بتولّد (פורשת) كل \\(\\mathbb R^n\\) إذا لكل \\(w\\) في حل، يعني الرتبة للمصفوفة اللي أعمدتها \\(S\\) هي \\(n\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: متجه بالفضاء المولَّد",
+      "html": "<p>هل \\((1,2,3)\\in\\operatorname{sp}\\{(1,0,1),(0,1,1)\\}\\)؟</p><ol><li>\\(a(1,0,1)+b(0,1,1)=(a,\\,b,\\,a+b)\\)<br><span class=\"why-line\">منكتب تركيب عام.</span></li><li>\\(a=1,\\;b=2\\)<br><span class=\"why-line\">من الإحداثي الأول والتاني.</span></li><li>فحص التالت: \\(a+b=3\\) ✓<br><span class=\"why-line\">المعادلة التالتة كمان بتتحقّق، فـ \\((1,2,3)=1\\cdot(1,0,1)+2\\cdot(0,1,1)\\).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): بتولّد \\(\\mathbb R^3\\)؟",
+      "html": "<p>هل \\(\\{(1,1,0),(0,1,1),(1,0,1)\\}\\) بتولّد \\(\\mathbb R^3\\)؟</p><ol><li>\\(\\det\\begin{pmatrix}1&amp;0&amp;1\\\\1&amp;1&amp;0\\\\0&amp;1&amp;1\\end{pmatrix}=2\\)<br><span class=\"why-line\">المتجهات كأعمدة. تطوير حسب السطر الأول: \\(1\\cdot1-0+1\\cdot1=2\\).</span></li><li>\\(\\det\\neq0\\) ⇐ الرتبة 3<br><span class=\"why-line\">من خواص المحدّدة: قابلة للعكس \\(\\iff\\) رتبة كاملة.</span></li><li>لكل \\(w\\) للنظام حل ⇐ بتولّد<br><span class=\"why-line\">رتبة 3 بـ \\(\\mathbb R^3\\) معناها ما في سطر مستحيل لأي \\(w\\).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>\\(\\operatorname{sp}\\{u,v\\}=\\operatorname{sp}\\{u,\\,u+v\\}\\).<br><b>الجواب: الادّعاء صحيحة، وهاد البرهان.</b></p><ol><li>\\(a u+b(u+v)=(a+b)u+bv\\in\\operatorname{sp}\\{u,v\\}\\)<br><span class=\"why-line\">كل إشي باليمين موجود بالشمال.</span></li><li>\\(au+bv=(a-b)u+b(u+v)\\in\\operatorname{sp}\\{u,u+v\\}\\)<br><span class=\"why-line\">وكل إشي بالشمال موجود باليمين.</span></li><li>احتواء بالاتجاهين ⇐ مساواة.<br><span class=\"why-line\">هاي الطريقة الثابتة لبرهان مساواة مجموعات.</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "«اكتبوا \\(w\\) كتركيب خطي»، 3 خطوات",
+      "steps": [
+        "<b>أعمدة:</b> حطّوا \\(v_1,\\dots,v_k\\) كأعمدة و\\(w\\) بعد الخط.",
+        "<b>درج:</b> سطر مستحيل؟ ما في تركيب.",
+        "<b>معاملات:</b> حلّوا لـ \\(a_i\\)، واكتبوا الجواب كـ \\(w=a_1v_1+\\dots\\) وافحصوا."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"المعطى u, v, w، مرسومين بالمستوى اللي u وv بيولّدوه. w هو قطر متوازي الأضلاع اللي ضلعيه u و2v، يعني w=u+2v، وهاد اللي بيطلع من حل النظام.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"94.18604651162791\" y1=\"24\" x2=\"94.18604651162791\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"182.55813953488374\" y1=\"24\" x2=\"182.55813953488374\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"270.93023255813955\" y1=\"24\" x2=\"270.93023255813955\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"359.30232558139534\" y1=\"24\" x2=\"359.30232558139534\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"228.1081081081081\" x2=\"430\" y2=\"228.1081081081081\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"164.32432432432432\" x2=\"430\" y2=\"164.32432432432432\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"100.54054054054055\" x2=\"430\" y2=\"100.54054054054055\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"36.75675675675677\" x2=\"430\" y2=\"36.75675675675677\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"228.1081081081081\" x2=\"432.0\" y2=\"228.1\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,228.1081081081081 432.0,221.1 432.0,235.1\"/><line class=\"fk-line t-ink\" x1=\"94.18604651162791\" y1=\"260\" x2=\"94.2\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"94.18604651162791,10 87.2,22.0 101.2,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"254.1081081081081\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-ink\" x=\"76.18604651162791\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><polygon class=\"t-hu\" points=\"94.2,228.1 270.9,209.0 377.0,55.9 200.2,75.0\" style=\"fill:var(--c);fill-opacity:0.12;stroke:var(--c);stroke-width:2;\"/><line class=\"fk-line t-1\" x1=\"94.18604651162791\" y1=\"228.1081081081081\" x2=\"259.0\" y2=\"210.3\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"270.93023255813955,208.97297297297297 258.2,203.3 259.8,217.2\"/><line class=\"fk-line t-2\" x1=\"94.18604651162791\" y1=\"228.1081081081081\" x2=\"193.4\" y2=\"84.9\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"200.2325581395349,75.02702702702703 187.6,80.9 199.2,88.9\"/><line class=\"fk-line t-hu\" x1=\"94.18604651162791\" y1=\"228.1081081081081\" x2=\"366.7\" y2=\"62.1\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"376.9767441860465,55.8918918918919 363.1,56.2 370.4,68.1\"/><rect class=\"fk-chip t-1 solid\" x=\"215.58139534883722\" y=\"218.67567567567568\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"235.58139534883722\" y=\"244.32567567567568\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">u</text><rect class=\"fk-chip t-2 solid\" x=\"96.91767441860465\" y=\"87.91891891891893\" width=\"47.56\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"120.69767441860465\" y=\"113.56891891891894\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2v</text><rect class=\"fk-chip t-hu solid\" x=\"374.6511627906977\" y=\"17.756756756756772\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"394.6511627906977\" y=\"43.40675675675677\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">w</text></svg>",
+      "alt": "المعطى u, v, w، مرسومين بالمستوى اللي u وv بيولّدوه. w هو قطر متوازي الأضلاع اللي ضلعيه u و2v، يعني w=u+2v، وهاد اللي بيطلع من حل النظام.",
+      "caption": "المعطى \\(u, v, w\\)، مرسومين بالمستوى اللي \\(u\\) و\\(v\\) بيولّدوه. \\(w\\) هو قطر متوازي الأضلاع اللي ضلعيه \\(u\\) و\\(2v\\)، يعني \\(w=u+2v\\)، وهاد اللي بيطلع من حل النظام."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: اكتبوا \\(w=(3,5,4)\\) كتركيب خطي لـ \\(u=(1,1,0)\\) و\\(v=(1,2,2)\\).",
+      "steps": [
+        {
+          "label": "النظام",
+          "body": "\\(a+b=3,\\;a+2b=5,\\;2b=4\\)"
+        },
+        {
+          "label": "من المعادلة التالتة",
+          "body": "\\(b=2\\)"
+        },
+        {
+          "label": "من الأولى",
+          "body": "\\(a=3-2=1\\)"
+        },
+        {
+          "label": "فحص التانية",
+          "body": "\\(1+2\\cdot2=5\\)"
+        },
+        {
+          "label": "الجواب",
+          "body": "\\(1\\cdot u+2\\cdot v=w\\)"
+        }
+      ],
+      "a": "\\(w=u+2v\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"متجهين على نفس الخط ((1,2) و(-1.5,-3)) بيولّدوا بس هالخط، مش كل R 2. عدد المتجهات لحاله ما بيكفي.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"50.0\" y1=\"24\" x2=\"50.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"145.0\" y1=\"24\" x2=\"145.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"24\" x2=\"240.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"335.0\" y1=\"24\" x2=\"335.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"430.0\" y1=\"24\" x2=\"430.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"252.625\" x2=\"430\" y2=\"252.625\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"215.75\" x2=\"430\" y2=\"215.75\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"178.875\" x2=\"430\" y2=\"178.875\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"142.0\" x2=\"430\" y2=\"142.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"105.125\" x2=\"430\" y2=\"105.125\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"68.25\" x2=\"430\" y2=\"68.25\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"31.375\" x2=\"430\" y2=\"31.375\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"142.0\" x2=\"432.0\" y2=\"142.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,142.0 432.0,135.0 432.0,149.0\"/><line class=\"fk-line t-ink\" x1=\"240.0\" y1=\"260\" x2=\"240.0\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"240.0,10 233.0,22.0 247.0,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"168.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-ink\" x=\"222.0\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-1\" x1=\"240.0\" y1=\"142.0\" x2=\"325.5\" y2=\"75.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"335.0,68.25 321.2,70.1 329.8,81.1\"/><line class=\"fk-line t-2\" x1=\"240.0\" y1=\"142.0\" x2=\"107.0\" y2=\"245.3\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"97.5,252.625 111.3,250.8 102.7,239.7\"/><line class=\"fk-line t-mut dash\" x1=\"88.0\" y1=\"260.0\" x2=\"392.0\" y2=\"24.0\" stroke-width=\"2\"/></svg>",
+      "alt": "متجهين على نفس الخط ((1,2) و(-1.5,-3)) بيولّدوا بس هالخط، مش كل R 2. عدد المتجهات لحاله ما بيكفي.",
+      "caption": "متجهين على نفس الخط (\\((1,2)\\) و\\((-1.5,-3)\\)) بيولّدوا بس هالخط، مش كل \\(\\mathbb R^2\\). عدد المتجهات لحاله ما بيكفي."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "حطيت \\(v_i\\) كأسطر بالمصفوفة",
+          "yes": "كأعمدة: كل متجه هو عمود معاملاته"
+        },
+        {
+          "no": "\\(\\operatorname{sp}\\{(1,2)\\}=\\mathbb R^2\\)",
+          "yes": "متجه واحد بيولّد مستقيم بس"
+        },
+        {
+          "no": "حليت معادلتين ونسيت أفحص التالتة",
+          "yes": "كل المعادلات لازم تتحقّق، وإلا ما في تركيب"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو \\(\\operatorname{sp}\\{0\\}\\)؟ وشو \\(\\operatorname{sp}\\) لمجموعة فاضية؟",
+          "a": "الاتنين \\(\\{0\\}\\): التركيب الوحيد هو \\(0\\). بالتعريف المتّفق عليه \\(\\operatorname{sp}(\\emptyset)=\\{0\\}\\)، أصغر تحت فضاء."
+        },
+        {
+          "q": "هل الترتيب بيأثّر على الفضاء المولَّد؟",
+          "a": "لأ. \\(\\operatorname{sp}\\{u,v\\}=\\operatorname{sp}\\{v,u\\}\\): نفس التركيبات. الترتيب مهم بس للإحداثيات (درس الأساس)."
+        },
+        {
+          "q": "شو الفرق بين «\\(S\\) بتولّد \\(V\\)» و«\\(S\\) جوّا \\(V\\)»؟",
+          "a": "«جوّا» يعني كل متجه من \\(S\\) موجود بـ \\(V\\). «بتولّد» يعني العكس: كل متجه من \\(V\\) هو تركيب من \\(S\\). \\(\\{(1,0)\\}\\) جوّا \\(\\mathbb R^2\\) بس ما بتولّده."
+        },
+        {
+          "q": "بالامتحان بيكتبوا Span ومرات sp. نفس الإشي؟",
+          "a": "آه. ورقة القوانين بتكتب \\(\\operatorname{Span}(S)\\)، وكتير كتب بتكتب \\(\\operatorname{sp}\\) أو \\(\\langle S\\rangle\\)."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "لأي \\(k\\) المتجه \\((1,k,5)\\in\\operatorname{sp}\\{(1,1,1),(0,1,2)\\}\\)؟",
+        "answer": [
+          "3"
+        ],
+        "hint": "\\(a(1,1,1)+b(0,1,2)=(a,\\,a+b,\\,a+2b)\\).",
+        "solution": "<p>من الإحداثي الأول \\(a=1\\)، ومن التالت \\(1+2b=5\\) يعني \\(b=2\\). فالإحداثي التاني لازم يكون \\(k=a+b=3\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(w=(4,1)=a(1,1)+b(2,-1)\\). شو \\(b\\)؟",
+        "answer": [
+          "1"
+        ],
+        "hint": "\\(a+2b=4\\)، \\(a-b=1\\).",
+        "solution": "<p>منطرح المعادلة التانية من الأولى: \\(3b=3\\)، فـ \\(b=1\\)، ومن هون \\(a=2\\). فحص: \\(2(1,1)+1(2,-1)=(4,1)\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "شو \\(\\operatorname{sp}\\{(1,2,0),(2,4,0)\\}\\) بـ \\(\\mathbb R^3\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "مستقيم"
+          },
+          {
+            "v": "2",
+            "html": "مستوى"
+          },
+          {
+            "v": "3",
+            "html": "كل \\(\\mathbb R^3\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "المتجه التاني شو علاقته بالأول؟",
+        "solution": "<p>\\((2,4,0)=2\\cdot(1,2,0)\\)، فالمتجهين على نفس الخط والرتبة 1، والفضاء المولَّد مستقيم بيمرق بالصفر.</p>"
+      }
+    }
+  ]
+}

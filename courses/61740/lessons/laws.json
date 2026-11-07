@@ -1,0 +1,257 @@
+{
+  "slug": "laws",
+  "title": "جبر بولياني: العمليات والقوانين",
+  "he": "אלגברה בוליאנית",
+  "ref": "הרצאה 3 · תרגול 4",
+  "minutes": 15,
+  "desc": "الجبر البولياني لكورس 61740: قيم 0 و1، العمليات AND OR NOT، جدول المتطابقات الأساسية (חוק הפילוג، דה-מורגן، בליעה) ومبدأ الثنائية.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> كل دائرة رقمية هي تعبير بولياني. قبل ما نبني بوابات لازم نعرف نحسب بالتعابير ونقصّرها، وهاد هو الجبر البولياني (אלגברה בוליאנית). الجدول هاد بتستعملوه بكل الكورس.</p><ol><li>متغيّر قيمته 0 أو 1 بس</li><li>AND، OR وNOT: جدول قيمهم</li><li>المتطابقات الأساسية وأهمها دي-مورغان</li><li>مبدأ الثنائية: كل قانون إلو توأم</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> بكل سؤال «פשטו את הביטוי» أو «הוכיחו את הזהות».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 250\" role=\"img\" aria-label=\"مفتاح مسكّر = 1. AND هو مفتاحين ورا بعض، OR هو مفتاحين جنب بعض.\" class=\"fk\"><text class=\"fk-t t-hu\" x=\"120\" y=\"30\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">וגם AND: بالتسلسل</text><path class=\"fk-line t-ink\" d=\"M20 90 L60 90\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-ink\" cx=\"60\" cy=\"90\" r=\"5\"/><path class=\"fk-line t-hu\" d=\"M60 90 L100 70\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-ink\" cx=\"105\" cy=\"90\" r=\"5\"/><text class=\"fk-t t-hu\" x=\"80\" y=\"60\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><path class=\"fk-line t-ink\" d=\"M105 90 L130 90\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-ink\" cx=\"130\" cy=\"90\" r=\"5\"/><path class=\"fk-line t-hu\" d=\"M130 90 L170 70\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-ink\" cx=\"175\" cy=\"90\" r=\"5\"/><text class=\"fk-t t-hu\" x=\"150\" y=\"60\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><path class=\"fk-line t-ink\" d=\"M175 90 L205 90\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-mut hollow\" cx=\"218\" cy=\"90\" r=\"13\"/><text class=\"fk-t t-ink\" x=\"120\" y=\"135\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">الضو بيشعل بس إذا A=1 و B=1</text><text class=\"fk-t t-2\" x=\"360\" y=\"30\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">או OR: جنب بعض</text><path class=\"fk-line t-ink\" d=\"M270 120 L290 120 L290 80 L310 80\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-ink\" d=\"M290 120 L290 160 L310 160\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-ink\" cx=\"310\" cy=\"80\" r=\"5\"/><path class=\"fk-line t-2\" d=\"M310 80 L350 60\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-ink\" cx=\"355\" cy=\"80\" r=\"5\"/><text class=\"fk-t t-2\" x=\"330\" y=\"52\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><circle class=\"fk-dot t-ink\" cx=\"310\" cy=\"160\" r=\"5\"/><path class=\"fk-line t-2\" d=\"M310 160 L350 140\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-ink\" cx=\"355\" cy=\"160\" r=\"5\"/><text class=\"fk-t t-2\" x=\"330\" y=\"132\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><path class=\"fk-line t-ink\" d=\"M355 80 L375 80 L375 160 L355 160\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-ink\" d=\"M375 120 L400 120\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-mut hollow\" cx=\"413\" cy=\"120\" r=\"13\"/><text class=\"fk-t t-ink\" x=\"360\" y=\"210\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">بيشعل إذا واحد منهم على الأقل 1</text></svg>",
+      "alt": "مفتاح مسكّر = 1. AND هو مفتاحين ورا بعض، OR هو مفتاحين جنب بعض.",
+      "caption": "مفتاح مسكّر = 1. AND هو مفتاحين ورا بعض، OR هو مفتاحين جنب بعض."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(x+x'=1\\)، \\(x\\cdot x'=0\\)، و<b>دي-مورغان</b>: \\((x+y)'=x'y'\\) و\\((xy)'=x'+y'\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>بالجبر البولياني كل متغيّر هو جواب «نعم أو لا»: 1 أو 0. الـ + معناه «أو» والضرب معناه «و». لهيك بعض القوانين بتشبه الجبر العادي، وبعضها جديد كلياً، متل \\(x+x=x\\) و\\(x+1=1\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 192\" role=\"img\" aria-label=\"دي-مورغان بجدول: العامودين الأخيرين متساويين بكل سطر. الاتنين 1 بس لما x وy الاتنين 0.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"132.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-mut\" x=\"204.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">y</text><text class=\"fk-t t-hu\" x=\"276.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">(x+y)'</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x'y'</text><line class=\"fk-line t-grid\" x1=\"96.0\" y1=\"40\" x2=\"384.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"12\" x2=\"240.0\" y2=\"176\" stroke-width=\"2\"/><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"43\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-hu\" x=\"276.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "دي-مورغان بجدول: العامودين الأخيرين متساويين بكل سطر. الاتنين 1 بس لما x وy الاتنين 0.",
+      "caption": "دي-مورغان بجدول: العامودين الأخيرين متساويين بكل سطر. الاتنين 1 بس لما x وy الاتنين 0."
+    },
+    {
+      "t": "h",
+      "text": "شو بنحسب؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>متغيّر بولياني إلو قيمتين بس: 0 (غلط، ما في تيار) و1 (صح، في تيار). في تلات عمليات أساسية. الـ AND (וגם) بنكتبه ضرب: \\(xy\\) بيساوي 1 بس إذا الاتنين 1. الـ OR (או) بنكتبه +: \\(x+y\\) بيساوي 1 إذا واحد منهم على الأقل 1. الـ NOT (לא، משלים) بنكتبه بفاصلة فوق: \\(x'\\) هو العكس.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بالرسمة فوق: AND هو مفتاحين بالتسلسل، الضو بيشعل بس إذا الاتنين مسكّرين. OR هو مفتاحين جنب بعض، بيكفي واحد. من هون بتفهموا ليش \\(x+1=1\\): إذا في مفتاح جنب مسكّر دايماً، الضو دايماً شاعل. وليش \\(x\\cdot 0=0\\): مفتاح مفتوح دايماً بالتسلسل بيقطع كل إشي.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>ترتيب العمليات: أول NOT، بعدين AND، بعدين OR. يعني \\(x+yz'\\) معناه \\(x+(y\\cdot(z'))\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "rule",
+      "title": "جدول المتطابقات الأساسية (בדף העזר)",
+      "html": "<p>\\(x+0=x\\quad x\\cdot1=x\\quad x+1=1\\quad x\\cdot0=0\\)</p><p>\\(x+x=x\\quad xx=x\\quad x+x'=1\\quad xx'=0\\quad (x')'=x\\)</p><p>توزيع: \\(x(y+z)=xy+xz\\) وكمان \\(x+yz=(x+y)(x+z)\\)</p><p>امتصاص (בליעה): \\(x+xy=x\\quad x(x+y)=x\\quad x+x'y=x+y\\)</p><p>دي-مورغان: \\((x+y)'=x'y'\\quad (xy)'=x'+y'\\)</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>انتبهوا للتوزيع التاني \\(x+yz=(x+y)(x+z)\\): بالجبر العادي هاد غلط، بس بالبولياني صح. بتقدروا تفحصوه بجدول قيم بثمان أسطر.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مبدأ الثنائية (עקרון הדואליות): إذا بدّلتوا كل + بضرب وكل ضرب بـ +، وكل 0 بـ 1 وكل 1 بـ 0، بيطلع قانون صح كمان. لهيك كل قانون بالجدول جاي بزوج. مثلاً التوأم تبع \\(x+0=x\\) هو \\(x\\cdot1=x\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كيف بتعرفوا السؤال؟ «פשטו» يعني قصّروا التعبير لأقل عدد متغيرات وعمليات. كل خطوة لازم تكون قانون من الجدول، ومنيح تكتبوا اسمه جنبها.</p>"
+    },
+    {
+      "t": "method",
+      "title": "تبسيط بالقوانين: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>دي-مورغان أول:</b> فكّوا كل \\('\\) فوق قوس لحد ما تضل الـ \\('\\) على متغيّرات بس.",
+        "<b>افتحوا أو اطلعوا عامل مشترك:</b> دوّروا على \\(xy+xy'\\) أو \\(x+xy\\).",
+        "<b>استعملوا</b> \\(x+x'=1\\)، الامتصاص و\\(x+x'y=x+y\\) لحد ما ما يضل إشي يتقصّر."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 192\" role=\"img\" aria-label=\"المعطى كجدول: F بيساوي 1 بالزبط بالسطرين اللي فيهم A = 0. يعني الجواب لازم يطلع A مقلوب.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"96.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"168.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">(A+B)'</text><text class=\"fk-t t-mut\" x=\"312.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A'B</text><text class=\"fk-t t-hu\" x=\"384.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">F</text><line class=\"fk-line t-grid\" x1=\"60.0\" y1=\"40\" x2=\"420.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"348.0\" y1=\"12\" x2=\"348.0\" y2=\"176\" stroke-width=\"2\"/><rect class=\"fk-chip t-hu\" x=\"62.0\" y=\"43\" width=\"356\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"96.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"168.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"312.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-hu\" x=\"384.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"62.0\" y=\"77\" width=\"356\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"96.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"168.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"312.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"384.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"96.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"168.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"312.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"384.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"96.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"168.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"312.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"384.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "المعطى كجدول: F بيساوي 1 بالزبط بالسطرين اللي فيهم A = 0. يعني الجواب لازم يطلع A مقلوب.",
+      "caption": "المعطى كجدول: F بيساوي 1 بالزبط بالسطرين اللي فيهم A = 0. يعني الجواب لازم يطلع A مقلوب."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: بسّطوا \\(F=(A+B)'+A'B\\).",
+      "steps": [
+        {
+          "label": "دي-مورغان",
+          "body": "\\((A+B)'=A'B'\\)، فـ \\(F=A'B'+A'B\\)"
+        },
+        {
+          "label": "عامل مشترك",
+          "body": "\\(F=A'(B'+B)\\)"
+        },
+        {
+          "label": "\\(B+B'=1\\)",
+          "body": "\\(F=A'\\cdot1=A'\\)"
+        }
+      ],
+      "a": "الجواب \\(F=A'\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: التوزيع التاني",
+      "html": "<p>بسّطوا \\((x+y)(x+y')\\).</p><p>حسب \\(x+yz=(x+y)(x+z)\\) بالعكس: \\((x+y)(x+y')=x+yy'=x+0=x\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"دي-مورغان بيكسر الخط وبيبدّل الإشارة: + بتصير ضرب. إذا الإشارة ما تبدّلت، الجواب غلط.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">(x+y)' = x' + y'</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">(x+y)' = x'·y'</text></svg>",
+      "alt": "دي-مورغان بيكسر الخط وبيبدّل الإشارة: + بتصير ضرب. إذا الإشارة ما تبدّلت، الجواب غلط.",
+      "caption": "دي-مورغان بيكسر الخط وبيبدّل الإشارة: + بتصير ضرب. إذا الإشارة ما تبدّلت، الجواب غلط."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\((AB)'=A'B'\\)",
+          "yes": "\\((AB)'=A'+B'\\): دي-مورغان بيقلب الضرب لـ +"
+        },
+        {
+          "no": "\\(x+xy=x+y\\)",
+          "yes": "\\(x+xy=x\\) (امتصاص). الـ \\(x+x'y=x+y\\) هو اللي فيه \\(x'\\)"
+        },
+        {
+          "no": "\\(x+x=2x\\)",
+          "yes": "\\(x+x=x\\): ما في 2 بالبولياني"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "شو \\(x+x'y\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(x+y\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(xy\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(x\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(y\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "استعملوا \\(x+yz=(x+y)(x+z)\\).",
+        "solution": "<p>حسب التوزيع التاني: \\(x+x'y=(x+x')(x+y)=1\\cdot(x+y)=x+y\\). بجدول القيم كمان: الجواب 0 بس لما \\(x=y=0\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "شو \\((A'+B)'\\) بعد دي-مورغان؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(AB'\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(A'B\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(A+B'\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(A'B'\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "اقلبوا كل واحد وبدّلوا + بضرب.",
+        "solution": "<p>دي-مورغان: \\((A'+B)'=(A')'\\cdot B'=AB'\\). الـ + بيصير ضرب وكل متغيّر بيتقلب.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "بسّطوا \\(xyz+xy'z+xz'\\).",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(x\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(xz\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(xy\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(x+z\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "اطلعوا عامل مشترك مرتين.",
+        "solution": "<p>منطلّع عامل مشترك مرتين ورا بعض: \\(xyz+xy'z=xz(y+y')=xz\\). وبعدين \\(xz+xz'=x(z+z')=x\\). الجواب \\(x\\).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش هون \\(1+1=1\\) ومش 2؟",
+          "a": "لأنه الـ «+» بالجبر البولياني مش جمع، هو OR: «واحد منهم على الأقل 1». ما في قيمة 2 أصلاً، القيم بس 0 و1. فـ \\(1+1\\) معناها «صح أو صح»، وهاد صح، يعني 1."
+        },
+        {
+          "q": "شو الفرق بين الجبر البولياني والجبر العادي؟",
+          "a": "بعض القوانين متل العادي (تبديل، تجميع، توزيع الضرب على الجمع)، وبعضها جديد: \\(x+x=x\\)، \\(x\\cdot x=x\\)، \\(x+1=1\\)، وكمان الجمع بيتوزّع على الضرب: \\(x+yz=(x+y)(x+z)\\). وما في طرح ولا قسمة، فممنوع «نشطب» حد من الطرفين."
+        },
+        {
+          "q": "كيف بتذكّر دي-مورغان بدون ما أتلخبط؟",
+          "a": "«اكسروا الخط وبدّلوا الإشارة»: الخط فوق كل التعبير بينكسر لخط فوق كل متغيّر، والـ + بتصير ضرب أو العكس. \\((x+y)'=x'y'\\) و\\((xy)'=x'+y'\\). إذا مش متأكّدين، جرّبوا \\(x=1,y=0\\) بالطرفين."
+        },
+        {
+          "q": "ليش \\(x+yz=(x+y)(x+z)\\) صح هون وبالأعداد لا؟",
+          "a": "افحصوا حالتين. إذا \\(x=1\\): الطرفين 1. إذا \\(x=0\\): الشمال \\(yz\\) واليمين \\(y\\cdot z\\). نفس الإشي. بالأعداد العادية ما بيزبط لأنه \\(x\\cdot x\\neq x\\)، بس هون \\(x\\cdot x=x\\)."
+        },
+        {
+          "q": "شو ترتيب العمليات؟",
+          "a": "أول NOT، بعدين AND (الضرب)، وبالآخر OR (الجمع)، إلا إذا في أقواس. الفتحة (\\(x'\\)) بتنطبق بس على اللي قبلها مباشرة: متغيّر واحد أو قوس كامل. يعني \\(xy'\\) هو \\(x\\cdot(y')\\)، و\\((xy)'\\) شي تاني."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "مبدأ الثنائية (עקרון הדואליות)",
+      "back": "بدّلوا + بضرب وضرب بـ +، و0 بـ 1 و1 بـ 0: بيطلع قانون صح كمان."
+    }
+  ]
+}

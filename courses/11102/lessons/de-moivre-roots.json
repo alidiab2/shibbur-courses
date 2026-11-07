@@ -1,0 +1,256 @@
+{
+  "slug": "de-moivre-roots",
+  "title": "قوى وجذور: قانون دي موافر",
+  "he": "משפט דה־מואבר ושורשים",
+  "ref": "חוברת §2.1 · מטלות 1-2",
+  "minutes": 18,
+  "desc": "رفع عدد مركّب لقوة بقانون دي موافر، وإيجاد الجذور من الدرجة n لعدد مركّب، ليش هم على دائرة، مع سؤال امتحان محلول. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> «חשבו \\((1+i)^{10}\\)» و«פתרו \\(z^3=8i\\)» هم أكتر سؤالين بيطلعوا بالأعداد المركّبة بامتحان نص الفصل. بالصورة الجبرية هاد شغل ساعة، وبالقطبية سطرين.</p><ol><li>قانون دي موافر للقوى</li><li>ليش في بالزبط \\(n\\) جذور</li><li>قانون الجذور من ورقة القوانين</li><li>سؤالين امتحان محلولين</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما تشوفوا قوة كبيرة لعدد مركّب، أو معادلة من نوع «\\(z^n=\\) عدد».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 340\" role=\"img\" aria-label=\"الجذور التلاتة لـ z 3=8i: كلها على دائرة نصف قطرها 2، وبين كل وحدة والتانية 120°.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"80\" y1=\"170.0\" x2=\"382.0\" y2=\"170.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"394,170.0 382.0,163.0 382.0,177.0\"/><line class=\"fk-line t-ink\" x1=\"230.0\" y1=\"310\" x2=\"230.0\" y2=\"28.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"230.0,16 223.0,28.0 237.0,28.0\"/><text class=\"fk-t t-ink\" x=\"386\" y=\"196.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"212.0\" y=\"26\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><circle class=\"fk-line t-mut dash\" cx=\"230.0\" cy=\"170.0\" r=\"115.38461538461536\" stroke-width=\"2\" fill=\"none\"/><polygon class=\"t-hu\" points=\"329.9,116.2 130.1,116.2 230.0,277.7\" style=\"fill:var(--c);fill-opacity:0.1;stroke:var(--c);stroke-width:2;\"/><line class=\"fk-line t-hu\" x1=\"230.0\" y1=\"170.0\" x2=\"319.4\" y2=\"121.8\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"329.92600812897365,116.15384615384616 316.0,115.7 322.7,128.0\"/><circle class=\"fk-dot t-hu\" cx=\"329.92600812897365\" cy=\"116.15384615384616\" r=\"9\"/><rect class=\"fk-chip t-hu solid\" x=\"322.5860081289737\" y=\"79.15384615384616\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"369.92600812897365\" y=\"104.80384615384617\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">√3 + i</text><line class=\"fk-line t-hu\" x1=\"230.0\" y1=\"170.0\" x2=\"140.6\" y2=\"121.8\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"130.0739918710263,116.15384615384616 137.3,128.0 144.0,115.7\"/><circle class=\"fk-dot t-hu\" cx=\"130.0739918710263\" cy=\"116.15384615384616\" r=\"9\"/><rect class=\"fk-chip t-hu solid\" x=\"36.8439918710263\" y=\"79.15384615384616\" width=\"106.46\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"90.0739918710263\" y=\"104.80384615384617\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−√3 + i</text><line class=\"fk-line t-hu\" x1=\"230.0\" y1=\"170.0\" x2=\"230.0\" y2=\"265.7\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"229.99999999999997,277.6923076923077 237.0,265.7 223.0,265.7\"/><circle class=\"fk-dot t-hu\" cx=\"229.99999999999997\" cy=\"277.6923076923077\" r=\"9\"/><rect class=\"fk-chip t-hu solid\" x=\"240.33\" y=\"268.6923076923077\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"270.0\" y=\"294.34230769230766\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−2i</text><path class=\"fk-line t-1\" d=\"M264.6,150.0 A40,40 0 0 0 195.4,150.0\" stroke-width=\"3\" fill=\"none\"/><text class=\"fk-t t-1\" x=\"230.0\" y=\"120.0\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">120°</text></svg>",
+      "alt": "الجذور التلاتة لـ z 3=8i: كلها على دائرة نصف قطرها 2، وبين كل وحدة والتانية 120°.",
+      "caption": "الجذور التلاتة لـ \\(z^3=8i\\): كلها على دائرة نصف قطرها 2، وبين كل وحدة والتانية 120°."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\((r\\operatorname{cis}\\theta)^n=r^n\\operatorname{cis}(n\\theta)\\). وللمعادلة \\(z^n=r\\operatorname{cis}\\alpha\\) في <b>\\(n\\) جذور</b>: \\(\\sqrt[n]r\\operatorname{cis}\\frac{\\alpha+360^\\circ k}{n}\\)، \\(k=0,\\dots,n-1\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: القوة = لفّات، والجذر = تقسيم الدائرة",
+      "html": "<p>من الدرس الماضي: الضرب بيجمع زوايا. فالقوة \\(n\\) بتضرب الزاوية بـ \\(n\\). الجذر هو العكس: بدنا عدد إذا لفّيناه \\(n\\) مرات بنوصل للزاوية \\(\\alpha\\). بس الزاوية \\(\\alpha\\) وكمان \\(\\alpha+360^\\circ\\) نفس الاتجاه، لهيك بيطلع أكتر من جواب، وهم موزعين بالتساوي على دائرة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: قانون دي موافر <bdi dir=\"rtl\">(משפט דה־מואבר)</bdi>",
+      "html": "<p>لكل \\(n\\in\\mathbb N\\): \\((r\\operatorname{cis}\\theta)^n=r^n\\operatorname{cis}(n\\theta)\\).</p><p><b>فكرة البرهان:</b> استقراء من نظرية الضرب: \\(z^{n+1}=z^n\\cdot z=r^n\\operatorname{cis}(n\\theta)\\cdot r\\operatorname{cis}\\theta=r^{n+1}\\operatorname{cis}((n+1)\\theta)\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: جذر من الدرجة n <bdi dir=\"rtl\">(שורש מסדר n)</bdi>",
+      "html": "<p>\\(w\\) جذر من الدرجة \\(n\\) لـ \\(z\\) إذا \\(w^n=z\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: الجذور <bdi dir=\"rtl\">(משפט 2.22)</bdi>",
+      "html": "<p>لـ \\(z=r\\operatorname{cis}\\theta\\neq0\\) في بالزبط \\(n\\) جذور مختلفة: \\(w_k=\\sqrt[n]r\\operatorname{cis}\\frac{\\theta+2\\pi k}{n}\\)، \\(k=0,\\dots,n-1\\).</p><p><b>فكرة البرهان:</b> بدنا \\(\\rho^n\\operatorname{cis}(n\\varphi)=r\\operatorname{cis}\\theta\\). الأطوال: \\(\\rho=\\sqrt[n]r\\). الزوايا: \\(n\\varphi=\\theta+2\\pi k\\). من \\(k=n\\) وطالع الزوايا بترجع تتكرّر (بتزيد دورة كاملة)، فبيضل \\(n\\) جذور مختلفة بس.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"قوى z= cis 45 : كل ضربة بـ z لفّة 45 ، فـ z 2, z 3, بيمشوا على الدائرة، وz 8 بيرجع لـ 1.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"110\" y1=\"150.0\" x2=\"372.0\" y2=\"150.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"384,150.0 372.0,143.0 372.0,157.0\"/><line class=\"fk-line t-ink\" x1=\"240.0\" y1=\"280\" x2=\"240.0\" y2=\"18.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"240.0,6 233.0,18.0 247.0,18.0\"/><text class=\"fk-t t-ink\" x=\"376\" y=\"176.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"222.0\" y=\"16\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><circle class=\"fk-line t-mut dash\" cx=\"240.0\" cy=\"150.0\" r=\"86.66666666666663\" stroke-width=\"2\" fill=\"none\"/><circle class=\"fk-dot t-mut\" cx=\"326.66666666666663\" cy=\"150.0\" r=\"8\"/><circle class=\"fk-dot t-hu\" cx=\"301.2825877028341\" cy=\"88.71741229716588\" r=\"8\"/><text class=\"fk-t t-hu\" x=\"317.2825877028341\" y=\"78.71741229716588\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">z</text><circle class=\"fk-dot t-hu\" cx=\"240.0\" cy=\"63.33333333333334\" r=\"8\"/><text class=\"fk-t t-hu\" x=\"256.0\" y=\"53.33333333333334\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">z2</text><circle class=\"fk-dot t-hu\" cx=\"178.71741229716588\" cy=\"88.71741229716588\" r=\"8\"/><text class=\"fk-t t-hu\" x=\"162.71741229716588\" y=\"78.71741229716588\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">z3</text><circle class=\"fk-dot t-hu\" cx=\"153.33333333333334\" cy=\"149.99999999999997\" r=\"8\"/><text class=\"fk-t t-hu\" x=\"137.33333333333334\" y=\"139.99999999999997\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">z4</text><circle class=\"fk-dot t-hu\" cx=\"178.71741229716588\" cy=\"211.28258770283412\" r=\"8\"/><text class=\"fk-t t-hu\" x=\"162.71741229716588\" y=\"201.28258770283412\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">z5</text><circle class=\"fk-dot t-hu\" cx=\"239.99999999999997\" cy=\"236.66666666666666\" r=\"8\"/><text class=\"fk-t t-hu\" x=\"223.99999999999997\" y=\"226.66666666666666\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">z6</text><circle class=\"fk-dot t-hu\" cx=\"301.2825877028341\" cy=\"211.28258770283412\" r=\"8\"/><text class=\"fk-t t-hu\" x=\"317.2825877028341\" y=\"201.28258770283412\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">z7</text></svg>",
+      "alt": "قوى z= cis 45 : كل ضربة بـ z لفّة 45 ، فـ z 2, z 3, بيمشوا على الدائرة، وz 8 بيرجع لـ 1.",
+      "caption": "قوى \\(z=\\operatorname{cis}45^\\circ\\): كل ضربة بـ \\(z\\) لفّة \\(45^\\circ\\)، فـ \\(z^2, z^3, \\dots\\) بيمشوا على الدائرة، و\\(z^8\\) بيرجع لـ 1."
+    },
+    {
+      "t": "h",
+      "text": "قانون دي موافر"
+    },
+    {
+      "t": "p",
+      "html": "<p>إذا ضربنا \\(z=r\\operatorname{cis}\\theta\\) بحاله \\(n\\) مرات، الطول بيصير \\(r^n\\) والزاوية \\(n\\theta\\). هاد قانون دي موافر (משפט דה־מואבר)، وهو بورقة القوانين. الطريقة: حوّلوا لقطبي، طبّقوا القانون، وارجعوا للصورة الجبرية إذا طلبوا.</p>"
+    },
+    {
+      "t": "h",
+      "text": "الجذور"
+    },
+    {
+      "t": "p",
+      "html": "<p>بالمعادلة \\(z^n=w\\)، منكتب \\(w=r\\operatorname{cis}\\alpha\\). كل جذر طوله \\(\\sqrt[n]{r}\\) (عدد حقيقي موجب)، وزاويته \\(\\frac{\\alpha+360^\\circ k}{n}\\). لما \\(k\\) بيروح من \\(0\\) لـ \\(n-1\\) منحصل على \\(n\\) زوايا مختلفة، وبين كل وحدة والتانية \\(\\frac{360^\\circ}{n}\\). من \\(k=n\\) وطالع الزوايا بترجع تتكرّر.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>يعني الجذور هي رؤوس مضلّع منتظم على دائرة نصف قطرها \\(\\sqrt[n]{r}\\). هاد فحص سريع: إذا جذوركم مش على نفس الدائرة، في غلط.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: قوة",
+      "html": "<p>احسبوا \\((\\operatorname{cis}20^\\circ)^9\\).</p><ol><li>\\(=\\operatorname{cis}(9\\cdot20^\\circ)=\\operatorname{cis}180^\\circ\\)<br><span class=\"why-line\">دي موافر: الطول \\(1^9=1\\)، والزاوية بتنضرب بـ 9.</span></li><li>\\(=\\cos180^\\circ+i\\sin180^\\circ=-1\\)<br><span class=\"why-line\">منرجع للصورة الجبرية بقيم الـ cos والـ sin.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): قوة مع ربع تاني",
+      "html": "<p>احسبوا \\((-1+i)^6\\).</p><ol><li>\\(-1+i=\\sqrt2\\operatorname{cis}135^\\circ\\)<br><span class=\"why-line\">الطول \\(\\sqrt2\\)، والنقطة \\((-1,1)\\) بالربع التاني.</span></li><li>\\((\\sqrt2)^6=8\\)، \\(6\\cdot135^\\circ=810^\\circ\\)<br><span class=\"why-line\">دي موافر: الطول للقوة والزاوية ضرب 6.</span></li><li>\\(810^\\circ-720^\\circ=90^\\circ\\)<br><span class=\"why-line\">منشيل دورات كاملة (360° كل وحدة).</span></li><li>\\(8\\operatorname{cis}90^\\circ=8i\\)<br><span class=\"why-line\">لصورة جبرية.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>إذا \\(z^n=w^n\\) فـ \\(z=w\\).<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>خدوا \\(n=2\\)، \\(z=1\\)، \\(w=-1\\).<br><span class=\"why-line\">أبسط مثال.</span></li><li>\\(z^2=1=w^2\\)<br><span class=\"why-line\">الشرط متحقّق.</span></li><li>بس \\(z\\neq w\\).<br><span class=\"why-line\">لهيك المعادلة \\(z^n=c\\) إلها \\(n\\) حلول مش واحد: الجذور بتختلف بلفّة \\(\\frac{360^\\circ}{n}\\).</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "حل \\(z^n=w\\)، 4 خطوات",
+      "steps": [
+        "<b>قطبي:</b> اكتبوا \\(w=r\\operatorname{cis}\\alpha\\).",
+        "<b>الطول:</b> كل الجذور طولها \\(\\sqrt[n]r\\).",
+        "<b>الزوايا:</b> \\(\\frac{\\alpha}{n}\\)، وبعدين زيدوا \\(\\frac{360^\\circ}{n}\\) كل مرة، \\(n\\) مرات.",
+        "<b>جبري:</b> إذا طلبوا \\(a+bi\\)، احسبوا cos وsin لكل زاوية."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"المعطى: 8i على محور Im، طوله 8 وزاويته 90 . الجذور كلها رح تكون على دائرة نصف قطرها [3]8=2 (المنقّطة).\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"110\" y1=\"150.0\" x2=\"372.0\" y2=\"150.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"384,150.0 372.0,143.0 372.0,157.0\"/><line class=\"fk-line t-ink\" x1=\"240.0\" y1=\"280\" x2=\"240.0\" y2=\"18.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"240.0,6 233.0,18.0 247.0,18.0\"/><text class=\"fk-t t-ink\" x=\"376\" y=\"176.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"222.0\" y=\"16\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><circle class=\"fk-line t-mut dash\" cx=\"240.0\" cy=\"150.0\" r=\"54.166666666666686\" stroke-width=\"2\" fill=\"none\"/><circle class=\"fk-dot t-1\" cx=\"240.0\" cy=\"41.66666666666666\" r=\"8\"/><text class=\"fk-t t-1\" x=\"256.0\" y=\"31.666666666666657\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">8i (بمقياس)</text><line class=\"fk-line t-1\" x1=\"240.0\" y1=\"150.0\" x2=\"240.0\" y2=\"59.1\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"240.0,47.083333333333314 233.0,59.1 247.0,59.1\"/></svg>",
+      "alt": "المعطى: 8i على محور Im، طوله 8 وزاويته 90 . الجذور كلها رح تكون على دائرة نصف قطرها [3]8=2 (المنقّطة).",
+      "caption": "المعطى: \\(8i\\) على محور Im، طوله 8 وزاويته \\(90^\\circ\\). الجذور كلها رح تكون على دائرة نصف قطرها \\(\\sqrt[3]8=2\\) (المنقّطة)."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: احسبوا \\((1+i)^8\\).",
+      "steps": [
+        {
+          "label": "الطول",
+          "body": "\\(|1+i|=\\sqrt2\\)"
+        },
+        {
+          "label": "قوة الطول",
+          "body": "\\((\\sqrt2)^8=16\\)"
+        },
+        {
+          "label": "الزاوية × 8",
+          "body": "\\(8\\cdot45^\\circ=360^\\circ\\)"
+        },
+        {
+          "label": "النتيجة",
+          "body": "\\(16\\operatorname{cis}360^\\circ=16\\)"
+        }
+      ],
+      "a": "\\((1+i)^8=16\\)"
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: حلّوا \\(z^3=8i\\).",
+      "steps": [
+        {
+          "label": "قطبي",
+          "body": "\\(8i=8\\operatorname{cis}90^\\circ\\)"
+        },
+        {
+          "label": "طول الجذور",
+          "body": "\\(\\sqrt[3]8=2\\)"
+        },
+        {
+          "label": "k=0: الزاوية 30°",
+          "body": "\\(2\\operatorname{cis}30^\\circ=\\sqrt3+i\\)"
+        },
+        {
+          "label": "k=1: الزاوية 150°",
+          "body": "\\(2\\operatorname{cis}150^\\circ=-\\sqrt3+i\\)"
+        },
+        {
+          "label": "k=2: الزاوية 270°",
+          "body": "\\(2\\operatorname{cis}270^\\circ=-2i\\)"
+        },
+        {
+          "label": "فحص",
+          "body": "\\((\\sqrt3+i)^3=8i\\)"
+        }
+      ],
+      "a": "\\(z\\in\\{\\sqrt3+i,\\;-\\sqrt3+i,\\;-2i\\}\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 230\" role=\"img\" aria-label=\"لازم الـ 360 k كمان ينقسم على n: هيك الجذور بتتوزّع كل 120 . بدون القسمة كل الـ k بيرجعوا لنفس النقطة.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"10.0\" y=\"8\" width=\"225.0\" height=\"214\" rx=\"14\"/><text class=\"fk-t t-good\" x=\"122.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">360k/n ✓</text><circle class=\"fk-line t-mut dash\" cx=\"122.5\" cy=\"131.0\" r=\"52\" stroke-width=\"2\" fill=\"none\"/><circle class=\"fk-dot t-good\" cx=\"167.53332099679082\" cy=\"105.0\" r=\"8\"/><circle class=\"fk-dot t-good\" cx=\"77.46667900320918\" cy=\"105.0\" r=\"8\"/><circle class=\"fk-dot t-good\" cx=\"122.49999999999999\" cy=\"183.0\" r=\"8\"/><rect class=\"fk-chip t-bad\" x=\"245.0\" y=\"8\" width=\"225.0\" height=\"214\" rx=\"14\"/><text class=\"fk-t t-bad\" x=\"357.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">α/n + 360k ✗</text><circle class=\"fk-line t-mut dash\" cx=\"357.5\" cy=\"131.0\" r=\"52\" stroke-width=\"2\" fill=\"none\"/><circle class=\"fk-dot t-bad\" cx=\"402.5333209967908\" cy=\"105.0\" r=\"10\"/><text class=\"fk-t t-bad\" x=\"357.5\" y=\"212\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">كلهم نفس النقطة</text></svg>",
+      "alt": "لازم الـ 360 k كمان ينقسم على n: هيك الجذور بتتوزّع كل 120 . بدون القسمة كل الـ k بيرجعوا لنفس النقطة.",
+      "caption": "لازم الـ \\(360^\\circ k\\) كمان ينقسم على \\(n\\): هيك الجذور بتتوزّع كل \\(120^\\circ\\). بدون القسمة كل الـ \\(k\\) بيرجعوا لنفس النقطة."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(z^3=8i\\) إله جذر واحد: \\(2i\\)",
+          "yes": "في 3 جذور، و\\(2i\\) مش واحد منهم: \\((2i)^3=-8i\\)"
+        },
+        {
+          "no": "\\((r\\operatorname{cis}\\theta)^n=nr\\operatorname{cis}(n\\theta)\\)",
+          "yes": "الطول بيصير \\(r^n\\)، مش \\(nr\\)"
+        },
+        {
+          "no": "زوايا الجذور: \\(\\frac{\\alpha}{n}+360^\\circ k\\)",
+          "yes": "\\(\\frac{\\alpha+360^\\circ k}{n}\\): الـ 360 كمان بتنقسم على \\(n\\)"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش في بالزبط \\(n\\) جذور، مش أكتر؟",
+          "a": "لأنه الزاوية \\(\\frac{\\theta+360^\\circ k}{n}\\) بتزيد \\(\\frac{360^\\circ}{n}\\) كل مرة، وبعد \\(n\\) خطوات زدنا \\(360^\\circ\\) كاملة ورجعنا لنفس النقطة. فـ \\(k=n\\) هو نفس \\(k=0\\)، و\\(k=n+1\\) نفس \\(k=1\\)، وهيك."
+        },
+        {
+          "q": "لازم أكتب الجذور بالصورة الجبرية؟",
+          "a": "بس إذا طلبوا («בצורה אלגברית»). وإلا \\(2\\operatorname{cis}150^\\circ\\) جواب كامل. إذا الزاوية مش «حلوة» (متل \\(20^\\circ\\))، ضلّوا بالقطبي."
+        },
+        {
+          "q": "كيف بفحص الجواب بسرعة؟",
+          "a": "تلات فحوصات: (1) كل الجذور بنفس الطول؛ (2) الفرق بين زوايا جيران \\(\\frac{360^\\circ}{n}\\)؛ (3) ارفعوا جذر واحد للقوة \\(n\\) وشوفوا إذا رجع العدد الأصلي."
+        },
+        {
+          "q": "\\(\\sqrt{-4}\\) قديش؟ \\(2i\\) ولا \\(-2i\\)؟",
+          "a": "الاتنين جذور تربيعية لـ \\(-4\\). بالمركّب ما في «الجذر» الوحيد متل بالحقيقي، في \\(n\\) جذور. لهيك بالجبر 1 منكتب المعادلة \\(z^2=-4\\) ومنعطي الحلّين، وما منستعمل الرمز \\(\\sqrt{\\ }\\) لعدد مركّب."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "احسبوا \\((1-i)^4\\).",
+        "answer": [
+          "-4"
+        ],
+        "hint": "\\(1-i=\\sqrt2\\operatorname{cis}315^\\circ\\).",
+        "solution": "<p>الطول \\((\\sqrt2)^4=4\\)، والزاوية \\(4\\cdot315^\\circ=1260^\\circ\\)، وهي نفس \\(180^\\circ\\) بعد ما نطرح 3 دورات. فالجواب \\(4\\operatorname{cis}180^\\circ=-4\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "جذور المعادلة \\(z^4=16\\) هي \\(2\\operatorname{cis}(90^\\circ k)\\). اكتبوا الجذر اللي زاويته \\(90^\\circ\\) بالصورة \\(a+bi\\).",
+        "answer": [
+          "2i"
+        ],
+        "hint": "\\(\\cos90^\\circ=0\\)، \\(\\sin90^\\circ=1\\).",
+        "solution": "<p>منعوّض قيم الـ cos والـ sin بالصورة القطبية: \\(2(\\cos90^\\circ+i\\sin90^\\circ)=2(0+i)=2i\\)، ومنفحص: \\((2i)^4=16\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "إذا \\(|z|=2\\)، قديش \\(|z^5|\\)؟",
+        "answer": [
+          "32"
+        ],
+        "hint": "دي موافر: الطول بيترفع للقوة.",
+        "solution": "<p>حسب قانون دي موافر الطول بيترفع لنفس القوة، فـ \\(|z^5|=|z|^5=2^5=32\\).</p>"
+      }
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بحسب بالصورة الجبرية وبعرف شو هو الحقل.",
+        "بحوّل للصورة القطبية وبضرب وبقسم.",
+        "بحسب قوى وجذور بدي موافر."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

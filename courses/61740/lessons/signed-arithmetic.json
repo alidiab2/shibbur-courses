@@ -1,0 +1,230 @@
+{
+  "slug": "signed-arithmetic",
+  "title": "جمع ثنائي والمكمّل لـ 2",
+  "he": "משלים ל-2",
+  "ref": "הרצאה 2 · תרגול 2",
+  "minutes": 18,
+  "desc": "جمع وطرح بالثنائي، تمثيل أعداد سالبة بالمكمّل لـ 2 (משלים ל-2)، مدى الأعداد بـ n بِتات وكيف بتعرفوا إنه صار فيضان (גלישה)، بكورس 61740 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> الحاسوب ما عنده إشارة «−». كل عدد سالب بينخزّن بالمكمّل لـ 2، والطرح بيصير جمع. بالامتحان بيطلبوا تمثيل، جمع، وتقولوا إذا صار فيضان.</p><ol><li>جمع ثنائي بالحمل (נשא)</li><li>المكمّل لـ 2: كيف بنكتب عدد سالب</li><li>الطرح كجمع</li><li>متى بيصير فيضان (גלישה)</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما يحكوا «בייצוג משלים ל-2 עם n סיביות» أو يطلبوا \\(A-B\\) بالثنائي.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 140\" role=\"img\" aria-label=\"العدد −6 بثمان بِتات بالمكمّل لـ 2. البِت الشمالي هو بِت الإشارة، وقيمته −128: −128+64+32+16+8+2 = −6.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"23.0\" y=\"30\" width=\"49\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"47.5\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"47.5\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2⁷</text><rect class=\"fk-chip t-hu solid\" x=\"78.0\" y=\"30\" width=\"49\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"102.5\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"102.5\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2⁶</text><rect class=\"fk-chip t-hu solid\" x=\"133.0\" y=\"30\" width=\"49\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"157.5\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"157.5\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2⁵</text><rect class=\"fk-chip t-hu solid\" x=\"188.0\" y=\"30\" width=\"49\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"212.5\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"212.5\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2⁴</text><rect class=\"fk-chip t-hu solid\" x=\"243.0\" y=\"30\" width=\"49\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"267.5\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"267.5\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2³</text><rect class=\"fk-chip t-hu\" x=\"298.0\" y=\"30\" width=\"49\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"322.5\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"322.5\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2²</text><rect class=\"fk-chip t-hu solid\" x=\"353.0\" y=\"30\" width=\"49\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"377.5\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"377.5\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2¹</text><rect class=\"fk-chip t-hu\" x=\"408.0\" y=\"30\" width=\"49\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"432.5\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"432.5\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2⁰</text></svg>",
+      "alt": "العدد −6 بثمان بِتات بالمكمّل لـ 2. البِت الشمالي هو بِت الإشارة، وقيمته −128: −128+64+32+16+8+2 = −6.",
+      "caption": "العدد −6 بثمان بِتات بالمكمّل لـ 2. البِت الشمالي هو بِت الإشارة، وقيمته −128: −128+64+32+16+8+2 = −6."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>بالمكمّل لـ 2: <b>−x = اقلبوا كل البِتات وزيدوا 1</b>. البِت الشمالي إلو قيمة سالبة \\(-2^{n-1}\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>عدّاد سيارة بـ 3 خانات: إذا رجعتوا كيلومتر من 000 بتوصلوا لـ 999. بالثنائي، رجوع خطوة من 00000000 بيعطي 11111111، فمنقرّر إنه هاد هو −1. هيك الجمع العادي بيشتغل للسالب والموجب بدون أي قاعدة جديدة.</p>"
+    },
+    {
+      "t": "h",
+      "text": "الجمع الثنائي"
+    },
+    {
+      "t": "p",
+      "html": "<p>بنجمع خانة خانة من اليمين، متل العشري: \\(0+0=0\\)، \\(0+1=1\\)، \\(1+1=10_2\\) يعني بنكتب 0 وبنحمل (נשא) 1 للخانة اللي بعدها، و\\(1+1+1=11_2\\) يعني بنكتب 1 وبنحمل 1. هاد كل الجمع.</p>"
+    },
+    {
+      "t": "h",
+      "text": "ليش المكمّل لـ 2؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>بـ \\(n\\) بِتات في \\(2^n\\) تركيبة. بالمكمّل لـ 2 (משלים ל-2) نصهم للسالب: المدى هو من \\(-2^{n-1}\\) لـ \\(2^{n-1}-1\\). بـ 8 بِتات: من −128 لـ 127. البِت الشمالي هو بِت الإشارة: 0 يعني موجب، 1 يعني سالب.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>ليش «اقلبوا وزيدوا 1» بتعطي السالب؟ لأنه \\(x\\) زائد البِتات المقلوبة تبعه بيعطي \\(11\\dots1\\)، يعني \\(-1\\). فالمقلوب هو \\(-1-x\\)، وإذا زدنا 1 بيطلع \\(-x\\). لقراءة عدد سالب منعمل نفس الإشي: اقلبوا وزيدوا 1، وبتعرفوا قيمته المطلقة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الطرح \\(A-B\\) هو \\(A+(-B)\\): منحسب المكمّل لـ 2 تبع \\(B\\) ومنجمع. الحمل اللي بيطلع من البِت الشمالي <b>منزتّه</b>، مش جزء من الجواب.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "rule",
+      "title": "متى في فيضان (גלישה)؟",
+      "html": "<p>فيضان بيصير لما الجواب برّا المدى. بتعرفوه من الإشارات: <b>جمعنا عددين بنفس الإشارة وطلع جواب بإشارة تانية</b>.</p><p>جمع موجب وسالب عمره ما بيعمل فيضان. والحمل من البِت الأخير لحاله مش علامة فيضان.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 330\" role=\"img\" aria-label=\"المكمّل لـ 2 بـ 4 بِتات كدولاب: خطوة لورا من 0000 بتعطي 1111، وهاد −1. كل النص الشمالي (البِت الأول 1) سالب، من −1 لـ −8.\" class=\"fk\"><circle class=\"fk-line t-grid\" cx=\"240.0\" cy=\"165.0\" r=\"118.0\" stroke-width=\"2\" style=\"fill:none\"/><circle class=\"fk-dot t-hu\" cx=\"240.0\" cy=\"47.0\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"22.0\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0000</text><text class=\"fk-t t-hu\" x=\"240.0\" y=\"79.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><circle class=\"fk-dot t-hu\" cx=\"285.1566450190806\" cy=\"55.98221516366816\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"296.6371479900333\" y=\"33.265829188329576\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0001</text><text class=\"fk-t t-hu\" x=\"275.20687577758827\" y=\"86.00308300896162\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><circle class=\"fk-dot t-hu\" cx=\"323.4386001800126\" cy=\"81.5613998199874\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"344.651803615609\" y=\"65.34819638439097\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0010</text><text class=\"fk-t t-hu\" x=\"305.0538238691624\" y=\"105.94617613083763\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><circle class=\"fk-dot t-hu\" cx=\"349.0177848363318\" cy=\"119.8433549809194\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"376.7341708116704\" y=\"113.36285200996672\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0011</text><text class=\"fk-t t-hu\" x=\"324.99691699103835\" y=\"135.79312422241173\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><circle class=\"fk-dot t-hu\" cx=\"358.0\" cy=\"165.0\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"388.0\" y=\"170.0\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0100</text><text class=\"fk-t t-hu\" x=\"332.0\" y=\"171.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><circle class=\"fk-dot t-hu\" cx=\"349.0177848363318\" cy=\"210.1566450190806\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"376.7341708116704\" y=\"226.63714799003327\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0101</text><text class=\"fk-t t-hu\" x=\"324.99691699103835\" y=\"206.20687577758827\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><circle class=\"fk-dot t-hu\" cx=\"323.4386001800126\" cy=\"248.4386001800126\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"344.651803615609\" y=\"274.651803615609\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0110</text><text class=\"fk-t t-hu\" x=\"305.0538238691624\" y=\"236.0538238691624\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><circle class=\"fk-dot t-hu\" cx=\"285.1566450190806\" cy=\"274.0177848363318\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"296.6371479900333\" y=\"306.7341708116704\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0111</text><text class=\"fk-t t-hu\" x=\"275.20687577758827\" y=\"255.99691699103838\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><circle class=\"fk-dot t-2\" cx=\"240.0\" cy=\"283.0\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"318.0\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1000</text><text class=\"fk-t t-2\" x=\"240.0\" y=\"263.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−8</text><circle class=\"fk-dot t-2\" cx=\"194.8433549809194\" cy=\"274.0177848363318\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"183.36285200996673\" y=\"306.7341708116704\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1001</text><text class=\"fk-t t-2\" x=\"204.79312422241173\" y=\"255.99691699103838\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−7</text><circle class=\"fk-dot t-2\" cx=\"156.5613998199874\" cy=\"248.4386001800126\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"135.34819638439097\" y=\"274.651803615609\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1010</text><text class=\"fk-t t-2\" x=\"174.9461761308376\" y=\"236.0538238691624\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−6</text><circle class=\"fk-dot t-2\" cx=\"130.98221516366817\" cy=\"210.15664501908066\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"103.2658291883296\" y=\"226.63714799003336\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1011</text><text class=\"fk-t t-2\" x=\"155.00308300896165\" y=\"206.20687577758832\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−5</text><circle class=\"fk-dot t-2\" cx=\"122.0\" cy=\"165.00000000000003\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"92.0\" y=\"170.00000000000003\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1100</text><text class=\"fk-t t-2\" x=\"148.0\" y=\"171.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−4</text><circle class=\"fk-dot t-2\" cx=\"130.98221516366817\" cy=\"119.84335498091937\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"103.26582918832958\" y=\"113.36285200996667\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1101</text><text class=\"fk-t t-2\" x=\"155.00308300896162\" y=\"135.7931242224117\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−3</text><circle class=\"fk-dot t-2\" cx=\"156.56139981998737\" cy=\"81.5613998199874\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"135.34819638439095\" y=\"65.34819638439097\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1110</text><text class=\"fk-t t-2\" x=\"174.9461761308376\" y=\"105.94617613083763\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−2</text><circle class=\"fk-dot t-2\" cx=\"194.84335498091934\" cy=\"55.98221516366819\" r=\"5\"/><text class=\"fk-t t-mut\" x=\"183.36285200996662\" y=\"33.265829188329604\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1111</text><text class=\"fk-t t-2\" x=\"204.79312422241168\" y=\"86.00308300896164\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><text class=\"fk-t t-hu\" x=\"240\" y=\"159\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">موجب يمين</text><text class=\"fk-t t-2\" x=\"240\" y=\"183\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">سالب شمال</text></svg>",
+      "alt": "المكمّل لـ 2 بـ 4 بِتات كدولاب: خطوة لورا من 0000 بتعطي 1111، وهاد −1. كل النص الشمالي (البِت الأول 1) سالب، من −1 لـ −8.",
+      "caption": "المكمّل لـ 2 بـ 4 بِتات كدولاب: خطوة لورا من 0000 بتعطي 1111، وهاد −1. كل النص الشمالي (البِت الأول 1) سالب، من −1 لـ −8."
+    },
+    {
+      "t": "method",
+      "title": "A − B بالمكمّل لـ 2: كيف أمشي، 4 خطوات",
+      "steps": [
+        "<b>اكتبوا</b> الاتنين بـ n بِتات (كمّلوا بأصفار من الشمال).",
+        "<b>اقلبوا وزيدوا 1</b> للـ B، هيك بيصير \\(-B\\).",
+        "<b>اجمعوا</b> خانة خانة مع الحمل، وزتّوا الحمل اللي بيطلع برّا الـ n بِتات.",
+        "<b>افحصوا الإشارة</b> إذا الاتنين بنفس الإشارة والجواب بإشارة تانية: فيضان."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 158\" role=\"img\" aria-label=\"45 − 73 كجمع: منكتب −73 بالمكمّل لـ 2 ومنجمع خانة خانة. بِت الإشارة بالجواب 1، فالجواب سالب: −28.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"48.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-mut\" x=\"96.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><text class=\"fk-t t-mut\" x=\"192.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-mut\" x=\"288.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"384.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"432.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><line class=\"fk-line t-grid\" x1=\"24.0\" y1=\"40\" x2=\"456.0\" y2=\"40\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"48.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">45</text><text class=\"fk-t t-ink\" x=\"96.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"144.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"192.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"288.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"336.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"384.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"432.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"48.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">−73</text><text class=\"fk-t t-ink\" x=\"96.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"144.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"192.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"288.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"336.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"384.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"432.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"26.0\" y=\"111\" width=\"428\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"48.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">Σ</text><text class=\"fk-t t-ink\" x=\"96.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"144.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"192.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"288.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"336.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"384.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"432.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "45 − 73 كجمع: منكتب −73 بالمكمّل لـ 2 ومنجمع خانة خانة. بِت الإشارة بالجواب 1، فالجواب سالب: −28.",
+      "caption": "45 − 73 كجمع: منكتب −73 بالمكمّل لـ 2 ومنجمع خانة خانة. بِت الإشارة بالجواب 1، فالجواب سالب: −28."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: بـ 8 بِتات بالمكمّل لـ 2، احسبوا \\(45-73\\).",
+      "steps": [
+        {
+          "label": "اكتبوا بالثنائي",
+          "body": "\\(45=00101101\\)، \\(73=01001001\\)"
+        },
+        {
+          "label": "اقلبوا وزيدوا 1",
+          "body": "\\(-73=10110110+1=10110111\\)"
+        },
+        {
+          "label": "اجمعوا",
+          "body": "\\(00101101+10110111=11100100\\)"
+        },
+        {
+          "label": "اقروا الجواب",
+          "body": "بِت الإشارة 1، يعني سالب. اقلبوا وزيدوا 1: \\(00011011+1=00011100=28\\)، فالقيمة \\(-28\\)"
+        }
+      ],
+      "a": "الجواب \\(11100100=-28\\)، بدون فيضان (موجب + سالب)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: فيضان",
+      "html": "<p>بـ 8 بِتات: \\(100+50\\).</p><p>\\(01100100+00110010=10010110\\). جمعنا موجبين وطلع بِت الإشارة 1، فهاد فيضان: الجواب الحقيقي 150 أكبر من 127.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"قلب بِت الإشارة لحاله مش المكمّل لـ 2. لازم نقلب كل البِتات ونزيد 1.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−5 = 10000101</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−5 = 11111011</text></svg>",
+      "alt": "قلب بِت الإشارة لحاله مش المكمّل لـ 2. لازم نقلب كل البِتات ونزيد 1.",
+      "caption": "قلب بِت الإشارة لحاله مش المكمّل لـ 2. لازم نقلب كل البِتات ونزيد 1."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(-5\\) بـ 8 بِتات هو \\(10000101\\) (بس قلبنا بِت الإشارة)",
+          "yes": "\\(-5=11111011\\): اقلبوا كل البِتات وزيدوا 1"
+        },
+        {
+          "no": "طلع حمل من البِت الأخير، يعني فيضان",
+          "yes": "الحمل منزتّه. فيضان = نفس الإشارتين وجواب بإشارة تانية"
+        },
+        {
+          "no": "بـ 8 بِتات المدى من −127 لـ 127",
+          "yes": "المدى من −128 لـ 127"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "اكتبوا \\(-20\\) بـ 8 بِتات بالمكمّل لـ 2.",
+        "answer": [
+          "11101100"
+        ],
+        "hint": "20 بالثنائي، اقلبوا، زيدوا 1.",
+        "solution": "<p>أول إشي منكتب 20 بثمان بِتات: \\(20=00010100\\). اقلبوا: \\(11101011\\). زيدوا 1: \\(11101100\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "شو قيمة \\(10110110\\) (8 بِتات، مكمّل لـ 2) بالعشري؟",
+        "answer": [
+          "-74"
+        ],
+        "hint": "البِت الشمالي قيمته −128.",
+        "solution": "<p>بِت الإشارة 1، فالعدد سالب. اقلبوا: \\(01001001\\)، زيدوا 1: \\(01001010=74\\). فالقيمة \\(-74\\). أو مباشرة: \\(-128+32+16+4+2=-74\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "شو أصغر عدد بينكتب بـ 6 بِتات بالمكمّل لـ 2؟",
+        "answer": [
+          "-32"
+        ],
+        "hint": "المدى من \\(-2^{n-1}\\).",
+        "solution": "<p>المدى هو من \\(-2^{n-1}\\) لـ \\(2^{n-1}-1\\). مع \\(n=6\\): من \\(-32\\) لـ \\(31\\). الأصغر \\(-32=100000\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "بـ 4 بِتات بالمكمّل لـ 2، بأي جمع في فيضان؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(0101+0011\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(1100+0111\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(1110+1101\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "المدى بـ 4 بِتات: −8 لـ 7.",
+        "solution": "<p>\\(5+3=8\\) أكبر من 7، وبالبِتات \\(1000\\) طلع سالب من جمع موجبين: فيضان. \\(-4+7=3\\) و\\(-2-3=-5\\) داخل المدى.</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش منزتّ الحمل اللي بيطلع من البِت الشمالي؟ مش هيك منخسر إشي؟",
+          "a": "بـ \\(n\\) بِتات العدّ بيلفّ متل عدّاد السيارة: بعد \\(11\\dots1\\) بييجي \\(00\\dots0\\). الحمل اللي بيطلع قيمته \\(2^n\\)، وهاد بالزبط اللفّة الكاملة، فزتّه ما بيغيّر الجواب. إذا الجواب نفسه برّا المدى، هاد بيبيّن بالإشارات (فيضان)، مش بالحمل."
+        },
+        {
+          "q": "كيف بعرف إذا \\(11100100\\) هو سالب ولا عدد موجب كبير؟",
+          "a": "من البِتات لحالها ما بتعرفوا. نفس البِتات هي 228 كعدد بلا إشارة، و−28 بالمكمّل لـ 2. السؤال لازم يحكي بأي تمثيل: إذا قال «משלים ל-2»، البِت الشمالي هو بِت الإشارة."
+        },
+        {
+          "q": "ليش بـ 8 بِتات في −128 بس ما في +128؟",
+          "a": "في 256 تركيبة. النص اللي بيبلّش بـ 0 (128 تركيبة) لازم يحمل الصفر كمان، فبيضل للموجبين 1 لـ 127. النص اللي بيبلّش بـ 1 كلّه للسالبين: −1 لـ −128."
+        },
+        {
+          "q": "في طريقة أسرع من «اقلبوا وزيدوا 1»؟",
+          "a": "آه: امشوا من اليمين، انسخوا البِتات زي ما هي لحد أول 1 (مع هالـ 1)، واقلبوا كل اللي بعده. مثلاً \\(20=00010100\\): منسخ \\(100\\) ومنقلب الباقي، فبيطلع \\(11101100=-20\\). نفس الجواب."
+        },
+        {
+          "q": "شو الفرق بين حمل وفيضان؟",
+          "a": "الحمل هو بِت بيطلع من الخانة الشمالية. هو مهم لما الأعداد بلا إشارة: هناك حمل يعني الجواب ما دخل. الفيضان هو للأعداد مع إشارة (مكمّل لـ 2): الجواب الحقيقي برّا المدى. قاعدة تانية للفيضان: الحمل اللي <b>دخل</b> للبِت الشمالي مختلف عن الحمل اللي <b>طلع</b> منه."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "فيضان (גלישה)",
+      "back": "الجواب ما بيدخل بـ n بِتات. بالمكمّل لـ 2: عددين بنفس الإشارة وجواب بإشارة تانية."
+    }
+  ]
+}

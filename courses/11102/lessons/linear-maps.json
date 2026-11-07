@@ -1,0 +1,234 @@
+{
+  "slug": "linear-maps",
+  "title": "التحويل الخطي",
+  "he": "העתקה לינארית",
+  "ref": "חוברת §8 (עמ׳ 83) · מטלה 7",
+  "minutes": 15,
+  "desc": "تعريف التحويل الخطي (העתקה לינארית) T:V→U، الشرطين، الفحص السريع T(0)=0، وأمثلة على تحويلات خطية ومش خطية. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> «האם \\(T\\) העתקה לינארית? הוכיחו» هو هدف رسمي بالكورس. البرهان سطرين، والنفي بمثال واحد.</p><ol><li>الشرطين</li><li>فحص سريع: \\(T(0)=0\\)</li><li>برهان بسطرين</li><li>أمثلة مش خطية</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما بيعطوكم \\(T(x,y,\\dots)=\\dots\\) أو \\(T(p(x))=\\dots\\) وبيسألوا إذا خطي.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"تحويل خطي بيحرّك الشبكة بس الخطوط بتضل مستقيمة ومتوازية والصفر ما بيتحرّك. انزياح أو تربيع بيخرّبوا هالإشي.\" class=\"fk\"><clipPath id=\"gm09-4\"><rect x=\"20\" y=\"50\" width=\"200\" height=\"200\"/></clipPath><g clip-path=\"url(#gm09-4)\"><line class=\"fk-line t-grid\" x1=\"36\" y1=\"234\" x2=\"36\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"36\" y1=\"234\" x2=\"204\" y2=\"234\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"64\" y1=\"234\" x2=\"64\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"36\" y1=\"206\" x2=\"204\" y2=\"206\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"92\" y1=\"234\" x2=\"92\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"36\" y1=\"178\" x2=\"204\" y2=\"178\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"120\" y1=\"234\" x2=\"120\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"36\" y1=\"150\" x2=\"204\" y2=\"150\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"148\" y1=\"234\" x2=\"148\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"36\" y1=\"122\" x2=\"204\" y2=\"122\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"176\" y1=\"234\" x2=\"176\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"36\" y1=\"94\" x2=\"204\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"204\" y1=\"234\" x2=\"204\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"36\" y1=\"66\" x2=\"204\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-good\" x1=\"-283.19999999999993\" y1=\"402\" x2=\"19.19999999999999\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-283.19999999999993\" y1=\"402\" x2=\"220.8\" y2=\"402\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-255.19999999999993\" y1=\"402\" x2=\"47.19999999999999\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-266.40000000000003\" y1=\"374\" x2=\"237.60000000000002\" y2=\"374\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-227.19999999999993\" y1=\"402\" x2=\"75.19999999999999\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-249.59999999999997\" y1=\"346\" x2=\"254.4\" y2=\"346\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-199.19999999999993\" y1=\"402\" x2=\"103.19999999999999\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-232.8\" y1=\"318\" x2=\"271.20000000000005\" y2=\"318\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-171.19999999999993\" y1=\"402\" x2=\"131.2\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-216.0\" y1=\"290\" x2=\"288.0\" y2=\"290\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-143.19999999999993\" y1=\"402\" x2=\"159.2\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-199.2\" y1=\"262\" x2=\"304.79999999999995\" y2=\"262\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-115.19999999999996\" y1=\"402\" x2=\"187.2\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-182.40000000000003\" y1=\"234\" x2=\"321.6\" y2=\"234\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-87.19999999999999\" y1=\"402\" x2=\"215.2\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-165.59999999999997\" y1=\"206\" x2=\"338.4\" y2=\"206\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-59.19999999999999\" y1=\"402\" x2=\"243.2\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-148.8\" y1=\"178\" x2=\"355.20000000000005\" y2=\"178\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-31.19999999999999\" y1=\"402\" x2=\"271.2\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-132.0\" y1=\"150\" x2=\"372.0\" y2=\"150\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-3.1999999999999886\" y1=\"402\" x2=\"299.2\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-115.20000000000002\" y1=\"122\" x2=\"388.8\" y2=\"122\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"24.80000000000001\" y1=\"402\" x2=\"327.2\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-98.4\" y1=\"94\" x2=\"405.59999999999997\" y2=\"94\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"52.80000000000001\" y1=\"402\" x2=\"355.19999999999993\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-81.6\" y1=\"66\" x2=\"422.40000000000003\" y2=\"66\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"80.80000000000001\" y1=\"402\" x2=\"383.19999999999993\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-64.79999999999998\" y1=\"38\" x2=\"439.2\" y2=\"38\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"108.80000000000001\" y1=\"402\" x2=\"411.19999999999993\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-48.0\" y1=\"10\" x2=\"456.0\" y2=\"10\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"136.8\" y1=\"402\" x2=\"439.19999999999993\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-31.200000000000017\" y1=\"-18\" x2=\"472.8\" y2=\"-18\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"164.8\" y1=\"402\" x2=\"467.19999999999993\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-14.400000000000006\" y1=\"-46\" x2=\"489.59999999999997\" y2=\"-46\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"192.8\" y1=\"402\" x2=\"495.19999999999993\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"2.3999999999999915\" y1=\"-74\" x2=\"506.40000000000003\" y2=\"-74\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"220.8\" y1=\"402\" x2=\"523.1999999999999\" y2=\"-102\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"19.19999999999999\" y1=\"-102\" x2=\"523.1999999999999\" y2=\"-102\" stroke-width=\"1.4\"/></g><circle class=\"fk-dot t-ink\" cx=\"120\" cy=\"150\" r=\"7\"/><text class=\"fk-t t-good\" x=\"120\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">לינארית</text><text class=\"fk-t t-good\" x=\"120\" y=\"285\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">خطوط مستقيمة، والصفر مكانه</text><clipPath id=\"nl9\"><rect x=\"260\" y=\"50\" width=\"200\" height=\"200\"/></clipPath><g clip-path=\"url(#nl9)\"><line class=\"fk-line t-grid\" x1=\"276\" y1=\"234\" x2=\"276\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"276\" y1=\"234\" x2=\"444\" y2=\"234\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"304\" y1=\"234\" x2=\"304\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"276\" y1=\"206\" x2=\"444\" y2=\"206\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"332\" y1=\"234\" x2=\"332\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"276\" y1=\"178\" x2=\"444\" y2=\"178\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"360\" y1=\"234\" x2=\"360\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"276\" y1=\"150\" x2=\"444\" y2=\"150\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"388\" y1=\"234\" x2=\"388\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"276\" y1=\"122\" x2=\"444\" y2=\"122\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"416\" y1=\"234\" x2=\"416\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"276\" y1=\"94\" x2=\"444\" y2=\"94\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"444\" y1=\"234\" x2=\"444\" y2=\"66\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"276\" y1=\"66\" x2=\"444\" y2=\"66\" stroke-width=\"1.2\"/><polyline class=\"fk-curve t-bad\" points=\"491.0,248.0 465.0,241.0 440.6,234.0 418.0,227.0 397.0,220.0 377.6,213.0 360.0,206.0 344.0,199.0 329.8,192.0 317.2,185.0 306.2,178.0 297.0,171.0 289.4,164.0 283.6,157.0 279.4,150.0 276.8,143.0 276.0,136.0 276.8,129.0 279.4,122.0 283.6,115.0 289.4,108.0 297.0,101.0 306.2,94.0 317.2,87.0 329.8,80.0 344.0,73.0 360.0,66.0 377.6,59.0 397.0,52.0 418.0,45.0 440.6,38.0 465.0,31.0 491.0,24.0\" stroke-width=\"1.4\" fill=\"none\"/><polyline class=\"fk-curve t-bad\" points=\"519.0,248.0 493.0,241.0 468.6,234.0 446.0,227.0 425.0,220.0 405.6,213.0 388.0,206.0 372.0,199.0 357.8,192.0 345.2,185.0 334.2,178.0 325.0,171.0 317.4,164.0 311.6,157.0 307.4,150.0 304.8,143.0 304.0,136.0 304.8,129.0 307.4,122.0 311.6,115.0 317.4,108.0 325.0,101.0 334.2,94.0 345.2,87.0 357.8,80.0 372.0,73.0 388.0,66.0 405.6,59.0 425.0,52.0 446.0,45.0 468.6,38.0 493.0,31.0 519.0,24.0\" stroke-width=\"1.4\" fill=\"none\"/><polyline class=\"fk-curve t-bad\" points=\"547.0,248.0 521.0,241.0 496.6,234.0 474.0,227.0 453.0,220.0 433.6,213.0 416.0,206.0 400.0,199.0 385.8,192.0 373.2,185.0 362.2,178.0 353.0,171.0 345.4,164.0 339.6,157.0 335.4,150.0 332.8,143.0 332.0,136.0 332.8,129.0 335.4,122.0 339.6,115.0 345.4,108.0 353.0,101.0 362.2,94.0 373.2,87.0 385.8,80.0 400.0,73.0 416.0,66.0 433.6,59.0 453.0,52.0 474.0,45.0 496.6,38.0 521.0,31.0 547.0,24.0\" stroke-width=\"1.4\" fill=\"none\"/><polyline class=\"fk-curve t-bad\" points=\"575.0,248.0 549.0,241.0 524.6,234.0 502.0,227.0 481.0,220.0 461.6,213.0 444.0,206.0 428.0,199.0 413.8,192.0 401.2,185.0 390.2,178.0 381.0,171.0 373.4,164.0 367.6,157.0 363.4,150.0 360.8,143.0 360.0,136.0 360.8,129.0 363.4,122.0 367.6,115.0 373.4,108.0 381.0,101.0 390.2,94.0 401.2,87.0 413.8,80.0 428.0,73.0 444.0,66.0 461.6,59.0 481.0,52.0 502.0,45.0 524.6,38.0 549.0,31.0 575.0,24.0\" stroke-width=\"1.4\" fill=\"none\"/><polyline class=\"fk-curve t-bad\" points=\"603.0,248.0 577.0,241.0 552.6,234.0 530.0,227.0 509.0,220.0 489.6,213.0 472.0,206.0 456.0,199.0 441.8,192.0 429.2,185.0 418.2,178.0 409.0,171.0 401.4,164.0 395.6,157.0 391.4,150.0 388.8,143.0 388.0,136.0 388.8,129.0 391.4,122.0 395.6,115.0 401.4,108.0 409.0,101.0 418.2,94.0 429.2,87.0 441.8,80.0 456.0,73.0 472.0,66.0 489.6,59.0 509.0,52.0 530.0,45.0 552.6,38.0 577.0,31.0 603.0,24.0\" stroke-width=\"1.4\" fill=\"none\"/><polyline class=\"fk-curve t-bad\" points=\"631.0,248.0 605.0,241.0 580.6,234.0 558.0,227.0 537.0,220.0 517.6,213.0 500.0,206.0 484.0,199.0 469.8,192.0 457.2,185.0 446.2,178.0 437.0,171.0 429.4,164.0 423.6,157.0 419.4,150.0 416.8,143.0 416.0,136.0 416.8,129.0 419.4,122.0 423.6,115.0 429.4,108.0 437.0,101.0 446.2,94.0 457.2,87.0 469.8,80.0 484.0,73.0 500.0,66.0 517.6,59.0 537.0,52.0 558.0,45.0 580.6,38.0 605.0,31.0 631.0,24.0\" stroke-width=\"1.4\" fill=\"none\"/><polyline class=\"fk-curve t-bad\" points=\"659.0,248.0 633.0,241.0 608.6,234.0 586.0,227.0 565.0,220.0 545.6,213.0 528.0,206.0 512.0,199.0 497.8,192.0 485.2,185.0 474.2,178.0 465.0,171.0 457.4,164.0 451.6,157.0 447.4,150.0 444.8,143.0 444.0,136.0 444.8,129.0 447.4,122.0 451.6,115.0 457.4,108.0 465.0,101.0 474.2,94.0 485.2,87.0 497.8,80.0 512.0,73.0 528.0,66.0 545.6,59.0 565.0,52.0 586.0,45.0 608.6,38.0 633.0,31.0 659.0,24.0\" stroke-width=\"1.4\" fill=\"none\"/><polyline class=\"fk-curve t-bad\" points=\"687.0,248.0 661.0,241.0 636.6,234.0 614.0,227.0 593.0,220.0 573.6,213.0 556.0,206.0 540.0,199.0 525.8,192.0 513.2,185.0 502.2,178.0 493.0,171.0 485.4,164.0 479.6,157.0 475.4,150.0 472.8,143.0 472.0,136.0 472.8,129.0 475.4,122.0 479.6,115.0 485.4,108.0 493.0,101.0 502.2,94.0 513.2,87.0 525.8,80.0 540.0,73.0 556.0,66.0 573.6,59.0 593.0,52.0 614.0,45.0 636.6,38.0 661.0,31.0 687.0,24.0\" stroke-width=\"1.4\" fill=\"none\"/><polyline class=\"fk-curve t-bad\" points=\"715.0,248.0 689.0,241.0 664.6,234.0 642.0,227.0 621.0,220.0 601.6,213.0 584.0,206.0 568.0,199.0 553.8,192.0 541.2,185.0 530.2,178.0 521.0,171.0 513.4,164.0 507.6,157.0 503.4,150.0 500.8,143.0 500.0,136.0 500.8,129.0 503.4,122.0 507.6,115.0 513.4,108.0 521.0,101.0 530.2,94.0 541.2,87.0 553.8,80.0 568.0,73.0 584.0,66.0 601.6,59.0 621.0,52.0 642.0,45.0 664.6,38.0 689.0,31.0 715.0,24.0\" stroke-width=\"1.4\" fill=\"none\"/></g><circle class=\"fk-dot t-ink\" cx=\"360\" cy=\"150\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"388\" cy=\"136.0\" r=\"7\"/><text class=\"fk-t t-bad\" x=\"360\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مش לינארית</text><text class=\"fk-t t-bad\" x=\"360\" y=\"285\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">الصفر انزاح والخطوط انعوجت</text></svg>",
+      "alt": "تحويل خطي بيحرّك الشبكة بس الخطوط بتضل مستقيمة ومتوازية والصفر ما بيتحرّك. انزياح أو تربيع بيخرّبوا هالإشي.",
+      "caption": "تحويل خطي بيحرّك الشبكة بس الخطوط بتضل مستقيمة ومتوازية والصفر ما بيتحرّك. انزياح أو تربيع بيخرّبوا هالإشي."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(T\\) خطي إذا \\(T(u+v)=T(u)+T(v)\\) و\\(T(kv)=kT(v)\\). <b>دايماً \\(T(0)=0\\)</b>، فإذا \\(T(0)\\neq0\\) مش خطي.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: ما بيهمّ إذا جمعتوا قبل أو بعد",
+      "html": "<p>التحويل الخطي بيحترم العمليات: تجمعوا وبعدين تحوّلوا، أو تحوّلوا وبعدين تجمعوا، نفس النتيجة. بالرسمة هاد معناه إنه الشبكة بتضل شبكة: خطوط مستقيمة، متوازية، وبمسافات متساوية.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: تحويل خطي <bdi dir=\"rtl\">(העתקה לינארית)</bdi>",
+      "html": "<p>\\(T:V\\to U\\) (\\(V, U\\) فضاءات فوق نفس الحقل \\(F\\)) بيحقّق: \\(T(u+v)=T(u)+T(v)\\) و\\(T(\\alpha v)=\\alpha T(v)\\) لكل \\(u,v\\in V\\)، \\(\\alpha\\in F\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: تركيبات والصفر <bdi dir=\"rtl\">(מסקנה 8.6, טענה 8.7)</bdi>",
+      "html": "<p>\\(T(\\alpha_1v_1+\\dots+\\alpha_kv_k)=\\alpha_1T(v_1)+\\dots+\\alpha_kT(v_k)\\)، و\\(T(0)=0\\).</p><p><b>فكرة البرهان:</b> الأولى: الشرطين مرّة ورا مرّة. التانية: \\(T(0)=T(0\\cdot v)=0\\cdot T(v)=0\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: مؤثّر خطي <bdi dir=\"rtl\">(אופרטור לינארי)</bdi>",
+      "html": "<p>تحويل خطي من فضاء لحاله: \\(T:V\\to V\\).</p><p>مثلاً الاشتقاق على \\(F_n[x]\\)، أو لفّة بـ \\(\\mathbb R^2\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: كل مصفوفة تحويل <bdi dir=\"rtl\">(טענה 8.11)</bdi>",
+      "html": "<p>لـ \\(A\\in F^{m\\times n}\\)، \\(T(v)=Av\\) هو تحويل خطي \\(F^n\\to F^m\\).</p><p><b>فكرة البرهان:</b> \\(A(u+v)=Au+Av\\) و\\(A(\\alpha v)=\\alpha Av\\): قوانين ضرب المصفوفات.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 182\" role=\"img\" aria-label=\"الخطية معناها إنه الطريقين بيوصلوا لنفس المكان: T(u+v)=T(u)+T(v). ونفس الإشي للضرب بعدد.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"10.0\" y=\"8\" width=\"225.0\" height=\"166\" rx=\"14\"/><text class=\"fk-t t-hu\" x=\"122.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">اجمع ← حوّل</text><text class=\"fk-t t-ink\" x=\"122.5\" y=\"76\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">u , v</text><text class=\"fk-t t-ink\" x=\"122.5\" y=\"110\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">u + v</text><text class=\"fk-t t-ink\" x=\"122.5\" y=\"144\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">T(u + v)</text><rect class=\"fk-chip t-1\" x=\"245.0\" y=\"8\" width=\"225.0\" height=\"166\" rx=\"14\"/><text class=\"fk-t t-1\" x=\"357.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">حوّل ← اجمع</text><text class=\"fk-t t-ink\" x=\"357.5\" y=\"76\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">u , v</text><text class=\"fk-t t-ink\" x=\"357.5\" y=\"110\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">T(u) , T(v)</text><text class=\"fk-t t-ink\" x=\"357.5\" y=\"144\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">T(u) + T(v)</text></svg>",
+      "alt": "الخطية معناها إنه الطريقين بيوصلوا لنفس المكان: T(u+v)=T(u)+T(v). ونفس الإشي للضرب بعدد.",
+      "caption": "الخطية معناها إنه الطريقين بيوصلوا لنفس المكان: \\(T(u+v)=T(u)+T(v)\\). ونفس الإشي للضرب بعدد."
+    },
+    {
+      "t": "h",
+      "text": "التعريف"
+    },
+    {
+      "t": "p",
+      "html": "<p>تحويل (העתקה) \\(T:V\\to U\\) بين فضاءين متجهيين فوق نفس الحقل هو خطي (לינארית) إذا الشرطين بيتحقّقوا لكل \\(u,v\\in V\\) ولكل عدد \\(k\\). الشرطين مع بعض بيساووا: \\(T(au+bv)=aT(u)+bT(v)\\). منهم بيطلع \\(T(0)=T(0\\cdot v)=0\\cdot T(v)=0\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كيف بتعرفوا بعين: إذا كل إحداثي بالنتيجة هو تركيب خطي للإحداثيات (متل \\(x-y\\)، \\(2z\\)، \\(3x+y\\)) بدون عدد لحاله، بدون تربيع، وبدون ضرب متغيّرات ببعض، التحويل خطي. \\(x+1\\)، \\(x^2\\)، \\(xy\\)، \\(|x|\\)، \\(\\sin x\\) بيخرّبوا.</p>"
+    },
+    {
+      "t": "h",
+      "text": "مش بس أسهم"
+    },
+    {
+      "t": "p",
+      "html": "<p>الاشتقاق \\(T(p)=p\\prime\\) على كثيرات الحدود خطي: \\((p+q)\\prime=p\\prime+q\\prime\\) و\\((kp)\\prime=kp\\prime\\). كمان \\(T(A)=A^t\\) على المصفوفات خطي، و\\(T(A)=\\operatorname{tr}A\\). بس \\(T(A)=\\det A\\) مش خطي، لأنه \\(\\det(2A)\\neq2\\det A\\) بشكل عام.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: مش خطي بمثال",
+      "html": "<p>هل \\(T(x,y)=(x+1,\\,y)\\) خطي؟</p><ol><li>\\(T(0,0)=(1,0)\\neq(0,0)\\)<br><span class=\"why-line\">أول فحص: الصفر.</span></li><li>الجواب: مش خطي.<br><span class=\"why-line\">تحويل خطي دايماً بيبعت الصفر للصفر. هاد انزياح، متل الشبكة اليمين بالرسمة.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): على مصفوفات",
+      "html": "<p>برهنوا إنه \\(T(A)=A+A^t\\) خطي على \\(\\mathbb R^{2\\times2}\\).</p><ol><li>\\(T(A+B)=(A+B)+(A+B)^t\\)<br>\\(=A+B+A^t+B^t\\)<br><span class=\"why-line\">\\((A+B)^t=A^t+B^t\\).</span></li><li>\\(=(A+A^t)+(B+B^t)=T(A)+T(B)\\)<br><span class=\"why-line\">منرتّب (الجمع تبادلي).</span></li><li>\\(T(\\alpha A)=\\alpha A+(\\alpha A)^t\\)<br>\\(=\\alpha(A+A^t)=\\alpha T(A)\\)<br><span class=\"why-line\">\\((\\alpha A)^t=\\alpha A^t\\).</span></li><li>الشرطين ⇐ خطي.<br><span class=\"why-line\">برهان عام، مش بأرقام: \\(A, B\\) أي مصفوفات.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>إذا \\(T\\) خطي و\\(\\{v_1,v_2\\}\\) مرتبطة، فـ \\(\\{T(v_1),T(v_2)\\}\\) مرتبطة.<br><b>الجواب: الادّعاء صحيحة، وهاد البرهان.</b></p><ol><li>\\(\\alpha v_1+\\beta v_2=0\\) مع \\((\\alpha,\\beta)\\neq(0,0)\\)<br><span class=\"why-line\">تعريف مرتبطة.</span></li><li>\\(\\alpha T(v_1)+\\beta T(v_2)\\)<br>\\(=T(\\alpha v_1+\\beta v_2)=T(0)=0\\)<br><span class=\"why-line\">منطبّق \\(T\\) ومنستعمل الخطية و\\(T(0)=0\\).</span></li><li>نفس المعاملات (مش كلهم صفر) ⇐ مرتبطة.<br><span class=\"why-line\">التحويل الخطي بيحافظ على العلاقات الخطية.</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "برهان خطية، 3 خطوات",
+      "steps": [
+        "<b>صفر:</b> احسبوا \\(T(0)\\). مش صفر؟ خلصتوا: مش خطي.",
+        "<b>جمع:</b> \\(u=(x_1,y_1)\\)، \\(v=(x_2,y_2)\\): احسبوا \\(T(u+v)\\) وقارنوا مع \\(T(u)+T(v)\\).",
+        "<b>ضرب:</b> احسبوا \\(T(ku)\\) وقارنوا مع \\(kT(u)\\)."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 240\" role=\"img\" aria-label=\"المعطى T(x,y,z)=(x-y, ;2z): كل إحداثي تركيب خطي بدون ثابت. أمثلة: (1,1,0) و(0,0,0) بيروحوا للصفر، (0,0,1) لـ (0,2).\" class=\"fk\"><ellipse class=\"t-hu\" cx=\"120\" cy=\"130.0\" rx=\"90\" ry=\"86.0\" style=\"fill:var(--c);fill-opacity:0.08;stroke:var(--c);stroke-width:3;\"/><text class=\"fk-t t-hu\" x=\"120\" y=\"30\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ℝ³</text><ellipse class=\"t-1\" cx=\"360\" cy=\"130.0\" rx=\"90\" ry=\"86.0\" style=\"fill:var(--c);fill-opacity:0.08;stroke:var(--c);stroke-width:3;\"/><text class=\"fk-t t-1\" x=\"360\" y=\"30\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ℝ²</text><circle class=\"fk-dot t-ink\" cx=\"120\" cy=\"86.0\" r=\"6\"/><text class=\"fk-t t-ink\" x=\"98\" y=\"92.0\" font-size=\"17\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\">(1,1,0)</text><circle class=\"fk-dot t-ink\" cx=\"120\" cy=\"130.0\" r=\"6\"/><text class=\"fk-t t-ink\" x=\"98\" y=\"136.0\" font-size=\"17\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\">(0,0,1)</text><circle class=\"fk-dot t-ink\" cx=\"120\" cy=\"174.0\" r=\"6\"/><text class=\"fk-t t-ink\" x=\"98\" y=\"180.0\" font-size=\"17\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\">(0,0,0)</text><circle class=\"fk-dot t-ink\" cx=\"360\" cy=\"108.0\" r=\"6\"/><text class=\"fk-t t-ink\" x=\"382\" y=\"114.0\" font-size=\"17\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\">(0,0)</text><circle class=\"fk-dot t-ink\" cx=\"360\" cy=\"152.0\" r=\"6\"/><text class=\"fk-t t-ink\" x=\"382\" y=\"158.0\" font-size=\"17\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\">(0,2)</text><line class=\"fk-line t-hu\" x1=\"130\" y1=\"86.0\" x2=\"336.1\" y2=\"106.8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"348,108.0 336.8,99.8 335.4,113.8\"/><line class=\"fk-line t-1\" x1=\"130\" y1=\"130.0\" x2=\"336.1\" y2=\"150.8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"348,152.0 336.8,143.8 335.4,157.8\"/><line class=\"fk-line t-hu\" x1=\"130\" y1=\"174.0\" x2=\"336.5\" y2=\"111.5\" stroke-width=\"2.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"348,108.0 334.5,104.8 338.5,118.2\"/></svg>",
+      "alt": "المعطى T(x,y,z)=(x-y, ;2z): كل إحداثي تركيب خطي بدون ثابت. أمثلة: (1,1,0) و(0,0,0) بيروحوا للصفر، (0,0,1) لـ (0,2).",
+      "caption": "المعطى \\(T(x,y,z)=(x-y,\\;2z)\\): كل إحداثي تركيب خطي بدون ثابت. أمثلة: \\((1,1,0)\\) و\\((0,0,0)\\) بيروحوا للصفر، \\((0,0,1)\\) لـ \\((0,2)\\)."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: برهنوا إنه \\(T(x,y,z)=(x-y,\\;2z)\\) خطي.",
+      "steps": [
+        {
+          "label": "صفر",
+          "body": "\\(T(0,0,0)=(0,0)\\)"
+        },
+        {
+          "label": "جمع: إحداثي أول",
+          "body": "\\((x_1+x_2)-(y_1+y_2)=(x_1-y_1)+(x_2-y_2)\\)"
+        },
+        {
+          "label": "جمع: إحداثي تاني",
+          "body": "\\(2(z_1+z_2)=2z_1+2z_2\\)"
+        },
+        {
+          "label": "ضرب بـ t",
+          "body": "\\(T(tx,ty,tz)=(t(x-y),\\,t\\cdot2z)\\)"
+        }
+      ],
+      "a": "الشرطين بيتحقّقوا، فـ \\(T\\) خطي"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"تحويل خطي بيخلّي الصفر بمحلّه والشبكة شبكة. الإزاحة (x+1,y) بتحرّك الصفر، فمش خطية.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"10.0\" y=\"8\" width=\"225.0\" height=\"244\" rx=\"14\"/><text class=\"fk-t t-good\" x=\"122.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">T(v) = Av ✓</text><clipPath id=\"gm09-3\"><rect x=\"18.0\" y=\"52\" width=\"209.0\" height=\"164\"/></clipPath><g clip-path=\"url(#gm09-3)\"><line class=\"fk-line t-grid\" x1=\"56.5\" y1=\"200.0\" x2=\"56.5\" y2=\"68.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"56.5\" y1=\"200.0\" x2=\"188.5\" y2=\"200.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"78.5\" y1=\"200.0\" x2=\"78.5\" y2=\"68.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"56.5\" y1=\"178.0\" x2=\"188.5\" y2=\"178.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"100.5\" y1=\"200.0\" x2=\"100.5\" y2=\"68.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"56.5\" y1=\"156.0\" x2=\"188.5\" y2=\"156.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"122.5\" y1=\"200.0\" x2=\"122.5\" y2=\"68.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"56.5\" y1=\"134.0\" x2=\"188.5\" y2=\"134.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"144.5\" y1=\"200.0\" x2=\"144.5\" y2=\"68.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"56.5\" y1=\"112.0\" x2=\"188.5\" y2=\"112.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"166.5\" y1=\"200.0\" x2=\"166.5\" y2=\"68.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"56.5\" y1=\"90.0\" x2=\"188.5\" y2=\"90.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"188.5\" y1=\"200.0\" x2=\"188.5\" y2=\"68.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"56.5\" y1=\"68.0\" x2=\"188.5\" y2=\"68.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-good\" x1=\"-273.5\" y1=\"332.0\" x2=\"122.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-273.5\" y1=\"332.0\" x2=\"122.5\" y2=\"332.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-251.5\" y1=\"332.0\" x2=\"144.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-251.5\" y1=\"310.0\" x2=\"144.5\" y2=\"310.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-229.5\" y1=\"332.0\" x2=\"166.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-229.5\" y1=\"288.0\" x2=\"166.5\" y2=\"288.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-207.5\" y1=\"332.0\" x2=\"188.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-207.5\" y1=\"266.0\" x2=\"188.5\" y2=\"266.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-185.5\" y1=\"332.0\" x2=\"210.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-185.5\" y1=\"244.0\" x2=\"210.5\" y2=\"244.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-163.5\" y1=\"332.0\" x2=\"232.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-163.5\" y1=\"222.0\" x2=\"232.5\" y2=\"222.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-141.5\" y1=\"332.0\" x2=\"254.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-141.5\" y1=\"200.0\" x2=\"254.5\" y2=\"200.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-119.5\" y1=\"332.0\" x2=\"276.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-119.5\" y1=\"178.0\" x2=\"276.5\" y2=\"178.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-97.5\" y1=\"332.0\" x2=\"298.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-97.5\" y1=\"156.0\" x2=\"298.5\" y2=\"156.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-75.5\" y1=\"332.0\" x2=\"320.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-75.5\" y1=\"134.0\" x2=\"320.5\" y2=\"134.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-53.5\" y1=\"332.0\" x2=\"342.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-53.5\" y1=\"112.0\" x2=\"342.5\" y2=\"112.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-31.5\" y1=\"332.0\" x2=\"364.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-31.5\" y1=\"90.0\" x2=\"364.5\" y2=\"90.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-9.5\" y1=\"332.0\" x2=\"386.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"-9.5\" y1=\"68.0\" x2=\"386.5\" y2=\"68.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"12.5\" y1=\"332.0\" x2=\"408.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"12.5\" y1=\"46.0\" x2=\"408.5\" y2=\"46.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"34.5\" y1=\"332.0\" x2=\"430.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"34.5\" y1=\"24.0\" x2=\"430.5\" y2=\"24.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"56.5\" y1=\"332.0\" x2=\"452.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"56.5\" y1=\"2.0\" x2=\"452.5\" y2=\"2.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"78.5\" y1=\"332.0\" x2=\"474.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"78.5\" y1=\"-20.0\" x2=\"474.5\" y2=\"-20.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"100.5\" y1=\"332.0\" x2=\"496.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"100.5\" y1=\"-42.0\" x2=\"496.5\" y2=\"-42.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"122.5\" y1=\"332.0\" x2=\"518.5\" y2=\"-64.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-good\" x1=\"122.5\" y1=\"-64.0\" x2=\"518.5\" y2=\"-64.0\" stroke-width=\"1.4\"/></g><text class=\"fk-t t-good\" x=\"122.5\" y=\"240\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الصفر بمحلّه</text><rect class=\"fk-chip t-bad\" x=\"245.0\" y=\"8\" width=\"225.0\" height=\"244\" rx=\"14\"/><text class=\"fk-t t-bad\" x=\"357.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">T(x,y) = (x+1, y) ✗</text><line class=\"fk-line t-grid\" x1=\"281.5\" y1=\"78.0\" x2=\"281.5\" y2=\"210.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"281.5\" y1=\"78.0\" x2=\"413.5\" y2=\"78.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"303.5\" y1=\"78.0\" x2=\"303.5\" y2=\"210.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"281.5\" y1=\"100.0\" x2=\"413.5\" y2=\"100.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"325.5\" y1=\"78.0\" x2=\"325.5\" y2=\"210.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"281.5\" y1=\"122.0\" x2=\"413.5\" y2=\"122.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"347.5\" y1=\"78.0\" x2=\"347.5\" y2=\"210.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"281.5\" y1=\"144.0\" x2=\"413.5\" y2=\"144.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"369.5\" y1=\"78.0\" x2=\"369.5\" y2=\"210.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"281.5\" y1=\"166.0\" x2=\"413.5\" y2=\"166.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"391.5\" y1=\"78.0\" x2=\"391.5\" y2=\"210.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"281.5\" y1=\"188.0\" x2=\"413.5\" y2=\"188.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"413.5\" y1=\"78.0\" x2=\"413.5\" y2=\"210.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"281.5\" y1=\"210.0\" x2=\"413.5\" y2=\"210.0\" stroke-width=\"1.2\"/><line class=\"fk-line t-bad\" x1=\"303.5\" y1=\"78.0\" x2=\"303.5\" y2=\"210.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-bad\" x1=\"325.5\" y1=\"78.0\" x2=\"325.5\" y2=\"210.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-bad\" x1=\"347.5\" y1=\"78.0\" x2=\"347.5\" y2=\"210.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-bad\" x1=\"369.5\" y1=\"78.0\" x2=\"369.5\" y2=\"210.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-bad\" x1=\"391.5\" y1=\"78.0\" x2=\"391.5\" y2=\"210.0\" stroke-width=\"1.4\"/><line class=\"fk-line t-bad\" x1=\"413.5\" y1=\"78.0\" x2=\"413.5\" y2=\"210.0\" stroke-width=\"1.4\"/><circle class=\"fk-dot t-ink\" cx=\"347.5\" cy=\"144.0\" r=\"6\"/><circle class=\"fk-dot t-bad\" cx=\"369.5\" cy=\"144.0\" r=\"7\"/><line class=\"fk-line t-bad\" x1=\"347.5\" y1=\"144.0\" x2=\"351.5\" y2=\"144.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"363.5,144.0 351.5,137.0 351.5,151.0\"/><text class=\"fk-t t-bad\" x=\"357.5\" y=\"240\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الصفر تحرّك</text></svg>",
+      "alt": "تحويل خطي بيخلّي الصفر بمحلّه والشبكة شبكة. الإزاحة (x+1,y) بتحرّك الصفر، فمش خطية.",
+      "caption": "تحويل خطي بيخلّي الصفر بمحلّه والشبكة شبكة. الإزاحة \\((x+1,y)\\) بتحرّك الصفر، فمش خطية."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(T(0)=0\\) فالتحويل خطي",
+          "yes": "\\(T(0)=0\\) لازم بس مش كافي: \\(T(x)=x^2\\) بيبعت 0 لـ 0 ومش خطي"
+        },
+        {
+          "no": "\\(T(x,y)=(xy,\\,x)\\) خطي لأنه ما في أعداد لحالها",
+          "yes": "ضرب متغيّرات بيخرّب: \\(T(2,2)=(4,2)\\)<br>\\(\\neq2T(1,1)=(2,2)\\)"
+        },
+        {
+          "no": "\\(\\det\\) تحويل خطي",
+          "yes": "\\(\\det(2A)=2^n\\det A\\): مش خطي"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "إذا \\(T(0)=0\\)، يعني \\(T\\) خطي؟",
+          "a": "لأ. \\(T(0)=0\\) شرط لازم بس مش كافي. \\(T(x,y)=(x^2,0)\\) بيعطي \\(T(0)=0\\)، بس \\(T(2,0)=(4,0)\\neq2T(1,0)=(2,0)\\). استعملوا \\(T(0)\\neq0\\) بس لتنفوا بسرعة."
+        },
+        {
+          "q": "لازم أفحص الشرطين بأرقام ولا بشكل عام؟",
+          "a": "لتبرهنوا إنه خطي: عام (\\(u, v\\) أي متجهات). لتنفوا: مثال واحد بأرقام. متل تحت فضاء بالزبط."
+        },
+        {
+          "q": "شو الفرق بين «تحويل» و«دالة»؟",
+          "a": "تحويل (העתקה) هو دالة بين فضاءات متجهية. «خطي» هو اللي بيحترم الجمع والضرب بعدد. بالكورس كل «העתקה» منحكي عنها هي دالة من هالنوع."
+        },
+        {
+          "q": "\\(T(x)=2x+3\\) مش خطي؟ بالمدرسة سمّيناها «دالة خطية».",
+          "a": "بالمدرسة «خطية» يعني رسمها خط مستقيم. بالجبر الخطي «خطي» أقوى: لازم \\(T(0)=0\\). \\(2x+3\\) اسمها «אפינית». بس \\(T(x)=2x\\) خطي بالمعنى تبعنا."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(T(x,y)=(x^2,\\,y)\\). احسبوا الإحداثي الأول لـ \\(T(2\\cdot(1,0))\\) ولـ \\(2T(1,0)\\). شو الفرق بينهم؟ (الأول ناقص التاني)",
+        "answer": [
+          "2"
+        ],
+        "hint": "\\(T(2,0)=(4,0)\\)، و\\(2T(1,0)=(2,0)\\).",
+        "solution": "<p>\\(T(2,0)\\) إحداثيه الأول \\(4\\)، بس \\(2T(1,0)\\) إحداثيه الأول \\(2\\). الفرق \\(4-2=2\\) مش صفر، فالتحويل مش خطي.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "أيّ تحويل خطي؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(T(x,y)=(3x-y,\\,0)\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(T(x,y)=(x,\\,y+2)\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(T(x,y)=(|x|,\\,y)\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "افحصوا الصفر، وبعدين إشارة سالبة.",
+        "solution": "<p>التاني بيبعت الصفر لـ \\((0,2)\\). التالت بيخرّب الضرب بـ \\(-1\\): \\(T(-1,0)=(1,0)\\neq-T(1,0)\\). الأول كل إحداثي فيه تركيب خطي.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(T\\) خطي و\\(T(1,2)=(3,-1)\\). شو الإحداثي التاني لـ \\(T(4,8)\\)؟",
+        "answer": [
+          "-4"
+        ],
+        "hint": "\\((4,8)=4\\cdot(1,2)\\).",
+        "solution": "<p>المتجه \\((4,8)\\) هو 4 مرات \\((1,2)\\)، والتحويل خطي فالعدد بيطلع لبرّا: \\(T(4,8)=4T(1,2)=(12,-4)\\)، فالإحداثي التاني \\(-4\\).</p>"
+      }
+    }
+  ]
+}

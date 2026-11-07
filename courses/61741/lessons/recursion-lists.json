@@ -1,0 +1,218 @@
+{
+  "slug": "recursion-lists",
+  "title": "رجعية على قوائم وبحث ثنائي رجعي",
+  "he": "רקורסיה על רשימות",
+  "ref": "שבוע 11",
+  "minutes": 18,
+  "desc": "دوال رجعية على قوائم بـ Python بطريقتين: تقطيع a[1:] أو بارامتر مكان i، أكبر قيمة رجعية، مجموع، وبحث ثنائي رجعي مع lo و hi كبارامترات.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بالأسبوع 11 الرجعية بتصير «ألغوريتمات»: قوائم، بحث ثنائي، فرز (الفصل 12). المفتاح هو إنكم تمرّروا «وين وصلنا» كبارامتر بدل ما تقطّعوا القائمة كل مرة.</p><ol><li>رجعية بالتقطيع <code dir=\"ltr\">a[1:]</code>: سهلة بس بتنسخ</li><li>رجعية بمكان i: <code dir=\"ltr\">f(a, i + 1)</code></li><li>أكبر قيمة ومجموع رجعي</li><li>بحث ثنائي رجعي</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل سؤال «פונקציה רקורסיבית שמקבלת רשימה».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"رجعية بمكان: total(a, i) = a[i] + total(a, i + 1). القائمة نفسها ما بتتغيّر؛ بس i بيتقدّم.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"102.0\" y=\"122\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">a =</text><rect class=\"fk-chip t-hu\" x=\"114.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"144.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"178.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"208.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><text class=\"fk-t t-mut\" x=\"208.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut solid\" x=\"242.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"272.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"272.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut solid\" x=\"306.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"336.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><line class=\"fk-line t-hu\" x1=\"208.0\" y1=\"18\" x2=\"208.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"208.0,62 215.0,50.0 201.0,50.0\"/><text class=\"fk-t t-hu\" x=\"214.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">i</text></svg>",
+      "alt": "رجعية بمكان: total(a, i) = a[i] + total(a, i + 1). القائمة نفسها ما بتتغيّر؛ بس i بيتقدّم.",
+      "caption": "رجعية بمكان: <code dir=\"ltr\">total(a, i)</code> = <code dir=\"ltr\">a[i]</code> + <code dir=\"ltr\">total(a, i + 1)</code>. القائمة نفسها ما بتتغيّر؛ بس i بيتقدّم."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>بدل <code dir=\"ltr\">a[1:]</code> (بيعمل نسخة كل مرة)، مرّروا <b>مكان</b>: <code dir=\"ltr\">f(a, i)</code> بيعالج <code dir=\"ltr\">a[i]</code> وبيستدعي <code dir=\"ltr\">f(a, i + 1)</code>. الوقوف: <code dir=\"ltr\">i == len(a)</code>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>«الباقي من القائمة» ممكن نوصفه بطريقتين: نقطّعه فعلياً (قائمة جديدة)، أو نحكي «من المكان i لآخر القائمة». التانية أسرع لأنه ما في نسخ، وهي اللي بتشتغل للبحث الثنائي والفرز.</p>"
+    },
+    {
+      "t": "h",
+      "text": "ليش المكان أحسن من التقطيع؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"biggest(a, i): كل استدعاء بيشوف a[i] بس، والباقي (من i + 1) بيحلّه الاستدعاء اللي بعده.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"134.0\" y=\"122\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">a =</text><rect class=\"fk-chip t-hu\" x=\"146.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"176.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"176.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"210.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"274.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"304.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"304.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><line class=\"fk-line t-hu\" x1=\"176.0\" y1=\"18\" x2=\"176.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"176.0,62 183.0,50.0 169.0,50.0\"/><text class=\"fk-t t-hu\" x=\"182.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">i</text></svg>",
+      "alt": "biggest(a, i): كل استدعاء بيشوف a[i] بس، والباقي (من i + 1) بيحلّه الاستدعاء اللي بعده.",
+      "caption": "<bdi dir=\"ltr\">biggest(a, i)</bdi>: كل استدعاء بيشوف <bdi dir=\"ltr\">a[i]</bdi> بس، والباقي (من <bdi dir=\"ltr\">i + 1)</bdi> بيحلّه الاستدعاء اللي بعده."
+    },
+    {
+      "t": "p",
+      "html": "<p><code dir=\"ltr\">a[1:]</code> بيبني قائمة جديدة فيها n−1 عنصر، وهاد O(n) شغل بكل استدعاء. على n استدعاء بيطلع O(n²) بس على النسخ، حتى لو الدالة نفسها بسيطة. مع بارامتر i، كل استدعاء O(1)، والمجموع O(n). بالامتحان مقبول التقطيع إلا إذا السؤال طلب نجاعة (יעילות)، بس منيح تعرفوا الفرق.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كتير مرات بدنا الاستدعاء من برّا يكون بسيط: <code dir=\"ltr\">total(a)</code> بدون i. الحل: قيمة افتراضية للبارامتر <code dir=\"ltr\">def total(a, i=0)</code>، أو دالة مساعدة (פונקציית עזר) بتاخد i والدالة الرئيسية بتستدعيها بـ 0.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>أكبر قيمة رجعية: الأكبر من <code dir=\"ltr\">a[i]</code> والأكبر بالباقي. الوقوف: لما ضل عنصر واحد (<code dir=\"ltr\">i == len(a) - 1</code>) هو الأكبر. لاحظوا إنه ما في <code dir=\"ltr\">big = 0</code> هون: الوقوف بيرجّع عنصر حقيقي.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بحث ثنائي رجعي: نفس الحلقة، بس بدل ما نغيّر lo أو hi ونرجع للحلقة، منستدعي الدالة من جديد مع الحدود الجديدة. الوقوف: لقيناه، أو <code dir=\"ltr\">lo &gt; hi</code>. كل استدعاء بينصّف، فـ log n استدعاء.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 162\" role=\"img\" aria-label=\"بارامتر مكان بدل تقطيع: نفس الفكرة، بدون ما ننسخ القائمة بكل استدعاء.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"250\" y=\"40\" width=\"210\" height=\"116\" rx=\"10\"/><text class=\"fk-t t-good\" x=\"355\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مكان</text><text class=\"fk-t t-good\" x=\"355\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">f(a, i + 1)</text><text class=\"fk-t t-good\" x=\"355\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">بدون نسخ</text><text class=\"fk-t t-good\" x=\"355\" y=\"134\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">O(n)</text><rect class=\"fk-chip t-bad\" x=\"20\" y=\"40\" width=\"210\" height=\"116\" rx=\"10\"/><text class=\"fk-t t-bad\" x=\"125\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">تقطيع</text><text class=\"fk-t t-bad\" x=\"125\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">f(a[1:])</text><text class=\"fk-t t-bad\" x=\"125\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">نسخة كل مرة</text><text class=\"fk-t t-bad\" x=\"125\" y=\"134\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">O(n²)</text></svg>",
+      "alt": "بارامتر مكان بدل تقطيع: نفس الفكرة، بدون ما ننسخ القائمة بكل استدعاء.",
+      "caption": "بارامتر مكان بدل تقطيع: نفس الفكرة، بدون ما ننسخ القائمة بكل استدعاء."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def total(a, i=0):\n    if i == len(a):\n        return 0\n    return a[i] + total(a, i + 1)\n\ndef biggest(a, i=0):\n    if i == len(a) - 1:\n        return a[i]\n    rest = biggest(a, i + 1)\n    return a[i] if a[i] > rest else rest\n\ndef bsearch(a, x, lo, hi):\n    if lo > hi:\n        return -1\n    mid = (lo + hi) // 2\n    if a[mid] == x:\n        return mid\n    if a[mid] < x:\n        return bsearch(a, x, mid + 1, hi)\n    return bsearch(a, x, lo, mid - 1)\n\na = [3, 8, 1, 6]\nprint(total(a), biggest(a))\nb = [2, 5, 8, 12, 16, 23, 38]\nprint(bsearch(b, 23, 0, len(b) - 1), bsearch(b, 4, 0, len(b) - 1))",
+      "out": "18 8\n5 -1"
+    },
+    {
+      "t": "html",
+      "html": "<div class=\"compare\"><div class=\"ok\"><b>بمكان i: O(1) لكل استدعاء</b><p><code dir=\"ltr\">return a[i] + f(a, i + 1)</code></p><p>الوقوف <code dir=\"ltr\">i == len(a)</code></p></div><div class=\"no\"><b>بالتقطيع: O(n) لكل استدعاء</b><p><code dir=\"ltr\">return a[0] + f(a[1:])</code></p><p>الوقوف <code dir=\"ltr\">a == []</code></p></div></div>"
+    },
+    {
+      "t": "method",
+      "title": "دالة رجعية على قائمة، 3 خطوات",
+      "steps": [
+        "<b>البارامتر</b> i (أو lo و hi) بيحكي وين وصلنا.",
+        "<b>الوقوف</b> <code dir=\"ltr\">i == len(a)</code> (فاضي) أو <code dir=\"ltr\">lo &gt; hi</code>.",
+        "<b>الخطوة</b> عالجوا <code dir=\"ltr\">a[i]</code> واستدعوا مع <code dir=\"ltr\">i + 1</code>، وركّبوا."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: أكبر عنصر رجعياً",
+      "html": "<p>الوقوف: آخر عنصر لحاله هو الأكبر من «الباقي». وإلا: الأكبر بين a[i] وأكبر الباقي. ليش منحفظ rest بمتغيّر؟ لأنه منستعمله مرتين، وما بدنا نستدعي مرتين.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def biggest(a, i):\n    if i == len(a) - 1:\n        return a[i]\n    rest = biggest(a, i + 1)\n    if a[i] &gt; rest:\n        return a[i]\n    return rest\n\nprint(biggest([3, 8, 2], 0))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">8</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: عدّ العناصر الزوجية رجعياً",
+      "html": "<p>نفس قالب total، بس بدل <code dir=\"ltr\">a[i]</code> منزيد 1 أو 0.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def count_even(a, i=0):\n    if i == len(a):\n        return 0\n    here = 1 if a[i] % 2 == 0 else 0\n    return here + count_even(a, i + 1)\n\nprint(count_even([4, 7, 10, 3, 8]))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">3</pre></div></div>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"معطيات السؤال: منبحث عن 9، والاستدعاء الأول lo = 0 و hi = 5.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"50.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"80.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"80.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"114.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"144.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"178.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"208.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-mut\" x=\"208.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"242.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"272.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-mut\" x=\"272.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"306.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"336.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-hu\" x=\"370.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"400.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-mut\" x=\"400.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">5</text><line class=\"fk-line t-hu\" x1=\"80.0\" y1=\"18\" x2=\"80.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"80.0,62 87.0,50.0 73.0,50.0\"/><text class=\"fk-t t-hu\" x=\"86.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">lo</text><line class=\"fk-line t-hu\" x1=\"400.0\" y1=\"18\" x2=\"400.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"400.0,62 407.0,50.0 393.0,50.0\"/><text class=\"fk-t t-hu\" x=\"406.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">hi</text></svg>",
+      "alt": "معطيات السؤال: منبحث عن 9، والاستدعاء الأول lo = 0 و hi = 5.",
+      "caption": "معطيات السؤال: منبحث عن 9، والاستدعاء الأول <bdi dir=\"ltr\">lo = 0</bdi> و <bdi dir=\"ltr\">hi = 5</bdi>."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع؟ (اكتبوا lo و hi بكل استدعاء)<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">calls = []\ndef bs(a, x, lo, hi):\n    calls.append((lo, hi))\n    if lo &gt; hi:\n        return -1\n    mid = (lo + hi) // 2\n    if a[mid] == x:\n        return mid\n    if a[mid] &lt; x:\n        return bs(a, x, mid + 1, hi)\n    return bs(a, x, lo, mid - 1)\n\nr = bs([1, 3, 5, 7, 9, 11], 9, 0, 5)\nprint(r, calls)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">4 [(0, 5), (3, 5)]</pre></div></div>",
+      "steps": [
+        {
+          "label": "<bdi dir=\"ltr\">(0, 5)</bdi>: <bdi dir=\"ltr\">mid = 2</bdi>، <bdi dir=\"ltr\">a[2] = 5 &lt; 9</bdi>",
+          "body": "<code dir=\"ltr\">bs(…, 3, 5)</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">(3, 5)</bdi>: <bdi dir=\"ltr\">mid = 4</bdi>، <bdi dir=\"ltr\">a[4] = 9</bdi>",
+          "body": "<code dir=\"ltr\">return 4</code>"
+        },
+        {
+          "label": "القيمة بترجع لتحت كما هي",
+          "body": "<code dir=\"ltr\">r = 4</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">4 [(0, 5), (3, 5)]</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">r</bdi></th><th><bdi dir=\"ltr\">calls</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">calls = []</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">[]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">r = bs([1, 3, 5, 7, 9, 11], 9, 0, 5)</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">[(0, 5), (3, 5)]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(r, calls)</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">[(0, 5), (3, 5)]</bdi></td><td><bdi dir=\"ltr\">4 [(0, 5), (3, 5)]</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش بارامتر i أحسن من <code dir=\"ltr\">a[1:]</code>؟",
+          "a": "<p>التقطيع بيعمل نسخة جديدة <bdi dir=\"ltr\">(O(n))</bdi> بكل استدعاء، فالمجموع <bdi dir=\"ltr\">O(n</bdi>²). مع i القائمة نفسها بتنبعت، وبس الرقم بيتغيّر، فالمجموع <bdi dir=\"ltr\">O(n)</bdi>.</p>"
+        },
+        {
+          "q": "لازم اللي بيستدعي يكتب 0 كل مرة؟",
+          "a": "<p>فيكم تعطوا البارامتر قيمة افتراضية: <code dir=\"ltr\">def total(a, i=0):</code>، وهيك <code dir=\"ltr\">total(a)</code> بتشتغل.</p><pre class=\"code\" dir=\"ltr\">def total(a, i=0):\n    if i == len(a):\n        return 0\n    return a[i] + total(a, i + 1)\n\nprint(total([3, 1, 4]))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">8</pre>"
+        },
+        {
+          "q": "شو بيصير بقائمة فاضية؟",
+          "a": "<p>إذا الوقوف هو <code dir=\"ltr\">i == len(a)</code>، بترجع فوراً (مجموع 0، عدّ 0). إذا الوقوف هو «آخر عنصر» (متل biggest)، قائمة فاضية بتطلّع IndexError: الأكبر مش معرّف لقائمة فاضية، فاذكروا بالحل إنه القائمة مش فاضية.</p>"
+        },
+        {
+          "q": "ليش البحث الثنائي الرجعي بيبعت lo و hi؟",
+          "a": "<p>لأنه هنّي «المشكلة الأصغر»: نفس القائمة، مجال أصغر. لو قطّعنا القائمة، المكان اللي منرجّعه رح يكون بالنسبة للقطعة مش للقائمة الأصلية، وكمان رح ننسخ.</p>"
+        },
+        {
+          "q": "تعقيد البحث الثنائي الرجعي؟",
+          "a": "<p>كل استدعاء بيعمل شغل ثابت وبيستدعي مرة وحدة على نص المجال: <bdi dir=\"ltr\">O(log n)</bdi>، متل النسخة بالحلقة.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "بالبحث الرجعي: <code dir=\"ltr\">bs(a, x, mid + 1, hi)</code> بدون return",
+          "yes": "النتيجة بتضيع والدالة بترجّع None. لازم <code dir=\"ltr\">return bs(…)</code>"
+        },
+        {
+          "no": "الوقوف <code dir=\"ltr\">i == len(a) - 1</code> بمجموع",
+          "yes": "بينسى آخر عنصر أو بيوقع على قائمة فاضية. للمجموع: <code dir=\"ltr\">i == len(a)</code> و 0"
+        },
+        {
+          "no": "أكبر قيمة رجعية بتبلّش من 0",
+          "yes": "الوقوف بيرجّع عنصر حقيقي"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def f(a, i=0):\n    if i &gt;= len(a):\n        return 0\n    return a[i] + f(a, i + 2)\n\nprint(f([5, 1, 4, 2, 3]))</pre></div>",
+        "answer": [
+          "12"
+        ],
+        "hint": "بس الأماكن الزوجية.",
+        "solution": "<p>الدالة بتقفز اتنين كل استدعاء، فبتجمع الأماكن 0 و 2 و 4 بس: \\(5+4+3=12\\)، ولما i صار 6 بتوقف.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">12</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def g(a, i=0):\n    if i == len(a) - 1:\n        return a[i]\n    r = g(a, i + 1)\n    return a[i] if a[i] &lt; r else r\n\nprint(g([7, 2, 9, 4]))</pre></div>",
+        "answer": [
+          "2"
+        ],
+        "hint": "الأصغر.",
+        "solution": "<p>الدالة بترجّع الأصغر بين <code dir=\"ltr\">a[i]</code> والأصغر بالباقي، والوقوف بآخر عنصر. يعني هي min رجعي، والأصغر هو 2.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">2</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>ليش <code dir=\"ltr\">return x + f(a[1:])</code> على قائمة طولها n بياخد <bdi dir=\"ltr\">O(n</bdi>²) وقت؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "لأنه كل تقطيع بينسخ القائمة، <bdi dir=\"ltr\">O(n)</bdi> بكل استدعاء، وفي n استدعاء"
+          },
+          {
+            "v": "2",
+            "html": "لأنه في استدعائين"
+          },
+          {
+            "v": "3",
+            "html": "لأنه الجمع بطيء"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "solution": "<p>كل <code dir=\"ltr\">a[1:]</code> بيبني قائمة جديدة بحجم الباقي. المجموع \\(n+(n-1)+\\dots+1\\) نسخ، وهاد O(n²).</p>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "פונקציית עזר",
+      "back": "دالة مساعدة: بتاخد بارامتر زيادة (i، lo، hi) للرجعية، والدالة الرئيسية بتستدعيها بالقيمة الأولى."
+    }
+  ]
+}

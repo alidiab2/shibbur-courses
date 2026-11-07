@@ -1,0 +1,234 @@
+{
+  "slug": "selection-bubble",
+  "title": "فرز بالاختيار وفرز الفقاعات",
+  "he": "מיון בחירה ומיון בועות",
+  "ref": "שבוע 12",
+  "minutes": 18,
+  "desc": "فرز بالاختيار (מיון בחירה) وفرز الفقاعات (מיון בועות) بـ Python: الفكرة، الكود، تتبّع القائمة بعد كل جولة، عدد المقارنات، وليش الاتنين O(n²).",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بالأسبوع 12 الكورس بيعلّم «אלגוריתמים למיון סדרות ויעילותם». بالامتحان بيطلبوا: «اكتبوا القائمة بعد كل جولة (סבב)»، أو «كم مقارنة؟»، أو «شو التعقيد؟». الفرزين هون هنّي الأبسط والأشهر.</p><ol><li>فرز بالاختيار: الأصغر للأول</li><li>فرز الفقاعات: تبديل جيران</li><li>القائمة بعد كل جولة</li><li>O(n²) ولماذا</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل سؤال «מיינו» أو «מה יהיה מצב הרשימה אחרי הסבב השני».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"فرز بالاختيار بعد جولتين: الجزء الشمالي (1، 3) مرتّب ونهائي. بالجولة الجاية منلاقي الأصغر بالباقي (4) ومنبدّلو مع 9.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"70.0\" y=\"122\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">a =</text><rect class=\"fk-chip t-good solid\" x=\"82.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"112.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"112.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-good solid\" x=\"146.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"176.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"176.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"210.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"274.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"304.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-mut\" x=\"304.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-2 solid\" x=\"338.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"368.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-mut\" x=\"368.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><line class=\"fk-line t-hu\" x1=\"240.0\" y1=\"18\" x2=\"240.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"240.0,62 247.0,50.0 233.0,50.0\"/><text class=\"fk-t t-hu\" x=\"246.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">i</text></svg>",
+      "alt": "فرز بالاختيار بعد جولتين: الجزء الشمالي (1، 3) مرتّب ونهائي. بالجولة الجاية منلاقي الأصغر بالباقي (4) ومنبدّلو مع 9.",
+      "caption": "فرز بالاختيار بعد جولتين: الجزء الشمالي <bdi dir=\"ltr\">(1</bdi>، 3) مرتّب ونهائي. بالجولة الجاية منلاقي الأصغر بالباقي <bdi dir=\"ltr\">(4)</bdi> ومنبدّلو مع 9."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p><b>اختيار:</b> بالجولة i، لاقوا مكان الأصغر من i للآخر وبدّلوه مع <code dir=\"ltr\">a[i]</code>. <b>فقاعات:</b> مرّوا على الجيران وبدّلوا كل جوز بالعكس؛ بعد كل جولة الأكبر بيوصل للآخر.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>الاتنين بيبنوا جزء مرتّب بيكبر بعنصر كل جولة. الاختيار بيبنيه من الشمال (منختار الأصغر)، والفقاعات من اليمين (الأكبر «بيطوف» لفوق متل فقاعة).</p>"
+    },
+    {
+      "t": "h",
+      "text": "كيف بيشتغلوا؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"جولة أولى بفرز بالاختيار: الأصغر (1) بيتبدّل مع أول مكان. هلّق المكان 0 جاهز.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"136.0\" y=\"60\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"rtl\">قبل</text><rect class=\"fk-chip t-mut\" x=\"152.0\" y=\"30\" width=\"56\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"180.0\" y=\"59.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-mut\" x=\"212.0\" y=\"30\" width=\"56\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"59.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"272.0\" y=\"30\" width=\"56\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"300.0\" y=\"59.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><rect class=\"fk-chip t-mut\" x=\"332.0\" y=\"30\" width=\"56\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"360.0\" y=\"59.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"136.0\" y=\"150\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"rtl\">بعد</text><rect class=\"fk-chip t-2 solid\" x=\"152.0\" y=\"120\" width=\"56\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"180.0\" y=\"149.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"212.0\" y=\"120\" width=\"56\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"149.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"272.0\" y=\"120\" width=\"56\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"300.0\" y=\"149.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><rect class=\"fk-chip t-2 solid\" x=\"332.0\" y=\"120\" width=\"56\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"360.0\" y=\"149.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"82\" x2=\"240.0\" y2=\"104.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,116 247.0,104.0 233.0,104.0\"/></svg>",
+      "alt": "جولة أولى بفرز بالاختيار: الأصغر (1) بيتبدّل مع أول مكان. هلّق المكان 0 جاهز.",
+      "caption": "جولة أولى بفرز بالاختيار: الأصغر <bdi dir=\"ltr\">(1)</bdi> بيتبدّل مع أول مكان. هلّق المكان 0 جاهز."
+    },
+    {
+      "t": "p",
+      "html": "<p>فرز بالاختيار: الحلقة الخارجية i من 0 لـ n−2. جوّاها بحث عن مكان الأصغر من i لآخر القائمة (متل «مكان الأكبر» بالفصل 6)، وبعدين تبديل واحد. بعد الجولة i، الأماكن من 0 لـ i مرتّبة ونهائية: ولا عنصر رح ييجي عليها بعدين.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>فرز الفقاعات: بكل جولة منمرق على الجيران <code dir=\"ltr\">a[j]</code> و<code dir=\"ltr\">a[j+1]</code>، وإذا الشمال أكبر منبدّل. الأكبر بيضل يتبدّل لقدّام لحد ما يوصل للآخر. بعد الجولة i، آخر i+1 عناصر بمكانهم، فالحلقة الداخلية بتقصر: <code dir=\"ltr\">range(n - 1 - i)</code>. تحسين معروف: إذا بجولة كاملة ما صار ولا تبديل، القائمة مرتّبة ومنوقف.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>العدّ: بالاختيار، الجولة الأولى n−1 مقارنة، التانية n−2، … المجموع \\(\\frac{n(n-1)}{2}\\) دايماً، حتى لو القائمة مرتّبة أصلاً. هاد O(n²). بالفقاعات نفس العدد بأسوأ حالة، ومع تحسين الوقوف بكير، قائمة مرتّبة بتاخد جولة وحدة: O(n) بأحسن حالة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>التبديلات: الاختيار بيعمل لحد n−1 تبديل بس (واحد بالجولة)، والفقاعات ممكن \\(\\frac{n(n-1)}{2}\\) تبديل. لهيك لما التبديل غالي، الاختيار أحسن.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 288\" role=\"img\" aria-label=\"كل جولة مقارنة أقل بواحد: \\frac{n(n-1)}{2}، يعني O(n²).\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الجولة</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"32.85\" font-size=\"11\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مقارنات لـ n = 5</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"230\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"254.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">المجموع</text><rect class=\"fk-chip t-2 solid\" x=\"130.0\" y=\"230\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"254.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10 = 5·4/2</text></svg>",
+      "alt": "كل جولة مقارنة أقل بواحد: \\frac{n(n-1)}{2}، يعني O(n²).",
+      "caption": "كل جولة مقارنة أقل بواحد: \\(\\frac{n(n-1)}{2}\\)، يعني <bdi dir=\"ltr\">O(n</bdi>²)."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def selection_sort(a):\n    n = len(a)\n    for i in range(n - 1):\n        m = i\n        for j in range(i + 1, n):\n            if a[j] < a[m]:\n                m = j\n        a[i], a[m] = a[m], a[i]\n        print(\"round\", i + 1, a)\n\ndef bubble_sort(a):\n    n = len(a)\n    for i in range(n - 1):\n        swapped = False\n        for j in range(n - 1 - i):\n            if a[j] > a[j + 1]:\n                a[j], a[j + 1] = a[j + 1], a[j]\n                swapped = True\n        print(\"pass\", i + 1, a)\n        if not swapped:\n            break\n\nselection_sort([9, 3, 1, 7, 4])\nbubble_sort([9, 3, 1, 7, 4])",
+      "out": "round 1 [1, 3, 9, 7, 4]\nround 2 [1, 3, 9, 7, 4]\nround 3 [1, 3, 4, 7, 9]\nround 4 [1, 3, 4, 7, 9]\npass 1 [3, 1, 7, 4, 9]\npass 2 [1, 3, 4, 7, 9]\npass 3 [1, 3, 4, 7, 9]"
+    },
+    {
+      "t": "method",
+      "title": "«القائمة بعد كل جولة» بالامتحان، 3 خطوات",
+      "steps": [
+        "<b>أي فرز؟</b> اختيار ← تبديل واحد بالجولة. فقاعات ← كذا تبديل جيران.",
+        "<b>جولة جولة</b> اكتبوا القائمة كاملة بعد كل جولة، مش بعد كل تبديل.",
+        "<b>افحصوا الجزء النهائي</b> اختيار: الشمال مرتّب. فقاعات: الأكبر بالآخر."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: جولة وحدة بفرز بالاختيار",
+      "html": "<p>منلاقي مكان الأصغر (m)، ومنبدّل مع المكان 0. ليش منحفظ مكان ومش قيمة؟ لأنه للتبديل لازم نعرف وين هو.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [7, 3, 9, 1]\nm = 0\nfor j in range(1, len(a)):\n    if a[j] &lt; a[m]:\n        m = j\na[0], a[m] = a[m], a[0]\nprint(a)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">[1, 3, 9, 7]</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">j</bdi></th><th><bdi dir=\"ltr\">m</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = [7, 3, 9, 1]</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">m = 0</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for j in range(1, len(a)):</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">m = j</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for j in range(1, len(a)):</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for j in range(1, len(a)):</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">m = j</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(a)</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">[1, 3, 9, 7]</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: عدد المقارنات",
+      "html": "<p>منعدّ المقارنات بفرز بالاختيار على 6 عناصر، مرة على قائمة عشوائية ومرة على قائمة مرتّبة.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def count_cmp(a):\n    c = 0\n    for i in range(len(a) - 1):\n        m = i\n        for j in range(i + 1, len(a)):\n            c += 1\n            if a[j] &lt; a[m]:\n                m = j\n        a[i], a[m] = a[m], a[i]\n    return c\n\nprint(count_cmp([5, 2, 6, 1, 4, 3]), count_cmp([1, 2, 3, 4, 5, 6]))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">15 15</pre></div></div><p>15 = 5 + 4 + 3 + 2 + 1 = \\(\\frac{6\\cdot 5}{2}\\) بالحالتين: فرز بالاختيار ما «بيلاحظ» إنه القائمة مرتّبة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"معطيات السؤال: فرز الفقاعات بيقارن جيران j و j + 1، وبيبدّل إذا الشمال أكبر.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"102.0\" y=\"122\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">a =</text><rect class=\"fk-chip t-hu\" x=\"114.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"144.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"178.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"208.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"208.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"242.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"272.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-mut\" x=\"272.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"306.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"336.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><line class=\"fk-line t-hu\" x1=\"144.0\" y1=\"18\" x2=\"144.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"144.0,62 151.0,50.0 137.0,50.0\"/><text class=\"fk-t t-hu\" x=\"150.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">j</text><line class=\"fk-line t-2\" x1=\"208.0\" y1=\"18\" x2=\"208.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"208.0,62 215.0,50.0 201.0,50.0\"/><text class=\"fk-t t-2\" x=\"214.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">j + 1</text></svg>",
+      "alt": "معطيات السؤال: فرز الفقاعات بيقارن جيران j و j + 1، وبيبدّل إذا الشمال أكبر.",
+      "caption": "معطيات السؤال: فرز الفقاعات بيقارن جيران j و <bdi dir=\"ltr\">j + 1</bdi>، وبيبدّل إذا الشمال أكبر."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال امتحان: فرز الفقاعات على <bdi dir=\"ltr\">[5, 1, 4, 2]</bdi>. شو القائمة بعد الجولة الأولى والتانية؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [5, 1, 4, 2]\nn = len(a)\nfor i in range(2):\n    for j in range(n - 1 - i):\n        if a[j] &gt; a[j + 1]:\n            a[j], a[j + 1] = a[j + 1], a[j]\n    print(a)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">[1, 4, 2, 5]\n[1, 2, 4, 5]</pre></div></div>",
+      "steps": [
+        {
+          "label": "جولة 1: 5 بيتبدّل مع كل جار لحد الآخر",
+          "body": "<code dir=\"ltr\">[1, 4, 2, 5]</code>"
+        },
+        {
+          "label": "جولة 2: j لـ 1 بس، 4 و 2 بيتبدّلوا",
+          "body": "<code dir=\"ltr\">[1, 2, 4, 5]</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">[1, 4, 2, 5]<br>[1, 2, 4, 5]</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">i</bdi></th><th><bdi dir=\"ltr\">j</bdi></th><th><bdi dir=\"ltr\">a</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = [5, 1, 4, 2]</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">[5, 1, 4, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(2):</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">[5, 1, 4, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for j in range(n - 1 - i):</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">[5, 1, 4, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a[j], a[j + 1] = a[j + 1], a[j]</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">[1, 5, 4, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for j in range(n - 1 - i):</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">[1, 5, 4, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a[j], a[j + 1] = a[j + 1], a[j]</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">[1, 4, 5, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for j in range(n - 1 - i):</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">[1, 4, 5, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a[j], a[j + 1] = a[j + 1], a[j]</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">[1, 4, 2, 5]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(a)</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">[1, 4, 2, 5]</bdi></td><td><bdi dir=\"ltr\">[1, 4, 2, 5]</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(2):</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">[1, 4, 2, 5]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for j in range(n - 1 - i):</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">[1, 4, 2, 5]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for j in range(n - 1 - i):</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">[1, 4, 2, 5]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a[j], a[j + 1] = a[j + 1], a[j]</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">[1, 2, 4, 5]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(a)</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">[1, 2, 4, 5]</bdi></td><td><bdi dir=\"ltr\">[1, 2, 4, 5]</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو بيعمل <code dir=\"ltr\">a[i], a[j] = a[j], a[i]</code>؟",
+          "a": "<p>تبديل بسطر: Python بيحسب اليمين كله أول (القيمتين القديمتين) وبعدين بيحطهم. بلغات تانية بدنا متغيّر مساعد: <code dir=\"ltr\">t = a[i]; a[i] = a[j]; a[j] = t</code>.</p>"
+        },
+        {
+          "q": "مين أحسن: اختيار ولا فقاعات؟",
+          "a": "<p>الاتنين <bdi dir=\"ltr\">O(n</bdi>²). الاختيار بيعمل تبديل واحد بس بكل جولة <bdi dir=\"ltr\">(n</bdi> − 1 بالمجموع). الفقاعات مع وقوف بكير بتخلص بجولة وحدة على قائمة مرتّبة <bdi dir=\"ltr\">(O(n))</bdi>.</p>"
+        },
+        {
+          "q": "كيف بتوقف الفقاعات بكير؟",
+          "a": "<p>علم: إذا جولة كاملة ما صار فيها ولا تبديل، القائمة مرتّبة.</p><pre class=\"code\" dir=\"ltr\">a = [1, 2, 4, 3]\nrounds = 0\nfor i in range(len(a) - 1):\n    rounds += 1\n    swapped = False\n    for j in range(len(a) - 1 - i):\n        if a[j] &gt; a[j + 1]:\n            a[j], a[j + 1] = a[j + 1], a[j]\n            swapped = True\n    if not swapped:\n        break\nprint(a, rounds)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">[1, 2, 3, 4] 2</pre>"
+        },
+        {
+          "q": "ليش <code dir=\"ltr\">range(n - 1 - i)</code> بالفقاعات؟",
+          "a": "<p>بعد جولة i، آخر i عناصر صاروا بمكانهم (الأكبرين «طفوا»). ما في داعي نقارنهم، و <code dir=\"ltr\">- 1</code> لأنه منقارن مع <bdi dir=\"ltr\">j + 1</bdi>.</p>"
+        },
+        {
+          "q": "كيف بفرز تنازلي؟",
+          "a": "<p>بدّلوا المقارنة: بالاختيار دوّروا على الأكبر، وبالفقاعات بدّلوا إذا الشمال <b>أصغر</b>.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "بالاختيار: تبديل بكل مرة لقينا أصغر",
+          "yes": "منحفظ المكان m، وتبديل واحد بآخر الجولة"
+        },
+        {
+          "no": "بالفقاعات: <code dir=\"ltr\">range(n)</code> للداخلية مع <code dir=\"ltr\">a[j + 1]</code>",
+          "yes": "<code dir=\"ltr\">range(n - 1 - i)</code>: وإلا IndexError"
+        },
+        {
+          "no": "فرز بالاختيار أسرع على قائمة مرتّبة",
+          "yes": "دايماً \\(\\frac{n(n-1)}{2}\\) مقارنة"
+        },
+        {
+          "no": "<code dir=\"ltr\">a[i] = a[m]; a[m] = a[i]</code>",
+          "yes": "القيمة الأولى بتضيع: <code dir=\"ltr\">a[i], a[m] = a[m], a[i]</code>"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟ (القائمة بعد جولة وحدة من فرز بالاختيار)</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [4, 8, 2, 6]\nm = 0\nfor j in range(1, len(a)):\n    if a[j] &lt; a[m]:\n        m = j\na[0], a[m] = a[m], a[0]\nprint(a)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[2, 8, 4, 6]</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[2, 4, 6, 8]</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[2, 8, 6, 4]</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "بس تبديل واحد: الأصغر مع الأول.",
+        "solution": "<p>بالجولة الأولى منلاقي مكان الأصغر، الـ 2 بالمكان 2، ومنبدّلو مع العنصر الأول 4. باقي القائمة ما بيتحرّك.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">[2, 8, 4, 6]</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>كم مقارنة بفرز بالاختيار على 10 عناصر؟ (البرنامج بيحسبها)</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">n = 10\nc = 0\nfor i in range(n - 1):\n    for j in range(i + 1, n):\n        c += 1\nprint(c)</pre></div>",
+        "answer": [
+          "45"
+        ],
+        "hint": "9 + 8 + … + 1.",
+        "solution": "<p>الجولة الأولى 9 مقارنات، التانية 8، وهيك لحد 1. المجموع \\(\\frac{10\\cdot 9}{2}=45\\).</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">45</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟ (جولة فقاعات وحدة)</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [3, 1, 2, 5, 4]\nfor j in range(len(a) - 1):\n    if a[j] &gt; a[j + 1]:\n        a[j], a[j + 1] = a[j + 1], a[j]\nprint(a)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[1, 2, 3, 4, 5]</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[1, 3, 2, 4, 5]</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[1, 2, 3, 5, 4]</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "الـ 3 بيمشي لحد ما يلاقي أكبر منه.",
+        "solution": "<p>الـ 3 بيتبدّل مع 1 ومع 2 لحد ما يوصل للـ 5 اللي أكبر منه. بعدين الـ 5 بيتبدّل مع الـ 4. صدفة إنه بعد جولة وحدة صارت مرتّبة.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">[1, 2, 3, 4, 5]</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "מיון בחירה",
+      "back": "فرز بالاختيار: كل جولة الأصغر من الباقي لمكان i. دايماً n(n−1)/2 مقارنة، O(n²)."
+    },
+    {
+      "t": "card",
+      "front": "מיון בועות",
+      "back": "فرز الفقاعات: تبديل جيران؛ الأكبر بيوصل للآخر كل جولة. O(n²)، و O(n) لقائمة مرتّبة مع وقوف بكير."
+    }
+  ]
+}

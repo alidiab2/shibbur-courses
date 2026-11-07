@@ -1,0 +1,240 @@
+{
+  "slug": "det-properties",
+  "title": "خواص المحدّدة والقابلية للعكس",
+  "he": "תכונות הדטרמיננטה",
+  "ref": "חוברת §6.2 · מטלה 5",
+  "minutes": 18,
+  "desc": "تأثير عمليات الأسطر على المحدّدة، det(AB)=detA·detB، det(Aᵗ)، det(kA)=kⁿdetA، det(A⁻¹)، وA قابلة للعكس إذا وبس إذا det A≠0. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بالامتحان بيعطوكم \\(\\det A=3\\) وبيطلبوا \\(\\det(2A^tB^{-1})\\) بدون ما يعطوا المصفوفات. هاد سؤال قوانين بس، وبياخد دقيقة إذا القوانين بالراس.</p><ol><li>عمليات الأسطر والمحدّدة</li><li>\\(\\det(AB)\\)، \\(\\det(A^t)\\)، \\(\\det(kA)\\)</li><li>\\(\\det A\\neq0\\iff\\) قابلة للعكس</li><li>سؤال بارامتر</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما بيعطوا \\(\\det\\) لمصفوفات وبيطلبوا محدّدة لتعبير، أو «לאילו ערכי \\(k\\) הפיכה».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"تلات عمليات أسطر وتأثيرها: التبديل بيقلب الإشارة، الضرب بـ c بيضرب المحدّدة بـ c، وزيادة مضاعف سطر ما بتغيّر إشي.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"14\" y=\"30\" width=\"200\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"114.0\" y=\"64.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">R₁ ↔ R₂</text><line class=\"fk-line t-mut\" x1=\"222\" y1=\"58\" x2=\"270.0\" y2=\"58.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"282,58 270.0,51.0 270.0,65.0\"/><rect class=\"fk-chip t-bad solid\" x=\"292\" y=\"30\" width=\"170\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"377.0\" y=\"65.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">× (−1)</text><text class=\"fk-t t-mut\" x=\"114\" y=\"108\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">تبديل</text><rect class=\"fk-chip t-hu\" x=\"14\" y=\"118\" width=\"200\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"114.0\" y=\"152.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">R₂ → c·R₂</text><line class=\"fk-line t-mut\" x1=\"222\" y1=\"146\" x2=\"270.0\" y2=\"146.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"282,146 270.0,139.0 270.0,153.0\"/><rect class=\"fk-chip t-1 solid\" x=\"292\" y=\"118\" width=\"170\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"377.0\" y=\"153.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">× c</text><text class=\"fk-t t-mut\" x=\"114\" y=\"196\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">ضرب سطر</text><rect class=\"fk-chip t-hu\" x=\"14\" y=\"206\" width=\"200\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"114.0\" y=\"240.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">R₂ → R₂ + c·R₁</text><line class=\"fk-line t-mut\" x1=\"222\" y1=\"234\" x2=\"270.0\" y2=\"234.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"282,234 270.0,227.0 270.0,241.0\"/><rect class=\"fk-chip t-good solid\" x=\"292\" y=\"206\" width=\"170\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"377.0\" y=\"241.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">ما بتتغيّر</text><text class=\"fk-t t-mut\" x=\"114\" y=\"284\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">زيادة مضاعف</text></svg>",
+      "alt": "تلات عمليات أسطر وتأثيرها: التبديل بيقلب الإشارة، الضرب بـ c بيضرب المحدّدة بـ c، وزيادة مضاعف سطر ما بتغيّر إشي.",
+      "caption": "تلات عمليات أسطر وتأثيرها: التبديل بيقلب الإشارة، الضرب بـ \\(c\\) بيضرب المحدّدة بـ \\(c\\)، وزيادة مضاعف سطر ما بتغيّر إشي."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(\\det(AB)=\\det A\\det B\\)، \\(\\det A^t=\\det A\\)، \\(\\det(kA)=k^n\\det A\\)، \\(\\det A^{-1}=\\frac1{\\det A}\\). و<b>\\(A\\) قابلة للعكس \\(\\iff\\det A\\neq0\\)</b>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: المحدّدة بتنضرب، مش بتنجمع",
+      "html": "<p>إذا \\(A\\) بتكبّر المساحة 3 مرات و\\(B\\) مرتين، فـ \\(AB\\) (أول \\(B\\) وبعدين \\(A\\)) بتكبّر 6 مرات. لهيك المحدّدة بتنضرب. بس ما في قانون لـ \\(\\det(A+B)\\)، لأنه جمع المصفوفات ما إله معنى تكبير بسيط.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: عمليات الأسطر <bdi dir=\"rtl\">(טענות 6.23, 6.26, 6.30)</bdi>",
+      "html": "<p>تبديل سطرين ⇐ \\(|B|=-|A|\\). ضرب سطر بـ \\(\\alpha\\) ⇐ \\(|B|=\\alpha|A|\\). \\(R_i\\to R_i+\\alpha R_j\\) ⇐ \\(|B|=|A|\\).</p><p><b>فكرة البرهان:</b> الأولى بالاستقراء (تطوير حسب سطر تالت ما تغيّر). التانية: منطوّر حسب السطر المضروب، فكل حد فيه \\(\\alpha\\). التالتة: بتطلع محدّدة \\(A\\) زائد \\(\\alpha\\) ضرب محدّدة فيها سطرين متساويين، وهاي صفر.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نتيجة: نتائج <bdi dir=\"rtl\">(מסקנות 6.25, 6.29)</bdi>",
+      "html": "<p>سطرين متساويين أو متناسبين ⇐ \\(|A|=0\\). \\(|\\alpha A|=\\alpha^n|A|\\). \\(|A^t|=|A|\\).</p><p><b>فكرة البرهان:</b> سطرين متساويين: تبديلهم ما بيغيّر \\(A\\)، بس بيقلب الإشارة: \\(|A|=-|A|\\)، فـ \\(|A|=0\\). \\(\\alpha A\\): كل سطر من الـ \\(n\\) بيطلّع \\(\\alpha\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: قابلية العكس والضرب <bdi dir=\"rtl\">(משפטים 6.32, 6.34)</bdi>",
+      "html": "<p>\\(A\\) قابلة للعكس \\(\\iff|A|\\neq0\\). و\\(|AB|=|A||B|\\)، ومنها \\(|A^{-1}|=\\frac1{|A|}\\).</p><p><b>فكرة البرهان:</b> الدرج بيغيّر المحدّدة بس بضرب بعدد مش صفر، فـ \\(|A|\\neq0\\iff\\) الدرج ما فيه سطر أصفار \\(\\iff\\operatorname{rank}A=n\\). و\\(1=|I|=|AA^{-1}|=|A||A^{-1}|\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"إشارة المحدّدة: موجبة لما v «عكس عقارب الساعة» من u، سالبة لما الترتيب مقلوب (تبديل سطرين بيقلبه)، وصفر لما الاتنين على نفس الخط.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"10.0\" y=\"8\" width=\"146.66666666666666\" height=\"174\" rx=\"14\"/><text class=\"fk-t t-good\" x=\"83.33333333333333\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">det &gt; 0</text><polygon class=\"t-good\" points=\"40.0,154.0 120.0,144.0 150.0,64.0 70.0,74.0\" style=\"fill:var(--c);fill-opacity:0.2;stroke:var(--c);stroke-width:2;\"/><line class=\"fk-line t-1\" x1=\"40.0\" y1=\"154\" x2=\"108.1\" y2=\"145.5\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"120.0,144 107.2,138.5 109.0,152.4\"/><line class=\"fk-line t-2\" x1=\"40.0\" y1=\"154\" x2=\"65.8\" y2=\"85.2\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"70.0,74 59.2,82.8 72.3,87.7\"/><text class=\"fk-t t-1\" x=\"128.0\" y=\"148\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">u</text><text class=\"fk-t t-2\" x=\"66.0\" y=\"66\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">v</text><rect class=\"fk-chip t-bad\" x=\"166.66666666666666\" y=\"8\" width=\"146.66666666666666\" height=\"174\" rx=\"14\"/><text class=\"fk-t t-bad\" x=\"240.0\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">det &lt; 0</text><polygon class=\"t-bad\" points=\"196.7,154.0 226.7,74.0 306.7,64.0 276.7,144.0\" style=\"fill:var(--c);fill-opacity:0.2;stroke:var(--c);stroke-width:2;\"/><line class=\"fk-line t-1\" x1=\"196.66666666666666\" y1=\"154\" x2=\"222.5\" y2=\"85.2\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"226.66666666666666,74 215.9,82.8 229.0,87.7\"/><line class=\"fk-line t-2\" x1=\"196.66666666666666\" y1=\"154\" x2=\"264.8\" y2=\"145.5\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"276.66666666666663,144 263.9,138.5 265.6,152.4\"/><text class=\"fk-t t-1\" x=\"234.66666666666666\" y=\"78\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">u</text><text class=\"fk-t t-2\" x=\"272.66666666666663\" y=\"136\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">v</text><rect class=\"fk-chip t-hu\" x=\"323.3333333333333\" y=\"8\" width=\"146.66666666666666\" height=\"174\" rx=\"14\"/><text class=\"fk-t t-hu\" x=\"396.66666666666663\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">det = 0</text><line class=\"fk-line t-1\" x1=\"353.3333333333333\" y1=\"154\" x2=\"421.4\" y2=\"145.5\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"433.3333333333333,144 420.6,138.5 422.3,152.4\"/><line class=\"fk-line t-2\" x1=\"353.3333333333333\" y1=\"154\" x2=\"381.4\" y2=\"150.5\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"393.3333333333333,149 380.6,143.5 382.3,157.4\"/><text class=\"fk-t t-1\" x=\"441.3333333333333\" y=\"148\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">u</text><text class=\"fk-t t-2\" x=\"389.3333333333333\" y=\"141\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">v</text></svg>",
+      "alt": "إشارة المحدّدة: موجبة لما v «عكس عقارب الساعة» من u، سالبة لما الترتيب مقلوب (تبديل سطرين بيقلبه)، وصفر لما الاتنين على نفس الخط.",
+      "caption": "إشارة المحدّدة: موجبة لما \\(v\\) «عكس عقارب الساعة» من \\(u\\)، سالبة لما الترتيب مقلوب (تبديل سطرين بيقلبه)، وصفر لما الاتنين على نفس الخط."
+    },
+    {
+      "t": "h",
+      "text": "عمليات الأسطر"
+    },
+    {
+      "t": "p",
+      "html": "<p>تبديل سطرين بيضرب المحدّدة بـ \\(-1\\). ضرب سطر واحد بـ \\(c\\) بيضرب المحدّدة بـ \\(c\\). زيادة مضاعف سطر على سطر تاني ما بتغيّر المحدّدة. هيك منحسب محدّدة كبيرة بسرعة: مندرج لمثلثية بزيادة مضاعفات بس، ومنضرب القطر، ومنصلّح الإشارة إذا بدّلنا.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>نتيجة مهمة: سطرين متساويين أو متناسبين، المحدّدة صفر (منطرح واحد من التاني ومنحصل على سطر أصفار).</p>"
+    },
+    {
+      "t": "h",
+      "text": "ليش \\(\\det(kA)=k^n\\det A\\)؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>\\(kA\\) معناها كل الأسطر مضروبة بـ \\(k\\). كل سطر بيطلّع \\(k\\) لبرّا، وفي \\(n\\) أسطر، فبيطلع \\(k^n\\). لمصفوفة 3×3: \\(\\det(2A)=8\\det A\\)، مش \\(2\\det A\\). وبما إنه \\(AA^{-1}=I\\) و\\(\\det I=1\\)، بيطلع \\(\\det A\\cdot\\det A^{-1}=1\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: درج لمثلثية",
+      "html": "<p>احسبوا \\(\\det\\begin{pmatrix}1&amp;2&amp;1\\\\2&amp;5&amp;3\\\\1&amp;3&amp;4\\end{pmatrix}\\) بالدرج.</p><ol><li>\\(R_2\\to R_2-2R_1,\\;R_3\\to R_3-R_1\\)<br><span class=\"why-line\">زيادة مضاعفات ما بتغيّر المحدّدة: \\(\\begin{pmatrix}1&amp;2&amp;1\\\\0&amp;1&amp;1\\\\0&amp;1&amp;3\\end{pmatrix}\\)</span></li><li>\\(R_3\\to R_3-R_2\\)<br><span class=\"why-line\">كمان ما بتغيّر: \\(\\begin{pmatrix}1&amp;2&amp;1\\\\0&amp;1&amp;1\\\\0&amp;0&amp;2\\end{pmatrix}\\)</span></li><li>\\(\\det=1\\cdot1\\cdot2=2\\)<br><span class=\"why-line\">مثلثية، فمنضرب القطر.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): سلسلة عمليات",
+      "html": "<p>\\(|A|=2\\) لمصفوفة 3×3. عملنا \\(R_1\\leftrightarrow R_3\\)، بعدين \\(R_2\\to3R_2\\)، بعدين \\(R_3\\to R_3-5R_1\\). شو المحدّدة الجديدة؟</p><ol><li>\\(R_1\\leftrightarrow R_3\\): \\(2\\to-2\\)<br><span class=\"why-line\">التبديل بيقلب الإشارة.</span></li><li>\\(R_2\\to3R_2\\): \\(-2\\to-6\\)<br><span class=\"why-line\">ضرب سطر بـ 3 بيضرب المحدّدة بـ 3.</span></li><li>\\(R_3\\to R_3-5R_1\\): \\(-6\\)<br><span class=\"why-line\">زيادة مضاعف ما بتغيّر.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>إذا \\(A^2=I\\) فـ \\(\\det A=1\\).<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>\\(A=\\begin{pmatrix}1&amp;0\\\\0&amp;-1\\end{pmatrix}\\)<br><span class=\"why-line\">مراية.</span></li><li>\\(A^2=I\\)<br><span class=\"why-line\">\\((-1)^2=1\\) على القطر.</span></li><li>\\(\\det A=-1\\neq1\\)<br><span class=\"why-line\">الصحيح: \\((\\det A)^2=\\det(A^2)=1\\)، فـ \\(\\det A=\\pm1\\).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>إذا \\(A^k=0\\) لـ \\(k\\ge1\\) فـ \\(A\\) مش قابلة للعكس.<br><b>الجواب: الادّعاء صحيحة، وهاد البرهان.</b></p><ol><li>\\(\\det(A^k)=(\\det A)^k\\)<br><span class=\"why-line\">\\(|AB|=|A||B|\\)، \\(k\\) مرات.</span></li><li>\\((\\det A)^k=\\det0=0\\)<br><span class=\"why-line\">محدّدة مصفوفة الصفر صفر.</span></li><li>\\(\\det A=0\\) ⇐ مش قابلة للعكس<br><span class=\"why-line\">عدد قوّته صفر هو صفر (بحقل ما في قواسم للصفر).</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "سؤال قوانين محدّدة، 3 خطوات",
+      "steps": [
+        "<b>فكّكوا:</b> كل ضرب لحاله: \\(\\det(XY)=\\det X\\det Y\\).",
+        "<b>كل قطعة:</b> \\(k^n\\)، \\(\\det A^t=\\det A\\)، \\(\\frac1{\\det A}\\).",
+        "<b>اضربوا:</b> الأرقام مع بعض، وانتبهوا لـ \\(n\\)."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 130\" role=\"img\" aria-label=\"المعطى A=3، B=-2، حجم 3×3. منفكّك لتلات قطع ومنضربهم.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"5.0\" y=\"31.0\" width=\"98.0\" height=\"68\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"54.0\" y=\"71.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2³ = 8</text><line class=\"fk-line t-mut\" x1=\"105.0\" y1=\"65.0\" x2=\"115.0\" y2=\"65.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"127.0,65.0 115.0,58.0 115.0,72.0\"/><rect class=\"fk-chip t-1 solid\" x=\"129.0\" y=\"31.0\" width=\"98.0\" height=\"68\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"178.0\" y=\"71.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">|Aᵗ| = 3</text><line class=\"fk-line t-mut\" x1=\"229.0\" y1=\"65.0\" x2=\"239.0\" y2=\"65.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"251.0,65.0 239.0,58.0 239.0,72.0\"/><rect class=\"fk-chip t-2 solid\" x=\"253.0\" y=\"31.0\" width=\"98.0\" height=\"68\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"302.0\" y=\"70.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">|B⁻¹| = −½</text><line class=\"fk-line t-mut\" x1=\"353.0\" y1=\"65.0\" x2=\"363.0\" y2=\"65.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"375.0,65.0 363.0,58.0 363.0,72.0\"/><rect class=\"fk-chip t-good solid\" x=\"377.0\" y=\"31.0\" width=\"98.0\" height=\"68\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"426.0\" y=\"71.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−12</text></svg>",
+      "alt": "المعطى A=3، B=-2، حجم 3×3. منفكّك لتلات قطع ومنضربهم.",
+      "caption": "المعطى \\(\\det A=3\\)، \\(\\det B=-2\\)، حجم 3×3. منفكّك لتلات قطع ومنضربهم."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: \\(A, B\\) مصفوفات 3×3 مع \\(\\det A=3\\)، \\(\\det B=-2\\). احسبوا \\(\\det(2A^tB^{-1})\\).",
+      "steps": [
+        {
+          "label": "\\det(2X)=2^3\\det X",
+          "body": "\\(2^3=8\\)"
+        },
+        {
+          "label": "\\det A^t=\\det A",
+          "body": "\\(3\\)"
+        },
+        {
+          "label": "\\det B^{-1}=\\tfrac1{\\det B}",
+          "body": "\\(-\\tfrac12\\)"
+        },
+        {
+          "label": "كله",
+          "body": "\\(8\\cdot3\\cdot\\left(-\\tfrac12\\right)=-12\\)"
+        }
+      ],
+      "a": "\\(\\det(2A^tB^{-1})=-12\\)"
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: لأي \\(k\\) المصفوفة \\(\\begin{pmatrix}1&amp;0&amp;2\\\\2&amp;1&amp;k\\\\0&amp;3&amp;1\\end{pmatrix}\\) <b>مش</b> قابلة للعكس؟",
+      "steps": [
+        {
+          "label": "تطوير حسب السطر الأول",
+          "body": "\\(1\\cdot(1-3k)-0+2\\cdot(6-0)\\)"
+        },
+        {
+          "label": "تبسيط",
+          "body": "\\(13-3k\\)"
+        },
+        {
+          "label": "ساووا لصفر",
+          "body": "\\(k=\\tfrac{13}{3}\\)"
+        }
+      ],
+      "a": "\\(k=\\frac{13}{3}\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 176\" role=\"img\" aria-label=\"كل سطر من الـ n بيطلّع 2. والمحدّدة بتمشي مع الضرب بس، مش مع الجمع.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"10\" y=\"10\" width=\"224\" height=\"156\" rx=\"16\"/><text class=\"fk-t t-bad\" x=\"122\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط ✗</text><text class=\"fk-t t-ink\" x=\"122\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">det(2A) = 2·det A</text><text class=\"fk-t t-ink\" x=\"122\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">det(A+B) = det A + det B</text><rect class=\"fk-chip t-good\" x=\"246\" y=\"10\" width=\"224\" height=\"156\" rx=\"16\"/><text class=\"fk-t t-good\" x=\"358\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح ✓</text><text class=\"fk-t t-ink\" x=\"358\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">det(2A) = 2ⁿ·det A</text><text class=\"fk-t t-ink\" x=\"358\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">det(AB) = det A · det B</text></svg>",
+      "alt": "كل سطر من الـ n بيطلّع 2. والمحدّدة بتمشي مع الضرب بس، مش مع الجمع.",
+      "caption": "كل سطر من الـ \\(n\\) بيطلّع 2. والمحدّدة بتمشي مع الضرب بس، مش مع الجمع."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(\\det(2A)=2\\det A\\) لـ 3×3",
+          "yes": "\\(\\det(2A)=2^3\\det A=8\\det A\\)"
+        },
+        {
+          "no": "\\(\\det(A+B)=\\det A+\\det B\\)",
+          "yes": "ما في هيك قانون"
+        },
+        {
+          "no": "تبديل سطرين ما بيغيّر المحدّدة",
+          "yes": "بيضربها بـ \\(-1\\)"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش \\(\\det(A^t)=\\det A\\)؟",
+          "a": "لأنه التطوير حسب السطر الأول لـ \\(A^t\\) هو التطوير حسب العمود الأول لـ \\(A\\)، ونظرية 6.18 بتحكي إنه الاتنين بيعطوا نفس الجواب. نتيجة: كل قانون للأسطر بيصح للأعمدة."
+        },
+        {
+          "q": "إذا \\(\\det A=0\\)، شو بعرف عن \\(Ax=b\\)؟",
+          "a": "إنه ما في حل وحيد: يا ما في حل، يا لا نهائي. لازم تدرجوا عشان تعرفوا أيّ وحدة. \\(\\det\\) لحاله ما بيفرّق بين الحالتين."
+        },
+        {
+          "q": "\\(\\det(AB)=\\det(BA)\\) حتى لو \\(AB\\neq BA\\)؟",
+          "a": "آه! \\(\\det(AB)=\\det A\\det B=\\det B\\det A=\\det(BA)\\)، لأنه المحدّدات أعداد، والأعداد بتتبدّل."
+        },
+        {
+          "q": "كيف بحسب محدّدة كبيرة بسرعة؟",
+          "a": "درجوا لمثلثية بعمليات \\(R_i\\to R_i+\\alpha R_j\\) بس (ما بتغيّر المحدّدة)، وسجّلوا كل تبديل (\\(\\times(-1)\\)). بعدين ضرب القطر."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(A\\) مصفوفة 2×2 مع \\(\\det A=2\\). شو \\(\\det(3A)\\)؟",
+        "answer": [
+          "18"
+        ],
+        "hint": "\\(\\det(kA)=k^n\\det A\\)، و\\(n=2\\).",
+        "solution": "<p>كل واحد من السطرين بيطلّع 3 لبرّا، فـ \\(\\det(3A)=3^2\\cdot\\det A=9\\cdot2=18\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(\\det A=4\\). شو \\(\\det(A^{-1})\\)؟",
+        "answer": [
+          "1/4",
+          "0.25"
+        ],
+        "hint": "\\(\\det A\\cdot\\det A^{-1}=\\det I=1\\).",
+        "solution": "<p>المعكوس بيلغي شغل \\(A\\)، وبالحساب: من \\(AA^{-1}=I\\) بيطلع \\(\\det A\\cdot\\det A^{-1}=1\\)، فـ \\(\\det A^{-1}=\\frac14\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(\\det A=5\\). بدّلنا سطرين وبعدين ضربنا سطر بـ 2. شو المحدّدة الجديدة؟",
+        "answer": [
+          "-10"
+        ],
+        "hint": "كل عملية لحالها.",
+        "solution": "<p>التبديل بيضرب المحدّدة بـ \\(-1\\) فبتصير \\(-5\\)، والضرب بـ 2 بيضربها بـ 2، فبتطلع \\(-10\\).</p>"
+      }
+    }
+  ]
+}

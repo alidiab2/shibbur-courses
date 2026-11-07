@@ -1,0 +1,209 @@
+{
+  "slug": "mux",
+  "title": "المرَبِّب (MUX): مفتاح بيختار مدخل",
+  "he": "מרבב",
+  "ref": "הרצאה 8 · תרגול 9",
+  "minutes": 17,
+  "desc": "المرَبِّب (Multiplexer، מרבב) بكورس 61740: f=Ii حسب خطوط الاختيار، المعادلة تبع 4→1، مدخل التفعيل Enable، وكيف بتنفّذوا أي دالة بـ MUX.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> الـ MUX هو مفتاح إلكتروني: خطوط الاختيار بتقرّر أي مدخل بيوصل للمخرج. بالامتحان بيطلبوا «ממשו את F באמצעות מרבב» كتير، وهي طريقة سريعة لتنفيذ أي دالة.</p><ol><li>MUX كمفتاح: \\(f=I_i\\)</li><li>المعادلة تبع 4→1</li><li>مدخل التفعيل E</li><li>تنفيذ دالة بـ MUX</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما يذكروا מרבב، MUX، או «בורר».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"خطوط الاختيار S1S0 = 10 = 2، فالمفتاح بيوصّل I2 للمخرج. ولا مدخل تاني بيأثّر.\" class=\"fk\"><path class=\"fk-chip t-ink\" d=\"M170 25L300 65L300 185L170 225Z\" stroke-width=\"3\"/><path class=\"fk-line t-mut\" d=\"M70 55 L170 55\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"48\" y=\"62\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">I0</text><circle class=\"fk-dot t-mut\" cx=\"180\" cy=\"55\" r=\"4\"/><path class=\"fk-line t-mut\" d=\"M70 100 L170 100\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"48\" y=\"107\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">I1</text><circle class=\"fk-dot t-mut\" cx=\"180\" cy=\"100\" r=\"4\"/><path class=\"fk-line t-hu\" d=\"M70 145 L170 145\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"48\" y=\"152\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">I2</text><circle class=\"fk-dot t-hu\" cx=\"180\" cy=\"145\" r=\"4\"/><path class=\"fk-line t-mut\" d=\"M70 190 L170 190\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"48\" y=\"197\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">I3</text><circle class=\"fk-dot t-mut\" cx=\"180\" cy=\"190\" r=\"4\"/><path class=\"fk-line t-hu\" d=\"M182 145 L282 125\" stroke-width=\"5\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-hu\" cx=\"282\" cy=\"125\" r=\"6\"/><path class=\"fk-line t-hu\" d=\"M300 125 L400 125\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"425\" y=\"132\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f</text><path class=\"fk-line t-mut\" d=\"M215 236 L215 252\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-mut\" d=\"M255 222 L255 252\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"235\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">MUX</text><rect class=\"fk-chip t-2\" x=\"300.57\" y=\"203\" width=\"118.86\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-2\" x=\"360.0\" y=\"225.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">S1S0 = 10</text></svg>",
+      "alt": "خطوط الاختيار S1S0 = 10 = 2، فالمفتاح بيوصّل I2 للمخرج. ولا مدخل تاني بيأثّر.",
+      "caption": "خطوط الاختيار S1S0 = 10 = 2، فالمفتاح بيوصّل I2 للمخرج. ولا مدخل تاني بيأثّر."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>بـ MUX \\(2^n\\to1\\) في \\(n\\) خطوط اختيار. <b>\\(f=I_i\\)</b>، و\\(i\\) هو الرقم اللي مكتوب على خطوط الاختيار.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>تخيّلوا مفتاح دوّار: خطوط الاختيار بتحدّد لوين بيأشّر، والمدخل اللي بيأشّر عليه هو اللي بيطلع. باقي المداخل ما إلهم أي تأثير.</p>"
+    },
+    {
+      "t": "h",
+      "text": "المعادلة"
+    },
+    {
+      "t": "p",
+      "html": "<p>لـ MUX 4→1 مع \\(S_1S_0\\): \\(f=S_1'S_0'I_0+S_1'S_0I_1+S_1S_0'I_2+S_1S_0I_3\\). كل حد هو مينترم تبع خطوط الاختيار مضروب بمدخل. بأي لحظة بس مينترم واحد بيساوي 1، فبيضل بس المدخل تبعه. بورقة العزر مكتوب: \\(f=I_i\\)، كاين \\(i\\) هو الرقم اللي بيمثّلوه خطوط الاختيار.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مدخل التفعيل (כניסת אפשור، Enable): لما \\(E=1\\) الركيب بيشتغل عادي، ولما \\(E=0\\) كل المخارج 0. هاي القاعدة كمان بورقة العزر وبتشتغل لكل مركّب فيه E.</p>"
+    },
+    {
+      "t": "h",
+      "text": "تنفيذ دالة بـ MUX"
+    },
+    {
+      "t": "p",
+      "html": "<p>دالة بـ 3 متغيّرات بـ MUX 8→1: منوصّل \\(A,B,C\\) لخطوط الاختيار، وكل مدخل \\(I_i\\) منوصّله لـ 0 أو 1 حسب السطر \\(i\\) بجدول القيم. بس في طريقة أوفر: MUX 4→1 مع \\(A,B\\) بخطوط الاختيار، وكل مدخل بيكون واحد من أربع أشياء: \\(0\\)، \\(1\\)، \\(C\\) أو \\(C'\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كيف بنعرف؟ منقسم جدول القيم لأزواج أسطر حسب \\(AB\\). بكل زوج \\(C\\) بيكون 0 وبعدين 1. إذا \\(F\\) بالزوج 0،0 منحط 0؛ 1،1 منحط 1؛ 0،1 منحط \\(C\\)؛ 1،0 منحط \\(C'\\).</p>"
+    },
+    {
+      "t": "method",
+      "title": "دالة 3 متغيّرات بـ MUX 4→1: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>اكتبوا الجدول</b> وقسّموه لأربع أزواج حسب \\(AB\\) (00، 01، 10، 11).",
+        "<b>لكل زوج</b> قارنوا \\(F\\) مع \\(C\\): ثابت 0، ثابت 1، متل \\(C\\)، أو عكس \\(C\\).",
+        "<b>وصّلوا</b> \\(A\\) لـ \\(S_1\\)، \\(B\\) لـ \\(S_0\\)، والنتيجة لـ \\(I_0..I_3\\)."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"الجواب كـ MUX: AB على خطوط الاختيار، وبكل مدخل اللي F بيعمله مع C: I0 = C، I1 = C', I2 = 0، I3 = 1. هون AB = 11، فـ F = 1.\" class=\"fk\"><path class=\"fk-chip t-ink\" d=\"M170 25L300 65L300 185L170 225Z\" stroke-width=\"3\"/><path class=\"fk-line t-mut\" d=\"M70 55 L170 55\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"48\" y=\"62\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C</text><circle class=\"fk-dot t-mut\" cx=\"180\" cy=\"55\" r=\"4\"/><path class=\"fk-line t-mut\" d=\"M70 100 L170 100\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"48\" y=\"107\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C'</text><circle class=\"fk-dot t-mut\" cx=\"180\" cy=\"100\" r=\"4\"/><path class=\"fk-line t-mut\" d=\"M70 145 L170 145\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"48\" y=\"152\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><circle class=\"fk-dot t-mut\" cx=\"180\" cy=\"145\" r=\"4\"/><path class=\"fk-line t-hu\" d=\"M70 190 L170 190\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"48\" y=\"197\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><circle class=\"fk-dot t-hu\" cx=\"180\" cy=\"190\" r=\"4\"/><path class=\"fk-line t-hu\" d=\"M182 190 L282 125\" stroke-width=\"5\" fill=\"none\" stroke-linejoin=\"round\"/><circle class=\"fk-dot t-hu\" cx=\"282\" cy=\"125\" r=\"6\"/><path class=\"fk-line t-hu\" d=\"M300 125 L400 125\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"425\" y=\"132\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f</text><path class=\"fk-line t-mut\" d=\"M215 236 L215 252\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-mut\" d=\"M255 222 L255 252\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"235\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">MUX</text><rect class=\"fk-chip t-2\" x=\"300.57\" y=\"203\" width=\"118.86\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-2\" x=\"360.0\" y=\"225.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">S1S0 = 11</text></svg>",
+      "alt": "الجواب كـ MUX: AB على خطوط الاختيار، وبكل مدخل اللي F بيعمله مع C: I0 = C، I1 = C', I2 = 0، I3 = 1. هون AB = 11، فـ F = 1.",
+      "caption": "الجواب كـ MUX: AB على خطوط الاختيار، وبكل مدخل اللي F بيعمله مع C: I0 = C، I1 = C', I2 = 0، I3 = 1. هون AB = 11، فـ F = 1."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: نفّذوا \\(F(A,B,C)=\\Sigma m(1,2,6,7)\\) بـ MUX 4→1 مع \\(A,B\\) بخطوط الاختيار.",
+      "steps": [
+        {
+          "label": "\\(AB=00\\): الأسطر 0، 1",
+          "body": "\\(F=0,1\\) يعني \\(I_0=C\\)"
+        },
+        {
+          "label": "\\(AB=01\\): الأسطر 2، 3",
+          "body": "\\(F=1,0\\) يعني \\(I_1=C'\\)"
+        },
+        {
+          "label": "\\(AB=10\\): الأسطر 4، 5",
+          "body": "\\(F=0,0\\) يعني \\(I_2=0\\)"
+        },
+        {
+          "label": "\\(AB=11\\): الأسطر 6، 7",
+          "body": "\\(F=1,1\\) يعني \\(I_3=1\\)"
+        }
+      ],
+      "a": "الجواب \\(I_0=C,\\;I_1=C',\\;I_2=0,\\;I_3=1\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: Enable",
+      "html": "<p>MUX 4→1 مع \\(E=0\\)، \\(S_1S_0=11\\) و\\(I_3=1\\). شو \\(f\\)؟</p><p>لما \\(E=0\\) المركّب «مطفي» وكل المخارج 0 حسب ورقة العزر، فـ \\(f=0\\) مهما كان \\(I_3\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"خطوط الاختيار هنّي عدد ثنائي: 10₂ = 2، فالمدخل المختار I₂.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">S₁S₀ = 10  →  I₁</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">S₁S₀ = 10  →  I₂</text></svg>",
+      "alt": "خطوط الاختيار هنّي عدد ثنائي: 10₂ = 2، فالمدخل المختار I₂.",
+      "caption": "خطوط الاختيار هنّي عدد ثنائي: 10₂ = 2، فالمدخل المختار I₂."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(S_1S_0=10\\) بيختار \\(I_1\\)",
+          "yes": "\\(10_2=2\\)، فبيختار \\(I_2\\)"
+        },
+        {
+          "no": "MUX 8→1 إلو 8 خطوط اختيار",
+          "yes": "\\(2^3=8\\) مداخل، يعني 3 خطوط اختيار"
+        },
+        {
+          "no": "\\(E=0\\): المخرج متل قبل",
+          "yes": "\\(E=0\\): كل المخارج 0"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "MUX 4→1: \\(I_0=1,I_1=0,I_2=0,I_3=1\\) و\\(S_1S_0=11\\). شو \\(f\\)؟",
+        "answer": [
+          "1"
+        ],
+        "hint": "\\(11_2\\) قديش؟",
+        "solution": "<p>خطوط الاختيار \\(11_2=3\\)، فالمخرج هو \\(f=I_3=1\\). باقي المداخل ما إلهم تأثير هون.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش خط اختيار بـ MUX 16→1؟",
+        "answer": [
+          "4"
+        ],
+        "hint": "\\(2^n=16\\).",
+        "solution": "<p>\\(n\\) خطوط بيختاروا بين \\(2^n\\) مداخل. \\(2^4=16\\)، فبدنا 4 خطوط اختيار.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "MUX 2→1 مع خط اختيار \\(S\\)، \\(I_0=A\\) و\\(I_1=B\\). شو \\(f\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(S'A+SB\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(SA+S'B\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(A+B\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(S(A+B)\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "لكل قيمة S، مين بيطلع؟",
+        "solution": "<p>لما \\(S=0\\) بيطلع \\(I_0=A\\)، ولما \\(S=1\\) بيطلع \\(I_1=B\\). فـ \\(f=S'A+SB\\).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "كيف بعرف قديش خط اختيار لازم؟",
+          "a": "\\(n\\) خطوط اختيار بيكتبوا \\(2^n\\) أرقام، فبيختاروا من \\(2^n\\) مداخل. لـ MUX 8→1 بدنا 3 خطوط، ولـ 16→1 بدنا 4. إذا عدد المداخل مش قوّة لـ 2، منقرّب لفوق."
+        },
+        {
+          "q": "ليش بتنفيذ دالة بـ MUX 4→1 المداخل بتطلع بس 0، 1، \\(C\\) أو \\(C'\\)؟",
+          "a": "لأنه لما \\(A,B\\) ثابتين (يعني اخترنا مدخل)، \\(F\\) بيضل دالة بـ \\(C\\) لحاله. ودالة بمتغيّر واحد إلها 4 إمكانيات بس: دايماً 0، دايماً 1، بتساوي \\(C\\)، أو بتساوي \\(C'\\)."
+        },
+        {
+          "q": "مين لازم يكون على خطوط الاختيار؟",
+          "a": "إذا السؤال حدّد، متل ما حدّد. إذا لا، أي متغيّرين بيزبطوا، بس الجواب (شو بيدخل لكل \\(I_i\\)) بيتغيّر. الأسهل تحطّوا أول متغيّرين بالترتيب، لأنه هيك كل زوج أسطر جيران بالجدول هو مدخل واحد."
+        },
+        {
+          "q": "MUX 8→1 بيقدر ينفّذ أي دالة بـ 3 متغيّرات بدون ولا بوابة؟",
+          "a": "آه. حطّوا التلات متغيّرات على خطوط الاختيار، ووصّلوا \\(I_i\\) لـ 0 أو 1 حسب عامود \\(F\\) بالسطر \\(i\\). هيك الـ MUX بيصير جدول القيم نفسه."
+        },
+        {
+          "q": "شو الفرق بين MUX ومفكّك؟",
+          "a": "MUX بياخد كذا مدخل معلومات وبيوصّل <b>واحد</b> منهم للمخرج. المفكّك بياخد رقم وبيشعّل <b>خط واحد</b> من كذا مخرج. واحد بيجمع لمخرج واحد، والتاني بيفرّق لكذا مخرج."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "מרבב (MUX)",
+      "back": "n خطوط اختيار بيختاروا وحد من 2ⁿ مداخل: f = Iᵢ."
+    }
+  ]
+}

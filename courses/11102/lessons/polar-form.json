@@ -1,0 +1,212 @@
+{
+  "slug": "polar-form",
+  "title": "الصورة القطبية والضرب",
+  "he": "הצגה קוטבית",
+  "ref": "חוברת §2.1 (עמ׳ 17) · מטלה 1",
+  "minutes": 16,
+  "desc": "الطول |z| والزاوية (ארגומנט)، كتابة عدد مركّب بالصورة القطبية r·cis(θ)، وليش الضرب بيصير ضرب أطوال وجمع زوايا. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بالامتحان بيطلبوا كتير «כתבו בהצגה קוטבית» قبل ما يطلبوا قوة أو جذر. هالدرس هو الجسر للدرس الجاي.</p><ol><li>الطول \\(|z|\\) والزاوية</li><li>\\(\\operatorname{cis}\\theta\\) والصورة القطبية</li><li>الضرب: الأطوال بتنضرب والزوايا بتنجمع</li><li>سؤال امتحان: من جبري لقطبي</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما بدكم قوة كبيرة (\\(z^{10}\\))، جذر، أو ضرب أعداد بزوايا معروفة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 330\" role=\"img\" aria-label=\"نفس النقطة بطريقتين: 1+ 3 ,i (يمين وفوق)، أو «طول 2 بزاوية 60°». هاي الصورة القطبية.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"60.0\" y1=\"30\" x2=\"60.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"142.5\" y1=\"30\" x2=\"142.5\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"225.0\" y1=\"30\" x2=\"225.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"307.5\" y1=\"30\" x2=\"307.5\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"390.0\" y1=\"30\" x2=\"390.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"241.25\" x2=\"390\" y2=\"241.25\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"160.0\" x2=\"390\" y2=\"160.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"78.75\" x2=\"390\" y2=\"78.75\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"60\" y1=\"241.25\" x2=\"392.0\" y2=\"241.2\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"404,241.25 392.0,234.2 392.0,248.2\"/><line class=\"fk-line t-ink\" x1=\"142.5\" y1=\"290\" x2=\"142.5\" y2=\"28.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"142.5,16 135.5,28.0 149.5,28.0\"/><text class=\"fk-t t-ink\" x=\"396\" y=\"267.25\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"124.5\" y=\"26\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><line class=\"fk-line t-mut dash\" x1=\"225.0\" y1=\"100.52087188502873\" x2=\"225.0\" y2=\"241.25\" stroke-width=\"2\"/><line class=\"fk-line t-hu\" x1=\"142.5\" y1=\"241.25\" x2=\"218.9\" y2=\"110.9\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"225.0,100.52087188502873 212.9,107.3 225.0,114.4\"/><circle class=\"fk-dot t-hu\" cx=\"225.0\" cy=\"100.52087188502873\" r=\"9\"/><path class=\"fk-line t-1\" d=\"M188.5,241.2 A46,46 0 0 0 165.5,201.4\" stroke-width=\"4\" fill=\"none\"/><text class=\"fk-t t-1\" x=\"208.5\" y=\"223.25\" font-size=\"19\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">θ = 60°</text><rect class=\"fk-chip t-hu\" x=\"127.45\" y=\"124.75000000000003\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-hu\" x=\"168.9\" y=\"150.40000000000003\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">r = 2</text><rect class=\"fk-chip t-hu solid\" x=\"230.1\" y=\"73.52087188502873\" width=\"141.8\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"301.0\" y=\"99.17087188502873\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">z = 1+√3 i</text><text class=\"fk-t t-mut\" x=\"233.0\" y=\"269.25\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"259.0\" y=\"168.125\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">√3</text></svg>",
+      "alt": "نفس النقطة بطريقتين: 1+ 3 ,i (يمين وفوق)، أو «طول 2 بزاوية 60°». هاي الصورة القطبية.",
+      "caption": "نفس النقطة بطريقتين: \\(1+\\sqrt3\\,i\\) (يمين وفوق)، أو «طول 2 بزاوية 60°». هاي الصورة القطبية."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(z=r\\operatorname{cis}\\theta\\) مع \\(r=|z|=\\sqrt{a^2+b^2}\\). بالضرب: <b>الأطوال بتنضرب، والزوايا بتنجمع</b>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: نقطة = طول + اتجاه",
+      "html": "<p>بدل ما نوصف النقطة بـ «قديش يمين وقديش فوق»، منوصفها بـ «قديش بعيدة عن الصفر وبأي زاوية». بهالوصف الضرب بيصير لفّة وتكبير، وهاد أسهل بكتير من فتح أقواس.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: الصورة القطبية <bdi dir=\"rtl\">(הצגה קוטבית)</bdi>",
+      "html": "<p>\\(z=r\\operatorname{cis}\\theta=r(\\cos\\theta+i\\sin\\theta)\\)، \\(r=|z|\\) الطول (רדיוס) و\\(\\theta\\) الزاوية من محور الـ Re الموجب.</p><p>الزاوية مش وحيدة: \\(\\arg z=\\{\\theta+2\\pi k\\mid k\\in\\mathbb Z\\}\\) (הארגומנט). و\\(\\overline{r\\operatorname{cis}\\theta}=r\\operatorname{cis}(-\\theta)\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: ضرب بالصورة القطبية <bdi dir=\"rtl\">(משפט 2.19)</bdi>",
+      "html": "<p>\\(r_1\\operatorname{cis}\\theta_1\\cdot r_2\\operatorname{cis}\\theta_2=r_1r_2\\operatorname{cis}(\\theta_1+\\theta_2)\\).</p><p><b>فكرة البرهان:</b> منفتح الضرب. الجزء الحقيقي \\(r_1r_2(\\cos\\theta_1\\cos\\theta_2-\\sin\\theta_1\\sin\\theta_2)\\)، والتخيّلي \\(r_1r_2(\\sin\\theta_1\\cos\\theta_2+\\cos\\theta_1\\sin\\theta_2)\\). القوسين هم بالزبط \\(\\cos(\\theta_1+\\theta_2)\\) و\\(\\sin(\\theta_1+\\theta_2)\\) من قوانين المثلثات.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>نتيجة: القسمة <b>بتقسم الأطوال وبتطرح الزوايا</b>: \\(\\frac{r_1\\operatorname{cis}\\theta_1}{r_2\\operatorname{cis}\\theta_2}=\\frac{r_1}{r_2}\\operatorname{cis}(\\theta_1-\\theta_2)\\). ليش؟ لأنه إذا ضربنا الجواب بـ \\(r_2\\operatorname{cis}\\theta_2\\) بنرجع للبسط.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"الضرب بـ i هو لفّة 90 عكس عقارب الساعة: i(2+i)=-1+2i. الطول ما تغيّر، والزاوية زادت 90 .\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"50.0\" y1=\"24\" x2=\"50.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"126.0\" y1=\"24\" x2=\"126.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"202.0\" y1=\"24\" x2=\"202.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"278.0\" y1=\"24\" x2=\"278.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"354.0\" y1=\"24\" x2=\"354.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"430.0\" y1=\"24\" x2=\"430.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"218.35294117647058\" x2=\"430\" y2=\"218.35294117647058\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"148.94117647058823\" x2=\"430\" y2=\"148.94117647058823\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"79.52941176470588\" x2=\"430\" y2=\"79.52941176470588\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"218.35294117647058\" x2=\"432.0\" y2=\"218.4\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,218.35294117647058 432.0,211.4 432.0,225.4\"/><line class=\"fk-line t-ink\" x1=\"202.0\" y1=\"260\" x2=\"202.0\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"202.0,10 195.0,22.0 209.0,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"244.35294117647058\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"184.0\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><line class=\"fk-line t-hu\" x1=\"202.0\" y1=\"218.35294117647058\" x2=\"343.1\" y2=\"153.9\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"354.0,148.94117647058823 340.2,147.6 346.0,160.3\"/><line class=\"fk-line t-1\" x1=\"202.0\" y1=\"218.35294117647058\" x2=\"131.8\" y2=\"90.1\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"126.0,79.52941176470588 125.6,93.4 137.9,86.7\"/><rect class=\"fk-chip t-hu solid\" x=\"323.57\" y=\"157.70588235294116\" width=\"106.46\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"376.8\" y=\"183.35588235294117\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">z = 2+i</text><rect class=\"fk-chip t-1 solid\" x=\"39.89999999999999\" y=\"29.294117647058812\" width=\"141.8\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"110.8\" y=\"54.94411764705881\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">iz = −1+2i</text><path class=\"fk-line t-mut\" d=\"M237.8,200.4 A40,40 0 0 0 184.1,182.6\" stroke-width=\"3\" fill=\"none\"/><text class=\"fk-t t-mut\" x=\"213.4\" y=\"152.41176470588238\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">90°</text></svg>",
+      "alt": "الضرب بـ i هو لفّة 90 عكس عقارب الساعة: i(2+i)=-1+2i. الطول ما تغيّر، والزاوية زادت 90 .",
+      "caption": "الضرب بـ \\(i\\) هو لفّة \\(90^\\circ\\) عكس عقارب الساعة: \\(i(2+i)=-1+2i\\). الطول ما تغيّر، والزاوية زادت \\(90^\\circ\\)."
+    },
+    {
+      "t": "h",
+      "text": "الطول والزاوية"
+    },
+    {
+      "t": "p",
+      "html": "<p>الطول (ערך מוחלט): \\(|a+bi|=\\sqrt{a^2+b^2}\\)، وهو بالزبط بُعد النقطة عن الصفر (فيثاغورس، متل طول متجه). الزاوية (ארגומנט) \\(\\theta\\) هي الزاوية من محور الـ Re الموجب لحد السهم، عكس عقارب الساعة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>منكتب \\(\\operatorname{cis}\\theta=\\cos\\theta+i\\sin\\theta\\) (موجود بورقة القوانين). هيك \\(z=r\\operatorname{cis}\\theta=r\\cos\\theta+ir\\sin\\theta\\)، يعني \\(a=r\\cos\\theta\\) و\\(b=r\\sin\\theta\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لتلاقوا الزاوية: \\(\\tan\\theta=\\frac{b}{a}\\)، <b>بس</b> لازم تشوفوا بأي ربع النقطة. \\(-1-i\\) و\\(1+i\\) إلهم نفس الـ \\(\\tan\\)، بس الأول بالربع التالت (225°) والتاني بالأول (45°). ارسموا النقطة دايماً قبل ما تقرروا.</p>"
+    },
+    {
+      "t": "h",
+      "text": "ليش الضرب بيجمع الزوايا؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>من قوانين المثلثات: \\(\\operatorname{cis}\\alpha\\cdot\\operatorname{cis}\\beta=\\operatorname{cis}(\\alpha+\\beta)\\). يعني \\((r_1\\operatorname{cis}\\alpha)(r_2\\operatorname{cis}\\beta)=r_1r_2\\operatorname{cis}(\\alpha+\\beta)\\). الضرب بـ \\(i=\\operatorname{cis}90^\\circ\\) مثلاً هو لفّة ربع دورة بدون تكبير. والقسمة بالعكس: الأطوال بتنقسم والزوايا بتنطرح.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: ضرب بالصورة القطبية",
+      "html": "<p>احسبوا \\(2\\operatorname{cis}30^\\circ\\cdot3\\operatorname{cis}60^\\circ\\).</p><ol><li>\\(r=2\\cdot3=6\\)<br><span class=\"why-line\">الأطوال بتنضرب.</span></li><li>\\(\\theta=30^\\circ+60^\\circ=90^\\circ\\)<br><span class=\"why-line\">الزوايا بتنجمع.</span></li><li>\\(6\\operatorname{cis}90^\\circ=6(0+i)=6i\\)<br><span class=\"why-line\">\\(\\cos90^\\circ=0\\) و\\(\\sin90^\\circ=1\\)، فبيطلع عدد تخيّلي بحت.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): قسمة بالقطبي",
+      "html": "<p>احسبوا \\(\\dfrac{6\\operatorname{cis}100^\\circ}{2\\operatorname{cis}40^\\circ}\\) بالصورة \\(a+bi\\).</p><ol><li>\\(r=\\frac62=3\\)<br><span class=\"why-line\">بالقسمة الأطوال بتنقسم.</span></li><li>\\(\\theta=100^\\circ-40^\\circ=60^\\circ\\)<br><span class=\"why-line\">والزوايا بتنطرح.</span></li><li>\\(3\\operatorname{cis}60^\\circ=\\frac32+\\frac{3\\sqrt3}{2}i\\)<br><span class=\"why-line\">\\(\\cos60^\\circ=\\frac12\\)، \\(\\sin60^\\circ=\\frac{\\sqrt3}2\\).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>لكل \\(z,w\\in\\mathbb C\\): \\(|z+w|=|z|+|w|\\).<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>خدوا \\(z=1\\)، \\(w=i\\).<br><span class=\"why-line\">بندوّر على عددين مش بنفس الاتجاه.</span></li><li>\\(|z+w|=|1+i|=\\sqrt2\\)<br><span class=\"why-line\">طول القطر.</span></li><li>\\(|z|+|w|=2\\neq\\sqrt2\\)<br><span class=\"why-line\">الصحيح هو متباينة: \\(|z+w|\\le|z|+|w|\\). اللي بيصير مساواة دايماً هو الضرب: \\(|zw|=|z||w|\\).</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "من جبري لقطبي، 3 خطوات",
+      "steps": [
+        "<b>ارسموا:</b> حطوا النقطة \\((a,b)\\) واعرفوا بأي ربع هي.",
+        "<b>الطول:</b> \\(r=\\sqrt{a^2+b^2}\\).",
+        "<b>الزاوية:</b> من \\(\\tan\\theta=\\frac ba\\) ومن الربع. افحصوا: \\(r\\cos\\theta\\) لازم يرجّع \\(a\\)."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"المعطى: 1+ 3 ,i بالربع الأول. بدنا الطول r (طول السهم) والزاوية من محور Re.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"113.33333333333334\" y1=\"24\" x2=\"113.33333333333334\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"24\" x2=\"240.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"366.6666666666667\" y1=\"24\" x2=\"366.6666666666667\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"223.69230769230768\" x2=\"430\" y2=\"223.69230769230768\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"132.92307692307693\" x2=\"430\" y2=\"132.92307692307693\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"42.15384615384616\" x2=\"430\" y2=\"42.15384615384616\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"223.69230769230768\" x2=\"432.0\" y2=\"223.7\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,223.69230769230768 432.0,216.7 432.0,230.7\"/><line class=\"fk-line t-ink\" x1=\"113.33333333333334\" y1=\"260\" x2=\"113.3\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"113.33333333333334,10 106.3,22.0 120.3,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"249.69230769230768\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"95.33333333333334\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><line class=\"fk-line t-hu\" x1=\"113.33333333333334\" y1=\"223.69230769230768\" x2=\"232.5\" y2=\"75.8\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"240.0,66.47538823605578 227.0,71.4 237.9,80.2\"/><rect class=\"fk-chip t-hu solid\" x=\"230.66\" y=\"32.230769230769255\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"278.0\" y=\"57.88076923076925\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1+√3 i</text><rect class=\"fk-chip t-mut\" x=\"103.55\" y=\"100.30769230769232\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-mut\" x=\"145.0\" y=\"125.95769230769233\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">r = ?</text><path class=\"fk-line t-1\" d=\"M157.3,223.7 A44,44 0 0 0 135.3,185.6\" stroke-width=\"3\" fill=\"none\"/><text class=\"fk-t t-1\" x=\"191.86666666666667\" y=\"209.16923076923075\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">θ = ?</text><line class=\"fk-line t-mut dash\" x1=\"240.0\" y1=\"66.47538823605578\" x2=\"240.0\" y2=\"223.69230769230768\" stroke-width=\"2\"/></svg>",
+      "alt": "المعطى: 1+ 3 ,i بالربع الأول. بدنا الطول r (طول السهم) والزاوية من محور Re.",
+      "caption": "المعطى: \\(1+\\sqrt3\\,i\\) بالربع الأول. بدنا الطول \\(r\\) (طول السهم) والزاوية \\(\\theta\\) من محور Re."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: اكتبوا \\(z=1+\\sqrt3\\,i\\) بالصورة القطبية.",
+      "steps": [
+        {
+          "label": "الطول",
+          "body": "\\(r=\\sqrt{1+3}=2\\)"
+        },
+        {
+          "label": "الزاوية (ربع أول)",
+          "body": "\\(\\tan\\theta=\\sqrt3\\Rightarrow\\theta=60^\\circ\\)"
+        },
+        {
+          "label": "فحص",
+          "body": "\\(2\\operatorname{cis}60^\\circ=2\\left(\\tfrac12+\\tfrac{\\sqrt3}{2}i\\right)=1+\\sqrt3\\,i\\)"
+        }
+      ],
+      "a": "\\(z=2\\operatorname{cis}60^\\circ\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"نفس الـ لـ 1+i و-1-i، بس النقطة -1-i بالربع التالت: زاويتها 225 مش 45 . ارسموا قبل ما تحسبوا.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"121.25\" y1=\"24\" x2=\"121.25\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"24\" x2=\"240.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"358.75\" y1=\"24\" x2=\"358.75\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"215.75\" x2=\"430\" y2=\"215.75\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"142.0\" x2=\"430\" y2=\"142.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"68.25\" x2=\"430\" y2=\"68.25\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"142.0\" x2=\"432.0\" y2=\"142.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,142.0 432.0,135.0 432.0,149.0\"/><line class=\"fk-line t-ink\" x1=\"240.0\" y1=\"260\" x2=\"240.0\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"240.0,10 233.0,22.0 247.0,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"168.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"222.0\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><line class=\"fk-line t-bad\" x1=\"240.0\" y1=\"142.0\" x2=\"348.6\" y2=\"74.6\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"358.75,68.25 344.9,68.6 352.2,80.5\"/><line class=\"fk-line t-good\" x1=\"240.0\" y1=\"142.0\" x2=\"131.4\" y2=\"209.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"121.25,215.75 135.1,215.4 127.8,203.5\"/><rect class=\"fk-chip t-bad\" x=\"305.425\" y=\"23.4375\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-bad\" x=\"346.875\" y=\"49.0875\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">45° ✗</text><rect class=\"fk-chip t-good solid\" x=\"50.49250000000001\" y=\"224.77499999999998\" width=\"177.14\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"139.0625\" y=\"250.42499999999998\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1−i : 225° ✓</text><path class=\"fk-line t-good\" d=\"M270.0,142.0 A30,30 0 1 0 218.8,163.2\" stroke-width=\"3\" fill=\"none\"/></svg>",
+      "alt": "نفس الـ لـ 1+i و-1-i، بس النقطة -1-i بالربع التالت: زاويتها 225 مش 45 . ارسموا قبل ما تحسبوا.",
+      "caption": "نفس الـ \\(\\tan\\) لـ \\(1+i\\) و\\(-1-i\\)، بس النقطة \\(-1-i\\) بالربع التالت: زاويتها \\(225^\\circ\\) مش \\(45^\\circ\\). ارسموا قبل ما تحسبوا."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "الزاوية لـ \\(-1-i\\) هي \\(45^\\circ\\)",
+          "yes": "\\(-1-i\\) بالربع التالت: \\(225^\\circ\\)"
+        },
+        {
+          "no": "\\(|3+4i|=3+4=7\\)",
+          "yes": "\\(|3+4i|=\\sqrt{9+16}=5\\)"
+        },
+        {
+          "no": "بالضرب الزوايا بتنضرب",
+          "yes": "بالضرب الزوايا <b>بتنجمع</b>، والأطوال بتنضرب"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "بالراديان ولا بالدرجات؟",
+          "a": "الاتنين صح، بس ما تخلطوا بنفس السؤال. بالحوبرة بيستعملوا الاتنين (\\(60^\\circ\\) أو \\(\\frac\\pi3\\)). إذا السؤال بالراديان، جاوبوا بالراديان."
+        },
+        {
+          "q": "شو الزاوية لـ \\(z=0\\)؟",
+          "a": "ما إله زاوية: الطول صفر، وكل \\(\\theta\\) بتعطي \\(0\\operatorname{cis}\\theta=0\\). لهيك الصورة القطبية والمشتقات منها (دي موافر، الجذور) بتكون لـ \\(z\\neq0\\)."
+        },
+        {
+          "q": "ليش \\(\\arctan\\frac ba\\) لحاله مش كافي؟",
+          "a": "لأنه \\(\\arctan\\) بيرجّع زاوية بين \\(-90^\\circ\\) و\\(90^\\circ\\) بس (الربع الأول والرابع). لنقطة بالربع التاني أو التالت لازم تزيدوا \\(180^\\circ\\). لهيك دايماً ارسموا النقطة أول."
+        },
+        {
+          "q": "لـ \\(a=0\\) كيف بلاقي الزاوية؟ \\(\\frac b0\\) مش معرّف.",
+          "a": "النقطة على محور الـ Im: إذا \\(b&gt;0\\) الزاوية \\(90^\\circ\\)، وإذا \\(b&lt;0\\) الزاوية \\(270^\\circ\\). مثلاً \\(-3i=3\\operatorname{cis}270^\\circ\\)."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "احسبوا \\(|3-4i|\\).",
+        "answer": [
+          "5"
+        ],
+        "hint": "جذر مجموع المربعات.",
+        "solution": "<p>الطول هو بُعد النقطة عن الصفر، يعني جذر مجموع مربعات الجزئين: \\(\\sqrt{3^2+(-4)^2}=\\sqrt{25}=5\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "شو زاوية \\(z=-1+i\\) بالدرجات (بين 0 و360)؟",
+        "answer": [
+          "135"
+        ],
+        "hint": "ارسموا النقطة: بأي ربع هي؟",
+        "solution": "<p>النقطة \\((-1,1)\\) بالربع التاني. الزاوية المرجعية \\(45^\\circ\\)، فالزاوية \\(180^\\circ-45^\\circ=135^\\circ\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "احسبوا \\(2\\operatorname{cis}40^\\circ\\cdot3\\operatorname{cis}50^\\circ\\) بالصورة \\(a+bi\\).",
+        "answer": [
+          "6i"
+        ],
+        "hint": "اضربوا الأطوال واجمعوا الزوايا.",
+        "solution": "<p>بالضرب منضرب الأطوال ومنجمع الزوايا. الطول \\(2\\cdot3=6\\) والزاوية \\(40^\\circ+50^\\circ=90^\\circ\\)، و\\(6\\operatorname{cis}90^\\circ=6i\\) لأنه \\(\\cos90^\\circ=0\\).</p>"
+      }
+    }
+  ]
+}

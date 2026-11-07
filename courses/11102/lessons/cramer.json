@@ -1,0 +1,209 @@
+{
+  "slug": "cramer",
+  "title": "قاعدة كرامر",
+  "he": "כלל קרמר",
+  "ref": "חוברת §6.3 (עמ׳ 55) · מטלה 5",
+  "minutes": 14,
+  "desc": "قاعدة كرامر (כלל קרמר): حل نظام مربع بالمحدّدات، متغيّر واحد بدون ما نحل كل النظام، ونظام مع بارامتر. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> أحياناً بدهم متغيّر واحد بس («מצאו את \\(z\\)»)، أو النظام فيه بارامتر والدرج بيصير فوضى. كرامر بيعطي كل متغيّر كقسمة محدّدتين.</p><ol><li>القاعدة: \\(x_i=\\frac{|A_i(b)|}{|A|}\\)</li><li>ليش بتشتغل</li><li>متغيّر واحد من نظام 3×3</li><li>نظام مع بارامتر</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> نظام مربع (\\(n\\) معادلات، \\(n\\) متغيّرات) مع \\(\\det A\\neq0\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"كرامر: منبدّل العمود i بـ b. x= 10 5 =2، y= 5 5 =1.\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"20\" y=\"60\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"46.0\" y=\"90.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"78\" y=\"60\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"104.0\" y=\"90.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"20\" y=\"112\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"46.0\" y=\"142.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"78\" y=\"112\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"104.0\" y=\"142.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu solid\" x=\"186\" y=\"60\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"212.0\" y=\"90.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-mut\" x=\"244\" y=\"60\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"270.0\" y=\"90.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu solid\" x=\"186\" y=\"112\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"212.0\" y=\"142.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-mut\" x=\"244\" y=\"112\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"270.0\" y=\"142.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"352\" y=\"60\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"378.0\" y=\"90.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-1 solid\" x=\"410\" y=\"60\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"436.0\" y=\"90.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-mut\" x=\"352\" y=\"112\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"378.0\" y=\"142.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-1 solid\" x=\"410\" y=\"112\" width=\"52\" height=\"46\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"436.0\" y=\"142.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-ink\" x=\"73\" y=\"190\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-hu\" x=\"239\" y=\"190\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A₁(b)</text><text class=\"fk-t t-1\" x=\"405\" y=\"190\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A₂(b)</text><text class=\"fk-t t-mut\" x=\"73\" y=\"225\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">det = 5</text><text class=\"fk-t t-hu\" x=\"239\" y=\"225\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">det = 10</text><text class=\"fk-t t-1\" x=\"405\" y=\"225\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">det = 5</text></svg>",
+      "alt": "كرامر: منبدّل العمود i بـ b. x= 10 5 =2، y= 5 5 =1.",
+      "caption": "كرامر: منبدّل العمود \\(i\\) بـ \\(b\\). \\(x=\\frac{10}{5}=2\\)، \\(y=\\frac{5}{5}=1\\)."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>إذا \\(|A|\\neq0\\): \\(x_i=\\dfrac{|A_i(b)|}{|A|}\\)، و\\(A_i(b)\\) هي \\(A\\) مع <b>العمود \\(i\\) مبدّل بـ \\(b\\)</b>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: محدّدة بتختار متغيّر واحد",
+      "html": "<p>خدوا \\(I\\) وبدّلوا عموده \\(i\\) بـ \\(x\\). المحدّدة لهالمصفوفة هي بالزبط \\(x_i\\) (طوّروا حسب السطر \\(i\\)). ولما منضربها بـ \\(A\\) منحصل على \\(A_i(b)\\)، لأنه \\(Ax=b\\). المحدّدات بتنضرب، فـ \\(|A|\\cdot x_i=|A_i(b)|\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: قاعدة كرامر <bdi dir=\"rtl\">(משפט 6.36)</bdi>",
+      "html": "<p>إذا \\(A\\in F^{n\\times n}\\) و\\(|A|\\neq0\\)، فالحل الوحيد لـ \\(Ax=b\\) هو \\(x_i=\\frac{|A_i(b)|}{|A|}\\) لكل \\(1\\le i\\le n\\).</p><p><b>فكرة البرهان:</b> \\(I_i(x)\\) هي \\(I\\) مع العمود \\(i\\) مبدّل بـ \\(x\\)، و\\(|I_i(x)|=x_i\\). \\(A\\cdot I_i(x)=A_i(b)\\) (كل عمود \\(e_j\\) بيروح لـ \\(Ae_j\\)، والعمود \\(x\\) لـ \\(Ax=b\\)). منوخد محدّدة: \\(|A|\\,x_i=|A_i(b)|\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 242\" role=\"img\" aria-label=\"سر كرامر: I مع العمود 2 مبدّل بـ x محدّدتها x 2. ضربها بـ A بيعطي A 2(b) (لأنه Ax=b). منوخد محدّدة: |A| ,x 2=|A 2(b)|.\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"6\" y=\"56\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"29.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu solid\" x=\"56\" y=\"56\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"79.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x₁</text><rect class=\"fk-chip t-mut\" x=\"106\" y=\"56\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"129.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"100\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"29.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu solid\" x=\"56\" y=\"100\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"79.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x₂</text><rect class=\"fk-chip t-mut\" x=\"106\" y=\"100\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"129.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"144\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"29.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu solid\" x=\"56\" y=\"144\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"79.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x₃</text><rect class=\"fk-chip t-mut\" x=\"106\" y=\"144\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"129.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><line class=\"fk-line t-hu\" x1=\"158\" y1=\"122.0\" x2=\"312.0\" y2=\"122.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"324.0,122.0 312.0,115.0 312.0,129.0\"/><text class=\"fk-t t-hu\" x=\"241.0\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A ·</text><rect class=\"fk-chip t-mut\" x=\"330.0\" y=\"56\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"353.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a₁₁</text><rect class=\"fk-chip t-hu solid\" x=\"380.0\" y=\"56\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"403.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">b₁</text><rect class=\"fk-chip t-mut\" x=\"430.0\" y=\"56\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"453.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a₁₃</text><rect class=\"fk-chip t-mut\" x=\"330.0\" y=\"100\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"353.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a₂₁</text><rect class=\"fk-chip t-hu solid\" x=\"380.0\" y=\"100\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"403.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">b₂</text><rect class=\"fk-chip t-mut\" x=\"430.0\" y=\"100\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"453.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a₂₃</text><rect class=\"fk-chip t-mut\" x=\"330.0\" y=\"144\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"353.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a₃₁</text><rect class=\"fk-chip t-hu solid\" x=\"380.0\" y=\"144\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"403.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">b₃</text><rect class=\"fk-chip t-mut\" x=\"430.0\" y=\"144\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"453.0\" y=\"169.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a₃₃</text></svg>",
+      "alt": "سر كرامر: I مع العمود 2 مبدّل بـ x محدّدتها x 2. ضربها بـ A بيعطي A 2(b) (لأنه Ax=b). منوخد محدّدة: |A| ,x 2=|A 2(b)|.",
+      "caption": "سر كرامر: \\(I\\) مع العمود 2 مبدّل بـ \\(x\\) محدّدتها \\(x_2\\). ضربها بـ \\(A\\) بيعطي \\(A_2(b)\\) (لأنه \\(Ax=b\\)). منوخد محدّدة: \\(|A|\\,x_2=|A_2(b)|\\)."
+    },
+    {
+      "t": "h",
+      "text": "متى بنستعمله؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>كرامر بيشتغل بس لنظام مربع مع \\(|A|\\neq0\\) (يعني حل وحيد، الدرس الماضي). لـ 2×2 هو أسرع طريقة. لـ 3×3 بيحتاج 4 محدّدات، فهو منيح لما بدكم متغيّر واحد، أو لما في بارامتر. لـ 4×4 وطالع، غاوس أسرع.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: 2×2",
+      "html": "<p>حلّوا \\(2x+y=5\\)، \\(x+3y=5\\) بكرامر.</p><ol><li>\\(|A|=2\\cdot3-1\\cdot1=5\\)<br><span class=\"why-line\">أول منتأكّد إنه \\(|A|\\neq0\\)، وإلا كرامر ما بيشتغل.</span></li><li>\\(x=\\frac{1}{5}\\begin{vmatrix}5&amp;1\\\\5&amp;3\\end{vmatrix}=\\frac{15-5}{5}=2\\)<br><span class=\"why-line\">العمود الأول (معاملات \\(x\\)) مبدّل بـ \\(b\\).</span></li><li>\\(y=\\frac15\\begin{vmatrix}2&amp;5\\\\1&amp;5\\end{vmatrix}=\\frac{10-5}{5}=1\\)<br><span class=\"why-line\">العمود التاني مبدّل بـ \\(b\\).</span></li><li>فحص: \\(4+1=5\\)، \\(2+3=5\\) ✓<br><span class=\"why-line\">منعوّض بالمعادلتين.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): متغيّر واحد من 3×3",
+      "html": "<p>لاقوا \\(z\\) بس: \\(x+y+z=6\\)، \\(2x-y+z=3\\)، \\(x+2y-z=2\\).</p><ol><li>\\(|A|=\\det\\begin{pmatrix}1&amp;1&amp;1\\\\2&amp;-1&amp;1\\\\1&amp;2&amp;-1\\end{pmatrix}=7\\)<br><span class=\"why-line\">تطوير حسب السطر الأول: \\(1(1-2)-1(-2-1)+1(4+1)=7\\).</span></li><li>\\(|A_3(b)|=\\det\\begin{pmatrix}1&amp;1&amp;6\\\\2&amp;-1&amp;3\\\\1&amp;2&amp;2\\end{pmatrix}=21\\)<br><span class=\"why-line\">العمود التالت (معاملات \\(z\\)) مبدّل بـ \\((6,3,2)\\).</span></li><li>\\(z=\\frac{21}{7}=3\\)<br><span class=\"why-line\">ما احتجنا \\(x\\) ولا \\(y\\).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>إذا \\(|A|=0\\) فما في حل لـ \\(Ax=b\\).<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>\\(A=\\begin{pmatrix}1&amp;1\\\\1&amp;1\\end{pmatrix}\\)، \\(b=\\begin{pmatrix}2\\\\2\\end{pmatrix}\\)<br><span class=\"why-line\">\\(|A|=0\\).</span></li><li>\\(x=\\begin{pmatrix}1\\\\1\\end{pmatrix}\\): \\(Ax=\\begin{pmatrix}2\\\\2\\end{pmatrix}=b\\)<br><span class=\"why-line\">في حل! وفي كمان لا نهائي (\\(x+y=2\\)).</span></li><li>الادّعاء غلط.<br><span class=\"why-line\">\\(|A|=0\\) معناه بس إنه ما في حل <b>وحيد</b>.</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "كرامر، 3 خطوات",
+      "steps": [
+        "<b>\\(|A|\\):</b> احسبوها أول. صفر؟ وقفوا: كرامر ما بيشتغل.",
+        "<b>\\(A_i(b)\\):</b> لكل متغيّر بدكم إياه، بدّلوا عموده بـ \\(b\\) واحسبوا المحدّدة.",
+        "<b>قسّموا:</b> \\(x_i=\\frac{|A_i(b)|}{|A|}\\)، وعوّضوا للفحص."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 198\" role=\"img\" aria-label=\"المعطى A وb=(1,2). A 1(b): العمود الأول مبدّل بـ b. A 2(b): العمود التاني.\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"6\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"28.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">k</text><rect class=\"fk-chip t-mut\" x=\"54\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"76.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"28.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"54\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"76.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">k</text><line class=\"fk-line t-hu\" x1=\"104\" y1=\"100.0\" x2=\"177.0\" y2=\"100.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"189.0,100.0 177.0,93.0 177.0,107.0\"/><text class=\"fk-t t-hu\" x=\"146.5\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A₁(b)</text><rect class=\"fk-chip t-hu solid\" x=\"195.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"217.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"243.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"265.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu solid\" x=\"195.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"217.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"243.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"265.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">k</text><line class=\"fk-line t-hu\" x1=\"293.0\" y1=\"100.0\" x2=\"366.0\" y2=\"100.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"378.0,100.0 366.0,93.0 366.0,107.0\"/><text class=\"fk-t t-hu\" x=\"335.5\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A₂(b)</text><rect class=\"fk-chip t-mut\" x=\"384.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"406.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">k</text><rect class=\"fk-chip t-1 solid\" x=\"432.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"454.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"384.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"406.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-1 solid\" x=\"432.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"454.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text></svg>",
+      "alt": "المعطى A وb=(1,2). A 1(b): العمود الأول مبدّل بـ b. A 2(b): العمود التاني.",
+      "caption": "المعطى \\(A\\) و\\(b=(1,2)\\). \\(A_1(b)\\): العمود الأول مبدّل بـ \\(b\\). \\(A_2(b)\\): العمود التاني."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: \\(kx+y=1\\)، \\(x+ky=2\\). لأي \\(k\\) في حل وحيد، وشو هو؟",
+      "steps": [
+        {
+          "label": "|A|",
+          "body": "\\(k^2-1\\)"
+        },
+        {
+          "label": "|A_1(b)|",
+          "body": "\\(\\begin{vmatrix}1&amp;1\\\\2&amp;k\\end{vmatrix}=k-2\\)"
+        },
+        {
+          "label": "|A_2(b)|",
+          "body": "\\(\\begin{vmatrix}k&amp;1\\\\1&amp;2\\end{vmatrix}=2k-1\\)"
+        },
+        {
+          "label": "k=2\\text{ (فحص)}",
+          "body": "\\(x=0,\\;y=1\\)"
+        }
+      ],
+      "a": "لـ \\(k\\neq\\pm1\\): \\(x=\\frac{k-2}{k^2-1}\\)، \\(y=\\frac{2k-1}{k^2-1}\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"لـ 2x+y=5، x+3y=5: b بيروح مكان عمود المتغيّر (معاملاته)، مش مكان سطر.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"10.0\" y=\"8\" width=\"225.0\" height=\"174\" rx=\"14\"/><text class=\"fk-t t-bad\" x=\"122.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">سطر ✗</text><rect class=\"fk-chip t-bad solid\" x=\"74.5\" y=\"54\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"97.5\" y=\"79.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-bad solid\" x=\"124.5\" y=\"54\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"147.5\" y=\"79.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-mut\" x=\"74.5\" y=\"98\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"97.5\" y=\"123.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"124.5\" y=\"98\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"147.5\" y=\"123.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-bad\" x=\"122.5\" y=\"170\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بدّلنا سطر</text><rect class=\"fk-chip t-good\" x=\"245.0\" y=\"8\" width=\"225.0\" height=\"174\" rx=\"14\"/><text class=\"fk-t t-good\" x=\"357.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">عمود ✓</text><rect class=\"fk-chip t-good solid\" x=\"309.5\" y=\"54\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"332.5\" y=\"79.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-mut\" x=\"359.5\" y=\"54\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"382.5\" y=\"79.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-good solid\" x=\"309.5\" y=\"98\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"332.5\" y=\"123.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-mut\" x=\"359.5\" y=\"98\" width=\"46\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"382.5\" y=\"123.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-good\" x=\"357.5\" y=\"170\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بدّلنا عمود</text></svg>",
+      "alt": "لـ 2x+y=5، x+3y=5: b بيروح مكان عمود المتغيّر (معاملاته)، مش مكان سطر.",
+      "caption": "لـ \\(2x+y=5\\)، \\(x+3y=5\\): \\(b\\) بيروح مكان <b>عمود</b> المتغيّر (معاملاته)، مش مكان سطر."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "منبدّل <b>السطر</b> \\(i\\) بـ \\(b\\)",
+          "yes": "منبدّل <b>العمود</b> \\(i\\): العمود هو معاملات \\(x_i\\)"
+        },
+        {
+          "no": "كرامر لما \\(|A|=0\\)",
+          "yes": "ممنوع: قسمة على صفر. ارجعوا للدرج"
+        },
+        {
+          "no": "\\(x_i=\\frac{|A|}{|A_i(b)|}\\)",
+          "yes": "المقلوب: \\(|A|\\) دايماً بالمقام"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش أتعلّم كرامر إذا بعرف غاوس؟",
+          "a": "لتلات أسباب: (1) لـ 2×2 هو الأسرع؛ (2) لمتغيّر واحد من نظام كبير؛ (3) مع بارامتر، بيعطي الحل كمعادلة بـ \\(k\\) مباشرة. وهو بالمادة، فممكن يطلبوه بالاسم."
+        },
+        {
+          "q": "ليش منبدّل عمود ومش سطر؟",
+          "a": "لأنه العمود \\(i\\) بـ \\(A\\) هو معاملات المتغيّر \\(x_i\\) بكل المعادلات. لما منحط \\(b\\) مكانه، منحكي «شو لازم يكون \\(x_i\\) عشان يطلع \\(b\\)»."
+        },
+        {
+          "q": "شو بصير بكرامر إذا \\(b=0\\)؟",
+          "a": "كل \\(A_i(0)\\) فيها عمود أصفار، فمحدّدتها صفر، و\\(x_i=0\\). منطقي: إذا \\(|A|\\neq0\\)، المتجانس إله بس الحل التافه."
+        },
+        {
+          "q": "بالسؤال مع البارامتر، شو بصير لـ \\(k=\\pm1\\)؟",
+          "a": "\\(|A|=0\\)، فكرامر ما بيحكي إشي. لازم تعوّضوا \\(k=1\\) و\\(k=-1\\) بالنظام وتدرجوا: هون \\(k=1\\) بيعطي \\(x+y=1\\)، \\(x+y=2\\): ما في حل."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "بكرامر: \\(2x-y=1\\)، \\(x+y=5\\). شو \\(x\\)؟",
+        "answer": [
+          "2"
+        ],
+        "hint": "\\(|A|=3\\).",
+        "solution": "<p>\\(|A|=2\\cdot1-(-1)\\cdot1=3\\). منبدّل العمود الأول بـ \\(b\\): \\(\\begin{vmatrix}1&amp;-1\\\\5&amp;1\\end{vmatrix}=1+5=6\\)، فـ \\(x=\\frac63=2\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "لنفس النظام، شو \\(y\\)؟",
+        "answer": [
+          "3"
+        ],
+        "hint": "بدّلوا العمود التاني.",
+        "solution": "<p>منبدّل العمود التاني بـ \\(b\\): \\(\\begin{vmatrix}2&amp;1\\\\1&amp;5\\end{vmatrix}=10-1=9\\)، ومنقسم على \\(|A|=3\\)، فـ \\(y=3\\). فحص: \\(2\\cdot2-3=1\\) ✓.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "كرامر بيشتغل لكل نظام مربع.",
+        "options": [
+          {
+            "v": "1",
+            "html": "صح"
+          },
+          {
+            "v": "2",
+            "html": "غلط"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "شو بصير لما \\(|A|=0\\)؟",
+        "solution": "<p>بس لما \\(|A|\\neq0\\). إذا \\(|A|=0\\) القانون بيقسم على صفر، والنظام يا ما إله حل يا إله لا نهائي حلول، وبنعرف أيّ وحدة بالدرج.</p>"
+      }
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بحسب محدّدة بالتطوير وبعمليات الأسطر.",
+        "بستعمل خواص المحدّدة وكرامر."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

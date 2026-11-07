@@ -1,0 +1,243 @@
+{
+  "slug": "debugging",
+  "title": "كيف منلاقي الغلط: طرق تصحيح وفحص",
+  "he": "ניפוי שגיאות ובדיקות",
+  "ref": "שבוע 5",
+  "minutes": 16,
+  "desc": "طرق ثابتة لنلاقي ونصلّح أخطاء بكود Python (ניפוי שגיאות، debugging): قراءة رسالة الخطأ، طباعات بالنص، فحص على حالات حدّية (מקרי קצה)، فحص كل دالة لحالها، والـ debugger بالـ IDE.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> السيلابوس بيطلب «ליישם שיטות לאיתור ותיקון שגיאות בקוד». من هلّق برامجكم صارت فيها دوال وحلقات، والأخطاء صارت أصعب. بدل ما تجرّبوا تغييرات عشوائية، هون في طريقة. بالفصل 13 في درس تاني عن أسئلة «מצאו את השגיאה» بالامتحان.</p><ol><li>تلات أنواع: قواعد، وقت تشغيل، منطق</li><li>اقروا رسالة الخطأ من تحت</li><li>طباعات بالنص (הדפסות ביניים)</li><li>حالات فحص وحالات حدّية</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما البرنامج وقف بخطأ، أو اشتغل وطلّع جواب غلط.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 388\" role=\"img\" aria-label=\"دورة التصحيح: مثال معروف، طباعة، أول مكان غلط، تصليح وفحص.\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"180\" y=\"20\" width=\"120\" height=\"40\" rx=\"20\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"46.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بداية</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"60\" x2=\"240.0\" y2=\"72.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,84 247.0,72.0 233.0,72.0\"/><rect class=\"fk-chip t-hu\" x=\"110\" y=\"84\" width=\"260\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"110.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">شغّل على مثال صغير جوابه معروف</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"124\" x2=\"240.0\" y2=\"136.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,148 247.0,136.0 233.0,136.0\"/><rect class=\"fk-chip t-hu\" x=\"110\" y=\"148\" width=\"260\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"174.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الجواب غلط؟ اطبع المتغيرات بكل دورة</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"188\" x2=\"240.0\" y2=\"200.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,212 247.0,200.0 233.0,200.0\"/><rect class=\"fk-chip t-hu\" x=\"110\" y=\"212\" width=\"260\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"238.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">لاقي أول سطر القيمة فيه غلط</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"252\" x2=\"240.0\" y2=\"264.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,276 247.0,264.0 233.0,264.0\"/><rect class=\"fk-chip t-hu\" x=\"110\" y=\"276\" width=\"260\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"302.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صلّح، وجرّب كل الأمثلة من جديد</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"316\" x2=\"240.0\" y2=\"326.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,338 247.0,326.0 233.0,326.0\"/><rect class=\"fk-chip t-mut\" x=\"180\" y=\"338\" width=\"120\" height=\"40\" rx=\"20\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"364.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">نهاية</text></svg>",
+      "alt": "دورة التصحيح: مثال معروف، طباعة، أول مكان غلط، تصليح وفحص.",
+      "caption": "دورة التصحيح: مثال معروف، طباعة، أول مكان غلط، تصليح وفحص."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p><b>خطأ قواعد</b> (SyntaxError) بيوقف قبل التشغيل. <b>خطأ وقت تشغيل</b> (חריגה، exception) بيوقف بالنص مع رسالة. <b>خطأ منطقي</b> ما إلو رسالة: الجواب غلط بس. للأخير الأداة هي مثال صغير جوابه معروف، وطباعة المتغيرات لحد ما نلاقي أول مكان القيمة بتختلف.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>التصحيح مش تخمين، هو تجربة علمية: عندكم توقّع (شو المفروض يطلع)، عندكم ملاحظة (شو طلع)، ومنقرّب المكان لحد ما نلاقي السطر اللي بيعمل الفرق.</p>"
+    },
+    {
+      "t": "h",
+      "text": "أربع أدوات"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"تلات أنواع أخطاء. المنطقي أصعبهم لأنه ما في رسالة.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"298.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"352.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">النوع</text><rect class=\"fk-chip t-hu solid\" x=\"186.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">إمتى</text><rect class=\"fk-chip t-hu solid\" x=\"74.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"128.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">في رسالة؟</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"78.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">SyntaxError</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"78.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">قبل التشغيل</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">آه</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"122.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">IndexError…</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بالنص</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">آه</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">منطقي</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">للآخر</text><rect class=\"fk-chip t-bad solid\" x=\"74.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"128.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">لأ</text></svg>",
+      "alt": "تلات أنواع أخطاء. المنطقي أصعبهم لأنه ما في رسالة.",
+      "caption": "تلات أنواع أخطاء. المنطقي أصعبهم لأنه ما في رسالة."
+    },
+    {
+      "t": "p",
+      "html": "<p><b>1. رسالة الخطأ.</b> Python بيطبع traceback: آخر سطر هو نوع الخطأ والسبب (<code dir=\"ltr\">IndexError: list index out of range</code>)، وفوقه رقم السطر (<code dir=\"ltr\">line 3</code>). إذا الخطأ جوّا دالة، في كذا مستوى: الأخير هو اللي وقع فيه بالزبط. أشهر الأنواع: NameError (اسم مش معرّف)، TypeError (نوع غلط، متل نص + عدد)، ValueError (<code dir=\"ltr\">int(\"abc\")</code>)، IndexError (مكان برّا القائمة)، ZeroDivisionError.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p><b>2. طباعات بالنص</b> (הדפסות ביניים). حطّوا <code dir=\"ltr\">print(\"i =\", i, \"s =\", s)</code> جوّا الحلقة. هيك الحاسوب بيعبّي جدول المتابعة عنكم، وبتشوفوا بأي دورة القيمة بتصير غلط. بعد التصليح، شيلوا الطباعات.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p><b>3. حالات فحص</b> (בדיקות). قبل ما تقولوا «خلصت»، جرّبوا الدالة على: مثال عادي، حالات حدّية (מקרי קצה: قائمة فاضية، عنصر واحد، 0، عدد سالب، نص فيه أحرف كبيرة)، وحالة «على الحد» (الأول والأخير). اكتبوا الجواب المتوقّع <b>قبل</b> ما تشغّلوا. <code dir=\"ltr\">print(f(x) == expected)</code> بيطبع True أو False.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p><b>4. فحص كل جزء لحاله والـ debugger.</b> إذا البرنامج من كذا دالة، جرّبوا كل دالة لحالها لحد ما تلاقوا اللي غلط. بالـ IDE (PyCharm) في debugger: بتحطّوا نقطة توقف (breakpoint) وبتمشوا سطر سطر وبتشوفوا المتغيرات. هو بالزبط جدول المتابعة، بس أوتوماتيكي.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كل سطر فحص لازم يطبع True:</p>"
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def count_upper(s):\n    c = 0\n    for ch in s:\n        if \"A\" <= ch <= \"Z\":\n            c += 1\n    return c\n\n# حالات فحص: الجواب المتوقّع مكتوب قبل\nprint(count_upper(\"Hello\") == 1)\nprint(count_upper(\"\") == 0)\nprint(count_upper(\"ABC\") == 3)\nprint(count_upper(\"abc\") == 0)",
+      "out": "True\nTrue\nTrue\nTrue"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 128\" role=\"img\" aria-label=\"الطباعة بيّنت إنه الحلقة وقفت بكير، لأنه الشرط بيفحص الخانة مش العدد.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"250\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-good\" x=\"355\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح</text><text class=\"fk-t t-good\" x=\"355\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">while n &gt; 0:</text><text class=\"fk-t t-good\" x=\"355\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">لحد ما n = 0</text><rect class=\"fk-chip t-bad\" x=\"20\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-bad\" x=\"125\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط</text><text class=\"fk-t t-bad\" x=\"125\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">while n % 10 != 0:</text><text class=\"fk-t t-bad\" x=\"125\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">وقف عند n = 40</text></svg>",
+      "alt": "الطباعة بيّنت إنه الحلقة وقفت بكير، لأنه الشرط بيفحص الخانة مش العدد.",
+      "caption": "الطباعة بيّنت إنه الحلقة وقفت بكير، لأنه الشرط بيفحص الخانة مش العدد."
+    },
+    {
+      "t": "method",
+      "title": "خطأ منطقي، 3 خطوات",
+      "steps": [
+        "<b>مثال صغير</b> اختاروا مدخل صغير واحسبوا الجواب الصح بإيدكم.",
+        "<b>اطبعوا</b> طباعة المتغيرات المهمّة بكل دورة أو بأول كل دالة.",
+        "<b>أول اختلاف</b> السطر اللي قبل أول قيمة غلط هو المشتبه. صلّحوه وشغّلوا كل الفحوصات من جديد."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"nums[3]: الأماكن 0 لـ 2 بس، فالمكان 3 برّا القائمة (IndexError).\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"134.0\" y=\"122\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">nums =</text><rect class=\"fk-chip t-hu\" x=\"146.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"176.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-mut\" x=\"176.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"210.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"274.0\" y=\"90\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"304.0\" y=\"122.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">15</text><text class=\"fk-t t-mut\" x=\"304.0\" y=\"80\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><line class=\"fk-line t-2\" x1=\"304.0\" y1=\"18\" x2=\"304.0\" y2=\"50.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"304.0,62 311.0,50.0 297.0,50.0\"/><text class=\"fk-t t-2\" x=\"310.0\" y=\"16\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">آخر مكان: 2</text></svg>",
+      "alt": "nums[3]: الأماكن 0 لـ 2 بس، فالمكان 3 برّا القائمة (IndexError).",
+      "caption": "<bdi dir=\"ltr\">nums[3]</bdi>: الأماكن 0 لـ 2 بس، فالمكان 3 برّا القائمة <bdi dir=\"ltr\">(IndexError)</bdi>."
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: قراءة رسالة خطأ",
+      "html": "<p>القائمة فيها 3 عناصر، أماكنها 0، 1، 2. ليش IndexError؟ لأنه طلبنا المكان 3. الرسالة بتحكي النوع بالزبط، ورقم السطر بيدلّ على السطر التاني.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">nums = [4, 8, 15]\nprint(nums[3])</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">IndexError: list index out of range</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال متوسط: طباعات بالنص",
+      "html": "<p>الدالة لازم ترجّع مجموع الخانات، ولـ 405 طلّعت 4 بدل 9. حطّينا طباعة بالحلقة. ليش وقفت بكير؟ لأنه الشرط <code dir=\"ltr\">n % 10 != 0</code> وقف لما وصل لخانة 0، بدل ما يوقف لما n يصير 0.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def digit_sum(n):\n    s = 0\n    while n % 10 != 0:\n        s += n % 10\n        n //= 10\n        print(\"debug: n =\", n, \"s =\", s)\n    return s\n\nprint(digit_sum(405))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">debug: n = 40 s = 5\n5</pre></div></div><p>الطباعة بيّنت إنه بعد دورة وحدة n صار 40 والحلقة وقفت. التصليح: <code dir=\"ltr\">while n &gt; 0:</code>، وبعدين منشيل سطر الـ debug.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال للامتحان: حالة حدّية بتكشف غلط",
+      "html": "<p>الدالة لازم تعدّ الأحرف المتحرّكة. فحصناها على 3 حالات بجواب معروف. ليش \"Apple\" فشلت؟ لأنه \"A\" كبيرة ومش موجودة بـ \"aeiou\". التصليح: <code dir=\"ltr\">ch.lower() in \"aeiou\"</code>.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def vowels(s):\n    c = 0\n    for ch in s:\n        if ch in \"aeiou\":\n            c += 1\n    return c\n\nprint(vowels(\"banana\") == 3)\nprint(vowels(\"\") == 0)\nprint(vowels(\"Apple\") == 2)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">True\nTrue\nFalse</pre></div></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش ما بقرا رسالة الخطأ من فوق؟",
+          "a": "<p>لأنه أول الرسالة بيحكي مسار الاستدعاءات (مين استدعى مين)، والسطر الأخير هو اللي بيحكي شو صار. ابدأوا من تحت: النوع، السبب، وبعدين رقم السطر فوقه.</p>"
+        },
+        {
+          "q": "الكود اشتغل بدون خطأ. يعني صح؟",
+          "a": "<p>لأ. أخطر الأخطاء منطقية وما إلها رسالة. الكود «صح» لما بيعطي الجواب المتوقّع على كل حالات الفحص، ومنها الحالات الحدّية.</p>"
+        },
+        {
+          "q": "شو يعني حالة حدّية (מקרה קצה)؟",
+          "a": "<p>مدخل على طرف المجال: قائمة فاضية، عنصر واحد، 0، أكبر قيمة، كل العناصر متساوية، أو العنصر المطلوب بالأول أو بالآخر. هون بتتخبّى أغلب الغلطات (متل off-by-one).</p>"
+        },
+        {
+          "q": "شو يعني off-by-one؟",
+          "a": "<p>غلط بواحد بحدود حلقة: <code dir=\"ltr\">range(1, n)</code> بدل <code dir=\"ltr\">range(1, n + 1)</code>، أو <code dir=\"ltr\">&lt;</code> بدل <code dir=\"ltr\">&lt;=</code>. الحلقة بتلف مرة زيادة أو مرة ناقصة. افحصوا دايماً أول دورة وآخر دورة.</p><pre class=\"code\" dir=\"ltr\">n = 5\ns = 0\nfor i in range(1, n):\n    s += i\nprint(s, \"expected\", 15)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">10 expected 15</pre>"
+        },
+        {
+          "q": "في طريقة أسرع من الطباعات؟",
+          "a": "<p>الـ debugger بالـ IDE: breakpoint، وبعدين Step Over سطر سطر، وبتشوفوا كل المتغيرات. بس الطباعات بتشتغل بكل مكان، وهون بالموقع هي الطريقة.</p>"
+        },
+        {
+          "q": "شو بيعمل <code dir=\"ltr\">assert</code>؟",
+          "a": "<code dir=\"ltr\">assert cond</code> بيوقف البرنامج بـ AssertionError إذا الشرط False، وما بيعمل إشي إذا True. طريقة قصيرة لنكتب فحوصات.<pre class=\"code\" dir=\"ltr\">def sq(x):\n    return x * x\n\nassert sq(3) == 9\nassert sq(-2) == -4</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">AssertionError</pre>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "بغيّر أشياء عشوائياً لحد ما يشتغل",
+          "yes": "مثال معروف، طباعة، أول مكان غلط"
+        },
+        {
+          "no": "فحصت على مثال واحد وخلص",
+          "yes": "حالات حدّية: فاضي، واحد، 0، أول وآخر"
+        },
+        {
+          "no": "بنسى أشيل طباعات الـ debug",
+          "yes": "بالوظيفة المطبوع لازم يكون بالزبط المطلوب"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟ (طباعة debug جوّا حلقة)</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [2, 4, 6]\ns = 0\nfor i in range(1, len(a)):\n    s += a[i]\n    print(\"i =\", i, \"s =\", s)\nprint(s)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">i = 1 s = 4<br>i = 2 s = 10<br>10</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">i = 0 s = 2<br>i = 1 s = 6<br>i = 2 s = 12<br>12</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">i = 1 s = 4<br>4</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "الحلقة بتبلّش من 1.",
+        "solution": "<p>الحلقة بتبلّش من المكان 1، فالـ 2 ما بيدخل للمجموع: أول دورة s = 4، والتانية s = 10. الطباعة بتبيّن الغلط إذا بدنا مجموع الكل.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">i = 1 s = 4\ni = 2 s = 10\n10</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def f(n):\n    return n * (n - 1) // 2\n\nprint(f(0) + f(1) + f(4))</pre></div>",
+        "answer": [
+          "6"
+        ],
+        "hint": "افحصوا كل استدعاء لحاله.",
+        "solution": "<p>لـ 0 بيطلع 0، لـ 1 بيطلع 0 (لأنه 1 × 0)، ولـ 4 بيطلع \\(4\\cdot3/2=6\\). المجموع 6.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">6</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>الدالة بتشتغل بدون رسالة خطأ بس بترجّع جواب غلط لقائمة سالبة. شو أول خطوة؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "أكتب الدالة من جديد"
+          },
+          {
+            "v": "2",
+            "html": "أجرّب قائمة سالبة صغيرة جوابها معروف وأطبع المتغيرات بكل دورة"
+          },
+          {
+            "v": "3",
+            "html": "أزيد try حول الكود"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "solution": "<p>خطأ منطقي ما إلو رسالة، فلازم نقارن بين المتوقّع والحقيقي على مثال صغير. الطباعات بتبيّن أول دورة القيمة فيها بتختلف، وهناك الغلط.</p>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "ניפוי שגיאות",
+      "back": "debugging: مثال معروف ← طباعة المتغيرات ← أول مكان غلط ← تصليح وفحص كل الحالات."
+    },
+    {
+      "t": "card",
+      "front": "מקרה קצה",
+      "back": "حالة حدّية: فاضي، عنصر واحد، 0، سالب، أول/آخر. هون بتتخبّى الغلطات."
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بكتب دالة مع بارامترات وreturn، وبعرف الفرق بين return و print.",
+        "بعرف إنه return بتوقف الدالة.",
+        "بعرف إنه المتغيرات جوّا الدالة محلية، والبارامتر نسخة.",
+        "بعدّ كم مرة بيشتغل بلوك جوّا حلقتين.",
+        "برسم أشكال بحلقات متداخلة.",
+        "بستعمل دوال جاهزة و <code dir=\"ltr\">import math</code>، وبعرف إمتى ممنوع بالامتحان.",
+        "بقسم سؤال لدوال صغيرة مع docstring.",
+        "بقرا رسالة خطأ، وبلاقي غلط منطقي بطباعات وحالات حدّية."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

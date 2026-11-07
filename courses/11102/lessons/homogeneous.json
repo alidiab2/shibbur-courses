@@ -1,0 +1,246 @@
+{
+  "slug": "homogeneous",
+  "title": "الأنظمة المتجانسة",
+  "he": "מערכת הומוגנית",
+  "ref": "חוברת §5 · מטלה 4",
+  "minutes": 16,
+  "desc": "النظام المتجانس Ax=0: دايماً إله حل، متى إله حل غير تافه، وليش كل حلول Ax=b هي حل واحد زائد حلول Ax=0. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بالامتحان بيسألوا «האם למערכת ההומוגנית יש פתרון לא טריוויאלי» أو «הוכיחו שסכום של שני פתרונות…». وهالدرس هو الجسر لفصل الفضاءات: حلول \\(Ax=0\\) هي أول «تحت فضاء» رح نشوفه.</p><ol><li>شو هو نظام متجانس، والحل التافه</li><li>متى في حلول غير تافهة</li><li>حلول \\(Ax=b\\) = حل خاص + حلول \\(Ax=0\\)</li><li>برهن أو انفي</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما الجهة اليمين كلها أصفار، أو لما بيعطوكم حل واحد وبيطلبوا «כל הפתרונות».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"حلول Ax=0 (أزرق) بتمرق بالصفر دايماً. حلول Ax=b هي نفس الخط، مزحوح بحل واحد x 0.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"50.0\" y1=\"30\" x2=\"50.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"110.0\" y1=\"30\" x2=\"110.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"170.0\" y1=\"30\" x2=\"170.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"230.0\" y1=\"30\" x2=\"230.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"290.0\" y1=\"30\" x2=\"290.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"350.0\" y1=\"30\" x2=\"350.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"410.0\" y1=\"30\" x2=\"410.0\" y2=\"290\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"290.0\" x2=\"410\" y2=\"290.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"233.47826086956522\" x2=\"410\" y2=\"233.47826086956522\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"176.95652173913044\" x2=\"410\" y2=\"176.95652173913044\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"120.43478260869563\" x2=\"410\" y2=\"120.43478260869563\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"63.913043478260846\" x2=\"410\" y2=\"63.913043478260846\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"176.95652173913044\" x2=\"412.0\" y2=\"177.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"424,176.95652173913044 412.0,170.0 412.0,184.0\"/><line class=\"fk-line t-ink\" x1=\"230.0\" y1=\"290\" x2=\"230.0\" y2=\"28.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"230.0,16 223.0,28.0 237.0,28.0\"/><text class=\"fk-t t-ink\" x=\"416\" y=\"202.95652173913044\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-ink\" x=\"212.0\" y=\"26\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-hu\" x1=\"50.0\" y1=\"92.17391304347825\" x2=\"410.0\" y2=\"261.7391304347826\" stroke-width=\"4\"/><line class=\"fk-line t-1\" x1=\"50.0\" y1=\"35.65217391304347\" x2=\"410.0\" y2=\"205.2173913043478\" stroke-width=\"4\"/><line class=\"fk-line t-2\" x1=\"230.0\" y1=\"176.95652173913044\" x2=\"283.1\" y2=\"102.0\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"290.0,92.17391304347825 277.4,97.9 288.8,106.0\"/><circle class=\"fk-dot t-hu\" cx=\"230.0\" cy=\"176.95652173913044\" r=\"8\"/><circle class=\"fk-dot t-1\" cx=\"290.0\" cy=\"92.17391304347825\" r=\"8\"/><rect class=\"fk-chip t-hu solid\" x=\"62.660000000000004\" y=\"126.86956521739128\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"110.0\" y=\"152.5195652173913\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Ax = 0</text><rect class=\"fk-chip t-1 solid\" x=\"110.66\" y=\"30.782608695652158\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"158.0\" y=\"56.432608695652156\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Ax = b</text><rect class=\"fk-chip t-2\" x=\"296.22\" y=\"103.17391304347825\" width=\"47.56\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-2\" x=\"320.0\" y=\"128.82391304347826\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x₀</text></svg>",
+      "alt": "حلول Ax=0 (أزرق) بتمرق بالصفر دايماً. حلول Ax=b هي نفس الخط، مزحوح بحل واحد x 0.",
+      "caption": "حلول \\(Ax=0\\) (أزرق) بتمرق بالصفر دايماً. حلول \\(Ax=b\\) هي نفس الخط، مزحوح بحل واحد \\(x_0\\)."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(Ax=0\\) دايماً إله \\(x=0\\). في حل غير تافه \\(\\iff\\operatorname{rank}A&lt;n\\). وكل حلول \\(Ax=b\\) هي <b>\\(x_0+v\\)</b>: حل واحد زائد أي حل لـ \\(Ax=0\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: الأصفار بتحمي الجمع",
+      "html": "<p>إذا \\(Av=0\\) و\\(Aw=0\\)، فـ \\(A(v+w)=0+0=0\\). يعني حلول المتجانس بتتجمّع وبتنضرب بعدد وبتضل حلول. وإذا \\(x_0\\) حل لـ \\(Ax=b\\)، كل إشي منزيده من حلول المتجانس ما بيغيّر \\(b\\): \\(A(x_0+v)=b+0=b\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: نظام متجانس <bdi dir=\"rtl\">(מערכת הומוגנית)</bdi>",
+      "html": "<p>\\(Ax=0\\)، يعني كل الجهة اليمين أصفار. \\(x=0\\) هو الحل التافه (טריוויאלי).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: حلول المتجانس <bdi dir=\"rtl\">(טענה 5.27)</bdi>",
+      "html": "<p>\\(S_0\\) مجموعة حلول \\(Ax=0\\): \\(0\\in S_0\\)؛ \\(v_1,v_2\\in S_0\\Rightarrow v_1+v_2\\in S_0\\)؛ \\(v\\in S_0\\Rightarrow\\alpha v\\in S_0\\).</p><p><b>فكرة البرهان:</b> \\(A0=0\\)؛ \\(A(v_1+v_2)=Av_1+Av_2=0\\)؛ \\(A(\\alpha v)=\\alpha Av=0\\). (هاد بالزبط اللي رح نسمّيه «تحت فضاء» بـ فصل الفضاءات.)</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: حل خاص + متجانس <bdi dir=\"rtl\">(טענה 5.28, מסקנה 5.29)</bdi>",
+      "html": "<p>إذا \\(Ax_0=b\\)، فمجموعة كل حلول \\(Ax=b\\) هي \\(S=\\{x_0+v\\mid v\\in S_0\\}\\).</p><p><b>فكرة البرهان:</b> \\(A(x_0+v)=b+0=b\\)، فكل \\(x_0+v\\) حل. والعكس: إذا \\(Ax=b\\)، فـ \\(A(x-x_0)=b-b=0\\)، يعني \\(x-x_0\\in S_0\\)، و\\(x=x_0+(x-x_0)\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نتيجة: متى بس التافه <bdi dir=\"rtl\">(מסקנה 5.31)</bdi>",
+      "html": "<p>لـ \\(A\\in F^{m\\times n}\\): \\(Ax=0\\) إله بس الحل التافه \\(\\iff\\operatorname{rank}A=n\\). خاصة: إذا \\(m&lt;n\\) في حل غير تافه.</p><p><b>فكرة البرهان:</b> الرتبة \\(n\\) يعني كل متغيّر إله مفتاح، فما في حرّين. و\\(\\operatorname{rank}A\\le m&lt;n\\) دايماً بيترك متغيّر حر.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"حلول Ax=0 على مستقيم بيمرق بالصفر: v وw حلول، وكمان v+w وكل مضاعف. ما في طريقة نطلع برّا الخط.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"50.0\" y1=\"24\" x2=\"50.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"113.33333333333334\" y1=\"24\" x2=\"113.33333333333334\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"176.66666666666669\" y1=\"24\" x2=\"176.66666666666669\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"24\" x2=\"240.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"303.33333333333337\" y1=\"24\" x2=\"303.33333333333337\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"366.6666666666667\" y1=\"24\" x2=\"366.6666666666667\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"430.0\" y1=\"24\" x2=\"430.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"260.0\" x2=\"430\" y2=\"260.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"201.0\" x2=\"430\" y2=\"201.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"142.0\" x2=\"430\" y2=\"142.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"83.0\" x2=\"430\" y2=\"83.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"24.0\" x2=\"430\" y2=\"24.0\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"142.0\" x2=\"432.0\" y2=\"142.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,142.0 432.0,135.0 432.0,149.0\"/><line class=\"fk-line t-ink\" x1=\"240.0\" y1=\"260\" x2=\"240.0\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"240.0,10 233.0,22.0 247.0,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"168.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-ink\" x=\"222.0\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-1\" x1=\"240.0\" y1=\"142.0\" x2=\"187.5\" y2=\"117.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"176.66666666666669,112.5 184.6,123.9 190.5,111.2\"/><line class=\"fk-line t-2\" x1=\"240.0\" y1=\"142.0\" x2=\"355.8\" y2=\"195.9\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"366.6666666666667,201.0 358.7,189.6 352.8,202.3\"/><rect class=\"fk-chip t-1 solid\" x=\"144.0\" y=\"66.94999999999999\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"164.0\" y=\"92.6\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">v</text><rect class=\"fk-chip t-2 solid\" x=\"359.3333333333333\" y=\"158.4\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"379.3333333333333\" y=\"184.05\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">w</text><line class=\"fk-line t-hu dash\" x1=\"50.0\" y1=\"53.5\" x2=\"430.0\" y2=\"230.5\" stroke-width=\"2\"/><circle class=\"fk-dot t-hu\" cx=\"303.33333333333337\" cy=\"171.5\" r=\"9\"/><rect class=\"fk-chip t-hu solid\" x=\"286.33\" y=\"125.94999999999999\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"316.0\" y=\"151.6\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">v+w</text></svg>",
+      "alt": "حلول Ax=0 على مستقيم بيمرق بالصفر: v وw حلول، وكمان v+w وكل مضاعف. ما في طريقة نطلع برّا الخط.",
+      "caption": "حلول \\(Ax=0\\) على مستقيم بيمرق بالصفر: \\(v\\) و\\(w\\) حلول، وكمان \\(v+w\\) وكل مضاعف. ما في طريقة نطلع برّا الخط."
+    },
+    {
+      "t": "h",
+      "text": "متى في حل غير تافه؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>الحل \\(x=0\\) اسمه الحل التافه (הפתרון הטריוויאלי). بعد الدرج، إذا كل عمود فيه مفتاح (\\(\\operatorname{rank}A=n\\))، ما في متغيّر حر، والحل الوحيد هو صفر. إذا في عمود بلا مفتاح، في متغيّر حر، ولا نهائي حلول.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>حالة مهمة: إذا عدد المعادلات \\(m\\) أصغر من عدد المتغيّرات \\(n\\)، الرتبة \\(\\le m&lt;n\\)، فدايماً في حل غير تافه. بالمتجانس ما في «سطر مستحيل» أبداً، لأنه الجهة اليمين صفر.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: حل غير تافه",
+      "html": "<p>حلّوا \\(x+y-z=0\\)، \\(2x-y+z=0\\).</p><ol><li>\\(R_2\\to R_2-2R_1\\): \\((0,-3,3\\mid0)\\)<br><span class=\"why-line\">درج عادي. ما في داعي نكتب عمود الأصفار، ما بيتغيّر.</span></li><li>\\(z=t\\) حر، \\(y=t\\)<br><span class=\"why-line\">من السطر التاني: \\(-3y+3z=0\\).</span></li><li>\\(x=-y+z=0\\)<br><span class=\"why-line\">من السطر الأول.</span></li><li>\\(S_0=\\{t(0,1,1)\\mid t\\in\\mathbb R\\}\\)<br><span class=\"why-line\">مستقيم بيمرق بالصفر.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): من \\(S_0\\) لـ \\(S\\)",
+      "html": "<p>حلّوا \\(x+y-z=2\\)، \\(2x-y+z=1\\)، واستعملوا المثال الأول.</p><ol><li>\\(x_0=(1,1,0)\\): \\(1+1-0=2\\) ✓، \\(2-1+0=1\\) ✓<br><span class=\"why-line\">منلاقي حل واحد (بالدرج أو بالتخمين) ومنفحصه.</span></li><li>\\(S_0=\\{t(0,1,1)\\}\\)<br><span class=\"why-line\">نفس المعاملات متل المثال الأول، فنفس حلول المتجانس.</span></li><li>\\(S=\\{(1,1,0)+t(0,1,1)\\mid t\\in\\mathbb R\\}\\)<br><span class=\"why-line\">حل خاص + كل حلول المتجانس، حسب النظرية.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>إذا \\(x_1, x_2\\) حلول لـ \\(Ax=b\\)، فـ \\(x_1-x_2\\) حل لـ \\(Ax=0\\).<br><b>الجواب: الادّعاء صحيحة، وهاد البرهان.</b></p><ol><li>\\(A(x_1-x_2)=Ax_1-Ax_2\\)<br><span class=\"why-line\">الضرب بيتوزّع على الطرح.</span></li><li>\\(=b-b=0\\)<br><span class=\"why-line\">كل واحد منهم حل.</span></li><li>فـ \\(x_1-x_2\\in S_0\\).<br><span class=\"why-line\">لهيك الفرق بين أي حلّين لـ \\(Ax=b\\) هو حل للمتجانس.</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "«في حل غير تافه؟»، 3 خطوات",
+      "steps": [
+        "<b>درجوا:</b> المصفوفة \\(A\\) بس (بدون عمود الأصفار).",
+        "<b>عدّوا:</b> المفاتيح: هاي \\(\\operatorname{rank}A\\).",
+        "<b>قارنوا:</b> \\(\\operatorname{rank}A&lt;n\\) ⇐ في حل غير تافه. \\(=n\\) ⇐ بس الصفر."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 218\" role=\"img\" aria-label=\"المعطى (بدون عمود الأصفار). ① R 2-2R 1، R 3-R 1 ومنبدّل. ② R 3+(k-4)R 2. كل القصة بالخانة 3-k.\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"6\" y=\"56\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"24.0\" y=\"77.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"46\" y=\"56\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"64.0\" y=\"77.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"86\" y=\"56\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"104.0\" y=\"77.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"92\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"24.0\" y=\"113.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu solid\" x=\"46\" y=\"92\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"64.0\" y=\"113.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">k</text><rect class=\"fk-chip t-mut\" x=\"86\" y=\"92\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"104.0\" y=\"113.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"128\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"24.0\" y=\"149.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"46\" y=\"128\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"64.0\" y=\"149.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"86\" y=\"128\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"104.0\" y=\"149.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><line class=\"fk-line t-hu\" x1=\"128\" y1=\"110.0\" x2=\"165.0\" y2=\"110.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"177.0,110.0 165.0,103.0 165.0,117.0\"/><text class=\"fk-t t-hu\" x=\"152.5\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">①</text><rect class=\"fk-chip t-mut\" x=\"183.0\" y=\"56\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"201.0\" y=\"77.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"223.0\" y=\"56\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"241.0\" y=\"77.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"263.0\" y=\"56\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"281.0\" y=\"77.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"183.0\" y=\"92\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"201.0\" y=\"113.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"223.0\" y=\"92\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"241.0\" y=\"113.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-mut\" x=\"263.0\" y=\"92\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"281.0\" y=\"113.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-mut\" x=\"183.0\" y=\"128\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"201.0\" y=\"149.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"223.0\" y=\"128\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"241.0\" y=\"149.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">k−4</text><rect class=\"fk-chip t-mut\" x=\"263.0\" y=\"128\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"281.0\" y=\"149.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><line class=\"fk-line t-hu\" x1=\"305.0\" y1=\"110.0\" x2=\"342.0\" y2=\"110.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"354.0,110.0 342.0,103.0 342.0,117.0\"/><text class=\"fk-t t-hu\" x=\"329.5\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">②</text><rect class=\"fk-chip t-mut\" x=\"360.0\" y=\"56\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"378.0\" y=\"77.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"400.0\" y=\"56\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"418.0\" y=\"77.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"440.0\" y=\"56\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"458.0\" y=\"77.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"360.0\" y=\"92\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"378.0\" y=\"113.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"400.0\" y=\"92\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"418.0\" y=\"113.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-mut\" x=\"440.0\" y=\"92\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"458.0\" y=\"113.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-mut\" x=\"360.0\" y=\"128\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"378.0\" y=\"149.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"400.0\" y=\"128\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"418.0\" y=\"149.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu solid\" x=\"440.0\" y=\"128\" width=\"36\" height=\"32\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"458.0\" y=\"149.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3−k</text></svg>",
+      "alt": "المعطى (بدون عمود الأصفار). ① R 2-2R 1، R 3-R 1 ومنبدّل. ② R 3+(k-4)R 2. كل القصة بالخانة 3-k.",
+      "caption": "المعطى (بدون عمود الأصفار). ① \\(R_2-2R_1\\)، \\(R_3-R_1\\) ومنبدّل. ② \\(R_3+(k-4)R_2\\). كل القصة بالخانة \\(3-k\\)."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: لأي \\(k\\) للنظام المتجانس \\(x+2y+z=0\\)، \\(2x+ky+z=0\\)، \\(x+y=0\\) في حل غير تافه؟ لاقوه.",
+      "steps": [
+        {
+          "label": "R_2\\to R_2-2R_1",
+          "body": "\\((0,\\;k-4,\\;-1)\\)"
+        },
+        {
+          "label": "R_3\\to R_3-R_1",
+          "body": "\\((0,\\;-1,\\;-1)\\)"
+        },
+        {
+          "label": "R_2\\leftrightarrow R_3,\\;R_3\\to R_3+(k-4)R_2",
+          "body": "\\((0,\\;0,\\;3-k)\\)"
+        },
+        {
+          "label": "k=3:\\;z=t,\\;y=-t,\\;x=t",
+          "body": "\\(t(1,-1,1)\\)"
+        }
+      ],
+      "a": "بس لـ \\(k=3\\)، والحلول \\(t(1,-1,1)\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"مجموع حلّين لـ Ax=b (الخط اللي فوق) بيطلع على خط تاني: A(x 1+x 2)=2b. بس الفرق x 1-x 2 بيقع على حلول Ax=0 (الخط اللي بيمرق بالصفر).\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"50.0\" y1=\"24\" x2=\"50.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"113.33333333333334\" y1=\"24\" x2=\"113.33333333333334\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"176.66666666666669\" y1=\"24\" x2=\"176.66666666666669\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"24\" x2=\"240.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"303.33333333333337\" y1=\"24\" x2=\"303.33333333333337\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"366.6666666666667\" y1=\"24\" x2=\"366.6666666666667\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"430.0\" y1=\"24\" x2=\"430.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"260.0\" x2=\"430\" y2=\"260.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"212.8\" x2=\"430\" y2=\"212.8\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"165.6\" x2=\"430\" y2=\"165.6\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"118.4\" x2=\"430\" y2=\"118.4\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"71.19999999999999\" x2=\"430\" y2=\"71.19999999999999\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"24.0\" x2=\"430\" y2=\"24.0\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"165.6\" x2=\"432.0\" y2=\"165.6\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,165.6 432.0,158.6 432.0,172.6\"/><line class=\"fk-line t-ink\" x1=\"240.0\" y1=\"260\" x2=\"240.0\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"240.0,10 233.0,22.0 247.0,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"191.6\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-ink\" x=\"222.0\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-hu\" x1=\"50.0\" y1=\"94.80000000000001\" x2=\"430.0\" y2=\"236.4\" stroke-width=\"3\"/><line class=\"fk-line t-1\" x1=\"50.0\" y1=\"47.599999999999994\" x2=\"430.0\" y2=\"189.2\" stroke-width=\"3\"/><circle class=\"fk-dot t-1\" cx=\"176.66666666666669\" cy=\"94.80000000000001\" r=\"8\"/><circle class=\"fk-dot t-1\" cx=\"303.33333333333337\" cy=\"142.0\" r=\"8\"/><circle class=\"fk-dot t-bad\" cx=\"240.0\" cy=\"71.19999999999999\" r=\"9\"/><rect class=\"fk-chip t-bad solid\" x=\"230.21666666666664\" y=\"40.400000000000006\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"271.66666666666663\" y=\"66.05000000000001\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x₁+x₂</text><rect class=\"fk-chip t-1\" x=\"121.22\" y=\"97.04000000000002\" width=\"47.56\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-1\" x=\"145.0\" y=\"122.69000000000003\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x₁</text><rect class=\"fk-chip t-1\" x=\"311.22\" y=\"144.24\" width=\"47.56\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-1\" x=\"335.0\" y=\"169.89000000000001\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x₂</text></svg>",
+      "alt": "مجموع حلّين لـ Ax=b (الخط اللي فوق) بيطلع على خط تاني: A(x 1+x 2)=2b. بس الفرق x 1-x 2 بيقع على حلول Ax=0 (الخط اللي بيمرق بالصفر).",
+      "caption": "مجموع حلّين لـ \\(Ax=b\\) (الخط اللي فوق) بيطلع على خط تاني: \\(A(x_1+x_2)=2b\\). بس الفرق \\(x_1-x_2\\) بيقع على حلول \\(Ax=0\\) (الخط اللي بيمرق بالصفر)."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "نظام متجانس ممكن ما يكون إله حل",
+          "yes": "دايماً إله الحل \\(x=0\\)"
+        },
+        {
+          "no": "أكتر معادلات من متغيّرات ⇐ بس الحل التافه",
+          "yes": "مش لازم: المهم الرتبة، مش عدد المعادلات"
+        },
+        {
+          "no": "مجموع حلّين لـ \\(Ax=b\\) هو حل",
+          "yes": "\\(A(x_1+x_2)=2b\\). المجموع حل بس للمتجانس"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش اسمه «متجانس»؟",
+          "a": "لأنه كل حد بالمعادلة من نفس «الدرجة»: كل حد فيه متغيّر واحد، وما في حد ثابت. لهيك لو ضربنا حل بعدد بيضل حل. بالعبري «הומוגנית»."
+        },
+        {
+          "q": "ليش ما في «سطر مستحيل» بالمتجانس؟",
+          "a": "سطر مستحيل هو \\((0\\dots0\\mid c)\\) مع \\(c\\neq0\\). بالمتجانس العمود اليمين أصفار، والعمليات بتضلّه أصفار، فما بيطلع \\(c\\neq0\\) أبداً."
+        },
+        {
+          "q": "إذا \\(Ax=0\\) إله بس الحل التافه، شو بعرف عن \\(Ax=b\\)؟",
+          "a": "إنه إذا في حل، فهو وحيد: \\(S=x_0+\\{0\\}=\\{x_0\\}\\). بس مش مضمون في حل. لمصفوفة مربعة، بس الحل التافه معناه كمان في حل دايماً (رح نشوف ليش بـ درس المعكوس)."
+        },
+        {
+          "q": "ليش مهم إنه \\(S_0\\) بيمرق بالصفر؟",
+          "a": "لأنه مجموعة بتمرق بالصفر ومغلقة على الجمع والضرب بعدد هي «تحت فضاء»، وهي الموضوع المركزي بالنص التاني من الكورس. \\(S\\) لـ \\(b\\neq0\\) ما بتمرق بالصفر، فهي مش تحت فضاء، بس «مزحوحة» عنه."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(A\\) حجمها \\(3\\times5\\) و\\(\\operatorname{rank}A=2\\). كم متغيّر حر بالنظام \\(Ax=0\\)؟",
+        "answer": [
+          "3"
+        ],
+        "hint": "متغيّرات حرّة = \\(n-\\operatorname{rank}A\\).",
+        "solution": "<p>في 5 متغيّرات، وكل مفتاح بيحدّد واحد. مع رتبة 2 في مفتاحين، فبيضل \\(5-2=3\\) متغيّرات حرّة.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "نظام متجانس فيه معادلتين و3 متغيّرات إله دايماً حل غير تافه.",
+        "options": [
+          {
+            "v": "1",
+            "html": "صح"
+          },
+          {
+            "v": "2",
+            "html": "غلط"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "الرتبة \\(\\le2\\).",
+        "solution": "<p>الرتبة على الأكثر عدد الأسطر، 2، وهي أصغر من 3 متغيّرات. فدايماً في متغيّر حر واحد على الأقل، يعني حل غير تافه.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "\\(Ax_0=b\\) و\\(Av=0\\). شو \\(A(x_0+2v)\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(b\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(2b\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(0\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "وزّعوا الضرب.",
+        "solution": "<p>الضرب بيتوزّع: \\(A(x_0+2v)=Ax_0+2Av=b+2\\cdot0=b\\). يعني لما منزيد على حل أي مضاعف لحل متجانس، منحصل على حل تاني لنفس النظام \\(Ax=b\\).</p>"
+      }
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بحل نظام بغاوس وبكتب الحل العام.",
+        "بحل نظام مع بارامتر وبعرف الرتبة.",
+        "بعرف خواص النظام المتجانس."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

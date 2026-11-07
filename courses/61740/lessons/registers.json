@@ -1,0 +1,233 @@
+{
+  "slug": "registers",
+  "title": "مسجّلات، مسجّل إزاحة وعدّادات جاهزة",
+  "he": "אוגרים ומונים",
+  "ref": "إضافي",
+  "minutes": 16,
+  "desc": "مسجّل (אוגר) مع تحميل، مسجّل إزاحة (אוגר הזזה)، عدّاد متموّج غير متزامن (מונה אסינכרוני) مقابل عدّاد متزامن، وعدّاد حلقة وجونسون، لكورس 61740.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> القلّاب بيحفظ بِت واحد. بالكمبيوتر بدنا نحفظ أعداد كاملة، ننقلها بِت بِت، ونعدّ. هدول هنّي المسجّلات والعدّادات: قلّابات D أو T مع شوية بوابات. بالامتحان بيسألوا شو بيطلع بعد كم حافة.</p><ol><li>مسجّل (אוגר) مع تحميل</li><li>مسجّل إزاحة (אוגר הזזה)</li><li>عدّاد غير متزامن مقابل متزامن</li><li>عدّاد حلقة وعدّاد جونسون</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما بيظهر «אוגר», «אוגר הזזה» أو «מונה אסינכרוני»، أو سؤال «מה תוכן האוגר אחרי k פעימות».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 330\" role=\"img\" aria-label=\"مسجّل إزاحة 4 بِتات: بكل حافة كل بِت بيزيح خانة ليمين، والمدخل IN بيدخل لـ Q3. الـ 1 الأول بيوصل لـ Q0 بعد 4 حافات.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"30\" y=\"42\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">CLK</text><line class=\"fk-line t-grid\" x1=\"83.0\" y1=\"20\" x2=\"83.0\" y2=\"322\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><line class=\"fk-line t-grid\" x1=\"129.0\" y1=\"20\" x2=\"129.0\" y2=\"322\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><line class=\"fk-line t-grid\" x1=\"175.0\" y1=\"20\" x2=\"175.0\" y2=\"322\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><line class=\"fk-line t-grid\" x1=\"221.0\" y1=\"20\" x2=\"221.0\" y2=\"322\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><line class=\"fk-line t-grid\" x1=\"267.0\" y1=\"20\" x2=\"267.0\" y2=\"322\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><line class=\"fk-line t-grid\" x1=\"313.0\" y1=\"20\" x2=\"313.0\" y2=\"322\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><line class=\"fk-line t-grid\" x1=\"359.0\" y1=\"20\" x2=\"359.0\" y2=\"322\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><line class=\"fk-line t-grid\" x1=\"405.0\" y1=\"20\" x2=\"405.0\" y2=\"322\" stroke-width=\"1.5\" stroke-dasharray=\"4 4\"/><path class=\"fk-line t-ink\" d=\"M60 50 H83.0 V24 H106 V50 H129.0 V24 H152 V50 H175.0 V24 H198 V50 H221.0 V24 H244 V50 H267.0 V24 H290 V50 H313.0 V24 H336 V50 H359.0 V24 H382 V50 H405.0 V24 H428 V50\" stroke-width=\"2.5\" fill=\"none\"/><text class=\"fk-t t-2\" x=\"30\" y=\"92\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">IN</text><path class=\"fk-line t-2\" d=\"M60 74 V74 H106.0 V100 H152.0 V74 H198.0 V74 H244.0 V100 H290.0 V100 H336.0 V100 H382.0 V100 H428.0\" stroke-width=\"4\" fill=\"none\"/><text class=\"fk-t t-hu\" x=\"30\" y=\"142\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Q3</text><path class=\"fk-line t-hu\" d=\"M60 150 V150 H83.0 V124 H106.0 V124 H129.0 V150 H152.0 V150 H175.0 V124 H198.0 V124 H221.0 V124 H244.0 V124 H267.0 V150 H290.0 V150 H313.0 V150 H336.0 V150 H359.0 V150 H382.0 V150 H405.0 V150 H428.0\" stroke-width=\"4\" fill=\"none\"/><text class=\"fk-t t-mut\" x=\"30\" y=\"192\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Q2</text><path class=\"fk-line t-ink\" d=\"M60 200 V200 H83.0 V200 H106.0 V200 H129.0 V174 H152.0 V174 H175.0 V200 H198.0 V200 H221.0 V174 H244.0 V174 H267.0 V174 H290.0 V174 H313.0 V200 H336.0 V200 H359.0 V200 H382.0 V200 H405.0 V200 H428.0\" stroke-width=\"2.5\" fill=\"none\"/><text class=\"fk-t t-mut\" x=\"30\" y=\"242\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Q1</text><path class=\"fk-line t-ink\" d=\"M60 250 V250 H83.0 V250 H106.0 V250 H129.0 V250 H152.0 V250 H175.0 V224 H198.0 V224 H221.0 V250 H244.0 V250 H267.0 V224 H290.0 V224 H313.0 V224 H336.0 V224 H359.0 V250 H382.0 V250 H405.0 V250 H428.0\" stroke-width=\"2.5\" fill=\"none\"/><text class=\"fk-t t-mut\" x=\"30\" y=\"292\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Q0</text><path class=\"fk-line t-ink\" d=\"M60 300 V300 H83.0 V300 H106.0 V300 H129.0 V300 H152.0 V300 H175.0 V300 H198.0 V300 H221.0 V274 H244.0 V274 H267.0 V300 H290.0 V300 H313.0 V274 H336.0 V274 H359.0 V274 H382.0 V274 H405.0 V300 H428.0\" stroke-width=\"2.5\" fill=\"none\"/></svg>",
+      "alt": "مسجّل إزاحة 4 بِتات: بكل حافة كل بِت بيزيح خانة ليمين، والمدخل IN بيدخل لـ Q3. الـ 1 الأول بيوصل لـ Q0 بعد 4 حافات.",
+      "caption": "مسجّل إزاحة 4 بِتات: بكل حافة كل بِت بيزيح خانة ليمين، والمدخل IN بيدخل لـ Q3. الـ 1 الأول بيوصل لـ Q0 بعد 4 حافات."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p><b>مسجّل</b> = \\(n\\) قلّابات D على نفس الساعة. <b>مسجّل إزاحة</b>: كل قلّاب بياخد قيمة جاره، فبكل حافة المحتوى بيزيح خانة. <b>عدّاد متزامن</b>: كل القلّابات على نفس الساعة. <b>غير متزامن</b>: كل قلّاب ساعته مخرج اللي قبله.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>مسجّل الإزاحة متل طابور: بكل حافة كل واحد بيتقدّم خطوة، واحد جديد بيدخل من الطرف، وآخر واحد بيطلع. بعد \\(n\\) حافات الطابور كلّه جديد.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"مسجّل 4 بِتات مع تحميل: لما L = 1، الكلمة I بتدخل عند الحافة. لما L = 0، كل قلّاب بيرجّع قيمته لحاله.\" class=\"fk\"><rect class=\"fk-chip t-ink\" x=\"165.0\" y=\"16\" width=\"150\" height=\"238\" rx=\"12\"/><text class=\"fk-t t-mut\" x=\"240\" y=\"137.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">REG</text><path class=\"fk-line t-mut\" d=\"M70 55.666666666666664 L165.0 55.666666666666664\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"61.666666666666664\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">I3</text><path class=\"fk-line t-mut\" d=\"M70 95.33333333333333 L165.0 95.33333333333333\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"101.33333333333333\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">I2</text><path class=\"fk-line t-mut\" d=\"M70 135.0 L165.0 135.0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"141.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">I1</text><path class=\"fk-line t-mut\" d=\"M70 174.66666666666666 L165.0 174.66666666666666\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"180.66666666666666\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">I0</text><path class=\"fk-line t-hu\" d=\"M70 214.33333333333334 L165.0 214.33333333333334\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"64\" y=\"220.33333333333334\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">L=1</text><path class=\"fk-line t-mut\" d=\"M315.0 63.6 L410 63.6\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"416\" y=\"69.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">Q3</text><path class=\"fk-line t-mut\" d=\"M315.0 111.2 L410 111.2\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"416\" y=\"117.2\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">Q2</text><path class=\"fk-line t-mut\" d=\"M315.0 158.8 L410 158.8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"416\" y=\"164.8\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">Q1</text><path class=\"fk-line t-mut\" d=\"M315.0 206.4 L410 206.4\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"416\" y=\"212.4\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">Q0</text></svg>",
+      "alt": "مسجّل 4 بِتات مع تحميل: لما L = 1، الكلمة I بتدخل عند الحافة. لما L = 0، كل قلّاب بيرجّع قيمته لحاله.",
+      "caption": "مسجّل 4 بِتات مع تحميل: لما L = 1، الكلمة I بتدخل عند الحافة. لما L = 0، كل قلّاب بيرجّع قيمته لحاله."
+    },
+    {
+      "t": "h",
+      "text": "مسجّل مع تحميل (אוגר עם טעינה)"
+    },
+    {
+      "t": "p",
+      "html": "<p>مسجّل (אוגר) هو \\(n\\) قلّابات D، كل واحد بيحفظ بِت، وكلهم على نفس الساعة. بس إذا \\(D_i=I_i\\) دايماً، المسجّل بيتغيّر بكل حافة. لهيك في مدخل تحميل \\(L\\): لما \\(L=1\\) منحمّل \\(I_i\\)، ولما \\(L=0\\) منحفظ. بالمعادلة \\(D_i=L\\,I_i+L'\\,Q_i\\): هاد MUX 2→1 قدّام كل قلّاب.</p>"
+    },
+    {
+      "t": "h",
+      "text": "مسجّل إزاحة (אוגר הזזה)"
+    },
+    {
+      "t": "p",
+      "html": "<p>بمسجّل إزاحة لليمين: \\(D_3=\\text{IN}\\)، \\(D_2=Q_3\\)، \\(D_1=Q_2\\)، \\(D_0=Q_1\\). بكل حافة كل البِتات بتزيح خانة ليمين، بِت جديد بيدخل من الشمال، و\\(Q_0\\) بيطلع. بالرسمة شايفين الـ 1 الأول بيمشي من \\(Q_3\\) لـ \\(Q_0\\) خلال 4 حافات.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لشو منيح؟ نقل معلومات بِت بِت على سلك واحد (تسلسلي، טורי) وتحويلها لكلمة كاملة (מקבילי)، متل بالـ USB. وكمان حساب: إزاحة عدد ثنائي لشمال خانة هي ضرب بـ 2، ولليمين هي قسمة على 2 (بلا الباقي).</p>"
+    },
+    {
+      "t": "h",
+      "text": "عدّاد غير متزامن (מונה אסינכרוני)"
+    },
+    {
+      "t": "p",
+      "html": "<p>بالعدّاد المتزامن (درس «تصميم عدّاد») كل القلّابات على نفس الساعة. بالعدّاد غير المتزامن (اسمه كمان «متموّج»، ripple): قلّابات T مع \\(T=1\\)، الأول على الساعة، وكل واحد بعده ساعته هي \\(Q\\) تبع اللي قبله (مع حافة نازلة). كل ما بِت بينزل من 1 لـ 0، البِت اللي بعده بيتقلب، وهاد بالزبط العدّ الثنائي.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>هو أبسط (ولا بوابة)، بس كل قلّاب بيستنّى اللي قبله، فالتأخير بيتجمّع، ولفترة قصيرة بتطلع أرقام غلط بالنص. لهيك بالتصميم بالكورس منبني عدّادات متزامنة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"عدّاد جونسون بـ 3 قلّابات: 6 حالات. الـ 1 بيتعبّوا من الشمال، وبعدين بيتفضّوا.\" class=\"fk\"><path class=\"fk-line t-mut\" d=\"M269.3 58.0Q305.0 73.8 340.6 89.5\" stroke-width=\"2.5\" fill=\"none\"/><polygon class=\"fk-head t-mut\" points=\"340.6,89.5 327.2,90.2 332.1,79.2\"/><text class=\"fk-t t-hu\" x=\"297.66628859123136\" y=\"96.20964122964062\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\"/><path class=\"fk-line t-mut\" d=\"M369.9 134.5Q369.9 160.0 369.9 185.5\" stroke-width=\"2.5\" fill=\"none\"/><polygon class=\"fk-head t-mut\" points=\"369.9,185.5 363.9,173.5 375.9,173.5\"/><text class=\"fk-t t-hu\" x=\"351.9038105676658\" y=\"165.99999999999997\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\"/><path class=\"fk-line t-mut\" d=\"M340.6 230.5Q305.0 246.2 269.3 262.0\" stroke-width=\"2.5\" fill=\"none\"/><polygon class=\"fk-head t-mut\" points=\"269.3,262.0 277.8,251.7 282.7,262.7\"/><text class=\"fk-t t-hu\" x=\"297.66628859123136\" y=\"235.79035877035938\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\"/><path class=\"fk-line t-mut\" d=\"M210.7 262.0Q175.0 246.3 139.4 230.5\" stroke-width=\"2.5\" fill=\"none\"/><polygon class=\"fk-head t-mut\" points=\"139.4,230.5 152.8,229.8 147.9,240.8\"/><text class=\"fk-t t-hu\" x=\"182.3337114087687\" y=\"235.7903587703594\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\"/><path class=\"fk-line t-mut\" d=\"M110.1 185.5Q110.1 160.0 110.1 134.5\" stroke-width=\"2.5\" fill=\"none\"/><polygon class=\"fk-head t-mut\" points=\"110.1,134.5 116.1,146.5 104.1,146.5\"/><text class=\"fk-t t-hu\" x=\"128.09618943233423\" y=\"166.00000000000003\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\"/><path class=\"fk-line t-mut\" d=\"M139.4 89.5Q175.0 73.8 210.7 58.0\" stroke-width=\"2.5\" fill=\"none\"/><polygon class=\"fk-head t-mut\" points=\"210.7,58.0 202.2,68.3 197.3,57.3\"/><text class=\"fk-t t-hu\" x=\"182.33371140876866\" y=\"96.20964122964062\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\"/><circle class=\"fk-chip t-ink\" cx=\"240.0\" cy=\"45.0\" r=\"32\" stroke-width=\"3\"/><text class=\"fk-t t-ink\" x=\"240.0\" y=\"52.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">000</text><circle class=\"fk-chip t-ink\" cx=\"369.9038105676658\" cy=\"102.49999999999999\" r=\"32\" stroke-width=\"3\"/><text class=\"fk-t t-ink\" x=\"369.9038105676658\" y=\"109.49999999999999\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">100</text><circle class=\"fk-chip t-ink\" cx=\"369.9038105676658\" cy=\"217.49999999999997\" r=\"32\" stroke-width=\"3\"/><text class=\"fk-t t-ink\" x=\"369.9038105676658\" y=\"224.49999999999997\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">110</text><circle class=\"fk-chip t-ink\" cx=\"240.00000000000003\" cy=\"275.0\" r=\"32\" stroke-width=\"3\"/><text class=\"fk-t t-ink\" x=\"240.00000000000003\" y=\"282.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">111</text><circle class=\"fk-chip t-ink\" cx=\"110.09618943233426\" cy=\"217.50000000000006\" r=\"32\" stroke-width=\"3\"/><text class=\"fk-t t-ink\" x=\"110.09618943233426\" y=\"224.50000000000006\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">011</text><circle class=\"fk-chip t-ink\" cx=\"110.0961894323342\" cy=\"102.49999999999999\" r=\"32\" stroke-width=\"3\"/><text class=\"fk-t t-ink\" x=\"110.0961894323342\" y=\"109.49999999999999\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">001</text></svg>",
+      "alt": "عدّاد جونسون بـ 3 قلّابات: 6 حالات. الـ 1 بيتعبّوا من الشمال، وبعدين بيتفضّوا.",
+      "caption": "عدّاد جونسون بـ 3 قلّابات: 6 حالات. الـ 1 بيتعبّوا من الشمال، وبعدين بيتفضّوا."
+    },
+    {
+      "t": "h",
+      "text": "عدّاد حلقة وعدّاد جونسون"
+    },
+    {
+      "t": "p",
+      "html": "<p>إذا رجّعنا مخرج مسجّل الإزاحة لمدخله، بيصير عدّاد. عدّاد حلقة (מונה טבעת): \\(\\text{IN}=Q_0\\)، ومنبلّش من \\(1000\\). الـ 1 بيلف: \\(1000\\to0100\\to0010\\to0001\\to1000\\). مع \\(n\\) قلّابات: \\(n\\) حالات.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>عدّاد جونسون: \\(\\text{IN}=Q_0'\\) (المقلوب). من \\(000\\): \\(000\\to100\\to110\\to111\\to011\\to001\\to000\\). مع \\(n\\) قلّابات: \\(2n\\) حالات.</p>"
+    },
+    {
+      "t": "method",
+      "title": "محتوى مسجّل إزاحة بعد k حافات: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>اكتبوا</b> المحتوى الأول، وتسلسل المداخل بالترتيب.",
+        "<b>بكل حافة</b> زيحوا كل البِتات خانة (بالاتجاه اللي بالسؤال)، حطّوا المدخل بالخانة الفاضية، وزتّوا البِت اللي طلع.",
+        "<b>سطر لكل حافة</b> هيك ما بتضيعوا، والجواب هو السطر الأخير."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 192\" role=\"img\" aria-label=\"المعطى كجدول: سطر لكل حافة. المدخل بيدخل لـ Q3، وكل بِت بيزيح خانة ليمين.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"85.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">حافة</text><text class=\"fk-t t-mut\" x=\"147.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">IN</text><text class=\"fk-t t-hu\" x=\"209.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Q3</text><text class=\"fk-t t-hu\" x=\"271.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Q2</text><text class=\"fk-t t-hu\" x=\"333.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Q1</text><text class=\"fk-t t-hu\" x=\"395.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Q0</text><line class=\"fk-line t-grid\" x1=\"54.0\" y1=\"40\" x2=\"426.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"178.0\" y1=\"12\" x2=\"178.0\" y2=\"176\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"85.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"147.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"209.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"271.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"333.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"395.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"85.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-ink\" x=\"147.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"209.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"271.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"333.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"395.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"85.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-ink\" x=\"147.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"209.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"271.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"333.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"395.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"85.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-ink\" x=\"147.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"209.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"271.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"333.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"395.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text></svg>",
+      "alt": "المعطى كجدول: سطر لكل حافة. المدخل بيدخل لـ Q3، وكل بِت بيزيح خانة ليمين.",
+      "caption": "المعطى كجدول: سطر لكل حافة. المدخل بيدخل لـ Q3، وكل بِت بيزيح خانة ليمين."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: مسجّل إزاحة لليمين 4 بِتات، بيبلّش بـ \\(0000\\). المداخل بالترتيب \\(1,1,0,1\\). شو المحتوى \\(Q_3Q_2Q_1Q_0\\) بعد كل حافة؟",
+      "steps": [
+        {
+          "label": "حافة 1",
+          "body": "\\(1000\\)، لأنه الـ 1 دخل لـ \\(Q_3\\) والباقي زاح"
+        },
+        {
+          "label": "حافة 2",
+          "body": "\\(1100\\)، لأنه 1 جديد دخل والـ 1 القديم زاح لـ \\(Q_2\\)"
+        },
+        {
+          "label": "حافة 3",
+          "body": "\\(0110\\)، لأنه دخل 0 وكل إشي زاح خانة"
+        },
+        {
+          "label": "حافة 4",
+          "body": "\\(1011\\)، لأنه دخل 1، و\\(Q_0\\) القديم (0) طلع برّا"
+        }
+      ],
+      "a": "الجواب \\(1000,\\;1100,\\;0110,\\;1011\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: تحميل",
+      "html": "<p>مسجّل 4 بِتات فيه \\(0101\\)، المداخل \\(I=1110\\). شو بيصير بحافة مع \\(L=0\\)، وبحافة مع \\(L=1\\)؟</p><p>مع \\(L=0\\): \\(D_i=Q_i\\)، فالمسجّل بيحفظ \\(0101\\). مع \\(L=1\\): \\(D_i=I_i\\)، فبعد الحافة فيه \\(1110\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال متوسط: جونسون",
+      "html": "<p>عدّاد جونسون بـ 3 قلّابات من \\(000\\). اكتبوا كل الحالات لحد ما يرجع.</p><p>بكل حافة منزيح ليمين ومنحطّ عالشمال المقلوب تبع \\(Q_0\\): \\(000\\to100\\to110\\to111\\to011\\to001\\to000\\). هدول 6 حالات، يعني \\(2n\\) مع \\(n=3\\).</p>"
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "عدّاد حلقة بيبلّش من \\(0000\\)",
+          "yes": "من \\(0000\\) بيضل \\(0000\\) للأبد. لازم يبلّش بـ 1 واحد، متل \\(1000\\)"
+        },
+        {
+          "no": "إزاحة لشمال هي قسمة على 2",
+          "yes": "لشمال ضرب بـ 2، ولليمين قسمة على 2"
+        },
+        {
+          "no": "بالعدّاد غير المتزامن كل القلّابات على نفس الساعة",
+          "yes": "كل قلّاب ساعته \\(Q\\) تبع اللي قبله. نفس الساعة = متزامن"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش حافة ساعة لازم لتحميل 8 بِتات لمسجّل إزاحة تسلسلياً (بِت بكل حافة)؟",
+        "answer": [
+          "8"
+        ],
+        "hint": "بِت بكل حافة.",
+        "solution": "<p>بكل حافة بيدخل بِت واحد بس. لـ 8 بِتات بدنا 8 حافات، وبعدها البِت الأول وصل للطرف التاني والمسجّل مليان.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "عدّاد جونسون بـ 4 قلّابات: قديش حالة بيعدّ؟",
+        "answer": [
+          "8"
+        ],
+        "hint": "\\(2n\\).",
+        "solution": "<p>عدّاد جونسون مع \\(n\\) قلّابات بيعدّ \\(2n\\) حالات: \\(n\\) خطوات بيتعبّى فيها 1، و\\(n\\) بيتفضّى. مع 4: 8 حالات.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "بالعشري: شو قيمة \\(0101\\) بعد إزاحة وحدة لشمال (مع 0 من اليمين)؟",
+        "answer": [
+          "10"
+        ],
+        "hint": "كل بِت بيسوى ضعف.",
+        "solution": "<p>منزيح كل البِتات خانة لشمال ومنحطّ 0 باليمين: \\(1010=10\\). العدد الأصلي كان 5، فالإزاحة لشمال ضربته بـ 2.</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو الفرق بين مسجّل وذاكرة؟",
+          "a": "مسجّل هو كم بِت قليلين، جوّا المعالج، سريع كتير، وكل بِت إلو قلّاب. الذاكرة (RAM) فيها مليارات بِتات بعناوين. المعالج بيشتغل على المسجّلات، وبينقل من وإلى الذاكرة."
+        },
+        {
+          "q": "ليش الإزاحة لشمال بتضرب بـ 2؟",
+          "a": "لأنه كل بِت بيروح لخانة قيمتها ضعف: البِت اللي كان يسوى 4 صار يسوى 8. هيك كل العدد تضاعف. متل بالعشري: لما بتزيدوا 0 عاليمين، العدد بيتضرب بـ 10."
+        },
+        {
+          "q": "إذا العدّاد غير المتزامن أبسط، ليش منصمّم متزامن؟",
+          "a": "بالمتزامن كل البِتات بتتغيّر بنفس اللحظة، فما في أرقام غلط بالنص، والسرعة ما بتعتمد على عدد البِتات. بغير المتزامن من \\(0111\\) لـ \\(1000\\) البِتات بتتغيّر واحد ورا التاني، وللحظة بيطلع \\(0110\\)، \\(0100\\)، \\(0000\\)."
+        },
+        {
+          "q": "ليش عدّاد الحلقة لازم يبلّش بـ 1 واحد؟",
+          "a": "لأنه بس بيلفّ اللي جوّاه. من \\(0000\\) ما في إشي يلف، فبيضل \\(0000\\). ومن \\(1100\\) بيلف زوج 1، وهاد عدّاد تاني. لهيك بيحطّوا مدخل تصفير بيبلّشه بـ \\(1000\\)."
+        },
+        {
+          "q": "شو يعني تسلسلي ومتوازي؟",
+          "a": "تسلسلي (טורי): بِت ورا بِت على سلك واحد. متوازي (מקבילי): كل البِتات مع بعض على \\(n\\) أسلاك. مسجّل الإزاحة بيحوّل بيناتهم: بيستقبل بِت بِت، وبعد \\(n\\) حافات كل الكلمة جاهزة للقراءة مع بعض."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "אוגר הזזה (مسجّل إزاحة)",
+      "back": "قلّابات D ورا بعض: كل واحد بياخد قيمة جاره، فبكل حافة المحتوى بيزيح خانة. إزاحة لشمال = ضرب بـ 2."
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بصمّم كاشف تسلسل مع تداخل وبشرح شو بتتذكّر كل حالة.",
+        "بلاقي حالات متكافئة وبحسب كم قلّاب لازم.",
+        "بنفّذ جدول حالات بقلّابات من أنواع مختلفة."
+      ],
+      "rest": "خلّصت مערכות ספרתיות! ارجع للفصول اللي حسّيت فيها ضعيف، وبعدين امتحانات من السنين الماضية"
+    }
+  ]
+}

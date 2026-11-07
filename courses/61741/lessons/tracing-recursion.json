@@ -1,0 +1,237 @@
+{
+  "slug": "tracing-recursion",
+  "title": "تتبّع الرجعية: طباعة قبل وبعد الاستدعاء",
+  "he": "מעקב אחר רקורסיה",
+  "ref": "שבוע 10",
+  "minutes": 17,
+  "desc": "كيف منتتبّع دالة رجعية بأسئلة «מה יודפס»: طباعة قبل الاستدعاء (بالترتيب) وبعده (بالمقلوب)، شجرة استدعاءات لدالة فيها استدعائين، وعدّ الاستدعاءات.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> الكورس بيطلب «לעקוב אחר ביצוע של קוד רקורסיבי». الأسئلة الأصعب هنّي اللي فيها print قبل و/أو بعد الاستدعاء، لأنه الترتيب بيتقلب. هالدرس بيعطيكم طريقة ما بتغلط.</p><ol><li>print قبل الاستدعاء ← بالترتيب النازل</li><li>print بعد الاستدعاء ← بالمقلوب</li><li>شجرة استدعاءات لدالة فيها استدعائين</li><li>عدّ الاستدعاءات</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل سؤال «מה יודפס» على دالة رجعية.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 214\" role=\"img\" aria-label=\"شجرة الاستدعاءات لـ f(n) = f(n-1) + f(n-2): كل مربع استدعاء، والملوّنة حالات وقوف. منتتبّعها من الشمال لليمين، ولتحت قبل الجنب.\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"140\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"340\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"140\" y1=\"132\" x2=\"80\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"140\" y1=\"132\" x2=\"200\" y2=\"164\" stroke-width=\"2\"/><rect class=\"fk-chip t-hu\" x=\"209.0\" y=\"24\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"48.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(3)</text><rect class=\"fk-chip t-hu\" x=\"109.0\" y=\"94\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"140.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(2)</text><rect class=\"fk-chip t-2\" x=\"309.0\" y=\"94\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"340.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(1)</text><rect class=\"fk-chip t-2\" x=\"49.0\" y=\"164\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"80.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(1)</text><rect class=\"fk-chip t-2\" x=\"169.0\" y=\"164\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"200.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(0)</text></svg>",
+      "alt": "شجرة الاستدعاءات لـ f(n) = f(n-1) + f(n-2): كل مربع استدعاء، والملوّنة حالات وقوف. منتتبّعها من الشمال لليمين، ولتحت قبل الجنب.",
+      "caption": "شجرة الاستدعاءات لـ <code dir=\"ltr\">f(n) = f(n-1) + f(n-2)</code>: كل مربع استدعاء، والملوّنة حالات وقوف. منتتبّعها من الشمال لليمين، ولتحت قبل الجنب."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>اللي <b>قبل</b> الاستدعاء الرجعي بيصير بالنزول (من n لـ 0). اللي <b>بعده</b> بيصير بالطلوع (من 0 لـ n)، يعني بالمقلوب.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>كل استدعاء «بيوقف بالنص» عند السطر الرجعي، وبيكمّل بس لما الاستدعاء اللي فوقه يخلص. فكل الأسطر اللي بعد الاستدعاء بتتراكم وبتشتغل بالمقلوب، متل كومة صحون: آخر صحن انحط، أول واحد بيطلع.</p>"
+    },
+    {
+      "t": "h",
+      "text": "طريقة ما بتغلط"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 208\" role=\"img\" aria-label=\"نزول وطلوع: «in» بينطبع وإحنا نازلين (قبل الاستدعاء)، و«out» وإحنا طالعين (بعده)، بالترتيب المقلوب.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"60\" y=\"132\" width=\"230\" height=\"46\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"175.0\" y=\"161.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(2)</text><rect class=\"fk-chip t-hu\" x=\"60\" y=\"76\" width=\"230\" height=\"46\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"175.0\" y=\"105.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(1)</text><rect class=\"fk-chip t-2 solid\" x=\"60\" y=\"20\" width=\"230\" height=\"46\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"175.0\" y=\"49.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(0)</text><line class=\"fk-line t-good\" x1=\"296\" y1=\"43\" x2=\"348.0\" y2=\"43.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"360,43 348.0,36.0 348.0,50.0\"/><text class=\"fk-t t-good\" x=\"370\" y=\"50\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">return</text><text class=\"fk-t t-mut\" x=\"30\" y=\"30\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">آخر</text><text class=\"fk-t t-mut\" x=\"30\" y=\"162\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">أول</text></svg>",
+      "alt": "نزول وطلوع: «in» بينطبع وإحنا نازلين (قبل الاستدعاء)، و«out» وإحنا طالعين (بعده)، بالترتيب المقلوب.",
+      "caption": "نزول وطلوع: «in» بينطبع وإحنا نازلين (قبل الاستدعاء)، و«out» وإحنا طالعين (بعده)، بالترتيب المقلوب."
+    },
+    {
+      "t": "p",
+      "html": "<p>اكتبوا كل استدعاء بسطر مع إزاحة حسب العمق: <code dir=\"ltr\">f(3)</code>، تحتو بإزاحة <code dir=\"ltr\">f(2)</code>، تحتو <code dir=\"ltr\">f(1)</code>… جنب كل واحد اكتبوا شو بيطبع قبل الاستدعاء. لما توصلوا للوقوف، ارجعوا لفوق سطر سطر واكتبوا شو بيطبع بعد الاستدعاء. هيك الطباعة النهائية هي: عمود «قبل» من فوق لتحت، وبعدين عمود «بعد» من تحت لفوق.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>دالة فيها استدعائين (متل فيبوناتشي، أو <code dir=\"ltr\">f(n-1)</code> مرتين) بتعمل شجرة مش سطر. ترتيب التنفيذ: الاستدعاء الأول بيخلص <b>كله</b> (مع كل الشجرة تحته) قبل ما يبلّش التاني. منمرق الشجرة من الشمال، وللعمق أول.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>عدّ الاستدعاءات: بسطر (استدعاء واحد كل مرة) العدد n+1 تقريباً. بشجرة باستدعائين بيتضاعف كل مستوى: <code dir=\"ltr\">f(n)</code> اللي بيستدعي <code dir=\"ltr\">f(n-1)</code> مرتين بيعمل \\(2^{n+1}-1\\) استدعاء. هاد مدخل للتعقيد الرجعي بالفصل الجاي.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"اقروا عمود «قبل» من فوق لتحت، وعمود «بعد» من تحت لفوق: هاد ترتيب المطبوع.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"298.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"352.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">المستوى</text><rect class=\"fk-chip t-hu solid\" x=\"186.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"33.55\" font-size=\"13\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">قبل الاستدعاء</text><rect class=\"fk-chip t-hu solid\" x=\"74.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"128.0\" y=\"33.55\" font-size=\"13\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بعد الاستدعاء</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(2)</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">in 2</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">out 2</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(1)</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">in 1</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">out 1</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(0)</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">—</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">—</text></svg>",
+      "alt": "اقروا عمود «قبل» من فوق لتحت، وعمود «بعد» من تحت لفوق: هاد ترتيب المطبوع.",
+      "caption": "اقروا عمود «قبل» من فوق لتحت، وعمود «بعد» من تحت لفوق: هاد ترتيب المطبوع."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def show(n):\n    if n == 0:\n        print(\"*\")\n        return\n    print(\"before\", n)\n    show(n - 1)\n    print(\"after\", n)\n\nshow(3)",
+      "out": "before 3\nbefore 2\nbefore 1\n*\nafter 1\nafter 2\nafter 3"
+    },
+    {
+      "t": "method",
+      "title": "تتبّع رجعية، 3 خطوات",
+      "steps": [
+        "<b>انزلوا</b> استدعاء بسطر مُزاح، واكتبوا كل اللي قبل الاستدعاء.",
+        "<b>الوقوف</b> اكتبوا شو بيطبع/بيرجّع.",
+        "<b>اطلعوا</b> من تحت لفوق، كل اللي بعد الاستدعاء، مع القيمة اللي رجعت."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: in و out",
+      "html": "<p>ليش «out» بينطبع بالمقلوب؟ لأنه f(2) ما بتكمّل لسطر الـ out تبعها إلا لما f(1) تخلص كلها، و f(1) بتستنّى f(0).</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def f(n):\n    if n == 0:\n        return\n    print(\"in\", n)\n    f(n - 1)\n    print(\"out\", n)\n\nf(2)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">in 2\nin 1\nout 1\nout 2</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: طباعة خانات عدد بالترتيب",
+      "html": "<p>الطباعة <b>بعد</b> الاستدعاء على <code dir=\"ltr\">n // 10</code> بتطلّع الخانات من الشمال لليمين، رغم إنه منقطع من اليمين.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def digits(n):\n    if n &lt; 10:\n        print(n, end=\" \")\n        return\n    digits(n // 10)\n    print(n % 10, end=\" \")\n\ndigits(4907)\nprint()</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">4 9 0 7 </pre></div></div><p>لو حطينا الـ print قبل الاستدعاء، الخانات كانت بتطلع بالمقلوب: 7 0 9 4.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 130\" role=\"img\" aria-label=\"معطيات السؤال: n بتنزل 2 كل مرة، والوقوف لما n &lt;= 0. في طباعة قبل الاستدعاء وطباعة بعده.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"374.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"421.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(5)</text><line class=\"fk-line t-mut\" x1=\"372.0\" y1=\"66\" x2=\"362.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"350.0,66 362.0,73.0 362.0,59.0\"/><text class=\"fk-t t-mut\" x=\"361.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">− 2</text><rect class=\"fk-chip t-hu\" x=\"253.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"300.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(3)</text><line class=\"fk-line t-mut\" x1=\"251.0\" y1=\"66\" x2=\"241.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"229.0,66 241.0,73.0 241.0,59.0\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">− 2</text><rect class=\"fk-chip t-hu\" x=\"132.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"179.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(1)</text><line class=\"fk-line t-mut\" x1=\"130.0\" y1=\"66\" x2=\"120.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"108.0,66 120.0,73.0 120.0,59.0\"/><text class=\"fk-t t-mut\" x=\"119.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">− 2</text><rect class=\"fk-chip t-2 solid\" x=\"11.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"58.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(-1)</text></svg>",
+      "alt": "معطيات السؤال: n بتنزل 2 كل مرة، والوقوف لما n <= 0. في طباعة قبل الاستدعاء وطباعة بعده.",
+      "caption": "معطيات السؤال: n بتنزل 2 كل مرة، والوقوف لما n &lt;= 0. في طباعة قبل الاستدعاء وطباعة بعده."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال امتحان: شو بيطبع؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def f(n):\n    if n &lt;= 0:\n        return\n    print(n, end=\" \")\n    f(n - 2)\n    print(n, end=\" \")\n\nf(5)\nprint()</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">5 3 1 1 3 5 </pre></div></div>",
+      "steps": [
+        {
+          "label": "نزول: 5، بعدين <bdi dir=\"ltr\">f(3)</bdi> بيطبع 3، بعدين <bdi dir=\"ltr\">f(1)</bdi> بيطبع 1",
+          "body": "<code dir=\"ltr\">5 3 1</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">f(-1)</bdi> وقوف بدون طباعة",
+          "body": "<code dir=\"ltr\">—</code>"
+        },
+        {
+          "label": "طلوع بالمقلوب: 1، 3، 5",
+          "body": "<code dir=\"ltr\">1 3 5</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">5 3 1 1 3 5 </bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">def f(n):</code></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">f(5)</code></td><td><bdi dir=\"ltr\">5 3 1 1 3 5 </bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print()</code></td><td><bdi dir=\"ltr\"></bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش اللي بعد الاستدعاء بينطبع بالمقلوب؟",
+          "a": "<p>لأنه كل طبقة «بتوقف» عند الاستدعاء وبتستنّى. أول طبقة بتكمّل هي الأخيرة (الأعمق)، وبعدين اللي تحتها، وهيك. متل كومة صحون: آخر واحد انحط أول واحد بينشال.</p>"
+        },
+        {
+          "q": "كيف برسم الدرج بالامتحان؟",
+          "a": "<p>سطر لكل استدعاء، مزاح لليمين شوي كل ما نزلنا. بكل سطر: n، شو انطبع قبل، وبعدين لما ترجعوا لنفس السطر اكتبوا شو انطبع بعد وشو رجع.</p>"
+        },
+        {
+          "q": "شو بيصير لو الدالة بتستدعي حالها مرتين؟",
+          "a": "<p>الاستدعاءات بتصير شجرة: الاستدعاء الأول بيخلص <b>كله</b> (مع كل اللي تحته) قبل ما يبلّش التاني.</p><pre class=\"code\" dir=\"ltr\">def t(n):\n    if n == 0:\n        return\n    t(n - 1)\n    print(n, end=\" \")\n    t(n - 1)\n\nt(3)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">1 2 1 3 1 2 1</pre>"
+        },
+        {
+          "q": "ليش <code dir=\"ltr\">end=\" \"</code> بأسئلة الرجعية؟",
+          "a": "<p>لحتى كل المطبوع يطلع بسطر واحد ويكون سهل يقارنوه. بالجواب اكتبوا الأعداد بالترتيب مع مسافات، و <code dir=\"ltr\">print()</code> بالآخر بينزل سطر.</p>"
+        },
+        {
+          "q": "بقدر أستعمل جدول متابعة عادي؟",
+          "a": "<p>لرجعية، جدول واحد بيلخبط لأنه كل طبقة إلها n خاص. الدرج (جدول صغير لكل استدعاء) هو جدول المتابعة للرجعية.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "الأسطر بعد الاستدعاء بتصير بنفس ترتيب النزول",
+          "yes": "بالمقلوب: آخر استدعاء بيخلص أول"
+        },
+        {
+          "no": "بشجرة: منعمل كل المستوى الأول قبل التاني",
+          "yes": "منكمّل الفرع الأول لآخره قبل الفرع التاني"
+        },
+        {
+          "no": "حالة الوقوف ما بتطبع إشي",
+          "yes": "شوفوا الكود: أحياناً في print بالوقوف كمان"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def p(n):\n    if n == 0:\n        return\n    p(n - 1)\n    print(n, end=\"\")\n\np(4)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">4321</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">1234</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">43210</bdi>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "الطباعة بعد الاستدعاء.",
+        "solution": "<p>الطباعة بعد الاستدعاء الرجعي، فبتصير بالطلوع: أول واحد بيخلص هو <code dir=\"ltr\">p(1)</code> بيطبع 1، بعدين 2، 3، 4.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">1234</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">count = 0\ndef t(n):\n    global count\n    count += 1\n    if n &lt;= 1:\n        return\n    t(n - 1)\n    t(n - 1)\n\nt(4)\nprint(count)</pre></div>",
+        "answer": [
+          "15"
+        ],
+        "hint": "كل مستوى بيضاعف: 1 + 2 + 4 + 8.",
+        "solution": "<p>t(4) بيستدعي t(3) مرتين، وكل t(3) بيستدعي t(2) مرتين، وهيك. بالمستويات 1 ثم 2 ثم 4 ثم 8 استدعاءات، المجموع 15.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">15</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def q(s):\n    if len(s) == 0:\n        return\n    q(s[1:])\n    print(s[0], end=\"\")\n\nq(\"abc\")</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">cba</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">abc</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">cbaabc</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "print بعد الاستدعاء على الباقي.",
+        "solution": "<p>كل استدعاء بيطبع أول حرف تبعو بس بعد ما يخلص الباقي، فـ c بينطبع أول وa آخر: الدالة بتطبع النص بالمقلوب.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">cba</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "עץ קריאות",
+      "back": "شجرة استدعاءات: لدالة فيها أكتر من استدعاء رجعي. بتنتبّع من الشمال، للعمق أول."
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بعرف شو حالة الوقوف والخطوة الرجعية، وليش المشكلة لازم تصغر.",
+        "بعرف كيف مكدّس الاستدعاءات بينزل وبيطلع.",
+        "بكتب دوال رجعية على أعداد (n // 10) وعلى نصوص (s[1:]).",
+        "بتتبّع print قبل وبعد الاستدعاء صح.",
+        "برسم شجرة استدعاءات لدالة فيها استدعائين."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "slug": "div-mod",
+  "title": "القسمة الصحيحة // والباقي %",
+  "he": "חלוקה בשלמים ושארית",
+  "ref": "שבוע 2",
+  "minutes": 16,
+  "desc": "العمليتين // (חלוקה בשלמים) و % (שארית) بـ Python: كيف منفرط عدد لخاناته، كيف منعرف زوجي أو فردي، وتحويل ثواني لدقايق وساعات.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> <code dir=\"ltr\">//</code> و<code dir=\"ltr\">%</code> موجودين تقريباً بكل امتحان: خانات عدد، زوجي وفردي، قسمة على مجموعات، دورات. ومن هون بتبلّش أسئلة الحلقات بعدين.</p><ol><li>شو بيعطي <code dir=\"ltr\">17 // 5</code> و<code dir=\"ltr\">17 % 5</code></li><li>زوجي/فردي، ومقسوم على</li><li>آخر خانة، وشيل آخر خانة</li><li>تحويل وحدات: ثواني ← دقايق وثواني</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما يطلبوا «ספרת האחדות»، «מתחלק ב־»، أو تقسيم لمجموعات.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"17 حبة، مجموعات من 5: تلات مجموعات كاملة (17 // 5 = 3)، وحبتين باقيين (17 % 5 = 2).\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"29.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"40.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"54.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"65.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"79.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"90.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"104.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"115.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"129.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"140.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"154.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"165.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"179.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"190.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"204.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"215.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"229.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"254.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"265.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"279.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"290.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"304.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"315.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"329.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"340.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"354.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"365.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-hu\" x=\"379.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"390.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-2 solid\" x=\"404.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"415.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text><rect class=\"fk-chip t-2 solid\" x=\"429.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"440.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">●</text></svg>",
+      "alt": "17 حبة، مجموعات من 5: تلات مجموعات كاملة (17 // 5 = 3)، وحبتين باقيين (17 % 5 = 2).",
+      "caption": "17 حبة، مجموعات من 5: تلات مجموعات كاملة (<code dir=\"ltr\">17 // 5 = 3</code>)، وحبتين باقيين (<code dir=\"ltr\">17 % 5 = 2</code>)."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p><code dir=\"ltr\">a // b</code> = كم مجموعة كاملة من b بتطلع من a. <code dir=\"ltr\">a % b</code> = شو بيضل. ودايماً: <code dir=\"ltr\">a == (a // b) * b + a % b</code>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>بالابتدائي تعلّمتوا «17 على 5 بيساوي 3 والباقي 2». Python بيعطيكم الجزأين بعمليتين: <code dir=\"ltr\">//</code> للمنقسم الصحيح و<code dir=\"ltr\">%</code> للباقي (שארית).</p>"
+    },
+    {
+      "t": "h",
+      "text": "ليش هالعمليات مهمة؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"17 حبة بمجموعات من 5: تلات مجموعات كاملة (17 // 5 = 3)، وبيضل 2 (17 % 5 = 2).\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"29.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"40.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"54.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"65.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"79.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"90.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"104.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"115.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-hu\" x=\"129.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"140.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-hu\" x=\"154.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"165.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-hu\" x=\"179.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"190.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-hu\" x=\"204.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"215.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-hu\" x=\"229.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><rect class=\"fk-chip t-hu\" x=\"254.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"265.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-hu\" x=\"279.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"290.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><rect class=\"fk-chip t-hu\" x=\"304.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"315.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">12</text><rect class=\"fk-chip t-hu\" x=\"329.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"340.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">13</text><rect class=\"fk-chip t-hu\" x=\"354.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"365.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">14</text><rect class=\"fk-chip t-hu\" x=\"379.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"390.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">15</text><rect class=\"fk-chip t-2 solid\" x=\"404.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"415.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">16</text><rect class=\"fk-chip t-2 solid\" x=\"429.5\" y=\"50\" width=\"21\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"440.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">17</text></svg>",
+      "alt": "17 حبة بمجموعات من 5: تلات مجموعات كاملة (17 // 5 = 3)، وبيضل 2 (17 % 5 = 2).",
+      "caption": "17 حبة بمجموعات من 5: تلات مجموعات كاملة <bdi dir=\"ltr\">(17 // 5 = 3)</bdi>، وبيضل <bdi dir=\"ltr\">2 (17 % 5 = 2)</bdi>."
+    },
+    {
+      "t": "p",
+      "html": "<p>تخيّلوا 17 طالب بدهم يقعدوا على طاولات من 5. كم طاولة مليانة؟ 3، يعني <code dir=\"ltr\">17 // 5</code>. كم طالب بيضل بلا طاولة كاملة؟ 2، يعني <code dir=\"ltr\">17 % 5</code>. هيك كل سؤال «كم مرة بيفوت… وشو بيضل» هو <code dir=\"ltr\">//</code> و<code dir=\"ltr\">%</code>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>أشهر استعمال بالكورس: الخانات. بالعشري، كل خانة هي «مجموعة من 10». فـ <code dir=\"ltr\">n % 10</code> هي آخر خانة (ספרת האחדות)، و<code dir=\"ltr\">n // 10</code> هو العدد بدون آخر خانة. مثلاً 4721: <code dir=\"ltr\">4721 % 10 = 1</code> و<code dir=\"ltr\">4721 // 10 = 472</code>. إذا كرّرنا هالشي بحلقة، منمرق على كل الخانات واحدة واحدة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>زوجي أو فردي: عدد زوجي إذا <code dir=\"ltr\">n % 2 == 0</code>. وبشكل عام، n مقسوم على k (מתחלק ב־k) إذا <code dir=\"ltr\">n % k == 0</code>. وكمان <code dir=\"ltr\">%</code> منيح للدورات: يوم 10 بعد يوم الأحد هو <code dir=\"ltr\">10 % 7 = 3</code> أيام بعد الأحد.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>انتبهوا للأعداد السالبة: بـ Python <code dir=\"ltr\">-7 // 2</code> بيعطي -4 (بيدوّر للأصغر)، و<code dir=\"ltr\">-7 % 2</code> بيعطي 1. بالكورس أغلب الأسئلة على أعداد موجبة، بس منيح تعرفوا.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 244\" role=\"img\" aria-label=\"الباقي على 2 بيتناوب 0 و 1. صفر يعني زوجي.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"298.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"352.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><rect class=\"fk-chip t-hu solid\" x=\"186.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n % 2</text><rect class=\"fk-chip t-hu solid\" x=\"74.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"128.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">زوجي؟</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">آه</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">لأ</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">آه</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">لأ</text></svg>",
+      "alt": "الباقي على 2 بيتناوب 0 و 1. صفر يعني زوجي.",
+      "caption": "الباقي على 2 بيتناوب 0 و 1. صفر يعني زوجي."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "n = 4721\nprint(n % 10)\nprint(n // 10)\nprint(n // 100 % 10)\nprint(17 // 5, 17 % 5)",
+      "out": "1\n472\n7\n3 2"
+    },
+    {
+      "t": "method",
+      "title": "خانة معيّنة من عدد، 3 خطوات",
+      "steps": [
+        "<b>شيلوا الخانات اللي يمين</b> بـ <code dir=\"ltr\">// 10</code> لكل خانة (<code dir=\"ltr\">// 100</code> لتنتين).",
+        "<b>خدوا آخر خانة</b> بـ <code dir=\"ltr\">% 10</code>.",
+        "<b>افحصوا على مثال</b> خانة المئات بـ 4721: <code dir=\"ltr\">4721 // 100 % 10 = 7</code>."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: 17 على 5",
+      "html": "<p>كل قسمة صحيحة إلها جزئين: كم مرة الـ 5 بتفوت كاملة (<code dir=\"ltr\">//</code>) وشو بيضل (<code dir=\"ltr\">%</code>). ليش منفحص بـ <code dir=\"ltr\">q * 5 + r</code>؟ لأنه لازم يرجّع العدد الأصلي، وهيك منتأكد إنه ما غلطنا.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">q = 17 // 5\nr = 17 % 5\nprint(q, r)\nprint(q * 5 + r)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">3 2\n17</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">q</bdi></th><th><bdi dir=\"ltr\">r</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">q = 17 // 5</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">r = 17 % 5</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(q, r)</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">3 2</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(q * 5 + r)</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">17</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: ثواني لدقايق وثواني",
+      "html": "<p>بدنا نحوّل 200 ثانية لدقايق وثواني. كل 60 ثانية دقيقة، فالدقايق <code dir=\"ltr\">// 60</code> والباقي <code dir=\"ltr\">% 60</code>.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">t = 200\nm = t // 60\ns = t % 60\nprint(m, \"min\", s, \"sec\")</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">3 min 20 sec</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">t</bdi></th><th><bdi dir=\"ltr\">m</bdi></th><th><bdi dir=\"ltr\">s</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">t = 200</code></td><td><bdi dir=\"ltr\">200</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">m = t // 60</code></td><td><bdi dir=\"ltr\">200</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s = t % 60</code></td><td><bdi dir=\"ltr\">200</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">20</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(m, \"min\", s, \"sec\")</code></td><td><bdi dir=\"ltr\">200</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">20</bdi></td><td><bdi dir=\"ltr\">3 min 20 sec</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 100\" role=\"img\" aria-label=\"تفكيك عدد بتلات خانات: كل عملية بتطلّع خانة وحدة (آحاد، عشرات، مئات).\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"374.0\" y=\"20\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"421.5\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">583</text><line class=\"fk-line t-mut\" x1=\"372.0\" y1=\"46\" x2=\"362.0\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"350.0,46 362.0,53.0 362.0,39.0\"/><rect class=\"fk-chip t-hu\" x=\"253.0\" y=\"20\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"300.5\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">% 10</text><line class=\"fk-line t-mut\" x1=\"251.0\" y1=\"46\" x2=\"241.0\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"229.0,46 241.0,53.0 241.0,39.0\"/><rect class=\"fk-chip t-hu\" x=\"132.0\" y=\"20\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"179.5\" y=\"50.9\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">// 10 % 10</text><line class=\"fk-line t-mut\" x1=\"130.0\" y1=\"46\" x2=\"120.0\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"108.0,46 120.0,53.0 120.0,39.0\"/><rect class=\"fk-chip t-2 solid\" x=\"11.0\" y=\"20\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"58.5\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">// 100</text></svg>",
+      "alt": "تفكيك عدد بتلات خانات: كل عملية بتطلّع خانة وحدة (آحاد، عشرات، مئات).",
+      "caption": "تفكيك عدد بتلات خانات: كل عملية بتطلّع خانة وحدة (آحاد، عشرات، مئات)."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: n عدد بتلات خانات. شو بيطبع الكود لـ <bdi dir=\"ltr\">n = 583</bdi>؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">n = 583\na = n % 10\nb = n // 10 % 10\nc = n // 100\nprint(a + b + c)\nprint(a * 100 + b * 10 + c)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">16\n385</pre></div></div>",
+      "steps": [
+        {
+          "label": "آخر خانة (الآحاد)",
+          "body": "<code dir=\"ltr\">583 % 10 = 3</code>"
+        },
+        {
+          "label": "خانة العشرات",
+          "body": "<code dir=\"ltr\">583 // 10 % 10 = 8</code>"
+        },
+        {
+          "label": "خانة المئات",
+          "body": "<code dir=\"ltr\">583 // 100 = 5</code>"
+        },
+        {
+          "label": "مجموع الخانات، وبعدين العدد بالمقلوب",
+          "body": "<code dir=\"ltr\">16, 385</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">16<br>385</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">n</bdi></th><th><bdi dir=\"ltr\">a</bdi></th><th><bdi dir=\"ltr\">b</bdi></th><th><bdi dir=\"ltr\">c</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">n = 583</code></td><td><bdi dir=\"ltr\">583</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a = n % 10</code></td><td><bdi dir=\"ltr\">583</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">b = n // 10 % 10</code></td><td><bdi dir=\"ltr\">583</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">c = n // 100</code></td><td><bdi dir=\"ltr\">583</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(a + b + c)</code></td><td><bdi dir=\"ltr\">583</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">16</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(a * 100 + b * 10 + c)</code></td><td><bdi dir=\"ltr\">583</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">385</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش <code dir=\"ltr\">n % 2 == 0</code> معناها زوجي؟",
+          "a": "<p>لأنه الباقي من القسمة على 2 بيكون 0 بس للأعداد اللي بتنقسم على 2 بالزبط. وبشكل عام <code dir=\"ltr\">n % k == 0</code> معناها k بيقسم n.</p>"
+        },
+        {
+          "q": "شو بيطلع <code dir=\"ltr\">3 % 5</code>؟ الـ 3 أصغر من 5!",
+          "a": "<p>بيطلع 3: الـ 5 بتفوت صفر مرات بالـ 3، والباقي هو الـ 3 كلها. بشكل عام إذا <code dir=\"ltr\">0 &lt;= a &lt; b</code> فـ <code dir=\"ltr\">a % b == a</code> و <code dir=\"ltr\">a // b == 0</code>.</p><pre class=\"code\" dir=\"ltr\">print(3 % 5, 3 // 5)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">3 0</pre>"
+        },
+        {
+          "q": "شو بيصير مع أعداد سالبة؟",
+          "a": "<code dir=\"ltr\">//</code> بـ Python بتدوّر <b>لتحت</b> (لناحية سالب لا نهاية)، مش لناحية الصفر. والباقي بياخد إشارة المقسوم عليه. بالكورس غالباً الأعداد موجبة، بس منيح تعرفوا:<pre class=\"code\" dir=\"ltr\">print(-7 // 2, -7 % 2)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">-4 1</pre>"
+        },
+        {
+          "q": "كيف بطلّع خانة العشرات من عدد؟",
+          "a": "<p>منشيل خانة الآحاد بـ <code dir=\"ltr\">// 10</code>، وبعدين منوخد الآحاد الجديدة بـ <code dir=\"ltr\">% 10</code>. هاد النمط رح يرجع بالحلقات (الفصل 4) لنمرق على كل الخانات.</p><pre class=\"code\" dir=\"ltr\">n = 583\nprint(n // 10 % 10)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">8</pre>"
+        },
+        {
+          "q": "شو بيصير لو قسمت على صفر؟",
+          "a": "<p>Python بيوقف بخطأ <code dir=\"ltr\">ZeroDivisionError</code>، مع <code dir=\"ltr\">/</code> و<code dir=\"ltr\">//</code> و<code dir=\"ltr\">%</code>.</p><pre class=\"code\" dir=\"ltr\">print(5 % 0)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">ZeroDivisionError: integer division or modulo by zero</pre>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">n / 10</code> لشيل آخر خانة",
+          "yes": "<code dir=\"ltr\">n // 10</code>: <code dir=\"ltr\">/</code> بيعطي 472.1"
+        },
+        {
+          "no": "زوجي إذا <code dir=\"ltr\">n / 2 == 0</code>",
+          "yes": "زوجي إذا <code dir=\"ltr\">n % 2 == 0</code>"
+        },
+        {
+          "no": "<code dir=\"ltr\">3 % 5</code> بيعطي 0",
+          "yes": "بيعطي 3: 5 ما بتفوت ولا مرة بـ 3، فكل الـ 3 باقي"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">print(29 // 4)</pre></div>",
+        "answer": [
+          "7"
+        ],
+        "hint": "كم مرة 4 بتفوت كاملة بـ 29؟",
+        "solution": "<p>\\(4\\cdot 7=28\\) وهي أكبر مضاعف لـ 4 تحت 29، فالمنقسم الصحيح 7 والباقي واحد.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">7</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">print(29 % 4)</pre></div>",
+        "answer": [
+          "1"
+        ],
+        "hint": "شو بيضل بعد ما نشيل 28؟",
+        "solution": "<p>\\(29=4\\cdot 7+1\\)، يعني بعد 7 مجموعات كاملة من 4 بيضل واحد، وهاد هو الباقي.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">1</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">n = 9054\nprint(n // 10 % 10)</pre></div>",
+        "answer": [
+          "5"
+        ],
+        "hint": "أول شيلوا آخر خانة، وبعدين خدوا آخر خانة من اللي ضل.",
+        "solution": "<p><code dir=\"ltr\">9054 // 10 = 905</code>، وآخر خانة منها <code dir=\"ltr\">905 % 10 = 5</code>، يعني خانة العشرات.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">5</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">print(5 % 8)</pre></div>",
+        "answer": [
+          "5"
+        ],
+        "hint": "8 أكبر من 5.",
+        "solution": "<p>8 ما بتفوت ولا مرة كاملة بـ 5، فالمنقسم صفر وكل الـ 5 بيضلّوا باقي.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">5</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "חלוקה בשלמים",
+      "back": "<code dir=\"ltr\">a // b</code>: القسمة الصحيحة (كم مجموعة كاملة). <code dir=\"ltr\">17 // 5 = 3</code>."
+    },
+    {
+      "t": "card",
+      "front": "שארית",
+      "back": "<code dir=\"ltr\">a % b</code>: الباقي. <code dir=\"ltr\">17 % 5 = 2</code>. آخر خانة: <code dir=\"ltr\">n % 10</code>."
+    }
+  ]
+}

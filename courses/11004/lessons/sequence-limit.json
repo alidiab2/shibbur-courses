@@ -1,0 +1,196 @@
+{
+  "slug": "sequence-limit",
+  "title": "شو يعني نهاية متتالية",
+  "he": "גבול של סדרה",
+  "ref": "הרצאה 5 · חוברת עמ׳ 21-25 (§3)",
+  "minutes": 15,
+  "desc": "معنى إنه متتالية متقاربة لـ L: شريط ε وعدد N، كيف منلاقي N لـ ε معطى، وشو يعني متتالية متباعدة. حدوا 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> تعريف نهاية المتتالية هو أول تعريف «رسمي» بالكورس، وبالامتحان في سؤال «اوجدوا \\(N\\) بحيث…» أو «أثبتوا بالتعريف». بعد هالدرس بتعرفوا شو يعني كل رمز بالتعريف.</p><ol><li>متتالية: قائمة أعداد لا نهائية</li><li>الشريط حوالين النهاية: \\(\\varepsilon\\) و-\\(N\\)</li><li>كيف منلاقي \\(N\\) لـ \\(\\varepsilon\\) معطى</li><li>متقاربة ومتباعدة</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما يطلبوا «הוכיחו לפי הגדרה» أو «מצאו \\(N\\)».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 330\" role=\"img\" aria-label=\"a n=1+ (-1) n n . بعد N كل الحدود (النقاط) جوّا الشريط حوالين L=1 ، وما بتطلع منه. هاد معنى « a n 1 ».\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"50\" y1=\"290.0\" x2=\"442.0\" y2=\"290.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"454,290.0 442.0,283.0 442.0,297.0\"/><line class=\"fk-line t-ink\" x1=\"50.0\" y1=\"290\" x2=\"50.0\" y2=\"28.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"50.0,16 43.0,28.0 57.0,28.0\"/><text class=\"fk-t t-ink\" x=\"446\" y=\"316.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">n</text><text class=\"fk-t t-ink\" x=\"32.0\" y=\"26\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">aₙ</text><polygon class=\"fk-line t-good\" points=\"50.0,142.3 440.0,142.3 440.0,201.4 50.0,201.4\" style=\"fill:color-mix(in srgb,var(--c) 16%,transparent);stroke:none\"/><line class=\"fk-line t-good dash\" x1=\"50.0\" y1=\"142.27272727272728\" x2=\"440.0\" y2=\"142.27272727272728\" stroke-width=\"2\"/><line class=\"fk-line t-good dash\" x1=\"50.0\" y1=\"201.36363636363637\" x2=\"440.0\" y2=\"201.36363636363637\" stroke-width=\"2\"/><line class=\"fk-line t-hu\" x1=\"50.0\" y1=\"171.8181818181818\" x2=\"440.0\" y2=\"171.8181818181818\" stroke-width=\"2\"/><circle class=\"fk-dot t-bad\" cx=\"80.0\" cy=\"290.0\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"110.0\" cy=\"112.72727272727275\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"140.0\" cy=\"211.21212121212122\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"170.0\" cy=\"142.27272727272728\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"200.0\" cy=\"195.45454545454547\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"230.0\" cy=\"152.12121212121212\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"260.0\" cy=\"188.7012987012987\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"290.0\" cy=\"157.04545454545456\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"320.0\" cy=\"184.94949494949498\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"350.0\" cy=\"160.0\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"380.0\" cy=\"182.5619834710744\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"410.0\" cy=\"161.969696969697\" r=\"7\"/><line class=\"fk-line t-mut dash\" x1=\"185.0\" y1=\"290.0\" x2=\"185.0\" y2=\"41.81818181818184\" stroke-width=\"2\"/><text class=\"fk-t t-mut\" x=\"185.0\" y=\"35.81818181818184\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">N</text><text class=\"fk-t t-good\" x=\"428.0\" y=\"132.27272727272728\" font-size=\"18\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\">L + ε</text><text class=\"fk-t t-good\" x=\"428.0\" y=\"225.36363636363637\" font-size=\"18\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\">L − ε</text></svg>",
+      "alt": "a n=1+ (-1) n n . بعد N كل الحدود (النقاط) جوّا الشريط حوالين L=1 ، وما بتطلع منه. هاد معنى « a n 1 ».",
+      "caption": "\\(a_n=1+\\frac{(-1)^n}{n}\\). بعد \\(N\\) كل الحدود (النقاط) جوّا الشريط حوالين \\(L=1\\)، وما بتطلع منه. هاد معنى «\\(a_n\\to 1\\)»."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(a_n\\to L\\) يعني: لكل شريط \\(\\varepsilon&gt;0\\) في \\(N\\)، بحيث من \\(N\\) ولقدّام <b>كل</b> الحدود جوّا الشريط: \\(|a_n-L|&lt;\\varepsilon\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "من وين إجا هالموضوع؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>متتالية (סדרה) هي قائمة أعداد ما إلها آخر: \\(a_1,a_2,a_3,\\dots\\). مثلاً \\(a_n=\\frac1n\\) بتعطي \\(1,\\frac12,\\frac13,\\dots\\). السؤال الطبيعي: لوين رايحة؟ هون الحدود بتقرّب للصفر، بس ولا مرة بتوصله. لهيك ما منقدر نحكي «الحد الأخير بساوي 0»، لأنه ما في حد أخير.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الحل تبع الرياضيين: منرسم شريط رفيع حوالين العدد \\(L\\)، بعرض \\(\\varepsilon\\) لفوق ولتحت. إذا من نقطة معيّنة \\(N\\) وطالع كل الحدود جوّا الشريط، ومهما صغّرنا الشريط منقدر نلاقي \\(N\\) جديد، منقول إنه النهاية (גבול) هي \\(L\\). الشريط بيمثّل «قديش بدنا دقة»، والـ \\(N\\) هو «من وين بنضمن هالدقة».</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بالرسمة فوق، الحدود الحمر برّا الشريط، بس هن بس أول كم حد. بعد \\(N\\) كله أزرق وجوّا. متتالية إلها نهاية اسمها متقاربة (מתכנסת). متتالية ما إلها نهاية، متل \\((-1)^n\\) اللي بتنط بين 1 و-1، اسمها متباعدة (מתבדרת). كمان \\(a_n=n\\) متباعدة، بس منكتب \\(a_n\\to\\infty\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>النهاية هي العدد اللي الحدود «بتسكن» حواليه: مهما ضيّقنا الشريط، من مكان معيّن كل الحدود جوّاته.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"شريط أضيق ( أصغر) بدّه N أبعد: مع 0.25 كفاية من الحد الخامس، ومع 0.1 بس من الحد الـ 11. بس دايماً في N .\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"30\" y1=\"240.0\" x2=\"212.0\" y2=\"240.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"224,240.0 212.0,233.0 212.0,247.0\"/><line class=\"fk-line t-ink\" x1=\"30.0\" y1=\"240\" x2=\"30.0\" y2=\"38.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"30.0,26 23.0,38.0 37.0,38.0\"/><text class=\"fk-t t-ink\" x=\"216\" y=\"266.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-ink\" x=\"12.0\" y=\"36\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><polygon class=\"fk-line t-good\" points=\"30.0,165.0 210.0,165.0 210.0,115.0 30.0,115.0\" style=\"fill:color-mix(in srgb,var(--c) 16%,transparent);stroke:none\"/><circle class=\"fk-dot t-hu\" cx=\"39.0\" cy=\"240.0\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"48.0\" cy=\"90.0\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"57.0\" cy=\"173.33333333333331\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"66.0\" cy=\"115.0\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"75.0\" cy=\"160.0\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"84.0\" cy=\"123.33333333333333\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"93.0\" cy=\"154.28571428571428\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"102.0\" cy=\"127.5\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"111.0\" cy=\"151.11111111111111\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"120.0\" cy=\"130.0\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"129.0\" cy=\"149.0909090909091\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"138.0\" cy=\"131.66666666666669\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"147.0\" cy=\"147.69230769230768\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"156.0\" cy=\"132.85714285714286\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"165.0\" cy=\"146.66666666666669\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"174.0\" cy=\"133.75\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"183.0\" cy=\"145.88235294117646\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"192.0\" cy=\"134.44444444444446\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"201.0\" cy=\"145.26315789473682\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"210.0\" cy=\"135.0\" r=\"7\"/><line class=\"fk-line t-mut dash\" x1=\"66.0\" y1=\"240.0\" x2=\"66.0\" y2=\"40.0\" stroke-width=\"2\"/><text class=\"fk-t t-hu\" x=\"120\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ε = 0.25</text><line class=\"fk-line t-ink\" x1=\"270\" y1=\"240.0\" x2=\"452.0\" y2=\"240.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"464,240.0 452.0,233.0 452.0,247.0\"/><line class=\"fk-line t-ink\" x1=\"270.0\" y1=\"240\" x2=\"270.0\" y2=\"38.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"270.0,26 263.0,38.0 277.0,38.0\"/><text class=\"fk-t t-ink\" x=\"456\" y=\"266.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-ink\" x=\"252.0\" y=\"36\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><polygon class=\"fk-line t-good\" points=\"270.0,150.0 450.0,150.0 450.0,130.0 270.0,130.0\" style=\"fill:color-mix(in srgb,var(--c) 16%,transparent);stroke:none\"/><circle class=\"fk-dot t-2\" cx=\"279.0\" cy=\"240.0\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"288.0\" cy=\"90.0\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"297.0\" cy=\"173.33333333333331\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"306.0\" cy=\"115.0\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"315.0\" cy=\"160.0\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"324.0\" cy=\"123.33333333333333\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"333.0\" cy=\"154.28571428571428\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"342.0\" cy=\"127.5\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"351.0\" cy=\"151.11111111111111\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"360.0\" cy=\"130.0\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"369.0\" cy=\"149.0909090909091\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"378.0\" cy=\"131.66666666666669\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"387.0\" cy=\"147.69230769230768\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"396.0\" cy=\"132.85714285714286\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"405.0\" cy=\"146.66666666666669\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"414.0\" cy=\"133.75\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"423.0\" cy=\"145.88235294117646\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"432.0\" cy=\"134.44444444444446\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"441.0\" cy=\"145.26315789473682\" r=\"7\"/><circle class=\"fk-dot t-2\" cx=\"450.0\" cy=\"135.0\" r=\"7\"/><line class=\"fk-line t-mut dash\" x1=\"360.0\" y1=\"240.0\" x2=\"360.0\" y2=\"40.0\" stroke-width=\"2\"/><text class=\"fk-t t-2\" x=\"360\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ε = 0.1</text></svg>",
+      "alt": "شريط أضيق ( أصغر) بدّه N أبعد: مع 0.25 كفاية من الحد الخامس، ومع 0.1 بس من الحد الـ 11. بس دايماً في N .",
+      "caption": "شريط أضيق (\\(\\varepsilon\\) أصغر) بدّه \\(N\\) أبعد: مع 0.25 كفاية من الحد الخامس، ومع 0.1 بس من الحد الـ 11. بس دايماً في \\(N\\)."
+    },
+    {
+      "t": "box",
+      "kind": "rule",
+      "title": "تعريف النهاية (הגדרת הגבול)",
+      "html": "<p>\\(\\lim_{n\\to\\infty}a_n=L \\iff \\forall\\varepsilon&gt;0\\ \\exists N\\ \\forall n&gt;N:\\ |a_n-L|&lt;\\varepsilon\\)</p><p>\\(|a_n-L|\\) هو بُعد الحد عن النهاية (متل الدرس عن القيمة المطلقة).</p>"
+    },
+    {
+      "t": "method",
+      "title": "كيف ألاقي \\(N\\) لـ \\(\\varepsilon\\) معطى، 3 خطوات",
+      "steps": [
+        "<b>بسّطوا:</b> \\(|a_n-L|\\) لكسر واحد، عادة شي متل \\(\\frac{c}{n+d}\\).",
+        "<b>حلّوا:</b> المتباينة \\(|a_n-L|&lt;\\varepsilon\\) لـ \\(n\\).",
+        "<b>اختاروا:</b> \\(N\\) أي عدد صحيح من وين المتباينة بتصير صح."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: \\(a_n=\\frac1n\\) و\\(\\varepsilon=0.1\\)",
+      "html": "<p>أبسط متتالية رايحة لـ 0.</p><p>البُعد عن النهاية 0 هو \\(|\\frac1n-0|=\\frac1n\\). ليش هيك؟ لأنه التعريف بيسأل عن البُعد بين الحد والنهاية.</p><p>بدنا \\(\\frac1n&lt;0.1\\)، يعني \\(n&gt;10\\). فـ \\(N=10\\).</p><p>فحص: الحد الـ 11 هو \\(\\frac1{11}\\approx0.09\\)، أصغر من 0.1. والحد الـ 10 بالزبط 0.1، مش أصغر، ولهيك منبلّش بعده.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال بطيء: \\(a_n=\\frac{2n+1}{n}\\) و\\(\\varepsilon=0.01\\)",
+      "html": "<p>التخمين: الـ 1 بالبسط صغير جنب \\(2n\\)، فالنهاية 2.</p><p>منحسب البعد عن 2، لأنه هاد اللي بدنا نصغّره: \\(\\frac{2n+1}{n}-2=\\frac1n\\).</p><p>بدنا \\(\\frac1n&lt;0.01\\). منقلب (التنين موجبين): \\(n&gt;100\\).</p><p>يعني \\(N=100\\) بيزبط: من الحد الـ 101 كل الحدود بعيدة عن 2 أقل من 0.01. ولأي \\(\\varepsilon\\) تاني، \\(N=\\frac1\\varepsilon\\) بيزبط، وهيك أثبتنا إنه النهاية 2.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"السؤال: a n= 3n-1 n+2 . الحدود (الحمر) قبل N=68 ممكن تكون برّا الشريط 3 0.1 ؛ من بعده كلها جوّا (زرق).\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"46\" y1=\"262\" x2=\"448.0\" y2=\"262.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"460,262 448.0,255.0 448.0,269.0\"/><line class=\"fk-line t-ink\" x1=\"46.0\" y1=\"262\" x2=\"46.0\" y2=\"24.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"46.0,12 39.0,24.0 53.0,24.0\"/><text class=\"fk-t t-ink\" x=\"452\" y=\"288\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">n</text><text class=\"fk-t t-ink\" x=\"28.0\" y=\"22\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">aₙ</text><polygon class=\"fk-line t-good\" points=\"46.0,66.7 446.0,66.7 446.0,50.4 46.0,50.4\" style=\"fill:color-mix(in srgb,var(--c) 16%,transparent);stroke:none\"/><line class=\"fk-line t-good dash\" x1=\"46.0\" y1=\"58.55172413793102\" x2=\"446.0\" y2=\"58.55172413793102\" stroke-width=\"2\"/><line class=\"fk-line t-mut dash\" x1=\"318.0\" y1=\"262.0\" x2=\"318.0\" y2=\"26.0\" stroke-width=\"2\"/><circle class=\"fk-dot t-bad\" cx=\"50.0\" cy=\"248.4367816091954\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"62.0\" cy=\"153.49425287356323\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"74.0\" cy=\"121.84674329501914\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"86.0\" cy=\"106.02298850574712\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"98.0\" cy=\"96.52873563218392\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"110.0\" cy=\"90.19923371647508\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"122.0\" cy=\"85.67816091954023\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"134.0\" cy=\"82.28735632183904\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"146.0\" cy=\"79.65006385696037\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"158.0\" cy=\"77.54022988505747\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"170.0\" cy=\"75.81400208986415\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"182.0\" cy=\"74.37547892720306\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"194.0\" cy=\"73.15826702033598\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"206.0\" cy=\"72.11494252873561\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"218.0\" cy=\"71.21072796934865\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"230.0\" cy=\"70.41954022988509\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"242.0\" cy=\"69.72143340094658\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"254.0\" cy=\"69.10089399744572\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"266.0\" cy=\"68.54567453115547\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"278.0\" cy=\"68.04597701149424\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"290.0\" cy=\"67.5938697318008\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"302.0\" cy=\"67.18286311389758\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"314.0\" cy=\"66.80759620189906\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"326.0\" cy=\"66.46360153256705\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"338.0\" cy=\"66.1471264367816\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"350.0\" cy=\"65.85499557913352\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"362.0\" cy=\"65.58450404427415\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"374.0\" cy=\"65.33333333333334\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"386.0\" cy=\"65.09948474038842\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"398.0\" cy=\"64.88122605363986\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"410.0\" cy=\"64.67704857248793\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"422.0\" cy=\"64.48563218390802\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"434.0\" cy=\"64.30581678857538\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"446.0\" cy=\"64.13657876943881\" r=\"7\"/><rect class=\"fk-chip t-mut solid\" x=\"274.38\" y=\"188.0344827586207\" width=\"87.24000000000001\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-on\" x=\"318.0\" y=\"210.9844827586207\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">N = 68</text><rect class=\"fk-chip t-good solid\" x=\"349.11\" y=\"17.13793103448276\" width=\"97.78\" height=\"34\" rx=\"17\"/><text class=\"fk-t t-on\" x=\"398.0\" y=\"40.087931034482764\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">L ± 0.1</text></svg>",
+      "alt": "السؤال: a n= 3n-1 n+2 . الحدود (الحمر) قبل N=68 ممكن تكون برّا الشريط 3 0.1 ؛ من بعده كلها جوّا (زرق).",
+      "caption": "السؤال: \\(a_n=\\frac{3n-1}{n+2}\\). الحدود (الحمر) قبل \\(N=68\\) ممكن تكون برّا الشريط \\(3\\pm0.1\\)؛ من بعده كلها جوّا (زرق)."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: \\(a_n=\\dfrac{3n-1}{n+2}\\). اوجدوا النهاية، ومن أي \\(N\\) بيصير \\(|a_n-L|&lt;0.1\\)",
+      "steps": [
+        {
+          "label": "النهاية: قسمة القوى الكبيرة",
+          "body": "\\(L=\\lim\\frac{3n-1}{n+2}=3\\)"
+        },
+        {
+          "label": "البعد عن 3",
+          "body": "\\(a_n-3=\\frac{-7}{n+2}\\)"
+        },
+        {
+          "label": "المتباينة",
+          "body": "\\(\\frac{7}{n+2}&lt;0.1 \\iff n+2&gt;70\\)"
+        },
+        {
+          "label": "النتيجة",
+          "body": "\\(n&gt;68\\)"
+        }
+      ],
+      "a": "الجواب \\(L=3\\)، و\\(N=68\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"شمال: الحدود بتنط بين 1 و−1 وما بتسكن بأي مكان، فمتباعدة. يمين: كمان بتنط، بس النطّة بتصغر وبتسكن حوالين 0.\" class=\"fk\"><line class=\"fk-line t-ink\" x1=\"30\" y1=\"140.0\" x2=\"212.0\" y2=\"140.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"224,140.0 212.0,133.0 212.0,147.0\"/><line class=\"fk-line t-ink\" x1=\"30.0\" y1=\"240\" x2=\"30.0\" y2=\"38.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"30.0,26 23.0,38.0 37.0,38.0\"/><text class=\"fk-t t-ink\" x=\"216\" y=\"166.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-ink\" x=\"12.0\" y=\"36\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><circle class=\"fk-dot t-bad\" cx=\"45.0\" cy=\"206.66666666666666\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"60.0\" cy=\"73.33333333333334\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"75.0\" cy=\"206.66666666666666\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"90.0\" cy=\"73.33333333333334\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"105.0\" cy=\"206.66666666666666\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"120.0\" cy=\"73.33333333333334\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"135.0\" cy=\"206.66666666666666\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"150.0\" cy=\"73.33333333333334\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"165.0\" cy=\"206.66666666666666\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"180.0\" cy=\"73.33333333333334\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"195.0\" cy=\"206.66666666666666\" r=\"7\"/><circle class=\"fk-dot t-bad\" cx=\"210.0\" cy=\"73.33333333333334\" r=\"7\"/><text class=\"fk-t t-bad\" x=\"120\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">ما في نهاية</text><line class=\"fk-line t-ink\" x1=\"270\" y1=\"140.0\" x2=\"452.0\" y2=\"140.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"464,140.0 452.0,133.0 452.0,147.0\"/><line class=\"fk-line t-ink\" x1=\"270.0\" y1=\"240\" x2=\"270.0\" y2=\"38.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"270.0,26 263.0,38.0 277.0,38.0\"/><text class=\"fk-t t-ink\" x=\"456\" y=\"166.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><text class=\"fk-t t-ink\" x=\"252.0\" y=\"36\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\"/><line class=\"fk-line t-good dash\" x1=\"270.0\" y1=\"140.0\" x2=\"450.0\" y2=\"140.0\" stroke-width=\"2\"/><circle class=\"fk-dot t-good\" cx=\"285.0\" cy=\"206.66666666666666\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"300.0\" cy=\"106.66666666666666\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"315.0\" cy=\"162.22222222222223\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"330.0\" cy=\"123.33333333333333\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"345.0\" cy=\"153.33333333333331\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"360.0\" cy=\"128.88888888888886\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"375.0\" cy=\"149.52380952380952\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"390.0\" cy=\"131.66666666666669\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"405.0\" cy=\"147.4074074074074\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"420.0\" cy=\"133.33333333333331\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"435.0\" cy=\"146.06060606060606\" r=\"7\"/><circle class=\"fk-dot t-good\" cx=\"450.0\" cy=\"134.44444444444446\" r=\"7\"/><text class=\"fk-t t-good\" x=\"360\" y=\"22\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">نهاية 0</text></svg>",
+      "alt": "شمال: الحدود بتنط بين 1 و−1 وما بتسكن بأي مكان، فمتباعدة. يمين: كمان بتنط، بس النطّة بتصغر وبتسكن حوالين 0.",
+      "caption": "شمال: الحدود بتنط بين 1 و−1 وما بتسكن بأي مكان، فمتباعدة. يمين: كمان بتنط، بس النطّة بتصغر وبتسكن حوالين 0."
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش «لكل ε»؟ مش كفاية ε وحدة صغيرة؟",
+          "a": "<p>لأ. مثلاً \\(a_n=1+\\frac1{1000}\\) (ثابتة) جوّا الشريط حوالين 1 مع \\(\\varepsilon=0.01\\)، بس نهايتها مش 1، هي \\(1.001\\). «لكل ε» معناها: مهما بتطلبوا دقة، بنقدر نوصلها. هاد اللي بيفرّق بين «قريب» و«رايح لـ».</p>"
+        },
+        {
+          "q": "هل الـ \\(N\\) لازم يكون أصغر واحد ممكن؟",
+          "a": "<p>لأ. أي \\(N\\) بيزبط مقبول. إذا \\(N=100\\) بيزبط، كمان \\(N=1000\\) بيزبط. لهيك بالبرهان مسموح نقدّر بشكل خشن، مثلاً \\(\\frac{1}{n+5}&lt;\\frac1n\\)، ومنختار \\(N\\) أكبر من اللازم. هاد بيسهّل كتير.</p>"
+        },
+        {
+          "q": "هل ممكن يكون لمتتالية نهايتين؟",
+          "a": "<p>لأ، النهاية وحيدة (יחידות הגבול). البرهان: لو \\(a_n\\to L_1\\) و\\(a_n\\to L_2\\) مع \\(L_1\\ne L_2\\)، منختار \\(\\varepsilon=\\frac{|L_1-L_2|}{2}\\). الشريطين ما بيتقاطعوا، ومن \\(N\\) معيّن كل الحدود لازم تكون بالتنين بنفس الوقت. مستحيل.</p>"
+        },
+        {
+          "q": "هل كل متتالية متقاربة محدودة؟",
+          "a": "<p>آه. من \\(N\\) ولقدّام كل الحدود جوّا الشريط \\((L-1,L+1)\\) (مع \\(\\varepsilon=1\\)). قبل \\(N\\) في عدد محدود من الحدود، فإلهم أكبر قيمة مطلقة. فكلها محدودة. العكس مش صحيح: \\((-1)^n\\) محدودة ومتباعدة.</p>"
+        },
+        {
+          "q": "شو يعني \\(a_n\\to\\infty\\)؟ هل هي متقاربة؟",
+          "a": "<p>معناها: لكل \\(M\\) في \\(N\\) بحيث من \\(N\\) ولقدّام \\(a_n&gt;M\\). هي مش متقاربة (لأنه \\(\\infty\\) مش عدد)، بس منقول «متباعدة لـ \\(\\infty\\)» (מתבדרת לאינסוף).</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "النهاية هي الحد الأخير",
+          "yes": "ما في حد أخير. النهاية هي وين الحدود «بتسكن»"
+        },
+        {
+          "no": "\\(\\frac1n\\) بتوصل للصفر",
+          "yes": "بتقرّب للصفر وما بتوصله، والنهاية مع هيك 0"
+        },
+        {
+          "no": "\\((-1)^n\\) نهايتها 0 لأنه «بتتلاغى»",
+          "yes": "بتنط بين 1 و-1، فهي متباعدة"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش \\(\\lim_{n\\to\\infty}\\dfrac{5n+2}{n}\\)؟",
+        "answer": [
+          "5"
+        ],
+        "hint": "قسّموا كل حد بالبسط على \\(n\\).",
+        "solution": "<div class=\"disp-wrap\"><div class=\"disp\">\\[\\frac{5n+2}{n}=5+\\frac2n\\to 5+0=5\\]</div></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(a_n=\\frac1n\\). شو أصغر \\(n\\) بيحقق \\(a_n&lt;0.05\\)؟",
+        "answer": [
+          "21"
+        ],
+        "hint": "\\(\\frac1n&lt;0.05\\) يعني \\(n&gt;20\\).",
+        "solution": "<p>منقلب المتباينة: \\(n&gt;\\frac{1}{0.05}=20\\). المتباينة حادة، فالـ 20 نفسها ما بتزبط، وأصغر عدد صحيح هو 21.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش \\(\\lim_{n\\to\\infty}\\dfrac{n}{n^2+1}\\)؟",
+        "answer": [
+          "0"
+        ],
+        "hint": "قسّموا فوق وتحت على \\(n^2\\).",
+        "solution": "<p>بعد القسمة على \\(n^2\\) منحصل على \\(\\frac{1/n}{1+1/n^2}\\). البسط رايح لـ 0 والمقام لـ 1، فالنهاية صفر.</p>"
+      }
+    }
+  ]
+}

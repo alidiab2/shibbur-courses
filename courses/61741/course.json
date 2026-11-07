@@ -1,0 +1,167 @@
+{
+  "code": "61741",
+  "title": "مقدمة لعلوم الحاسوب (מבוא למדעי המחשב)",
+  "desc": "Python من الصفر: متغيرات، شروط، حلقات، دوال، قوائم، مصفوفات، تعقيد، رجعية (רקורסיה) وفرز.",
+  "subject": "comp",
+  "chapters": [
+    {
+      "n": 1,
+      "slug": "basics",
+      "title": "أساسيات: ألغوريتم، متغيرات، إدخال وإخراج",
+      "lead": "من شو بيتركّب البرنامج، كيف منرتّب الحل كخطوات، وأول أوامر بـ Python: print و input والمتغيرات.",
+      "isExam": false,
+      "lessons": [
+        "computer-languages",
+        "algorithm",
+        "variables-print",
+        "input"
+      ]
+    },
+    {
+      "n": 2,
+      "slug": "types",
+      "title": "الإسناد، الأنواع والعمليات",
+      "lead": "أنواع القيم بـ Python، القسمة الصحيحة والباقي، وكيف منحسب تعابير طويلة بالترتيب الصح.",
+      "isExam": false,
+      "lessons": [
+        "types",
+        "div-mod",
+        "expressions"
+      ]
+    },
+    {
+      "n": 3,
+      "slug": "conditions",
+      "title": "شروط وعمليات منطقية",
+      "lead": "كيف البرنامج بيسأل (مقارنات، and، or، not) وكيف بيقرّر (if، elif، else).",
+      "isExam": false,
+      "lessons": [
+        "logic",
+        "if",
+        "conditions-practice"
+      ]
+    },
+    {
+      "n": 4,
+      "slug": "loops",
+      "title": "حلقات وألغوريتمات أساسية",
+      "lead": "كيف منكرّر أوامر بـ while و for، وأشهر الألغوريتمات بالحلقات: عدّ، جمع، أكبر قيمة، أوّلي وخانات.",
+      "isExam": false,
+      "lessons": [
+        "while",
+        "for-range",
+        "loop-algorithms"
+      ]
+    },
+    {
+      "n": 5,
+      "slug": "functions",
+      "title": "دوال وحلقات متداخلة",
+      "lead": "كيف منقسم البرنامج لدوال بـ def و return، مين بيشوف أي متغيّر، وحلقة جوّا حلقة.",
+      "isExam": false,
+      "lessons": [
+        "functions",
+        "scope",
+        "modules-docs",
+        "nested-loops",
+        "debugging"
+      ]
+    },
+    {
+      "n": 6,
+      "slug": "lists",
+      "title": "قوائم وألغوريتمات على سلاسل",
+      "lead": "كيف منحفظ كتير قيم بقائمة، كيف منمرق عليها، وأشهر الألغوريتمات والفخاخ.",
+      "isExam": false,
+      "lessons": [
+        "lists",
+        "sequence-algorithms",
+        "list-traps"
+      ]
+    },
+    {
+      "n": 7,
+      "slug": "strings",
+      "title": "نصوص (מחרוזות)",
+      "lead": "النص كسلسلة حروف، دوال النصوص الجاهزة وكيف منكتبها لحالنا، وأسئلة نصوص بأسلوب الامتحان.",
+      "isExam": false,
+      "lessons": [
+        "strings",
+        "string-methods",
+        "string-problems"
+      ]
+    },
+    {
+      "n": 8,
+      "slug": "matrices",
+      "title": "مصفوفات (מטריצות)",
+      "lead": "جداول من أسطر وأعمدة كقائمة قوائم: كيف منبنيها، منمرق عليها، ومنحسب أسطر وأعمدة وأقطار.",
+      "isExam": false,
+      "lessons": [
+        "matrix-basics",
+        "matrix-algorithms"
+      ]
+    },
+    {
+      "n": 9,
+      "slug": "complexity",
+      "title": "التعقيد والبحث الثنائي",
+      "lead": "كيف منقيس قديش ألغوريتم بيتعب (big O)، البحث الثنائي بـ O(log n)، ودمج قوائم مرتّبة.",
+      "isExam": false,
+      "lessons": [
+        "big-o",
+        "binary-search",
+        "merge"
+      ]
+    },
+    {
+      "n": 10,
+      "slug": "recursion-1",
+      "title": "الرجعية، جزء 1",
+      "lead": "دالة بتستدعي حالها: حالة وقوف، مشكلة أصغر، ومكدّس الاستدعاءات، مع حلول رجعية لمسائل بسيطة وتتبّعها.",
+      "isExam": false,
+      "lessons": [
+        "recursion-idea",
+        "simple-recursion",
+        "tracing-recursion"
+      ]
+    },
+    {
+      "n": 11,
+      "slug": "recursion-2",
+      "title": "الرجعية، جزء 2: ألغوريتمات وتعقيد",
+      "lead": "رجعية على قوائم، بحث ثنائي رجعي، كيف منحسب تعقيد دالة رجعية، وأسئلة «كم طريقة؟».",
+      "isExam": false,
+      "lessons": [
+        "recursion-lists",
+        "recursion-complexity",
+        "recursion-counting"
+      ]
+    },
+    {
+      "n": 12,
+      "slug": "sorting",
+      "title": "ألغوريتمات الفرز",
+      "lead": "فرز بالاختيار، الفقاعات، الإدخال والدمج: كيف بيشتغلوا، كيف منتتبّعهم، وقديش كل واحد سريع.",
+      "isExam": false,
+      "lessons": [
+        "selection-bubble",
+        "insertion",
+        "merge-sort"
+      ]
+    },
+    {
+      "n": 13,
+      "slug": "exam",
+      "title": "أسئلة بمستوى الامتحان",
+      "lead": "كيف بيكون الامتحان، طريقة ثابتة للتتبّع وللكتابة، وتصحيح أخطاء، مع أسئلة بتجمع كل الكورس.",
+      "isExam": true,
+      "lessons": [
+        "exam-tracing",
+        "exam-writing",
+        "exam-debug",
+        "exam-patterns"
+      ]
+    }
+  ]
+}

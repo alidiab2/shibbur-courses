@@ -1,0 +1,228 @@
+{
+  "slug": "scope",
+  "title": "تحويطة المتغيّرات (scope) وتمرير القيم",
+  "he": "תחום הכרה של משתנים",
+  "ref": "שבוע 5",
+  "minutes": 15,
+  "desc": "مين بيشوف أي متغيّر بـ Python: متغيرات محلية (משתנה מקומי) جوّا الدالة ومتغيرات عامة برّا، ليش تغيير بارامتر ما بيغيّر المتغيّر الأصلي، ومتى بنحتاج global.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> سؤال كلاسيكي بالامتحان: نفس اسم المتغيّر برّا وجوّا الدالة، و«شو بيطبع؟». إذا بتعرفوا قاعدة التحويطة (תחום הכרה)، بتحلّوه بثواني.</p><ol><li>متغيّر محلي (מקומי) بيعيش جوّا الدالة بس</li><li>نفس الاسم برّا وجوّا = متغيرين مختلفين</li><li>تغيير بارامتر ما بيغيّر اللي انبعت</li><li><code dir=\"ltr\">global</code>: ليش منتجنّبه</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما في دالة بتغيّر متغيّر بنفس اسم متغيّر برّاها.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"كل استدعاء بيعمل صناديق جديدة خاصة فيه. الـ x جوّا الدالة صندوق تاني، ولما الدالة تخلص بينمحى.\" class=\"fk\"><rect class=\"fk-chip t-1 solid\" x=\"107.88\" y=\"15\" width=\"118.24\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"167.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">x (برّا)</text><rect class=\"fk-chip t-1\" x=\"102.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"167.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-hu solid\" x=\"242.1\" y=\"15\" width=\"141.8\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"313.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">x (جوّا f)</text><rect class=\"fk-chip t-hu\" x=\"248.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"313.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text></svg>",
+      "alt": "كل استدعاء بيعمل صناديق جديدة خاصة فيه. الـ x جوّا الدالة صندوق تاني، ولما الدالة تخلص بينمحى.",
+      "caption": "كل استدعاء بيعمل صناديق جديدة خاصة فيه. الـ x جوّا الدالة صندوق تاني، ولما الدالة تخلص بينمحى."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>متغيّر بينعطى قيمة جوّا دالة هو <b>محلي</b>: بيعيش لحد ما الدالة تخلص، وما بيلمس متغيّر برّا بنفس الاسم. الطريق الوحيد لنطلّع قيمة هو <code dir=\"ltr\">return</code>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>كل استدعاء دالة بيفتح «غرفة» جديدة فيها صناديق البارامترات والمتغيرات المحلية. البارامتر بياخد نسخة من القيمة اللي انبعتت. لما الدالة ترجع، الغرفة بتنسكّر وكل صناديقها بتروح.</p>"
+    },
+    {
+      "t": "h",
+      "text": "ليش هيك؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"غرفتين: تغيير x جوّا الدالة ما بيوصل لبرّا.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"298.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-hu solid\" x=\"186.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">برّا</text><rect class=\"fk-chip t-hu solid\" x=\"74.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"128.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">جوّا f</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">x بأول f</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">10 (نسخة)</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"121.55\" font-size=\"13\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بعد x = x + 1</text><rect class=\"fk-chip t-good solid\" x=\"186.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"165.55\" font-size=\"13\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بعد ما f تخلص</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">انمحى</text></svg>",
+      "alt": "غرفتين: تغيير x جوّا الدالة ما بيوصل لبرّا.",
+      "caption": "غرفتين: تغيير x جوّا الدالة ما بيوصل لبرّا."
+    },
+    {
+      "t": "p",
+      "html": "<p>تخيّلوا لو كل دالة بتقدر تغيّر أي متغيّر بالبرنامج: دالة صغيرة اسمها count ممكن تخرب عدّاد بمكان تاني بالصدفة. التحويطة بتخلّي كل دالة «صندوق أسود»: بتاخد بارامترات، بترجّع قيمة، وما بتأثّر على إشي تاني. هيك فينا نفهم كل دالة لحالها.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لما منبعت متغيّر لدالة، <code dir=\"ltr\">f(x)</code>، البارامتر بياخد القيمة. إذا الدالة عملت <code dir=\"ltr\">n = n + 1</code> على البارامتر، بتغيّر صندوقها هي بس. الـ x برّا بيضل متل ما هو. بدكم التغيير برّا؟ <code dir=\"ltr\">return n</code> وبرّا <code dir=\"ltr\">x = f(x)</code>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>دالة بتقدر <b>تقرا</b> متغيّر عام (גלובלי) إذا ما في محلي بنفس الاسم، بس إذا عطيتوه قيمة جوّا الدالة بيصير محلي. لهيك <code dir=\"ltr\">count += 1</code> جوّا دالة على متغيّر عام بتطلّع <code dir=\"ltr\">UnboundLocalError</code>. في كلمة <code dir=\"ltr\">global</code> بتسمح بالتغيير، بس بالكورس منتجنّبها: return أوضح.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>استثناء مهم منرجعلو بالفصل 6: القوائم. دالة بتقدر تغيّر <b>محتوى</b> قائمة انبعتتلها (<code dir=\"ltr\">lst.append</code>)، لأنه البارامتر والمتغيّر برّا بيأشّروا على نفس القائمة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 152\" role=\"img\" aria-label=\"كل استدعاء طبقة فوق البرنامج (מחסנית קריאות). لما f بترجع، طبقتها بتنشال وبتطلع بس قيمة return.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"60\" y=\"76\" width=\"230\" height=\"46\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"175.0\" y=\"105.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">البرنامج: x = 10</text><rect class=\"fk-chip t-2 solid\" x=\"60\" y=\"20\" width=\"230\" height=\"46\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"175.0\" y=\"49.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f: x = 11</text><line class=\"fk-line t-good\" x1=\"296\" y1=\"43\" x2=\"348.0\" y2=\"43.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"360,43 348.0,36.0 348.0,50.0\"/><text class=\"fk-t t-good\" x=\"370\" y=\"50\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">11</text><text class=\"fk-t t-mut\" x=\"30\" y=\"30\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">آخر</text><text class=\"fk-t t-mut\" x=\"30\" y=\"106\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">أول</text></svg>",
+      "alt": "كل استدعاء طبقة فوق البرنامج (מחסנית קריאות). لما f بترجع، طبقتها بتنشال وبتطلع بس قيمة return.",
+      "caption": "كل استدعاء طبقة فوق البرنامج (מחסנית קריאות). لما f بترجع، طبقتها بتنشال وبتطلع بس قيمة return."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def f(x):\n    x = x + 1\n    print(\"inside:\", x)\n    return x\n\nx = 10\nf(x)\nprint(\"outside:\", x)\nx = f(x)\nprint(\"now:\", x)",
+      "out": "inside: 11\noutside: 10\ninside: 11\nnow: 11"
+    },
+    {
+      "t": "method",
+      "title": "كيف تحلّوا سؤال تحويطة، 3 خطوات",
+      "steps": [
+        "<b>عمود لكل غرفة</b> جدول للبرنامج الرئيسي، وجدول لكل استدعاء.",
+        "<b>البارامتر نسخة</b> بأول الاستدعاء اكتبوا قيمته المبعوتة.",
+        "<b>شو بيرجع؟</b> بس قيمة return بتطلع، ولوين بتنحط (أو بتروح إذا ما في =)."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: نفس الاسم، صندوقين",
+      "html": "<p>برّا t = 1، وجوّا الدالة t = 50. ليش برّا ضلّت 1؟ لأنه السطر <code dir=\"ltr\">t = 50</code> جوّا الدالة عمل صندوق محلي جديد، وما لمس الصندوق اللي برّا.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def f():\n    t = 50\n    print(\"inside:\", t)\n\nt = 1\nf()\nprint(\"outside:\", t)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">inside: 50\noutside: 1</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: نفس الاسم، تلات صناديق",
+      "html": "<p>متغيّر a برّا، وبارامتر a جوّا، ومتغيّر محلي b. منتابع جوّا الدالة.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def g(a):\n    b = a * 2\n    a = b + 1\n    return a\n\na = 4\nb = g(a)\nprint(a, b)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">4 9</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">a</bdi></th><th><bdi dir=\"ltr\">b</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">def g(a):</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a = 4</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">b = g(a)</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(a, b)</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\">4 9</bdi></td></tr></tbody></table></div><p>جدول المتابعة هون للبرنامج الرئيسي: a ضل 4 لأنه الدالة غيّرت الـ a تبعها. b برّا أخد القيمة اللي رجعت (9)، مش الـ b المحلي (8).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"معطيات السؤال: n جوّا h نسخة. كل اللي بيصير إلها ما بيلمس n برّا.\" class=\"fk\"><rect class=\"fk-chip t-1 solid\" x=\"46.660000000000004\" y=\"15\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">n برّا</text><rect class=\"fk-chip t-1\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-hu solid\" x=\"180.88\" y=\"15\" width=\"118.24\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">n جوّا h</text><rect class=\"fk-chip t-hu\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-3 solid\" x=\"344.55\" y=\"15\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">total</text><rect class=\"fk-chip t-3\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-3\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "معطيات السؤال: n جوّا h نسخة. كل اللي بيصير إلها ما بيلمس n برّا.",
+      "caption": "معطيات السؤال: n جوّا h نسخة. كل اللي بيصير إلها ما بيلمس n برّا."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع؟ تتبعوا جوّا الدالة.<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def h(n):\n    total = 0\n    while n &gt; 0:\n        total += n\n        n -= 2\n    return total\n\nn = 5\nprint(h(n), n)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">9 5</pre></div></div>",
+      "steps": [
+        {
+          "label": "جوّا h: n نسخة = 5",
+          "body": "<code dir=\"ltr\">total = 5, n = 3</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">3 &gt; 0</bdi>",
+          "body": "<code dir=\"ltr\">total = 8, n = 1</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">1 &gt; 0</bdi>",
+          "body": "<code dir=\"ltr\">total = 9, n = -1</code>"
+        },
+        {
+          "label": "برّا: n ما تغيّر",
+          "body": "<code dir=\"ltr\">9 5</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">9 5</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">n</bdi></th><th><bdi dir=\"ltr\">total</bdi></th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">total = 0</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">0</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">total += n</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">5</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">n -= 2</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">5</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">total += n</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">8</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">n -= 2</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">8</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">total += n</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">9</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">n -= 2</code></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">9</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "دالة بتقدر تقرا متغيّر من برّا بدون ما أبعتلها ياه؟",
+          "a": "<p>آه، إذا ما عطيتوه قيمة جوّا الدالة. بس هاد بيخلّي الدالة تعتمد على إشي مخبّى. ابعتوا كل اللي بتحتاجه كبارامتر، والدالة بتصير مفهومة لحالها.</p><pre class=\"code\" dir=\"ltr\">rate = 3\ndef cost(n):\n    return n * rate\n\nprint(cost(5))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">15</pre>"
+        },
+        {
+          "q": "ليش بيطلع <code dir=\"ltr\">UnboundLocalError</code>؟",
+          "a": "<p>لأنه أي <code dir=\"ltr\">=</code> على اسم جوّا الدالة بيخلّيه محلي بكل الدالة. فـ <code dir=\"ltr\">count += 1</code> بتحاول تقرا الـ count المحلي قبل ما إله قيمة.</p><pre class=\"code\" dir=\"ltr\">count = 0\ndef add():\n    count += 1\n\nadd()</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">UnboundLocalError: local variable 'count' referenced before assignment</pre>"
+        },
+        {
+          "q": "شو بتعمل <code dir=\"ltr\">global</code>، وليش منتجنّبها؟",
+          "a": "<code dir=\"ltr\">global count</code> بأول الدالة بتقول «الـ count هون هو العام». بتشتغل، بس كل دالة بتقدر تغيّر أي إشي بتصير صعبة للتتبّع. الأنضف: بارامتر داخل و return طالع."
+        },
+        {
+          "q": "بارامتر بنفس اسم متغيّر برّا، هاد مشكلة؟",
+          "a": "<p>مش مشكلة لـ Python: هنّي صندوقين مختلفين. بس مشكلة إلكم بالتتبّع، فبالامتحان بيعملوها عن قصد. اكتبوا جدول منفصل لكل استدعاء.</p>"
+        },
+        {
+          "q": "الـ scope نفسه للقوائم؟",
+          "a": "<p>الاسم نفسه محلي، بس إذا عملتوا <code dir=\"ltr\">lst.append(…)</code> على قائمة انبعتت، القائمة الأصلية بتتغيّر. هاد مشروح بالفصل 6 بدرس فخاخ القوائم.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "الدالة غيّرت البارامتر فتغيّر المتغيّر برّا",
+          "yes": "برّا ما بيتغيّر. لازم <code dir=\"ltr\">x = f(x)</code>"
+        },
+        {
+          "no": "متغيّر محلي بينشاف بعد الدالة",
+          "yes": "بينمحى لما الدالة تخلص: <code dir=\"ltr\">NameError</code>"
+        },
+        {
+          "no": "<code dir=\"ltr\">f(x)</code> لحالها بتحفظ النتيجة",
+          "yes": "النتيجة بتروح إذا ما حطيناها بمتغيّر"
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "html": "<p>المتغيّر المحلي ما بينشاف برّا:</p>"
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def make():\n    secret = 42\n    return secret\n\nmake()\nprint(secret)",
+      "out": "NameError: name 'secret' is not defined"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def inc(k):\n    k += 5\n    return k\n\nk = 1\ninc(k)\ninc(k)\nprint(k)</pre></div>",
+        "answer": [
+          "1"
+        ],
+        "hint": "وين انحفظت القيمة اللي رجعت؟",
+        "solution": "<p>الدالة رجّعت 6 مرتين بس ولا مرة حطينا النتيجة بـ k، وتغيير البارامتر جوّا ما بيلمس k برّا، فبيضل 1.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">1</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def p(x):\n    x = x * 3\n    return x - 1\n\nx = 2\ny = p(x)\nx = p(y)\nprint(x)</pre></div>",
+        "answer": [
+          "14"
+        ],
+        "hint": "تابعوا القيم اللي بترجع.",
+        "solution": "<p>أول استدعاء: البارامتر 2، بيصير 6، وبيرجّع 5 لـ y. التاني: البارامتر 5، بيصير 15، وبيرجّع 14 اللي بتنحط بـ x.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">14</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو اللي بيخلّي دالة تغيّر قيمة متغيّر عدد برّاها بطريقة نظيفة؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "نغيّر البارامتر جوّا الدالة"
+          },
+          {
+            "v": "2",
+            "html": "<code dir=\"ltr\">return</code> للقيمة الجديدة، وبرّا <code dir=\"ltr\">x = f(x)</code>"
+          },
+          {
+            "v": "3",
+            "html": "نعطي المتغيّر المحلي نفس الاسم"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "solution": "<p>البارامتر نسخة، وتغييرها ما بيطلع برّا الدالة. الطريق النظيف هو إنه الدالة ترجّع القيمة الجديدة واللي استدعاها يحطّها بالمتغيّر.</p>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "תחום הכרה",
+      "back": "scope: وين المتغيّر بينشاف. محلي (מקומי) جوّا الدالة بس، عام (גלובלי) بكل البرنامج."
+    }
+  ]
+}

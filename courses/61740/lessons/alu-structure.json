@@ -1,0 +1,193 @@
+{
+  "slug": "alu-structure",
+  "title": "مبنى الـ ALU: حساب ومنطق بخيار واحد",
+  "he": "יחידה אריתמטית-לוגית",
+  "ref": "הרצאה 8",
+  "minutes": 16,
+  "desc": "الـ ALU (יחידה אריתמטית לוגית) بكورس 61740: شريحة بِت واحد فيها AND وOR وجامع كامل وMUX، جدول العمليات حسب خطوط الاختيار، وكيف بتحسبوا مخرج ALU لمدخل معيّن.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> الـ ALU هو «الآلة الحاسبة» جوّا المعالج. كل اللي تعلّمناه لهلّق (بوابات، جامع، MUX) بيلتقي هون. بالامتحان بيعطوكم جدول عمليات وبيسألوا شو المخرج.</p><ol><li>ALU = وحدة حسابية + وحدة منطقية</li><li>شريحة بِت واحد (bit slice)</li><li>خطوط اختيار وجدول عمليات</li><li>ALU بـ n بِتات من شرائح</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما يذكروا ALU، «בורר פעולה» أو جدول فيه \\(S_1S_0\\) وعمليات.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 290\" role=\"img\" aria-label=\"كل الدوائر بتحسب مع بعض، والـ MUX بيختار نتيجة وحدة حسب كود العملية S1S0.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"22\" y=\"80\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">aᵢ</text><text class=\"fk-t t-ink\" x=\"22\" y=\"120\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">bᵢ</text><rect class=\"fk-chip t-1\" x=\"110\" y=\"45\" width=\"90\" height=\"50\" rx=\"10\" stroke-width=\"3\"/><text class=\"fk-t t-1\" x=\"155\" y=\"77\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AND</text><path class=\"fk-line t-mut\" d=\"M40 75 L90 75 L90 61 L110 61\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-mut\" d=\"M40 115 L80 115 L80 79 L110 79\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><rect class=\"fk-chip t-2\" x=\"110\" y=\"110\" width=\"90\" height=\"50\" rx=\"10\" stroke-width=\"3\"/><text class=\"fk-t t-2\" x=\"155\" y=\"142\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">OR</text><path class=\"fk-line t-mut\" d=\"M40 75 L90 75 L90 126 L110 126\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-mut\" d=\"M40 115 L80 115 L80 144 L110 144\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><rect class=\"fk-chip t-3\" x=\"110\" y=\"185\" width=\"90\" height=\"64\" rx=\"10\" stroke-width=\"3\"/><text class=\"fk-t t-3\" x=\"155\" y=\"224\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">FA</text><path class=\"fk-line t-mut\" d=\"M40 75 L90 75 L90 201 L110 201\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-mut\" d=\"M40 115 L80 115 L80 219 L110 219\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-3\" d=\"M155 268 L155 249\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-3\" x=\"155\" y=\"284\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Cᵢ</text><path class=\"fk-line t-3\" d=\"M200 192 L232 192 L232 172 L250 172\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-3\" x=\"214\" y=\"186\" font-size=\"13\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">sum</text><path class=\"fk-chip t-ink\" d=\"M300 50L380 80L380 210L300 240Z\" stroke-width=\"3\"/><text class=\"fk-t t-mut\" x=\"340\" y=\"150\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">MUX</text><path class=\"fk-line t-1\" d=\"M200 70 L300 75\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-2\" d=\"M200 135 L300 110\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-3\" d=\"M250 172 L300 150\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"285\" y=\"196\" font-size=\"13\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">aᵢ⊕bᵢ</text><path class=\"fk-line t-mut\" d=\"M290 190 L300 190\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-hu\" d=\"M380 145 L430 145\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"452\" y=\"152\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Fᵢ</text><path class=\"fk-line t-mut\" d=\"M325 270 L325 231\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-mut\" d=\"M355 270 L355 220\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"340\" y=\"288\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">S1 S0</text><path class=\"fk-line t-3\" d=\"M200 225 L230 225 L230 262 L260 262\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-3\" x=\"270\" y=\"268\" font-size=\"14\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">Cᵢ₊₁</text></svg>",
+      "alt": "كل الدوائر بتحسب مع بعض، والـ MUX بيختار نتيجة وحدة حسب كود العملية S1S0.",
+      "caption": "كل الدوائر بتحسب مع بعض، والـ MUX بيختار نتيجة وحدة حسب كود العملية S1S0."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>الـ ALU بيحسب <b>كل العمليات مع بعض</b>، و<b>MUX بيختار</b> وحدة منهم حسب كود العملية \\(S\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>بدل ما نبني دائرة لكل عملية ونبدّل بيناتهم، منحسب الكل بنفس الوقت ومنختار. هاد أبسط من ما يبيّن: كل اللي بدنا إياه MUX بيختار نتيجة.</p>"
+    },
+    {
+      "t": "h",
+      "text": "شريحة بِت واحد"
+    },
+    {
+      "t": "p",
+      "html": "<p>شريحة (bit slice) بتشتغل على بِت واحد من كل عدد: \\(a_i\\) و\\(b_i\\). جوّاها بوابة AND، بوابة OR، XOR وجامع كامل. كلهم بياخدوا نفس المداخل. MUX 4→1 مع \\(S_1S_0\\) بيختار أي نتيجة بتطلع على \\(F_i\\). بالرسمة: \\(00\\) AND، \\(01\\) OR، \\(10\\) جمع، و\\(11\\) XOR.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لـ ALU بـ 4 بِتات منحط 4 شرائح جنب بعض. خطوط الاختيار مشتركة لكل الشرائح، فكلهم بيعملوا نفس العملية. الحمل من الجامع بكل شريحة بيروح للشريحة اللي بعدها، متل الجامع المتوازي.</p>"
+    },
+    {
+      "t": "h",
+      "text": "الوحدة الحسابية والمنطقية"
+    },
+    {
+      "t": "p",
+      "html": "<p>عادةً في خط اختيار زيادة (\\(S_2\\)) بيقرّر حسابي أو منطقي، و\\(S_1S_0\\) بيختاروا العملية جوّا. العمليات المنطقية بتشتغل بِت بِت بدون حمل: AND، OR، XOR، NOT. الحسابية بتمرق بالجامع: جمع، طرح، زيادة 1، نقصان 1. بالدرس الجاي منشوف كيف جامع واحد بيعمل كل الحسابية.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كيف بتعرفوا السؤال؟ بيعطوكم جدول «S → פעולה»، وقيم \\(A\\)، \\(B\\) و\\(S\\). لازم تلاقوا العملية بالجدول، وتعملوها على كل البِتات.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 224\" role=\"img\" aria-label=\"الـ ALU من برّا: A وB بيدخلوا، كل الوحدات بتحسب مع بعض، وS1S0 بيختاروا أي نتيجة بتطلع على F.\" class=\"fk\"><rect class=\"fk-chip t-ink\" x=\"165.0\" y=\"16\" width=\"150\" height=\"192\" rx=\"12\"/><text class=\"fk-t t-mut\" x=\"240\" y=\"114.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ALU</text><text class=\"fk-t t-mut\" x=\"240\" y=\"138.0\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">MUX</text><path class=\"fk-line t-mut\" d=\"M70 54.4 L165.0 54.4\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"60.4\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A</text><path class=\"fk-line t-mut\" d=\"M70 92.8 L165.0 92.8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"98.8\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B</text><path class=\"fk-line t-mut\" d=\"M70 131.2 L165.0 131.2\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"137.2\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">S1</text><path class=\"fk-line t-mut\" d=\"M70 169.6 L165.0 169.6\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"175.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">S0</text><path class=\"fk-line t-mut\" d=\"M315.0 112.0 L410 112.0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"416\" y=\"118.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">F</text></svg>",
+      "alt": "الـ ALU من برّا: A وB بيدخلوا، كل الوحدات بتحسب مع بعض، وS1S0 بيختاروا أي نتيجة بتطلع على F.",
+      "caption": "الـ ALU من برّا: A وB بيدخلوا، كل الوحدات بتحسب مع بعض، وS1S0 بيختاروا أي نتيجة بتطلع على F."
+    },
+    {
+      "t": "method",
+      "title": "مخرج ALU: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>لاقوا العملية</b> من جدول الاختيار حسب \\(S\\).",
+        "<b>منطقية؟</b> اعملوها بِت بِت (عامود عامود) بدون حمل.",
+        "<b>حسابية؟</b> اجمعوا مع الحمل، وانتبهوا لـ \\(C_{in}\\) ولعدد البِتات."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 192\" role=\"img\" aria-label=\"المعطى A = 1100 وB = 1010 مع كل الأكواد: المنطقي بِت بِت، والجمع مع حمل (الحمل الأخير بيطلع برّا الـ 4 بِتات).\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"120.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">S1S0</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">العملية</text><text class=\"fk-t t-hu\" x=\"360.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">F</text><line class=\"fk-line t-grid\" x1=\"60.0\" y1=\"40\" x2=\"420.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"300.0\" y1=\"12\" x2=\"300.0\" y2=\"176\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"120.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">00</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">AND</text><text class=\"fk-t t-ink\" x=\"360.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1000</text><text class=\"fk-t t-ink\" x=\"120.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">01</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">OR</text><text class=\"fk-t t-ink\" x=\"360.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1110</text><text class=\"fk-t t-ink\" x=\"120.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">10</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">+</text><text class=\"fk-t t-ink\" x=\"360.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0110</text><text class=\"fk-t t-ink\" x=\"120.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">XOR</text><text class=\"fk-t t-ink\" x=\"360.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0110</text></svg>",
+      "alt": "المعطى A = 1100 وB = 1010 مع كل الأكواد: المنطقي بِت بِت، والجمع مع حمل (الحمل الأخير بيطلع برّا الـ 4 بِتات).",
+      "caption": "المعطى A = 1100 وB = 1010 مع كل الأكواد: المنطقي بِت بِت، والجمع مع حمل (الحمل الأخير بيطلع برّا الـ 4 بِتات)."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: ALU 4 بِتات حسب الرسمة (\\(00\\) AND، \\(01\\) OR، \\(10\\) جمع، \\(11\\) XOR). \\(A=1100\\)، \\(B=1010\\). شو \\(F\\) لكل كود؟",
+      "steps": [
+        {
+          "label": "\\(S=00\\)",
+          "body": "\\(1100\\cdot1010=1000\\)"
+        },
+        {
+          "label": "\\(S=01\\)",
+          "body": "\\(1100+1010\\) بِت بِت \\(=1110\\)"
+        },
+        {
+          "label": "\\(S=10\\)",
+          "body": "\\(12+10=22\\): بـ 4 بِتات \\(0110\\) وحمل 1"
+        },
+        {
+          "label": "\\(S=11\\)",
+          "body": "\\(1100\\oplus1010=0110\\)"
+        }
+      ],
+      "a": "الجواب: \\(1000\\)، \\(1110\\)، \\(0110\\) (حمل 1)، \\(0110\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: عملية منطقية",
+      "html": "<p>شو \\(\\text{NOT }A\\) لـ \\(A=0110\\)؟</p><p>NOT بِت بِت بدون حمل: كل 0 بيصير 1 وكل 1 بيصير 0. \\(A'=1001\\). انتبهوا: هاد مش \\(-A\\) (بالمكمّل لـ 2 \\(-6=1010\\)).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"OR بِت بِت: كل خانة 1 إذا واحد منهم 1. ما في حمل. 10110 هو الجمع.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1100 OR 1010 = 10110</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1100 OR 1010 = 1110</text></svg>",
+      "alt": "OR بِت بِت: كل خانة 1 إذا واحد منهم 1. ما في حمل. 10110 هو الجمع.",
+      "caption": "OR بِت بِت: كل خانة 1 إذا واحد منهم 1. ما في حمل. 10110 هو الجمع."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "OR بالـ ALU بيعمل جمع مع حمل",
+          "yes": "العمليات المنطقية بِت بِت، بدون حمل"
+        },
+        {
+          "no": "كل شريحة إلها خطوط اختيار تانية",
+          "yes": "خطوط الاختيار مشتركة لكل الشرائح"
+        },
+        {
+          "no": "NOT A = −A",
+          "yes": "NOT A هو قلب البِتات. \\(-A\\) هو قلب وزيادة 1"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "ALU مع \\(S=01\\) (OR)، \\(A=0101\\)، \\(B=0011\\). اكتبوا \\(F\\) (4 بِتات).",
+        "answer": [
+          "0111"
+        ],
+        "hint": "عامود عامود.",
+        "solution": "<p>OR عامود عامود: \\(0+0=0\\)، \\(1+0=1\\)، \\(0+1=1\\)، \\(1+1=1\\). فـ \\(F=0111\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش خط اختيار لازم لـ ALU بيعمل 8 عمليات مختلفة؟",
+        "answer": [
+          "3"
+        ],
+        "hint": "\\(2^k=8\\).",
+        "solution": "<p>\\(k\\) خطوط اختيار بيميّزوا بين \\(2^k\\) عمليات. \\(2^3=8\\)، فبدنا 3 خطوط.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "ALU مع \\(S=11\\) (XOR)، \\(A=1111\\)، \\(B=1010\\). اكتبوا \\(F\\).",
+        "answer": [
+          "0101"
+        ],
+        "hint": "XOR مع 1 بيقلب.",
+        "solution": "<p>XOR مع 1 بيقلب البِت. \\(A=1111\\)، فالنتيجة هي \\(B\\) مقلوب: \\(0101\\).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش الـ ALU بيحسب كل العمليات مع بعض؟ مش تبذير؟",
+          "a": "البوابات كلها شغّالة بنفس الوقت على كل حال، فحساب كل العمليات ما بياخد وقت زيادة. والـ MUX بالآخر بيختار وحدة. هاد أبسط وأسرع من إنّا نطفّي ونشعّل أجزاء."
+        },
+        {
+          "q": "شو هو كود العملية؟",
+          "a": "بِتات الاختيار \\(S\\) اللي بتدخل للـ MUX بالآخر. \\(k\\) بِتات بيختاروا من \\(2^k\\) عمليات. المعالج بياخدهم من الأمر اللي بينفّذه (مثلاً ADD أو AND)."
+        },
+        {
+          "q": "ليش العمليات المنطقية «بِت بِت» والجمع لا؟",
+          "a": "بـ AND وOR وXOR كل خانة بالنتيجة بتعتمد بس على نفس الخانة بـ A وB. بالجمع في حمل، فكل خانة بتعتمد كمان على الخانات اللي قبلها. لهيك بالسؤال: المنطقي خانة خانة، والحسابي من اليمين مع حمل."
+        },
+        {
+          "q": "وين الـ ALU بالكمبيوتر؟",
+          "a": "جوّا المعالج (CPU). المسجّلات بيعطوه \\(A\\) و\\(B\\)، النتيجة بترجع لمسجّل، والأعلام بتنحفظ عشان الأوامر اللي بعدها (متل «اقفز إذا صفر»). بالكورس منتعرّف عليه بس من برّا."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "ALU (יחידה אריתמטית-לוגית)",
+      "back": "دائرة بتحسب كذا عملية حسابية ومنطقية، وخطوط اختيار بتقرّر أي نتيجة بتطلع."
+    }
+  ]
+}

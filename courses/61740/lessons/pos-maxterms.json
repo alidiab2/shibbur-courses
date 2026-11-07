@@ -1,0 +1,220 @@
+{
+  "slug": "pos-maxterms",
+  "title": "ضرب مجاميع وماكسترمات",
+  "he": "מכפלת סכומים (POS)",
+  "ref": "הרצאה 4 · תרגול 5",
+  "minutes": 15,
+  "desc": "الصورة القانونية التانية بكورس 61740: ماكسترم (מקסטרם)، ضرب مجاميع (POS)، الكتابة ΠM، والانتقال بين Σm وΠM وبين F وF'.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> أحياناً الجدول فيه أصفار أقل من الآحاد، فأقصر نكتب الدالة من الأصفار. وبالامتحان بيطلبوا «רשמו כמכפלת סכומים» أو انتقال من \\(\\Sigma\\) لـ \\(\\Pi\\).</p><ol><li>الماكسترم: حد جمع بيعطي 0 بسطر واحد بس</li><li>من جدول لضرب ماكسترمات</li><li>\\(\\Sigma m\\leftrightarrow\\Pi M\\)</li><li>الدالة المكمّلة \\(F'\\)</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما بيطلبوا POS، أو \\(F=\\Pi M(\\dots)\\)، أو \\(F'\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 330\" role=\"img\" aria-label=\"نفس الجدول، بس هلّق منعلّم الأصفار: كل سطر فيه F=0 بيعطي ماكسترم. هون المتغيّر اللي قيمته 1 هو اللي مع فاصلة.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"62.0\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"106.0\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-mut\" x=\"150.0\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C</text><text class=\"fk-t t-hu\" x=\"194.0\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">F</text><rect class=\"fk-chip t-2\" x=\"42\" y=\"51\" width=\"172\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"62.0\" y=\"71\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"71\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"71\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"71\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"71\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-2\" x=\"276\" y=\"71\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">M0 = A+B+C</text><text class=\"fk-t t-ink\" x=\"62.0\" y=\"105\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"105\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"105\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"105\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"242\" y=\"105\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-2\" x=\"42\" y=\"119\" width=\"172\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"62.0\" y=\"139\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"139\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"139\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"139\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"139\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-2\" x=\"276\" y=\"139\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">M2 = A+B'+C</text><text class=\"fk-t t-ink\" x=\"62.0\" y=\"173\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"173\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"173\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"173\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"242\" y=\"173\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-2\" x=\"42\" y=\"187\" width=\"172\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"62.0\" y=\"207\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"207\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"207\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"207\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"207\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-2\" x=\"276\" y=\"207\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">M4 = A'+B+C</text><rect class=\"fk-chip t-2\" x=\"42\" y=\"221\" width=\"172\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"62.0\" y=\"241\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"241\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"241\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"241\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"241\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-2\" x=\"276\" y=\"241\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">M5 = A'+B+C'</text><text class=\"fk-t t-ink\" x=\"62.0\" y=\"275\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"275\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"275\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"275\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"242\" y=\"275\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-2\" x=\"42\" y=\"289\" width=\"172\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"62.0\" y=\"309\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"309\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"309\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"309\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"309\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-2\" x=\"276\" y=\"309\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">M7 = A'+B'+C'</text></svg>",
+      "alt": "نفس الجدول، بس هلّق منعلّم الأصفار: كل سطر فيه F=0 بيعطي ماكسترم. هون المتغيّر اللي قيمته 1 هو اللي مع فاصلة.",
+      "caption": "نفس الجدول، بس هلّق منعلّم الأصفار: كل سطر فيه F=0 بيعطي ماكسترم. هون المتغيّر اللي قيمته 1 هو اللي مع فاصلة."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>لكل سطر فيه \\(F=0\\) منكتب حد جمع: 0 بيصير \\(x\\)، 1 بيصير \\(x'\\). \\(F\\) هو <b>ضرب</b> هالحدود. والأرقام بـ \\(\\Pi M\\) هنّي <b>الأرقام اللي مش</b> بـ \\(\\Sigma m\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>الماكسترم هو «صافرة إنذار» لسطر واحد: بيعطي 0 بس بهاد السطر. إذا ضربنا كل الإنذارات، الناتج 0 بالزبط بالأسطر اللي فيها \\(F=0\\)، و1 بالباقي.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 328\" role=\"img\" aria-label=\"الماكسترم M2 = A + B' + C بيعطي 0 بسطر واحد بس: السطر 010. بكل الأسطر التانية واحد من الأجزاء على الأقل 1.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"132.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"204.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-mut\" x=\"276.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A+B'+C</text><line class=\"fk-line t-grid\" x1=\"96.0\" y1=\"40\" x2=\"384.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"312.0\" y1=\"12\" x2=\"312.0\" y2=\"312\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-2\" x=\"98.0\" y=\"111\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-2\" x=\"348.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"200\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"234\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"268\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"302\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text></svg>",
+      "alt": "الماكسترم M2 = A + B' + C بيعطي 0 بسطر واحد بس: السطر 010. بكل الأسطر التانية واحد من الأجزاء على الأقل 1.",
+      "caption": "الماكسترم M2 = A + B' + C بيعطي 0 بسطر واحد بس: السطر 010. بكل الأسطر التانية واحد من الأجزاء على الأقل 1."
+    },
+    {
+      "t": "h",
+      "text": "شو هو الماكسترم؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>ماكسترم (מקסטרם) هو حد جمع (OR) فيه كل المتغيّرات. \\(M_i\\) بيساوي 0 بس بالسطر \\(i\\). ليش القلب؟ حد جمع بيكون 0 بس إذا كل جزء منه 0. فبالسطر \\(010\\) بدنا \\(A=0\\) (فمنكتب \\(A\\))، \\(B=1\\) (فمنكتب \\(B'\\))، \\(C=0\\) (فمنكتب \\(C\\)): \\(M_2=A+B'+C\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>علاقة مهمة: \\(M_i=(m_i)'\\). مثلاً \\(m_2=A'BC'\\)، ودي-مورغان بيعطي \\((A'BC')'=A+B'+C=M_2\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "ضرب الماكسترمات وΣ ↔ Π"
+    },
+    {
+      "t": "p",
+      "html": "<p>\\(F\\) هو ضرب الماكسترمات تبع أسطر الصفر: \\(F=\\Pi M(0,2,4,5,7)\\) للجدول فوق. لأنه كل سطر يا 0 يا 1، الأرقام بـ \\(\\Pi M\\) هنّي بالزبط الأرقام اللي ناقصة من \\(\\Sigma m\\). هون \\(\\Sigma m(1,3,6)=\\Pi M(0,2,4,5,7)\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الدالة المكمّلة (פונקציה משלימה) \\(F'\\) بتساوي 1 وين \\(F=0\\). فـ \\(F'=\\Sigma m(0,2,4,5,7)\\): نفس الأرقام تبع \\(\\Pi M\\) بس بـ \\(\\Sigma\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>متى نختار POS؟ لما عدد الأصفار أقل من عدد الآحاد، التعبير بيطلع أقصر. وبمفتاح كارنو (الفصل الجاي) بتقدروا تجمّعوا أصفار وتطلّعوا POS قصير.</p>"
+    },
+    {
+      "t": "method",
+      "title": "من جدول لـ POS: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>علّموا</b> كل سطر فيه \\(F=0\\).",
+        "<b>اكتبوا ماكسترم</b> لكل سطر: 0 بيصير متغيّر، 1 بيصير متغيّر مع \\('\\)، وبيناتهم +.",
+        "<b>اضربوا</b> كل الماكسترمات (كل واحد بقوس)، واكتبوا \\(\\Pi M(\\dots)\\)."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 262\" role=\"img\" aria-label=\"POS كدائرة: OR لكل سطر فيه F = 0 (الأسطر 4، 5، 6)، وAND بالآخر.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"118\" y=\"54.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A'</text><path class=\"fk-line t-mut\" d=\"M124 49.0 L170 49.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"72.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B</text><path class=\"fk-line t-mut\" d=\"M124 67.0 L170 67.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"90.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">C</text><path class=\"fk-line t-mut\" d=\"M124 85.0 L170 85.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 42.0Q207.5 42.0 225.0 67.0Q207.5 92.0 170 92.0Q184.0 67.0 170 42.0Z\" stroke-width=\"3\"/><path class=\"fk-line t-1\" d=\"M225.0 67.0 L300 67.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"128.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A'</text><path class=\"fk-line t-mut\" d=\"M124 123.0 L170 123.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"146.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B</text><path class=\"fk-line t-mut\" d=\"M124 141.0 L170 141.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"164.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">C'</text><path class=\"fk-line t-mut\" d=\"M124 159.0 L170 159.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 116.0Q207.5 116.0 225.0 141.0Q207.5 166.0 170 166.0Q184.0 141.0 170 116.0Z\" stroke-width=\"3\"/><path class=\"fk-line t-2\" d=\"M225.0 141.0 L300 141.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"202.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A'</text><path class=\"fk-line t-mut\" d=\"M124 197.0 L170 197.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"220.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B'</text><path class=\"fk-line t-mut\" d=\"M124 215.0 L170 215.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"238.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">C</text><path class=\"fk-line t-mut\" d=\"M124 233.0 L170 233.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 190.0Q207.5 190.0 225.0 215.0Q207.5 240.0 170 240.0Q184.0 215.0 170 190.0Z\" stroke-width=\"3\"/><path class=\"fk-line t-3\" d=\"M225.0 215.0 L300 215.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-1\" d=\"M300 67.0 L318 67.0 L318 122.0 L340 122.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-2\" d=\"M300 141.0 L318 141.0 L318 141.0 L340 141.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-3\" d=\"M300 215.0 L318 215.0 L318 160.0 L340 160.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M336 108.0H369.0A33.0 33.0 0 0 1 369.0 174.0H336Z\" stroke-width=\"3\"/><path class=\"fk-line t-hu\" d=\"M402.0 141.0 L418.0 141.0\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"424.0\" y=\"148.0\" font-size=\"22\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">F</text></svg>",
+      "alt": "POS كدائرة: OR لكل سطر فيه F = 0 (الأسطر 4، 5، 6)، وAND بالآخر.",
+      "caption": "POS كدائرة: OR لكل سطر فيه F = 0 (الأسطر 4، 5، 6)، وAND بالآخر."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: \\(F(A,B,C)=\\Sigma m(0,1,2,3,7)\\). اكتبوا \\(F\\) كـ \\(\\Pi M\\) وكضرب مجاميع.",
+      "steps": [
+        {
+          "label": "الأرقام الناقصة",
+          "body": "\\(4,5,6\\)"
+        },
+        {
+          "label": "ماكسترمات",
+          "body": "\\(M_4=A'+B+C,\\;M_5=A'+B+C',\\;M_6=A'+B'+C\\)"
+        },
+        {
+          "label": "اضربوا",
+          "body": "\\(F=(A'+B+C)(A'+B+C')(A'+B'+C)\\)"
+        }
+      ],
+      "a": "الجواب \\(F=\\Pi M(4,5,6)\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: الدالة المكمّلة",
+      "html": "<p>\\(F(A,B)=\\Sigma m(1,2)\\). شو \\(F'\\)؟</p><p>\\(F'\\) بيساوي 1 وين \\(F=0\\): الأسطر 0 و3. \\(F'=\\Sigma m(0,3)=A'B'+AB\\). يعني \\(F\\) هو XOR و\\(F'\\) هو XNOR.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"بالماكسترم العكس من المينترم: البِت 1 هو اللي بياخد فتحة.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">010  →  A' + B + C'</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">010  →  A + B' + C</text></svg>",
+      "alt": "بالماكسترم العكس من المينترم: البِت 1 هو اللي بياخد فتحة.",
+      "caption": "بالماكسترم العكس من المينترم: البِت 1 هو اللي بياخد فتحة."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "السطر \\(010\\): \\(M_2=A'+B+C'\\)",
+          "yes": "\\(M_2=A+B'+C\\): بالماكسترم الـ 1 هو اللي بياخد فاصلة"
+        },
+        {
+          "no": "\\(\\Sigma m(1,3,6)=\\Pi M(1,3,6)\\)",
+          "yes": "\\(\\Pi M\\) فيه الأرقام الناقصة: \\(\\Pi M(0,2,4,5,7)\\)"
+        },
+        {
+          "no": "\\(F'=\\Pi M\\) بنفس الأرقام تبع \\(\\Sigma m\\)",
+          "yes": "\\(F'=\\Sigma m\\) بالأرقام الناقصة، يعني نفس أرقام الـ \\(\\Pi M\\) تبع F"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "شو الماكسترم \\(M_5\\) بـ \\(A,B,C\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(A'+B+C'\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(AB'C\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(A+B'+C\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(A'B C'\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "5 بالثنائي، وبعدين اقلبوا.",
+        "solution": "<p>\\(5=101\\). بالماكسترم 0 بيصير متغيّر و1 بيصير مع فاصلة: \\(A'+B+C'\\). هو 0 بس بالسطر \\(101\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "\\(F(A,B,C)=\\Pi M(0,3,5)\\). شو نفس الدالة كـ \\(\\Sigma m\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(\\Sigma m(0,3,5)\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(\\Sigma m(1,2,4,6,7)\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(\\Sigma m(1,2,4,6)\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "الأرقام الناقصة.",
+        "solution": "<p>الأرقام اللي مش بالـ \\(\\Pi M\\) من 0 لـ 7 هنّي \\(1,2,4,6,7\\). فـ \\(F=\\Sigma m(1,2,4,6,7)\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(F(A,B,C,D)=\\Sigma m(0,4,9,15)\\). قديش ماكسترم في بالـ \\(\\Pi M\\)؟",
+        "answer": [
+          "12"
+        ],
+        "hint": "كل سطر يا مينترم يا ماكسترم.",
+        "solution": "<p>في 16 سطر. 4 منهم بـ \\(\\Sigma m\\)، والباقي أصفار: \\(16-4=12\\) ماكسترم.</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش بالماكسترم 0 بيصير \\(x\\) ومش \\(x'\\)؟",
+          "a": "الماكسترم لازم يعطي 0 بسطر واحد بس. جمع بيطلع 0 بس إذا كل اللي فيه 0. بالسطر اللي فيه \\(x=0\\) بدنا الحرف يكون 0، يعني \\(x\\) نفسه. عكس المينترم بالزبط."
+        },
+        {
+          "q": "امتى بكتب SOP وامتى POS؟",
+          "a": "إذا السؤال ما حدّد، اختاروا حسب العدد: أصفار أقل من الآحاد؟ POS أقصر. وكمان إذا بدهم دائرة من NOR بس، POS هو اللي بيركب طبيعي عليها."
+        },
+        {
+          "q": "كيف بنتقل من \\(\\Sigma m\\) لـ \\(\\Pi M\\) بسرعة؟",
+          "a": "خدوا كل الأرقام اللي <b>مش</b> بالـ \\(\\Sigma\\). مثلاً بـ 3 متغيّرات \\(\\Sigma m(1,2,6,7)=\\Pi M(0,3,4,5)\\). لأنه كل سطر يا \\(F=1\\) (مينترم) يا \\(F=0\\) (ماكسترم)."
+        },
+        {
+          "q": "شو العلاقة بين \\(m_i\\) و\\(M_i\\)؟",
+          "a": "واحد عكس التاني: \\(M_i=m_i'\\). مثلاً \\(m_5=AB'C\\) و\\(M_5=A'+B+C'\\)، وهاد بالزبط دي-مورغان على \\(m_5\\)."
+        }
+      ]
+    }
+  ]
+}

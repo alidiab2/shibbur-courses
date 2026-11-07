@@ -1,0 +1,215 @@
+{
+  "slug": "sop-minterms",
+  "title": "من جدول قيم لتعبير: مجموع ضرب ومينترمات",
+  "he": "סכום מכפלות (SOP)",
+  "ref": "הרצאה 4 · תרגול 5",
+  "minutes": 16,
+  "desc": "الصورة القانونية مجموع ضرب (SOP) بكورس 61740: شو المينترم (מינטרם)، الكتابة Σm، وكيف بتكتبوا تعبير لأي جدول قيم.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بأسئلة التصميم بتوصلوا لجدول قيم، والخطوة الجاية دايماً هي تعبير. المينترمات بتعطي تعبير لأي جدول بدون تفكير، وبعدين منبسّطه.</p><ol><li>المينترم: حد ضرب بيعطي 1 بسطر واحد بس</li><li>من جدول لمجموع مينترمات</li><li>الكتابة المختصرة \\(\\Sigma m\\)</li><li>سؤال امتحان كامل</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما بيعطوكم جدول قيم، أو \\(F=\\Sigma m(\\dots)\\)، وبيطلبوا تعبير.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 330\" role=\"img\" aria-label=\"كل سطر فيه F=1 بيعطي مينترم: المتغيّر اللي قيمته 0 بينكتب مع فاصلة.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"62.0\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"106.0\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-mut\" x=\"150.0\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C</text><text class=\"fk-t t-hu\" x=\"194.0\" y=\"36\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">F</text><text class=\"fk-t t-ink\" x=\"62.0\" y=\"71\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"71\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"71\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"71\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"71\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"42\" y=\"85\" width=\"172\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"62.0\" y=\"105\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"105\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"105\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"105\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"242\" y=\"105\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"276\" y=\"105\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">m1 = A'B'C</text><text class=\"fk-t t-ink\" x=\"62.0\" y=\"139\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"139\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"139\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"139\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"139\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"42\" y=\"153\" width=\"172\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"62.0\" y=\"173\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"173\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"173\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"173\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"242\" y=\"173\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-hu\" x=\"276\" y=\"173\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">m3 = A'BC</text><text class=\"fk-t t-ink\" x=\"62.0\" y=\"207\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"207\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"207\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"207\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"207\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-ink\" x=\"62.0\" y=\"241\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"241\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"241\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"241\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"241\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-hu\" x=\"42\" y=\"255\" width=\"172\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"62.0\" y=\"275\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"275\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"275\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"275\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"242\" y=\"275\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">6</text><text class=\"fk-t t-hu\" x=\"276\" y=\"275\" font-size=\"18\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">m6 = ABC'</text><text class=\"fk-t t-ink\" x=\"62.0\" y=\"309\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"106.0\" y=\"309\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"150.0\" y=\"309\" font-size=\"18\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"194.0\" y=\"309\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"242\" y=\"309\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">7</text></svg>",
+      "alt": "كل سطر فيه F=1 بيعطي مينترم: المتغيّر اللي قيمته 0 بينكتب مع فاصلة.",
+      "caption": "كل سطر فيه F=1 بيعطي مينترم: المتغيّر اللي قيمته 0 بينكتب مع فاصلة."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>لكل سطر فيه \\(F=1\\) منكتب حد ضرب فيه كل المتغيّرات (0 بيصير \\(x'\\)، 1 بيصير \\(x\\)). \\(F\\) هو <b>مجموع</b> هالحدود.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>المينترم هو كاشف لسطر واحد: \\(A'BC\\) بيساوي 1 بس لما \\(A=0,B=1,C=1\\). إذا جمعنا كاشف لكل سطر فيه 1، التعبير بيعطي 1 بالزبط بهالأسطر.</p>"
+    },
+    {
+      "t": "h",
+      "text": "شو هو المينترم؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>مينترم (מינטרם) لـ n متغيّرات هو حد ضرب فيه كل متغيّر مرة وحدة، يا عادي يا مع فاصلة. في \\(2^n\\) مينترم، واحد لكل سطر. المينترم رقم \\(i\\) (\\(m_i\\)) هو اللي بيعطي 1 بالسطر \\(i\\)، يعني لما المداخل بالثنائي بتساوي \\(i\\). مثلاً لـ \\(A,B,C\\): السطر 6 هو \\(110\\)، فـ \\(m_6=ABC'\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>انتبهوا للترتيب: المتغيّر الأول (A) هو البِت الأكبر. إذا السؤال كتب \\(F(x,y,z)\\)، الـ x هو البِت الشمالي.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 296\" role=\"img\" aria-label=\"مجموع المينترمات كدائرة: AND لكل سطر فيه F = 1، وOR بالآخر. دايماً مستويين.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"118\" y=\"49.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A'</text><path class=\"fk-line t-mut\" d=\"M124 44.0 L170 44.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"67.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B</text><path class=\"fk-line t-mut\" d=\"M124 62.0 L170 62.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"85.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">C</text><path class=\"fk-line t-mut\" d=\"M124 80.0 L170 80.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 37.0H195.0A25.0 25.0 0 0 1 195.0 87.0H170Z\" stroke-width=\"3\"/><path class=\"fk-line t-1\" d=\"M220.0 62.0 L300 62.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"113.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A</text><path class=\"fk-line t-mut\" d=\"M124 108.0 L170 108.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"131.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B'</text><path class=\"fk-line t-mut\" d=\"M124 126.0 L170 126.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"149.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">C</text><path class=\"fk-line t-mut\" d=\"M124 144.0 L170 144.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 101.0H195.0A25.0 25.0 0 0 1 195.0 151.0H170Z\" stroke-width=\"3\"/><path class=\"fk-line t-2\" d=\"M220.0 126.0 L300 126.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"177.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A</text><path class=\"fk-line t-mut\" d=\"M124 172.0 L170 172.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"195.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B</text><path class=\"fk-line t-mut\" d=\"M124 190.0 L170 190.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"213.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">C'</text><path class=\"fk-line t-mut\" d=\"M124 208.0 L170 208.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 165.0H195.0A25.0 25.0 0 0 1 195.0 215.0H170Z\" stroke-width=\"3\"/><path class=\"fk-line t-3\" d=\"M220.0 190.0 L300 190.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"241.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A</text><path class=\"fk-line t-mut\" d=\"M124 236.0 L170 236.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"259.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B</text><path class=\"fk-line t-mut\" d=\"M124 254.0 L170 254.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"277.0\" font-size=\"15\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">C</text><path class=\"fk-line t-mut\" d=\"M124 272.0 L170 272.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 229.0H195.0A25.0 25.0 0 0 1 195.0 279.0H170Z\" stroke-width=\"3\"/><path class=\"fk-line t-4\" d=\"M220.0 254.0 L300 254.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-1\" d=\"M300 62.0 L318 62.0 L318 134.0 L340 134.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-2\" d=\"M300 126.0 L318 126.0 L318 150.0 L340 150.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-3\" d=\"M300 190.0 L318 190.0 L318 166.0 L340 166.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-4\" d=\"M300 254.0 L318 254.0 L318 182.0 L340 182.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M336 120.0Q393.0 120.0 419.6 158.0Q393.0 196.0 336 196.0Q357.28 158.0 336 120.0Z\" stroke-width=\"3\"/><path class=\"fk-line t-hu\" d=\"M419.6 158.0 L435.6 158.0\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"441.6\" y=\"165.0\" font-size=\"22\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">F</text></svg>",
+      "alt": "مجموع المينترمات كدائرة: AND لكل سطر فيه F = 1، وOR بالآخر. دايماً مستويين.",
+      "caption": "مجموع المينترمات كدائرة: AND لكل سطر فيه F = 1، وOR بالآخر. دايماً مستويين."
+    },
+    {
+      "t": "h",
+      "text": "مجموع المينترمات"
+    },
+    {
+      "t": "p",
+      "html": "<p>لأي جدول: \\(F\\) هو مجموع المينترمات تبع الأسطر اللي فيها 1. هاي الصورة اسمها الصورة القانونية (צורה קנונית) أو مجموع ضرب كامل. منكتبها باختصار \\(F=\\Sigma m(1,3,6)\\) يعني \\(F=m_1+m_3+m_6\\). بالرسمة فوق: \\(F=A'B'C+A'BC+ABC'\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>هالتعبير صحيح بس مش قصير. بالفصل الجاي منقصّره بالقوانين أو بمفتاح كارنو. لكن هو نقطة البداية، ولازم تعرفوا تكتبوه بسرعة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>والعكس: إذا عندكم تعبير ومش مجموع ضرب كامل، بتقدروا تكمّلوه. مثلاً بـ \\(A,B,C\\) الحد \\(AB\\) هو \\(AB(C+C')=ABC+ABC'\\)، يعني \\(m_7+m_6\\).</p>"
+    },
+    {
+      "t": "method",
+      "title": "من جدول لـ SOP: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>علّموا</b> كل سطر فيه \\(F=1\\)، واكتبوا رقمه.",
+        "<b>اكتبوا مينترم</b> لكل سطر: 1 بيصير متغيّر، 0 بيصير متغيّر مع \\('\\).",
+        "<b>اجمعوا</b> كل المينترمات بـ +، واكتبوا كمان \\(\\Sigma m(\\dots)\\)."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 328\" role=\"img\" aria-label=\"دالة الأغلبية كجدول: F = 1 بالأسطر اللي فيها على الأقل اتنين 1: الأسطر 3، 5، 6 و7.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"132.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"204.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-mut\" x=\"276.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">F</text><line class=\"fk-line t-grid\" x1=\"96.0\" y1=\"40\" x2=\"384.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"312.0\" y1=\"12\" x2=\"312.0\" y2=\"312\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"145\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"132.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"348.0\" y=\"200\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"213\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"234\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"247\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"268\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"98.0\" y=\"281\" width=\"284\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"132.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"204.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"276.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"348.0\" y=\"302\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text></svg>",
+      "alt": "دالة الأغلبية كجدول: F = 1 بالأسطر اللي فيها على الأقل اتنين 1: الأسطر 3، 5، 6 و7.",
+      "caption": "دالة الأغلبية كجدول: F = 1 بالأسطر اللي فيها على الأقل اتنين 1: الأسطر 3، 5، 6 و7."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: الدالة \\(F(A,B,C)\\) بتساوي 1 لما أغلبية المداخل 1. اكتبوا \\(F\\) كـ \\(\\Sigma m\\) وكمجموع مينترمات.",
+      "steps": [
+        {
+          "label": "الأسطر مع اتنين 1 أو أكتر",
+          "body": "\\(011=3,\\;101=5,\\;110=6,\\;111=7\\)"
+        },
+        {
+          "label": "اكتبوا مينترمات",
+          "body": "\\(m_3=A'BC,\\;m_5=AB'C,\\;m_6=ABC',\\;m_7=ABC\\)"
+        },
+        {
+          "label": "اجمعوا",
+          "body": "\\(F=A'BC+AB'C+ABC'+ABC\\)"
+        }
+      ],
+      "a": "الجواب \\(F=\\Sigma m(3,5,6,7)\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: من تعبير لـ Σm",
+      "html": "<p>اكتبوا \\(F=A+B'C\\) (بـ \\(A,B,C\\)) كـ \\(\\Sigma m\\).</p><p>\\(A\\) بيعطي الأسطر 4 لـ 7. \\(B'C\\) بيعطي \\(001=1\\) و\\(101=5\\). مع بعض: \\(\\Sigma m(1,4,5,6,7)\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"بالمينترم البِت 0 هو اللي بياخد فتحة. السطر 101 فيه B = 0، فـ B' بس.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">101  →  A'BC'</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">101  →  AB'C</text></svg>",
+      "alt": "بالمينترم البِت 0 هو اللي بياخد فتحة. السطر 101 فيه B = 0، فـ B' بس.",
+      "caption": "بالمينترم البِت 0 هو اللي بياخد فتحة. السطر 101 فيه B = 0، فـ B' بس."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "سطر \\(101\\): المينترم \\(A'BC'\\)",
+          "yes": "سطر \\(101\\): \\(AB'C\\) (الـ 0 بياخد فاصلة، مش الـ 1)"
+        },
+        {
+          "no": "المتغيّر الأخير هو البِت الأكبر",
+          "yes": "المتغيّر الأول (A) هو البِت الأكبر"
+        },
+        {
+          "no": "حد بالمجموع ممكن ينقصه متغيّر",
+          "yes": "بمجموع مينترمات كامل كل حد فيه كل المتغيّرات"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "بـ \\(A,B,C,D\\): المينترم \\(AB'CD'\\) هو \\(m_i\\). شو \\(i\\)؟",
+        "answer": [
+          "10"
+        ],
+        "hint": "اكتبوا البِتات بالترتيب ABCD.",
+        "solution": "<p>منكتب 1 مكان المتغيّر العادي و0 مكان اللي معه فاصلة: \\(1010_2=8+2=10\\). فهو \\(m_{10}\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "شو \\(\\Sigma m(0,1)\\) بـ \\(A,B,C\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(A'B'\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(A'B'C'\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(C'\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(A'B'C\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "اكتبوا المينترمين واطلعوا عامل مشترك.",
+        "solution": "<p>منكتب المينترمين ومنطلّع عامل مشترك: \\(m_0+m_1=A'B'C'+A'B'C=A'B'(C'+C)=A'B'\\). السطرين بيختلفوا بـ C بس، فهو بيروح.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش مينترم في بالصورة القانونية تبع \\(F=A\\) لما المتغيّرات \\(A,B,C\\)؟",
+        "answer": [
+          "4"
+        ],
+        "hint": "بكم سطر \\(A=1\\)؟",
+        "solution": "<p>\\(F=A\\) بيساوي 1 بكل سطر فيه \\(A=1\\)، يعني الأسطر 4، 5، 6 و7. هدول 4 مينترمات.</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش المينترم لازم يكون فيه كل المتغيّرات؟",
+          "a": "عشان يعطي 1 بسطر واحد بالزبط. إذا شلنا متغيّر، الحد بيصير 1 بسطرين: \\(A'B\\) بـ 3 متغيّرات هو 1 بالسطرين \\(010\\) و\\(011\\). هاد حد ضرب عادي، مش مينترم."
+        },
+        {
+          "q": "شو بصير إذا \\(F=1\\) بكل الأسطر، أو بولا سطر؟",
+          "a": "إذا بكل الأسطر، مجموع كل المينترمات هو 1، فـ \\(F=1\\). إذا بولا سطر، ما في مينترمات، و\\(F=0\\). نادراً ما بييجوا، بس منيح تعرفوا إنه القاعدة شغّالة كمان هون."
+        },
+        {
+          "q": "ليش ترتيب المتغيّرات مهم بـ \\(\\Sigma m\\)؟",
+          "a": "لأنه رقم السطر هو البِتات بالترتيب اللي مكتوب. بـ \\(F(A,B,C)\\)، \\(m_3=011=A'BC\\). بـ \\(F(C,B,A)\\) نفس الرقم 3 هو \\(C'BA\\). لهيك دايماً اكتبوا \\(F(A,B,C)\\) بأول الجواب."
+        },
+        {
+          "q": "مجموع المينترمات هو الأقصر؟",
+          "a": "لا. هو الشكل «القانوني» (קנוני): مضمون وواحد لكل دالة، بس طويل. منقصّره بالقوانين وبمفتاح كارنو بالدروس الجاية."
+        },
+        {
+          "q": "شو الفرق بين SOP ومجموع مينترمات؟",
+          "a": "كل مجموع مينترمات هو SOP، بس مش العكس. بـ SOP كل حد هو ضرب، وممكن يكون ناقص متغيّرات: \\(A+BC\\) هو SOP. بمجموع مينترمات كل حد فيه كل المتغيّرات."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "מינטרם (مينترم)",
+      "back": "حد ضرب فيه كل المتغيّرات، بيعطي 1 بسطر واحد بس بجدول القيم."
+    }
+  ]
+}

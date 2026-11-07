@@ -1,0 +1,224 @@
+{
+  "slug": "matrix-basics",
+  "title": "مصفوفات: جمع، ضرب بعدد، نقل وأثر",
+  "he": "מטריצות, שחלוף ועקבה",
+  "ref": "חוברת §4 (עמ׳ 27) · מטלה 3",
+  "minutes": 14,
+  "desc": "شو هي مصفوفة m×n فوق حقل، الأماكن a_ij، الجمع والضرب بعدد، المصفوفة المنقولة (משוחלפת) والأثر (עקבה). جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> المصفوفة هي اللغة اللي باقي الكورس مكتوب فيها: الأنظمة، المحدّدات والتحويلات كلها مصفوفات. هون منتعلّم نقرا مصفوفة ونحسب فيها.</p><ol><li>الحجم \\(m\\times n\\) والمكان \\(a_{ij}\\)</li><li>جمع وضرب بعدد</li><li>النقل (שחלוף)</li><li>الأثر (עקבה)</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل سؤال فيه \\(A^t\\)، \\(\\operatorname{tr}(A)\\)، أو «חשבו \\(2A-B^t\\)».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 280\" role=\"img\" aria-label=\"النقل (שחלוף): كل سطر بيصير عمود. مصفوفة 2 3 بتصير 3 2، و(A t) ij =A ji .\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"20\" y=\"70\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"45.0\" y=\"98.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu solid\" x=\"76\" y=\"70\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"101.0\" y=\"98.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-hu solid\" x=\"132\" y=\"70\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"157.0\" y=\"98.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"20\" y=\"120\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"45.0\" y=\"148.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"76\" y=\"120\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"101.0\" y=\"148.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-mut\" x=\"132\" y=\"120\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"157.0\" y=\"148.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-ink\" x=\"98\" y=\"50\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A  (2×3)</text><line class=\"fk-line t-hu\" x1=\"190\" y1=\"118\" x2=\"250.0\" y2=\"118.0\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"262,118 250.0,111.0 250.0,125.0\"/><text class=\"fk-t t-hu\" x=\"226.0\" y=\"108.0\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">שחלוף</text><rect class=\"fk-chip t-hu solid\" x=\"290\" y=\"46\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"315.0\" y=\"74.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"346\" y=\"46\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"371.0\" y=\"74.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu solid\" x=\"290\" y=\"96\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"315.0\" y=\"124.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-mut\" x=\"346\" y=\"96\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"371.0\" y=\"124.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-hu solid\" x=\"290\" y=\"146\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"315.0\" y=\"174.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"346\" y=\"146\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"371.0\" y=\"174.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-ink\" x=\"345\" y=\"30\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Aᵗ  (3×2)</text><text class=\"fk-t t-hu\" x=\"240\" y=\"250\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">السطر الأول صار العمود الأول</text></svg>",
+      "alt": "النقل (שחלוף): كل سطر بيصير عمود. مصفوفة 2 3 بتصير 3 2، و(A t) ij =A ji .",
+      "caption": "النقل (שחלוף): كل سطر بيصير عمود. مصفوفة \\(2\\times3\\) بتصير \\(3\\times2\\)، و\\((A^t)_{ij}=A_{ji}\\)."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(a_{ij}\\) هو اللي بالسطر \\(i\\) والعمود \\(j\\). \\((A^t)_{ij}=A_{ji}\\)، و\\(\\operatorname{tr}(A)=a_{11}+a_{22}+\\dots+a_{nn}\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: جدول أرقام بعنوان لكل خانة",
+      "html": "<p>المصفوفة (מטריצה) جدول: \\(m\\) أسطر و\\(n\\) أعمدة. كل خانة إلها عنوان من رقمين: أول رقم السطر وتاني رقم العمود، دايماً بهالترتيب. «سطر قبل عمود» هي القاعدة اللي بتمنع نص الأغلاط بهالفصل.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: مساواة، جمع وضرب بعدد <bdi dir=\"rtl\">(שוויון, חיבור וכפל בסקלר)</bdi>",
+      "html": "<p>لـ \\(A,B\\in F^{m\\times n}\\): \\(A=B\\) إذا \\(a_{ij}=b_{ij}\\) لكل \\(i,j\\)؛ \\((A+B)_{ij}=a_{ij}+b_{ij}\\)؛ \\((\\alpha A)_{ij}=\\alpha a_{ij}\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: خواص الجمع <bdi dir=\"rtl\">(טענה 4.5)</bdi>",
+      "html": "<p>\\(A+B=B+A\\)، \\((A+B)+C=A+(B+C)\\)، \\(A+0=A\\)، \\(A+(-A)=0\\)، \\(\\alpha(A+B)=\\alpha A+\\alpha B\\).</p><p><b>فكرة البرهان:</b> كل خانة هي عدد من الحقل، والجمع خانة خانة، فكل قانون للأعداد بيصير قانون للمصفوفات.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: المنقول والأثر <bdi dir=\"rtl\">(שחלוף ועקבה)</bdi>",
+      "html": "<p>\\((A^t)_{ij}=a_{ji}\\). لـ \\(A\\in F^{n\\times n}\\): \\(\\operatorname{tr}(A)=a_{11}+\\dots+a_{nn}\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: خواص الأثر <bdi dir=\"rtl\">(טענה 4.23)</bdi>",
+      "html": "<p>\\(\\operatorname{tr}(A+B)=\\operatorname{tr}A+\\operatorname{tr}B\\)، \\(\\operatorname{tr}(\\alpha A)=\\alpha\\operatorname{tr}A\\)، و<b>\\(\\operatorname{tr}(AB)=\\operatorname{tr}(BA)\\)</b>.</p><p><b>فكرة البرهان:</b> الأولين: القطر خانة خانة. التالت: \\(\\operatorname{tr}(AB)=\\sum_i\\sum_k a_{ik}b_{ki}\\) و\\(\\operatorname{tr}(BA)=\\sum_k\\sum_i b_{ki}a_{ik}\\): نفس الحدود بترتيب تاني.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 198\" role=\"img\" aria-label=\"الجمع خانة خانة: كل خانة مع اللي بنفس المكان. لهيك لازم نفس الحجم.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"6\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"28.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"54\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"76.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"28.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"54\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"76.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><line class=\"fk-line t-hu\" x1=\"104\" y1=\"100.0\" x2=\"177.0\" y2=\"100.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"189.0,100.0 177.0,93.0 177.0,107.0\"/><text class=\"fk-t t-hu\" x=\"146.5\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">+</text><rect class=\"fk-chip t-hu solid\" x=\"195.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"217.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-mut\" x=\"243.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"265.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"195.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"217.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"243.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"265.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><line class=\"fk-line t-hu\" x1=\"293.0\" y1=\"100.0\" x2=\"366.0\" y2=\"100.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"378.0,100.0 366.0,93.0 366.0,107.0\"/><text class=\"fk-t t-hu\" x=\"335.5\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">=</text><rect class=\"fk-chip t-good solid\" x=\"384.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"406.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-mut\" x=\"432.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"454.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"384.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"406.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-mut\" x=\"432.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"454.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text></svg>",
+      "alt": "الجمع خانة خانة: كل خانة مع اللي بنفس المكان. لهيك لازم نفس الحجم.",
+      "caption": "الجمع خانة خانة: كل خانة مع اللي بنفس المكان. لهيك لازم نفس الحجم."
+    },
+    {
+      "t": "h",
+      "text": "الحجم والجمع"
+    },
+    {
+      "t": "p",
+      "html": "<p>\\(F^{m\\times n}\\) هي كل المصفوفات بحجم \\(m\\times n\\) مع أرقام من الحقل \\(F\\). منجمع مصفوفتين بس إذا إلهم نفس الحجم، ومنجمع خانة خانة: \\((A+B)_{ij}=a_{ij}+b_{ij}\\). الضرب بعدد بيضرب كل خانة. هيك المصفوفات بتتصرّف متل المتجهات، بس مرتّبة بجدول.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مصفوفة الصفر \\(0\\) كل خاناتها صفر، و\\(A+0=A\\). و\\(A-B\\) هي \\(A+(-1)B\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "النقل والأثر"
+    },
+    {
+      "t": "p",
+      "html": "<p>المنقول (מטריצה משוחלפת) \\(A^t\\): منقلب الأسطر لأعمدة. الحجم بيتبدّل من \\(m\\times n\\) لـ \\(n\\times m\\). قواعد مفيدة: \\((A^t)^t=A\\)، \\((A+B)^t=A^t+B^t\\)، \\((kA)^t=kA^t\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الأثر (עקבה) بيكون بس لمصفوفة مربعة \\(n\\times n\\): مجموع الخانات على القطر الرئيسي (האלכסון הראשי)، من فوق شمال لتحت يمين. \\(\\operatorname{tr}(A+B)=\\operatorname{tr}A+\\operatorname{tr}B\\) و\\(\\operatorname{tr}(A^t)=\\operatorname{tr}A\\) لأنه النقل ما بيحرّك القطر.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: قراءة خانات",
+      "html": "<p>المعطى \\(A=\\begin{pmatrix}1&amp;4&amp;0\\\\2&amp;-1&amp;5\\end{pmatrix}\\). شو \\(a_{23}\\) وشو \\((A^t)_{32}\\)؟</p><ol><li>\\(a_{23}=5\\)<br><span class=\"why-line\">السطر التاني، العمود التالت.</span></li><li>\\((A^t)_{32}=a_{23}=5\\)<br><span class=\"why-line\">النقل بيبدّل الرقمين، فمنرجع لنفس الخانة بـ \\(A\\).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): مساواة مصفوفات",
+      "html": "<p>لاقوا \\(a,b\\) بحيث \\(\\begin{pmatrix}a+b&amp;2\\\\3&amp;a-b\\end{pmatrix}=\\begin{pmatrix}5&amp;2\\\\3&amp;1\\end{pmatrix}\\).</p><ol><li>\\(a+b=5\\)، \\(a-b=1\\)<br><span class=\"why-line\">مساواة يعني كل خانة بتساوي اللي بتقابلها: معادلة لكل خانة.</span></li><li>\\(2a=6\\Rightarrow a=3\\)<br><span class=\"why-line\">منجمع المعادلتين.</span></li><li>\\(b=5-3=2\\)<br><span class=\"why-line\">منعوّض.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>لكل \\(A,B\\in F^{n\\times n}\\): \\(\\operatorname{tr}(AB)=\\operatorname{tr}A\\cdot\\operatorname{tr}B\\).<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>خدوا \\(A=B=I_2\\).<br><span class=\"why-line\">أبسط مصفوفة.</span></li><li>\\(\\operatorname{tr}(I\\cdot I)=\\operatorname{tr}I=2\\)<br><span class=\"why-line\">\\(I\\cdot I=I\\)، وعلى القطر \\(1+1\\).</span></li><li>\\(\\operatorname{tr}I\\cdot\\operatorname{tr}I=4\\neq2\\)<br><span class=\"why-line\">الأثر بيمشي مع الجمع، مش مع الضرب. اللي صحيح: \\(\\operatorname{tr}(AB)=\\operatorname{tr}(BA)\\).</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "حساب تعبير متل \\(2A-B^t\\)، 3 خطوات",
+      "steps": [
+        "<b>الأحجام:</b> افحصوا إنه \\(2A\\) و\\(B^t\\) بنفس الحجم، وإلا التعبير مش معرّف.",
+        "<b>كل قطعة لحالها:</b> اكتبوا \\(B^t\\) و\\(2A\\) بشكل كامل.",
+        "<b>خانة خانة:</b> اطرحوا كل خانة من اللي بتقابلها."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 206\" role=\"img\" aria-label=\"المعطى B: بالنقل السطر الأول (3,1) بيصير العمود الأول. القطر 3, 2 ما بيتحرّك.\" class=\"fk\"><rect class=\"fk-chip t-1 solid\" x=\"6\" y=\"56\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"31.0\" y=\"83.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-1 solid\" x=\"60\" y=\"56\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"85.0\" y=\"83.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"104\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"31.0\" y=\"131.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-mut\" x=\"60\" y=\"104\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"85.0\" y=\"131.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><line class=\"fk-line t-hu\" x1=\"116\" y1=\"104.0\" x2=\"354.0\" y2=\"104.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"366.0,104.0 354.0,97.0 354.0,111.0\"/><text class=\"fk-t t-hu\" x=\"241.0\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ᵗ</text><rect class=\"fk-chip t-1 solid\" x=\"372.0\" y=\"56\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"397.0\" y=\"83.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"426.0\" y=\"56\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"451.0\" y=\"83.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-1 solid\" x=\"372.0\" y=\"104\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"397.0\" y=\"131.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"426.0\" y=\"104\" width=\"50\" height=\"44\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"451.0\" y=\"131.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text></svg>",
+      "alt": "المعطى B: بالنقل السطر الأول (3,1) بيصير العمود الأول. القطر 3, 2 ما بيتحرّك.",
+      "caption": "المعطى \\(B\\): بالنقل السطر الأول \\((3,1)\\) بيصير العمود الأول. القطر \\(3, 2\\) ما بيتحرّك."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: المعطى \\(A=\\begin{pmatrix}1&amp;2\\\\0&amp;-1\\end{pmatrix}\\)، \\(B=\\begin{pmatrix}3&amp;1\\\\4&amp;2\\end{pmatrix}\\). احسبوا \\(2A-B^t\\) و\\(\\operatorname{tr}(2A-B^t)\\).",
+      "steps": [
+        {
+          "label": "النقل",
+          "body": "\\(B^t=\\begin{pmatrix}3&amp;4\\\\1&amp;2\\end{pmatrix}\\)"
+        },
+        {
+          "label": "ضرب بـ 2",
+          "body": "\\(2A=\\begin{pmatrix}2&amp;4\\\\0&amp;-2\\end{pmatrix}\\)"
+        },
+        {
+          "label": "طرح خانة خانة",
+          "body": "\\(2A-B^t=\\begin{pmatrix}-1&amp;0\\\\-1&amp;-4\\end{pmatrix}\\)"
+        },
+        {
+          "label": "الأثر",
+          "body": "\\(-1+(-4)=-5\\)"
+        }
+      ],
+      "a": "\\(2A-B^t=\\begin{pmatrix}-1&amp;0\\\\-1&amp;-4\\end{pmatrix}\\)، والأثر \\(-5\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 216\" role=\"img\" aria-label=\"الأثر ما بيمشي مع الضرب، النقل بيبدّل الأرقام، والجمع بدّو نفس الحجم.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"10\" y=\"10\" width=\"224\" height=\"196\" rx=\"16\"/><text class=\"fk-t t-bad\" x=\"122\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط ✗</text><text class=\"fk-t t-ink\" x=\"122\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">tr(AB) = trA · trB</text><text class=\"fk-t t-ink\" x=\"122\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">(Aᵗ)ᵢⱼ = aᵢⱼ</text><text class=\"fk-t t-ink\" x=\"122\" y=\"172\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">(2×3) + (3×2) = ?</text><rect class=\"fk-chip t-good\" x=\"246\" y=\"10\" width=\"224\" height=\"196\" rx=\"16\"/><text class=\"fk-t t-good\" x=\"358\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح ✓</text><text class=\"fk-t t-ink\" x=\"358\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">tr(AB) = tr(BA)</text><text class=\"fk-t t-ink\" x=\"358\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">(Aᵗ)ᵢⱼ = aⱼᵢ</text><text class=\"fk-t t-ink\" x=\"358\" y=\"172\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">(2×3) + (3×2) : ∄</text></svg>",
+      "alt": "الأثر ما بيمشي مع الضرب، النقل بيبدّل الأرقام، والجمع بدّو نفس الحجم.",
+      "caption": "الأثر ما بيمشي مع الضرب، النقل بيبدّل الأرقام، والجمع بدّو نفس الحجم."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(a_{23}\\) هو العمود 2 والسطر 3",
+          "yes": "\\(a_{23}\\): السطر 2، العمود 3"
+        },
+        {
+          "no": "منقدر نجمع \\(2\\times3\\) مع \\(3\\times2\\)",
+          "yes": "الجمع بس لنفس الحجم بالزبط"
+        },
+        {
+          "no": "\\(\\operatorname{tr}\\) لمصفوفة \\(2\\times3\\) هو \\(a_{11}+a_{22}\\)",
+          "yes": "الأثر معرّف بس لمصفوفة مربعة"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش ما بنقدر نجمع مصفوفات بحجمين مختلفين؟",
+          "a": "لأنه الجمع خانة خانة، وإذا الأحجام مختلفة في خانات ما إلها شريك. \\(A+B\\) بيكون «לא מוגדר»، وهاد جواب كامل بالامتحان."
+        },
+        {
+          "q": "في أثر لمصفوفة مش مربعة؟",
+          "a": "لأ. القطر الرئيسي «الكامل» من فوق شمال لتحت يمين موجود بس لمصفوفة مربعة، والأثر معرّف بس لـ \\(n\\times n\\)."
+        },
+        {
+          "q": "شو الفرق بين \\(A^t\\) و\\(A^{-1}\\)؟",
+          "a": "\\(A^t\\) قلب أسطر لأعمدة، وموجود دايماً. \\(A^{-1}\\) (المعكوس، بفصل جاي) هي المصفوفة اللي \\(AA^{-1}=I\\)، ومش دايماً موجودة. بالصدفة لمصفوفات «دوران» الاتنين بيطلعوا متساويين، بس هاد استثناء."
+        },
+        {
+          "q": "كيف بتذكّر إنه \\(a_{23}\\) سطر 2 عمود 3 ومش العكس؟",
+          "a": "«سطر قبل عمود»، متل الحجم \\(m\\times n\\): أول رقم أسطر. وبالعبري: «שורה ואז עמודה»."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "شو \\(\\operatorname{tr}(A)\\) لـ \\(A=\\begin{pmatrix}2&amp;7&amp;1\\\\0&amp;-3&amp;4\\\\5&amp;6&amp;8\\end{pmatrix}\\)؟",
+        "answer": [
+          "7"
+        ],
+        "hint": "اجمعوا القطر الرئيسي بس.",
+        "solution": "<p>الأثر هو مجموع القطر الرئيسي من فوق شمال لتحت يمين: \\(2+(-3)+8=7\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(A\\) حجمها \\(4\\times2\\). كم سطر بـ \\(A^t\\)؟",
+        "answer": [
+          "2"
+        ],
+        "hint": "النقل بيبدّل الأسطر والأعمدة.",
+        "solution": "<p>النقل بيقلب الحجم من \\(4\\times2\\) لـ \\(2\\times4\\)، فبيصير عند \\(A^t\\) سطرين و4 أعمدة.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "المعطى \\(A=\\begin{pmatrix}1&amp;-2\\\\3&amp;0\\end{pmatrix}\\). شو الخانة \\((3A^t)_{12}\\)؟",
+        "answer": [
+          "9"
+        ],
+        "hint": "\\((A^t)_{12}=a_{21}\\).",
+        "solution": "<p>الخانة \\((A^t)_{12}\\) هي \\(a_{21}=3\\). منضرب بـ 3 فبيطلع \\(3\\cdot3=9\\).</p>"
+      }
+    }
+  ]
+}

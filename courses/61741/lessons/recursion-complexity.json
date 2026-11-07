@@ -1,0 +1,239 @@
+{
+  "slug": "recursion-complexity",
+  "title": "تعقيد الدوال الرجعية",
+  "he": "סיבוכיות של רקורסיה",
+  "ref": "שבוע 11",
+  "minutes": 18,
+  "desc": "كيف منحسب تعقيد دالة رجعية: عدد الاستدعاءات ضرب الشغل بكل استدعاء، علاقات متل T(n)=T(n−1)+1 و T(n)=T(n/2)+1 و T(n)=2T(n−1)+1، وليش فيبوناتشي الرجعي بطيء كتير.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> السيلابوس بيقول «חישובי סיבוכיות של אלגוריתמים רקורסיביים»، وبالامتحان بيعطوا دالة رجعية وبيسألوا عن تعقيدها. في 4–5 أنماط بيغطّوا تقريباً كل الأسئلة.</p><ol><li>التعقيد = (عدد الاستدعاءات) × (شغل كل واحد)</li><li>n−1 ← O(n)؛ n/2 ← O(log n)</li><li>استدعائين على n−1 ← O(2ⁿ)</li><li>فيبوناتشي بحلقة مقابل رجعية</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل سؤال «מה סיבוכיות הפונקציה הרקורסיבית?».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 214\" role=\"img\" aria-label=\"استدعائين على n−1: كل مستوى ضعف اللي فوقه. 1، 2، 4، … لحد 2^n. هاي O(2ⁿ).\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"130\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"350\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"130\" y1=\"132\" x2=\"70\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"130\" y1=\"132\" x2=\"190\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"350\" y1=\"132\" x2=\"290\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"350\" y1=\"132\" x2=\"410\" y2=\"164\" stroke-width=\"2\"/><rect class=\"fk-chip t-hu\" x=\"210.0\" y=\"24\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"48.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><rect class=\"fk-chip t-hu\" x=\"100.0\" y=\"94\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"130.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n-1</text><rect class=\"fk-chip t-hu\" x=\"320.0\" y=\"94\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"350.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n-1</text><rect class=\"fk-chip t-2\" x=\"40.0\" y=\"164\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"70.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n-2</text><rect class=\"fk-chip t-2\" x=\"160.0\" y=\"164\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"190.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n-2</text><rect class=\"fk-chip t-2\" x=\"260.0\" y=\"164\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"290.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n-2</text><rect class=\"fk-chip t-2\" x=\"380.0\" y=\"164\" width=\"60\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"410.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n-2</text></svg>",
+      "alt": "استدعائين على n−1: كل مستوى ضعف اللي فوقه. 1، 2، 4، … لحد 2^n. هاي O(2ⁿ).",
+      "caption": "استدعائين على n−1: كل مستوى ضعف اللي فوقه. 1، 2، 4، … لحد \\(2^n\\). هاي <bdi dir=\"ltr\">O(2</bdi>ⁿ)."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>ارسموا الاستدعاءات. <b>سطر</b> بطول n ← O(n) استدعاء. <b>نصّ كل مرة</b> ← O(log n). <b>شجرة باستدعائين</b> على n−1 ← O(2ⁿ). وبعدين اضربوا بشغل كل استدعاء (حلقة؟ تقطيع؟).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>دالة رجعية هي حلقة مخفية: كل استدعاء دورة. فبدنا نعرف كم دورة (كم استدعاء)، وكم بتكلّف كل دورة لحالها (من غير الاستدعاءات الرجعية جوّاها).</p>"
+    },
+    {
+      "t": "h",
+      "text": "الأنماط"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 214\" role=\"img\" aria-label=\"استدعائين بكل مستوى: كل مستوى ضعف اللي فوقه. لـ h(2): 1 + 2 + 4 = 7 استدعاءات.\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"140\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"340\" y2=\"94\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"140\" y1=\"132\" x2=\"90\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"140\" y1=\"132\" x2=\"190\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"340\" y1=\"132\" x2=\"290\" y2=\"164\" stroke-width=\"2\"/><line class=\"fk-line t-mut\" x1=\"340\" y1=\"132\" x2=\"390\" y2=\"164\" stroke-width=\"2\"/><rect class=\"fk-chip t-hu\" x=\"209.0\" y=\"24\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"48.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">h(2)</text><rect class=\"fk-chip t-hu\" x=\"109.0\" y=\"94\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"140.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">h(1)</text><rect class=\"fk-chip t-hu\" x=\"309.0\" y=\"94\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"340.0\" y=\"118.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">h(1)</text><rect class=\"fk-chip t-2\" x=\"59.0\" y=\"164\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"90.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">h(0)</text><rect class=\"fk-chip t-2\" x=\"159.0\" y=\"164\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"190.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">h(0)</text><rect class=\"fk-chip t-2\" x=\"259.0\" y=\"164\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"290.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">h(0)</text><rect class=\"fk-chip t-2\" x=\"359.0\" y=\"164\" width=\"62\" height=\"38\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"390.0\" y=\"188.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">h(0)</text></svg>",
+      "alt": "استدعائين بكل مستوى: كل مستوى ضعف اللي فوقه. لـ h(2): 1 + 2 + 4 = 7 استدعاءات.",
+      "caption": "استدعائين بكل مستوى: كل مستوى ضعف اللي فوقه. لـ <bdi dir=\"ltr\">h(2)</bdi>: <bdi dir=\"ltr\">1 + 2 + 4 = 7</bdi> استدعاءات."
+    },
+    {
+      "t": "p",
+      "html": "<p><code dir=\"ltr\">f(n-1)</code> مرة وحدة، وشغل O(1) جوّا (متل العاملي، مجموع خانات بـ n−1): n استدعاء × O(1) = O(n). منكتبها \\(T(n)=T(n-1)+c\\). وإذا جوّا في حلقة على n أو تقطيع، \\(T(n)=T(n-1)+n\\) بيعطي \\(n+(n-1)+\\dots\\) = O(n²).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p><code dir=\"ltr\">f(n//2)</code> أو <code dir=\"ltr\">f(n//10)</code> مرة وحدة: كل استدعاء بيقسم، فعدد الاستدعاءات log n. البحث الثنائي الرجعي \\(T(n)=T(n/2)+c\\) هو O(log n)، ومجموع خانات بـ <code dir=\"ltr\">n // 10</code> هو O(عدد الخانات) = O(log n) بالنسبة لقيمة n.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>استدعائين على n−1 (متل f اللي استدعت حالها مرتين بالدرس الماضي): \\(T(n)=2T(n-1)+c\\). كل مستوى ضعف، وفي n مستوى: \\(2^n\\) استدعاء. O(2ⁿ) يعني n=40 بياخد ساعات. فيبوناتشي الرجعي قريب لهاد (\\(\\approx 1.6^n\\))، لأنه بيحسب نفس القيم مرّات ومرّات: <code dir=\"ltr\">fib(3)</code> بينحسب كذا مرة جوّا <code dir=\"ltr\">fib(6)</code>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>استدعائين على n/2 مع حلقة O(n) (فرز الدمج، الفصل 12): \\(T(n)=2T(n/2)+n\\). في log n مستوى، وكل مستوى شغله المجموع n: O(n log n).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 244\" role=\"img\" aria-label=\"التعقيد = عدد الاستدعاءات × الشغل بكل استدعاء.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"354.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"408.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الاستدعاء</text><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">كم استدعاء</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"33.9\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">شغل بكل واحد</text><rect class=\"fk-chip t-hu solid\" x=\"18.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"72.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">التعقيد</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(n − 1)</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">O(1)</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">O(n)</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(n // 2)</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">log n</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">O(1)</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">O(log n)</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"165.2\" font-size=\"12\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">f(n − 1) مرتين</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2ⁿ</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">O(1)</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">O(2ⁿ)</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">f(s[1:])</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">O(n)</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">O(n²)</text></svg>",
+      "alt": "التعقيد = عدد الاستدعاءات × الشغل بكل استدعاء.",
+      "caption": "التعقيد = عدد الاستدعاءات × الشغل بكل استدعاء."
+    },
+    {
+      "t": "p",
+      "html": "<p>فيبوناتشي: عدد الاستدعاءات بيطير، والحلقة بتعمل n خطوة بس:</p>"
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "calls = 0\ndef fib(n):\n    global calls\n    calls += 1\n    if n < 2:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\ndef fib_loop(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n\nfor n in [10, 20, 25]:\n    calls = 0\n    print(n, fib(n), calls, fib_loop(n))",
+      "out": "10 55 177 55\n20 6765 21891 6765\n25 75025 242785 75025"
+    },
+    {
+      "t": "method",
+      "title": "تعقيد دالة رجعية، 3 خطوات",
+      "steps": [
+        "<b>كم استدعاء رجعي جوّا، وعلى شو؟</b> واحد على n−1، واحد على n/2، اتنين على n−1…",
+        "<b>ارسموا</b> سطر (n)، تنصيف (log n)، شجرة (2ⁿ).",
+        "<b>اضربوا بالشغل المحلي</b> O(1)، أو O(n) إذا في حلقة أو تقطيع."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: عدّ استدعاءات رجعية خطّية",
+      "html": "<p>f بتستدعي حالها مرة وحدة على n − 1. ليش 11 ومش 10؟ لأنه في استدعاء لكل n من 10 لـ 0، والـ 0 كمان استدعاء.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">calls = 0\ndef f(n):\n    global calls\n    calls += 1\n    if n == 0:\n        return 0\n    return f(n - 1)\n\nf(10)\nprint(calls)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">11</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: قوة سريعة",
+      "html": "<p>\\(a^n=(a^{n/2})^2\\) للـ n الزوجي. استدعاء واحد على n/2، فـ O(log n) بدل O(n). منعدّ الاستدعاءات لـ n = 1000.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">calls = 0\ndef fast_pow(a, n):\n    global calls\n    calls += 1\n    if n == 0:\n        return 1\n    half = fast_pow(a, n // 2)\n    if n % 2 == 0:\n        return half * half\n    return a * half * half\n\nr = fast_pow(2, 1000)\nprint(len(str(r)), calls)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">302 11</pre></div></div><p>11 استدعاء بس لـ \\(2^{1000}\\) (عدد فيه 302 خانة). مهم: <code dir=\"ltr\">half</code> بمتغيّر. لو كتبنا <code dir=\"ltr\">fast_pow(a, n // 2) * fast_pow(a, n // 2)</code> كان صار استدعائين، ورجع O(n).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 100\" role=\"img\" aria-label=\"معطيات السؤال: كل استدعاء بيعمل استدعائين على n − 1، فعدد الاستدعاءات بكل مستوى بيتضاعف.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"398.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"434.0\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">h(4)</text><line class=\"fk-line t-mut\" x1=\"396.5\" y1=\"46\" x2=\"386.5\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"374.5,46 386.5,53.0 386.5,39.0\"/><rect class=\"fk-chip t-hu\" x=\"301.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"337.0\" y=\"50.55\" font-size=\"13\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2 × h(3)</text><line class=\"fk-line t-mut\" x1=\"299.5\" y1=\"46\" x2=\"289.5\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"277.5,46 289.5,53.0 289.5,39.0\"/><rect class=\"fk-chip t-hu\" x=\"204.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"50.55\" font-size=\"13\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4 × h(2)</text><line class=\"fk-line t-mut\" x1=\"202.5\" y1=\"46\" x2=\"192.5\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"180.5,46 192.5,53.0 192.5,39.0\"/><rect class=\"fk-chip t-hu\" x=\"107.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"143.0\" y=\"50.55\" font-size=\"13\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8 × h(1)</text><line class=\"fk-line t-mut\" x1=\"105.5\" y1=\"46\" x2=\"95.5\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"83.5,46 95.5,53.0 95.5,39.0\"/><rect class=\"fk-chip t-2 solid\" x=\"10.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"46.0\" y=\"49.85\" font-size=\"11\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">16 × h(0)</text></svg>",
+      "alt": "معطيات السؤال: كل استدعاء بيعمل استدعائين على n − 1، فعدد الاستدعاءات بكل مستوى بيتضاعف.",
+      "caption": "معطيات السؤال: كل استدعاء بيعمل استدعائين على n − 1، فعدد الاستدعاءات بكل مستوى بيتضاعف."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال امتحان: كم مرة بتنستدعى h لـ <bdi dir=\"ltr\">h(4)</bdi>؟ وشو التعقيد؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">calls = 0\ndef h(n):\n    global calls\n    calls += 1\n    if n &lt;= 0:\n        return 1\n    return h(n - 1) + h(n - 1)\n\nprint(h(4), calls)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">16 31</pre></div></div>",
+      "steps": [
+        {
+          "label": "مستوى 0: <bdi dir=\"ltr\">h(4)</bdi>",
+          "body": "<code dir=\"ltr\">1</code>"
+        },
+        {
+          "label": "مستوى 1: مرتين <bdi dir=\"ltr\">h(3)</bdi>",
+          "body": "<code dir=\"ltr\">2</code>"
+        },
+        {
+          "label": "… مستوى 4: <bdi dir=\"ltr\">h(0)</bdi>",
+          "body": "<code dir=\"ltr\">16</code>"
+        },
+        {
+          "label": "المجموع <bdi dir=\"ltr\">1+2+4+8+16</bdi>",
+          "body": "<code dir=\"ltr\">31 = 2⁵ − 1</code>"
+        },
+        {
+          "label": "التعقيد",
+          "body": "<code dir=\"ltr\">O(2ⁿ)</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">16 31</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">calls = 0</code></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(h(4), calls)</code></td><td><bdi dir=\"ltr\">16 31</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "كيف بحسب تعقيد دالة رجعية؟",
+          "a": "<p>سؤالين: كم استدعاء بالمجموع؟ (ارسموا الشجرة)، وكم شغل بكل استدعاء بدون الاستدعاءات (حلقة؟ تقطيع؟). اضربوا.</p>"
+        },
+        {
+          "q": "ليش فيبوناتشي الرجعي بطيء؟",
+          "a": "<p>كل استدعاء بيعمل اتنين، ونفس القيم بتنحسب مرة ورا مرة. لـ <bdi dir=\"ltr\">n = 20</bdi> في أكتر من 20 ألف استدعاء.</p><pre class=\"code\" dir=\"ltr\">calls = 0\ndef fib(n):\n    global calls\n    calls += 1\n    if n &lt; 2:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nprint(fib(20), calls)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">6765 21891</pre>"
+        },
+        {
+          "q": "<bdi dir=\"ltr\">n/2</bdi> مرة وحدة مقابل مرتين، شو الفرق؟",
+          "a": "<p>مرة وحدة على <bdi dir=\"ltr\">n/2</bdi>: سلسلة طولها log n، يعني <bdi dir=\"ltr\">O(log n)</bdi>. مرتين على <bdi dir=\"ltr\">n/2</bdi> مع شغل <bdi dir=\"ltr\">O(n)</bdi> بكل واحد (متل فرز الدمج): log n مستويات × <bdi dir=\"ltr\">O(n) = O(n log n)</bdi>. مرتين على n − 1: <bdi dir=\"ltr\">O(2</bdi>ⁿ).</p>"
+        },
+        {
+          "q": "الرجعية بتاخد ذاكرة زيادة؟",
+          "a": "<p>آه: كل استدعاء مفتوح بيحتل طبقة بالمחסנית. رجعية بعمق n بتحتاج <bdi dir=\"ltr\">O(n)</bdi> ذاكرة، حتى لو ما في قوائم. لهيك عمق كبير كتير بيطلّع RecursionError.</p>"
+        },
+        {
+          "q": "شو هي علاقة <bdi dir=\"ltr\">T(n)</bdi>؟",
+          "a": "<p>طريقة نكتب فيها الوقت: <code dir=\"ltr\">T(n) = T(n − 1) + O(1)</code> معناها استدعاء واحد أصغر بواحد وشغل ثابت، وحلّها <bdi dir=\"ltr\">O(n)</bdi>. <code dir=\"ltr\">T(n) = 2T(n/2) + O(n)</code> حلّها <bdi dir=\"ltr\">O(n log n)</bdi>.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "استدعائين بالدالة دايماً O(2ⁿ)",
+          "yes": "بيعتمد على شو: اتنين على n/2 مع O(1) هي O(n)، ومع O(n) هي O(n log n)"
+        },
+        {
+          "no": "<code dir=\"ltr\">f(n - 1)</code> مع تقطيع <code dir=\"ltr\">a[1:]</code> هي O(n)",
+          "yes": "التقطيع O(n) بكل استدعاء: O(n²)"
+        },
+        {
+          "no": "<code dir=\"ltr\">f(n // 2) * f(n // 2)</code> متل <code dir=\"ltr\">h = f(n // 2); h * h</code>",
+          "yes": "الأول استدعائين: الوقت بيكبر كتير"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو تعقيد <code dir=\"ltr\">def f(n): return 0 if n &lt;= 1 else 1 + f(n // 3)</code>؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\">O(n)</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\">O(log n)</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\">O(n/3)</bdi>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "solution": "<p>استدعاء واحد كل مرة وn بيتقسم على 3، فعدد الاستدعاءات \\(\\log_3 n\\)، وكل واحد O(1). الأساس ما بيهم بـ big O، فهي O(log n).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>كم استدعاء؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">calls = 0\ndef f(n):\n    global calls\n    calls += 1\n    if n &lt;= 1:\n        return\n    f(n // 2)\n    f(n // 2)\n\nf(8)\nprint(calls)</pre></div>",
+        "answer": [
+          "15"
+        ],
+        "hint": "شجرة: 1، 2، 4، 8.",
+        "solution": "<p>استدعائين على n/2: المستويات 8 ثم 4 ثم 2 ثم 1، والاستدعاءات فيهم 1 و 2 و 4 و 8. المجموع 15 تقريباً 2n، يعني O(n).</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">15</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>دالة رجعية بتعمل حلقة <code dir=\"ltr\">for</code> على n جوّا، وبعدين بتستدعي حالها مرة على n−1. شو تعقيدها؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\">O(n)</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\">O(n log n)</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\">O(n</bdi>²)"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "solution": "<p>بالاستدعاء الأول n خطوة، بالتاني n−1، وهيك لحد واحد. المجموع \\(\\frac{n(n+1)}{2}\\)، وهاد O(n²).</p>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "T(n)",
+      "back": "علاقة رجعية: T(n−1)+1 ← O(n)، T(n/2)+1 ← O(log n)، 2T(n−1)+1 ← O(2ⁿ)، 2T(n/2)+n ← O(n log n)."
+    }
+  ]
+}

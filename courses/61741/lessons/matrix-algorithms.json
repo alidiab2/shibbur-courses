@@ -1,0 +1,235 @@
+{
+  "slug": "matrix-algorithms",
+  "title": "ألغوريتمات على مصفوفات: أسطر، أعمدة وأقطار",
+  "he": "מעבר על מטריצה",
+  "ref": "שבוע 8",
+  "minutes": 18,
+  "desc": "ألغوريتمات مصفوفات بأسلوب امتحان מבוא למדעי המחשב: مجموع كل سطر وكل عمود، القطر الرئيسي والثانوي، المصفوفة المنقولة (מטריצה משוחלפת)، وفحص تناظر، مع جدول متابعة.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> الأسئلة على المصفوفات بالامتحان بتدور حول نفس الأشياء: سطر، عمود، قطر، وجيران. إذا بتعرفوا كيف «تمشوا» بكل اتجاه، الباقي ألغوريتمات بتعرفوها.</p><ol><li>مجموع كل سطر (r برّا)</li><li>مجموع كل عمود (c برّا)</li><li>القطر الرئيسي <code dir=\"ltr\">m[i][i]</code> والثانوي <code dir=\"ltr\">m[i][n-1-i]</code></li><li>المنقولة والتناظر</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما يطلبوا «לכל שורה»، «לכל עמודה»، أو «אלכסון».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 244\" role=\"img\" aria-label=\"القطر الرئيسي (אלכסון ראשי): r == c. القطر الثانوي: r + c == n − 1. الوسط بمصفوفة فردية على الاتنين.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"196.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"260.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"324.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"72.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu solid\" x=\"166.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"196.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"230.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"260.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-3 solid\" x=\"294.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"324.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"130.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"166.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"196.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-2 solid\" x=\"230.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"260.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-hu\" x=\"294.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"324.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"188.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">2</text><rect class=\"fk-chip t-3 solid\" x=\"166.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"196.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-hu\" x=\"230.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"260.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-hu solid\" x=\"294.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"324.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-ink\" x=\"124.0\" y=\"28\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">m</text></svg>",
+      "alt": "القطر الرئيسي (אלכסון ראשי): r == c. القطر الثانوي: r + c == n − 1. الوسط بمصفوفة فردية على الاتنين.",
+      "caption": "القطر الرئيسي (אלכסון ראשי): <bdi dir=\"ltr\">r == c</bdi>. القطر الثانوي: <bdi dir=\"ltr\">r + c == n</bdi> − 1. الوسط بمصفوفة فردية على الاتنين."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>القطر الرئيسي: <code dir=\"ltr\">m[i][i]</code>. الثانوي: <code dir=\"ltr\">m[i][n - 1 - i]</code>. كل واحد بحلقة <b>وحدة</b>، مش حلقتين.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>شو بيكون بالحلقة الخارجية بيقرّر شو منجمع: r برّا ← منخلص سطر كامل قبل ما ننتقل، فمنجمع أسطر. c برّا ← منخلص عمود كامل، فمنجمع أعمدة. المجمّع بيتصفّر بأول الحلقة الخارجية.</p>"
+    },
+    {
+      "t": "h",
+      "text": "أسطر، أعمدة وقطر"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 244\" role=\"img\" aria-label=\"القطر الرئيسي: الخانات اللي فيها r == c، يعني m[i][i].\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"196.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"260.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"324.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"72.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">0</text><rect class=\"fk-chip t-2 solid\" x=\"166.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"196.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"230.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"260.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"294.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"324.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"130.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"166.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"196.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-2 solid\" x=\"230.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"260.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-hu\" x=\"294.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"324.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"188.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"166.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"196.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-hu\" x=\"230.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"260.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-2 solid\" x=\"294.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"324.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-ink\" x=\"124.0\" y=\"28\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">m</text></svg>",
+      "alt": "القطر الرئيسي: الخانات اللي فيها r == c، يعني m[i][i].",
+      "caption": "القطر الرئيسي: الخانات اللي فيها <bdi dir=\"ltr\">r == c</bdi>، يعني <bdi dir=\"ltr\">m[i][i]</bdi>."
+    },
+    {
+      "t": "p",
+      "html": "<p>مجموع كل سطر: لكل r، <code dir=\"ltr\">s = 0</code>، منمرق على c ومنجمع <code dir=\"ltr\">m[r][c]</code>، وبعد الحلقة الداخلية منطبع أو منحفظ s. المهم إنه <code dir=\"ltr\">s = 0</code> <b>جوّا</b> الحلقة الخارجية: كل سطر بيبلّش من صفر.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مجموع كل عمود: نفس الإشي بس بنبدّل الحلقات: c برّا وr جوّا، ولسّا منكتب <code dir=\"ltr\">m[r][c]</code> (الترتيب بالأقواس ما بيتغيّر، بس ترتيب الحلقات).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>القطر: بمصفوفة مربعة n×n، القطر الرئيسي هو الخانات اللي سطرها بيساوي عمودها. ما في داعي لحلقتين ونفحص <code dir=\"ltr\">if r == c</code> (هاد بيمرق n² خانة)؛ حلقة وحدة على i بتعطي <code dir=\"ltr\">m[i][i]</code> (n خانة بس). القطر الثانوي من فوق يمين لتحت شمال.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>المنقولة (משוחלפת): السطر بيصير عمود: <code dir=\"ltr\">t[c][r] = m[r][c]</code>. مصفوفة متناظرة (סימטרית) إذا <code dir=\"ltr\">m[r][c] == m[c][r]</code> لكل r و c، يعني بتساوي منقولتها. للفحص بيكفي نمرق على الخانات فوق القطر.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 244\" role=\"img\" aria-label=\"عمود: c ثابت (هون c = 1) و r بيمرق على كل الأسطر.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"196.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"260.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"324.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"72.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"166.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"196.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-3 solid\" x=\"230.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"260.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"294.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"324.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"130.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"166.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"196.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-3 solid\" x=\"230.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"260.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-hu\" x=\"294.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"324.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"188.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"166.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"196.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-3 solid\" x=\"230.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"260.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-hu\" x=\"294.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"324.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-ink\" x=\"124.0\" y=\"28\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">m</text></svg>",
+      "alt": "عمود: c ثابت (هون c = 1) و r بيمرق على كل الأسطر.",
+      "caption": "عمود: c ثابت (هون <bdi dir=\"ltr\">c = 1)</bdi> و r بيمرق على كل الأسطر."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "m = [[1, 2, 3],\n     [4, 5, 6],\n     [7, 8, 9]]\nn = len(m)\nfor r in range(n):\n    s = 0\n    for c in range(n):\n        s += m[r][c]\n    print(\"row\", r, s)\nfor c in range(n):\n    s = 0\n    for r in range(n):\n        s += m[r][c]\n    print(\"col\", c, s)\nd1 = d2 = 0\nfor i in range(n):\n    d1 += m[i][i]\n    d2 += m[i][n - 1 - i]\nprint(d1, d2)",
+      "out": "row 0 6\nrow 1 15\nrow 2 24\ncol 0 12\ncol 1 15\ncol 2 18\n15 15"
+    },
+    {
+      "t": "method",
+      "title": "مصفوفة: كيف تختاروا الحلقات، 3 أسئلة",
+      "steps": [
+        "<b>شو بدكم لكل…؟</b> لكل سطر ← r برّا. لكل عمود ← c برّا.",
+        "<b>وين التصفير؟</b> المجمّع أو العدّاد بأول الحلقة الخارجية.",
+        "<b>قطر؟</b> حلقة وحدة على i."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: مجموع كل سطر",
+      "html": "<p>حلقة على الأسطر، وجوّاها مجمّع للسطر. ليش <code dir=\"ltr\">s = 0</code> جوّا الحلقة الخارجية؟ لأنه لكل سطر بدنا مجموع جديد من الصفر.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">m = [[1, 2], [3, 4], [5, 6]]\nfor r in range(len(m)):\n    s = 0\n    for c in range(len(m[r])):\n        s += m[r][c]\n    print(\"row\", r, \":\", s)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">row 0 : 3\nrow 1 : 7\nrow 2 : 11</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: مصفوفة متناظرة؟",
+      "html": "<p>منقارن كل خانة فوق القطر مع اللي مقابلها. c بيبلّش من r + 1، فما منقارن القطر ولا منقارن كل جوز مرتين.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def is_symmetric(m):\n    n = len(m)\n    for r in range(n):\n        for c in range(r + 1, n):\n            if m[r][c] != m[c][r]:\n                return False\n    return True\n\nprint(is_symmetric([[1, 7, 3], [7, 4, 5], [3, 5, 9]]))\nprint(is_symmetric([[1, 2], [3, 1]]))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">True\nFalse</pre></div></div>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 244\" role=\"img\" aria-label=\"معطيات السؤال: القطر ملوّن. احسبوا مجموعه أول، وبعدين قارنوا كل سطر معه.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"196.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"260.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"324.0\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"72.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">0</text><rect class=\"fk-chip t-2 solid\" x=\"166.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"196.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"230.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"260.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"294.0\" y=\"40\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"324.0\" y=\"73.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"130.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"166.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"196.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-2 solid\" x=\"230.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"260.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"294.0\" y=\"98\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"324.0\" y=\"131.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-mut\" x=\"148.0\" y=\"188.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"166.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"196.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"230.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-hu\" x=\"260.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-2 solid\" x=\"294.0\" y=\"156\" width=\"60\" height=\"54\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"324.0\" y=\"189.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-ink\" x=\"124.0\" y=\"28\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">m</text></svg>",
+      "alt": "معطيات السؤال: القطر ملوّن. احسبوا مجموعه أول، وبعدين قارنوا كل سطر معه.",
+      "caption": "معطيات السؤال: القطر ملوّن. احسبوا مجموعه أول، وبعدين قارنوا كل سطر معه."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع؟ (كم سطر مجموعه أكبر من مجموع القطر؟)<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">m = [[2, 0, 1],\n     [5, 1, 4],\n     [0, 3, 3]]\nd = 0\nfor i in range(3):\n    d += m[i][i]\ncount = 0\nfor r in range(3):\n    s = 0\n    for c in range(3):\n        s += m[r][c]\n    if s &gt; d:\n        count += 1\nprint(d, count)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">6 1</pre></div></div>",
+      "steps": [
+        {
+          "label": "القطر: <bdi dir=\"ltr\">2 + 1 + 3</bdi>",
+          "body": "<code dir=\"ltr\">d = 6</code>"
+        },
+        {
+          "label": "سطر 0: 3، مش أكبر",
+          "body": "<code dir=\"ltr\">s = 3</code>"
+        },
+        {
+          "label": "سطر 1: <bdi dir=\"ltr\">10 &gt; 6</bdi>",
+          "body": "<code dir=\"ltr\">count = 1</code>"
+        },
+        {
+          "label": "سطر 2: 6، مش أكبر (متساوي)",
+          "body": "<code dir=\"ltr\">count = 1</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">6 1</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">d</bdi></th><th><bdi dir=\"ltr\">r</bdi></th><th><bdi dir=\"ltr\">s</bdi></th><th><bdi dir=\"ltr\">count</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">m = [[2, 0, 1],</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">d = 0</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">d += m[i][i]</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">d += m[i][i]</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">d += m[i][i]</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">count = 0</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for r in range(3):</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s = 0</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s += m[r][c]</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s += m[r][c]</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for r in range(3):</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s = 0</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s += m[r][c]</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s += m[r][c]</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s += m[r][c]</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">10</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">count += 1</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">10</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for r in range(3):</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">10</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s = 0</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s += m[r][c]</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">s += m[r][c]</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(d, count)</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">6 1</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو القطر التاني (המשני)؟",
+          "a": "<p>من الزاوية فوق-يمين لتحت-شمال: الخانات اللي فيها <code dir=\"ltr\">r + c == n - 1</code>، يعني <code dir=\"ltr\">m[i][n - 1 - i]</code>.</p><pre class=\"code\" dir=\"ltr\">m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\nn = len(m)\nfor i in range(n):\n    print(m[i][n - 1 - i], end=\" \")</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">3 5 7</pre>"
+        },
+        {
+          "q": "كيف بمرق على عمود؟",
+          "a": "<p>العمود ثابت والسطر بيتغيّر: <code dir=\"ltr\">for r in range(len(m)): m[r][c]</code>. لكل الأعمدة، حلقة خارجية على c وداخلية على r.</p>"
+        },
+        {
+          "q": "ليش <code dir=\"ltr\">s = 0</code> بمكانه مهم؟",
+          "a": "<p>برّا الحلقتين: مجموع كل المصفوفة. جوّا الخارجية: مجموع لكل سطر (أو عمود). نفس الكود، مكان سطر واحد بيغيّر المعنى.</p>"
+        },
+        {
+          "q": "القطر بمصفوفة مش مربعة؟",
+          "a": "<p>القطر معرّف لمصفوفة مربعة بس. لمستطيل، الحلقة على <code dir=\"ltr\">m[i][i]</code> لحد الأصغر بين الأسطر والأعمدة، وإلا IndexError.</p>"
+        },
+        {
+          "q": "كيف بعرف إذا مصفوفة متناظرة؟",
+          "a": "<p>كل خانة فوق القطر بتساوي اللي مقابلها: <code dir=\"ltr\">m[r][c] == m[c][r]</code>. بيكفي نفحص <code dir=\"ltr\">c &gt; r</code>، والمثال المحلول بالدرس بيعمل هيك.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">s = 0</code> قبل الحلقة الخارجية",
+          "yes": "جوّاها: كل سطر من صفر"
+        },
+        {
+          "no": "لمجموع عمود: <code dir=\"ltr\">m[c][r]</code>",
+          "yes": "لسّا <code dir=\"ltr\">m[r][c]</code>. بنبدّل ترتيب الحلقات بس"
+        },
+        {
+          "no": "القطر بحلقتين مع <code dir=\"ltr\">if r == c</code>",
+          "yes": "بيشتغل بس بطيء: حلقة وحدة <code dir=\"ltr\">m[i][i]</code>"
+        },
+        {
+          "no": "القطر الثانوي <code dir=\"ltr\">m[i][n - i]</code>",
+          "yes": "<code dir=\"ltr\">m[i][n - 1 - i]</code>"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">m = [[3, 1], [2, 8]]\nprint(m[0][0] + m[1][1] - m[0][1] - m[1][0])</pre></div>",
+        "answer": [
+          "8"
+        ],
+        "hint": "الرئيسي ناقص الثانوي.",
+        "solution": "<p>القطر الرئيسي \\(3+8=11\\)، والقطر الثانوي \\(1+2=3\\). الفرق بينهم \\(11-3=8\\).</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">8</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">m = [[1, 2, 3], [4, 5, 6]]\nbest = 0\nfor c in range(len(m[0])):\n    s = 0\n    for r in range(len(m)):\n        s += m[r][c]\n    if s &gt; best:\n        best = s\nprint(best)</pre></div>",
+        "answer": [
+          "9"
+        ],
+        "hint": "مجاميع الأعمدة: 5، 7، 9.",
+        "solution": "<p>c برّا يعني منجمع أعمدة: العمود الأول 5، التاني 7، التالت 9. الأكبر بينهم 9.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">9</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">m = [[1, 2], [3, 4]]\nt = [[0, 0], [0, 0]]\nfor r in range(2):\n    for c in range(2):\n        t[c][r] = m[r][c]\nprint(t)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[[1, 3], [2, 4]]</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[[1, 2], [3, 4]]</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">[[4, 3], [2, 1]]</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "السطر بيصير عمود.",
+        "solution": "<p>هاي المنقولة: كل خانة <code dir=\"ltr\">m[r][c]</code> بتروح لـ <code dir=\"ltr\">t[c][r]</code>. السطر الأول [1, 2] صار العمود الأول.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">[[1, 3], [2, 4]]</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "אלכסון ראשי / משני",
+      "back": "رئيسي: <code dir=\"ltr\">m[i][i]</code>. ثانوي: <code dir=\"ltr\">m[i][n-1-i]</code>."
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بعرف <code dir=\"ltr\">m[r][c]</code>، وعدد الأسطر والأعمدة.",
+        "بمرق على مصفوفة بحلقتين، وببني مصفوفة صح بدون فخ الضرب.",
+        "بجمع كل سطر وكل عمود، وبعرف وين التصفير.",
+        "بحسب القطرين بحلقة وحدة.",
+        "بعرف المنقولة وبفحص تناظر."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "slug": "matrix-product",
+  "title": "ضرب المصفوفات",
+  "he": "כפל מטריצות",
+  "ref": "חוברת §4.1 (עמ׳ 30) · מטלה 3",
+  "minutes": 16,
+  "desc": "كيف منضرب مصفوفتين: سطر ضرب عمود، متى الضرب معرّف حسب الأحجام، وليش AB مش دايماً BA. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> ضرب المصفوفات هو أكتر عملية بتطلع بالكورس: النظام \\(Ax=b\\)، المعكوس، والتحويلات كلها ضرب. وهي كمان أكتر مكان فيه أغلاط حجم.</p><ol><li>سطر ضرب عمود</li><li>متى الضرب معرّف</li><li>\\(AB\\neq BA\\)</li><li>قوانين الضرب</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما تشوفوا \\(AB\\)، \\(A^2\\)، أو \\(Ax\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"الضرب: الخانة (i,j) بـ AB هي ضرب سلمي بين السطر i من A والعمود j من B.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"14\" y=\"96\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"34.0\" y=\"122.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu solid\" x=\"60\" y=\"96\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"80.0\" y=\"122.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu solid\" x=\"106\" y=\"96\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"126.0\" y=\"122.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"14\" y=\"142\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"34.0\" y=\"168.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-mut\" x=\"60\" y=\"142\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"80.0\" y=\"168.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"106\" y=\"142\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"126.0\" y=\"168.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"80\" y=\"80\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-ink\" x=\"160\" y=\"128\" font-size=\"34\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">·</text><rect class=\"fk-chip t-1 solid\" x=\"182\" y=\"60\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"202.0\" y=\"86.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"228\" y=\"60\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"248.0\" y=\"86.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-1 solid\" x=\"182\" y=\"106\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"202.0\" y=\"132.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"228\" y=\"106\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"248.0\" y=\"132.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-1 solid\" x=\"182\" y=\"152\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"202.0\" y=\"178.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-mut\" x=\"228\" y=\"152\" width=\"40\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"248.0\" y=\"178.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-ink\" x=\"225\" y=\"44\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-ink\" x=\"290\" y=\"128\" font-size=\"30\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">=</text><rect class=\"fk-chip t-hu solid\" x=\"314\" y=\"96\" width=\"50\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"339.0\" y=\"122.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"370\" y=\"96\" width=\"50\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"395.0\" y=\"122.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-mut\" x=\"314\" y=\"142\" width=\"50\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"339.0\" y=\"168.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"370\" y=\"142\" width=\"50\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"395.0\" y=\"168.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−2</text><text class=\"fk-t t-ink\" x=\"366\" y=\"80\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AB</text><text class=\"fk-t t-hu\" x=\"240\" y=\"250\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1·2 + 2·0 + 0·4 = 2</text><text class=\"fk-t t-mut\" x=\"240\" y=\"284\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">سطر 1 ضرب عمود 1 = الخانة (1,1)</text></svg>",
+      "alt": "الضرب: الخانة (i,j) بـ AB هي ضرب سلمي بين السطر i من A والعمود j من B.",
+      "caption": "الضرب: الخانة \\((i,j)\\) بـ \\(AB\\) هي ضرب سلمي بين السطر \\(i\\) من \\(A\\) والعمود \\(j\\) من \\(B\\)."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\((AB)_{ij}=\\) السطر \\(i\\) من \\(A\\) <b>·</b> العمود \\(j\\) من \\(B\\). معرّف بس إذا \\((m\\times n)(n\\times p)\\)، والنتيجة \\(m\\times p\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: كل خانة ضرب سلمي",
+      "html": "<p>ما في إشي جديد: كل خانة بالنتيجة هي ضرب سلمي متل بفصل المتجهات. منوخد سطر من الأولى وعمود من التانية، منضرب زوج زوج ومنجمع. لهيك طول السطر لازم يساوي طول العمود.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: ضرب مصفوفات <bdi dir=\"rtl\">(כפל מטריצות)</bdi>",
+      "html": "<p>لـ \\(A\\in F^{m\\times n}\\)، \\(B\\in F^{n\\times k}\\): \\(AB\\in F^{m\\times k}\\) و\\((AB)_{ij}=\\sum_{l=1}^n a_{il}b_{lj}\\) (السطر \\(i\\) من \\(A\\) · العمود \\(j\\) من \\(B\\)).</p><p>بالأعمدة: إذا \\(B=(b_1\\,|\\,\\dots\\,|\\,b_k)\\) فـ \\(AB=(Ab_1\\,|\\,\\dots\\,|\\,Ab_k)\\). كل عمود بالنتيجة هو \\(A\\) ضرب عمود من \\(B\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: خواص الضرب <bdi dir=\"rtl\">(טענה 4.18)</bdi>",
+      "html": "<p>\\((AB)C=A(BC)\\)، \\(A(B+C)=AB+AC\\)، \\((A+B)C=AC+BC\\)، \\(\\alpha(AB)=(\\alpha A)B=A(\\alpha B)\\)، \\(AI=IA=A\\)، \\((AB)^t=B^tA^t\\).</p><p><b>فكرة البرهان:</b> كل واحد بحساب الخانة \\((i,j)\\) بالجهتين. مثلاً \\(((AB)^t)_{ij}=(AB)_{ji}=\\sum_l a_{jl}b_{li}\\)، وهاد نفسه \\(\\sum_l(B^t)_{il}(A^t)_{lj}=(B^tA^t)_{ij}\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: قوى <bdi dir=\"rtl\">(חזקות)</bdi>",
+      "html": "<p>لـ \\(A\\) مربعة: \\(A^k=A\\cdots A\\) (\\(k\\) مرات)، و\\(A^0=I_n\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"قاعدة الأحجام: الرقمين بالنص لازم يتساووا (عدد أعمدة A = عدد أسطر B)، والرقمين برّا هم حجم النتيجة.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"40\" y=\"40\" width=\"54\" height=\"54\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"67.0\" y=\"75.4\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"106\" y=\"40\" width=\"54\" height=\"54\" rx=\"10\"/><text class=\"fk-t t-mut\" x=\"133.0\" y=\"75.4\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">×</text><rect class=\"fk-chip t-good solid\" x=\"172\" y=\"40\" width=\"54\" height=\"54\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"199.0\" y=\"75.4\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-good solid\" x=\"268\" y=\"40\" width=\"54\" height=\"54\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"295.0\" y=\"75.4\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"334\" y=\"40\" width=\"54\" height=\"54\" rx=\"10\"/><text class=\"fk-t t-mut\" x=\"361.0\" y=\"75.4\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">×</text><rect class=\"fk-chip t-1 solid\" x=\"400\" y=\"40\" width=\"54\" height=\"54\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"427.0\" y=\"75.4\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-ink\" x=\"140\" y=\"26\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-ink\" x=\"340\" y=\"26\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><path class=\"fk-line t-good\" d=\"M205,100 Q235.0,130 265,100\" stroke-width=\"2.5\" fill=\"none\"/><text class=\"fk-t t-good\" x=\"240\" y=\"150\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">متساويين ✓</text><text class=\"fk-t t-hu\" x=\"240\" y=\"186\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AB :  2 × 4</text></svg>",
+      "alt": "قاعدة الأحجام: الرقمين بالنص لازم يتساووا (عدد أعمدة A = عدد أسطر B)، والرقمين برّا هم حجم النتيجة.",
+      "caption": "قاعدة الأحجام: الرقمين بالنص لازم يتساووا (عدد أعمدة \\(A\\) = عدد أسطر \\(B\\))، والرقمين برّا هم حجم النتيجة."
+    },
+    {
+      "t": "h",
+      "text": "الأحجام"
+    },
+    {
+      "t": "p",
+      "html": "<p>اكتبوا الأحجام جنب بعض: \\((2\\times3)(3\\times2)\\). الرقمين بالنص لازم يكونوا متساويين (عدد الأعمدة بالأولى = عدد الأسطر بالتانية)، والرقمين برّا بيعطوا حجم النتيجة: \\(2\\times2\\). إذا الرقمين بالنص مختلفين، الضرب مش معرّف وهاد جواب كامل بالامتحان.</p>"
+    },
+    {
+      "t": "h",
+      "text": "الترتيب مهم"
+    },
+    {
+      "t": "p",
+      "html": "<p>حتى لو \\(AB\\) و\\(BA\\) معرّفين، بشكل عام \\(AB\\neq BA\\). مثلاً بالسؤال تحت \\(AB\\) حجمها \\(2\\times2\\) بس \\(BA\\) حجمها \\(3\\times3\\). وحتى لمصفوفات مربعة الجواب عادة مختلف. لهيك بالجبر منكتب \\((A+B)^2=A^2+AB+BA+B^2\\)، ومش \\(2AB\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>قوانين بتضل صحيحة: \\((AB)C=A(BC)\\)، \\(A(B+C)=AB+AC\\)، \\(AI=IA=A\\)، و\\((AB)^t=B^tA^t\\) (الترتيب بينقلب).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: ضرب مصفوفة بمتجه",
+      "html": "<p>احسبوا \\(\\begin{pmatrix}2&amp;1\\\\3&amp;-1\\end{pmatrix}\\begin{pmatrix}4\\\\5\\end{pmatrix}\\).</p><ol><li>السطر الأول: \\(2\\cdot4+1\\cdot5=13\\)<br><span class=\"why-line\">السطر الأول من المصفوفة ضرب سلمي مع العمود.</span></li><li>السطر التاني: \\(3\\cdot4+(-1)\\cdot5=7\\)<br><span class=\"why-line\">نفس الإشي مع السطر التاني.</span></li><li>النتيجة \\(\\begin{pmatrix}13\\\\7\\end{pmatrix}\\)<br><span class=\"why-line\">\\((2\\times2)(2\\times1)\\) بيعطي \\(2\\times1\\)، يعني متجه.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): \\(AB\\) مقابل \\(BA\\)",
+      "html": "<p>\\(A=\\begin{pmatrix}1&amp;1\\\\0&amp;1\\end{pmatrix}\\)، \\(B=\\begin{pmatrix}1&amp;0\\\\1&amp;1\\end{pmatrix}\\). احسبوا \\(AB\\) و\\(BA\\).</p><ol><li>\\(AB=\\begin{pmatrix}2&amp;1\\\\1&amp;1\\end{pmatrix}\\)<br><span class=\"why-line\">خانة (1,1): \\(1\\cdot1+1\\cdot1=2\\)، وهيك.</span></li><li>\\(BA=\\begin{pmatrix}1&amp;1\\\\1&amp;2\\end{pmatrix}\\)<br><span class=\"why-line\">نفس المصفوفات بترتيب تاني.</span></li><li>\\(AB\\neq BA\\)<br><span class=\"why-line\">حتى لمصفوفات مربعة بنفس الحجم، الترتيب بيغيّر الجواب.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>إذا \\(AB=0\\) فـ \\(A=0\\) أو \\(B=0\\).<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>خدوا \\(A=B=\\begin{pmatrix}0&amp;1\\\\0&amp;0\\end{pmatrix}\\).<br><span class=\"why-line\">مصفوفة مش صفر.</span></li><li>\\(A\\cdot A=\\begin{pmatrix}0&amp;0\\\\0&amp;0\\end{pmatrix}\\)<br><span class=\"why-line\">خانة (1,2): \\(0\\cdot1+1\\cdot0=0\\)، وكل الباقي صفر.</span></li><li>\\(AB=0\\) بس \\(A\\neq0\\)<br><span class=\"why-line\">بالمصفوفات في «قواسم للصفر»، مش متل بالحقل. لهيك ما بنقدر «نختصر»: \\(AB=AC\\) ما بيعطي \\(B=C\\).</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "ضرب مصفوفتين، 3 خطوات",
+      "steps": [
+        "<b>الأحجام:</b> اكتبوا \\((m\\times n)(n\\times p)\\). النص متساوي؟ النتيجة \\(m\\times p\\).",
+        "<b>خانة خانة:</b> لكل \\((i,j)\\): سطر \\(i\\) · عمود \\(j\\).",
+        "<b>فحص:</b> خانة وحدة على الأقل احسبوها مرة تانية."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 230\" role=\"img\" aria-label=\"المعطى: A حجمها 2 3 وB حجمها 3 2، فالنتيجة 2 2: أربع خانات، كل وحدة سطر ضرب عمود.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"6\" y=\"56\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"25.0\" y=\"79.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu solid\" x=\"48\" y=\"56\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"67.0\" y=\"79.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu solid\" x=\"90\" y=\"56\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"109.0\" y=\"79.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"96\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"25.0\" y=\"119.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-mut\" x=\"48\" y=\"96\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"67.0\" y=\"119.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-mut\" x=\"90\" y=\"96\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"109.0\" y=\"119.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><line class=\"fk-line t-hu\" x1=\"134\" y1=\"116.0\" x2=\"204.0\" y2=\"116.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"216.0,116.0 204.0,109.0 204.0,123.0\"/><text class=\"fk-t t-hu\" x=\"175.0\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">·</text><rect class=\"fk-chip t-1 solid\" x=\"222.0\" y=\"56\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"241.0\" y=\"79.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"264.0\" y=\"56\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"283.0\" y=\"79.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-1 solid\" x=\"222.0\" y=\"96\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"241.0\" y=\"119.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"264.0\" y=\"96\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"283.0\" y=\"119.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">−1</text><rect class=\"fk-chip t-1 solid\" x=\"222.0\" y=\"136\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"241.0\" y=\"159.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-mut\" x=\"264.0\" y=\"136\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"283.0\" y=\"159.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><line class=\"fk-line t-hu\" x1=\"308.0\" y1=\"116.0\" x2=\"378.0\" y2=\"116.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"390.0,116.0 378.0,109.0 378.0,123.0\"/><text class=\"fk-t t-hu\" x=\"349.0\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">=</text><rect class=\"fk-chip t-good solid\" x=\"396.0\" y=\"56\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"415.0\" y=\"79.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">?</text><rect class=\"fk-chip t-mut\" x=\"438.0\" y=\"56\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"457.0\" y=\"79.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">?</text><rect class=\"fk-chip t-mut\" x=\"396.0\" y=\"96\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"415.0\" y=\"119.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">?</text><rect class=\"fk-chip t-mut\" x=\"438.0\" y=\"96\" width=\"38\" height=\"36\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"457.0\" y=\"119.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">?</text></svg>",
+      "alt": "المعطى: A حجمها 2 3 وB حجمها 3 2، فالنتيجة 2 2: أربع خانات، كل وحدة سطر ضرب عمود.",
+      "caption": "المعطى: \\(A\\) حجمها \\(2\\times3\\) و\\(B\\) حجمها \\(3\\times2\\)، فالنتيجة \\(2\\times2\\): أربع خانات، كل وحدة سطر ضرب عمود."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: احسبوا \\(AB\\) لـ \\(A=\\begin{pmatrix}1&amp;2&amp;0\\\\-1&amp;3&amp;1\\end{pmatrix}\\)، \\(B=\\begin{pmatrix}2&amp;1\\\\0&amp;-1\\\\4&amp;2\\end{pmatrix}\\).",
+      "steps": [
+        {
+          "label": "الأحجام",
+          "body": "\\((2\\times3)(3\\times2)\\to2\\times2\\)"
+        },
+        {
+          "label": "خانة (1,1)",
+          "body": "\\(1\\cdot2+2\\cdot0+0\\cdot4=2\\)"
+        },
+        {
+          "label": "خانة (1,2)",
+          "body": "\\(1\\cdot1+2\\cdot(-1)+0\\cdot2=-1\\)"
+        },
+        {
+          "label": "خانة (2,1)",
+          "body": "\\(-2+0+4=2\\)"
+        },
+        {
+          "label": "خانة (2,2)",
+          "body": "\\(-1-3+2=-2\\)"
+        },
+        {
+          "label": "كله مع بعض",
+          "body": "\\(AB=\\begin{pmatrix}2&amp;-1\\\\2&amp;-2\\end{pmatrix}\\)"
+        }
+      ],
+      "a": "\\(AB=\\begin{pmatrix}2&amp;-1\\\\2&amp;-2\\end{pmatrix}\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 176\" role=\"img\" aria-label=\"بالمصفوفات الترتيب مهم وفي «قواسم للصفر»، فقوانين الأعداد ما بتمشي أوتوماتيكياً.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"10\" y=\"10\" width=\"224\" height=\"156\" rx=\"16\"/><text class=\"fk-t t-bad\" x=\"122\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط ✗</text><text class=\"fk-t t-ink\" x=\"122\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">(A+B)² = A²+2AB+B²</text><text class=\"fk-t t-ink\" x=\"122\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">AB = 0  ⇒  A=0 ∨ B=0</text><rect class=\"fk-chip t-good\" x=\"246\" y=\"10\" width=\"224\" height=\"156\" rx=\"16\"/><text class=\"fk-t t-good\" x=\"358\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح ✓</text><text class=\"fk-t t-ink\" x=\"358\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">(A+B)² = A²+AB+BA+B²</text><text class=\"fk-t t-ink\" x=\"358\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">[[0,1],[0,0]]² = 0</text></svg>",
+      "alt": "بالمصفوفات الترتيب مهم وفي «قواسم للصفر»، فقوانين الأعداد ما بتمشي أوتوماتيكياً.",
+      "caption": "بالمصفوفات الترتيب مهم وفي «قواسم للصفر»، فقوانين الأعداد ما بتمشي أوتوماتيكياً."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\((AB)_{ij}=a_{ij}b_{ij}\\)",
+          "yes": "\\((AB)_{ij}\\) = سطر \\(i\\) · عمود \\(j\\)، مش خانة ضرب خانة"
+        },
+        {
+          "no": "\\((A+B)^2=\\)<br>\\(A^2+2AB+B^2\\)",
+          "yes": "\\((A+B)^2=\\)<br>\\(A^2+AB+BA+B^2\\)"
+        },
+        {
+          "no": "\\((AB)^t=A^tB^t\\)",
+          "yes": "\\((AB)^t=B^tA^t\\): الترتيب بينقلب"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش منضرب سطر بعمود، مش خانة بخانة متل الجمع؟",
+          "a": "لأنه الضرب لازم يمثّل «تطبيق مصفوفة ورا التانية» على متجه: \\(A(Bx)=(AB)x\\). هيك بيطلع القانون سطر ضرب عمود. هاد رح يوضح بفصل التحويلات الخطية. (ضرب خانة بخانة موجود، بس مش هو الضرب بالكورس.)"
+        },
+        {
+          "q": "\\((A+B)^2=A^2+2AB+B^2\\)؟",
+          "a": "بس إذا \\(AB=BA\\). بشكل عام: \\((A+B)^2=(A+B)(A+B)=A^2+AB+BA+B^2\\). \\(AB\\) و\\(BA\\) ما بيتجمعوا لـ \\(2AB\\)."
+        },
+        {
+          "q": "ممكن يكون \\(AB\\) معرّف و\\(BA\\) لأ؟",
+          "a": "آه. \\(A\\) حجمها \\(2\\times3\\) و\\(B\\) \\(3\\times4\\): \\(AB\\) حجمها \\(2\\times4\\)، بس \\(BA\\) هو \\((3\\times4)(2\\times3)\\)، والأرقام بالنص \\(4\\neq2\\)، فمش معرّف."
+        },
+        {
+          "q": "ليش \\((AB)^t=B^tA^t\\) والترتيب بينقلب؟",
+          "a": "جرّبوا الأحجام: \\(A\\) \\(2\\times3\\)، \\(B\\) \\(3\\times4\\)، \\((AB)^t\\) \\(4\\times2\\). \\(B^tA^t\\) هو \\((4\\times3)(3\\times2)=4\\times2\\) ✓، بس \\(A^tB^t\\) هو \\((3\\times2)(4\\times3)\\): مش معرّف أصلاً."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(A\\) حجمها \\(3\\times4\\) و\\(B\\) حجمها \\(4\\times2\\). كم خانة بـ \\(AB\\)؟",
+        "answer": [
+          "6"
+        ],
+        "hint": "الرقمين برّا بيعطوا حجم النتيجة.",
+        "solution": "<p>الرقمين بالنص متساويين (4)، فالضرب معرّف، والنتيجة حجمها \\(3\\times2\\)، يعني فيها 6 خانات.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "احسبوا الخانة \\((2,1)\\) بـ \\(AB\\) لـ \\(A=\\begin{pmatrix}1&amp;0\\\\2&amp;3\\end{pmatrix}\\)، \\(B=\\begin{pmatrix}4&amp;1\\\\-1&amp;5\\end{pmatrix}\\).",
+        "answer": [
+          "5"
+        ],
+        "hint": "السطر 2 من \\(A\\) · العمود 1 من \\(B\\).",
+        "solution": "<p>الخانة \\((2,1)\\) بتيجي من ضرب سلمي: منوخد السطر التاني \\((2,3)\\) والعمود الأول \\((4,-1)\\): \\(2\\cdot4+3\\cdot(-1)=8-3=5\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "\\(A=\\begin{pmatrix}0&amp;1\\\\0&amp;0\\end{pmatrix}\\). شو \\(A^2\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(\\begin{pmatrix}0&amp;0\\\\0&amp;0\\end{pmatrix}\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(\\begin{pmatrix}0&amp;1\\\\0&amp;0\\end{pmatrix}\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(\\begin{pmatrix}0&amp;1\\\\0&amp;1\\end{pmatrix}\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "اضربوا \\(A\\cdot A\\) خانة خانة.",
+        "solution": "<p>كل خانة بتطلع صفر، مثلاً \\((1,2)\\): \\(0\\cdot1+1\\cdot0=0\\). فـ \\(A^2=0\\) مع إنه \\(A\\neq0\\)، وهاد ما بيصير بالأعداد.</p>"
+      }
+    }
+  ]
+}

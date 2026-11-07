@@ -1,0 +1,238 @@
+{
+  "slug": "logic",
+  "title": "مقارنات وعمليات منطقية: and, or, not",
+  "he": "אופרטורים לוגיים",
+  "ref": "שבוע 3",
+  "minutes": 15,
+  "desc": "عمليات المقارنة (== و != و < و >=) اللي بتعطي True أو False، والعمليات المنطقية and و or و not (אופרטורים לוגיים)، مع جدول حقيقة وأشهر غلط: = بدل ==.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> قبل ما البرنامج يقرّر («إذا العلامة فوق 55…»)، لازم يعرف يسأل سؤال جوابه نعم أو لا. هاد الدرس عن الأسئلة نفسها، والدرس الجاي عن القرار.</p><ol><li>مقارنات: <code dir=\"ltr\">== != &lt; &gt; &lt;= &gt;=</code></li><li>النتيجة <code dir=\"ltr\">bool</code></li><li><code dir=\"ltr\">and</code>، <code dir=\"ltr\">or</code>، <code dir=\"ltr\">not</code> وجدول الحقيقة</li><li>شروط على مجالات: <code dir=\"ltr\">0 &lt;= x &lt;= 100</code></li></ol><p class=\"when\"><b>متى بتستعمله؟</b> بكل if وبكل while.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"and بدها الشرطين صح، or بيكفيها واحد، not بتقلب.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"40.77\" y=\"15\" width=\"106.46\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A and B</text><rect class=\"fk-chip t-hu\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الاتنين</text><rect class=\"fk-chip t-3 solid\" x=\"192.66\" y=\"15\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A or B</text><rect class=\"fk-chip t-3\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-3\" x=\"240.0\" y=\"106.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">واحد بيكفي</text><rect class=\"fk-chip t-2 solid\" x=\"344.55\" y=\"15\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">not A</text><rect class=\"fk-chip t-2\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">العكس</text></svg>",
+      "alt": "and بدها الشرطين صح، or بيكفيها واحد، not بتقلب.",
+      "caption": "and بدها الشرطين صح، or بيكفيها واحد، not بتقلب."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p><code dir=\"ltr\">=</code> بتحط قيمة، <code dir=\"ltr\">==</code> بتسأل «متساويين؟». كل مقارنة بترجّع <code dir=\"ltr\">True</code> أو <code dir=\"ltr\">False</code>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>شرط هو تعبير قيمته bool. فينا نحطه بمتغيّر، نطبعه، أو نركّب منه شروط أكبر بـ and و or و not، متل ما بنركّب جمل باللغة: «إذا في امتحان <b>و</b> ما درست».</p>"
+    },
+    {
+      "t": "h",
+      "text": "من المقارنة للمنطق"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 244\" role=\"img\" aria-label=\"جدول الحقيقة: and صح بس بالسطر الأول، و or غلط بس بالسطر الأخير.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"354.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"408.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A and B</text><rect class=\"fk-chip t-hu solid\" x=\"18.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"72.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A or B</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text><rect class=\"fk-chip t-good solid\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text><rect class=\"fk-chip t-bad solid\" x=\"18.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"72.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text></svg>",
+      "alt": "جدول الحقيقة: and صح بس بالسطر الأول، و or غلط بس بالسطر الأخير.",
+      "caption": "جدول الحقيقة: and صح بس بالسطر الأول، و or غلط بس بالسطر الأخير."
+    },
+    {
+      "t": "p",
+      "html": "<p>المقارنة بتاخد قيمتين وبترجّع جواب: <code dir=\"ltr\">7 &gt; 3</code> هو <code dir=\"ltr\">True</code>، <code dir=\"ltr\">7 == 3</code> هو <code dir=\"ltr\">False</code>، و<code dir=\"ltr\">7 != 3</code> (مش متساوي) هو <code dir=\"ltr\">True</code>. انتبهوا: <code dir=\"ltr\">&gt;=</code> بالترتيب هاد، مش <code dir=\"ltr\">=&gt;</code>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لما بدنا أكتر من شرط: <code dir=\"ltr\">and</code> (וגם) صح بس إذا الاتنين صح. «بتنجح بالكورس إذا العلامة ≥ 55 <b>و</b> سلّمت الوظايف». <code dir=\"ltr\">or</code> (או) صح إذا واحد على الأقل صح. «في خصم إذا طالب <b>أو</b> جندي». <code dir=\"ltr\">not</code> (לא) بتقلب: <code dir=\"ltr\">not True</code> هو <code dir=\"ltr\">False</code>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>Python بيسمح بمقارنة متسلسلة: <code dir=\"ltr\">0 &lt;= x &lt;= 100</code> معناها <code dir=\"ltr\">0 &lt;= x and x &lt;= 100</code>. ولما x برّا المجال: <code dir=\"ltr\">x &lt; 0 or x &gt; 100</code>. لاحظوا كيف «جوّا» صار and و«برّا» صار or: هاد قانون دي مورغان (חוקי דה מורגן): <code dir=\"ltr\">not (A and B)</code> هو <code dir=\"ltr\">not A or not B</code>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الترتيب: <code dir=\"ltr\">not</code> قبل <code dir=\"ltr\">and</code>، و<code dir=\"ltr\">and</code> قبل <code dir=\"ltr\">or</code>. فـ <code dir=\"ltr\">True or False and False</code> هو <code dir=\"ltr\">True or (False and False)</code> = <code dir=\"ltr\">True</code>. بالشك، أقواس.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 128\" role=\"img\" aria-label=\"= بتحط قيمة، == بتسأل سؤال.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"250\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-good\" x=\"355\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح</text><text class=\"fk-t t-good\" x=\"355\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">if x == 3:</text><text class=\"fk-t t-good\" x=\"355\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">True أو False</text><rect class=\"fk-chip t-bad\" x=\"20\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-bad\" x=\"125\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط</text><text class=\"fk-t t-bad\" x=\"125\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">if x = 3:</text><text class=\"fk-t t-bad\" x=\"125\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">SyntaxError</text></svg>",
+      "alt": "= بتحط قيمة، == بتسأل سؤال.",
+      "caption": "= بتحط قيمة، == بتسأل سؤال."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "x = 42\nprint(x > 10, x == 42, x != 42)\nprint(x % 2 == 0 and x > 50)\nprint(x % 2 == 0 or x > 50)\nprint(not x > 10)\nprint(0 <= x <= 100)",
+      "out": "True True False\nFalse\nTrue\nFalse\nTrue"
+    },
+    {
+      "t": "method",
+      "title": "كيف تكتبوا شرط مركّب، 3 خطوات",
+      "steps": [
+        "<b>اكتبوه بالعربي</b> «عدد زوجي وبين 10 و 20».",
+        "<b>ترجموا كل جزء</b> <code dir=\"ltr\">n % 2 == 0</code>، <code dir=\"ltr\">10 &lt;= n &lt;= 20</code>.",
+        "<b>اربطوا</b> «و» ← and، «أو» ← or، وافحصوا على مثال صح ومثال غلط."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"نفس القيمة، أسئلة مختلفة: كل مقارنة بترجّع True أو False.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"64.33\" y=\"15\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">age</text><rect class=\"fk-chip t-hu\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">17</text><rect class=\"fk-chip t-bad solid\" x=\"174.99\" y=\"15\" width=\"130.01999999999998\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">age &gt;= 18</text><rect class=\"fk-chip t-bad\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-bad\" x=\"240.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text><rect class=\"fk-chip t-good solid\" x=\"320.99\" y=\"15\" width=\"130.01999999999998\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">age == 17</text><rect class=\"fk-chip t-good\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-good\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">True</text></svg>",
+      "alt": "نفس القيمة، أسئلة مختلفة: كل مقارنة بترجّع True أو False.",
+      "caption": "نفس القيمة، أسئلة مختلفة: كل مقارنة بترجّع True أو False."
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: شروط على عمر",
+      "html": "<p>كل سطر بيطبع True أو False. ليش السطر التالت True؟ لأنه <code dir=\"ltr\">or</code> بيكفيها شرط واحد صح، و<code dir=\"ltr\">age == 17</code> صح.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">age = 17\nprint(age &gt;= 18)\nprint(age &gt;= 13 and age &lt; 18)\nprint(age &gt;= 18 or age == 17)\nprint(not age &gt;= 18)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">False\nTrue\nTrue\nTrue</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: سنة كبيسة",
+      "html": "<p>سنة كبيسة (שנה מעוברת) إذا بتنقسم على 4 ومش على 100، أو إذا بتنقسم على 400. منحسبها لـ 2024، 1900 و 2000.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">for y in [2024, 1900, 2000]:\n    leap = (y % 4 == 0 and y % 100 != 0) or y % 400 == 0\n    print(y, leap)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">2024 True\n1900 False\n2000 True</pre></div></div><p>(الـ <code dir=\"ltr\">for</code> هون بس عشان نجرّب تلات سنين؛ منتعلّمها بالفصل 4.) 1900 بتنقسم على 4 بس كمان على 100، فمش كبيسة. 2000 بتنقسم على 400، فكبيسة.</p>"
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = 5\nb = 12\nc = a &gt; 3 and b &lt; 10\nd = a &gt; 3 or b &lt; 10\ne = not (a == 5)\nprint(c, d, e)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">False True False</pre></div></div>",
+      "steps": [
+        {
+          "label": "<code dir=\"ltr\">a &gt; 3</code> صح، <code dir=\"ltr\">b &lt; 10</code> غلط، and بدها الاتنين",
+          "body": "<code dir=\"ltr\">c = False</code>"
+        },
+        {
+          "label": "or بيكفيها واحد صح",
+          "body": "<code dir=\"ltr\">d = True</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">a == 5</bdi> صح، not بتقلب",
+          "body": "<code dir=\"ltr\">e = False</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">False True False</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">c</bdi></th><th><bdi dir=\"ltr\">d</bdi></th><th><bdi dir=\"ltr\">e</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = 5</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">c = a &gt; 3 and b &lt; 10</code></td><td><bdi dir=\"ltr\">False</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">d = a &gt; 3 or b &lt; 10</code></td><td><bdi dir=\"ltr\">False</bdi></td><td><bdi dir=\"ltr\">True</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">e = not (a == 5)</code></td><td><bdi dir=\"ltr\">False</bdi></td><td><bdi dir=\"ltr\">True</bdi></td><td><bdi dir=\"ltr\">False</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(c, d, e)</code></td><td><bdi dir=\"ltr\">False</bdi></td><td><bdi dir=\"ltr\">True</bdi></td><td><bdi dir=\"ltr\">False</bdi></td><td><bdi dir=\"ltr\">False True False</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو بيصير لو كتبت <code dir=\"ltr\">=</code> بدل <code dir=\"ltr\">==</code> بالشرط؟",
+          "a": "<p>Python بيوقف قبل ما يبلّش بـ SyntaxError، لأنه <code dir=\"ltr\">=</code> أمر إسناد وما بيصير بمكان سؤال. منيح إنه بيوقف: بلغات تانية هاد غلط صامت.</p><pre class=\"code\" dir=\"ltr\">x = 3\nif x = 3:\n    print(\"yes\")</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">SyntaxError: invalid syntax</pre>"
+        },
+        {
+          "q": "ليش <code dir=\"ltr\">x == 1 or 2</code> ما بتشتغل متل ما بدي؟",
+          "a": "<p>لأنه Python بيقراها <code dir=\"ltr\">(x == 1) or 2</code>، و 2 لحالها بتنحسب «صح». لازم تكتبوا المقارنة كاملة بكل جهة: <code dir=\"ltr\">x == 1 or x == 2</code>.</p><pre class=\"code\" dir=\"ltr\">x = 5\nprint(x == 1 or x == 2)\nprint(bool(x == 1 or 2))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">False\nTrue</pre>"
+        },
+        {
+          "q": "Python بيكمّل يفحص بعد ما عرف الجواب؟",
+          "a": "<p>لأ. بـ <code dir=\"ltr\">and</code> إذا الأول False بيوقف، وبـ <code dir=\"ltr\">or</code> إذا الأول True بيوقف (הערכה מקוצרת). هاد بيحمينا: <code dir=\"ltr\">x != 0 and 10 / x &gt; 1</code> ما بتقسم على صفر أبداً.</p><pre class=\"code\" dir=\"ltr\">x = 0\nprint(x != 0 and 10 / x &gt; 1)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">False</pre>"
+        },
+        {
+          "q": "بقدر أقارن نصوص بـ <code dir=\"ltr\">&lt;</code>؟",
+          "a": "<p>آه، بترتيب القاموس حرف حرف حسب قيمة كل حرف بالحاسوب. انتبهوا: كل الأحرف الكبيرة قبل الصغيرة، فـ \"Z\" أصغر من \"a\".</p><pre class=\"code\" dir=\"ltr\">print(\"apple\" &lt; \"banana\", \"Z\" &lt; \"a\", \"ab\" &lt; \"abc\")</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">True True True</pre>"
+        },
+        {
+          "q": "شو الفرق بين <code dir=\"ltr\">not a == b</code> و <code dir=\"ltr\">a != b</code>؟",
+          "a": "<p>بيعطوا نفس الجواب دايماً، لأنه <code dir=\"ltr\">not</code> بتتحسب بعد المقارنة. <code dir=\"ltr\">!=</code> أقصر وأوضح.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">if x = 5:</code>",
+          "yes": "<code dir=\"ltr\">if x == 5:</code>: المقارنة بإشارتين"
+        },
+        {
+          "no": "<code dir=\"ltr\">x == 1 or 2</code> بتفحص إذا x واحد أو اتنين",
+          "yes": "<code dir=\"ltr\">x == 1 or x == 2</code>: كل جزء شرط كامل"
+        },
+        {
+          "no": "<code dir=\"ltr\">x &gt; 0 and x &lt; 0</code> ممكن يكون صح",
+          "yes": "دايماً False. «برّا المجال» بدها or"
+        },
+        {
+          "no": "<code dir=\"ltr\">=&gt;</code>",
+          "yes": "<code dir=\"ltr\">&gt;=</code>"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">x = 7\nprint(x &gt; 5 and x % 2 == 0)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">True</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">False</bdi>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "7 زوجي؟",
+        "solution": "<p>الجزء الأول صح لأنه 7 أكبر من 5، بس 7 فردي فالجزء التاني غلط، و and بدها الاتنين صح.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">False</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = 3\nb = 3\nprint(a != b or not a &lt; 1)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">True</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">False</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "احسبوا كل جانب من الـ or لحاله.",
+        "solution": "<p>الجزء الأول <code dir=\"ltr\">a != b</code> غلط لأنهم متساويين. بس <code dir=\"ltr\">a &lt; 1</code> غلط، و not بتقلبه لصح، و or بيكفيها جزء واحد صح.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">True</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>أي شرط معناه «n برّا المجال من 1 لـ 10»؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<code dir=\"ltr\">n &lt; 1 and n &gt; 10</code>"
+          },
+          {
+            "v": "2",
+            "html": "<code dir=\"ltr\">n &lt; 1 or n &gt; 10</code>"
+          },
+          {
+            "v": "3",
+            "html": "<code dir=\"ltr\">not n &lt; 1 or n &gt; 10</code>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "solution": "<p>عدد ما بيقدر يكون أصغر من 1 وأكبر من 10 بنفس الوقت، فالـ and دايماً غلط. برّا المجال يعني واحد من الجانبين، وهيك بدها or.</p>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "אופרטורים לוגיים",
+      "back": "<code dir=\"ltr\">and</code> (וגם) الاتنين، <code dir=\"ltr\">or</code> (או) واحد على الأقل، <code dir=\"ltr\">not</code> (לא) بتقلب."
+    }
+  ]
+}

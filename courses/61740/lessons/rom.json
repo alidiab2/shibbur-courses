@@ -1,0 +1,194 @@
+{
+  "slug": "rom",
+  "title": "ROM: جدول قيم بالذاكرة",
+  "he": "זיכרון ROM",
+  "ref": "הרצאה 8 · תרגול 9",
+  "minutes": 14,
+  "desc": "ذاكرة ROM كدائرة تركيبية بكورس 61740: مفكّك مع مصفوفة OR، حجم 2ⁿ×m، كيف بتعبّوا جدول الـ ROM من دالة، وكيف بتحسبوا قديش بِت فيها.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> ROM هو أسرع طريقة تنفّذوا أي جدول قيم بدون تبسيط: بتكتبوا الجدول جوّا. بالامتحان بيسألوا عن الحجم وعن تعبئة الجدول.</p><ol><li>ROM = مفكّك + OR</li><li>الحجم \\(2^n\\times m\\)</li><li>تعبئة الجدول من دالة</li><li>متى ROM ومتى بوابات</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما يذكروا ROM، זיכרון לקריאה בלבד، أو «כתובת».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"ROM بيخزّن جدول قيم: سطر لكل عنوان، ونقطة وين المخرج 1. هون المخرج هو مربع العنوان.\" class=\"fk\"><rect class=\"fk-chip t-ink\" x=\"20\" y=\"20\" width=\"70\" height=\"280\" rx=\"10\" stroke-width=\"3\"/><text class=\"fk-t t-mut\" x=\"55\" y=\"165\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">DEC</text><path class=\"fk-line t-grid\" d=\"M90 38 L440 38\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"110\" y=\"32\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">000</text><path class=\"fk-line t-grid\" d=\"M90 72 L440 72\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"110\" y=\"66\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">001</text><circle class=\"fk-dot t-hu\" cx=\"410\" cy=\"72\" r=\"7\"/><path class=\"fk-line t-grid\" d=\"M90 106 L440 106\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"110\" y=\"100\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">010</text><circle class=\"fk-dot t-hu\" cx=\"314\" cy=\"106\" r=\"7\"/><path class=\"fk-line t-grid\" d=\"M90 140 L440 140\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"110\" y=\"134\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">011</text><circle class=\"fk-dot t-hu\" cx=\"266\" cy=\"140\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"410\" cy=\"140\" r=\"7\"/><path class=\"fk-line t-grid\" d=\"M90 174 L440 174\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"110\" y=\"168\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">100</text><circle class=\"fk-dot t-hu\" cx=\"218\" cy=\"174\" r=\"7\"/><path class=\"fk-line t-grid\" d=\"M90 208 L440 208\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"110\" y=\"202\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">101</text><circle class=\"fk-dot t-hu\" cx=\"218\" cy=\"208\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"266\" cy=\"208\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"410\" cy=\"208\" r=\"7\"/><path class=\"fk-line t-grid\" d=\"M90 242 L440 242\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"110\" y=\"236\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">110</text><circle class=\"fk-dot t-hu\" cx=\"170\" cy=\"242\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"314\" cy=\"242\" r=\"7\"/><path class=\"fk-line t-grid\" d=\"M90 276 L440 276\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-mut\" x=\"110\" y=\"270\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">111</text><circle class=\"fk-dot t-hu\" cx=\"170\" cy=\"276\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"218\" cy=\"276\" r=\"7\"/><circle class=\"fk-dot t-hu\" cx=\"410\" cy=\"276\" r=\"7\"/><path class=\"fk-line t-grid\" d=\"M170 22 L170 300\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"170\" y=\"316\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Y5</text><path class=\"fk-line t-grid\" d=\"M218 22 L218 300\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"218\" y=\"316\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Y4</text><path class=\"fk-line t-grid\" d=\"M266 22 L266 300\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"266\" y=\"316\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Y3</text><path class=\"fk-line t-grid\" d=\"M314 22 L314 300\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"314\" y=\"316\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Y2</text><path class=\"fk-line t-grid\" d=\"M362 22 L362 300\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"362\" y=\"316\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Y1</text><path class=\"fk-line t-grid\" d=\"M410 22 L410 300\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"410\" y=\"316\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Y0</text></svg>",
+      "alt": "ROM بيخزّن جدول قيم: سطر لكل عنوان، ونقطة وين المخرج 1. هون المخرج هو مربع العنوان.",
+      "caption": "ROM بيخزّن جدول قيم: سطر لكل عنوان، ونقطة وين المخرج 1. هون المخرج هو مربع العنوان."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>ROM مع \\(n\\) خطوط عنوان و\\(m\\) مخارج فيه \\(2^n\\) كلمات من \\(m\\) بِتات. <b>العنوان = المدخل، الكلمة = سطر المخارج بجدول القيم</b>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>جوّا الـ ROM في مفكّك: كل عنوان بيشعّل خط واحد. على كل خط في نقاط وين لازم المخرج يكون 1. يعني الـ ROM هو جدول القيم نفسه، مطبوع بالسيليكون.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 328\" role=\"img\" aria-label=\"محتوى ROM لـ 3x + 1: كل عنوان هو سطر بجدول القيم، والكلمة هي المخارج بهاد السطر.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"90.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-mut\" x=\"190.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">العنوان</text><text class=\"fk-t t-hu\" x=\"290.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الكلمة</text><text class=\"fk-t t-hu\" x=\"390.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3x+1</text><line class=\"fk-line t-grid\" x1=\"40.0\" y1=\"40\" x2=\"440.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"12\" x2=\"240.0\" y2=\"312\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"90.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">000</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00001</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"90.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">001</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00100</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-ink\" x=\"90.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">010</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00111</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-ink\" x=\"90.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">3</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">011</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">01010</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><text class=\"fk-t t-ink\" x=\"90.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">100</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"200\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">01101</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"200\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">13</text><text class=\"fk-t t-ink\" x=\"90.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">5</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">101</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"234\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10000</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"234\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">16</text><rect class=\"fk-chip t-hu\" x=\"42.0\" y=\"247\" width=\"396\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"90.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">6</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"268\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">110</text><text class=\"fk-t t-hu\" x=\"290.0\" y=\"268\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10011</text><text class=\"fk-t t-hu\" x=\"390.0\" y=\"268\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">19</text><text class=\"fk-t t-ink\" x=\"90.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"302\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">111</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"302\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10110</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"302\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">22</text></svg>",
+      "alt": "محتوى ROM لـ 3x + 1: كل عنوان هو سطر بجدول القيم، والكلمة هي المخارج بهاد السطر.",
+      "caption": "محتوى ROM لـ 3x + 1: كل عنوان هو سطر بجدول القيم، والكلمة هي المخارج بهاد السطر."
+    },
+    {
+      "t": "h",
+      "text": "كيف مبني؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>الـ \\(n\\) مداخل (العنوان، כתובת) بيدخلوا لمفكّك \\(n\\to2^n\\). كل مخرج \\(Y_j\\) هو بوابة OR على الخطوط اللي فيها نقطة بعامود \\(j\\). هيك كل \\(Y_j\\) هو مجموع مينترمات، متل ما تعلّمنا بمفكّك وOR. الفرق إنه بالـ ROM كل الخطوط موجودة، والتعبئة هي وين بنحط نقاط.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بالرسمة: ROM بـ 3 خطوط عنوان و6 مخارج، والكلمة بكل عنوان هي مربّع العنوان. العنوان 5 (\\(101\\)) فيه \\(25=011001\\)، فالنقاط بعواميد \\(Y_4,Y_3,Y_0\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "الحجم"
+    },
+    {
+      "t": "p",
+      "html": "<p>عدد الكلمات \\(2^n\\)، وكل كلمة \\(m\\) بِتات. فعدد البِتات \\(2^n\\cdot m\\). ROM بـ 3 عنوان و6 مخارج: \\(8\\times6=48\\) بِت. منكتب الحجم \\(2^n\\times m\\) (مثلاً \\(8\\times6\\)).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>متى ROM أحسن من بوابات؟ لما في كتير مخارج والدوال ما بتتبسّط منيح، أو بدكم تغيّروا الجدول بسهولة. الـ ROM ما بيستفيد من التبسيط: حجمه بيعتمد بس على \\(n\\) و\\(m\\).</p>"
+    },
+    {
+      "t": "method",
+      "title": "تنفيذ دالة بـ ROM: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>عدّوا</b> \\(n\\) = عدد بِتات المدخل، \\(m\\) = عدد بِتات المخرج.",
+        "<b>جدول</b> لكل عنوان من 0 لـ \\(2^n-1\\)، اكتبوا الكلمة (المخرج بالثنائي).",
+        "<b>الحجم</b> \\(2^n\\times m\\) بِتات."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"ROM بـ 3 خطوط عنوان و5 مخارج (8 × 5): العنوان 110 = 6 بيطلّع الكلمة 10011 = 19.\" class=\"fk\"><rect class=\"fk-chip t-ink\" x=\"165.0\" y=\"16\" width=\"150\" height=\"238\" rx=\"12\"/><text class=\"fk-t t-mut\" x=\"240\" y=\"137.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">ROM</text><text class=\"fk-t t-mut\" x=\"240\" y=\"161.0\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">8 × 5</text><path class=\"fk-line t-hu\" d=\"M70 75.5 L165.0 75.5\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"64\" y=\"81.5\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A2=1</text><path class=\"fk-line t-hu\" d=\"M70 135.0 L165.0 135.0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"64\" y=\"141.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A1=1</text><path class=\"fk-line t-mut\" d=\"M70 194.5 L165.0 194.5\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"64\" y=\"200.5\" font-size=\"16\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A0=0</text><path class=\"fk-line t-hu\" d=\"M315.0 55.666666666666664 L410 55.666666666666664\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"416\" y=\"61.666666666666664\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">D4=1</text><path class=\"fk-line t-mut\" d=\"M315.0 95.33333333333333 L410 95.33333333333333\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"416\" y=\"101.33333333333333\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">D3=0</text><path class=\"fk-line t-mut\" d=\"M315.0 135.0 L410 135.0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"416\" y=\"141.0\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">D2=0</text><path class=\"fk-line t-hu\" d=\"M315.0 174.66666666666666 L410 174.66666666666666\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"416\" y=\"180.66666666666666\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">D1=1</text><path class=\"fk-line t-hu\" d=\"M315.0 214.33333333333334 L410 214.33333333333334\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"416\" y=\"220.33333333333334\" font-size=\"16\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">D0=1</text></svg>",
+      "alt": "ROM بـ 3 خطوط عنوان و5 مخارج (8 × 5): العنوان 110 = 6 بيطلّع الكلمة 10011 = 19.",
+      "caption": "ROM بـ 3 خطوط عنوان و5 مخارج (8 × 5): العنوان 110 = 6 بيطلّع الكلمة 10011 = 19."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: ROM بيعطي \\(3x+1\\) لكل \\(x\\) بـ 3 بِتات. شو الحجم وشو الكلمة بعنوان 6؟",
+      "steps": [
+        {
+          "label": "أكبر مخرج",
+          "body": "\\(3\\cdot7+1=22=10110_2\\): 5 بِتات"
+        },
+        {
+          "label": "الحجم",
+          "body": "\\(2^3\\times5=8\\times5=40\\) بِت"
+        },
+        {
+          "label": "عنوان 6",
+          "body": "\\(3\\cdot6+1=19=10011\\)"
+        }
+      ],
+      "a": "الجواب: \\(8\\times5\\)، والكلمة \\(10011\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: نقاط بعامود",
+      "html": "<p>بالـ ROM تبع المربعات (الرسمة)، بأي عناوين \\(Y_0=1\\)؟</p><p>\\(Y_0\\) هو بِت الآحاد تبع \\(x^2\\)، وهو 1 لما \\(x^2\\) فردي، يعني لما \\(x\\) فردي: العناوين 1، 3، 5، 7. فـ \\(Y_0=x_0\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"كل خط عنوان هو بِت، و4 بِتات بيكتبوا 2⁴ = 16 عنوان مختلف.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">4 خطوط عنوان: 4 كلمات</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">4 خطوط عنوان: 16 كلمة</text></svg>",
+      "alt": "كل خط عنوان هو بِت، و4 بِتات بيكتبوا 2⁴ = 16 عنوان مختلف.",
+      "caption": "كل خط عنوان هو بِت، و4 بِتات بيكتبوا 2⁴ = 16 عنوان مختلف."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "ROM بـ 4 خطوط عنوان فيه 4 كلمات",
+          "yes": "فيه \\(2^4=16\\) كلمة"
+        },
+        {
+          "no": "الحجم = عدد خطوط العنوان × عدد المخارج",
+          "yes": "الحجم \\(2^n\\times m\\)"
+        },
+        {
+          "no": "منبسّط الدالة قبل الـ ROM ليصغر",
+          "yes": "حجم الـ ROM ما بيتغيّر من التبسيط"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش بِت في ROM بـ 5 خطوط عنوان و8 مخارج؟",
+        "answer": [
+          "256"
+        ],
+        "hint": "\\(2^n\\cdot m\\).",
+        "solution": "<p>في \\(2^5=32\\) كلمة، وكل كلمة 8 بِتات. فالحجم \\(32\\times8=256\\) بِت.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "ROM بيطلّع \\(x+5\\) لـ \\(x\\) بـ 4 بِتات. اكتبوا الكلمة بعنوان 13 بالثنائي.",
+        "answer": [
+          "10010"
+        ],
+        "hint": "احسبوا وحوّلوا.",
+        "solution": "<p>بعنوان 13 المخرج \\(13+5=18\\). بالثنائي \\(18=10010\\)، وهاي الكلمة (5 بِتات لأنه أكبر قيمة 20).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "ROM بحجم \\(64\\times4\\). قديش خط عنوان فيه؟",
+        "answer": [
+          "6"
+        ],
+        "hint": "\\(2^n=64\\).",
+        "solution": "<p>عدد الكلمات \\(2^n=64\\)، فـ \\(n=6\\) خطوط عنوان. الـ 4 هو عدد المخارج (بِتات بكل كلمة).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو الفرق بين ROM وRAM؟",
+          "a": "ROM (זיכרון לקריאה בלבד) محتواه ثابت: منكتبه مرة وبعدين بس منقرا. RAM بيقرا وبيكتب، ومحتواه بيروح لما تطفّوا الكهربا. بالكورس منستعمل ROM كطريقة لتنفيذ جدول قيم."
+        },
+        {
+          "q": "ليش ROM هو دائرة تركيبية مع إنه «ذاكرة»؟",
+          "a": "لأنه بالاستعمال تبعنا محتواه ما بيتغيّر، والمخرج بيعتمد بس على العنوان هلّق. ما في حالة بتتغيّر مع الوقت، فهو بالزبط متل جدول قيم."
+        },
+        {
+          "q": "كيف بحسب حجم ROM بسرعة؟",
+          "a": "\\(n\\) خطوط عنوان بيعطوا \\(2^n\\) كلمات، وكل كلمة \\(m\\) بِتات (عدد المخارج). الحجم \\(2^n\\times m\\) بِت. مثلاً لجامع كامل: 3 مداخل ومخرجين، يعني \\(8\\times2=16\\) بِت."
+        },
+        {
+          "q": "شو PLA أو PAL؟",
+          "a": "مركّبات قابلة للبرمجة فيها مصفوفة AND ومصفوفة OR، وبتبنوا فيها بس حدود الضرب اللي بدكم إياها، مش كل المينترمات متل الـ ROM. موجودين بكتاب Mano (فصل 7)، بس مش بسيلابوس الكورس."
+        }
+      ]
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بنفّذ دالة بـ MUX 8→1، 4→1 و2→1 بتقليص الجدول.",
+        "بفهم مبنى الـ ALU.",
+        "بنفّذ دوال بـ ROM."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "slug": "standard-matrix",
+  "title": "مصفوفة التحويل",
+  "he": "מטריצה מייצגת",
+  "ref": "חוברת §8 · מטלה 7",
+  "minutes": 18,
+  "desc": "المصفوفة المعيارية [T]: أعمدتها صور الأساس، T(v)=[T]v، إيجاد T من صور أساس تاني، وتركيب تحويلات = ضرب مصفوفات. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> «נתון ש־\\(T(1,1)=\\dots\\), \\(T(1,-1)=\\dots\\). מצאו את \\(T(x,y)\\)» سؤال كلاسيكي. السر الوحيد: التحويل الخطي بيتحدّد كله من صور أساس.</p><ol><li>الأعمدة = \\(T(e_i)\\)</li><li>\\(T(v)=[T]v\\)</li><li>من صور أساس تاني</li><li>تركيب = ضرب</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما بيعطوا صور متجهات معيّنة، أو بيطلبوا «המטריצה המייצגת».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 320\" role=\"img\" aria-label=\"لتلاقوا مصفوفة التحويل بيكفي تعرفوا وين بيروحوا e 1 وe 2. الصور هي الأعمدة، والشبكة كلها بتلحقهم.\" class=\"fk\"><clipPath id=\"gm09-5\"><rect x=\"20\" y=\"20\" width=\"440\" height=\"290\"/></clipPath><g clip-path=\"url(#gm09-5)\"><line class=\"fk-line t-grid\" x1=\"60\" y1=\"370\" x2=\"60\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"370\" x2=\"380\" y2=\"370\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"100\" y1=\"370\" x2=\"100\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"330\" x2=\"380\" y2=\"330\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"140\" y1=\"370\" x2=\"140\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"290\" x2=\"380\" y2=\"290\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"180\" y1=\"370\" x2=\"180\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"250\" x2=\"380\" y2=\"250\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"220\" y1=\"370\" x2=\"220\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"210\" x2=\"380\" y2=\"210\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"260\" y1=\"370\" x2=\"260\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"170\" x2=\"380\" y2=\"170\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"300\" y1=\"370\" x2=\"300\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"130\" x2=\"380\" y2=\"130\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"340\" y1=\"370\" x2=\"340\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"90\" x2=\"380\" y2=\"90\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"380\" y1=\"370\" x2=\"380\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"50\" x2=\"380\" y2=\"50\" stroke-width=\"1.2\"/><line class=\"fk-line t-hu\" x1=\"-260\" y1=\"1170\" x2=\"-1220\" y2=\"210\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-260\" y1=\"1170\" x2=\"1660\" y2=\"210\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-180\" y1=\"1130\" x2=\"-1140\" y2=\"170\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-300\" y1=\"1130\" x2=\"1620\" y2=\"170\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-100\" y1=\"1090\" x2=\"-1060\" y2=\"130\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-340\" y1=\"1090\" x2=\"1580\" y2=\"130\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-20\" y1=\"1050\" x2=\"-980\" y2=\"90\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-380\" y1=\"1050\" x2=\"1540\" y2=\"90\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"60\" y1=\"1010\" x2=\"-900\" y2=\"50\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-420\" y1=\"1010\" x2=\"1500\" y2=\"50\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"140\" y1=\"970\" x2=\"-820\" y2=\"10\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-460\" y1=\"970\" x2=\"1460\" y2=\"10\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"220\" y1=\"930\" x2=\"-740\" y2=\"-30\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-500\" y1=\"930\" x2=\"1420\" y2=\"-30\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"300\" y1=\"890\" x2=\"-660\" y2=\"-70\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-540\" y1=\"890\" x2=\"1380\" y2=\"-70\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"380\" y1=\"850\" x2=\"-580\" y2=\"-110\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-580\" y1=\"850\" x2=\"1340\" y2=\"-110\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"460\" y1=\"810\" x2=\"-500\" y2=\"-150\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-620\" y1=\"810\" x2=\"1300\" y2=\"-150\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"540\" y1=\"770\" x2=\"-420\" y2=\"-190\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-660\" y1=\"770\" x2=\"1260\" y2=\"-190\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"620\" y1=\"730\" x2=\"-340\" y2=\"-230\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-700\" y1=\"730\" x2=\"1220\" y2=\"-230\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"700\" y1=\"690\" x2=\"-260\" y2=\"-270\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-740\" y1=\"690\" x2=\"1180\" y2=\"-270\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"780\" y1=\"650\" x2=\"-180\" y2=\"-310\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-780\" y1=\"650\" x2=\"1140\" y2=\"-310\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"860\" y1=\"610\" x2=\"-100\" y2=\"-350\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-820\" y1=\"610\" x2=\"1100\" y2=\"-350\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"940\" y1=\"570\" x2=\"-20\" y2=\"-390\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-860\" y1=\"570\" x2=\"1060\" y2=\"-390\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1020\" y1=\"530\" x2=\"60\" y2=\"-430\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-900\" y1=\"530\" x2=\"1020\" y2=\"-430\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1100\" y1=\"490\" x2=\"140\" y2=\"-470\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-940\" y1=\"490\" x2=\"980\" y2=\"-470\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1180\" y1=\"450\" x2=\"220\" y2=\"-510\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-980\" y1=\"450\" x2=\"940\" y2=\"-510\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1260\" y1=\"410\" x2=\"300\" y2=\"-550\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-1020\" y1=\"410\" x2=\"900\" y2=\"-550\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1340\" y1=\"370\" x2=\"380\" y2=\"-590\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-1060\" y1=\"370\" x2=\"860\" y2=\"-590\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1420\" y1=\"330\" x2=\"460\" y2=\"-630\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-1100\" y1=\"330\" x2=\"820\" y2=\"-630\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1500\" y1=\"290\" x2=\"540\" y2=\"-670\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-1140\" y1=\"290\" x2=\"780\" y2=\"-670\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1580\" y1=\"250\" x2=\"620\" y2=\"-710\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-1180\" y1=\"250\" x2=\"740\" y2=\"-710\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"1660\" y1=\"210\" x2=\"700\" y2=\"-750\" stroke-width=\"1.4\"/><line class=\"fk-line t-hu\" x1=\"-1220\" y1=\"210\" x2=\"700\" y2=\"-750\" stroke-width=\"1.4\"/></g><line class=\"fk-line t-mut\" x1=\"220\" y1=\"210\" x2=\"248.0\" y2=\"210.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"260,210 248.0,203.0 248.0,217.0\"/><line class=\"fk-line t-mut\" x1=\"220\" y1=\"210\" x2=\"220.0\" y2=\"182.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"220,170 213.0,182.0 227.0,182.0\"/><line class=\"fk-line t-1\" x1=\"220\" y1=\"210\" x2=\"289.3\" y2=\"175.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"300,170 286.1,169.1 292.4,181.6\"/><line class=\"fk-line t-2\" x1=\"220\" y1=\"210\" x2=\"188.5\" y2=\"178.5\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"180,170 183.5,183.4 193.4,173.5\"/><rect class=\"fk-chip t-1 solid\" x=\"275.21\" y=\"155\" width=\"153.58\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"352.0\" y=\"180.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">T(e₁)=(2,1)</text><rect class=\"fk-chip t-2 solid\" x=\"53.32000000000001\" y=\"133\" width=\"165.35999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"136.0\" y=\"158.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">T(e₂)=(−1,1)</text><rect class=\"fk-chip t-hu\" x=\"330\" y=\"236\" width=\"120\" height=\"62\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"390.0\" y=\"273.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">[2 −1 ; 1 1]</text></svg>",
+      "alt": "لتلاقوا مصفوفة التحويل بيكفي تعرفوا وين بيروحوا e 1 وe 2. الصور هي الأعمدة، والشبكة كلها بتلحقهم.",
+      "caption": "لتلاقوا مصفوفة التحويل بيكفي تعرفوا وين بيروحوا \\(e_1\\) و\\(e_2\\). الصور هي الأعمدة، والشبكة كلها بتلحقهم."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>العمود \\(i\\) بـ \\([T]\\) هو \\(T(e_i)\\). و<b>\\(T(v)=[T]\\,v\\)</b> لكل \\(v\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: بيكفي تعرفوا وين بيروح الأساس",
+      "html": "<p>كل متجه هو تركيب خطي للأساس: \\(v=xe_1+ye_2\\). التحويل خطي، فـ \\(T(v)=xT(e_1)+yT(e_2)\\). يعني إذا عرفنا \\(T(e_1)\\) و\\(T(e_2)\\) عرفنا كل إشي. وهاد بالزبط ضرب مصفوفة أعمدتها \\(T(e_1), T(e_2)\\) بـ \\((x,y)\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: المصفوفة المعيارية <bdi dir=\"rtl\">(המטריצה המייצגת (בסיס סטנדרטי))</bdi>",
+      "html": "<p>لـ \\(T:F^n\\to F^m\\) خطي: \\([T]=(T(e_1)\\,|\\,\\dots\\,|\\,T(e_n))\\in F^{m\\times n}\\)، و\\(T(v)=[T]v\\) لكل \\(v\\).</p><p>ليش؟ \\(v=\\sum x_ie_i\\)، فـ \\(T(v)=\\sum x_iT(e_i)\\)، وهاد ضرب \\([T]\\) بـ \\(v\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "نظرية: تحويل بيتحدّد من الأساس <bdi dir=\"rtl\">(משפט 8.31)</bdi>",
+      "html": "<p>إذا \\(\\{v_1,\\dots,v_n\\}\\) أساس لـ \\(V\\) و\\(u_1,\\dots,u_n\\in U\\) أي متجهات، في تحويل خطي <b>وحيد</b> \\(T\\) مع \\(T(v_i)=u_i\\).</p><p><b>فكرة البرهان:</b> كل \\(v\\) إله كتابة وحيدة \\(\\sum\\alpha_iv_i\\)، فلازم \\(T(v)=\\sum\\alpha_iu_i\\). هالتعريف خطي (الإحداثيات بتتجمّع)، ووحيد لأنه ما في خيار تاني.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: تركيب <bdi dir=\"rtl\">(הרכבה)</bdi>",
+      "html": "<p>\\([S\\circ T]=[S][T]\\).</p><p><b>فكرة البرهان:</b> \\((S\\circ T)(v)=S(T(v))=[S]([T]v)=([S][T])v\\)، والتجميع بالضرب.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"لـ T(x,y)=(2x-y, ;x+y): e 1 بيروح لـ (2,1) وe 2 لـ (-1,1). هدول بالزبط العمودين: [T]= pmatrix 2&amp;-1 1&amp;1 pmatrix .\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"119.09090909090908\" y1=\"24\" x2=\"119.09090909090908\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"205.45454545454544\" y1=\"24\" x2=\"205.45454545454544\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"291.81818181818176\" y1=\"24\" x2=\"291.81818181818176\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"378.18181818181813\" y1=\"24\" x2=\"378.18181818181813\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"201.0\" x2=\"430\" y2=\"201.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"102.66666666666666\" x2=\"430\" y2=\"102.66666666666666\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"201.0\" x2=\"432.0\" y2=\"201.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,201.0 432.0,194.0 432.0,208.0\"/><line class=\"fk-line t-ink\" x1=\"205.45454545454544\" y1=\"260\" x2=\"205.5\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"205.45454545454544,10 198.5,22.0 212.5,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"227.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-ink\" x=\"187.45454545454544\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-mut\" x1=\"205.45454545454544\" y1=\"201.0\" x2=\"279.8\" y2=\"201.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"291.81818181818176,201.0 279.8,194.0 279.8,208.0\"/><line class=\"fk-line t-mut\" x1=\"205.45454545454544\" y1=\"201.0\" x2=\"205.5\" y2=\"114.7\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"205.45454545454544,102.66666666666666 198.5,114.7 212.5,114.7\"/><line class=\"fk-line t-1\" x1=\"205.45454545454544\" y1=\"201.0\" x2=\"367.8\" y2=\"108.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"378.18181818181813,102.66666666666666 364.3,102.5 371.2,114.7\"/><line class=\"fk-line t-2\" x1=\"205.45454545454544\" y1=\"201.0\" x2=\"127.0\" y2=\"111.7\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"119.09090909090908,102.66666666666666 121.8,116.3 132.3,107.1\"/><rect class=\"fk-chip t-1 solid\" x=\"354.00454545454545\" y=\"44.333333333333314\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"395.45454545454544\" y=\"69.98333333333332\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">T(e₁)</text><rect class=\"fk-chip t-2 solid\" x=\"51.731818181818184\" y=\"39.416666666666686\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"93.18181818181819\" y=\"65.06666666666669\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">T(e₂)</text><rect class=\"fk-chip t-mut\" x=\"259.40181818181816\" y=\"216.41666666666666\" width=\"47.56\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-mut\" x=\"283.18181818181813\" y=\"242.06666666666666\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">e₁</text></svg>",
+      "alt": "لـ T(x,y)=(2x-y, ;x+y): e 1 بيروح لـ (2,1) وe 2 لـ (-1,1). هدول بالزبط العمودين: [T]= pmatrix 2&-1 1&1 pmatrix .",
+      "caption": "لـ \\(T(x,y)=(2x-y,\\;x+y)\\): \\(e_1\\) بيروح لـ \\((2,1)\\) و\\(e_2\\) لـ \\((-1,1)\\). هدول بالزبط العمودين: \\([T]=\\begin{pmatrix}2&amp;-1\\\\1&amp;1\\end{pmatrix}\\)."
+    },
+    {
+      "t": "h",
+      "text": "المصفوفة المعيارية"
+    },
+    {
+      "t": "p",
+      "html": "<p>لـ \\(T:\\mathbb R^n\\to\\mathbb R^m\\)، المصفوفة المعيارية (המטריצה המייצגת לפי הבסיס הסטנדרטי) \\([T]\\) حجمها \\(m\\times n\\): عمود لكل متجه أساس بالمصدر، وطوله عدد إحداثيات الهدف. من صيغة متل \\(T(x,y)=(2x-y,\\;x+y)\\) بتقروا المصفوفة مباشرة: المعاملات قدّام \\(x\\) بالعمود الأول، وقدّام \\(y\\) بالتاني.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>أمثلة هندسية بالمستوى: لفّة 90° عكس عقارب الساعة \\(\\begin{pmatrix}0&amp;-1\\\\1&amp;0\\end{pmatrix}\\)، انعكاس عن محور \\(x\\): \\(\\begin{pmatrix}1&amp;0\\\\0&amp;-1\\end{pmatrix}\\)، إسقاط على محور \\(x\\): \\(\\begin{pmatrix}1&amp;0\\\\0&amp;0\\end{pmatrix}\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "من صور أساس تاني"
+    },
+    {
+      "t": "p",
+      "html": "<p>إذا بيعطوكم \\(T(b_1)\\) و\\(T(b_2)\\) لأساس مش معياري: عبّروا عن \\(e_1, e_2\\) (أو عن \\((x,y)\\) العام) كتركيب لـ \\(b_1, b_2\\)، وطبّقوا الخطية. طريق تاني: \\([T]\\,B=C\\) مع \\(B\\) أعمدتها \\(b_i\\) و\\(C\\) أعمدتها \\(T(b_i)\\)، فـ \\([T]=CB^{-1}\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>تركيب تحويلات: \\(S\\circ T\\) (أول \\(T\\) وبعدين \\(S\\)) مصفوفته \\([S][T]\\). الترتيب من اليمين للشمال، متل الدوال.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: قراءة المصفوفة",
+      "html": "<p>لاقوا \\([T]\\) لـ \\(T(x,y)=(2x-y,\\;x+y)\\) واحسبوا \\(T(3,1)\\).</p><ol><li>\\(T(1,0)=(2,1)\\)، \\(T(0,1)=(-1,1)\\)<br><span class=\"why-line\">منعوّض متجهات الأساس.</span></li><li>\\([T]=\\begin{pmatrix}2&amp;-1\\\\1&amp;1\\end{pmatrix}\\)<br><span class=\"why-line\">الصور هي الأعمدة.</span></li><li>\\([T]\\begin{pmatrix}3\\\\1\\end{pmatrix}=\\begin{pmatrix}5\\\\4\\end{pmatrix}\\)<br><span class=\"why-line\">فحص بالصيغة: \\((6-1,\\;3+1)=(5,4)\\).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): من صور أساس مش معياري",
+      "html": "<p>\\(T(1,1)=(3,1)\\)، \\(T(1,-1)=(1,1)\\). لاقوا \\([T]\\).</p><ol><li>\\(e_1=\\tfrac12(1,1)+\\tfrac12(1,-1)\\)<br><span class=\"why-line\">منعبّر عن متجهات الأساس المعياري بالأساس المعطى.</span></li><li>\\(T(e_1)=\\tfrac12(3,1)+\\tfrac12(1,1)=(2,1)\\)<br><span class=\"why-line\">الخطية.</span></li><li>\\(e_2=\\tfrac12(1,1)-\\tfrac12(1,-1)\\) ⇐ \\(T(e_2)=(1,0)\\)<br><span class=\"why-line\">نفس الإشي.</span></li><li>\\([T]=\\begin{pmatrix}2&amp;1\\\\1&amp;0\\end{pmatrix}\\)<br><span class=\"why-line\">الأعمدة \\(T(e_1), T(e_2)\\). فحص: \\([T](1,1)^t=(3,1)\\) ✓.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>\\([S\\circ T]=[T][S]\\).<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>\\(S\\) لفّة 90°: \\(\\begin{pmatrix}0&amp;-1\\\\1&amp;0\\end{pmatrix}\\)، \\(T\\) إسقاط على \\(x\\): \\(\\begin{pmatrix}1&amp;0\\\\0&amp;0\\end{pmatrix}\\)<br><span class=\"why-line\">تحويلين بسيطين.</span></li><li>\\([S][T]=\\begin{pmatrix}0&amp;0\\\\1&amp;0\\end{pmatrix}\\)، \\([T][S]=\\begin{pmatrix}0&amp;-1\\\\0&amp;0\\end{pmatrix}\\)<br><span class=\"why-line\">مختلفين.</span></li><li>\\(S\\circ T\\) هو أول \\(T\\): مصفوفته \\([S][T]\\)<br><span class=\"why-line\">الترتيب من اليمين للشمال، متل \\(f(g(x))\\).</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "\\(T\\) من صور أساس، 3 خطوات",
+      "steps": [
+        "<b>عبّروا:</b> \\((x,y)=\\alpha b_1+\\beta b_2\\): لاقوا \\(\\alpha,\\beta\\) بدلالة \\(x,y\\).",
+        "<b>خطية:</b> \\(T(x,y)=\\alpha T(b_1)+\\beta T(b_2)\\).",
+        "<b>فحص:</b> عوّضوا \\(b_1\\) و\\(b_2\\) بالجواب."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"المعطى: صور متجهين مش معياريين. (1,1) بيروح لـ (3,1)، و(1,-1) بيضل بمحلّه. منها منلاقي صور e 1, e 2.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"97.5\" y1=\"24\" x2=\"97.5\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"192.5\" y1=\"24\" x2=\"192.5\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"287.5\" y1=\"24\" x2=\"287.5\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"382.5\" y1=\"24\" x2=\"382.5\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"221.93548387096774\" x2=\"430\" y2=\"221.93548387096774\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"145.80645161290323\" x2=\"430\" y2=\"145.80645161290323\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"69.67741935483872\" x2=\"430\" y2=\"69.67741935483872\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"145.80645161290323\" x2=\"432.0\" y2=\"145.8\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,145.80645161290323 432.0,138.8 432.0,152.8\"/><line class=\"fk-line t-ink\" x1=\"97.5\" y1=\"260\" x2=\"97.5\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"97.5,10 90.5,22.0 104.5,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"171.80645161290323\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">x</text><text class=\"fk-t t-ink\" x=\"79.5\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">y</text><line class=\"fk-line t-mut\" x1=\"97.5\" y1=\"145.80645161290323\" x2=\"183.1\" y2=\"77.2\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"192.5,69.67741935483872 178.8,71.7 187.5,82.6\"/><line class=\"fk-line t-mut\" x1=\"97.5\" y1=\"145.80645161290323\" x2=\"183.1\" y2=\"214.4\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"192.5,221.93548387096774 187.5,209.0 178.8,219.9\"/><line class=\"fk-line t-hu\" x1=\"97.5\" y1=\"145.80645161290323\" x2=\"370.9\" y2=\"72.8\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"382.5,69.67741935483872 369.1,66.0 372.7,79.5\"/><line class=\"fk-line t-1\" x1=\"102.25\" y1=\"142.0\" x2=\"187.9\" y2=\"210.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"197.25,218.1290322580645 192.3,205.2 183.5,216.1\"/><rect class=\"fk-chip t-mut\" x=\"122.55\" y=\"39.25806451612905\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-mut\" x=\"164.0\" y=\"64.90806451612906\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">(1,1)</text><rect class=\"fk-chip t-hu solid\" x=\"344.66\" y=\"20.225806451612925\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"392.0\" y=\"45.875806451612924\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">T(1,1)</text><rect class=\"fk-chip t-1 solid\" x=\"186.77\" y=\"218.16129032258064\" width=\"106.46\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"243.81129032258065\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">T(1,−1)</text></svg>",
+      "alt": "المعطى: صور متجهين مش معياريين. (1,1) بيروح لـ (3,1)، و(1,-1) بيضل بمحلّه. منها منلاقي صور e 1, e 2.",
+      "caption": "المعطى: صور متجهين مش معياريين. \\((1,1)\\) بيروح لـ \\((3,1)\\)، و\\((1,-1)\\) بيضل بمحلّه. منها منلاقي صور \\(e_1, e_2\\)."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: \\(T:\\mathbb R^2\\to\\mathbb R^2\\) خطي، \\(T(1,1)=(3,1)\\)، \\(T(1,-1)=(1,-1)\\). لاقوا \\([T]\\).",
+      "steps": [
+        {
+          "label": "e_1=\\tfrac12(1,1)+\\tfrac12(1,-1)",
+          "body": "\\(T(e_1)=\\tfrac12(3,1)+\\tfrac12(1,-1)=(2,0)\\)"
+        },
+        {
+          "label": "e_2=\\tfrac12(1,1)-\\tfrac12(1,-1)",
+          "body": "\\(T(e_2)=\\tfrac12(3,1)-\\tfrac12(1,-1)=(1,1)\\)"
+        },
+        {
+          "label": "المصفوفة",
+          "body": "\\([T]=\\begin{pmatrix}2&amp;1\\\\0&amp;1\\end{pmatrix}\\)"
+        },
+        {
+          "label": "فحص",
+          "body": "\\([T](1,1)^t=(3,1)^t\\)"
+        }
+      ],
+      "a": "\\([T]=\\begin{pmatrix}2&amp;1\\\\0&amp;1\\end{pmatrix}\\)، يعني \\(T(x,y)=(2x+y,\\;y)\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 176\" role=\"img\" aria-label=\"الصور بتروح أعمدة، والتركيب بيمشي من اليمين: أول T وبعدين S.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"10\" y=\"10\" width=\"224\" height=\"156\" rx=\"16\"/><text class=\"fk-t t-bad\" x=\"122\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط ✗</text><text class=\"fk-t t-ink\" x=\"122\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">[T] : أسطر = T(eᵢ)</text><text class=\"fk-t t-ink\" x=\"122\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">[S∘T] = [T][S]</text><rect class=\"fk-chip t-good\" x=\"246\" y=\"10\" width=\"224\" height=\"156\" rx=\"16\"/><text class=\"fk-t t-good\" x=\"358\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح ✓</text><text class=\"fk-t t-ink\" x=\"358\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">[T] : أعمدة = T(eᵢ)</text><text class=\"fk-t t-ink\" x=\"358\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">[S∘T] = [S][T]</text></svg>",
+      "alt": "الصور بتروح أعمدة، والتركيب بيمشي من اليمين: أول T وبعدين S.",
+      "caption": "الصور بتروح أعمدة، والتركيب بيمشي من اليمين: أول \\(T\\) وبعدين \\(S\\)."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "حطيت \\(T(e_1)\\) كسطر أول",
+          "yes": "\\(T(e_i)\\) هو <b>عمود</b> \\(i\\)"
+        },
+        {
+          "no": "\\([S\\circ T]=[T][S]\\)",
+          "yes": "\\([S\\circ T]=[S][T]\\): اللي بيشتغل أول على اليمين"
+        },
+        {
+          "no": "\\([T]=CB\\)",
+          "yes": "\\([T]=CB^{-1}\\)، لأنه \\([T]B=C\\)"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش \\(T(e_i)\\) بيروح عمود ومش سطر؟",
+          "a": "لأنه \\([T]e_i\\) هو العمود \\(i\\) من \\([T]\\). بدنا \\([T]e_i=T(e_i)\\)، فلازم العمود \\(i\\) يكون \\(T(e_i)\\)."
+        },
+        {
+          "q": "حجم \\([T]\\) لـ \\(T:\\mathbb R^3\\to\\mathbb R^2\\)؟",
+          "a": "\\(2\\times3\\): 3 أعمدة (واحد لكل متجه أساس بالمصدر) وكل عمود طوله 2 (إحداثيات الهدف). قاعدة: \\((\\text{الهدف})\\times(\\text{المصدر})\\)."
+        },
+        {
+          "q": "شو بصير إذا الصور اللي معطاة مش لأساس؟",
+          "a": "إذا المتجهات مرتبطة، ممكن يكون في تناقض (ما في تحويل) أو أكتر من تحويل. مثلاً \\(T(1,0)=(1,1)\\) و\\(T(2,0)=(0,5)\\) مستحيل، لأنه لازم \\(T(2,0)=2T(1,0)\\)."
+        },
+        {
+          "q": "كل مصفوفة هي تحويل؟",
+          "a": "آه: \\(A\\in F^{m\\times n}\\) بتعطي \\(T_A(v)=Av\\) (ادّعاء 8.11). والعكس: كل تحويل خطي بين \\(F^n\\) و\\(F^m\\) هو ضرب بمصفوفة. لهيك فصل المصفوفات وفصل التحويلات هم نفس الإشي بلغتين."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(T(x,y,z)=(x+2z,\\;3y-z)\\). شو حجم \\([T]\\)؟ اكتبوا عدد الخانات.",
+        "answer": [
+          "6"
+        ],
+        "hint": "\\(m\\times n\\) مع \\(T:\\mathbb R^n\\to\\mathbb R^m\\).",
+        "solution": "<p>المصدر \\(\\mathbb R^3\\) فبيكون 3 أعمدة، والهدف \\(\\mathbb R^2\\) فبيكون سطرين. الحجم \\(2\\times3\\)، يعني 6 خانات.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(R\\) لفّة 90° عكس عقارب الساعة. احسبوا \\(R(3,1)\\). اكتبوا \\((a,b)\\).",
+        "answer": [
+          "(-1,3)",
+          "-1,3"
+        ],
+        "hint": "\\([R]=\\begin{pmatrix}0&amp;-1\\\\1&amp;0\\end{pmatrix}\\).",
+        "solution": "<p>منضرب المصفوفة بالمتجه: \\((0\\cdot3-1\\cdot1,\\;1\\cdot3+0\\cdot1)=(-1,3)\\)، وهاد فعلاً السهم \\((3,1)\\) بعد ربع لفّة.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\([S]=\\begin{pmatrix}1&amp;1\\\\0&amp;1\\end{pmatrix}\\)، \\([T]=\\begin{pmatrix}2&amp;0\\\\0&amp;3\\end{pmatrix}\\). شو الخانة \\((1,2)\\) بـ \\([S\\circ T]\\)؟",
+        "answer": [
+          "3"
+        ],
+        "hint": "\\([S\\circ T]=[S][T]\\).",
+        "solution": "<p>منضرب \\([S][T]\\): السطر الأول من \\([S]\\) هو \\((1,1)\\) والعمود التاني من \\([T]\\) هو \\((0,3)\\)، فالخانة \\(0+3=3\\).</p>"
+      }
+    }
+  ]
+}

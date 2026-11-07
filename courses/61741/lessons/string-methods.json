@@ -1,0 +1,215 @@
+{
+  "slug": "string-methods",
+  "title": "دوال النصوص: split، join، find… واستعمالها وتنفيذها",
+  "he": "פעולות על מחרוזות",
+  "ref": "שבוע 7",
+  "minutes": 18,
+  "desc": "أهم دوال النصوص بـ Python (split، join، find، count، replace، upper، isdigit، strip) وكيف منكتب كل وحدة منها لحالنا بحلقة، متل ما بيطلبوا بكورس מבוא למדעי המחשב.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بالكورس في جزأين: «שימוש» (تستعملوا <code dir=\"ltr\">split</code> عشان تفرطوا جملة لكلمات) و«מימוש» (تكتبوا <code dir=\"ltr\">count</code> لحالكم بدون الجاهز). بالامتحان، إذا السؤال بيقول «ללא שימוש בפונקציות מובנות»، لازم الطريقة التانية.</p><ol><li>جدول الدوال المهمة</li><li><code dir=\"ltr\">split</code> و<code dir=\"ltr\">join</code>: من نص لقائمة وبالعكس</li><li>تنفيذ <code dir=\"ltr\">find</code> و<code dir=\"ltr\">count</code> بحلقة</li><li>كل دالة بترجّع إشي جديد</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما في جملة لازم تنفرط لكلمات، أو السؤال بيمنع الدوال الجاهزة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"&quot;to be or not&quot;.split() بيعطي قائمة كلمات. &quot; &quot;.join(words) بيرجّعها جملة.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"102.0\" y=\"82\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">words =</text><rect class=\"fk-chip t-hu\" x=\"114.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"144.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">to</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"178.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"208.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">be</text><text class=\"fk-t t-mut\" x=\"208.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"242.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"272.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">or</text><text class=\"fk-t t-mut\" x=\"272.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"306.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"336.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">not</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text></svg>",
+      "alt": "\"to be or not\".split() بيعطي قائمة كلمات. \" \".join(words) بيرجّعها جملة.",
+      "caption": "<code dir=\"ltr\">\"to be or not\".split()</code> بيعطي قائمة كلمات. <code dir=\"ltr\">\" \".join(words)</code> بيرجّعها جملة."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>دوال النص <b>بترجّع</b> قيمة جديدة وما بتغيّر الأصل: لازم تحطوا النتيجة بمتغيّر. <code dir=\"ltr\">split</code> بيعطي قائمة، و<code dir=\"ltr\">join</code> بيعطي نص.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>كل دالة جاهزة هي حلقة حدا كتبها قبلكم. لما بتعرفوا شو الحلقة اللي جوّاها، بتعرفوا تستعملوها صح، وبتعرفوا تكتبوها إذا انمنعت.</p>"
+    },
+    {
+      "t": "h",
+      "text": "الدوال المهمة"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 130\" role=\"img\" aria-label=\"split بتفرط نص لقائمة، و join بتلزق قائمة نصوص لنص واحد.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"334.0\" y=\"40\" width=\"136\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"402.0\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">\"a,b,c\"</text><line class=\"fk-line t-mut\" x1=\"332.0\" y1=\"66\" x2=\"322.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"310.0,66 322.0,73.0 322.0,59.0\"/><text class=\"fk-t t-mut\" x=\"321.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">split(\",\")</text><rect class=\"fk-chip t-hu\" x=\"172.0\" y=\"40\" width=\"136\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"70.9\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">[\"a\", \"b\", \"c\"]</text><line class=\"fk-line t-mut\" x1=\"170.0\" y1=\"66\" x2=\"160.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"148.0,66 160.0,73.0 160.0,59.0\"/><text class=\"fk-t t-mut\" x=\"159.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">\"-\".join</text><rect class=\"fk-chip t-2 solid\" x=\"10.0\" y=\"40\" width=\"136\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"78.0\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">\"a-b-c\"</text></svg>",
+      "alt": "split بتفرط نص لقائمة، و join بتلزق قائمة نصوص لنص واحد.",
+      "caption": "split بتفرط نص لقائمة، و join بتلزق قائمة نصوص لنص واحد."
+    },
+    {
+      "t": "p",
+      "html": "<p><code dir=\"ltr\">s.upper()</code> و<code dir=\"ltr\">s.lower()</code> كبير وصغير. <code dir=\"ltr\">s.strip()</code> بيشيل مسافات من الطرفين. <code dir=\"ltr\">s.find(t)</code> مكان أول ظهور لـ t أو -1 (متل البحث الخطّي). <code dir=\"ltr\">s.count(t)</code> كم مرة t موجود. <code dir=\"ltr\">s.replace(a, b)</code> نص جديد فيه كل a صار b. <code dir=\"ltr\">s.isdigit()</code> True إذا كل الحروف أرقام. <code dir=\"ltr\">s.startswith(t)</code> بيبلّش بـ t؟</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p><code dir=\"ltr\">s.split()</code> بدون شي بيفرط على المسافات (وبيتجاهل المسافات الزيادة). <code dir=\"ltr\">s.split(\",\")</code> بيفرط على الفاصلة. النتيجة قائمة نصوص، وإذا بدكم أعداد لازم <code dir=\"ltr\">int</code> لكل واحد. <code dir=\"ltr\">\"-\".join(lst)</code> بيلزق قائمة نصوص مع \"-\" بيناتهم، وكل العناصر لازم يكونوا نصوص.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>تنفيذ لحالكم: <code dir=\"ltr\">count</code> لحرف هو عدّاد بحلقة. <code dir=\"ltr\">find</code> هو بحث خطّي بيرجّع أول i. <code dir=\"ltr\">split</code> على مسافة: نص «كلمة لهلّق» منلزق فيه، ولما نوصل مسافة منحطه بالقائمة ومنصفّره، وبالآخر منحط آخر كلمة. هاد آخر واحد هو مثال ممتاز لسؤال امتحان.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بحث نص جوّا نص بدون find: لكل i ممكن، منقارن <code dir=\"ltr\">s[i:i + len(t)] == t</code>. آخر i ممكن هو <code dir=\"ltr\">len(s) - len(t)</code>، فالحلقة <code dir=\"ltr\">range(len(s) - len(t) + 1)</code>.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 128\" role=\"img\" aria-label=\"النص ما بيتغيّر: كل متودة بترجّع نص جديد، ولازم نحفظه.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"250\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-good\" x=\"355\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح</text><text class=\"fk-t t-good\" x=\"355\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">s = s.upper()</text><text class=\"fk-t t-good\" x=\"355\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">s صار كبير</text><rect class=\"fk-chip t-bad\" x=\"20\" y=\"40\" width=\"210\" height=\"82\" rx=\"10\"/><text class=\"fk-t t-bad\" x=\"125\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط</text><text class=\"fk-t t-bad\" x=\"125\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">s.upper()</text><text class=\"fk-t t-bad\" x=\"125\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">s ما تغيّر</text></svg>",
+      "alt": "النص ما بيتغيّر: كل متودة بترجّع نص جديد، ولازم نحفظه.",
+      "caption": "النص ما بيتغيّر: كل متودة بترجّع نص جديد، ولازم نحفظه."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "line = \"  Haifa, Karmiel ,Nazareth \"\nparts = line.split(\",\")\nclean = []\nfor p in parts:\n    clean.append(p.strip())\nprint(clean)\nprint(\" | \".join(clean))\nprint(\"banana\".find(\"na\"), \"banana\".count(\"a\"), \"banana\".replace(\"a\", \"o\"))\nprint(\"2026\".isdigit(), \"20a6\".isdigit())",
+      "out": "['Haifa', 'Karmiel', 'Nazareth']\nHaifa | Karmiel | Nazareth\n2 3 bonono\nTrue False"
+    },
+    {
+      "t": "method",
+      "title": "كيف تنفّذوا دالة نص لحالكم، 3 خطوات",
+      "steps": [
+        "<b>شو بترجّع؟</b> عدد (count)، مكان (find)، نص (replace)، قائمة (split).",
+        "<b>شو بتمرق عليه؟</b> حروف (<code dir=\"ltr\">for ch in s</code>) أو أماكن إذا بدكم المكان.",
+        "<b>الحالة الأخيرة</b> شو بيصير بعد الحلقة؟ (-1 لـ find، آخر كلمة لـ split)."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: متودات جاهزة",
+      "html": "<p>كل سطر متودة وحدة. ليش w ما تغيّر بالآخر؟ لأنه <code dir=\"ltr\">lower</code> رجّعت نص جديد وما حفظناه.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">w = \"Hello World\"\nprint(w.lower())\nprint(w.find(\"o\"), w.find(\"z\"))\nprint(w.split())\nprint(\"-\".join([\"a\", \"b\", \"c\"]))\nprint(w)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">hello world\n4 -1\n['Hello', 'World']\na-b-c\nHello World</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: split بدون split",
+      "html": "<p>منفرط جملة لكلمات على المسافة. word بيجمّع الكلمة الحالية.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def my_split(s):\n    words = []\n    word = \"\"\n    for ch in s:\n        if ch == \" \":\n            if word != \"\":\n                words.append(word)\n            word = \"\"\n        else:\n            word += ch\n    if word != \"\":\n        words.append(word)\n    return words\n\nprint(my_split(\"to be  or not\"))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">['to', 'be', 'or', 'not']</pre></div></div><p>الشرط <code dir=\"ltr\">word != \"\"</code> بيتجاهل مسافتين ورا بعض. والسطرين بعد الحلقة بيضيفوا آخر كلمة، لأنه ما في مسافة بعدها. هاد أشهر مكان ينسوه الطلاب.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"معطيات السؤال: t = &quot;an&quot; بطول 2، ومنقارن s[i:i + 2] بكل مكان i من 0 لـ 4.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"38.0\" y=\"82\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">s =</text><rect class=\"fk-chip t-hu\" x=\"50.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"80.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">b</text><text class=\"fk-t t-mut\" x=\"80.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"114.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"144.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"178.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"208.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><text class=\"fk-t t-mut\" x=\"208.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"242.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"272.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a</text><text class=\"fk-t t-mut\" x=\"272.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"306.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"336.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-hu\" x=\"370.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"400.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a</text><text class=\"fk-t t-mut\" x=\"400.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">5</text></svg>",
+      "alt": "معطيات السؤال: t = \"an\" بطول 2، ومنقارن s[i:i + 2] بكل مكان i من 0 لـ 4.",
+      "caption": "معطيات السؤال: <bdi dir=\"ltr\">t = \"an\"</bdi> بطول 2، ومنقارن <bdi dir=\"ltr\">s[i</bdi>:<bdi dir=\"ltr\">i + 2]</bdi> بكل مكان i من 0 لـ 4."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: الدالة بتنفّذ find. شو بترجّع لـ <bdi dir=\"ltr\">(\"banana\", \"an\")</bdi>؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def my_find(s, t):\n    for i in range(len(s) - len(t) + 1):\n        if s[i:i + len(t)] == t:\n            return i\n    return -1\n\nprint(my_find(\"banana\", \"an\"))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">1</pre></div></div>",
+      "steps": [
+        {
+          "label": "<bdi dir=\"ltr\">i=0</bdi>: <bdi dir=\"ltr\">s[0</bdi>:<bdi dir=\"ltr\">2] = \"ba\"</bdi>",
+          "body": "<code dir=\"ltr\">لا</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">i=1</bdi>: <bdi dir=\"ltr\">s[1</bdi>:<bdi dir=\"ltr\">3] = \"an\"</bdi>",
+          "body": "<code dir=\"ltr\">return 1</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">1</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">i</bdi></th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(len(s) - len(t) + 1):</code></td><td><bdi dir=\"ltr\">0</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(len(s) - len(t) + 1):</code></td><td><bdi dir=\"ltr\">1</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش <code dir=\"ltr\">s.upper()</code> ما غيّر s؟",
+          "a": "<p>لأنه النص ما بيتغيّر. <code dir=\"ltr\">upper</code> بترجّع نص جديد، ولازم <code dir=\"ltr\">s = s.upper()</code> إذا بدكم تحفظوه.</p>"
+        },
+        {
+          "q": "شو الفرق بين <code dir=\"ltr\">find</code> و <code dir=\"ltr\">index</code>؟",
+          "a": "<p>الاتنين بيرجّعوا أول مكان. إذا مش موجود: <code dir=\"ltr\">find</code> بترجّع -1، و <code dir=\"ltr\">index</code> بتوقف البرنامج بـ ValueError.</p><pre class=\"code\" dir=\"ltr\">print(\"abc\".find(\"z\"))\nprint(\"abc\".index(\"z\"))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">-1\nValueError: substring not found</pre>"
+        },
+        {
+          "q": "<code dir=\"ltr\">split()</code> مقابل <code dir=\"ltr\">split(\",\")</code>؟",
+          "a": "<p>بدون إشي: بيفرط على أي مسافات (وكذا مسافة ورا بعض بتنحسب وحدة). مع فاصل: بيفرط بالزبط عليه، ولو في فاصلين ورا بعض بيطلع نص فاضي بالنص.</p><pre class=\"code\" dir=\"ltr\">print(\"a  b c\".split())\nprint(\"a,,b\".split(\",\"))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">['a', 'b', 'c']\n['a', '', 'b']</pre>"
+        },
+        {
+          "q": "في متودة بتبدّل نص بنص؟",
+          "a": "<code dir=\"ltr\">replace(old, new)</code> بترجّع نص جديد كل old فيه صار new.<pre class=\"code\" dir=\"ltr\">print(\"banana\".replace(\"an\", \"AN\"))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">bANANa</pre>"
+        },
+        {
+          "q": "بالامتحان مسموح أستعمل split و find؟",
+          "a": "<p>إلا إذا السؤال منع («ללא שימוש בפעולות מחרוזת») أو طلب تنفّذوها لحالكم. لهيك بالدرس في كمان «تنفيذ»: نفس الدالة بحلقة.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">s.replace(\"a\", \"b\")</code> لحالها بتغيّر s",
+          "yes": "<code dir=\"ltr\">s = s.replace(\"a\", \"b\")</code>"
+        },
+        {
+          "no": "<code dir=\"ltr\">\"5 7\".split()</code> بيعطي أعداد",
+          "yes": "بيعطي <code dir=\"ltr\">['5', '7']</code>. لازم <code dir=\"ltr\">int</code> لكل واحد"
+        },
+        {
+          "no": "<code dir=\"ltr\">\",\".join([1, 2])</code>",
+          "yes": "خطأ: join بدها نصوص. <code dir=\"ltr\">str(x)</code> لكل عنصر"
+        },
+        {
+          "no": "تنفيذ split بينسى آخر كلمة",
+          "yes": "بعد الحلقة: إذا word مش فاضية، append"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">words = \"  the cat  sat \".split()\nprint(len(words))</pre></div>",
+        "answer": [
+          "3"
+        ],
+        "hint": "split بدون شي بيتجاهل المسافات الزيادة.",
+        "solution": "<p>split بدون وسيط بيفرط على أي كمية مسافات وبيتجاهل المسافات بالطرفين، فبيطلع تلات كلمات: the و cat و sat.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">3</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">s = \"a-b-c\"\nparts = s.split(\"-\")\nprint(\"\".join(parts[::-1]))</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">cba</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">c-b-a</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">abc</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "split على \"-\"، بعدين قلب، بعدين join بدون فاصل.",
+        "solution": "<p>split بيعطي القائمة a و b و c، التقطيع <code dir=\"ltr\">[::-1]</code> بيقلبها، وjoin مع نص فاضي بيلزقهم بدون فاصل.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">cba</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">s = \"mississippi\"\nprint(s.find(\"ss\") + s.count(\"s\"))</pre></div>",
+        "answer": [
+          "6"
+        ],
+        "hint": "find أول ظهور، count كل الحروف s.",
+        "solution": "<p>أول ss بتبلّش بالمكان 2، وبالكلمة في أربع s. المجموع \\(2+4=6\\).</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">6</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "split / join",
+      "back": "<code dir=\"ltr\">s.split(sep)</code> نص ← قائمة. <code dir=\"ltr\">sep.join(lst)</code> قائمة ← نص."
+    }
+  ]
+}

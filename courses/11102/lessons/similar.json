@@ -1,0 +1,217 @@
+{
+  "slug": "similar",
+  "title": "مصفوفات متشابهة",
+  "he": "מטריצות דומות",
+  "ref": "חוברת §9.2",
+  "minutes": 15,
+  "desc": "مصفوفات متشابهة (דומות) B=P⁻¹AP: شو بيضل متساوي (أثر، محدّدة، قيم ذاتية)، كيف ننفي تشابه بسرعة، والعلاقة مع التقطير. جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> «האם \\(A\\) ו־\\(B\\) דומות?» و«הוכח/הפרך: מטריצות עם אותם ערכים עצמיים דומות» بيطلعوا بآخر الامتحان. والتقطير نفسه هو «\\(A\\) متشابهة لقطرية».</p><ol><li>التعريف \\(B=P^{-1}AP\\)</li><li>شو بيضل متساوي</li><li>كيف ننفي تشابه بسطر</li><li>التشابه والتقطير</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما بيعطوكم مصفوفتين وبيسألوا إذا «דומות»، أو بيطلبوا برهان عن \\(P^{-1}AP\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"مصفوفتين متشابهتين هم نفس التحويل بأساسين مختلفين. لهيك كل إشي ما بيعتمد على الأساس (الأثر، المحدّدة، القيم الذاتية) متساوي.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"30\" y=\"40\" width=\"56\" height=\"48\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"58.0\" y=\"71.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"92\" y=\"40\" width=\"56\" height=\"48\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"120.0\" y=\"71.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"30\" y=\"94\" width=\"56\" height=\"48\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"58.0\" y=\"125.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"92\" y=\"94\" width=\"56\" height=\"48\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"120.0\" y=\"125.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-1 solid\" x=\"334\" y=\"40\" width=\"56\" height=\"48\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"362.0\" y=\"71.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-1\" x=\"396\" y=\"40\" width=\"56\" height=\"48\" rx=\"8\"/><text class=\"fk-t t-1\" x=\"424.0\" y=\"71.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-1\" x=\"334\" y=\"94\" width=\"56\" height=\"48\" rx=\"8\"/><text class=\"fk-t t-1\" x=\"362.0\" y=\"125.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-1 solid\" x=\"396\" y=\"94\" width=\"56\" height=\"48\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"424.0\" y=\"125.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><line class=\"fk-line t-mut\" x1=\"160\" y1=\"92\" x2=\"310.0\" y2=\"92.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"322,92 310.0,85.0 310.0,99.0\"/><text class=\"fk-t t-ink\" x=\"241\" y=\"78\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">P⁻¹ A P</text><text class=\"fk-t t-hu\" x=\"88\" y=\"168\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-1\" x=\"392\" y=\"168\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><rect class=\"fk-chip t-good solid\" x=\"42.660000000000004\" y=\"217\" width=\"94.67999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"90.0\" y=\"242.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">tr = 4</text><rect class=\"fk-chip t-good solid\" x=\"186.77\" y=\"217\" width=\"106.46\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"242.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">det = 3</text><rect class=\"fk-chip t-good solid\" x=\"324.99\" y=\"217\" width=\"130.01999999999998\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"390.0\" y=\"242.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">λ = 1 , 3</text><text class=\"fk-t t-mut\" x=\"240\" y=\"285\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">نفس الأثر، نفس المحدّدة، نفس القيم الذاتية</text></svg>",
+      "alt": "مصفوفتين متشابهتين هم نفس التحويل بأساسين مختلفين. لهيك كل إشي ما بيعتمد على الأساس (الأثر، المحدّدة، القيم الذاتية) متساوي.",
+      "caption": "مصفوفتين متشابهتين هم نفس التحويل بأساسين مختلفين. لهيك كل إشي ما بيعتمد على الأساس (الأثر، المحدّدة، القيم الذاتية) متساوي."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(A\\sim B\\) إذا في \\(P\\) قابلة للعكس مع \\(B=P^{-1}AP\\). متشابهتين ⇐ <b>نفس \\(p_A\\)، القيم الذاتية، الأثر، المحدّدة والرتبة</b>. العكس مش صحيح.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: نفس التحويل، إحداثيات تانية",
+      "html": "<p>المصفوفة بتوصف تحويل حسب أساس معيّن. إذا غيّرنا الأساس، الأرقام بتتغيّر، بس التحويل نفسه لأ. \\(P\\) بتحوّل إحداثيات جديدة لقديمة، \\(A\\) بتعمل التحويل، و\\(P^{-1}\\) بترجّع للجديدة. كل إشي «حقيقي» عن التحويل (قديش بيكبّر، أيّ اتجاهات بيمطّ) بيضل نفسه.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: متشابهتين <bdi dir=\"rtl\">(מטריצות דומות)</bdi>",
+      "html": "<p>\\(A,B\\in F^{n\\times n}\\) متشابهتين (\\(A\\sim B\\)) إذا في \\(P\\in F^{n\\times n}\\) قابلة للعكس مع \\(B=P^{-1}AP\\).</p><p>علاقة تكافؤ: \\(A\\sim A\\) (\\(P=I\\))؛ \\(A\\sim B\\Rightarrow B\\sim A\\) (\\(P^{-1}\\))؛ \\(A\\sim B\\sim C\\Rightarrow A\\sim C\\) (\\(PQ\\)).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: ثوابت التشابه <bdi dir=\"rtl\">(טענה 9.35)</bdi>",
+      "html": "<p>إذا \\(A\\sim B\\): \\(p_A=p_B\\) (نفس القيم الذاتية مع التعدّد)، \\(|A|=|B|\\)، \\(\\operatorname{tr}A=\\operatorname{tr}B\\).</p><p><b>فكرة البرهان:</b> لأنه \\(\\lambda I=P^{-1}\\lambda IP\\): \\(B-\\lambda I=P^{-1}(A-\\lambda I)P\\). منوخد محدّدة للجهتين: \\(|P^{-1}|\\) و\\(|P|\\) بيختصروا، فـ \\(p_B(\\lambda)=p_A(\\lambda)\\). والأثر والمحدّدة هم معاملات بـ \\(p_A\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: متشابهة لـ \\(\\alpha I\\) <bdi dir=\"rtl\">(טענה 9.38)</bdi>",
+      "html": "<p>\\(B\\sim\\alpha I\\iff B=\\alpha I\\).</p><p><b>فكرة البرهان:</b> \\(P^{-1}(\\alpha I)P=\\alpha P^{-1}P=\\alpha I\\) لكل \\(P\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 210\" role=\"img\" aria-label=\"نفس التحويل: بالأساس العادي بيبيّن «معقّد» (A)، وبأساس المتجهات الذاتية بس بيمطّ (D). P هي اللي بتنقل بين الأساسين.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"10.0\" y=\"8\" width=\"225.0\" height=\"194\" rx=\"14\"/><text class=\"fk-t t-hu\" x=\"122.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بالأساس المعياري</text><line class=\"fk-line t-hu\" x1=\"40.0\" y1=\"174\" x2=\"193.3\" y2=\"136.8\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"205.0,134 191.7,130.0 195.0,143.6\"/><text class=\"fk-t t-ink\" x=\"122.5\" y=\"190\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">A: بيمطّ وبيميّل</text><rect class=\"fk-chip t-1\" x=\"245.0\" y=\"8\" width=\"225.0\" height=\"194\" rx=\"14\"/><text class=\"fk-t t-1\" x=\"357.5\" y=\"36\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بأساس المتجهات الذاتية</text><line class=\"fk-line t-1\" x1=\"275.0\" y1=\"164\" x2=\"323.0\" y2=\"164.0\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"335.0,164 323.0,157.0 323.0,171.0\"/><line class=\"fk-line t-1\" x1=\"275.0\" y1=\"164\" x2=\"275.0\" y2=\"80.0\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"275.0,68 268.0,80.0 282.0,80.0\"/><text class=\"fk-t t-ink\" x=\"377.5\" y=\"190\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">D: بيمطّ كل محور</text></svg>",
+      "alt": "نفس التحويل: بالأساس العادي بيبيّن «معقّد» (A)، وبأساس المتجهات الذاتية بس بيمطّ (D). P هي اللي بتنقل بين الأساسين.",
+      "caption": "نفس التحويل: بالأساس العادي بيبيّن «معقّد» (\\(A\\))، وبأساس المتجهات الذاتية بس بيمطّ (\\(D\\)). \\(P\\) هي اللي بتنقل بين الأساسين."
+    },
+    {
+      "t": "h",
+      "text": "كيف بننفي وكيف بنبرهن"
+    },
+    {
+      "t": "p",
+      "html": "<p>للنفي: لاقوا إشي مختلف: أثر، محدّدة، رتبة، أو قيم ذاتية. سطر واحد. للبرهان: لازم تلاقوا \\(P\\). طريقة شائعة: إذا الاتنين قابلين للتقطير لنفس \\(D\\)، فـ \\(A\\sim D\\sim B\\)، والتشابه «بينتقل».</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: نفي بالأثر",
+      "html": "<p>هل \\(A=\\begin{pmatrix}1&amp;2\\\\0&amp;3\\end{pmatrix}\\) و\\(B=\\begin{pmatrix}2&amp;0\\\\0&amp;3\\end{pmatrix}\\) متشابهتين؟</p><ol><li>\\(\\operatorname{tr}A=1+3=4\\)<br><span class=\"why-line\">مجموع القطر.</span></li><li>\\(\\operatorname{tr}B=2+3=5\\)<br><span class=\"why-line\">نفس الإشي.</span></li><li>\\(4\\neq5\\) ⇐ مش متشابهتين<br><span class=\"why-line\">متشابهتين لازم يكون إلهم نفس الأثر.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): متشابهة لقطرية",
+      "html": "<p>برهنوا إنه \\(A=\\begin{pmatrix}1&amp;2\\\\0&amp;3\\end{pmatrix}\\) متشابهة لـ \\(D=\\begin{pmatrix}1&amp;0\\\\0&amp;3\\end{pmatrix}\\).</p><ol><li>\\(\\lambda=1\\): \\(V_1=\\operatorname{sp}\\{(1,0)\\}\\)<br><span class=\"why-line\">\\(A-I=\\begin{pmatrix}0&amp;2\\\\0&amp;2\\end{pmatrix}\\).</span></li><li>\\(\\lambda=3\\): \\(V_3=\\operatorname{sp}\\{(1,1)\\}\\)<br><span class=\"why-line\">\\(A-3I=\\begin{pmatrix}-2&amp;2\\\\0&amp;0\\end{pmatrix}\\).</span></li><li>\\(P=\\begin{pmatrix}1&amp;1\\\\0&amp;1\\end{pmatrix}\\) ⇐ \\(P^{-1}AP=D\\)<br><span class=\"why-line\">التقطير هو بالزبط تشابه لقطرية.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>مصفوفتين إلهم نفس القيم الذاتية (مع التعدّد) متشابهتين.<br><b>الجواب: الادّعاء غلط، وهاد مثال مضاد (דוגמה נגדית).</b></p><ol><li>\\(I\\) و\\(A=\\begin{pmatrix}1&amp;1\\\\0&amp;1\\end{pmatrix}\\): تنيناتهم \\(p=(1-\\lambda)^2\\)<br><span class=\"why-line\">نفس القيم والتعدّد.</span></li><li>إذا \\(A\\sim I\\) فـ \\(A=I\\) (טענה 9.38)<br><span class=\"why-line\">الوحيدة المتشابهة لـ \\(I\\) هي \\(I\\).</span></li><li>\\(A\\neq I\\) ⇐ مش متشابهتين<br><span class=\"why-line\">الثوابت بتنفي، بس ما بتبرهن.</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "متشابهتين؟ 3 خطوات",
+      "steps": [
+        "<b>افحصوا الثوابت:</b> أثر، محدّدة، رتبة، \\(p_A\\). واحد مختلف؟ مش متشابهتين.",
+        "<b>قطّروا:</b> إذا الاتنين قابلين للتقطير لنفس \\(D\\): متشابهتين.",
+        "<b>وإلا لاقوا \\(P\\):</b> من \\(AP=PB\\) (أسهل من \\(P^{-1}\\)) وافحصوا إنه \\(P\\) قابلة للعكس."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 198\" role=\"img\" aria-label=\"المعطى: A، اقتراح لـ P (تبديل محورين)، وB. السؤال: هل P -1 AP=B؟\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"6\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"28.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"54\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"76.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"6\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"28.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"54\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"76.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><line class=\"fk-line t-hu\" x1=\"104\" y1=\"100.0\" x2=\"177.0\" y2=\"100.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"189.0,100.0 177.0,93.0 177.0,107.0\"/><text class=\"fk-t t-hu\" x=\"146.5\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">P</text><rect class=\"fk-chip t-mut\" x=\"195.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"217.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"243.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"265.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"195.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"217.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"243.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"265.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><line class=\"fk-line t-hu\" x1=\"293.0\" y1=\"100.0\" x2=\"366.0\" y2=\"100.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"378.0,100.0 366.0,93.0 366.0,107.0\"/><text class=\"fk-t t-hu\" x=\"335.5\" y=\"40\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">=</text><rect class=\"fk-chip t-mut\" x=\"384.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"406.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-mut\" x=\"432.0\" y=\"56\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"454.0\" y=\"81.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"384.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"406.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"432.0\" y=\"100\" width=\"44\" height=\"40\" rx=\"8\"/><text class=\"fk-t t-mut\" x=\"454.0\" y=\"125.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text></svg>",
+      "alt": "المعطى: A، اقتراح لـ P (تبديل محورين)، وB. السؤال: هل P -1 AP=B؟",
+      "caption": "المعطى: \\(A\\)، اقتراح لـ \\(P\\) (تبديل محورين)، و\\(B\\). السؤال: هل \\(P^{-1}AP=B\\)؟"
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: هل \\(A=\\begin{pmatrix}2&amp;1\\\\0&amp;2\\end{pmatrix}\\) و\\(B=\\begin{pmatrix}2&amp;0\\\\1&amp;2\\end{pmatrix}\\) متشابهتين؟",
+      "steps": [
+        {
+          "label": "الثوابت",
+          "body": "\\(\\operatorname{tr}=4,\\;\\det=4\\text{ للاتنين}\\)"
+        },
+        {
+          "label": "P=\\begin{pmatrix}0&amp;1\\\\1&amp;0\\end{pmatrix}=P^{-1}",
+          "body": "\\(P^2=I\\)"
+        },
+        {
+          "label": "الحساب",
+          "body": "\\(P^{-1}AP=\\begin{pmatrix}2&amp;0\\\\1&amp;2\\end{pmatrix}=B\\)"
+        }
+      ],
+      "a": "آه، متشابهتين مع \\(P=\\begin{pmatrix}0&amp;1\\\\1&amp;0\\end{pmatrix}\\) (تبديل ترتيب الأساس)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 216\" role=\"img\" aria-label=\"الأثر والمحدّدة بيقدروا ينفوا تشابه، بس ما بيبرهنوه: I و pmatrix 1&amp;1 0&amp;1 pmatrix إلهم نفس الاتنين ومش متشابهتين.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"10\" y=\"10\" width=\"224\" height=\"196\" rx=\"16\"/><text class=\"fk-t t-bad\" x=\"122\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط ✗</text><text class=\"fk-t t-ink\" x=\"122\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">tr A = tr B</text><text class=\"fk-t t-ink\" x=\"122\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">det A = det B</text><text class=\"fk-t t-ink\" x=\"122\" y=\"172\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">⇒  A ~ B</text><rect class=\"fk-chip t-good\" x=\"246\" y=\"10\" width=\"224\" height=\"196\" rx=\"16\"/><text class=\"fk-t t-good\" x=\"358\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح ✓</text><text class=\"fk-t t-ink\" x=\"358\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">tr A ≠ tr B</text><text class=\"fk-t t-ink\" x=\"358\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">⇒  A ≁ B</text><text class=\"fk-t t-ink\" x=\"358\" y=\"172\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">(نفي بسطر)</text></svg>",
+      "alt": "الأثر والمحدّدة بيقدروا ينفوا تشابه، بس ما بيبرهنوه: I و pmatrix 1&1 0&1 pmatrix إلهم نفس الاتنين ومش متشابهتين.",
+      "caption": "الأثر والمحدّدة بيقدروا ينفوا تشابه، بس ما بيبرهنوه: \\(I\\) و\\(\\begin{pmatrix}1&amp;1\\\\0&amp;1\\end{pmatrix}\\) إلهم نفس الاتنين ومش متشابهتين."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "نفس الأثر والمحدّدة ⇐ متشابهتين",
+          "yes": "شرط لازم مش كافي: \\(I\\) و\\(\\begin{pmatrix}1&amp;1\\\\0&amp;1\\end{pmatrix}\\)"
+        },
+        {
+          "no": "متشابهتين ⇐ نفس المتجهات الذاتية",
+          "yes": "نفس القيم. المتجهات بتتغيّر: \\(v\\) لـ \\(B\\) ⇐ \\(Pv\\) لـ \\(A\\)"
+        },
+        {
+          "no": "\\(B=PAP^{-1}\\) غلط والصح بس \\(P^{-1}AP\\)",
+          "yes": "الاتنين تشابه: \\(PAP^{-1}=Q^{-1}AQ\\) مع \\(Q=P^{-1}\\)"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو بيضل متساوي بالتشابه، وشو بيتغيّر؟",
+          "a": "بيضل: \\(p_A\\)، القيم الذاتية، التعدّد الجبري والهندسي، الأثر، المحدّدة، الرتبة، وإذا قابلة للعكس أو للتقطير. بيتغيّر: الخانات نفسها، والمتجهات الذاتية (بتنضرب بـ \\(P\\))."
+        },
+        {
+          "q": "كيف بلاقي \\(P\\) بدون ما أحسب \\(P^{-1}\\)؟",
+          "a": "\\(B=P^{-1}AP\\iff AP=PB\\). اكتبوا \\(P\\) بحروف \\(\\begin{pmatrix}a&amp;b\\\\c&amp;d\\end{pmatrix}\\)، حلّوا النظام الخطي من \\(AP=PB\\)، واختاروا حل مع \\(\\det P\\neq0\\)."
+        },
+        {
+          "q": "قابلة للتقطير و«متشابهة لقطرية» نفس الإشي؟",
+          "a": "آه، بالتعريف. ولهيك: إذا \\(A\\) و\\(B\\) قابلين للتقطير ونفس القيم الذاتية مع التعدّد، فهم متشابهتين (الاتنين متشابهتين لنفس \\(D\\))."
+        },
+        {
+          "q": "ليش \\(P\\) لازم تكون قابلة للعكس؟",
+          "a": "لأنه \\(P\\) هي «تبديل أساس»، وبدنا نقدر نرجع. وبدون معكوس \\(P^{-1}AP\\) أصلاً مش معرّف."
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(B=P^{-1}AP\\) و\\(\\operatorname{tr}A=7\\). شو \\(\\operatorname{tr}B\\)؟",
+        "answer": [
+          "7"
+        ],
+        "hint": "\\(\\operatorname{tr}(XY)=\\operatorname{tr}(YX)\\).",
+        "solution": "<p>\\(\\operatorname{tr}(P^{-1}AP)=\\operatorname{tr}(APP^{-1})=\\operatorname{tr}A=7\\)، لأنه الأثر ما بيتغيّر بتبديل ترتيب الضرب.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "\\(A\\sim B\\) و\\(\\det A=-2\\). شو \\(\\det B\\)؟",
+        "answer": [
+          "-2"
+        ],
+        "hint": "\\(\\det(P^{-1})=\\frac1{\\det P}\\).",
+        "solution": "<p>\\(\\det B=\\det P^{-1}\\det A\\det P=\\frac{1}{\\det P}\\cdot(-2)\\cdot\\det P=-2\\). يعني المحدّدة بتضل نفسها بالتشابه، لأنه \\(\\det P\\) و\\(\\frac1{\\det P}\\) بيختصروا.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "المصفوفة \\(I\\) متشابهة بس لحالها.",
+        "options": [
+          {
+            "v": "1",
+            "html": "صح"
+          },
+          {
+            "v": "2",
+            "html": "غلط"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "احسبوا \\(P^{-1}IP\\).",
+        "solution": "<p>لكل \\(P\\) قابلة للعكس: \\(P^{-1}IP=P^{-1}P=I\\). يعني الوحيدة المتشابهة لـ \\(I\\) هي \\(I\\) نفسها، ونفس الإشي لـ \\(\\alpha I\\) (טענה 9.38).</p>"
+      }
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بلاقي قيم ومتجهات ذاتية.",
+        "بفحص إذا المصفوفة قابلة للتقطير وبقطّرها."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

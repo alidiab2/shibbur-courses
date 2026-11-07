@@ -1,0 +1,219 @@
+{
+  "slug": "simple-recursion",
+  "title": "دوال رجعية بسيطة: أعداد ونصوص",
+  "he": "פתרונות רקורסיביים לבעיות פשוטות",
+  "ref": "שבוע 10",
+  "minutes": 18,
+  "desc": "دوال رجعية كلاسيكية بكورس מבוא למדעי המחשב: مجموع خانات، قوة، عدد خانات، قلب نص، פלינדרום رجعي، وفيبوناتشي، مع نفس الطريقة الثابتة: وقوف، أصغر، تركيب.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بالأسبوع 10 الكورس بيطلب «פתרונות רקורסיביים לבעיות פשוטות». كل وحدة من هالدوال فيكم تكتبوها بحلقة، والفكرة هون إنكم تتعوّدوا تشوفوا «النسخة الأصغر».</p><ol><li>أعداد: n//10 هو «العدد الأصغر»</li><li>قوة: \\(a^n=a\\cdot a^{n-1}\\)</li><li>نصوص: <code dir=\"ltr\">s[1:]</code> هو «النص الأصغر»</li><li>فيبوناتشي: استدعائين</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما السؤال بيقول «כתבו פונקציה רקורסיבית» أو «ללא לולאות».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"العدد الأصغر من 4907 هو 490 (بدون آخر خانة). مجموع خانات 4907 = 7 + مجموع خانات 490.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"58.44\" y=\"15\" width=\"71.12\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4907</text><rect class=\"fk-chip t-hu\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><rect class=\"fk-chip t-3 solid\" x=\"210.33\" y=\"15\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">490</text><rect class=\"fk-chip t-3\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-3\" x=\"240.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n // 10</text><rect class=\"fk-chip t-2 solid\" x=\"366.0\" y=\"15\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-2\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n % 10</text></svg>",
+      "alt": "العدد الأصغر من 4907 هو 490 (بدون آخر خانة). مجموع خانات 4907 = 7 + مجموع خانات 490.",
+      "caption": "العدد الأصغر من 4907 هو 490 (بدون آخر خانة). مجموع خانات <bdi dir=\"ltr\">4907 = 7</bdi> + مجموع خانات 490."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>أعداد ← الأصغر هو <code dir=\"ltr\">n // 10</code> أو <code dir=\"ltr\">n - 1</code>. نصوص وقوائم ← الأصغر هو <code dir=\"ltr\">s[1:]</code> (كل شي إلا الأول). والوقوف: 0، أو نص فاضي.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>كل مشكلة هون إلها «قطعة صغيرة» منعالجها (آخر خانة، أول حرف) و«باقي» من نفس النوع بنسلّمه للاستدعاء الرجعي. الجواب = القطعة مركّبة مع جواب الباقي.</p>"
+    },
+    {
+      "t": "h",
+      "text": "أنماط متكرّرة"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 130\" role=\"img\" aria-label=\"digits: كل استدعاء بيشيل خانة (// 10) لحد ما يضل عدد بخانة وحدة.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"374.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"421.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4096</text><line class=\"fk-line t-mut\" x1=\"372.0\" y1=\"66\" x2=\"362.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"350.0,66 362.0,73.0 362.0,59.0\"/><text class=\"fk-t t-mut\" x=\"361.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">// 10</text><rect class=\"fk-chip t-hu\" x=\"253.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"300.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">409</text><line class=\"fk-line t-mut\" x1=\"251.0\" y1=\"66\" x2=\"241.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"229.0,66 241.0,73.0 241.0,59.0\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">// 10</text><rect class=\"fk-chip t-hu\" x=\"132.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"179.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">40</text><line class=\"fk-line t-mut\" x1=\"130.0\" y1=\"66\" x2=\"120.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"108.0,66 120.0,73.0 120.0,59.0\"/><text class=\"fk-t t-mut\" x=\"119.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">// 10</text><rect class=\"fk-chip t-2 solid\" x=\"11.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"58.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text></svg>",
+      "alt": "digits: كل استدعاء بيشيل خانة (// 10) لحد ما يضل عدد بخانة وحدة.",
+      "caption": "digits: كل استدعاء بيشيل خانة <bdi dir=\"ltr\">(// 10)</bdi> لحد ما يضل عدد بخانة وحدة."
+    },
+    {
+      "t": "p",
+      "html": "<p>مجموع خانات: آخر خانة <code dir=\"ltr\">n % 10</code> زائد مجموع خانات <code dir=\"ltr\">n // 10</code>. الوقوف لما n صار 0 (ما في خانات): 0. عدد الخانات: نفس الإشي بس منزيد 1 بدل الخانة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>قوة: \\(a^n=a\\cdot a^{n-1}\\)، والوقوف \\(a^0=1\\). هاد بيعمل n استدعاء. في طريقة أسرع: \\(a^n=(a^{n/2})^2\\) للـ n الزوجي، اللي بتعمل بس log n استدعاء، ومنشوفها بالفصل 11.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>نصوص: قلب نص هو قلب <code dir=\"ltr\">s[1:]</code> وبعدين أول حرف بالآخر: <code dir=\"ltr\">rev(s[1:]) + s[0]</code>. פלינדרום رجعي: أول حرف بيساوي آخر حرف، <b>و</b> اللي بالنص (<code dir=\"ltr\">s[1:-1]</code>) פלינדרום. الوقوف: نص بطول 0 أو 1 دايماً פלינדרום.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>فيبوناتشي: كل عدد مجموع اللي قبلو: \\(F(n)=F(n-1)+F(n-2)\\)، مع \\(F(0)=0, F(1)=1\\). هون في استدعائين بكل خطوة، وهاد بيعمل شجرة استدعاءات بتكبر بسرعة كتير، ورح نحسب تعقيدها بالفصل الجاي.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"كل رجعية بسيطة: قطعة صغيرة منحلّها هلّق، ورجعية على الباقي، وحالة وقوف.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"354.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"408.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">المشكلة</text><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">القطعة</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الباقي</text><rect class=\"fk-chip t-hu solid\" x=\"18.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"72.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الوقوف</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"78.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مجموع خانات</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n % 10</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n // 10</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n == 0</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">طول نص</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">s[1:]</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">s == \"\"</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"408.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">قوة a^n</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n − 1</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"72.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n == 0</text></svg>",
+      "alt": "كل رجعية بسيطة: قطعة صغيرة منحلّها هلّق، ورجعية على الباقي، وحالة وقوف.",
+      "caption": "كل رجعية بسيطة: قطعة صغيرة منحلّها هلّق، ورجعية على الباقي، وحالة وقوف."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def digit_sum(n):\n    if n == 0:\n        return 0\n    return n % 10 + digit_sum(n // 10)\n\ndef rev(s):\n    if s == \"\":\n        return \"\"\n    return rev(s[1:]) + s[0]\n\ndef is_pal(s):\n    if len(s) <= 1:\n        return True\n    return s[0] == s[-1] and is_pal(s[1:-1])\n\nprint(digit_sum(4907), rev(\"braude\"), is_pal(\"level\"), is_pal(\"lever\"))",
+      "out": "20 eduarb True False"
+    },
+    {
+      "t": "method",
+      "title": "دالة رجعية على عدد أو نص، 3 أسئلة",
+      "steps": [
+        "<b>شو القطعة؟</b> آخر خانة <code dir=\"ltr\">n % 10</code>، أو أول حرف <code dir=\"ltr\">s[0]</code>.",
+        "<b>شو الباقي؟</b> <code dir=\"ltr\">n // 10</code>، أو <code dir=\"ltr\">s[1:]</code>.",
+        "<b>شو الوقوف؟</b> n == 0، أو <code dir=\"ltr\">s == \"\"</code>، مع الجواب للحالة الفاضية."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: كم خانة؟",
+      "html": "<p>عدد بخانة وحدة (أصغر من 10) جوابه 1. وإلا: خانة وحدة زائد خانات الباقي. ليش <code dir=\"ltr\">n &lt; 10</code> ومش <code dir=\"ltr\">n == 0</code>؟ لأنه الـ 7 إلها خانة، وكمان الـ 0.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def digits(n):\n    if n &lt; 10:\n        return 1\n    return 1 + digits(n // 10)\n\nprint(digits(7), digits(0), digits(4096))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">1 1 4</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: كم مرة خانة d موجودة بعدد",
+      "html": "<p>القطعة: هل آخر خانة هي d؟ (1 أو 0). الباقي: n // 10.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def count_digit(n, d):\n    if n == 0:\n        return 0\n    here = 1 if n % 10 == d else 0\n    return here + count_digit(n // 10, d)\n\nprint(count_digit(3133, 3), count_digit(500, 0))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">3 2</pre></div></div><p>لاحظوا إنه <code dir=\"ltr\">count_digit(500, 0)</code> بيعطي 2 مش 3 مش 1: الأصفار اللي باليمين بتنعدّ، والوقوف عند 0 ما بيعدّ إشي.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"معطيات السؤال: كل استدعاء بيفحص s[0] وبيبعت s[1:]. الحروف المتحرّكة ملوّنة.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"26.0\" y=\"50\" width=\"44\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"48.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">r</text><text class=\"fk-t t-mut\" x=\"48.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-2 solid\" x=\"74.0\" y=\"50\" width=\"44\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"96.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">e</text><text class=\"fk-t t-mut\" x=\"96.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"122.0\" y=\"50\" width=\"44\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"144.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">c</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-2 solid\" x=\"170.0\" y=\"50\" width=\"44\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"192.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">u</text><text class=\"fk-t t-mut\" x=\"192.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"218.0\" y=\"50\" width=\"44\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">r</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-hu\" x=\"266.0\" y=\"50\" width=\"44\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"288.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">s</text><text class=\"fk-t t-mut\" x=\"288.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-2 solid\" x=\"314.0\" y=\"50\" width=\"44\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"336.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">i</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-2 solid\" x=\"362.0\" y=\"50\" width=\"44\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"384.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">o</text><text class=\"fk-t t-mut\" x=\"384.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-hu\" x=\"410.0\" y=\"50\" width=\"44\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"432.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">n</text><text class=\"fk-t t-mut\" x=\"432.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">8</text></svg>",
+      "alt": "معطيات السؤال: كل استدعاء بيفحص s[0] وبيبعت s[1:]. الحروف المتحرّكة ملوّنة.",
+      "caption": "معطيات السؤال: كل استدعاء بيفحص <bdi dir=\"ltr\">s[0]</bdi> وبيبعت <bdi dir=\"ltr\">s[1</bdi>:]. الحروف المتحرّكة ملوّنة."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع؟ تتبّعوا الاستدعاءات.<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def mystery(s):\n    if len(s) == 0:\n        return 0\n    if s[0] in \"aeiou\":\n        return 1 + mystery(s[1:])\n    return mystery(s[1:])\n\nprint(mystery(\"recursion\"))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">4</pre></div></div>",
+      "steps": [
+        {
+          "label": "كل استدعاء بيفحص أول حرف وبيكمّل على الباقي",
+          "body": "<code dir=\"ltr\">s[1:]</code>"
+        },
+        {
+          "label": "حروف متحرّكة: e، u، i، o",
+          "body": "<code dir=\"ltr\">1 + 1 + 1 + 1</code>"
+        },
+        {
+          "label": "الوقوف: نص فاضي بيرجّع 0",
+          "body": "<code dir=\"ltr\">4</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">4</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">def mystery(s):</code></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(mystery(\"recursion\"))</code></td><td><bdi dir=\"ltr\">4</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "كيف بلاقي القطعة الصغيرة؟",
+          "a": "<p>اسألوا: شو أصغر خطوة بقدر أعملها هلّق؟ لعدد: آخر خانة (<code dir=\"ltr\">n % 10</code>). لنص أو قائمة: أول عنصر (<code dir=\"ltr\">s[0]</code>). الباقي (<code dir=\"ltr\">n // 10</code>، <code dir=\"ltr\">s[1:]</code>) هو المشكلة الأصغر.</p>"
+        },
+        {
+          "q": "<code dir=\"ltr\">s[1:]</code> ولا <code dir=\"ltr\">s[:-1]</code>؟",
+          "a": "<p>الاتنين بيشتغلوا. <code dir=\"ltr\">s[1:]</code> مع <code dir=\"ltr\">s[0]</code> (من الأول)، و <code dir=\"ltr\">s[:-1]</code> مع <code dir=\"ltr\">s[-1]</code> (من الآخر). اختاروا اللي بيخلّي الترتيب طبيعي، مثلاً لقلب نص: <code dir=\"ltr\">s[-1] + rev(s[:-1])</code>.</p>"
+        },
+        {
+          "q": "شو بترجّع الدالة لنص فاضي؟",
+          "a": "<p>هاي عادة حالة الوقوف: طول 0، عدّ 0، مجموع 0، قلب \"\". اختاروا قيمة بتخلّي الخطوة اللي فوق صح: مجموع فاضي 0 لأنه <bdi dir=\"ltr\">x + 0 = x</bdi>.</p>"
+        },
+        {
+          "q": "ليش بيطلع None أو TypeError بدل الجواب؟",
+          "a": "<p>نسيتوا return على الاستدعاء الرجعي. الطبقة اللي ما فيها return بترجّع None، والطبقة اللي فوقها بتحاول تعمل <code dir=\"ltr\">1 + None</code>. كل فرع لازم يرجّع.</p><pre class=\"code\" dir=\"ltr\">def length(s):\n    if s == \"\":\n        return 0\n    1 + length(s[1:])\n\nprint(length(\"abc\"))</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'</pre>"
+        },
+        {
+          "q": "الرجعية على نص بتقطيع بطيئة؟",
+          "a": "<p>كل <code dir=\"ltr\">s[1:]</code> بتنسخ النص، فالمجموع <bdi dir=\"ltr\">O(n</bdi>²). لنصوص قصيرة بالامتحان مش مشكلة، بس بالفصل 11 منشوف إنه بارامتر مكان i بيرجّعها <bdi dir=\"ltr\">O(n)</bdi>.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">rev(s[1:]) + s[1]</code>",
+          "yes": "أول حرف هو <code dir=\"ltr\">s[0]</code>"
+        },
+        {
+          "no": "مجموع خانات بيوقف عند <code dir=\"ltr\">n &lt; 10</code> وبيرجّع 0",
+          "yes": "بيوقف عند 0، أو عند n &lt; 10 بيرجّع n"
+        },
+        {
+          "no": "<code dir=\"ltr\">is_pal(s[1:])</code> بس",
+          "yes": "لازم تشيلوا من الطرفين: <code dir=\"ltr\">s[1:-1]</code>"
+        },
+        {
+          "no": "دالة رجعية فيها حلقة على كل القائمة",
+          "yes": "الرجعية هي الحلقة: كل استدعاء بيعالج قطعة وحدة"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def power(a, n):\n    if n == 0:\n        return 1\n    return a * power(a, n - 1)\n\nprint(power(3, 4))</pre></div>",
+        "answer": [
+          "81"
+        ],
+        "hint": "\\(3^4\\).",
+        "solution": "<p>الدالة بتضرب a بحالو n مرات: \\(3\\cdot3\\cdot3\\cdot3\\cdot1=81\\)، والـ 1 جاي من حالة الوقوف لما n صار صفر.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">81</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def h(s):\n    if s == \"\":\n        return \"\"\n    return s[0] + s[0] + h(s[1:])\n\nprint(h(\"ab\"))</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">aabb</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">abab</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">bbaa</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "كل حرف مرتين، بالترتيب.",
+        "solution": "<p>كل استدعاء بيلزق أول حرف مرتين وبعدين الباقي: <code dir=\"ltr\">h(\"ab\")</code> بيعطي aa مع <code dir=\"ltr\">h(\"b\")</code> اللي بيعطي bb.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">aabb</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def fib(n):\n    if n &lt; 2:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nprint(fib(7))</pre></div>",
+        "answer": [
+          "13"
+        ],
+        "hint": "0، 1، 1، 2، 3، 5، 8، …",
+        "solution": "<p>كل عدد مجموع اللي قبلو: 0، 1، 1، 2، 3، 5، 8، 13. الـ fib(7) هو العدد التامن بالسلسلة، يعني 13.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">13</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "תנאי עצירה",
+      "back": "حالة الوقوف: أصغر مدخل (0، نص فاضي) جوابه بدون استدعاء رجعي."
+    }
+  ]
+}

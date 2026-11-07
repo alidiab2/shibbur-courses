@@ -1,0 +1,213 @@
+{
+  "slug": "arithmetic-unit",
+  "title": "الوحدة الحسابية والأعلام",
+  "he": "יחידה אריתמטית ודגלים",
+  "ref": "הרצאה 8",
+  "minutes": 17,
+  "desc": "الوحدة الحسابية بالـ ALU بكورس 61740: جامع واحد مع اختيار مدخل B (B، B'، 0، 1111) وCin لكل العمليات (جمع، طرح، زيادة، نقصان)، والأعلام Z، N، C وV.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> بالامتحان بيعطوكم جدول متل اللي بالرسمة ويسألوا «מה תהיה התוצאה ומה ערכי הדגלים». هالدرس بيبيّن من وين كل سطر بالجدول، فما بتحتاجوا تحفظوه.</p><ol><li>جامع واحد لكل الحسابية</li><li>شو بيوصل لمدخل B</li><li>دور الـ \\(C_{in}\\)</li><li>الأعلام: صفر، سالب، حمل، فيضان</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما في جدول فيه \\(S_1S_0\\) و\\(C_{in}\\)، أو بيسألوا عن الأعلام (דגלים).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 230\" role=\"img\" aria-label=\"الوحدة الحسابية هي جامع واحد. اللي بيتغيّر هو شو بيوصل لمدخل B، وشو الـ Cin.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"70\" y=\"30\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">S1S0</text><text class=\"fk-t t-mut\" x=\"190\" y=\"30\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">Y (لمدخل B)</text><text class=\"fk-t t-hu\" x=\"370\" y=\"30\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Cin = 0</text><rect class=\"fk-chip t-2\" x=\"36\" y=\"44\" width=\"70\" height=\"32\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"71.0\" y=\"65.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00</text><rect class=\"fk-chip t-1\" x=\"140\" y=\"44\" width=\"100\" height=\"32\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"190.0\" y=\"65.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><line class=\"fk-line t-mut\" x1=\"246\" y1=\"60\" x2=\"278.0\" y2=\"60.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"290,60 278.0,53.0 278.0,67.0\"/><text class=\"fk-t t-hu\" x=\"370\" y=\"66\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A + B</text><rect class=\"fk-chip t-2\" x=\"36\" y=\"84\" width=\"70\" height=\"32\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"71.0\" y=\"105.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">01</text><rect class=\"fk-chip t-1\" x=\"140\" y=\"84\" width=\"100\" height=\"32\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"190.0\" y=\"105.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B'</text><line class=\"fk-line t-mut\" x1=\"246\" y1=\"100\" x2=\"278.0\" y2=\"100.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"290,100 278.0,93.0 278.0,107.0\"/><text class=\"fk-t t-hu\" x=\"370\" y=\"106\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A + B'</text><rect class=\"fk-chip t-2\" x=\"36\" y=\"124\" width=\"70\" height=\"32\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"71.0\" y=\"145.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-1\" x=\"140\" y=\"124\" width=\"100\" height=\"32\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"190.0\" y=\"145.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0000</text><line class=\"fk-line t-mut\" x1=\"246\" y1=\"140\" x2=\"278.0\" y2=\"140.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"290,140 278.0,133.0 278.0,147.0\"/><text class=\"fk-t t-hu\" x=\"370\" y=\"146\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><rect class=\"fk-chip t-2\" x=\"36\" y=\"164\" width=\"70\" height=\"32\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"71.0\" y=\"185.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><rect class=\"fk-chip t-1\" x=\"140\" y=\"164\" width=\"100\" height=\"32\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"190.0\" y=\"185.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1111</text><line class=\"fk-line t-mut\" x1=\"246\" y1=\"180\" x2=\"278.0\" y2=\"180.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"290,180 278.0,173.0 278.0,187.0\"/><text class=\"fk-t t-hu\" x=\"370\" y=\"186\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A − 1</text><text class=\"fk-t t-mut\" x=\"240\" y=\"222\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مع Cin = 1 كل نتيجة بتزيد 1: A+B+1، A−B، A+1، A</text></svg>",
+      "alt": "الوحدة الحسابية هي جامع واحد. اللي بيتغيّر هو شو بيوصل لمدخل B، وشو الـ Cin.",
+      "caption": "الوحدة الحسابية هي جامع واحد. اللي بيتغيّر هو شو بيوصل لمدخل B، وشو الـ Cin."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>النتيجة دايماً \\(A+Y+C_{in}\\). كل العمليات بتيجي من اختيار \\(Y\\in\\{B,\\,B',\\,0000,\\,1111\\}\\) و\\(C_{in}\\in\\{0,1\\}\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>بدل جامع وطرّاح وعدّاد، في جامع واحد. \\(A-B\\) هو \\(A+B'+1\\)، \\(A+1\\) هو \\(A+0+1\\)، و\\(A-1\\) هو \\(A+1111\\) لأنه \\(1111=-1\\) بالمكمّل لـ 2.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 192\" role=\"img\" aria-label=\"كل العمليات من جامع واحد: S بيختار شو بيدخل مكان B (اسمه Y)، وCin بيزيد 1. ثمان عمليات.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"75.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">S1S0</text><text class=\"fk-t t-mut\" x=\"185.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Y</text><text class=\"fk-t t-hu\" x=\"295.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Cin = 0</text><text class=\"fk-t t-hu\" x=\"405.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Cin = 1</text><line class=\"fk-line t-grid\" x1=\"20.0\" y1=\"40\" x2=\"460.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"240.0\" y1=\"12\" x2=\"240.0\" y2=\"176\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"75.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">00</text><text class=\"fk-t t-ink\" x=\"185.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">B</text><text class=\"fk-t t-ink\" x=\"295.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A+B</text><text class=\"fk-t t-ink\" x=\"405.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A+B+1</text><rect class=\"fk-chip t-hu\" x=\"22.0\" y=\"77\" width=\"436\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"75.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">01</text><text class=\"fk-t t-ink\" x=\"185.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">B'</text><text class=\"fk-t t-hu\" x=\"295.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A−B−1</text><text class=\"fk-t t-hu\" x=\"405.0\" y=\"98\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A−B</text><text class=\"fk-t t-ink\" x=\"75.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">10</text><text class=\"fk-t t-ink\" x=\"185.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0000</text><text class=\"fk-t t-ink\" x=\"295.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-ink\" x=\"405.0\" y=\"132\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A+1</text><text class=\"fk-t t-ink\" x=\"75.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-ink\" x=\"185.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1111</text><text class=\"fk-t t-ink\" x=\"295.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A−1</text><text class=\"fk-t t-ink\" x=\"405.0\" y=\"166\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text></svg>",
+      "alt": "كل العمليات من جامع واحد: S بيختار شو بيدخل مكان B (اسمه Y)، وCin بيزيد 1. ثمان عمليات.",
+      "caption": "كل العمليات من جامع واحد: S بيختار شو بيدخل مكان B (اسمه Y)، وCin بيزيد 1. ثمان عمليات."
+    },
+    {
+      "t": "h",
+      "text": "الجدول خطوة خطوة"
+    },
+    {
+      "t": "p",
+      "html": "<p>مع \\(C_{in}=0\\): \\(Y=B\\) بيعطي \\(A+B\\). \\(Y=B'\\) بيعطي \\(A+B'\\)، وهاد \\(A-B-1\\). \\(Y=0\\) بيعطي \\(A\\) (نقل، העברה). \\(Y=1111\\) بيعطي \\(A-1\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مع \\(C_{in}=1\\) كل وحدة بتزيد 1: \\(A+B+1\\)، \\(A+B'+1=A-B\\) (طرح!)، \\(A+1\\) (زيادة)، و\\(A+1111+1=A\\). يعني 8 عمليات من جامع واحد وMUX صغير على B.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 90\" role=\"img\" aria-label=\"الأعلام بعد 5 − 7 = 1110: مش صفر (Z = 0)، سالب (N = 1)، ما في حمل ولا فيضان.\" class=\"fk\"><text class=\"fk-t t-hu\" x=\"120.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Z</text><text class=\"fk-t t-hu\" x=\"200.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">N</text><text class=\"fk-t t-hu\" x=\"280.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C</text><text class=\"fk-t t-hu\" x=\"360.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">V</text><line class=\"fk-line t-grid\" x1=\"80.0\" y1=\"40\" x2=\"400.0\" y2=\"40\" stroke-width=\"2\"/><line class=\"fk-line t-grid\" x1=\"80.0\" y1=\"12\" x2=\"80.0\" y2=\"74\" stroke-width=\"2\"/><rect class=\"fk-chip t-hu\" x=\"82.0\" y=\"43\" width=\"316\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"120.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-hu\" x=\"200.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-hu\" x=\"280.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-hu\" x=\"360.0\" y=\"64\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "الأعلام بعد 5 − 7 = 1110: مش صفر (Z = 0)، سالب (N = 1)، ما في حمل ولا فيضان.",
+      "caption": "الأعلام بعد 5 − 7 = 1110: مش صفر (Z = 0)، سالب (N = 1)، ما في حمل ولا فيضان."
+    },
+    {
+      "t": "h",
+      "text": "الأعلام (דגלים)"
+    },
+    {
+      "t": "p",
+      "html": "<p>بعد كل عملية الـ ALU بيطلّع بِتات حالة: \\(Z\\) (صفر): 1 إذا كل بِتات النتيجة 0. \\(N\\) (سالب): بِت الإشارة تبع النتيجة. \\(C\\) (حمل): الحمل اللي طلع من البِت الأعلى. \\(V\\) (فيضان): \\(C_{n-1}\\oplus C_n\\)، يعني نتيجة غلط بأعداد مع إشارة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>المعالج بيستعمل الأعلام للقرارات: «إذا \\(A=B\\)» بيصير بحساب \\(A-B\\) وفحص \\(Z\\). لهيك الطرح مهم كتير بالـ ALU حتى لما ما بدنا النتيجة نفسها.</p>"
+    },
+    {
+      "t": "method",
+      "title": "سؤال ALU مع أعلام: كيف أمشي، 4 خطوات",
+      "steps": [
+        "<b>لاقوا Y وCin</b> من الجدول حسب كود العملية.",
+        "<b>اجمعوا</b> \\(A+Y+C_{in}\\) بـ n بِتات، واكتبوا الحمل الأخير والحمل اللي قبله.",
+        "<b>النتيجة</b> آخر n بِتات. \\(Z\\) و\\(N\\) منها.",
+        "<b>C وV</b> \\(C\\) = الحمل الأخير، \\(V=C_{n-1}\\oplus C_n\\)."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 210\" role=\"img\" aria-label=\"المعطى كجامع: A = 0101، وY = B' = 1000 مع Cin = 1. النتيجة 1110 = −2، يعني 5 − 7.\" class=\"fk\"><rect class=\"fk-chip t-ink\" x=\"330.0\" y=\"60\" width=\"70\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-ink\" x=\"365.0\" y=\"101.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">FA</text><text class=\"fk-t t-mut\" x=\"365.0\" y=\"30\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1 0</text><line class=\"fk-line t-mut\" x1=\"365.0\" y1=\"38\" x2=\"365.0\" y2=\"60\" stroke-width=\"2.5\"/><line class=\"fk-line t-hu\" x1=\"365.0\" y1=\"130\" x2=\"365.0\" y2=\"160\" stroke-width=\"3\"/><rect class=\"fk-chip t-hu\" x=\"349.0\" y=\"162\" width=\"32\" height=\"30\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"365.0\" y=\"182.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><line class=\"fk-line t-2\" x1=\"330.0\" y1=\"95\" x2=\"320.7\" y2=\"95.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"308.6666666666667,95 320.7,102.0 320.7,88.0\"/><text class=\"fk-t t-2\" x=\"319.33333333333337\" y=\"86\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-ink\" x=\"238.66666666666669\" y=\"60\" width=\"70\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-ink\" x=\"273.6666666666667\" y=\"101.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">FA</text><text class=\"fk-t t-mut\" x=\"273.6666666666667\" y=\"30\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0 0</text><line class=\"fk-line t-mut\" x1=\"273.6666666666667\" y1=\"38\" x2=\"273.6666666666667\" y2=\"60\" stroke-width=\"2.5\"/><line class=\"fk-line t-hu\" x1=\"273.6666666666667\" y1=\"130\" x2=\"273.6666666666667\" y2=\"160\" stroke-width=\"3\"/><rect class=\"fk-chip t-hu solid\" x=\"257.6666666666667\" y=\"162\" width=\"32\" height=\"30\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"273.6666666666667\" y=\"182.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><line class=\"fk-line t-mut\" x1=\"238.66666666666669\" y1=\"95\" x2=\"229.3\" y2=\"95.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"217.33333333333334,95 229.3,102.0 229.3,88.0\"/><text class=\"fk-t t-2\" x=\"228.0\" y=\"86\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-ink\" x=\"147.33333333333334\" y=\"60\" width=\"70\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-ink\" x=\"182.33333333333334\" y=\"101.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">FA</text><text class=\"fk-t t-mut\" x=\"182.33333333333334\" y=\"30\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1 0</text><line class=\"fk-line t-mut\" x1=\"182.33333333333334\" y1=\"38\" x2=\"182.33333333333334\" y2=\"60\" stroke-width=\"2.5\"/><line class=\"fk-line t-hu\" x1=\"182.33333333333334\" y1=\"130\" x2=\"182.33333333333334\" y2=\"160\" stroke-width=\"3\"/><rect class=\"fk-chip t-hu solid\" x=\"166.33333333333334\" y=\"162\" width=\"32\" height=\"30\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"182.33333333333334\" y=\"182.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><line class=\"fk-line t-mut\" x1=\"147.33333333333334\" y1=\"95\" x2=\"138.0\" y2=\"95.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"126.00000000000001,95 138.0,102.0 138.0,88.0\"/><text class=\"fk-t t-2\" x=\"136.66666666666669\" y=\"86\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-ink\" x=\"56.0\" y=\"60\" width=\"70\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-ink\" x=\"91.0\" y=\"101.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">FA</text><text class=\"fk-t t-mut\" x=\"91.0\" y=\"30\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0 1</text><line class=\"fk-line t-mut\" x1=\"91.0\" y1=\"38\" x2=\"91.0\" y2=\"60\" stroke-width=\"2.5\"/><line class=\"fk-line t-hu\" x1=\"91.0\" y1=\"130\" x2=\"91.0\" y2=\"160\" stroke-width=\"3\"/><rect class=\"fk-chip t-hu solid\" x=\"75.0\" y=\"162\" width=\"32\" height=\"30\" rx=\"8\"/><text class=\"fk-t t-on\" x=\"91.0\" y=\"182.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><line class=\"fk-line t-mut\" x1=\"56.0\" y1=\"95\" x2=\"26.0\" y2=\"95.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"14,95 26.0,102.0 26.0,88.0\"/><text class=\"fk-t t-2\" x=\"35.0\" y=\"86\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><line class=\"fk-line t-mut\" x1=\"470\" y1=\"95\" x2=\"414.0\" y2=\"95.0\" stroke-width=\"2.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"402,95 414.0,102.0 414.0,88.0\"/><text class=\"fk-t t-2\" x=\"440\" y=\"86\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text></svg>",
+      "alt": "المعطى كجامع: A = 0101، وY = B' = 1000 مع Cin = 1. النتيجة 1110 = −2، يعني 5 − 7.",
+      "caption": "المعطى كجامع: A = 0101، وY = B' = 1000 مع Cin = 1. النتيجة 1110 = −2، يعني 5 − 7."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: ALU 4 بِتات حسب الرسمة: \\(S_1S_0=01\\)، \\(C_{in}=1\\)، \\(A=0101\\)، \\(B=0111\\). شو النتيجة والأعلام؟",
+      "steps": [
+        {
+          "label": "العملية",
+          "body": "\\(Y=B'=1000\\)، يعني \\(A-B\\)"
+        },
+        {
+          "label": "اجمعوا",
+          "body": "\\(0101+1000+1=1110\\)"
+        },
+        {
+          "label": "النتيجة",
+          "body": "\\(1110=-2\\)، وبالفعل \\(5-7=-2\\)"
+        },
+        {
+          "label": "الأعلام",
+          "body": "\\(Z=0\\)، \\(N=1\\)، \\(C=0\\) (ما في حمل من 5+8+1=14)، \\(V=0\\)"
+        }
+      ],
+      "a": "الجواب \\(1110\\)، \\(Z=0,\\;N=1,\\;C=0,\\;V=0\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: \\(A-1\\)",
+      "html": "<p>\\(S_1S_0=11\\)، \\(C_{in}=0\\)، \\(A=0000\\).</p><p>\\(Y=1111\\): \\(0000+1111=1111=-1\\). صح: \\(0-1=-1\\). \\(N=1\\)، \\(Z=0\\)، وما في حمل.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"B' لحاله هو −B − 1. لازم Cin = 1 عشان يصير طرح.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A − B = A + B'</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A − B = A + B' + 1</text></svg>",
+      "alt": "B' لحاله هو −B − 1. لازم Cin = 1 عشان يصير طرح.",
+      "caption": "B' لحاله هو −B − 1. لازم Cin = 1 عشان يصير طرح."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(A-B=A+B'\\)",
+          "yes": "\\(A-B=A+B'+1\\): لازم \\(C_{in}=1\\)"
+        },
+        {
+          "no": "\\(C=1\\) يعني النتيجة غلط",
+          "yes": "بأعداد مع إشارة الغلط هو \\(V\\). \\(C\\) مهم بأعداد بدون إشارة"
+        },
+        {
+          "no": "\\(Z=1\\) لما النتيجة سالبة",
+          "yes": "\\(Z=1\\) لما كل البِتات 0. السالب هو \\(N\\)"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "ALU 4 بِتات: \\(Y=0000\\)، \\(C_{in}=1\\)، \\(A=1111\\). شو قيمة الحمل \\(C\\)؟",
+        "answer": [
+          "1"
+        ],
+        "hint": "احسبوا \\(15+1\\).",
+        "solution": "<p>هاي العملية \\(A+1\\): \\(1111+1=10000\\). النتيجة \\(0000\\) (فـ \\(Z=1\\)) والحمل \\(C=1\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "ALU 4 بِتات: \\(Y=B\\)، \\(C_{in}=0\\)، \\(A=0110\\)، \\(B=0011\\). اكتبوا النتيجة.",
+        "answer": [
+          "1001"
+        ],
+        "hint": "\\(6+3\\).",
+        "solution": "<p>\\(0110+0011=1001\\). بدون إشارة هاد 9، بس مع إشارة هاد \\(-7\\): جمعنا موجبين وطلع سالب، فـ \\(V=1\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "أي اختيار بيعطي \\(A-B\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(Y=B',\\;C_{in}=1\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(Y=B',\\;C_{in}=0\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(Y=1111,\\;C_{in}=1\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "اقلبوا وزيدوا 1.",
+        "solution": "<p>\\(A-B=A+(-B)\\)، و\\(-B=B'+1\\) بالمكمّل لـ 2. فبدنا \\(Y=B'\\) والـ 1 بيدخل كـ \\(C_{in}=1\\).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش \\(A+B'+1=A-B\\)؟",
+          "a": "لأنه \\(B'+1\\) هو المكمّل لـ 2 تبع \\(B\\)، يعني \\(-B\\). فـ \\(A+B'+1=A+(-B)\\). هاد نفس اللي عملناه بالإيد بدرس المكمّل لـ 2."
+        },
+        {
+          "q": "ليش \\(A+1111=A-1\\) بـ 4 بِتات؟",
+          "a": "لأنه \\(1111\\) بالمكمّل لـ 2 هو \\(-1\\). الجمع معه هو طرح 1. والحمل اللي بيطلع منزتّه متل العادة."
+        },
+        {
+          "q": "شو الفرق بين العلم C والعلم V؟",
+          "a": "\\(C\\) (حمل) مهم للأعداد بلا إشارة: إذا \\(C=1\\) بالجمع، الجواب أكبر من \\(2^n-1\\). \\(V\\) (فيضان) مهم للأعداد مع إشارة: الجواب برّا \\(-2^{n-1}\\) لـ \\(2^{n-1}-1\\). الـ ALU بيطلّع الاتنين، والبرنامج بيختار مين يفحص."
+        },
+        {
+          "q": "كيف بينحسب العلم Z بالدائرة؟",
+          "a": "\\(Z=1\\) بس إذا كل بِتات النتيجة 0. هاد NOR على كل البِتات: \\(Z=(F_3+F_2+F_1+F_0)'\\)."
+        },
+        {
+          "q": "ليش المعالج بيعمل طرح حتى لما بدّه يقارن بس؟",
+          "a": "\\(A=B\\) إذا وبس إذا \\(A-B=0\\)، يعني \\(Z=1\\). و\\(A&lt;B\\) (مع إشارة) بيبيّن من \\(N\\) و\\(V\\). فبعملية طرح وحدة بيعرف كل المقارنات."
+        }
+      ]
+    }
+  ]
+}

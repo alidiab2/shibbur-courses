@@ -1,0 +1,219 @@
+{
+  "slug": "design-process",
+  "title": "تصميم دائرة تركيبية من الكلام",
+  "he": "תכנון מעגל צירופי",
+  "ref": "הרצאה 6 · תרגול 7",
+  "minutes": 18,
+  "desc": "تصميم دائرة تركيبية (מעגל צירופי) بكورس 61740: من وصف بالكلام لجدول قيم، مفتاح كارنو لكل مخرج ودائرة، مع مثال كامل لمقارن عددين ببِتين.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> أكبر سؤال بالامتحان بالجزء التركيبي هو «תכננו מעגל ש…». الطريق دايماً نفس الإشي، والنقاط بتروح عادةً على جدول قيم ناقص أو مداخل مش واضحة.</p><ol><li>فهم السؤال: مين المداخل ومين المخارج</li><li>جدول قيم كامل</li><li>مفتاح كارنو لكل مخرج</li><li>دائرة وفحص</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل سؤال فيه وصف بالكلام لدائرة بدون ذاكرة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 210\" role=\"img\" aria-label=\"من وصف بالكلام لدائرة: نفس الطريق بكل سؤال تصميم.\" class=\"fk\"><rect class=\"fk-chip t-1 solid\" x=\"360\" y=\"40\" width=\"104\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"412.0\" y=\"74.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الكلام</text><line class=\"fk-line t-mut\" x1=\"356\" y1=\"68\" x2=\"350.0\" y2=\"68.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"338,68 350.0,75.0 350.0,61.0\"/><rect class=\"fk-chip t-2 solid\" x=\"248\" y=\"40\" width=\"104\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"300.0\" y=\"74.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">جدول قيم</text><line class=\"fk-line t-mut\" x1=\"244\" y1=\"68\" x2=\"238.0\" y2=\"68.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"226,68 238.0,75.0 238.0,61.0\"/><rect class=\"fk-chip t-3 solid\" x=\"136\" y=\"40\" width=\"104\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"188.0\" y=\"74.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مفتاح كارنو</text><line class=\"fk-line t-mut\" x1=\"132\" y1=\"68\" x2=\"126.0\" y2=\"68.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"114,68 126.0,75.0 126.0,61.0\"/><rect class=\"fk-chip t-4 solid\" x=\"24\" y=\"40\" width=\"104\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"76.0\" y=\"74.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">دائرة</text><text class=\"fk-t t-mut\" x=\"412\" y=\"128\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">مداخل؟ مخارج؟</text><text class=\"fk-t t-mut\" x=\"300\" y=\"128\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">سطر لكل تركيبة</text><text class=\"fk-t t-mut\" x=\"188\" y=\"128\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">مفتاح لكل مخرج</text><text class=\"fk-t t-mut\" x=\"76\" y=\"128\" font-size=\"15\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">بوابات</text><text class=\"fk-t t-hu\" x=\"240\" y=\"180\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">كل سؤال تصميم تركيبي = نفس الأربع خطوات</text></svg>",
+      "alt": "من وصف بالكلام لدائرة: نفس الطريق بكل سؤال تصميم.",
+      "caption": "من وصف بالكلام لدائرة: نفس الطريق بكل سؤال تصميم."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>دائرة تركيبية (מעגל צירופי): <b>المخرج هلّق بيعتمد بس على المداخل هلّق</b>. فكل اللي بدكم إياه هو جدول قيم.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>كل وصف بالكلام هو بالآخر جدول: لكل تركيبة مداخل، شو المخرج. أول ما يصير معكم الجدول، الباقي هو الطريقة اللي بتعرفوها من الفصلين اللي قبل.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 324\" role=\"img\" aria-label=\"كيف بنبني جدول من الكلام: خمس أسئلة بالترتيب. الجدول هو أصعب خطوة، والباقي ميكانيكي.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"70\" y=\"8\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"33.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">شو المداخل وشو المخارج؟</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"49\" x2=\"240.0\" y2=\"57.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,69 247.0,57.0 233.0,57.0\"/><rect class=\"fk-chip t-hu\" x=\"70\" y=\"70\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"95.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">قديش بِت لكل واحد؟</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"111\" x2=\"240.0\" y2=\"119.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,131 247.0,119.0 233.0,119.0\"/><rect class=\"fk-chip t-hu\" x=\"70\" y=\"132\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"157.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">سطر لكل تركيبة</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"173\" x2=\"240.0\" y2=\"181.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,193 247.0,181.0 233.0,181.0\"/><rect class=\"fk-chip t-hu\" x=\"70\" y=\"194\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"219.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">شو لازم يطلع حسب الكلام؟</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"235\" x2=\"240.0\" y2=\"243.0\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,255 247.0,243.0 233.0,243.0\"/><rect class=\"fk-chip t-2 solid\" x=\"70\" y=\"256\" width=\"340\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"281.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">تركيبات ما بتصير: X</text></svg>",
+      "alt": "كيف بنبني جدول من الكلام: خمس أسئلة بالترتيب. الجدول هو أصعب خطوة، والباقي ميكانيكي.",
+      "caption": "كيف بنبني جدول من الكلام: خمس أسئلة بالترتيب. الجدول هو أصعب خطوة، والباقي ميكانيكي."
+    },
+    {
+      "t": "h",
+      "text": "الخطوة الأصعب: الجدول"
+    },
+    {
+      "t": "p",
+      "html": "<p>اقروا السؤال وعلّموا: شو المداخل (وقديش بِت كل واحد)، وشو المخارج. أعطوا أسماء: مثلاً عدد \\(A\\) ببِتين هو \\(A_1A_0\\). عدد الأسطر هو \\(2\\) بقوّة عدد كل البِتات. إذا في تركيبات ما بتصير (متل BCD فوق 9)، اكتبوا فيها X.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بعدين املوا عامود لكل مخرج. منيح تكتبوا جنب كل سطر شو معناه بالكلام (مثلاً «2 &gt; 1؟ نعم»). هيك ما بتغلطوا بسطر.</p>"
+    },
+    {
+      "t": "h",
+      "text": "بعد الجدول"
+    },
+    {
+      "t": "p",
+      "html": "<p>لكل مخرج مفتاح كارنو لحاله، ومنه تعبير قصير. إذا بيطلبوا بوابات معيّنة (NAND بس، MUX…) منحوّل بالآخر. وأخيراً منفحص سطرين تلاتة من الجدول على الدائرة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>متى منستعمل مركّبات جاهزة بدل بوابات؟ إذا السؤال بيقول «באמצעות מפענח» أو «מרבב»، أو إذا الدائرة هي جمع (جامع). وإلا، بوابات من المفتاح.</p>"
+    },
+    {
+      "t": "method",
+      "title": "سؤال تصميم: كيف أمشي، 4 خطوات",
+      "steps": [
+        "<b>حدّدوا</b> مداخل ومخارج، وقديش بِت، وأسماء.",
+        "<b>جدول قيم</b> كل التركيبات بالترتيب، مع X للي ما بتصير.",
+        "<b>كارنو لكل مخرج</b> وتعبير قصير.",
+        "<b>ارسموا وافحصوا</b> دائرة، وسطرين من الجدول عليها."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 436 316\" role=\"img\" aria-label=\"مفتاح المقارن A > B، مع A = A1, B = A0, C = B1, D = B0 بالمفتاح. 6 خلايا 1، و3 مجموعات بيعطوا الجواب.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"70.0\" y=\"42\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AB\\CD</text><text class=\"fk-t t-mut\" x=\"147.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00</text><text class=\"fk-t t-mut\" x=\"221.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">01</text><text class=\"fk-t t-mut\" x=\"295.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-mut\" x=\"369.0\" y=\"46\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"96.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">00</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"154.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">01</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"212.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-mut\" x=\"84.0\" y=\"270.0\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"147.0\" y=\"98.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"221.0\" y=\"98.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"295.0\" y=\"98.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"60\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"369.0\" y=\"98.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"76\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"147.0\" y=\"156.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"221.0\" y=\"156.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"295.0\" y=\"156.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"118\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"369.0\" y=\"156.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"134\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">6</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"147.0\" y=\"214.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">12</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"221.0\" y=\"214.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">13</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"295.0\" y=\"214.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">15</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"176\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"369.0\" y=\"214.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"192\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">14</text><rect class=\"fk-chip t-grid\" x=\"110.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"147.0\" y=\"272.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"175.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-grid\" x=\"184.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-ink\" x=\"221.0\" y=\"272.0\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"249.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">9</text><rect class=\"fk-chip t-grid\" x=\"258.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"295.0\" y=\"272.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"323.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">11</text><rect class=\"fk-chip t-grid\" x=\"332.0\" y=\"234\" width=\"74\" height=\"58\" rx=\"0\" stroke-width=\"1.5\"/><text class=\"fk-t t-mut\" x=\"369.0\" y=\"272.0\" font-size=\"24\" font-weight=\"500\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"397.0\" y=\"250\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">10</text><rect class=\"fk-line t-1\" x=\"115.0\" y=\"181\" width=\"138\" height=\"106\" rx=\"16\" fill=\"none\" stroke-width=\"4\"/><rect class=\"fk-line t-2\" x=\"119.0\" y=\"127\" width=\"56\" height=\"98\" rx=\"16\" fill=\"none\" stroke-width=\"4\"/><rect class=\"fk-line t-3\" x=\"123.0\" y=\"189\" width=\"48\" height=\"32\" rx=\"16\" fill=\"none\" stroke-width=\"4\"/><rect class=\"fk-line t-3\" x=\"345.0\" y=\"189\" width=\"48\" height=\"32\" rx=\"16\" fill=\"none\" stroke-width=\"4\"/></svg>",
+      "alt": "مفتاح المقارن A > B، مع A = A1, B = A0, C = B1, D = B0 بالمفتاح. 6 خلايا 1، و3 مجموعات بيعطوا الجواب.",
+      "caption": "مفتاح المقارن A &gt; B، مع A = A1, B = A0, C = B1, D = B0 بالمفتاح. 6 خلايا 1، و3 مجموعات بيعطوا الجواب."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: صمّموا دائرة بتاخد عددين ببِتين \\(A=A_1A_0\\) و\\(B=B_1B_0\\)، و\\(F=1\\) إذا \\(A&gt;B\\).",
+      "steps": [
+        {
+          "label": "المداخل والجدول",
+          "body": "4 بِتات، 16 سطر. \\(F=1\\) بـ \\(1&gt;0,2&gt;0,2&gt;1,3&gt;0,3&gt;1,3&gt;2\\)"
+        },
+        {
+          "label": "أرقام الأسطر \\(A_1A_0B_1B_0\\)",
+          "body": "\\(0100=4,\\;1000=8,\\;1001=9,\\;1100=12,\\;1101=13,\\;1110=14\\)"
+        },
+        {
+          "label": "كارنو",
+          "body": "\\(F=A_1B_1'+A_0B_1'B_0'+A_1A_0B_0'\\)"
+        }
+      ],
+      "a": "الجواب \\(F=A_1B_1'+A_0B_1'B_0'+A_1A_0B_0'\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: دالة الأغلبية",
+      "html": "<p>تلات أعضاء لجنة بيصوّتوا (1 = مع). \\(F=1\\) إذا الأغلبية مع.</p><p>\\(F=\\Sigma m(3,5,6,7)\\). بكارنو: تلات مجموعات من 2 حوالين الخلية 7: \\(F=AB+AC+BC\\). هاي نفس دالة الحمل بالجامع الكامل.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"المداخل هنّي 4 بِتات (بِتين لكل عدد)، يعني 2⁴ = 16 تركيبة.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مقارن عددين ببِتين: 4 أسطر</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مقارن عددين ببِتين: 16 سطر</text></svg>",
+      "alt": "المداخل هنّي 4 بِتات (بِتين لكل عدد)، يعني 2⁴ = 16 تركيبة.",
+      "caption": "المداخل هنّي 4 بِتات (بِتين لكل عدد)، يعني 2⁴ = 16 تركيبة."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "مقارن عددين ببِتين: 4 أسطر",
+          "yes": "4 بِتات مداخل، يعني 16 سطر"
+        },
+        {
+          "no": "سطر ما بيصير منكتب فيه 0",
+          "yes": "منكتب X: هيك المفتاح بيطلع أقصر"
+        },
+        {
+          "no": "مفتاح واحد لكل المخارج مع بعض",
+          "yes": "مفتاح لكل مخرج لحاله"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "دائرة بتاخد رقم BCD (0–9) و\\(F=1\\) إذا الرقم زوجي. قديش سطر فيه \\(F=1\\)؟",
+        "answer": [
+          "5"
+        ],
+        "hint": "بس 0–9.",
+        "solution": "<p>الأرقام الزوجية من 0 لـ 9 هنّي 0، 2، 4، 6، 8، يعني 5 أسطر. الأسطر 10–15 هنّي X ومش منعدّهم.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "بسّطوا دالة BCD: \\(F=1\\) إذا الرقم \\(\\geq5\\) (المداخل \\(ABCD\\)، 10–15 هنّي X).",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(A+BD+BC\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(A+B\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(AB+CD\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(A+BC\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "استعملوا الـ X.",
+        "solution": "<p>صف \\(A=1\\) (8–15 مع X) بيعطي \\(A\\). الخلايا 5، 7 مع 13، 15 بيعطوا \\(BD\\). الخلايا 6، 7 مع 14، 15 بيعطوا \\(BC\\). \\(F=A+BD+BC\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "دائرة بتاخد عدد بـ 3 بِتات ومخرجها مربّعه. قديش بِت لازم للمخرج؟",
+        "answer": [
+          "6"
+        ],
+        "hint": "أكبر نتيجة ممكنة.",
+        "solution": "<p>أكبر مدخل هو 7، ومربّعه \\(49=110001_2\\). هاد 6 بِتات، فبدنا 6 مخارج.</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "من وين بجيب جدول القيم إذا الكلام مش واضح؟",
+          "a": "أول إشي اكتبوا مين المداخل ومين المخارج، وأعطوا كل واحد اسم. إذا المدخل عدد، قديش بِت هو؟ بعدين سطر لكل تركيبة مداخل، وبكل سطر اسألوا: حسب الكلام، شو لازم يطلع؟ ابدأوا بالأسطر السهلة (كلها 0، كلها 1)."
+        },
+        {
+          "q": "امتى بكتب X بالجدول؟",
+          "a": "لما الكلام بيقول إنه تركيبة ما بتصير (متل مدخل BCD أكبر من 9، أو حسّاسين ما بيشعلوا مع بعض)، أو إنه مش مهم شو المخرج فيها. غير هيك كل سطر لازم يكون 0 أو 1."
+        },
+        {
+          "q": "لازم أبسّط كل مخرج لحاله؟",
+          "a": "آه، مفتاح كارنو لكل مخرج. بس إذا مخرجين بيستعملوا نفس حد الضرب، بالدائرة بتقدروا تبنوه مرة وحدة وتوصّلوه للاتنين. هيك بتوفّروا بوابة."
+        },
+        {
+          "q": "كيف بعرف إنه الدائرة تركيبية ومش متزامنة؟",
+          "a": "دائرة تركيبية (מעגל צירופי) ما إلها ذاكرة: المخرج هلّق بيعتمد بس على المداخل هلّق، وما في ساعة ولا قلّابات. إذا الكلام فيه «آخر 3 مداخل» أو «كل نبضة ساعة»، هاي متزامنة، وهاد بالفصل عن تصميم الدوائر العقيبة."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "מעגל צירופי (دائرة تركيبية)",
+      "back": "دائرة بدون ذاكرة: المخرج هلّق بيعتمد بس على المداخل هلّق."
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بحسب مخرج شبكة بوابات.",
+        "بثبت إنه مجموعة عمليات كاملة أو مش كاملة.",
+        "بنفّذ بـ NAND بس أو NOR بس.",
+        "ببني نصف جامع وجامع كامل وجامع لـ n بِت."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

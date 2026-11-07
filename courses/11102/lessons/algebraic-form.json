@@ -1,0 +1,264 @@
+{
+  "slug": "algebraic-form",
+  "title": "الصورة الجبرية والعمليات",
+  "he": "מספרים מרוכבים",
+  "ref": "חוברת §2 (עמ׳ 11) · מטלה 1",
+  "minutes": 15,
+  "desc": "العدد المركّب z=a+bi: جمع، ضرب، المرافق (צמוד) والقسمة، مع سؤال امتحان محلول خطوة خطوة، بأسلوب جبر 1 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> أول سؤال بامتحان جبر 1 تقريباً دايماً فيه عدد مركّب: «احسبوا وأعطوا الجواب بالصورة \\(a+bi\\)». بعد هالدرس بتحلّوه بتلات خطوات.</p><ol><li>شو هو \\(i\\)، وليش العدد المركّب نقطة بالمستوى</li><li>جمع وضرب: جبر عادي</li><li>القسمة: الضرب بالمرافق</li><li>سؤال امتحان محلول + أشهر الغلطات</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما يطلع \\(i\\) بالمقام، أو يطلبوا «בצורה אלגברית».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 330\" role=\"img\" aria-label=\"كل عدد مركّب هو نقطة بالمستوى. المرافق (הצמוד) هو انعكاسه عن محور الـ Re.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"50.0\" y1=\"34\" x2=\"50.0\" y2=\"294\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"116.0\" y1=\"34\" x2=\"116.0\" y2=\"294\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"182.0\" y1=\"34\" x2=\"182.0\" y2=\"294\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"248.0\" y1=\"34\" x2=\"248.0\" y2=\"294\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"314.0\" y1=\"34\" x2=\"314.0\" y2=\"294\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"380.0\" y1=\"34\" x2=\"380.0\" y2=\"294\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"294.0\" x2=\"380\" y2=\"294.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"250.66666666666666\" x2=\"380\" y2=\"250.66666666666666\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"207.33333333333331\" x2=\"380\" y2=\"207.33333333333331\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"164.0\" x2=\"380\" y2=\"164.0\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"120.66666666666666\" x2=\"380\" y2=\"120.66666666666666\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"77.33333333333334\" x2=\"380\" y2=\"77.33333333333334\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"34.0\" x2=\"380\" y2=\"34.0\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"164.0\" x2=\"382.0\" y2=\"164.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"394,164.0 382.0,157.0 382.0,171.0\"/><line class=\"fk-line t-ink\" x1=\"116.0\" y1=\"294\" x2=\"116.0\" y2=\"32.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"116.0,20 109.0,32.0 123.0,32.0\"/><text class=\"fk-t t-ink\" x=\"386\" y=\"190.0\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"98.0\" y=\"30\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><line class=\"fk-line t-mut dash\" x1=\"314.0\" y1=\"77.33333333333334\" x2=\"314.0\" y2=\"250.66666666666666\" stroke-width=\"2\"/><line class=\"fk-line t-mut dash\" x1=\"116.0\" y1=\"77.33333333333334\" x2=\"314.0\" y2=\"77.33333333333334\" stroke-width=\"2\"/><line class=\"fk-line t-hu\" x1=\"116.0\" y1=\"164.0\" x2=\"303.0\" y2=\"82.1\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"314.0,77.33333333333334 300.2,75.7 305.8,88.6\"/><line class=\"fk-line t-2\" x1=\"116.0\" y1=\"164.0\" x2=\"303.0\" y2=\"245.9\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"314.0,250.66666666666666 305.8,239.4 300.2,252.3\"/><circle class=\"fk-dot t-hu\" cx=\"314.0\" cy=\"77.33333333333334\" r=\"9\"/><circle class=\"fk-dot t-2\" cx=\"314.0\" cy=\"250.66666666666666\" r=\"8\"/><rect class=\"fk-chip t-hu solid\" x=\"274.88\" y=\"28.333333333333343\" width=\"118.24\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"334.0\" y=\"53.98333333333334\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">z = 3+2i</text><rect class=\"fk-chip t-2\" x=\"268.99\" y=\"265.66666666666663\" width=\"130.01999999999998\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-2\" x=\"334.0\" y=\"291.3166666666666\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">z̄ = 3−2i</text><text class=\"fk-t t-mut\" x=\"215.0\" y=\"194.0\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">Re = 3</text><text class=\"fk-t t-mut\" x=\"106.0\" y=\"84.33333333333334\" font-size=\"19\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">Im = 2</text></svg>",
+      "alt": "كل عدد مركّب هو نقطة بالمستوى. المرافق (הצמוד) هو انعكاسه عن محور الـ Re.",
+      "caption": "كل عدد مركّب هو نقطة بالمستوى. المرافق (הצמוד) هو انعكاسه عن محور الـ Re."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>\\(i^2=-1\\). كل الحساب جبر عادي، وكل ما يطلع \\(i^2\\) <b>بدّله بـ \\(-1\\)</b>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة: \\(i\\) حرف بالجبر، مع قاعدة وحدة زيادة",
+      "html": "<p>منعامل \\(i\\) متل \\(x\\): منجمع الحدود المتشابهة ومنفتح أقواس. الفرق الوحيد إنه \\(i^2\\) بيصير \\(-1\\). هيك كل عدد مركّب بيرجع لشكل واحد: جزء حقيقي زائد جزء ضرب \\(i\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: الأعداد المركّبة <bdi dir=\"rtl\">(מספרים מרוכבים)</bdi>",
+      "html": "<p>\\(\\mathbb C=\\{a+ib\\mid a,b\\in\\mathbb R\\}\\)، و\\(i^2=-1\\). \\(a_1+ib_1=a_2+ib_2\\) بس إذا \\(a_1=a_2\\) و\\(b_1=b_2\\).</p><p>\\(\\operatorname{Re}(z)=a\\) الجزء الحقيقي (החלק הממשי)، \\(\\operatorname{Im}(z)=b\\) الجزء التخيّلي (החלק המדומה). إذا \\(\\operatorname{Re}z=0\\) العدد «تخيّلي بحت» (מדומה טהור).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: المرافق <bdi dir=\"rtl\">(הצמוד)</bdi>",
+      "html": "<p>\\(\\overline{a+ib}=a-ib\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: خواص المرافق <bdi dir=\"rtl\">(תכונות הצמוד)</bdi>",
+      "html": "<p>\\(\\overline{z\\pm w}=\\bar z\\pm\\bar w\\)، \\(\\overline{zw}=\\bar z\\,\\bar w\\)، \\(z+\\bar z=2\\operatorname{Re}z\\)، \\(z-\\bar z=2i\\operatorname{Im}z\\)، و\\(z=\\bar z\\iff z\\in\\mathbb R\\).</p><p><b>فكرة البرهان:</b> منكتب \\(z=a+ib\\)، \\(w=c+id\\) عامّين ومنحسب الطرفين. مثلاً \\(z+w=(a+c)+i(b+d)\\)، مرافقه \\((a+c)-i(b+d)\\)، وهو نفس \\((a-ib)+(c-id)\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف: القيمة المطلقة <bdi dir=\"rtl\">(ערך מוחלט)</bdi>",
+      "html": "<p>\\(|z|=\\sqrt{z\\bar z}=\\sqrt{a^2+b^2}\\): بُعد \\(z\\) عن الصفر.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء: خواص القيمة المطلقة <bdi dir=\"rtl\">(תכונות הערך המוחלט)</bdi>",
+      "html": "<p>\\(z\\bar z=|z|^2\\)، \\(|\\bar z|=|z|\\)، \\(|z|=0\\iff z=0\\)، \\(|\\operatorname{Re}z|\\le|z|\\)، \\(|z+w|\\le|z|+|w|\\)، \\(|zw|=|z||w|\\).</p><p><b>فكرة البرهان:</b> كلها حساب مباشر بـ \\(a,b\\). متباينة المثلث: جمع مركّبات هو جمع متجهات بالمستوى، فهي نفس متباينة المثلث للمتجهات.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>ومنها المعكوس: لـ \\(z\\neq0\\)، \\(z\\cdot\\frac{\\bar z}{|z|^2}=\\frac{|z|^2}{|z|^2}=1\\)، فـ <b>\\(z^{-1}=\\frac{\\bar z}{|z|^2}\\)</b>، و\\(\\frac wz=\\frac{w\\bar z}{|z|^2}\\). هاد بالزبط «الضرب بالمرافق» من فوق.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"جمع مركّبات هو جمع متجهات: (2+i)+(1+2i)=3+3i، قطر متوازي الأضلاع. الجزء الحقيقي مع الحقيقي، والتخيّلي مع التخيّلي.\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"92.22222222222223\" y1=\"24\" x2=\"92.22222222222223\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"176.66666666666669\" y1=\"24\" x2=\"176.66666666666669\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"261.1111111111111\" y1=\"24\" x2=\"261.1111111111111\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"345.55555555555554\" y1=\"24\" x2=\"345.55555555555554\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"430.0\" y1=\"24\" x2=\"430.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"231.21951219512195\" x2=\"430\" y2=\"231.21951219512195\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"173.65853658536585\" x2=\"430\" y2=\"173.65853658536585\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"116.09756097560975\" x2=\"430\" y2=\"116.09756097560975\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"58.536585365853654\" x2=\"430\" y2=\"58.536585365853654\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"231.21951219512195\" x2=\"432.0\" y2=\"231.2\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,231.21951219512195 432.0,224.2 432.0,238.2\"/><line class=\"fk-line t-ink\" x1=\"92.22222222222223\" y1=\"260\" x2=\"92.2\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"92.22222222222223,10 85.2,22.0 99.2,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"257.219512195122\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"74.22222222222223\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><line class=\"fk-line t-1\" x1=\"92.22222222222223\" y1=\"231.21951219512195\" x2=\"249.8\" y2=\"177.5\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"261.1111111111111,173.65853658536585 247.5,170.9 252.0,184.2\"/><line class=\"fk-line t-2\" x1=\"92.22222222222223\" y1=\"231.21951219512195\" x2=\"169.6\" y2=\"125.8\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"176.66666666666669,116.09756097560975 163.9,121.6 175.2,129.9\"/><line class=\"fk-line t-2\" x1=\"261.1111111111111\" y1=\"173.65853658536585\" x2=\"338.5\" y2=\"68.2\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"345.55555555555554,58.536585365853654 332.8,64.1 344.1,72.4\"/><line class=\"fk-line t-1\" x1=\"176.66666666666669\" y1=\"116.09756097560975\" x2=\"334.2\" y2=\"62.4\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"345.55555555555554,58.536585365853654 331.9,55.8 336.5,69.0\"/><line class=\"fk-line t-hu\" x1=\"92.22222222222223\" y1=\"231.21951219512195\" x2=\"335.6\" y2=\"65.3\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"345.55555555555554,58.536585365853654 331.7,59.5 339.6,71.1\"/><rect class=\"fk-chip t-1\" x=\"233.21444444444447\" y=\"180.5609756097561\" width=\"106.46\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-1\" x=\"286.44444444444446\" y=\"206.2109756097561\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">z = 2+i</text><rect class=\"fk-chip t-2\" x=\"66.88\" y=\"74.07317073170731\" width=\"118.24\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-2\" x=\"126.0\" y=\"99.72317073170731\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">w = 1+2i</text><rect class=\"fk-chip t-hu solid\" x=\"335.3288888888889\" y=\"19.39024390243901\" width=\"71.12\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"370.8888888888889\" y=\"45.04024390243901\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3+3i</text></svg>",
+      "alt": "جمع مركّبات هو جمع متجهات: (2+i)+(1+2i)=3+3i، قطر متوازي الأضلاع. الجزء الحقيقي مع الحقيقي، والتخيّلي مع التخيّلي.",
+      "caption": "جمع مركّبات هو جمع متجهات: \\((2+i)+(1+2i)=3+3i\\)، قطر متوازي الأضلاع. الجزء الحقيقي مع الحقيقي، والتخيّلي مع التخيّلي."
+    },
+    {
+      "t": "h",
+      "text": "من وين إجا هالموضوع؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>المعادلة \\(x^2+1=0\\) ما إلها حل بالأعداد الحقيقية، لأنه مربع أي عدد حقيقي موجب أو صفر. الرياضيين قرّروا يضيفوا عدد جديد، \\(i\\)، اللي تربيعه \\(-1\\)، ويعاملوه متل أي حرف بالجبر. طلع إنه كل معادلة تربيعية صار إلها حل، والحساب ما بيتناقض.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>العدد المركّب (מספר מרוכב) هو \\(z=a+bi\\): الـ \\(a\\) الجزء الحقيقي (החלק הממשי)، والـ \\(b\\) الجزء التخيّلي (החלק המדומה). بالرسمة فوق: \\(a\\) قديش منمشي يمين، و\\(b\\) قديش منطلع لفوق. هيك كل عدد مركّب هو نقطة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "rule",
+      "title": "قواعد الحساب",
+      "html": "<p>جمع: \\((a+bi)+(c+di)=(a+c)+(b+d)i\\)</p><p>ضرب: \\((a+bi)(c+di)=(ac-bd)+(ad+bc)i\\)</p><p>المرافق: \\(\\overline{a+bi}=a-bi\\)، و\\(z\\bar z=a^2+b^2\\)</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>قانون الضرب مش لازم تحفظوه: افتحوا القوسين متل الجبر العادي، ولما يطلع \\(bd\\,i^2\\) بدّلوه بـ \\(-bd\\).</p>"
+    },
+    {
+      "t": "html",
+      "html": "<div class=\"compare\"><div class=\"ok\"><b>جاهز، خلصت</b><p>\\(\\dfrac{1}{10}+\\dfrac{7}{10}i\\): عدد حقيقي، زائد عدد حقيقي ضرب \\(i\\).</p></div><div class=\"no\"><b>مش جواب لسّا</b><p>\\(\\dfrac{1+2i}{3-i}\\): في \\(i\\) بالمقام، فلازم نضرب بالمرافق.</p></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال أول: ضرب",
+      "html": "<p>احسبوا \\((2+i)(3-2i)\\).</p><ol><li>\\(=6-4i+3i-2i^2\\)<br><span class=\"why-line\">منفتح القوسين: كل حد من الأول ضرب كل حد من التاني.</span></li><li>\\(=6-i-2(-1)=6-i+2\\)<br><span class=\"why-line\">منجمع \\(-4i+3i\\)، ومنبدّل \\(i^2\\) بـ \\(-1\\).</span></li><li>\\(=8-i\\)<br><span class=\"why-line\">منجمع الأجزاء الحقيقية لحالها، والجواب بالصورة \\(a+bi\\).</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال تاني (متوسط): المعكوس",
+      "html": "<p>لاقوا \\(z^{-1}\\) لـ \\(z=3+4i\\) وافحصوا.</p><ol><li>\\(\\bar z=3-4i\\)، \\(|z|^2=9+16=25\\)<br><span class=\"why-line\">منحتاج المرافق ومربع الطول للقانون \\(z^{-1}=\\frac{\\bar z}{|z|^2}\\).</span></li><li>\\(z^{-1}=\\frac{3-4i}{25}=\\frac{3}{25}-\\frac{4}{25}i\\)<br><span class=\"why-line\">منقسم كل جزء على 25.</span></li><li>فحص: \\((3+4i)(3-4i)/25=25/25=1\\)<br><span class=\"why-line\">المعكوس هو العدد اللي ضربه بـ \\(z\\) بيعطي 1.</span></li></ol>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهن أو انفي (הוכח/הפרך)",
+      "html": "<p>لكل \\(z\\in\\mathbb C\\)، العدد \\(z+\\bar z\\) حقيقي.<br><b>الجواب: الادّعاء صحيحة، وهاد البرهان.</b></p><ol><li>\\(z=a+ib\\) مع \\(a,b\\in\\mathbb R\\)<br><span class=\"why-line\">منبلّش بعدد عام، مش بمثال: مثال واحد ما بيبرهن «لكل».</span></li><li>\\(z+\\bar z=(a+ib)+(a-ib)=2a\\)<br><span class=\"why-line\">الأجزاء التخيّلية بتروح.</span></li><li>\\(2a\\in\\mathbb R\\)<br><span class=\"why-line\">فالمجموع حقيقي. ونفس الحساب بيعطي \\(z+\\bar z=2\\operatorname{Re}z\\).</span></li></ol>"
+    },
+    {
+      "t": "method",
+      "title": "القسمة: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>المرافق:</b> اكتبوا مرافق المقام (غيّروا إشارة الـ \\(i\\) بس).",
+        "<b>اضربوا:</b> فوق وتحت فيه. تحت بيطلع \\(c^2+d^2\\)، عدد حقيقي.",
+        "<b>قسّموا:</b> كل جزء من البسط على هالعدد."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"المعطى: البسط 1+2i والمقام 3-i. مرافق المقام 3+i هو انعكاسه عن محور Re، وضربهم بيعطي عدد حقيقي (10).\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"92.22222222222223\" y1=\"24\" x2=\"92.22222222222223\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"176.66666666666669\" y1=\"24\" x2=\"176.66666666666669\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"261.1111111111111\" y1=\"24\" x2=\"261.1111111111111\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"345.55555555555554\" y1=\"24\" x2=\"345.55555555555554\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"430.0\" y1=\"24\" x2=\"430.0\" y2=\"260\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"226.28571428571428\" x2=\"430\" y2=\"226.28571428571428\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"170.09523809523807\" x2=\"430\" y2=\"170.09523809523807\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"113.9047619047619\" x2=\"430\" y2=\"113.9047619047619\" stroke-width=\"1\"/><line class=\"fk-line t-grid\" x1=\"50\" y1=\"57.71428571428572\" x2=\"430\" y2=\"57.71428571428572\" stroke-width=\"1\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"170.09523809523807\" x2=\"432.0\" y2=\"170.1\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"444,170.09523809523807 432.0,163.1 432.0,177.1\"/><line class=\"fk-line t-ink\" x1=\"92.22222222222223\" y1=\"260\" x2=\"92.2\" y2=\"22.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"92.22222222222223,10 85.2,22.0 99.2,22.0\"/><text class=\"fk-t t-ink\" x=\"436\" y=\"196.09523809523807\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Re</text><text class=\"fk-t t-ink\" x=\"74.22222222222223\" y=\"20\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im</text><line class=\"fk-line t-hu\" x1=\"92.22222222222223\" y1=\"170.09523809523807\" x2=\"169.5\" y2=\"67.3\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-hu\" points=\"176.66666666666669,57.71428571428572 163.9,63.1 175.1,71.5\"/><line class=\"fk-line t-1\" x1=\"92.22222222222223\" y1=\"170.09523809523807\" x2=\"333.8\" y2=\"223.7\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"345.55555555555554,226.28571428571428 335.4,216.9 332.3,230.5\"/><line class=\"fk-line t-1\" x1=\"92.22222222222223\" y1=\"170.09523809523807\" x2=\"333.8\" y2=\"116.5\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"345.55555555555554,113.9047619047619 332.3,109.7 335.4,123.3\"/><rect class=\"fk-chip t-hu solid\" x=\"141.10666666666668\" y=\"19.047619047619037\" width=\"71.12\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"176.66666666666669\" y=\"44.697619047619035\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1+2i</text><rect class=\"fk-chip t-1 solid\" x=\"341.2188888888889\" y=\"221.33333333333331\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"370.8888888888889\" y=\"246.98333333333332\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3−i</text><rect class=\"fk-chip t-1\" x=\"341.2188888888889\" y=\"78.04761904761904\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-1\" x=\"370.8888888888889\" y=\"103.69761904761904\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3+i</text></svg>",
+      "alt": "المعطى: البسط 1+2i والمقام 3-i. مرافق المقام 3+i هو انعكاسه عن محور Re، وضربهم بيعطي عدد حقيقي (10).",
+      "caption": "المعطى: البسط \\(1+2i\\) والمقام \\(3-i\\). مرافق المقام \\(3+i\\) هو انعكاسه عن محور Re، وضربهم بيعطي عدد حقيقي (10)."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: احسبوا \\(\\dfrac{1+2i}{3-i}\\) بالصورة \\(a+bi\\)",
+      "steps": [
+        {
+          "label": "البسط × المرافق",
+          "body": "\\((1+2i)(3+i)=3+i+6i+2i^2=1+7i\\)"
+        },
+        {
+          "label": "المقام × المرافق",
+          "body": "\\((3-i)(3+i)=9+1=10\\)"
+        },
+        {
+          "label": "قسّم كل جزء",
+          "body": "\\(\\dfrac{1+7i}{10}=\\dfrac{1}{10}+\\dfrac{7}{10}i\\)"
+        }
+      ],
+      "a": "الجواب \\(\\dfrac{1}{10}+\\dfrac{7}{10}i\\)"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 216\" role=\"img\" aria-label=\"الجزء التخيّلي عدد حقيقي بدون i، والمرافق بيقلب إشارة الجزء التخيّلي بس.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"10\" y=\"10\" width=\"224\" height=\"196\" rx=\"16\"/><text class=\"fk-t t-bad\" x=\"122\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط ✗</text><text class=\"fk-t t-ink\" x=\"122\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im(3+4i) = 4i</text><text class=\"fk-t t-ink\" x=\"122\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">conj(3+4i) = −3−4i</text><text class=\"fk-t t-ink\" x=\"122\" y=\"172\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">i² = 1</text><rect class=\"fk-chip t-good\" x=\"246\" y=\"10\" width=\"224\" height=\"196\" rx=\"16\"/><text class=\"fk-t t-good\" x=\"358\" y=\"46\" font-size=\"21\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح ✓</text><text class=\"fk-t t-ink\" x=\"358\" y=\"92\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">Im(3+4i) = 4</text><text class=\"fk-t t-ink\" x=\"358\" y=\"132\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">conj(3+4i) = 3−4i</text><text class=\"fk-t t-ink\" x=\"358\" y=\"172\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">i² = −1</text></svg>",
+      "alt": "الجزء التخيّلي عدد حقيقي بدون i، والمرافق بيقلب إشارة الجزء التخيّلي بس.",
+      "caption": "الجزء التخيّلي عدد حقيقي بدون \\(i\\)، والمرافق بيقلب إشارة الجزء التخيّلي بس."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(\\Imag(3+4i)=4i\\)",
+          "yes": "\\(\\Imag(3+4i)=4\\)"
+        },
+        {
+          "no": "\\(\\overline{3+4i}=-3-4i\\)",
+          "yes": "\\(\\overline{3+4i}=3-4i\\)"
+        },
+        {
+          "no": "\\(i^2=1\\)",
+          "yes": "\\(i^2=-1\\)"
+        }
+      ]
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "هل \\(i\\) «موجود» فعلاً، ولا اختراع؟",
+          "a": "هو تعريف: زوج أعداد \\((a,b)\\) مع قانون ضرب خاص، و\\(i\\) هو \\((0,1)\\). ما في تناقض بالحساب، وكل قوانين الجمع والضرب العادية بتضل صحيحة (هيك بنحكي إنه \\(\\mathbb C\\) حقل، الدرس الجاي). الكهربا والفيزيا بتستعمله كل يوم."
+        },
+        {
+          "q": "ليش ما منقدر نحكي \\(i&lt;1\\) أو \\(2+i&gt;1\\)؟",
+          "a": "لأنه ما في ترتيب على \\(\\mathbb C\\) بيمشي مع الضرب. لو \\(i&gt;0\\)، كان \\(i\\cdot i=-1&gt;0\\)، تناقض. لو \\(i&lt;0\\)، كان \\((-i)(-i)=-1&gt;0\\)، كمان تناقض. لهيك منقارن أطوال \\(|z|\\) بس، مش الأعداد نفسها."
+        },
+        {
+          "q": "ليش منضرب بالمرافق ومش بإشي تاني؟",
+          "a": "لأنه \\(z\\bar z=a^2+b^2\\) هو عدد حقيقي. بدنا نتخلّص من \\(i\\) بالمقام، والمرافق هو العدد الوحيد (لحد ضرب بعدد حقيقي) اللي بيعمل هيك."
+        },
+        {
+          "q": "\\(i^{2026}\\) كيف بحسبه بسرعة؟",
+          "a": "قوى \\(i\\) بتدور كل 4: \\(i, -1, -i, 1\\). منقسم الأس على 4 ومنوخد الباقي: \\(2026=4\\cdot506+2\\)، فـ \\(i^{2026}=i^2=-1\\)."
+        }
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "trap",
+      "title": "الغلط الشائع",
+      "html": "<p class=\"wrong\">\\(\\Imag(3+4i)=4i\\)</p><p class=\"right\">الجزء التخيلي هو \\(4\\)، عدد حقيقي. الـ \\(i\\) مش جزء منه.</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "احسبوا \\((2+3i)(1-i)\\) واكتبوا الجواب بالصورة \\(a+bi\\).",
+        "answer": [
+          "5+i"
+        ],
+        "hint": "افتحوا القوسين، وبدّلوا \\(i^2\\) بـ \\(-1\\).",
+        "solution": "<p>منفتح القوسين: \\(2-2i+3i-3i^2\\). منبدّل \\(i^2\\) بـ \\(-1\\) فبيصير \\(2+i+3=5+i\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "شو \\(z\\bar z\\) للعدد \\(z=3+4i\\)؟",
+        "answer": [
+          "25"
+        ],
+        "hint": "\\(z\\bar z=a^2+b^2\\).",
+        "solution": "<p>ضرب عدد بمرافقه دايماً بيعطي عدد حقيقي، مجموع المربعات: \\(3^2+4^2=9+16=25\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "شو الجزء التخيلي (החלק המדומה) للعدد \\(5-4i\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(5\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(-4\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(-4i\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "العدد اللي جنب الـ \\(i\\).",
+        "solution": "<p>الجزء التخيلي هو العدد اللي جنب الـ \\(i\\)، بدون الـ \\(i\\) نفسه، فهو \\(-4\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "احسبوا \\(\\dfrac{5}{2+i}\\) بالصورة \\(a+bi\\).",
+        "answer": [
+          "2-i"
+        ],
+        "hint": "اضربوا فوق وتحت بـ \\(2-i\\).",
+        "solution": "<p>منضرب فوق وتحت بالمرافق \\(2-i\\): فوق \\(5(2-i)=10-5i\\)، وتحت \\(4+1=5\\). منقسم: \\(2-i\\).</p>"
+      }
+    }
+  ]
+}

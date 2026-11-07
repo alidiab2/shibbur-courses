@@ -1,0 +1,230 @@
+{
+  "slug": "place-value",
+  "title": "القيمة المكانية: من أي بسيس للعشري",
+  "he": "בסיסי ספירה",
+  "ref": "הרצאה 1 · תרגול 1",
+  "minutes": 14,
+  "desc": "شو يعني بسيس 2، 8 و16، وكيف بتحوّلوا أي عدد (مع كسر كمان) للعشري بقيمة الخانات، أول موضوع بكورس أنظمة رقمية 61740 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> كل الكورس مبني على إنه الحاسوب بيعدّ بس بـ 0 و1. أول سؤال بالامتحان تقريباً دايماً «حوّلوا العدد التالي…». هالدرس بيعطيكم الأساس لكل التحويلات.</p><ol><li>شو يعني «بسيس» وليش منستعمل 2، 8 و16</li><li>قيمة الخانة: القوة تبع البسيس</li><li>تحويل لعشري، مع خانات بعد النقطة</li><li>سؤال امتحان محلول وأشهر الغلطات</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما تشوفوا عدد مع بسيس صغير تحت (\\(101_2\\)، \\(7F_{16}\\)) وبدكم تعرفوا قديش هو «بالحقيقة».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"كل خانة بتسوى ضعف اللي على يمينها. الخانات اللي فيها 1 بتنجمع: 32+8+4+1 = 45.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"51.0\" y=\"30\" width=\"58\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"80.0\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"80.0\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2⁵</text><text class=\"fk-t t-ink\" x=\"80.0\" y=\"150\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">32</text><rect class=\"fk-chip t-hu\" x=\"115.0\" y=\"30\" width=\"58\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"144.0\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2⁴</text><text class=\"fk-t t-mut\" x=\"144.0\" y=\"150\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">16</text><rect class=\"fk-chip t-hu solid\" x=\"179.0\" y=\"30\" width=\"58\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"208.0\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"208.0\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2³</text><text class=\"fk-t t-ink\" x=\"208.0\" y=\"150\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">8</text><rect class=\"fk-chip t-hu solid\" x=\"243.0\" y=\"30\" width=\"58\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"272.0\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"272.0\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2²</text><text class=\"fk-t t-ink\" x=\"272.0\" y=\"150\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text><rect class=\"fk-chip t-hu\" x=\"307.0\" y=\"30\" width=\"58\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"336.0\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2¹</text><text class=\"fk-t t-mut\" x=\"336.0\" y=\"150\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu solid\" x=\"371.0\" y=\"30\" width=\"58\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"400.0\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"400.0\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2⁰</text><text class=\"fk-t t-ink\" x=\"400.0\" y=\"150\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"240\" y=\"184\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">قيمة الخانة</text></svg>",
+      "alt": "كل خانة بتسوى ضعف اللي على يمينها. الخانات اللي فيها 1 بتنجمع: 32+8+4+1 = 45.",
+      "caption": "كل خانة بتسوى ضعف اللي على يمينها. الخانات اللي فيها 1 بتنجمع: 32+8+4+1 = 45."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>العدد بالبسيس \\(b\\) هو مجموع <b>كل خانة × \\(b\\) بقوّة مكانها</b>، والمكان الأول على يمين النقطة قوّته 0.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>العدّ بأي بسيس هو نفس العدّ بالعشري: لما تخلص الخانة من الأرقام بترجع لـ 0 وبتزيد 1 على الخانة اللي على شمالها. الفرق الوحيد هو قديش رقم في بكل خانة.</p>"
+    },
+    {
+      "t": "h",
+      "text": "من وين إجا هالموضوع؟"
+    },
+    {
+      "t": "p",
+      "html": "<p>بالعشري (עשרוני) في عشر أرقام، من 0 لـ 9. العدد \\(347\\) معناه 3 مئات، 4 عشرات و7 آحاد: \\(3\\cdot 10^2+4\\cdot 10^1+7\\cdot 10^0\\). كل خانة بتسوى عشر أضعاف اللي على يمينها لأنه البسيس (בסיס) هو 10.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الحاسوب مبني من مفاتيح كهربائية إلها حالتين بس: في تيار أو ما في. لهيك هو بيستعمل البسيس الثنائي (בינארי): رقمين بس، 0 و1. كل خانة ثنائية اسمها بِت (סיבית)، و8 بِتات اسمهم بايت (בית). بالرسمة فوق، العدد \\(101101_2\\) فيه ستة بِتات، وكل بِت بيسوى ضعف اللي على يمينه: 1، 2، 4، 8، 16، 32.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>البسيس الثماني (אוקטלי) فيه الأرقام 0 لـ 7، والستّعشري (הקסדצימלי) فيه 16 رقم: 0 لـ 9 وبعدين الأحرف A=10، B=11، C=12، D=13، E=14، F=15. هدول التنين موجودين لأنهم طريقة قصيرة لكتابة أعداد ثنائية طويلة، وهاد بنشوفه بالدرس الجاي.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "rule",
+      "title": "قانون التحويل للعشري",
+      "html": "<p>\\(N=d_{n-1}b^{n-1}+\\dots+d_1b^1+d_0b^0+d_{-1}b^{-1}+d_{-2}b^{-2}+\\dots\\)</p><p>الـ \\(d_k\\) هو الرقم بالخانة \\(k\\)، والـ \\(b\\) هو البسيس. الخانات على يمين النقطة إلها قوى سالبة: \\(b^{-1}=\\tfrac1b\\)، \\(b^{-2}=\\tfrac1{b^2}\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>مثلاً \\(0.1_2=\\tfrac12=0.5\\) و\\(0.01_2=\\tfrac14=0.25\\). يعني بعد النقطة كل خانة بتسوى نص اللي على شمالها، بالضبط عكس اللي قبل النقطة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كيف بتعرفوا السؤال بالامتحان؟ بيعطوكم عدد مع بسيس صغير تحت، وبيطلبوا «המירו לבסיס עשרוני» أو بيطلبوا تحويل لبسيس تاني (وقتها منمرق عن طريق العشري، أو بالطريق القصير بالدرس الجاي).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"نفس الأعداد بأربع بسيسات. لما خانة بتخلص من الأرقام بترجع 0 وبنزيد 1 عالخانة اللي عشمالها: 111 بيصير 1000، و17 بالثماني بيصير 20.\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"90.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">عشري</text><text class=\"fk-t t-mut\" x=\"190.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">ثنائي</text><text class=\"fk-t t-mut\" x=\"290.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">ثماني</text><text class=\"fk-t t-mut\" x=\"390.0\" y=\"30\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">ستعشري</text><line class=\"fk-line t-grid\" x1=\"40.0\" y1=\"40\" x2=\"440.0\" y2=\"40\" stroke-width=\"2\"/><text class=\"fk-t t-ink\" x=\"90.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">111</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"64\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-2\" x=\"42.0\" y=\"77\" width=\"396\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"90.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">8</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1000</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">10</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"98\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">8</text><text class=\"fk-t t-ink\" x=\"90.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1001</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">11</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"132\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-ink\" x=\"90.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">10</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1010</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">12</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"166\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-ink\" x=\"90.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">15</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">1111</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">17</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"200\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">F</text><rect class=\"fk-chip t-2\" x=\"42.0\" y=\"213\" width=\"396\" height=\"28\" rx=\"8\"/><text class=\"fk-t t-ink\" x=\"90.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">16</text><text class=\"fk-t t-ink\" x=\"190.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">10000</text><text class=\"fk-t t-ink\" x=\"290.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">20</text><text class=\"fk-t t-ink\" x=\"390.0\" y=\"234\" font-size=\"17\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\">10</text></svg>",
+      "alt": "نفس الأعداد بأربع بسيسات. لما خانة بتخلص من الأرقام بترجع 0 وبنزيد 1 عالخانة اللي عشمالها: 111 بيصير 1000، و17 بالثماني بيصير 20.",
+      "caption": "نفس الأعداد بأربع بسيسات. لما خانة بتخلص من الأرقام بترجع 0 وبنزيد 1 عالخانة اللي عشمالها: 111 بيصير 1000، و17 بالثماني بيصير 20."
+    },
+    {
+      "t": "method",
+      "title": "التحويل للعشري: كيف أمشي، 3 خطوات",
+      "steps": [
+        "<b>رقّموا الخانات:</b> من النقطة لشمال 0، 1، 2… ومن النقطة ليمين −1، −2…",
+        "<b>اضربوا</b> كل رقم بالبسيس بقوّة رقم خانته (والأحرف بالستعشري حوّلوها لأرقام: A=10…F=15).",
+        "<b>اجمعوا</b> كل النواتج. خانة فيها 0 ما بتزيد إشي، فبالثنائي منجمع بس قيم خانات الـ 1."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 190\" role=\"img\" aria-label=\"العدد 2A7 بالستعشري: كل خانة بتسوى 16 ضعف اللي عيمينها. A هي 10، فبتسوى 10 × 16 = 160.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"147.0\" y=\"30\" width=\"58\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"176.0\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">2</text><text class=\"fk-t t-mut\" x=\"176.0\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">16²</text><text class=\"fk-t t-ink\" x=\"176.0\" y=\"150\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">256</text><rect class=\"fk-chip t-hu solid\" x=\"211.0\" y=\"30\" width=\"58\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">16¹</text><text class=\"fk-t t-ink\" x=\"240.0\" y=\"150\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">16</text><rect class=\"fk-chip t-hu solid\" x=\"275.0\" y=\"30\" width=\"58\" height=\"56\" rx=\"10\"/><text class=\"fk-t t-on\" x=\"304.0\" y=\"67.1\" font-size=\"26\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-mut\" x=\"304.0\" y=\"112\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">16⁰</text><text class=\"fk-t t-ink\" x=\"304.0\" y=\"150\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><text class=\"fk-t t-mut\" x=\"240\" y=\"184\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">قيمة الخانة</text></svg>",
+      "alt": "العدد 2A7 بالستعشري: كل خانة بتسوى 16 ضعف اللي عيمينها. A هي 10، فبتسوى 10 × 16 = 160.",
+      "caption": "العدد 2A7 بالستعشري: كل خانة بتسوى 16 ضعف اللي عيمينها. A هي 10، فبتسوى 10 × 16 = 160."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: حوّلوا \\(2A7_{16}\\) للعشري.",
+      "steps": [
+        {
+          "label": "رقّموا الخانات",
+          "body": "\\(2\\) بخانة 2، \\(A\\) بخانة 1، \\(7\\) بخانة 0"
+        },
+        {
+          "label": "حوّلوا الحرف لرقم",
+          "body": "\\(A=10\\)"
+        },
+        {
+          "label": "اضربوا بالقوى",
+          "body": "\\(2\\cdot 16^2+10\\cdot 16+7\\cdot 1=512+160+7\\)"
+        },
+        {
+          "label": "اجمعوا",
+          "body": "\\(679\\)"
+        }
+      ],
+      "a": "الجواب \\(2A7_{16}=679_{10}\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال: عدد ثنائي مع نقطة",
+      "html": "<p>حوّلوا \\(101.011_2\\) للعشري.</p><p>قبل النقطة: \\(1\\cdot 4+0\\cdot 2+1\\cdot 1=5\\). بعد النقطة: \\(0\\cdot\\tfrac12+1\\cdot\\tfrac14+1\\cdot\\tfrac18=0.375\\). المجموع \\(5.375\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"الغلطة الأشهر: نقرا العدد الثنائي كأنه عشري. صح: كل خانة إلها قيمة، ومنجمع.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">101₂ = 101</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">101₂ = 4 + 0 + 1 = 5</text></svg>",
+      "alt": "الغلطة الأشهر: نقرا العدد الثنائي كأنه عشري. صح: كل خانة إلها قيمة، ومنجمع.",
+      "caption": "الغلطة الأشهر: نقرا العدد الثنائي كأنه عشري. صح: كل خانة إلها قيمة، ومنجمع."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(101_2\\) بنقراه «مية وواحد»",
+          "yes": "\\(101_2\\) هو خمسة: \\(4+0+1\\)"
+        },
+        {
+          "no": "بخانة الآحاد القوة 1: \\(7\\cdot 16^1\\)",
+          "yes": "خانة الآحاد قوّتها 0: \\(7\\cdot 16^0=7\\)"
+        },
+        {
+          "no": "بالثماني في رقم 8: \\(158_8\\)",
+          "yes": "بالبسيس 8 الأرقام 0 لـ 7 بس، فـ \\(158_8\\) مش عدد"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "حوّلوا \\(110101_2\\) للعشري.",
+        "answer": [
+          "53"
+        ],
+        "hint": "قيم الخانات من اليمين: 1، 2، 4، 8، 16، 32.",
+        "solution": "<p>الخانات اللي فيها 1 قيمتها 32، 16، 4 و1. المجموع \\(32+16+4+1=53\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "حوّلوا \\(157_8\\) للعشري.",
+        "answer": [
+          "111"
+        ],
+        "hint": "قيم الخانات بالبسيس 8: 64، 8، 1.",
+        "solution": "<p>منضرب كل رقم بقيمة خانته ومنجمع: \\(1\\cdot 64+5\\cdot 8+7\\cdot 1=64+40+7=111\\)، لأنه قيم الخانات بالثماني هي 64، 8 و1.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "حوّلوا \\(10.11_2\\) للعشري (اكتبوا عدد عشري).",
+        "answer": [
+          "11/4",
+          "2.75"
+        ],
+        "hint": "بعد النقطة: نص، ربع، ثمن…",
+        "solution": "<p>منحسب كل جزء لحاله. قبل النقطة \\(10_2=2\\). بعد النقطة \\(\\tfrac12+\\tfrac14=0.75\\). المجموع \\(2.75\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "أي عدد هو الأكبر؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(11111_2\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(37_8\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(20_{16}\\)"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "hint": "حوّلوا كل واحد للعشري.",
+        "solution": "<p>منحوّل كل عدد للعشري ومنقارن: \\(11111_2=31\\)، \\(37_8=3\\cdot8+7=31\\)، و\\(20_{16}=2\\cdot16=32\\). الأكبر هو \\(20_{16}\\).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش الحاسوب بيعدّ بـ 2 ومش بـ 10 متلنا؟",
+          "a": "لأنه كل خانة بالحاسوب هي مفتاح كهربائي، وأسهل وأضمن إشي إنه نميّز بين حالتين: في جهد عالي أو ما في. لو بدنا 10 مستويات جهد بكل خانة، أي تشويش صغير كان بيخلّي 6 تنقرا 7. بحالتين بس الفرق كبير، والغلط تقريباً ما بيصير."
+        },
+        {
+          "q": "كيف بعرف بأي بسيس العدد إذا ما كتبوا البسيس؟",
+          "a": "بالامتحان بيكتبوا البسيس تحت: \\(101_2\\)، \\(7F_{16}\\). عدد بدون بسيس هو عشري. أحياناً بتشوفوا <code>0x</code> قبل العدد، ومعناها ستعشري. وإذا في حرف من A لـ F، أكيد ستعشري."
+        },
+        {
+          "q": "ليش بالستعشري منستعمل أحرف ومش 10، 11، 12…؟",
+          "a": "لأنه كل خانة لازم يكون فيها رمز واحد بس. لو كتبنا «10» بخانة وحدة، ما بنعرف إذا هي خانة وحدة قيمتها عشرة أو خانتين 1 و0. فاخترعوا رموز جديدة: A=10 لحد F=15."
+        },
+        {
+          "q": "شو بصير لو شفت رقم 2 بعدد ثنائي، أو 9 بعدد ثماني؟",
+          "a": "هاد مش عدد صحيح بهالبسيس. بالبسيس \\(b\\) الأرقام هي من 0 لـ \\(b-1\\) بس. إذا شفتوا هيك إشي بالامتحان، ارجعوا اقروا السؤال: يمكن البسيس مش اللي فكرتوه."
+        },
+        {
+          "q": "ليش خانة الآحاد قوّتها 0 ومش 1؟",
+          "a": "لأنه أي عدد بقوّة 0 بيساوي 1، وخانة الآحاد بتسوى 1. الخانة اللي بعدها بتسوى \\(b^1=b\\)، يعني عشرات بالعشري أو «اتنينات» بالثنائي. هيك القانون واحد لكل الخانات."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "بِت، بايت",
+      "back": "بِت (סיבית) = خانة ثنائية وحدة. بايت (בית) = 8 بِتات."
+    }
+  ]
+}

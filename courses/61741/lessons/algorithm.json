@@ -1,0 +1,228 @@
+{
+  "slug": "algorithm",
+  "title": "شو يعني ألغوريتم؟ وأول برنامج",
+  "he": "אלגוריתם ותרשים זרימה",
+  "ref": "שבוע 1",
+  "minutes": 14,
+  "desc": "شو هو الألغوريتم (אלגוריתם)، كيف منرسمه بتخطيط سير (תרשים זרימה)، وكيف منكتب أول برنامج بـ Python بأمر print، بأسلوب كورس מבוא למדעי המחשב ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> أول أسبوع بالكورس بيبلّش من سؤال: شو يعني «نحلّ مشكلة بالحاسوب»؟ قبل أي سطر كود، لازم تعرفوا ترتّبوا الحل كخطوات واضحة. هاد هو الألغوريتم.</p><ol><li>شو الألغوريتم، ومن شو بيتركّب</li><li>تخطيط سير (תרשים זרימה): الأشكال ومعناها</li><li>أول برنامج: <code dir=\"ltr\">print</code></li><li>كيف البرنامج بيمشي: سطر ورا سطر</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> بكل سؤال بالامتحان: قبل ما تكتبوا كود، اكتبوا لحالكم الخطوات بالعربي. هيك ما بتضيعوا.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 324\" role=\"img\" aria-label=\"أبسط ألغوريتم: مدخلات، حساب، مخرجات. كل مربع خطوة وحدة، والأسهم بتحكي الترتيب.\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"180\" y=\"20\" width=\"120\" height=\"40\" rx=\"20\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"46.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بداية</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"60\" x2=\"240.0\" y2=\"72.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,84 247.0,72.0 233.0,72.0\"/><rect class=\"fk-chip t-hu\" x=\"110\" y=\"84\" width=\"260\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"110.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">اقرأ عددين a و b</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"124\" x2=\"240.0\" y2=\"136.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,148 247.0,136.0 233.0,136.0\"/><rect class=\"fk-chip t-hu\" x=\"110\" y=\"148\" width=\"260\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"174.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">s = a + b</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"188\" x2=\"240.0\" y2=\"200.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,212 247.0,200.0 233.0,200.0\"/><rect class=\"fk-chip t-hu\" x=\"110\" y=\"212\" width=\"260\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"238.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">اطبع s</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"252\" x2=\"240.0\" y2=\"262.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,274 247.0,262.0 233.0,262.0\"/><rect class=\"fk-chip t-mut\" x=\"180\" y=\"274\" width=\"120\" height=\"40\" rx=\"20\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"300.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">نهاية</text></svg>",
+      "alt": "أبسط ألغوريتم: مدخلات، حساب، مخرجات. كل مربع خطوة وحدة، والأسهم بتحكي الترتيب.",
+      "caption": "أبسط ألغوريتم: مدخلات، حساب، مخرجات. كل مربع خطوة وحدة، والأسهم بتحكي الترتيب."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>أي برنامج هو <b>مدخلات ← معالجة ← مخرجات</b>، والحاسوب بينفّذ الأوامر <b>بالترتيب، سطر ورا سطر</b>، ولا بيخمّن إشي ما كتبتوه.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>الألغوريتم (אלגוריתם) هو وصفة: قائمة خطوات واضحة ومرتّبة، بتنتهي، وبتعطي نفس النتيجة كل مرة لنفس المدخلات. البرنامج هو نفس الوصفة مكتوبة بلغة بيفهمها الحاسوب.</p>"
+    },
+    {
+      "t": "h",
+      "text": "من وين إجا الموضوع؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 360\" role=\"img\" aria-label=\"الشاي كألغوريتم: خطوات بالترتيب، وسؤال إلو جوابين. «استنّى» يعني ارجع اسأل من جديد (تكرار).\" class=\"fk\"><rect class=\"fk-chip t-mut\" x=\"180\" y=\"20\" width=\"120\" height=\"40\" rx=\"20\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"46.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بداية</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"60\" x2=\"240.0\" y2=\"72.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,84 247.0,72.0 233.0,72.0\"/><rect class=\"fk-chip t-hu\" x=\"110\" y=\"84\" width=\"260\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"110.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">عبّي الإبريق</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"124\" x2=\"240.0\" y2=\"136.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,148 247.0,136.0 233.0,136.0\"/><rect class=\"fk-chip t-hu\" x=\"110\" y=\"148\" width=\"260\" height=\"40\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"174.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">ولّع النار</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"188\" x2=\"240.0\" y2=\"196.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,208 247.0,196.0 233.0,196.0\"/><polygon class=\"fk-chip t-2\" points=\"240,208 340,248 240,288 140,248\"/><text class=\"fk-t t-2\" x=\"240\" y=\"254\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلي؟</text><line class=\"fk-line t-good\" x1=\"340\" y1=\"248\" x2=\"408.0\" y2=\"248.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"420,248 408.0,241.0 408.0,255.0\"/><text class=\"fk-t t-good\" x=\"380.0\" y=\"238.0\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">نعم</text><text class=\"fk-t t-good\" x=\"440\" y=\"278\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">حط الشاي</text><line class=\"fk-line t-bad\" x1=\"140\" y1=\"248\" x2=\"72.0\" y2=\"248.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"60,248 72.0,255.0 72.0,241.0\"/><text class=\"fk-t t-bad\" x=\"100.0\" y=\"238.0\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">لا</text><text class=\"fk-t t-bad\" x=\"40\" y=\"278\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">استنّى</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"288\" x2=\"240.0\" y2=\"298.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,310 247.0,298.0 233.0,298.0\"/><rect class=\"fk-chip t-mut\" x=\"180\" y=\"310\" width=\"120\" height=\"40\" rx=\"20\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"336.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">نهاية</text></svg>",
+      "alt": "الشاي كألغوريتم: خطوات بالترتيب، وسؤال إلو جوابين. «استنّى» يعني ارجع اسأل من جديد (تكرار).",
+      "caption": "الشاي كألغوريتم: خطوات بالترتيب، وسؤال إلو جوابين. «استنّى» يعني ارجع اسأل من جديد (تكرار)."
+    },
+    {
+      "t": "p",
+      "html": "<p>الحاسوب سريع كتير بس «غبي»: بيعرف يعمل أشياء صغيرة كتير (يجمع، يقارن، يحفظ رقم، يطبع) بسرعة مليارات بالثانية، بس ما بيعرف شو بدكم إلا إذا قلتولو بالزبط. لهيك أول مهارة بالكورس مش Python، هي إنكم تفرطوا مشكلة كبيرة لخطوات صغيرة كتير، كل خطوة منها الحاسوب بيعرف يعملها.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>خدوا مثال من الحياة: «اعمل شاي». هاي مش خطوة وحدة للحاسوب. بدنا: عبّي الإبريق، ولّع النار، استنّى لحتى يغلي، حط الشاي، صبّ بالكاسة. وإذا في سكر؟ هون في <b>قرار</b>: إذا بدك سكر حط معلقة، وإذا لا كمّل. وكمان «استنّى لحتى يغلي» هي <b>تكرار</b>: افحص، إذا لسّا ما غلي ارجع افحص. هالتلات أشياء (خطوات بالترتيب، قرار، تكرار) هنّي كل الأدوات اللي رح نتعلمها بالكورس.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>تخطيط السير (תרשים זרימה) هو رسمة للألغوريتم: شكل بيضاوي للبداية والنهاية، مستطيل لخطوة (حساب أو طباعة)، معيّن (מעוין) لسؤال إلو جوابين «نعم» و«لا»، وأسهم بتحكي شو الجاي. المحاضرين ببراوده بيحبّوا يطلبوا تخطيط سير بأول أسبوعين، وبعدين بيصير الكود هو الرسمة.</p>"
+    },
+    {
+      "t": "h",
+      "text": "أول برنامج"
+    },
+    {
+      "t": "p",
+      "html": "<p>بـ Python الأمر <code dir=\"ltr\">print</code> بيطبع على الشاشة اللي بين القوسين. نص (מחרוזת) لازم يكون بين علامات تنصيص <code dir=\"ltr\">\"…\"</code> أو <code dir=\"ltr\">'…'</code>، والعدد بينكتب بدونها. Python بينفّذ السطر الأول، بعدين التاني، بالترتيب، ولما يخلصوا الأسطر البرنامج بيخلص. جرّبوا: غيّروا النص واكبسوا «شغّل».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 156\" role=\"img\" aria-label=\"بدون تنصيص Python بيحسب؛ مع تنصيص بيطبع النص متل ما هو.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الكود</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بيطبع</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"77.9\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">print(3 + 4)</text><rect class=\"fk-chip t-2 solid\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"121.2\" font-size=\"12\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">print(\"3 + 4\")</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3 + 4</text></svg>",
+      "alt": "بدون تنصيص Python بيحسب؛ مع تنصيص بيطبع النص متل ما هو.",
+      "caption": "بدون تنصيص Python بيحسب؛ مع تنصيص بيطبع النص متل ما هو."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "print(\"مرحبا براوده\")\nprint(3 + 4)\nprint(\"3 + 4\")",
+      "out": "مرحبا براوده\n7\n3 + 4"
+    },
+    {
+      "t": "p",
+      "html": "<p>لاحظوا الفرق بين السطر التاني والتالت: <code dir=\"ltr\">3 + 4</code> بدون تنصيص هو حساب، فبينطبع <code dir=\"ltr\">7</code>. مع التنصيص هو نص، فبينطبع متل ما هو. هاد أول فرق مهم بين <b>قيمة</b> و<b>نص بيوصف قيمة</b>.</p>"
+    },
+    {
+      "t": "method",
+      "title": "كيف تبنوا ألغوريتم لسؤال، 3 خطوات",
+      "steps": [
+        "<b>شو المدخلات؟</b> شو المستخدم بيعطي (عددين؟ اسم؟ قائمة؟).",
+        "<b>شو المخرجات؟</b> شو لازم ينطبع بالآخر، وبأي شكل.",
+        "<b>شو الخطوات بالنص؟</b> اكتبوها بالعربي، خطوة بسطر، وبعدين ترجموا كل سطر لـ Python."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"المستطيل: طول وعرض، ومنهم المساحة والمحيط. كل نتيجة صندوق جديد.\" class=\"fk\"><rect class=\"fk-chip t-1 solid\" x=\"55.0\" y=\"15\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"75.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">a</text><rect class=\"fk-chip t-1\" x=\"28.0\" y=\"66\" width=\"94\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"75.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5</text><rect class=\"fk-chip t-3 solid\" x=\"165.0\" y=\"15\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"185.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">b</text><rect class=\"fk-chip t-3\" x=\"138.0\" y=\"66\" width=\"94\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-3\" x=\"185.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu solid\" x=\"259.44\" y=\"15\" width=\"71.12\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"295.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">area</text><rect class=\"fk-chip t-hu\" x=\"248.0\" y=\"66\" width=\"94\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"295.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">15</text><rect class=\"fk-chip t-2 solid\" x=\"375.33\" y=\"15\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"405.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">per</text><rect class=\"fk-chip t-2\" x=\"358.0\" y=\"66\" width=\"94\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"405.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">16</text></svg>",
+      "alt": "المستطيل: طول وعرض، ومنهم المساحة والمحيط. كل نتيجة صندوق جديد.",
+      "caption": "المستطيل: طول وعرض، ومنهم المساحة والمحيط. كل نتيجة صندوق جديد."
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: الترتيب هو كل إشي",
+      "html": "<p>تلات أوامر print. الحاسوب بينفّذهم من فوق لتحت، وكل واحد بسطر جديد. ليش مهم؟ لأنه إذا بدّلنا الترتيب، بيتبدّل المطبوع.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">print(\"صباح الخير\")\nprint(10 - 4)\nprint(\"10 - 4\")</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">صباح الخير\n6\n10 - 4</pre></div></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال متوسط: مستطيل",
+      "html": "<p>ألغوريتم بالكلمات: (1) خود الطول والعرض، (2) المساحة = طول × عرض، (3) المحيط = 2 × (طول + عرض)، (4) اطبع. كل خطوة صارت سطر Python. ليش الأقواس بالمحيط؟ لأنه بدون أقواس الضرب بيصير قبل الجمع.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = 5\nb = 3\narea = a * b\nper = 2 * (a + b)\nprint(area, per)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">15 16</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">a</bdi></th><th><bdi dir=\"ltr\">b</bdi></th><th><bdi dir=\"ltr\">area</bdi></th><th><bdi dir=\"ltr\">per</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = 5</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">b = 3</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">area = a * b</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">15</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">per = 2 * (a + b)</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">15</bdi></td><td><bdi dir=\"ltr\">16</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(area, per)</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">15</bdi></td><td><bdi dir=\"ltr\">16</bdi></td><td><bdi dir=\"ltr\">15 16</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: معدّل علامتين",
+      "html": "<p>بدنا برنامج بياخد علامتين ثابتات وبيطبع المعدّل. المدخلات: 80 و 95. المعالجة: الجمع والقسمة على 2. المخرجات: المعدّل.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = 80\nb = 95\navg = (a + b) / 2\nprint(avg)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">87.5</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">a</bdi></th><th><bdi dir=\"ltr\">b</bdi></th><th><bdi dir=\"ltr\">avg</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = 80</code></td><td><bdi dir=\"ltr\">80</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">b = 95</code></td><td><bdi dir=\"ltr\">80</bdi></td><td><bdi dir=\"ltr\">95</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">avg = (a + b) / 2</code></td><td><bdi dir=\"ltr\">80</bdi></td><td><bdi dir=\"ltr\">95</bdi></td><td><bdi dir=\"ltr\">87.5</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(avg)</code></td><td><bdi dir=\"ltr\">80</bdi></td><td><bdi dir=\"ltr\">95</bdi></td><td><bdi dir=\"ltr\">87.5</bdi></td><td><bdi dir=\"ltr\">87.5</bdi></td></tr></tbody></table></div><p>كل سطر بالجدول هو خطوة نفّذها الحاسوب، وجنبها قيم المتغيرات <b>بعد</b> الخطوة. هيك بالزبط بيطلبوا «טבלת מעקב» بالامتحان.</p>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "لازم أرسم تخطيط سير (תרשים זרימה) بالامتحان؟",
+          "a": "<p>بالامتحان النهائي بيطلبوا كود Python أكتر. تخطيط السير بيطلع بأول أسابيع الكورس وبالوظايف الأولى. بس هو أداة تفكير ممتازة: إذا علقتوا بسؤال، ارسموا مربعات ومعيّنات على طرف الورقة قبل الكود.</p>"
+        },
+        {
+          "q": "شو الفرق بين ألغوريتم وبرنامج؟",
+          "a": "<p>الألغوريتم هو الفكرة: خطوات بأي لغة، حتى بالعربي. البرنامج (תוכנית) هو نفس الخطوات مكتوبة بلغة برمجة، بالزبط حسب قواعدها، لحتى الحاسوب يقدر ينفّذها. ألغوريتم واحد فينا نكتبه بـ Python أو Java أو C.</p>"
+        },
+        {
+          "q": "ليش بيقولوا الألغوريتم لازم «ينتهي»؟",
+          "a": "<p>لأنه وصفة ما بتخلص ما بتعطي جواب. «استنّى لحتى يغلي» منيح لأنه الماي بيغلي بالآخر. «اعدّ لحتى توصل لآخر عدد» مش منيح، لأنه ما في آخر عدد. بالفصل 4 رح نشوف حلقات ما بتوقف (לולאה אינסופית) وكيف منتجنّبها.</p>"
+        },
+        {
+          "q": "بقدر أطبع عربي أو عبري؟",
+          "a": "<p>آه. كل اللي بين علامات التنصيص هو نص (מחרוזת)، وبيقبل أي لغة. بس الأوامر نفسها (<code dir=\"ltr\">print</code>) وأسماء المتغيرات منكتبها بالإنجليزي.</p><pre class=\"code\" dir=\"ltr\">print(\"שלום\")\nprint(\"مرحبا\")</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">שלום\nمرحبا</pre>"
+        },
+        {
+          "q": "شو الفرق بين <code dir=\"ltr\">\"…\"</code> و <code dir=\"ltr\">'…'</code>؟",
+          "a": "<p>ولا فرق بـ Python: الاتنين بيعملوا نص. اختاروا وحدة والتزموا فيها. الفايدة: إذا بدكم تنصيص جوّا النص، استعملوا النوع التاني برّا.</p><pre class=\"code\" dir=\"ltr\">print('he said \"hi\"')\nprint(\"it's ok\")</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">he said \"hi\"\nit's ok</pre>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">print(مرحبا)</code> بدون تنصيص",
+          "yes": "<code dir=\"ltr\">print(\"مرحبا\")</code>: نص دايماً بين تنصيص"
+        },
+        {
+          "no": "<code dir=\"ltr\">Print(\"hi\")</code> بحرف كبير",
+          "yes": "<code dir=\"ltr\">print(\"hi\")</code>: Python بيفرّق بين كبير وصغير"
+        },
+        {
+          "no": "الحاسوب «بيفهم» شو قصدي",
+          "yes": "الحاسوب بينفّذ بالزبط اللي مكتوب، بالترتيب"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع البرنامج؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">print(2 + 3 * 4)</pre></div>",
+        "answer": [
+          "14"
+        ],
+        "hint": "الضرب قبل الجمع، متل بالرياضيات.",
+        "solution": "<p>Python بيحترم ترتيب العمليات: أول الضرب \\(3\\cdot 4=12\\)، وبعدين الجمع \\(2+12=14\\).</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">14</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع البرنامج؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">print(\"2 + 3\")</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">5</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">2 + 3</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">\"2 + 3\"</bdi>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "في تنصيص؟",
+        "solution": "<p>كل اللي بين التنصيص هو نص، فـ Python ما بيحسب إشي: بيطبعه حرف حرف، بدون علامات التنصيص نفسها.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">2 + 3</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>بتخطيط السير (תרשים זרימה)، أي شكل منستعمل لسؤال جوابه «نعم» أو «لا»؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "مستطيل"
+          },
+          {
+            "v": "2",
+            "html": "معيّن (מעוין)"
+          },
+          {
+            "v": "3",
+            "html": "شكل بيضاوي"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "solution": "<p>المعيّن للقرار (שאלה/תנאי)، وإلو سهمين طالعين: «نعم» و«لا». المستطيل لخطوة عادية، والبيضاوي للبداية والنهاية.</p>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "אלגוריתם",
+      "back": "ألغوريتم: قائمة خطوات واضحة ومرتّبة بتنتهي وبتحل مشكلة."
+    },
+    {
+      "t": "card",
+      "front": "תרשים זרימה",
+      "back": "تخطيط سير: رسمة للألغوريتم. بيضاوي = بداية/نهاية، مستطيل = خطوة، معيّن = سؤال نعم/لا."
+    }
+  ]
+}

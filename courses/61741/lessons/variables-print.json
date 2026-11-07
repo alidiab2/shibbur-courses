@@ -1,0 +1,224 @@
+{
+  "slug": "variables-print",
+  "title": "المتغيّرات والطباعة",
+  "he": "משתנה והוראת פלט",
+  "ref": "שבוע 1",
+  "minutes": 15,
+  "desc": "المتغيّر (משתנה) كصندوق إلو اسم وقيمة، كيف منطبع كذا قيمة بسطر وحدة بـ print مع sep و end، وكيف منقرا برنامج سطر سطر بجدول متابعة.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> كل برنامج بيحفظ أشياء بالنص: علامة، مجموع، عدّاد. المتغيّر هو المكان اللي بنحفظ فيه، وبأسئلة «شو بيطبع؟» بالامتحان لازم تتابعوا قيمته سطر سطر.</p><ol><li>المتغيّر: اسم وقيمة</li><li>الطباعة: كذا قيمة، <code dir=\"ltr\">sep</code> و<code dir=\"ltr\">end</code></li><li>جدول متابعة (טבלת מעקב) أول مرة</li><li>قواعد أسماء المتغيرات</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> بأي سؤال فيه «עקבו אחר הקוד» أو «מה יודפס».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"كل متغيّر صندوق: الاسم مكتوب فوق، والقيمة جوّا. لما منعطي قيمة جديدة، القديمة بتنمحى.\" class=\"fk\"><rect class=\"fk-chip t-1 solid\" x=\"58.44\" y=\"15\" width=\"71.12\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">name</text><rect class=\"fk-chip t-1\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">'Rami'</text><rect class=\"fk-chip t-hu solid\" x=\"210.33\" y=\"15\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">age</text><rect class=\"fk-chip t-hu\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">19</text><rect class=\"fk-chip t-3 solid\" x=\"356.33\" y=\"15\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">avg</text><rect class=\"fk-chip t-3\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-3\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">87.5</text></svg>",
+      "alt": "كل متغيّر صندوق: الاسم مكتوب فوق، والقيمة جوّا. لما منعطي قيمة جديدة، القديمة بتنمحى.",
+      "caption": "كل متغيّر صندوق: الاسم مكتوب فوق، والقيمة جوّا. لما منعطي قيمة جديدة، القديمة بتنمحى."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p><code dir=\"ltr\">x = 5</code> معناها «حط 5 بالصندوق اللي اسمه x». الصندوق بيحمل <b>قيمة وحدة بس</b>، والقيمة الجديدة بتمحي القديمة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>المتغيّر (משתנה) هو اسم لمكان بالذاكرة. لما بتكتبوا اسمه بحساب أو بـ print، Python بيحط مكانه القيمة اللي جوّا الصندوق <b>هلّق</b>.</p>"
+    },
+    {
+      "t": "h",
+      "text": "ليش بدنا متغيرات؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 130\" role=\"img\" aria-label=\"השמה: Python بيحسب اليمين بالقيمة القديمة، وبعدين بيحط النتيجة بالصندوق.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"374.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"421.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x = 5</text><line class=\"fk-line t-mut\" x1=\"372.0\" y1=\"66\" x2=\"362.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"350.0,66 362.0,73.0 362.0,59.0\"/><text class=\"fk-t t-mut\" x=\"361.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">السطر</text><rect class=\"fk-chip t-hu\" x=\"253.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"300.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x + 1</text><line class=\"fk-line t-mut\" x1=\"251.0\" y1=\"66\" x2=\"241.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"229.0,66 241.0,73.0 241.0,59.0\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">احسب</text><rect class=\"fk-chip t-hu\" x=\"132.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"179.5\" y=\"71.6\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">5 + 1 = 6</text><line class=\"fk-line t-mut\" x1=\"130.0\" y1=\"66\" x2=\"120.0\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"108.0,66 120.0,73.0 120.0,59.0\"/><text class=\"fk-t t-mut\" x=\"119.0\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">حط</text><rect class=\"fk-chip t-2 solid\" x=\"11.0\" y=\"40\" width=\"95\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"58.5\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x ← 6</text></svg>",
+      "alt": "השמה: Python بيحسب اليمين بالقيمة القديمة، وبعدين بيحط النتيجة بالصندوق.",
+      "caption": "השמה: Python بيحسب اليمين بالقيمة القديمة، وبعدين بيحط النتيجة بالصندوق."
+    },
+    {
+      "t": "p",
+      "html": "<p>تخيّلوا إنكم بدكم تحسبوا سعر 3 كتب بـ 45 شيكل، ولكل وحدة خصم 10%. فيكم تكتبوا الحساب كله بسطر طويل، بس أول ما السعر يتغيّر لازم تدوّروا عليه بكل مكان. مع متغيّر <code dir=\"ltr\">price = 45</code> منغيّر بمكان واحد، والبرنامج كله بيتحدّث. كمان الاسم بيشرح: <code dir=\"ltr\">price * count</code> مفهوم أكتر بكتير من <code dir=\"ltr\">45 * 3</code>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الإشارة <code dir=\"ltr\">=</code> بالبرمجة مش «بيساوي» متل بالرياضيات. هي أمر: «احسب اللي على اليمين، وحطه بالصندوق اللي على الشمال». لهيك <code dir=\"ltr\">x = x + 1</code> منطقي تماماً بالبرمجة: خود قيمة x، زيد عليها 1، ورجّع النتيجة لـ x. بالرياضيات هاي معادلة ما إلها حل.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الأمر <code dir=\"ltr\">print</code> بيقبل كذا قيمة مفصولة بفواصل، وبيطبعها بسطر واحد مع مسافة بيناتها. بعد آخر قيمة بينزل سطر. فيكم تغيّروا المسافة بـ <code dir=\"ltr\">sep</code>، وتغيّروا النزول للسطر بـ <code dir=\"ltr\">end</code>.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"sep بيغيّر اللي بين القيم، و end بيغيّر اللي بالآخر (بدل السطر الجديد).\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الأمر</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بيطبع</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"77.2\" font-size=\"12\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">print(1, 2, 3)</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1 2 3</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"120.85\" font-size=\"11\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">print(1, 2, 3, sep=\"-\")</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1-2-3</text><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"296.0\" y=\"164.85\" font-size=\"11\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">print(\"A\", end=\" \")</text><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"165.9\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">A ونفس السطر</text></svg>",
+      "alt": "sep بيغيّر اللي بين القيم، و end بيغيّر اللي بالآخر (بدل السطر الجديد).",
+      "caption": "sep بيغيّر اللي بين القيم، و end بيغيّر اللي بالآخر (بدل السطر الجديد)."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "name = \"Rami\"\nage = 19\nprint(\"שם:\", name, \"גיל:\", age)\nprint(1, 2, 3, sep=\"-\")\nprint(\"A\", end=\" \")\nprint(\"B\")",
+      "out": "שם: Rami גיל: 19\n1-2-3\nA B"
+    },
+    {
+      "t": "p",
+      "html": "<p>اسم المتغيّر: حروف إنجليزي، أرقام و<code dir=\"ltr\">_</code>، وما بيبلّش برقم. <code dir=\"ltr\">total_sum</code> و<code dir=\"ltr\">x2</code> منيح؛ <code dir=\"ltr\">2x</code> و<code dir=\"ltr\">my sum</code> لا. وكمان <code dir=\"ltr\">Age</code> و<code dir=\"ltr\">age</code> متغيرين مختلفين.</p>"
+    },
+    {
+      "t": "method",
+      "title": "كيف تتابعوا برنامج (טבלת מעקב)، 3 خطوات",
+      "steps": [
+        "<b>عمود لكل متغيّر</b> وعمود للي بينطبع.",
+        "<b>سطر بالجدول لكل أمر</b> اكتبوا القيمة الجديدة بس للمتغيّر اللي تغيّر.",
+        "<b>بالـ print</b> اكتبوا بالزبط شو بيطلع، مع المسافات."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: سعر كتب",
+      "html": "<p>تلات متغيرات بأسماء واضحة. ليش ما نكتب <code dir=\"ltr\">print(45 * 3)</code> وخلص؟ لأنه بكرا السعر بيتغيّر، ومع متغيّر منغيّر بمكان واحد بس.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">price = 45\ncount = 3\ntotal = price * count\nprint(\"total:\", total)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">total: 135</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">price</bdi></th><th><bdi dir=\"ltr\">count</bdi></th><th><bdi dir=\"ltr\">total</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">price = 45</code></td><td><bdi dir=\"ltr\">45</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">count = 3</code></td><td><bdi dir=\"ltr\">45</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">total = price * count</code></td><td><bdi dir=\"ltr\">45</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">135</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(\"total:\", total)</code></td><td><bdi dir=\"ltr\">45</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">135</bdi></td><td><bdi dir=\"ltr\">total: 135</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع البرنامج؟ عبّوا جدول متابعة.<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">x = 4\ny = x + 3\nx = y * 2\ny = y - x\nprint(x, y)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">14 -7</pre></div></div>",
+      "steps": [
+        {
+          "label": "x بياخد 4",
+          "body": "<code dir=\"ltr\">x = 4</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">y = 4 + 3</bdi>",
+          "body": "<code dir=\"ltr\">y = 7</code>"
+        },
+        {
+          "label": "x الجديد = <bdi dir=\"ltr\">7 * 2</bdi>، والـ 4 انمحت",
+          "body": "<code dir=\"ltr\">x = 14</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">y = 7 - 14</bdi>",
+          "body": "<code dir=\"ltr\">y = -7</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">14 -7</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">x</bdi></th><th><bdi dir=\"ltr\">y</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">x = 4</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">y = x + 3</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">7</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">x = y * 2</code></td><td><bdi dir=\"ltr\">14</bdi></td><td><bdi dir=\"ltr\">7</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">y = y - x</code></td><td><bdi dir=\"ltr\">14</bdi></td><td><bdi dir=\"ltr\">-7</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(x, y)</code></td><td><bdi dir=\"ltr\">14</bdi></td><td><bdi dir=\"ltr\">-7</bdi></td><td><bdi dir=\"ltr\">14 -7</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: تبديل قيم متغيرين",
+      "html": "<p>بدنا نبدّل بين a و b. إذا كتبنا <code dir=\"ltr\">a = b</code> مباشرة، القيمة القديمة لـ a بتروح. الحل: متغيّر مساعد (משתנה עזר) بيحفظها قبل.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = 3\nb = 8\ntemp = a\na = b\nb = temp\nprint(a, b)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">8 3</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">a</bdi></th><th><bdi dir=\"ltr\">b</bdi></th><th><bdi dir=\"ltr\">temp</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = 3</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">b = 8</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">temp = a</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a = b</code></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">b = temp</code></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(a, b)</code></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">8 3</bdi></td></tr></tbody></table></div><p>temp متل كاسة فاضية لما بدكم تبدّلوا مي بين كاستين. بـ Python في كمان طريقة قصيرة: <code dir=\"ltr\">a, b = b, a</code>.</p>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو المسموح باسم متغيّر؟",
+          "a": "<p>حروف إنجليزي، أرقام و<code dir=\"ltr\">_</code>، وما بيبلّش برقم. وما بيصير يكون كلمة محجوزة بـ Python متل <code dir=\"ltr\">if</code> أو <code dir=\"ltr\">for</code>. اسم غلط بيوقف البرنامج قبل ما يبلّش:</p><pre class=\"code\" dir=\"ltr\">2x = 5</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">SyntaxError: invalid syntax</pre>"
+        },
+        {
+          "q": "ليش <code dir=\"ltr\">x = x + 1</code> مش غلط؟ بالرياضيات هاي مستحيلة.",
+          "a": "<p>لأنه <code dir=\"ltr\">=</code> بالبرمجة هي <b>השמה</b> (إسناد)، مش مساواة. Python بيحسب اليمين أول (القيمة القديمة زائد 1)، وبعدين بيحط النتيجة بالصندوق. المساواة بالمقارنة بتنكتب <code dir=\"ltr\">==</code>، ومنشوفها بالفصل 3.</p>"
+        },
+        {
+          "q": "شو بيصير لو استعملت متغيّر قبل ما أعطيه قيمة؟",
+          "a": "<p>Python ما بيعرف الاسم، فبيوقف بخطأ <code dir=\"ltr\">NameError</code>. لازم سطر <code dir=\"ltr\">=</code> يكون قبل أول استعمال.</p><pre class=\"code\" dir=\"ltr\">print(score)\nscore = 90</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">NameError: name 'score' is not defined</pre>"
+        },
+        {
+          "q": "بقدر نفس المتغيّر يحمل مرة عدد ومرة نص؟",
+          "a": "<p>آه، بـ Python المتغيّر ما إلو نوع ثابت، القيمة هي اللي إلها نوع. بس هاد بيلخبط، فبالكورس كل متغيّر بنوع واحد.</p>"
+        },
+        {
+          "q": "شو بيعمل <code dir=\"ltr\">print()</code> فاضي؟",
+          "a": "<p>بيطبع سطر فاضي، يعني بس بينزل سطر. مفيد لترتيب المطبوع، ومنستعمله كتير مع <code dir=\"ltr\">end</code>.</p><pre class=\"code\" dir=\"ltr\">print(\"A\")\nprint()\nprint(\"B\")</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">A\n\nB</pre>"
+        }
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 162\" role=\"img\" aria-label=\"تبديل a = 3 و b = 7: بدون متغيّر مساعد، أول سطر بيمحي الـ 3 للأبد.\" class=\"fk\"><rect class=\"fk-chip t-good\" x=\"250\" y=\"40\" width=\"210\" height=\"116\" rx=\"10\"/><text class=\"fk-t t-good\" x=\"355\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">صح</text><text class=\"fk-t t-good\" x=\"355\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">t = a</text><text class=\"fk-t t-good\" x=\"355\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">a = b</text><text class=\"fk-t t-good\" x=\"355\" y=\"134\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">b = t</text><rect class=\"fk-chip t-bad\" x=\"20\" y=\"40\" width=\"210\" height=\"116\" rx=\"10\"/><text class=\"fk-t t-bad\" x=\"125\" y=\"28\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">غلط</text><text class=\"fk-t t-bad\" x=\"125\" y=\"66\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">a = b</text><text class=\"fk-t t-bad\" x=\"125\" y=\"100\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">b = a</text><text class=\"fk-t t-bad\" x=\"125\" y=\"134\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" direction=\"rtl\">a و b صاروا 7</text></svg>",
+      "alt": "تبديل a = 3 و b = 7: بدون متغيّر مساعد، أول سطر بيمحي الـ 3 للأبد.",
+      "caption": "تبديل <bdi dir=\"ltr\">a = 3</bdi> و <bdi dir=\"ltr\">b = 7</bdi>: بدون متغيّر مساعد، أول سطر بيمحي الـ 3 للأبد."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">5 = x</code>",
+          "yes": "<code dir=\"ltr\">x = 5</code>: الصندوق على الشمال دايماً"
+        },
+        {
+          "no": "بعد <code dir=\"ltr\">x = 3</code> و<code dir=\"ltr\">x = 8</code>، x فيه 3 و8",
+          "yes": "x فيه 8 بس: القيمة الجديدة بتمحي القديمة"
+        },
+        {
+          "no": "<code dir=\"ltr\">print(\"x\")</code> بيطبع قيمة x",
+          "yes": "بيطبع الحرف x. بدون تنصيص <code dir=\"ltr\">print(x)</code> بيطبع القيمة"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = 10\nb = a\na = 3\nprint(b)</pre></div>",
+        "answer": [
+          "10"
+        ],
+        "hint": "لما كتبنا b = a، b أخد نسخة من القيمة اللي كانت بـ a بهديك اللحظة.",
+        "solution": "<p>بالسطر التاني b أخد نسخة من القيمة 10. تغيير a لـ 3 بعدها ما بيأثّر على b، لأنه كل متغيّر صندوق لحاله.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">10</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">print(1, 2, sep=\"\")\nprint(3, end=\"\")\nprint(4)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">12<br>34</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">1 2<br>3 4</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">12<br>3<br>4</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<code dir=\"ltr\">sep=\"\"</code> بدون فاصل، <code dir=\"ltr\">end=\"\"</code> بدون نزول سطر.",
+        "solution": "<p>السطر الأول <code dir=\"ltr\">12</code>. التاني بيطبع 3 بدون نزول، فالـ 4 بتطلع جنبها.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">12\n34</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">n = 5\nn = n + 2\nn = n * n\nprint(n)</pre></div>",
+        "answer": [
+          "49"
+        ],
+        "hint": "تابعوا n سطر سطر.",
+        "solution": "<p>منتابع n سطر سطر: بالأول 5، بعد الجمع صار 7، وبعد الضرب بحاله صار \\(7\\cdot7=49\\).</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">49</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "משתנה",
+      "back": "متغيّر: اسم لصندوق بالذاكرة فيه قيمة وحدة. <code dir=\"ltr\">x = 5</code>."
+    },
+    {
+      "t": "card",
+      "front": "הוראת פלט",
+      "back": "أمر الطباعة <code dir=\"ltr\">print</code>. <code dir=\"ltr\">sep</code> بين القيم، <code dir=\"ltr\">end</code> بالآخر."
+    }
+  ]
+}

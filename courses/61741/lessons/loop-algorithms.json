@@ -1,0 +1,227 @@
+{
+  "slug": "loop-algorithms",
+  "title": "ألغوريتمات أساسية بالحلقات",
+  "he": "אלגוריתמים בסיסיים",
+  "ref": "שבוע 4",
+  "minutes": 18,
+  "desc": "ألغوريتمات الحلقات اللي بتطلع بكل امتحان: عدّ، جمع ومعدّل، أكبر وأصغر قيمة، قواسم وعدد أوّلي (מספר ראשוני)، وقلب خانات عدد، مع جدول متابعة لكل واحد.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> معظم أسئلة البرمجة بالامتحان مبنية من 5–6 ألغوريتمات صغيرة. إذا بتعرفوهم منيح، كل سؤال جديد بيصير «تركيب قطع» مش اختراع من الصفر.</p><ol><li>عدّ وجمع ومعدّل</li><li>أكبر قيمة (מקסימום) وأصغر قيمة</li><li>قواسم، وفحص عدد أوّلي</li><li>قلب عدد خانة خانة</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> كل ما السؤال بيطلب «כמה…»، «הגדול ביותר»، «האם ראשוני».</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"أكبر قيمة: big بيحفظ «الأكبر لهلّق». كل x جديد منقارن فيه، وإذا أكبر منبدّل.\" class=\"fk\"><rect class=\"fk-chip t-2 solid\" x=\"74.0\" y=\"15\" width=\"40\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x</text><rect class=\"fk-chip t-2\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-2\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><rect class=\"fk-chip t-hu solid\" x=\"210.33\" y=\"15\" width=\"59.339999999999996\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">big</text><rect class=\"fk-chip t-hu\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><rect class=\"fk-chip t-mut solid\" x=\"326.88\" y=\"15\" width=\"118.24\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">x &gt; big?</text><rect class=\"fk-chip t-mut\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-mut\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">False</text></svg>",
+      "alt": "أكبر قيمة: big بيحفظ «الأكبر لهلّق». كل x جديد منقارن فيه، وإذا أكبر منبدّل.",
+      "caption": "أكبر قيمة: big بيحفظ «الأكبر لهلّق». كل x جديد منقارن فيه، وإذا أكبر منبدّل."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>أكبر قيمة: <b>ابدأوا من أول قيمة</b> (مش من 0)، وكل قيمة جديدة أكبر من big بتصير هي big.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>كل ألغوريتم هون إلو متغيّر «ذاكرة» بيعيش برّا الحلقة: عدّاد، مجمّع، أو أفضل قيمة لهلّق. جوّا الحلقة منحدّثه، وبعد الحلقة منطبع النتيجة.</p>"
+    },
+    {
+      "t": "h",
+      "text": "أكبر قيمة: ليش مش من 0؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 244\" role=\"img\" aria-label=\"أربع أنماط بترجع بكل الكورس: كل واحد إلو قيمة بداية وسطر بالحلقة.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"298.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"352.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">النمط</text><rect class=\"fk-chip t-hu solid\" x=\"186.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بداية</text><rect class=\"fk-chip t-hu solid\" x=\"74.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"128.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بكل دورة</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مجمّع جمع</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">s = 0</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">s += x</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مجمّع ضرب</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">p = 1</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">p *= x</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">عدّاد</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">c = 0</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">c += 1</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">أكبر</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">big = أول</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"186\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"210.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">if x &gt; big</text></svg>",
+      "alt": "أربع أنماط بترجع بكل الكورس: كل واحد إلو قيمة بداية وسطر بالحلقة.",
+      "caption": "أربع أنماط بترجع بكل الكورس: كل واحد إلو قيمة بداية وسطر بالحلقة."
+    },
+    {
+      "t": "p",
+      "html": "<p>إذا بدأنا <code dir=\"ltr\">big = 0</code> وكل الأعداد سالبة (-5، -2، -9)، ولا عدد أكبر من 0، فبنطبع 0، وهو مش بالمدخلات أصلاً. الحل: نبدأ من أول عدد، وبعدين نقارن الباقي فيه. وهيك الأصغر برضو.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>المعدّل: مجمّع وعدّاد مع بعض، والقسمة <b>بعد</b> الحلقة. إذا ما في ولا عدد، القسمة على صفر بتوقف البرنامج (<code dir=\"ltr\">ZeroDivisionError</code>)، فبالامتحان منيح تفحصوا <code dir=\"ltr\">if count &gt; 0</code>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>قواسم وأوّلي: d قاسم لـ n إذا <code dir=\"ltr\">n % d == 0</code>. n أوّلي (ראשוני) إذا أكبر من 1 وما إلو قواسم غير 1 وحالو. بيكفي نفحص d من 2 لحد \\(\\sqrt n\\): إذا في قاسم أكبر من الجذر، في كمان واحد أصغر منه. منستعمل متغيّر «علم» (דגל) <code dir=\"ltr\">is_prime = True</code>، ومنقلبه لـ False أول ما نلاقي قاسم.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>قلب عدد: منبني عدد جديد r. كل دورة منضرب r بـ 10 (منزيح خاناته لليسار) ومنضيف آخر خانة من n. هيك 123 بيصير 321.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 130\" role=\"img\" aria-label=\"كل دورة n // 10 بيشيل آخر خانة، لحد ما يوصل 0.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"398.5\" y=\"40\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"434.0\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1230</text><line class=\"fk-line t-mut\" x1=\"396.5\" y1=\"66\" x2=\"386.5\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"374.5,66 386.5,73.0 386.5,59.0\"/><text class=\"fk-t t-mut\" x=\"385.5\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">// 10</text><rect class=\"fk-chip t-hu\" x=\"301.5\" y=\"40\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"337.0\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">123</text><line class=\"fk-line t-mut\" x1=\"299.5\" y1=\"66\" x2=\"289.5\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"277.5,66 289.5,73.0 289.5,59.0\"/><text class=\"fk-t t-mut\" x=\"288.5\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">// 10</text><rect class=\"fk-chip t-hu\" x=\"204.5\" y=\"40\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">12</text><line class=\"fk-line t-mut\" x1=\"202.5\" y1=\"66\" x2=\"192.5\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"180.5,66 192.5,73.0 192.5,59.0\"/><text class=\"fk-t t-mut\" x=\"191.5\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">// 10</text><rect class=\"fk-chip t-hu\" x=\"107.5\" y=\"40\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"143.0\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">1</text><line class=\"fk-line t-mut\" x1=\"105.5\" y1=\"66\" x2=\"95.5\" y2=\"66.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"83.5,66 95.5,73.0 95.5,59.0\"/><text class=\"fk-t t-mut\" x=\"94.5\" y=\"30\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">// 10</text><rect class=\"fk-chip t-2 solid\" x=\"10.5\" y=\"40\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"46.0\" y=\"72.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text></svg>",
+      "alt": "كل دورة n // 10 بيشيل آخر خانة، لحد ما يوصل 0.",
+      "caption": "كل دورة <bdi dir=\"ltr\">n // 10</bdi> بيشيل آخر خانة، لحد ما يوصل 0."
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "n = 29\nis_prime = n > 1\nd = 2\nwhile d * d <= n:\n    if n % d == 0:\n        is_prime = False\n    d += 1\nprint(n, is_prime)",
+      "out": "29 True"
+    },
+    {
+      "t": "method",
+      "title": "كيف تختاروا ألغوريتم، 3 أسئلة",
+      "steps": [
+        "<b>شو بدنا بالآخر؟</b> عدد ← عدّاد. مجموع ← مجمّع. الأحسن ← big. نعم/لا ← علم (דגל).",
+        "<b>شو قيمته قبل الحلقة؟</b> 0، 1، أول قيمة، أو True.",
+        "<b>شو بيصير كل دورة؟</b> شرط صغير وتحديث."
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: عدّاد",
+      "html": "<p>عدّاد (מונה) بيبلّش من 0 وبيزيد 1 بس لما الشرط صح. ليش ما منزيده بكل دورة؟ لأنه بدنا نعدّ بس الزوجيين، مش كل الأعداد.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">count = 0\nfor k in range(1, 11):\n    if k % 2 == 0:\n        count += 1\nprint(count)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">5</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">k</bdi></th><th><bdi dir=\"ltr\">count</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">count = 0</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">count += 1</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">count += 1</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">count += 1</code></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">7</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">count += 1</code></td><td><bdi dir=\"ltr\">8</bdi></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">9</bdi></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(1, 11):</code></td><td><bdi dir=\"ltr\">10</bdi></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">count += 1</code></td><td><bdi dir=\"ltr\">10</bdi></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(count)</code></td><td><bdi dir=\"ltr\">10</bdi></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">5</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: أكبر عدد ومكانه",
+      "html": "<p>المستخدم بيدخل 5 أعداد. منطبع الأكبر وبأي دورة إجا (من 1).</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">big = int(input())\npos = 1\nfor i in range(2, 6):\n    x = int(input())\n    if x &gt; big:\n        big = x\n        pos = i\nprint(big, pos)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة (المدخلات: <bdi dir=\"ltr\">-4 -1 -7 -1 -3</bdi>)</div><pre dir=\"ltr\">-1 2</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">i</bdi></th><th><bdi dir=\"ltr\">x</bdi></th><th><bdi dir=\"ltr\">big</bdi></th><th><bdi dir=\"ltr\">pos</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">big = int(input())</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">-4</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">pos = 1</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">-4</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(2, 6):</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">-4</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">x = int(input())</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">-4</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">big = x</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">pos = i</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(2, 6):</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">x = int(input())</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">-7</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(2, 6):</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">-7</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">x = int(input())</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(2, 6):</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">x = int(input())</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">-3</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(big, pos)</code></td><td><bdi dir=\"ltr\">5</bdi></td><td><bdi dir=\"ltr\">-3</bdi></td><td><bdi dir=\"ltr\">-1</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">-1 2</bdi></td></tr></tbody></table></div><p>لاحظوا: كل الأعداد سالبة، ولو بدأنا من 0 كان طلع جواب غلط. ولأنه الشرط <code dir=\"ltr\">&gt;</code> مش <code dir=\"ltr\">&gt;=</code>، الـ -1 التانية ما غيّرت المكان: منحفظ أول ظهور.</p>"
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: شو بيطبع؟ (قلب عدد)<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">n = 1230\nr = 0\nwhile n &gt; 0:\n    r = r * 10 + n % 10\n    n //= 10\nprint(r)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">321</pre></div></div>",
+      "steps": [
+        {
+          "label": "آخر خانة 0: <bdi dir=\"ltr\">r = 0</bdi>",
+          "body": "<code dir=\"ltr\">r = 0</code>"
+        },
+        {
+          "label": "بعدها 3",
+          "body": "<code dir=\"ltr\">r = 3</code>"
+        },
+        {
+          "label": "2",
+          "body": "<code dir=\"ltr\">r = 32</code>"
+        },
+        {
+          "label": "1، وn صار 0",
+          "body": "<code dir=\"ltr\">r = 321</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">321</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">n</bdi></th><th><bdi dir=\"ltr\">r</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">n = 1230</code></td><td><bdi dir=\"ltr\">1230</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">r = 0</code></td><td><bdi dir=\"ltr\">1230</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">n //= 10</code></td><td><bdi dir=\"ltr\">123</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">r = r * 10 + n % 10</code></td><td><bdi dir=\"ltr\">123</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">n //= 10</code></td><td><bdi dir=\"ltr\">12</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">r = r * 10 + n % 10</code></td><td><bdi dir=\"ltr\">12</bdi></td><td><bdi dir=\"ltr\">32</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">n //= 10</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">32</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">r = r * 10 + n % 10</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">321</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">n //= 10</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">321</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(r)</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">321</bdi></td><td><bdi dir=\"ltr\">321</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش مجمّع الضرب بيبلّش من 1 ومش من 0؟",
+          "a": "<p>لأنه أي إشي ضرب 0 هو 0، فالنتيجة بتضل 0 للأبد. الـ 1 هو «المحايد» للضرب، متل ما الـ 0 محايد للجمع.</p>"
+        },
+        {
+          "q": "شو الفرق بين عدّاد ومجمّع؟",
+          "a": "<p>العدّاد بيزيد 1 كل مرة (<code dir=\"ltr\">count += 1</code>): «كم واحد؟». المجمّع بيزيد القيمة نفسها (<code dir=\"ltr\">s += x</code>): «قديش المجموع؟».</p>"
+        },
+        {
+          "q": "كيف بعرف إذا لقيت إشي بالحلقة؟",
+          "a": "<p>متغيّر علم (דגל): بيبلّش False، وبيصير True أول ما نلاقي. بعد الحلقة منفحصه.</p><pre class=\"code\" dir=\"ltr\">found = False\nfor k in range(2, 9):\n    if 91 % k == 0:\n        found = True\nprint(found)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">True</pre>"
+        },
+        {
+          "q": "شو بيصير لعدد 0 بعدّ الخانات بـ while؟",
+          "a": "<p>الشرط <code dir=\"ltr\">n &gt; 0</code> False من الأول، فالجواب 0 خانات، بس الـ 0 إلو خانة وحدة! هاي حالة حدّية (מקרה קצה). اسألوا حالكم دايماً: شو بيصير لـ 0، لعدد واحد، لعدد سالب؟</p><pre class=\"code\" dir=\"ltr\">n = 0\nc = 0\nwhile n &gt; 0:\n    c += 1\n    n //= 10\nprint(c)</pre><p class=\"mut\">بيطلع:</p><pre dir=\"ltr\">0</pre>"
+        },
+        {
+          "q": "أكبر قيمة: ليش ما بلّش من 0؟",
+          "a": "<p>لأنه إذا كل الأعداد سالبة، الـ 0 بيضل «الأكبر» وهو مش من الأعداد. بلّشوا من أول عدد بالسلسلة، وقارنوا الباقي.</p>"
+        }
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 100\" role=\"img\" aria-label=\"قلب 1230: r بيتبنى خانة خانة، r * 10 + آخر خانة. الـ 0 بالأول ما بيبيّن.\" class=\"fk\"><rect class=\"fk-chip t-hu\" x=\"398.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"434.0\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">r = 0</text><line class=\"fk-line t-mut\" x1=\"396.5\" y1=\"46\" x2=\"386.5\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"374.5,46 386.5,53.0 386.5,39.0\"/><rect class=\"fk-chip t-hu\" x=\"301.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"337.0\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><line class=\"fk-line t-mut\" x1=\"299.5\" y1=\"46\" x2=\"289.5\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"277.5,46 289.5,53.0 289.5,39.0\"/><rect class=\"fk-chip t-hu\" x=\"204.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">3</text><line class=\"fk-line t-mut\" x1=\"202.5\" y1=\"46\" x2=\"192.5\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"180.5,46 192.5,53.0 192.5,39.0\"/><rect class=\"fk-chip t-hu\" x=\"107.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-hu\" x=\"143.0\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">32</text><line class=\"fk-line t-mut\" x1=\"105.5\" y1=\"46\" x2=\"95.5\" y2=\"46.0\" stroke-width=\"2\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"83.5,46 95.5,53.0 95.5,39.0\"/><rect class=\"fk-chip t-2 solid\" x=\"10.5\" y=\"20\" width=\"71\" height=\"52\" rx=\"9\"/><text class=\"fk-t t-on\" x=\"46.0\" y=\"52.3\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">321</text></svg>",
+      "alt": "قلب 1230: r بيتبنى خانة خانة، r * 10 + آخر خانة. الـ 0 بالأول ما بيبيّن.",
+      "caption": "قلب 1230: r بيتبنى خانة خانة، <bdi dir=\"ltr\">r * 10</bdi> + آخر خانة. الـ 0 بالأول ما بيبيّن."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "<code dir=\"ltr\">big = 0</code> قبل الحلقة",
+          "yes": "<code dir=\"ltr\">big = </code> أول قيمة"
+        },
+        {
+          "no": "المعدّل جوّا الحلقة: <code dir=\"ltr\">avg = total / count</code> بكل دورة",
+          "yes": "مرة وحدة بعد الحلقة"
+        },
+        {
+          "no": "بأوّلي: <code dir=\"ltr\">else: is_prime = True</code> جوّا الحلقة",
+          "yes": "العلم بيتقلب لـ False بس، وما بيرجع"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">count = 0\nfor d in range(1, 13):\n    if 12 % d == 0:\n        count += 1\nprint(count)</pre></div>",
+        "answer": [
+          "6"
+        ],
+        "hint": "كم قاسم إلو 12؟",
+        "solution": "<p>قواسم 12 بين 1 و 12 هنّي 1، 2، 3، 4، 6، 12، يعني ست قواسم، والعدّاد زاد ست مرات.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">6</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">small = 8\nfor x in [5, 9, 3, 7]:\n    if x &lt; small:\n        small = x\nprint(small)</pre></div>",
+        "answer": [
+          "3"
+        ],
+        "hint": "small بيبلّش 8.",
+        "solution": "<p>small بيبلّش 8. الـ 5 أصغر فصار 5، الـ 9 لا، الـ 3 أصغر فصار 3، والـ 7 لا. فبينطبع 3.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">3</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">n = 15\nflag = True\nfor d in range(2, n):\n    if n % d == 0:\n        flag = False\nprint(flag)</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">True</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">False</bdi>"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "15 أوّلي؟",
+        "solution": "<p>15 بتنقسم على 3 (وعلى 5)، فلما d وصل 3 العلم انقلب لـ False وما رجع، لأنه ما في سطر بيرجّعه.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">False</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "דגל",
+      "back": "علم: متغيّر bool بيبلّش True (أو False) وبيتقلب أول ما نلاقي إشي. متل <code dir=\"ltr\">is_prime</code>."
+    },
+    {
+      "t": "checklist",
+      "title": "خلّصت الفصل! علّم على اللي بتعرفه:",
+      "items": [
+        "بكتب while مع تهيئة، شرط وتقدّم، وبعرف شو قيمة المتغيّر بعد الحلقة.",
+        "بكتب range صح من a لـ b مع b، وللورا.",
+        "بعرف عدّاد ومجمّع، وأكبر/أصغر قيمة من أول عدد.",
+        "بفحص أوّلي بعلم (דגל).",
+        "بقلب عدد وبجمع خاناته بـ <code dir=\"ltr\">%</code> و<code dir=\"ltr\">//</code>."
+      ],
+      "rest": "استراحة 10 دقايق، وبعدين الفصل الجاي"
+    }
+  ]
+}

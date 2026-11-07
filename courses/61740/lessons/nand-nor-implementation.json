@@ -1,0 +1,256 @@
+{
+  "slug": "nand-nor-implementation",
+  "title": "تنفيذ بـ NAND بس وبـ NOR بس",
+  "he": "מימוש בשערי NAND / NOR בלבד",
+  "ref": "הרצאה 6 · תרגולים 7-8",
+  "minutes": 15,
+  "desc": "كيف بتحوّلوا مجموع ضرب لدائرة من NAND بس، وضرب مجاميع لدائرة من NOR بس، مع حدود من متغيّر واحد وعدّ البوابات، لكورس 61740 ببراوده.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> سؤال كتير شائع بالامتحان: «ממשו את F באמצעות שערי NAND בלבד». بدرس البوابات العامة شفنا إنه NAND لحاله بيكفي لكل إشي. هون منتعلّم الطريقة السريعة: من SOP مباشرة لـ NAND، ومن POS مباشرة لـ NOR.</p><ol><li>SOP ← مستويين NAND</li><li>POS ← مستويين NOR</li><li>حد من متغيّر واحد: لازم يتقلب</li><li>عدّ البوابات وNOT من NAND</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> لما السؤال بيقول «NAND בלבד» أو «NOR בלבד»، أو بيعطي دائرة من NAND وبيسأل شو بتحسب.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 230\" role=\"img\" aria-label=\"مستويين NAND بدل AND ثم OR: كل AND صار NAND، والـ OR بالآخر صار NAND. الدوائر بتلغي بعض، فـ F هو نفسه.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"22\" y=\"47\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">A</text><path class=\"fk-line t-mut\" d=\"M36 40 L130 40\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"22\" y=\"87\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">B</text><path class=\"fk-line t-mut\" d=\"M36 80 L130 80\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"22\" y=\"157\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">C</text><path class=\"fk-line t-mut\" d=\"M36 150 L130 150\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"22\" y=\"197\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">D</text><path class=\"fk-line t-mut\" d=\"M36 190 L130 190\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M130 35.0H155.0A25.0 25.0 0 0 1 155.0 85.0H130Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"183.5\" cy=\"60\" r=\"3.5\" stroke-width=\"3\"/><path class=\"fk-chip t-ink\" d=\"M130 145.0H155.0A25.0 25.0 0 0 1 155.0 195.0H130Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"183.5\" cy=\"170\" r=\"3.5\" stroke-width=\"3\"/><path class=\"fk-line t-1\" d=\"M187.0 60 L290 60 L290 95 L320 95\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-1\" x=\"240\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">(AB)'</text><path class=\"fk-line t-2\" d=\"M187.0 170 L290 170 L290 135 L320 135\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-2\" x=\"240\" y=\"196\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">(CD)'</text><path class=\"fk-chip t-ink\" d=\"M320 87.5H347.5A27.500000000000004 27.500000000000004 0 0 1 347.5 142.5H320Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"378.85\" cy=\"115\" r=\"3.8500000000000005\" stroke-width=\"3\"/><path class=\"fk-line t-hu\" d=\"M382.7 115 L398.7 115\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"460\" y=\"160\" font-size=\"18\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">F = AB + CD</text></svg>",
+      "alt": "مستويين NAND بدل AND ثم OR: كل AND صار NAND، والـ OR بالآخر صار NAND. الدوائر بتلغي بعض، فـ F هو نفسه.",
+      "caption": "مستويين NAND بدل AND ثم OR: كل AND صار NAND، والـ OR بالآخر صار NAND. الدوائر بتلغي بعض، فـ F هو نفسه."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p><b>SOP ← NAND-NAND</b>: كل بوابة AND والـ OR الأخيرة بيصيروا NAND. <b>POS ← NOR-NOR</b>: كل بوابة OR والـ AND الأخيرة بيصيروا NOR. حد من متغيّر واحد بيدخل للبوابة الأخيرة <b>مقلوب</b>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>دي-مورغان بيقول إنه NAND هو كمان OR على مداخل مقلوبة. فـ NAND بالمستوى التاني «بيقلب» اللي داخل عليه وبيعمل OR. والمستوى الأول بيطلّع \\((AB)'\\) مقلوب. قلبتين بيلغوا بعض، وبيضل \\(AB+CD\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "من SOP لـ NAND بس"
+    },
+    {
+      "t": "p",
+      "html": "<p>خدوا \\(F=AB+CD\\). دي-مورغان على كل التعبير مرتين: \\(F=((AB+CD)')'=((AB)'(CD)')'\\). هاد بالزبط NAND تبع \\(A,B\\)، NAND تبع \\(C,D\\)، وNAND عليهم. ولا بوابة تانية.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>حد من متغيّر واحد: \\(F=AB+C'\\). الحد \\(C'\\) ما بيمرق ببوابة بالمستوى الأول، فما في حدا يقلبه. لهيك بيدخل للـ NAND الأخيرة <b>مقلوب</b>، يعني \\(C\\): \\(F=((AB)'\\cdot C)'\\). افحصوا: \\(((AB)'C)'=AB+C'\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>وإذا المتغيّر المقلوب مش جاهز؟ NOT من NAND: منوصل المدخلين مع بعض، \\((xx)'=x'\\). هاي بوابة NAND زيادة لكل متغيّر مقلوب.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 188\" role=\"img\" aria-label=\"NOR-NOR من POS: المستوى الأول NOR على A,B وعلى C,D، والأخير NOR عليهم. المخرج (A+B)(C+D).\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"118\" y=\"59.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A</text><path class=\"fk-line t-mut\" d=\"M124 54.0 L170 54.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"85.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B</text><path class=\"fk-line t-mut\" d=\"M124 80.0 L170 80.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 46.0Q201.5 46.0 216.2 67.0Q201.5 88.0 170 88.0Q181.76 67.0 170 46.0Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"219.14\" cy=\"67.0\" r=\"2.94\" stroke-width=\"3\"/><path class=\"fk-line t-1\" d=\"M222.07999999999998 67.0 L300 67.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"133.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">C</text><path class=\"fk-line t-mut\" d=\"M124 128.0 L170 128.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"159.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">D</text><path class=\"fk-line t-mut\" d=\"M124 154.0 L170 154.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 120.0Q201.5 120.0 216.2 141.0Q201.5 162.0 170 162.0Q181.76 141.0 170 120.0Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"219.14\" cy=\"141.0\" r=\"2.94\" stroke-width=\"3\"/><path class=\"fk-line t-2\" d=\"M222.07999999999998 141.0 L300 141.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-1\" d=\"M300 67.0 L318 67.0 L318 90.0 L340 90.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-2\" d=\"M300 141.0 L318 141.0 L318 118.0 L340 118.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M336 76.0Q378.0 76.0 397.6 104.0Q378.0 132.0 336 132.0Q351.68 104.0 336 76.0Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"401.52000000000004\" cy=\"104.0\" r=\"3.9200000000000004\" stroke-width=\"3\"/><path class=\"fk-line t-hu\" d=\"M405.44 104.0 L421.44 104.0\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"427.44\" y=\"111.0\" font-size=\"22\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">F</text></svg>",
+      "alt": "NOR-NOR من POS: المستوى الأول NOR على A,B وعلى C,D، والأخير NOR عليهم. المخرج (A+B)(C+D).",
+      "caption": "NOR-NOR من POS: المستوى الأول NOR على A,B وعلى C,D، والأخير NOR عليهم. المخرج (A+B)(C+D)."
+    },
+    {
+      "t": "h",
+      "text": "من POS لـ NOR بس"
+    },
+    {
+      "t": "p",
+      "html": "<p>نفس الإشي بالثنائية: \\(F=(A+B)(C+D)=((A+B)'+(C+D)')'\\). NOR تبع \\(A,B\\)، NOR تبع \\(C,D\\)، وNOR عليهم. وكمان هون حد من متغيّر واحد بيدخل للـ NOR الأخيرة مقلوب.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لهيك قبل التحويل لازم يكون التعبير بالشكل الصح: لـ NAND منبسّط لـ SOP (مثلاً بمفتاح كارنو للآحاد)، ولـ NOR منبسّط لـ POS (كارنو للأصفار).</p>"
+    },
+    {
+      "t": "method",
+      "title": "تنفيذ بـ NAND بس: كيف أمشي، 4 خطوات",
+      "steps": [
+        "<b>بسّطوا لـ SOP</b> بكارنو أو بالقوانين، لأنه كل حد أقل يعني بوابة أقل.",
+        "<b>كل حد ضرب</b> بيصير NAND بنفس المداخل.",
+        "<b>الـ OR الأخيرة</b> بتصير NAND على مخارج المستوى الأول. حد من متغيّر واحد بيدخل مقلوب.",
+        "<b>متغيّرات مقلوبة</b> إذا مش جاهزة، كل وحدة NAND بمدخلين موصولين. عدّوا كل البوابات بالآخر."
+      ]
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 188\" role=\"img\" aria-label=\"الجواب كدائرة NAND-NAND: كل حد ضرب صار NAND، والـ OR الأخيرة صارت NAND. A' بييجي من NAND بمدخلين موصولين.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"118\" y=\"59.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A'</text><path class=\"fk-line t-mut\" d=\"M124 54.0 L170 54.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"85.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">C</text><path class=\"fk-line t-mut\" d=\"M124 80.0 L170 80.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 46.0H191.0A21.0 21.0 0 0 1 191.0 88.0H170Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"214.94\" cy=\"67.0\" r=\"2.94\" stroke-width=\"3\"/><path class=\"fk-line t-1\" d=\"M217.88 67.0 L300 67.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"133.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">A</text><path class=\"fk-line t-mut\" d=\"M124 128.0 L170 128.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-ink\" x=\"118\" y=\"159.0\" font-size=\"17\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">B</text><path class=\"fk-line t-mut\" d=\"M124 154.0 L170 154.0\" stroke-width=\"2.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M170 120.0H191.0A21.0 21.0 0 0 1 191.0 162.0H170Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"214.94\" cy=\"141.0\" r=\"2.94\" stroke-width=\"3\"/><path class=\"fk-line t-2\" d=\"M217.88 141.0 L300 141.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-1\" d=\"M300 67.0 L318 67.0 L318 90.0 L340 90.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-line t-2\" d=\"M300 141.0 L318 141.0 L318 118.0 L340 118.0\" stroke-width=\"3.5\" fill=\"none\" stroke-linejoin=\"round\"/><path class=\"fk-chip t-ink\" d=\"M336 76.0H364.0A28.000000000000004 28.000000000000004 0 0 1 364.0 132.0H336Z\" stroke-width=\"3\"/><circle class=\"fk-chip t-ink\" cx=\"395.92\" cy=\"104.0\" r=\"3.9200000000000004\" stroke-width=\"3\"/><path class=\"fk-line t-hu\" d=\"M399.84 104.0 L415.84 104.0\" stroke-width=\"4\" fill=\"none\" stroke-linejoin=\"round\"/><text class=\"fk-t t-hu\" x=\"421.84\" y=\"111.0\" font-size=\"22\" font-weight=\"800\" text-anchor=\"start\" direction=\"ltr\">F</text></svg>",
+      "alt": "الجواب كدائرة NAND-NAND: كل حد ضرب صار NAND، والـ OR الأخيرة صارت NAND. A' بييجي من NAND بمدخلين موصولين.",
+      "caption": "الجواب كدائرة NAND-NAND: كل حد ضرب صار NAND، والـ OR الأخيرة صارت NAND. A' بييجي من NAND بمدخلين موصولين."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال: نفّذوا \\(F(A,B,C)=\\Sigma m(1,3,6,7)\\) بـ NAND بس (بمدخلين)، بأقل بوابات. \\(A'\\) مش جاهز.",
+      "steps": [
+        {
+          "label": "بسّطوا بكارنو",
+          "body": "\\(m_1,m_3\\) مع بعض بيعطوا \\(A'C\\)، و\\(m_6,m_7\\) بيعطوا \\(AB\\): \\(F=A'C+AB\\)"
+        },
+        {
+          "label": "كل حد ضرب بيصير NAND",
+          "body": "\\((A'C)'\\) و\\((AB)'\\)، لأنه المستوى الأول بيطلّع الحدود مقلوبة"
+        },
+        {
+          "label": "الـ OR بتصير NAND",
+          "body": "\\(F=((A'C)'(AB)')'\\)، لأنه القلبتين بيلغوا بعض"
+        },
+        {
+          "label": "\\(A'\\) من NAND",
+          "body": "\\(A'=(AA)'\\)، بوابة زيادة لأنه \\(A'\\) مش جاهز"
+        }
+      ],
+      "a": "الجواب \\(F=((A'C)'(AB)')'\\) مع \\(A'=(AA)'\\): 4 بوابات NAND"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: AB+CD",
+      "html": "<p>نفّذوا \\(F=AB+CD\\) بـ NAND بس.</p><p>كل حد ضرب بيصير NAND: \\((AB)'\\) و\\((CD)'\\). والـ OR بتصير NAND عليهم: \\(F=((AB)'(CD)')'\\). تلات بوابات، متل الرسمة. الفحص بدي-مورغان: \\(((AB)'(CD)')'=AB+CD\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال متوسط: NOR بس",
+      "html": "<p>نفّذوا \\(F=(A+B)(A'+C)\\) بـ NOR بس، و\\(A'\\) جاهز.</p><p>كل حد جمع بيصير NOR: \\((A+B)'\\) و\\((A'+C)'\\). والـ AND الأخيرة بتصير NOR عليهم: \\(F=((A+B)'+(A'+C)')'\\). ليش؟ دي-مورغان: \\((X'+Y')'=XY\\)، مع \\(X=A+B\\) و\\(Y=A'+C\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"الحد اللي فيه متغيّر واحد ما بيمرق بالمستوى الأول، فلازم يدخل مقلوب للـ NAND الأخيرة.\" class=\"fk\"><rect class=\"fk-chip t-bad\" x=\"20\" y=\"12\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-bad\" x=\"450\" y=\"48\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">غلط</text><text class=\"fk-t t-ink\" x=\"225\" y=\"48\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AB + C'  →  ((AB)'·C')'</text><rect class=\"fk-chip t-good\" x=\"20\" y=\"82\" width=\"440\" height=\"56\" rx=\"12\"/><text class=\"fk-t t-good\" x=\"450\" y=\"118\" font-size=\"17\" font-weight=\"800\" text-anchor=\"start\" direction=\"rtl\">صح</text><text class=\"fk-t t-ink\" x=\"225\" y=\"118\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">AB + C'  →  ((AB)'·C)'</text></svg>",
+      "alt": "الحد اللي فيه متغيّر واحد ما بيمرق بالمستوى الأول، فلازم يدخل مقلوب للـ NAND الأخيرة.",
+      "caption": "الحد اللي فيه متغيّر واحد ما بيمرق بالمستوى الأول، فلازم يدخل مقلوب للـ NAND الأخيرة."
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "\\(F=AB+C'\\) بـ NAND: \\(((AB)'C')'\\)",
+          "yes": "الحد من متغيّر واحد بيدخل مقلوب: \\(((AB)'C)'\\)"
+        },
+        {
+          "no": "من SOP منبني NOR-NOR",
+          "yes": "SOP بيركب على NAND-NAND. NOR-NOR هو لـ POS"
+        },
+        {
+          "no": "NAND-NAND بيطلّع \\(F'\\)، فبدنا NOT بالآخر",
+          "yes": "القلبتين بيلغوا بعض: المخرج هو \\(F\\) نفسه"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "شو بتحسب الدائرة \\(((AB)'(C'D)')'\\)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(AB+C'D\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\((A+B)(C'+D)\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(A'B'+CD'\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(ABC'D\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "NAND-NAND = SOP.",
+        "solution": "<p>هاي مستويين NAND، يعني مجموع ضرب: كل NAND بالمستوى الأول هو حد ضرب. فـ \\(F=AB+C'D\\). بدي-مورغان: \\(((AB)'(C'D)')'=AB+C'D\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش بوابة NAND بمدخلين بدكم لـ \\(F=AB+CD\\)؟",
+        "answer": [
+          "3"
+        ],
+        "hint": "بوابة لكل حد، وبوابة بالآخر.",
+        "solution": "<p>بوابة NAND لكل حد ضرب (2 حدود)، وبوابة NAND وحدة مكان الـ OR الأخيرة. المجموع 3 بوابات.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "قديش بوابة NOR بمدخلين بدكم لـ \\(F=A+B\\) (OR عادي)؟",
+        "answer": [
+          "2"
+        ],
+        "hint": "NOR هو OR مقلوب.",
+        "solution": "<p>NOR وحدة بتعطي \\((A+B)'\\). لازم نقلبها: NOR تانية مع المدخلين موصولين (NOT). المجموع بوابتين.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "أي تعبير بيساوي \\(((A+B')'+C')'\\) (دائرة NOR-NOR)؟",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\((A+B')C\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\((A+B')+C'\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(AB'C'\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(A'B+C\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "دي-مورغان: \\((X'+Y')'=XY\\).",
+        "solution": "<p>NOR-NOR هو ضرب مجاميع. الحد \\(C'\\) هو متغيّر لحاله داخل للـ NOR الأخيرة، فبالحقيقة هو \\(C\\) مقلوب: \\(((A+B')'+C')'=(A+B')\\cdot C\\).</p>"
+      }
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "ليش ما منبدّل كل بوابة لـ NAND وخلص، حتى بدائرة مش SOP؟",
+          "a": "لأنه NAND مش AND. التبديل المباشر بيزبط بس لما كل قلبة بتلاقي قلبة تانية تلغيها، وهاد بيصير بالزبط بمستويين AND ثم OR. بدائرة بكذا مستوى لازم تحطّوا NOT (NAND بمدخلين موصولين) وين القلبات ما بتلتقي."
+        },
+        {
+          "q": "شو بعمل إذا NAND عندي بمدخلين بس، والحد فيه 3 متغيّرات؟",
+          "a": "\\((ABC)'\\) من بوابات بمدخلين: أول AND لـ \\(A,B\\) (يعني NAND وبعدها NOT من NAND)، وبعدين NAND مع \\(C\\). يعني \\((((AB)')'\\cdot C)'=(ABC)'\\). بتصير 3 بوابات بدل وحدة. السؤال عادةً بيحكي إذا مسموح بوابات بـ 3 مداخل."
+        },
+        {
+          "q": "ليش حد من متغيّر واحد بيدخل مقلوب؟",
+          "a": "لأنه كل حد تاني بيمرق بـ NAND بالمستوى الأول وبيطلع مقلوب، والـ NAND الأخيرة بتقلبه رجعة. الحد الوحيد ما بيمرق بالمستوى الأول، فالـ NAND الأخيرة بتقلبه مرة وحدة بس. لهيك منقلبه إحنا قبل، عشان يرجع صح."
+        },
+        {
+          "q": "بقدر أعمل NOR-NOR من SOP؟",
+          "a": "مباشرة لا. إذا بدهم NOR بس، طلّعوا POS (من أصفار مفتاح كارنو) وبعدين NOR-NOR. أو اعملوا NAND-NAND وحوّلوا كل NAND لـ NOR مع NOT على المداخل والمخرج، بس هيك بيطلعوا بوابات أكتر."
+        },
+        {
+          "q": "كيف بتأكّد إنه دائرة الـ NAND تبعي صح؟",
+          "a": "اكتبوا التعبير على كل سلك متل ما عملنا بدرس «من دائرة لتعبير»، وافتحوا بدي-مورغان. أو جرّبوا سطرين من جدول القيم: واحد فيه \\(F=1\\) وواحد فيه \\(F=0\\)."
+        }
+      ]
+    },
+    {
+      "t": "card",
+      "front": "NAND בלבד",
+      "back": "SOP ← مستويين NAND: كل AND وكل OR بيصيروا NAND، وحد من متغيّر واحد بيدخل مقلوب. POS ← مستويين NOR."
+    }
+  ]
+}

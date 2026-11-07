@@ -1,0 +1,219 @@
+{
+  "slug": "exam-tracing",
+  "title": "الامتحان، وأسئلة تتبّع مختلطة",
+  "he": "מעקב אחר קוד במבחן",
+  "ref": "שבוע 13 · מבחנים קודמים",
+  "minutes": 18,
+  "desc": "كيف بيكون امتحان كورس מבוא למדעי המחשב ببراوده (على ورق وبدون مواد)، طريقة ثابتة لأسئلة تتبّع الكود، وسؤال تتبّع كبير بيجمع حلقات، قوائم ودوال.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p><b>ليش هالدرس؟</b> الامتحان النهائي على ورق، بدون حاسوب وبدون مواد مساعدة، وهو أغلب العلامة. يعني لازم تعرفوا «تشغّلوا» Python براسكم وبالقلم. هالدرس بيجمع كل أدوات التتبّع من الكورس بطريقة وحدة.</p><ol><li>شو بالامتحان، وكيف تتحضّروا</li><li>جدول متابعة كبير: كيف تنظّموه</li><li>سؤال تتبّع مختلط محلول</li><li>أسئلة «شو بيطبع» من كل الكورس</li></ol><p class=\"when\"><b>متى بتستعمله؟</b> بالأسابيع الأخيرة قبل الامتحان، ومع كل امتحان قديم.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 160\" role=\"img\" aria-label=\"تركيبة العلامة حسب السيلابوس: الامتحان النهائي هو الأساس، وامتحان النص «מגן» (بيدخل بس إذا بيرفع). اتأكدوا دايماً من موقع الكورس.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"11.320000000000007\" y=\"15\" width=\"165.35999999999999\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"94.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">امتحان نهائي</text><rect class=\"fk-chip t-hu\" x=\"29.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-hu\" x=\"94.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">75%</text><rect class=\"fk-chip t-3 solid\" x=\"174.99\" y=\"15\" width=\"130.01999999999998\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">امتحان نص</text><rect class=\"fk-chip t-3\" x=\"175.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-3\" x=\"240.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">10%</text><rect class=\"fk-chip t-1 solid\" x=\"344.55\" y=\"15\" width=\"82.9\" height=\"38\" rx=\"19\"/><text class=\"fk-t t-on\" x=\"386.0\" y=\"40.65\" font-size=\"19\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">وظايف</text><rect class=\"fk-chip t-1\" x=\"321.0\" y=\"66\" width=\"130\" height=\"70\" rx=\"10\"/><text class=\"fk-t t-1\" x=\"386.0\" y=\"108.7\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">15%</text></svg>",
+      "alt": "تركيبة العلامة حسب السيلابوس: الامتحان النهائي هو الأساس، وامتحان النص «מגן» (بيدخل بس إذا بيرفع). اتأكدوا دايماً من موقع الكورس.",
+      "caption": "تركيبة العلامة حسب السيلابوس: الامتحان النهائي هو الأساس، وامتحان النص «מגן» (بيدخل بس إذا بيرفع). اتأكدوا دايماً من موقع الكورس."
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "القاعدة",
+      "html": "<p>بالتتبّع: <b>جدول، سطر لكل تغيير، وما تقفزوا</b>. كل مرة بتقولوا «أكيد هيك» بدون ما تكتبوا، هون بتصير الغلطة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "idea",
+      "title": "الفكرة",
+      "html": "<p>سؤال تتبّع ما بيفحص إذا بتعرفوا «تخمّنوا» شو الكود بيعمل، بيفحص إذا بتعرفوا تنفّذوه متل الحاسوب: سطر سطر، بدون افتراضات. الجدول هو الذاكرة اللي بتعوّض عن الحاسوب.</p>"
+    },
+    {
+      "t": "h",
+      "text": "كيف تتحضّروا للامتحان؟"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"تلات أنواع أسئلة بالامتحان، ولكل نوع أداة ثابتة من الكورس.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"298.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"352.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">نوع السؤال</text><rect class=\"fk-chip t-hu solid\" x=\"186.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"240.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">بيسأل</text><rect class=\"fk-chip t-hu solid\" x=\"74.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"128.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">الأداة</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">تتبّع</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">؜מה יודפס</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"78.25\" font-size=\"15\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">جدول متابعة</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">كتابة</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"121.9\" font-size=\"14\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">؜כתבו פונקציה</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"122.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">3 خطوات</text><rect class=\"fk-chip t-mut\" x=\"298.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"352.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">تعقيد</text><rect class=\"fk-chip t-mut\" x=\"186.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"240.0\" y=\"165.55\" font-size=\"13\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">؜מהי הסיבוכיות</text><rect class=\"fk-chip t-mut\" x=\"74.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"128.0\" y=\"166.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">عدّ دورات</text></svg>",
+      "alt": "تلات أنواع أسئلة بالامتحان، ولكل نوع أداة ثابتة من الكورس.",
+      "caption": "تلات أنواع أسئلة بالامتحان، ولكل نوع أداة ثابتة من الكورس."
+    },
+    {
+      "t": "p",
+      "html": "<p>حسب السيلابوس، الامتحان النهائي مكتوب وبدون مواد مساعدة، وفي امتحان نص بنص الفصل، والوظايف إلها وزن (وبتدخل بس إذا عبرتوا الامتحان بـ 60 وفوق). بالمختبر في امتحانات شفهية على الوظايف اللي سلّمتوها، فافهموا كل سطر كتبتوه. الأرقام بتتغيّر أحياناً من سنة لسنة، فالمرجع هو موقع الكورس.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>نوعين أسئلة بيتكرّروا: (1) تتبّع: «شو بيطبع؟»، «عبّوا جدول متابعة»، «شو بترجّع الدالة لـ…؟»، «شو بتعمل الدالة بشكل عام؟». (2) كتابة: «اكتبوا دالة بتقبل… وبترجّع…»، أحياناً مع شرط تعقيد («ביעילות O(n)») أو منع («ללא שימוש ב־…»، «רקורסיבית»).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>التتبّع بالامتحان: ارسموا جدول، عمود لكل متغيّر، وعمود للمطبوع. لكل استدعاء دالة، جدول صغير جنب. لقوائم، اكتبوا القائمة كلها كل ما تتغيّر. لرجعية، الدرج المُزاح من الفصل 10. وبالآخر، اسألوا حالكم: «شو الدالة بتعمل بالكلام؟» كتير مرات هاد سؤال (ب).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>التدريب الأحسن: خدوا كود من هالدروس، غطّوا الجواب، تتبّعوا على ورق، وبعدين اكبسوا «شغّل» وقارنوا. كل غلطة لقيتوها هون هي غلطة ما رح تعملوها بالامتحان.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"جهّزوا الجدول قبل ما تبلّشوا: عمود لكل متغيّر بيتغيّر، وعمود للمطبوع.\" class=\"fk\"><rect class=\"fk-chip t-hu solid\" x=\"354.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"408.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">k</text><rect class=\"fk-chip t-hu solid\" x=\"242.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"296.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">c</text><rect class=\"fk-chip t-hu solid\" x=\"130.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"184.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">total</text><rect class=\"fk-chip t-hu solid\" x=\"18.0\" y=\"10\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-on\" x=\"72.0\" y=\"34.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"rtl\">مطبوع</text><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><text class=\"fk-t t-mut\" x=\"184.0\" y=\"78.95\" font-size=\"17\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"54\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"98\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"354.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"242.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"130.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/><rect class=\"fk-chip t-mut\" x=\"18.0\" y=\"142\" width=\"108\" height=\"38\" rx=\"7\"/></svg>",
+      "alt": "جهّزوا الجدول قبل ما تبلّشوا: عمود لكل متغيّر بيتغيّر، وعمود للمطبوع.",
+      "caption": "جهّزوا الجدول قبل ما تبلّشوا: عمود لكل متغيّر بيتغيّر، وعمود للمطبوع."
+    },
+    {
+      "t": "p",
+      "html": "<p>جرّبوا: تتبّعوا على ورق قبل ما تشغّلوا.</p>"
+    },
+    {
+      "t": "code",
+      "lang": "python",
+      "code": "def mystery(a):\n    res = []\n    for i in range(len(a)):\n        if i % 2 == 0:\n            res.append(a[i] * 2)\n        elif a[i] > a[i - 1]:\n            res.append(a[i])\n    return res\n\nprint(mystery([3, 5, 1, 4, 2]))",
+      "out": "[6, 5, 2, 4, 4]"
+    },
+    {
+      "t": "method",
+      "title": "سؤال تتبّع بالامتحان، 3 خطوات",
+      "steps": [
+        "<b>اقروا الكود كله أول</b> شو المتغيرات؟ وين الحلقات والاستدعاءات؟ ارسموا الجدول قبل ما تبلّشوا.",
+        "<b>نفّذوا ببطء</b> سطر بالجدول لكل تغيير. بالحلقة: اكتبوا قيمة الشرط كل دورة.",
+        "<b>افحصوا</b> آخر قيمة لكل متغيّر منطقية؟ المطبوع بالشكل الصح (مسافات، أسطر)؟"
+      ]
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال سهل: قائمة بتتغيّر بحلقة",
+      "html": "<p>كل عنصر بينضرب بمكانه. ليش أول عنصر صار 0؟ لأنه مكانه 0. بالجدول منكتب القائمة كلها بعد كل دورة.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [3, 1, 2]\nfor i in range(len(a)):\n    a[i] = a[i] * i\nprint(a)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">[0, 1, 4]</pre></div></div><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">i</bdi></th><th><bdi dir=\"ltr\">a</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">a = [3, 1, 2]</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">[3, 1, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(len(a)):</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">[3, 1, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a[i] = a[i] * i</code></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\">[0, 1, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(len(a)):</code></td><td><bdi dir=\"ltr\">1</bdi></td><td><bdi dir=\"ltr\">[0, 1, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for i in range(len(a)):</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">[0, 1, 2]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">a[i] = a[i] * i</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">[0, 1, 4]</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(a)</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">[0, 1, 4]</bdi></td><td><bdi dir=\"ltr\">[0, 1, 4]</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال محلول: «شو بتعمل الدالة بشكل عام؟»",
+      "html": "<p>منتتبّع على مثالين، ومنلاحظ القاعدة.</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def f(n):\n    r = 0\n    while n &gt; 0:\n        d = n % 10\n        if d % 2 == 1:\n            r = r * 10 + d\n        n //= 10\n    return r\n\nprint(f(12345), f(2468), f(9081))</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">531 0 19</pre></div></div><p>الدالة بتاخد الخانات الفردية من اليمين لليسار وبتبني منهم عدد، يعني الخانات الفردية بالمقلوب. لعدد ما فيه خانات فردية بترجّع 0. هيك بالزبط بدهم الجواب لسؤال «מה מבצעת הפונקציה»: جملة وحدة، مش وصف سطر سطر.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 150\" role=\"img\" aria-label=\"معطيات السؤال: a ثابتة، و k بيمرق على 2، 3، 4. لكل k الدالة g بتعدّ مين بينقسم عليه.\" class=\"fk\"><text class=\"fk-t t-ink\" x=\"70.0\" y=\"82\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" direction=\"ltr\">a =</text><rect class=\"fk-chip t-hu\" x=\"82.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"112.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">6</text><text class=\"fk-t t-mut\" x=\"112.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">0</text><rect class=\"fk-chip t-hu\" x=\"146.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"176.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">4</text><text class=\"fk-t t-mut\" x=\"176.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">1</text><rect class=\"fk-chip t-hu\" x=\"210.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"240.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">9</text><text class=\"fk-t t-mut\" x=\"240.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">2</text><rect class=\"fk-chip t-hu\" x=\"274.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"304.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">12</text><text class=\"fk-t t-mut\" x=\"304.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">3</text><rect class=\"fk-chip t-hu\" x=\"338.0\" y=\"50\" width=\"60\" height=\"50\" rx=\"8\"/><text class=\"fk-t t-hu\" x=\"368.0\" y=\"82.0\" font-size=\"20\" font-weight=\"800\" text-anchor=\"middle\" direction=\"ltr\">7</text><text class=\"fk-t t-mut\" x=\"368.0\" y=\"40\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\">4</text></svg>",
+      "alt": "معطيات السؤال: a ثابتة، و k بيمرق على 2، 3، 4. لكل k الدالة g بتعدّ مين بينقسم عليه.",
+      "caption": "معطيات السؤال: a ثابتة، و k بيمرق على 2، 3، 4. لكل k الدالة g بتعدّ مين بينقسم عليه."
+    },
+    {
+      "t": "xq",
+      "q": "سؤال تتبّع كبير: شو بيطبع؟<div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def g(lst, k):\n    count = 0\n    for x in lst:\n        if x % k == 0:\n            count += 1\n    return count\n\na = [6, 4, 9, 12, 7]\ntotal = 0\nfor k in range(2, 5):\n    c = g(a, k)\n    total += c * k\n    print(k, c)\nprint(total)</pre><div class=\"out\"><div class=\"tt\">اللي بيطلع على الشاشة</div><pre dir=\"ltr\">2 3\n3 3\n4 2\n23</pre></div></div>",
+      "steps": [
+        {
+          "label": "<bdi dir=\"ltr\">k=2</bdi>: الزوجية 6، 4، 12",
+          "body": "<code dir=\"ltr\">c = 3، total = 6</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">k=3</bdi>: 6، 9، 12",
+          "body": "<code dir=\"ltr\">c = 3، total = 15</code>"
+        },
+        {
+          "label": "<bdi dir=\"ltr\">k=4</bdi>: 4، 12",
+          "body": "<code dir=\"ltr\">c = 2، total = 23</code>"
+        }
+      ],
+      "a": "البرنامج بيطبع: <bdi dir=\"ltr\" class=\"pyout\">2 3<br>3 3<br>4 2<br>23</bdi><div class=\"tracew\"><table class=\"t trace pytrace\"><thead><tr><th>السطر اللي اشتغل</th><th><bdi dir=\"ltr\">k</bdi></th><th><bdi dir=\"ltr\">c</bdi></th><th><bdi dir=\"ltr\">total</bdi></th><th>بيطبع</th></tr></thead><tbody><tr><td class=\"ln\"><code dir=\"ltr\">def g(lst, k):</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">total = 0</code></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(2, 5):</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\"></bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">c = g(a, k)</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">0</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">total += c * k</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(k, c)</code></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\">2 3</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(2, 5):</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">6</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">total += c * k</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">15</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(k, c)</code></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">15</bdi></td><td><bdi dir=\"ltr\">3 3</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">for k in range(2, 5):</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">3</bdi></td><td><bdi dir=\"ltr\">15</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">c = g(a, k)</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">15</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">total += c * k</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">23</bdi></td><td><bdi dir=\"ltr\"></bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(k, c)</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">23</bdi></td><td><bdi dir=\"ltr\">4 2</bdi></td></tr><tr><td class=\"ln\"><code dir=\"ltr\">print(total)</code></td><td><bdi dir=\"ltr\">4</bdi></td><td><bdi dir=\"ltr\">2</bdi></td><td><bdi dir=\"ltr\">23</bdi></td><td><bdi dir=\"ltr\">23</bdi></td></tr></tbody></table></div>"
+    },
+    {
+      "t": "faq",
+      "title": "أسئلة بتيجي عالبال",
+      "items": [
+        {
+          "q": "شو مسموح أجيب للامتحان؟",
+          "a": "<p>حسب السيلابوس: الامتحان النهائي وامتحان النص بالكتابة و<b>بدون مواد مساعدة</b>. يعني ولا ورقة قوانين ولا حاسوب. كل اللي بدكم ياه لازم يكون براسكم: القوالب، الأنماط، والجداول.</p>"
+        },
+        {
+          "q": "شو يعني امتحان النص «מגן»؟",
+          "a": "<p>بيدخل للعلامة <bdi dir=\"ltr\">(10%)</bdi> بس إذا بيرفعها. إذا علامة النهائي أحسن، النهائي بيصير 85%. يعني ما في خسارة إنكم تقدّموه، بس في ربح.</p>"
+        },
+        {
+          "q": "إذا النهائي أقل من 60، الوظايف بتنحسب؟",
+          "a": "<p>لأ. حسب السيلابوس، علامة الوظايف <bdi dir=\"ltr\">(15%)</bdi> بتدخل بس إذا النهائي 60 وفوق. فالوظايف ما بتنقذ امتحان راسب.</p>"
+        },
+        {
+          "q": "شو الفحص الشفهي بالمختبر؟",
+          "a": "<p>بيسألوكم عن الوظايف اللي سلّمتوها: «ليش هالسطر؟»، «شو بيصير لو…؟». لهيك ممنوع تعتمدوا على AI لكتابة الوظايف: لازم تفهموا كل سطر.</p>"
+        },
+        {
+          "q": "كيف بتدرّب على أسئلة تتبّع؟",
+          "a": "<p>غطّوا الجواب، تتبّعوا على ورق بجدول، وبعدين «شغّل» وقارنوا. كل درس هون فيه برامج بتنفع لهيك، وامتحانات قديمة من المحاضرين.</p>"
+        }
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "انتبهوا: أشهر غلطات",
+      "rows": [
+        {
+          "no": "تتبّع براسي بدون جدول",
+          "yes": "جدول، حتى لسؤال قصير"
+        },
+        {
+          "no": "«شو بتعمل الدالة» = وصف كل سطر",
+          "yes": "جملة وحدة عن النتيجة: «بترجّع عدد…»"
+        },
+        {
+          "no": "نسيان الشكل: <code dir=\"ltr\">end=\" \"</code> وأسطر",
+          "yes": "المطبوع لازم يكون بالزبط، مع المسافات والأسطر"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">a = [1, 2, 3, 4, 5, 6]\nprint(a[1::2][-1] + len(a[:-2]))</pre></div>",
+        "answer": [
+          "10"
+        ],
+        "hint": "[2, 4, 6] و [1, 2, 3, 4].",
+        "solution": "<p><code dir=\"ltr\">a[1::2]</code> بتاخد الأماكن الفردية: [2, 4, 6]، وآخرها 6. و<code dir=\"ltr\">a[:-2]</code> بتشيل آخر تنين فطولها 4. المجموع 10.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">10</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">def f(s):\n    r = \"\"\n    for i in range(len(s) - 1, -1, -2):\n        r += s[i]\n    return r\n\nprint(f(\"abcdef\"))</pre></div>",
+        "options": [
+          {
+            "v": "1",
+            "html": "<bdi dir=\"ltr\" class=\"o\">fdb</bdi>"
+          },
+          {
+            "v": "2",
+            "html": "<bdi dir=\"ltr\" class=\"o\">eca</bdi>"
+          },
+          {
+            "v": "3",
+            "html": "<bdi dir=\"ltr\" class=\"o\">fedcba</bdi>"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "من آخر مكان (5) للورا بخطوة 2.",
+        "solution": "<p>i بيمرق على 5 و 3 و 1، والحرف بكل مكان f ثم d ثم b. منلزقهم بالترتيب فبيطلع fdb.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">fdb</pre></div>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو بيطبع؟</p><div class=\"codepair\"><pre class=\"code\" dir=\"ltr\">x = 0\nfor i in range(1, 4):\n    for j in range(i):\n        x += i * j\nprint(x)</pre></div>",
+        "answer": [
+          "11"
+        ],
+        "hint": "i=1: 0. i=2: 0+2. i=3: 0+3+6.",
+        "solution": "<p>لما i=1 الحلقة الداخلية بتضيف صفر. لما i=2 بتضيف \\(0+2\\). لما i=3 بتضيف \\(0+3+6\\). المجموع 11.</p><div class=\"out\"><div class=\"tt\">الجواب: البرنامج بيطبع</div><pre dir=\"ltr\">11</pre></div>"
+      }
+    },
+    {
+      "t": "card",
+      "front": "מה מבצעת הפונקציה",
+      "back": "جواب بجملة وحدة عن النتيجة («بترجّع مجموع الخانات الزوجية»)، مش وصف للأسطر."
+    }
+  ]
+}
