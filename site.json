@@ -1,50 +1,5 @@
 {
   "name": "شيبور براوده",
   "tagline": "دروس كورسات براوده بالعربي، مجاناً",
-  "subjects": [
-    {
-      "id": "math",
-      "title": "رياضيات",
-      "desc": "جبر خطي وحدوا: الكورسات اللي كل طلاب الهندسة بيمرقوا فيها بالسنة الأولى.",
-      "icon": "function",
-      "courses": [
-        {
-          "code": "11102",
-          "tag": "سنة أولى",
-          "paid": false,
-          "color": "indigo",
-          "icon": "square.grid.3x3.fill"
-        },
-        {
-          "code": "11004",
-          "tag": "سنة أولى",
-          "paid": false,
-          "color": "coral",
-          "icon": "chart.xyaxis.line"
-        }
-      ]
-    },
-    {
-      "id": "comp",
-      "title": "علوم الحاسوب",
-      "desc": "برمجة بـ Python والأنظمة الرقمية: أساس هندسة البرمجيات.",
-      "icon": "cpu",
-      "courses": [
-        {
-          "code": "61741",
-          "tag": "سنة أولى",
-          "paid": false,
-          "color": "teal",
-          "icon": "chevron.left.forwardslash.chevron.right"
-        },
-        {
-          "code": "61740",
-          "tag": "سنة أولى",
-          "paid": false,
-          "color": "amber",
-          "icon": "memorychip.fill"
-        }
-      ]
-    }
-  ]
+  "subjects": []
 }
