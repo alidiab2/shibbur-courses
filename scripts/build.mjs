@@ -17,7 +17,19 @@ const BLOCKS = {
   mistakes: ['title', 'rows'], method: ['title', 'steps'], xq: ['q', 'steps', 'a'],
   faq: ['title', 'items'], card: ['front', 'back'], checklist: ['items'],
   html: ['html'], quiz: ['q'],
+  steps: ['svg', 'frames', 'alt'],   // a figure that builds frame by frame (data-step / data-only / data-until on svg elements)
 };
+
+// Drawings must be self-contained, themeable and safe: one root <svg> with a viewBox, no scripts/handlers/external refs.
+function validateSVG(svg, where) {
+  if (!isStr(svg)) return err(`${where}: svg must be a string`);
+  const t = svg.trim();
+  if (!t.startsWith('<svg') || !t.endsWith('</svg>')) err(`${where}: svg must be one <svg>…</svg> element`);
+  if (!/viewBox="[^"]+"/.test(t)) err(`${where}: svg needs a viewBox (it scales to the screen width)`);
+  if (/<script|\son[a-z]+=|javascript:|(?:href|src)="https?:/i.test(t)) err(`${where}: svg has scripts, event handlers or external links`);
+  if (/<svg[^>]*\swidth="\d/.test(t)) err(`${where}: drop width/height on the root svg; size comes from viewBox`);
+  return t;
+}
 
 const errors = [];
 const err = (m) => errors.push(m);
@@ -53,6 +65,17 @@ function validateBlock(b, where) {
   if (!(b.t in BLOCKS)) return err(`${where}: unknown block type "${b.t}"`);
   for (const k of BLOCKS[b.t]) if (b[k] === undefined || b[k] === null) err(`${where}: block "${b.t}" missing "${k}"`);
   if (b.t === 'quiz') validateQuestion(b.q, where);
+  if (b.t === 'figure') validateSVG(b.svg, where);
+  if (b.t === 'steps') {
+    const svg = validateSVG(b.svg, where);
+    if (!Array.isArray(b.frames) || b.frames.length < 2) return err(`${where}: steps needs at least 2 frames`);
+    b.frames.forEach((f, i) => { if (!f || !isStr(f.caption)) err(`${where}: steps frame ${i + 1} needs a caption`); });
+    if (svg) {
+      const used = [...svg.matchAll(/data-(?:step|only|until)="(\d+)"/g)].map((m) => +m[1]);
+      if (!used.length) err(`${where}: steps svg has no data-step / data-only / data-until elements`);
+      for (const n of used) if (n < 1 || n > b.frames.length) err(`${where}: steps svg refers to frame ${n} but there are ${b.frames.length} frames`);
+    }
+  }
 }
 
 // ---------- load + validate ----------

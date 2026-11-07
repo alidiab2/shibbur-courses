@@ -1,5 +1,28 @@
 {
   "name": "شيبور براوده",
   "tagline": "دروس كورسات براوده بالعربي، مجاناً",
-  "subjects": []
+  "subjects": [
+    {
+      "id": "math",
+      "title": "رياضيات",
+      "desc": "جبر 1 وحدوا 1 بنفس ترتيب ملف المحاضر، نقطة نقطة ومع رسومات.",
+      "icon": "function",
+      "courses": [
+        {
+          "code": "11102",
+          "tag": "سنة أولى",
+          "paid": false,
+          "color": "indigo",
+          "icon": "square.grid.3x3.fill"
+        },
+        {
+          "code": "11004",
+          "tag": "سنة أولى",
+          "paid": false,
+          "color": "coral",
+          "icon": "chart.xyaxis.line"
+        }
+      ]
+    }
+  ]
 }

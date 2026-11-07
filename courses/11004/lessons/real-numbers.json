@@ -1,0 +1,692 @@
+{
+  "slug": "real-numbers",
+  "title": "مجموعة الأعداد الحقيقية",
+  "he": "קבוצת המספרים הממשיים",
+  "ref": "חוברת פרק 1 · עמ׳ 1–5",
+  "minutes": 28,
+  "desc": "\\(\\mathbb{N},\\mathbb{Z},\\mathbb{Q},\\mathbb{R}\\)، برهان \\(\\sqrt2\\notin\\mathbb{Q}\\)، الكثافة، القطع والجوار.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p>هاد الفصل هو الأرض اللي كل حدوا 1 مبنية عليها: لازم نعرف مين هي الأعداد اللي بنشتغل فيها وكيف نحكي \"قريب من نقطة\".</p><p><b>بهالدرس:</b></p><ol><li>الأعداد \\(\\mathbb{N},\\mathbb{Z},\\mathbb{Q}\\)</li><li>الأعداد الحقيقية \\(\\mathbb{R}\\) وبرهان \\(\\sqrt2\\notin\\mathbb{Q}\\)</li><li>الأعداد غير الكسرية \\(\\mathbb{I}\\) والمحور</li><li>كثافة الأعداد الحقيقية</li><li>كسري وغير كسري بين أي نقطتين</li><li>القطع (<bdi>קטעים</bdi>)</li><li>الجوار (<bdi>סביבה</bdi>)</li></ol><p>بتستعمله: بتعريف النهاية والاستمرارية بالفصول الجاية.</p>"
+    },
+    {
+      "t": "h",
+      "text": "1 · الأعداد الطبيعية والصحيحة والكسرية"
+    },
+    {
+      "t": "p",
+      "html": "<p>نبدأ بالأعداد الطبيعية (<bdi>המספרים הטבעיים</bdi>) \\(\\mathbb{N}\\). كل مرة بنلاقي معادلة ما إلها حل، بنوسّع المجموعة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>קבוצת המספרים הטבעיים</bdi>",
+      "html": "<p>\\[\\mathbb{N}=\\{1,2,3,\\dots\\}\\]</p><p>\\(2\\in\\mathbb{N}\\) لكن \\(0\\notin\\mathbb{N}\\) (الصفر مش طبيعي عندهم).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>المعادلة \\(x+3=1\\) كل معاملاتها طبيعية، بس حلها \\(x=-2\\) مش طبيعي. فنعرّف مجموعة \"أكبر\" بتحتوي \\(\\mathbb{N}\\): الصحيحة (<bdi>השלמים</bdi>).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>קבוצת המספרים השלמים</bdi>",
+      "html": "<p>\\[\\mathbb{Z}=\\{\\dots,-2,-1,0,1,2,\\dots\\}\\]</p><p>إذا \\(x\\in\\mathbb{N}\\) فإنه \\(x\\in\\mathbb{Z}\\)، منكتب \\(\\mathbb{N}\\subseteq\\mathbb{Z}\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>لسا في مشكلة: \\(2x+3=0\\) معاملاتها صحيحة وحلها \\(x=-\\frac32\\) مش صحيح. فنضيف الكسور: الكسرية (<bdi>הרציונליים</bdi>).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>קבוצת המספרים הרציונאלים</bdi>",
+      "html": "<p>\\[\\mathbb{Q}=\\left\\{\\frac{m}{n}\\;:\\;m,n\\in\\mathbb{Z},\\ n\\neq0\\right\\}\\]</p><p>\\(\\mathbb{Q}\\) بتحتوي \\(\\mathbb{Z}\\) (كل صحيح هو \\(\\frac{m}{1}\\)).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "حلقات متداخلة: الطبيعية داخل الصحيحة داخل الكسرية داخل الحقيقية",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 262\" role=\"img\" aria-label=\"حلقات متداخلة: الطبيعية داخل الصحيحة داخل الكسرية داخل الحقيقية\" class=\"fk\"><g data-step=\"2\"><rect class=\"fk-curve t-4\" x=\"10\" y=\"8\" width=\"460\" height=\"246\" rx=\"26\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"32\" y=\"38\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">ℝ   √2 ، π</text></g><g data-step=\"3\"><rect class=\"fk-curve t-3\" x=\"30\" y=\"46\" width=\"420\" height=\"204\" rx=\"26\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"52\" y=\"76\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">ℚ   ½ ، −¾</text></g><g data-step=\"4\"><rect class=\"fk-curve t-2\" x=\"50\" y=\"84\" width=\"380\" height=\"162\" rx=\"26\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"72\" y=\"114\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">ℤ   0 ، −1 ، −2</text></g><g data-step=\"1\"><rect class=\"fk-curve t-1\" x=\"70\" y=\"122\" width=\"340\" height=\"112\" rx=\"26\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"92\" y=\"152\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">ℕ</text></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"240\" y=\"196\" font-size=\"26\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1 ،  2 ،  3 ،  …</text></g></svg>",
+      "frames": [
+        {
+          "caption": "الطبيعية ℕ: بنعدّ بيها 1، 2، 3 …"
+        },
+        {
+          "caption": "بنضيف الصفر والسالب: الصحيحة ℤ (بتحتوي ℕ)"
+        },
+        {
+          "caption": "بنضيف الكسور \\(\\frac{m}{n}\\): الكسرية ℚ (بتحتوي ℤ)"
+        },
+        {
+          "caption": "وبنضيف الأعداد اللي مش كسور: الحقيقية ℝ"
+        }
+      ],
+      "title": "الأعداد: كل مجموعة بتحتوي اللي قبلها"
+    },
+    {
+      "t": "p",
+      "html": "<p>لاحظ إنه \\(\\mathbb{Q}\\) \"مسكّرة\" (<bdi>סגורה</bdi>) على الجمع والضرب: كسر زائد كسر أو كسر ضرب كسر بيعطي كسر دايماً. ولاحظ: كل كسر بيمثّل طول مع اتجاه على قطعة مستقيمة.</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>حل المعادلة \\(2x+3=0\\) بيكون في أصغر مجموعة من هدول:</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(\\mathbb{N}\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(\\mathbb{Z}\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(\\mathbb{Q}\\)"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "hint": "<p>احسب \\(x\\) أول شي، وبعدين شوف إذا هو صحيح.</p>",
+        "solution": "<p>\\(x=-\\frac32\\). مش طبيعي ومش صحيح (كسر)، فهو بـ \\(\\mathbb{Q}\\).</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "2 · الأعداد الحقيقية وبرهان √2 ∉ ℚ"
+    },
+    {
+      "t": "p",
+      "html": "<p>السؤال الطبيعي: هل الكسور بتكفي لنوصف كل الأطوال؟ الأعداد الحقيقية (<bdi>הממשיים</bdi>) \\(\\mathbb{R}\\) هي المجموعة اللي بتحتوي \\(\\mathbb{Q}\\) وبتعبّي كل المحور.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>ما رح نعرّفها بشكل رسمي. بنتخيّلها كأطوال \"مع إشارة\" على محور فيه نقطة خاصة اسمها الصفر. وهي كمان مسكّرة على الجمع والضرب.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>هل \\(\\mathbb{Q}=\\mathbb{R}\\)؟ لأ. شوف: حسب فيثاغورس، قطر مربع طول ضلعه 1 هو \\(\\sqrt2\\). وهاد العدد مش كسر.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادعاء · <bdi>טענה 1.1</bdi>",
+      "html": "<p>\\[\\sqrt2\\notin\\mathbb{Q}\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>البرهان بطريقة \"البرهان بالتناقض\" (<bdi>הוכחה בדרך השלילה</bdi>): نفرض إنه الادعاء غلط، ونوصل لشي مستحيل. يعني الادعاء الأصلي صح.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "خمس خطوات: نفرض، نربّع، m زوجي، n زوجي، تناقض",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 330\" role=\"img\" aria-label=\"خمس خطوات: نفرض، نربّع، m زوجي، n زوجي، تناقض\" class=\"fk\"><g data-step=\"1\"><rect class=\"fk-chip t-1\" x=\"24\" y=\"14\" width=\"432\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"44\" y=\"45\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">√2 = m/n</text></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"440\" y=\"45\" font-size=\"21\" font-weight=\"700\" text-anchor=\"start\" direction=\"rtl\">نفرض (مختصر)</text></g><g data-step=\"2\"><line class=\"fk-line t-mut\" x1=\"240\" y1=\"62\" x2=\"240\" y2=\"60\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,76 231,56 249,56\"/></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"24\" y=\"76\" width=\"432\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"44\" y=\"107\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">m² = 2n²</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"440\" y=\"107\" font-size=\"21\" font-weight=\"700\" text-anchor=\"start\" direction=\"rtl\">نربّع: <tspan direction=\"ltr\" unicode-bidi=\"isolate\">m²</tspan> زوجي</text></g><g data-step=\"3\"><line class=\"fk-line t-mut\" x1=\"240\" y1=\"124\" x2=\"240\" y2=\"122\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,138 231,118 249,118\"/></g><g data-step=\"3\"><rect class=\"fk-chip t-2\" x=\"24\" y=\"138\" width=\"432\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"44\" y=\"169\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">m = 2k</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"440\" y=\"169\" font-size=\"21\" font-weight=\"700\" text-anchor=\"start\" direction=\"rtl\">إذن <tspan direction=\"ltr\" unicode-bidi=\"isolate\">m</tspan> زوجي</text></g><g data-step=\"4\"><line class=\"fk-line t-mut\" x1=\"240\" y1=\"186\" x2=\"240\" y2=\"184\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,200 231,180 249,180\"/></g><g data-step=\"4\"><rect class=\"fk-chip t-2\" x=\"24\" y=\"200\" width=\"432\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"44\" y=\"231\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">n² = 2k²</text></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"440\" y=\"231\" font-size=\"21\" font-weight=\"700\" text-anchor=\"start\" direction=\"rtl\">نعوّض: <tspan direction=\"ltr\" unicode-bidi=\"isolate\">n</tspan> زوجي</text></g><g data-step=\"5\"><line class=\"fk-line t-mut\" x1=\"240\" y1=\"248\" x2=\"240\" y2=\"246\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,262 231,242 249,242\"/></g><g data-step=\"5\"><rect class=\"fk-chip t-bad\" x=\"24\" y=\"262\" width=\"432\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"5\"><text class=\"fk-t t-ink\" x=\"44\" y=\"293\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">✗</text></g><g data-step=\"5\"><text class=\"fk-t t-ink\" x=\"440\" y=\"293\" font-size=\"21\" font-weight=\"700\" text-anchor=\"start\" direction=\"rtl\"><tspan direction=\"ltr\" unicode-bidi=\"isolate\">m</tspan> و <tspan direction=\"ltr\" unicode-bidi=\"isolate\">n</tspan> زوجيين: تناقض!</text></g></svg>",
+      "frames": [
+        {
+          "caption": "نفرض العكس: \\(\\sqrt2\\) كسر مختصر"
+        },
+        {
+          "caption": "بنربّع الطرفين"
+        },
+        {
+          "caption": "مربع زوجي يعني العدد نفسه زوجي"
+        },
+        {
+          "caption": "نفس الشي لـ n"
+        },
+        {
+          "caption": "تناقض مع افتراض إنه مختصر، يعني الافتراض غلط"
+        }
+      ],
+      "title": "برهان: \\(\\sqrt2\\notin\\mathbb{Q}\\)"
+    },
+    {
+      "t": "box",
+      "kind": "note",
+      "title": "تذكير · أي كسر بيتكتب مختصر",
+      "html": "<p>أي كسر ممكن نكتبه \\(\\frac mn\\) بحيث ما يكون m و n زوجيين مع بعض. وإذا \\(m^2\\) زوجي فـ m زوجي.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "برهان · <bdi>הוכחה</bdi>",
+      "html": "<p>نفرض \\(\\sqrt2=\\frac mn\\) مختصر. بالتربيع \\(m^2=2n^2\\)، فـ \\(m^2\\) زوجي وبالتالي \\(m=2k\\).</p><p>بالتعويض \\(n^2=2k^2\\)، فـ n زوجي \\(n=2r\\). إذن \\(\\sqrt2=\\frac{2k}{2r}=\\frac kr\\) وهاد بيناقض إنه الكسر كان مختصر. إذن \\(\\sqrt2\\notin\\mathbb{Q}\\). \\(\\square\\)</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>يعني في أعداد حقيقية كسرية، وفي أعداد حقيقية مش كسرية.</p>"
+    },
+    {
+      "t": "h",
+      "text": "3 · الأعداد غير الكسرية والمحور"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 1.2</bdi>",
+      "html": "<p>عدد حقيقي مش كسري اسمه <b>غير كسري</b> (<bdi>אי רציונאלי</bdi>). مجموعتهم بنرمزلها \\(\\mathbb{I}\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كل عدد حقيقي يا كسري يا غير كسري، وما في ثالث.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "نتيجة · <bdi>מסקנה 1.3</bdi>",
+      "html": "<p>\\[\\mathbb{R}=\\mathbb{Q}\\cup\\mathbb{I}\\]</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"محور الأعداد: نقاط كسرية ونقاط غير كسرية\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"22\" y1=\"110\" x2=\"438.8\" y2=\"110\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"458,110 434,120.8 434,99.2\"/><line class=\"fk-line t-mut\" x1=\"30\" y1=\"101\" x2=\"30\" y2=\"119\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"30\" y=\"150\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−2</text><line class=\"fk-line t-mut\" x1=\"114\" y1=\"101\" x2=\"114\" y2=\"119\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"114\" y=\"150\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−1</text><line class=\"fk-line t-mut\" x1=\"198\" y1=\"101\" x2=\"198\" y2=\"119\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"198\" y=\"150\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text><line class=\"fk-line t-mut\" x1=\"282\" y1=\"101\" x2=\"282\" y2=\"119\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"282\" y=\"150\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><line class=\"fk-line t-mut\" x1=\"366\" y1=\"101\" x2=\"366\" y2=\"119\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"366\" y=\"150\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><line class=\"fk-line t-mut\" x1=\"450\" y1=\"101\" x2=\"450\" y2=\"119\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"450\" y=\"150\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text></g><circle class=\"fk-dot t-1\" cx=\"156\" cy=\"110\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"156\" y=\"66\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−½</text><circle class=\"fk-dot t-1\" cx=\"240\" cy=\"110\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"240\" y=\"66\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">½</text><circle class=\"fk-dot t-1\" cx=\"408\" cy=\"110\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"408\" y=\"66\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">5/2</text><circle class=\"fk-dot t-2\" cx=\"79.2\" cy=\"110\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"79.2\" y=\"66\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−√2</text><circle class=\"fk-dot t-2\" cx=\"316.8\" cy=\"110\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"316.8\" y=\"66\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">√2</text></svg>",
+      "caption": "لاحظ: الأزرق كسور، والبرتقالي مش كسور — وكلهم نقاط على نفس المحور.",
+      "alt": "محور الأعداد: نقاط كسرية ونقاط غير كسرية"
+    },
+    {
+      "t": "p",
+      "html": "<p>والعلاقة مع المحور تامة: كل عدد بيقابله نقطة واحدة بالضبط، وكل نقطة بيقابلها عدد واحد.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "مبرهنة · <bdi>משפט 1.4</bdi>",
+      "html": "<p>لكل عدد حقيقي \\(x\\in\\mathbb{R}\\) بتناسب نقطة وحيدة على محور الأعداد الحقيقية، والعكس صحيح.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بس مكان الأعداد غير الكسرية على المحور صعب نحدده: منعرف إنه \\(1\\lt \\sqrt2\\lt 2\\) لكن وين بالضبط؟ لهيك رح ندرس خصائص الأعداد الحقيقية. أول خاصية: الكثافة (<bdi>משפט הצפיפות</bdi>).</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>أي عدد من هدول غير كسري؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(\\sqrt4\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(\\sqrt2\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(0.75\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(-\\frac{3}{5}\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>اسأل نفسك: هل بقدر أكتبه \\(\\frac mn\\)؟ احسب \\(\\sqrt4\\) أول.</p>",
+        "solution": "<p>\\(\\sqrt4=2=\\frac21\\)، و\\(0.75=\\frac34\\)، و\\(-\\frac35\\) كسر. بس \\(\\sqrt2\\) غير كسري (ادعاء 1.1).</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "4 · كثافة الأعداد الحقيقية"
+    },
+    {
+      "t": "p",
+      "html": "<p>بين أي عددين حقيقيين مختلفين في عدد حقيقي تالت. فكّر بالمنتصف.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "a و b على المحور ونقطة المنتصف وبعدها منتصفات أصغر",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 220\" role=\"img\" aria-label=\"a و b على المحور ونقطة المنتصف وبعدها منتصفات أصغر\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"30\" y1=\"110\" x2=\"450\" y2=\"110\" stroke-width=\"4\" stroke-linecap=\"round\"/><g data-step=\"1\"><circle class=\"fk-dot t-1\" cx=\"60\" cy=\"110\" r=\"11\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"60\" y=\"152\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a</text></g><g data-step=\"1\"><circle class=\"fk-dot t-1\" cx=\"420\" cy=\"110\" r=\"11\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"420\" y=\"152\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">b</text></g><g data-step=\"2\"><circle class=\"fk-dot t-good\" cx=\"240\" cy=\"110\" r=\"11\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"82\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">c = (a+b)/2</text></g><g data-step=\"3\"><circle class=\"fk-dot t-2\" cx=\"150\" cy=\"110\" r=\"10\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"150\" y=\"152\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">c₂</text></g><g data-step=\"4\"><circle class=\"fk-dot t-2\" cx=\"105\" cy=\"110\" r=\"9\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"105\" y=\"82\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">c₃</text></g><g data-step=\"4\"><text class=\"fk-t t-mut\" x=\"90\" y=\"190\" font-size=\"30\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">…</text></g></svg>",
+      "frames": [
+        {
+          "caption": "عندنا \\(a\\lt b\\)"
+        },
+        {
+          "caption": "المنتصف \\(c=\\frac{a+b}{2}\\) بين الاثنين"
+        },
+        {
+          "caption": "منتصف a و c: نقطة جديدة أقرب لـ a"
+        },
+        {
+          "caption": "وهيك لا نهاية: ما في 'أقرب نقطة' لـ a"
+        }
+      ],
+      "title": "دايماً في نقطة بين a و b"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "مبرهنة الكثافة · <bdi>משפט הצפיפות של המספרים הממשיים 1.5</bdi>",
+      "html": "<p>لكل \\(a,b\\in\\mathbb{R}\\) بحيث \\(a\\lt b\\) يوجد \\(c\\in\\mathbb{R}\\) بحيث \\(a\\lt c\\lt b\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>البرهان بسيط: بنأخذ المنتصف. بما إنه \\(a\\lt b\\):</p>"
+    },
+    {
+      "t": "math",
+      "tex": "a=\\frac{a+a}{2}<\\frac{a+b}{2}<\\frac{b+b}{2}=b"
+    },
+    {
+      "t": "p",
+      "html": "<p>يعني \\(c=\\frac{a+b}{2}\\) بين a و b. مثال: بين 2 و 5 المنتصف 3.5.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "نتيجة · <bdi>מסקנה 1.6</bdi>",
+      "html": "<p>لكل \\(a\\lt b\\) في \\(\\mathbb{R}\\) يوجد <b>عدد لا نهائي</b> من الأعداد c بحيث \\(a\\lt c\\lt b\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>ليش؟ لأنه نكرر نفس الفكرة: بين a و c نقطة، وبين a وتاني نقطة… ما بنخلص.</p>"
+    },
+    {
+      "t": "h",
+      "text": "5 · كسري وغير كسري بين أي نقطتين"
+    },
+    {
+      "t": "p",
+      "html": "<p>الكثافة بتحكي عن \\(\\mathbb{R}\\) كاملة. الآن بدنا نسأل: بين نقطتين، في كسور؟ في غير كسور؟ الجواب: الاثنين.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "مبرهنة · <bdi>משפט אי שלמות של הרציונלים 1.7</bdi>",
+      "html": "<p>لكل \\(r_1,r_2\\in\\mathbb{Q}\\) يوجد عدد غير كسري \\(a\\in\\mathbb{I}\\) بحيث \\(r_1\\lt a\\lt r_2\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بنبني a بالضبط. نعرّف:</p>"
+    },
+    {
+      "t": "math",
+      "tex": "a=r_1+\\frac{\\sqrt2}{2}\\,(r_2-r_1)"
+    },
+    {
+      "t": "steps",
+      "alt": "بناء عدد غير كسري بين r1 و r2",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 240\" role=\"img\" aria-label=\"بناء عدد غير كسري بين r1 و r2\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"30\" y1=\"120\" x2=\"450\" y2=\"120\" stroke-width=\"4\" stroke-linecap=\"round\"/><circle class=\"fk-dot t-1\" cx=\"70\" cy=\"120\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"70\" y=\"162\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">r₁</text><circle class=\"fk-dot t-1\" cx=\"410\" cy=\"120\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"410\" y=\"162\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">r₂</text><g data-step=\"1\"><line class=\"fk-line t-mut\" x1=\"86\" y1=\"76\" x2=\"394\" y2=\"76\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"410,76 390,85 390,67\"/><polygon class=\"fk-head t-mut\" points=\"70,76 90,67 90,85\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"240\" y=\"58\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">r₂ − r₁</text></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"70\" y1=\"108\" x2=\"310.4\" y2=\"108\" stroke-width=\"8\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"190.2\" y=\"96\" font-size=\"19\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">(√2/2)(r₂−r₁)</text></g><g data-step=\"3\"><circle class=\"fk-dot t-2\" cx=\"310.4\" cy=\"120\" r=\"12\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"310.4\" y=\"162\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"240\" y=\"216\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a = r₁ + (√2/2)(r₂ − r₁)</text></g></svg>",
+      "frames": [
+        {
+          "caption": "عندنا كسرين \\(r_1\\lt r_2\\) والمسافة بينهم \\(r_2-r_1\\)"
+        },
+        {
+          "caption": "ناخد جزء منها: \\(\\frac{\\sqrt2}{2}\\approx 0.71\\) من المسافة"
+        },
+        {
+          "caption": "هاي النقطة a: برتقالية (غير كسرية) وبين r₁ و r₂"
+        }
+      ],
+      "title": "نبني عدد غير كسري بين كسرين"
+    },
+    {
+      "t": "p",
+      "html": "<p>ليش a غير كسري؟ نبدّل الأطراف: \\(\\sqrt2=2\\cdot\\frac{a-r_1}{r_2-r_1}\\). لو a كسري، يطلع \\(\\sqrt2\\) كسري، وهاد تناقض.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>وليش a بين r₁ و r₂؟ لأنه \\(\\frac12\\lt \\frac{\\sqrt2}{2}\\lt 1\\) فبيطلع \\(0\\lt \\frac{\\sqrt2}{2}(r_2-r_1)\\lt r_2-r_1\\). بنضيف r₁ ونقرأ:</p>"
+    },
+    {
+      "t": "math",
+      "tex": "r_1=r_1+0<a<r_1+(r_2-r_1)=r_2"
+    },
+    {
+      "t": "p",
+      "html": "<p>والعكس كمان صحيح: بين أي عددين غير كسريين في كسر. (المحاضر بيحكي إنه المبرهنة 1.8 صحيحة وما بيبرهنها هون.)</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "مبرهنة · <bdi>משפט אי שלמות של האי הרציונלים 1.8</bdi>",
+      "html": "<p>لكل \\(a_1,a_2\\in\\mathbb{I}\\) بحيث \\(a_1\\lt a_2\\) يوجد \\(r\\in\\mathbb{Q}\\) بحيث \\(a_1\\lt r\\lt a_2\\).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "بين a و b في كسر وفي عدد غير كسري",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 200\" role=\"img\" aria-label=\"بين a و b في كسر وفي عدد غير كسري\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"30\" y1=\"100\" x2=\"450\" y2=\"100\" stroke-width=\"4\" stroke-linecap=\"round\"/><circle class=\"fk-dot t-mut\" cx=\"70\" cy=\"100\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"70\" y=\"142\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a</text><circle class=\"fk-dot t-mut\" cx=\"410\" cy=\"100\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"410\" y=\"142\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">b</text><g data-step=\"1\"><circle class=\"fk-dot t-1\" cx=\"170\" cy=\"100\" r=\"12\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"170\" y=\"70\" font-size=\"21\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">r ∈ ℚ</text></g><g data-step=\"2\"><circle class=\"fk-dot t-2\" cx=\"300\" cy=\"100\" r=\"12\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"300\" y=\"70\" font-size=\"21\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">c ∈ 𝕀</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"186\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a &lt; r &lt; b   و   a &lt; c &lt; b</text></g></svg>",
+      "frames": [
+        {
+          "caption": "عندنا \\(a\\lt b\\) (حقيقيين)"
+        },
+        {
+          "caption": "بينهم كسر r (أزرق)"
+        },
+        {
+          "caption": "وبينهم كمان عدد غير كسري c (برتقالي)"
+        }
+      ],
+      "title": "بين أي نقطتين: الاثنين موجودين"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "مبرهنة · <bdi>משפט הצפיפות של הרציונלים והאי רציונלים 1.9</bdi>",
+      "html": "<p>لكل \\(a\\lt b\\) في \\(\\mathbb{R}\\) يوجد \\(r\\in\\mathbb{Q}\\) و\\(c\\in\\mathbb{I}\\) بحيث \\(a\\lt r\\lt b\\) و\\(a\\lt c\\lt b\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "نتيجة · <bdi>מסקנה 1.10</bdi>",
+      "html": "<p>بين كل عددين حقيقيين مختلفين يوجد <b>عدد لا نهائي</b> من الكسور وعدد لا نهائي من غير الكسور.</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>كم عدد كسري بين 0 و 1؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "ولا واحد"
+          },
+          {
+            "v": "2",
+            "html": "واحد بس: 0.5"
+          },
+          {
+            "v": "3",
+            "html": "عدد لا نهائي"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "hint": "<p>بين 0 و 0.5 كمان في كسر، وبين 0 وهاد الكسر كمان…</p>",
+        "solution": "<p>حسب نتيجة 1.10 بين أي عددين مختلفين عدد لا نهائي من الكسور (0.5، 0.25، 0.125 …).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>بين 2 و 5: ما هو المنتصف \\(c=\\frac{a+b}{2}\\)؟</p>",
+        "answer": [
+          "3.5",
+          "7/2"
+        ],
+        "hint": "<p>اجمع العددين واقسم على 2.</p>",
+        "solution": "<p>\\(\\frac{2+5}{2}=\\frac72=3.5\\)، وهو بين 2 و 5.</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "6 · القطع على المحور (קטעים)"
+    },
+    {
+      "t": "p",
+      "html": "<p>القطع بنوصف بيها \"من a لـ b\". في أربع أنواع حسب إذا الأطراف داخلة أو لأ.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 1.11</bdi>",
+      "html": "<p>ليكن \\(a\\lt b\\) في \\(\\mathbb{R}\\). نرمز:</p><ol><li>قطع مفتوح (<bdi>קטע פתוח</bdi>): \\((a,b)=\\{x\\in\\mathbb{R}\\mid a\\lt x\\lt b\\}\\)</li><li>نصف مغلق نصف مفتوح (<bdi>קטע חצי סגור חצי פתוח</bdi>): \\([a,b)=\\{x\\in\\mathbb{R}\\mid a\\le x\\lt b\\}\\)</li><li>نصف مفتوح نصف مغلق (<bdi>קטע חצי פתוח חצי סגור</bdi>): \\((a,b]=\\{x\\in\\mathbb{R}\\mid a\\lt x\\le b\\}\\)</li><li>قطع مغلق (<bdi>קטע סגור</bdi>): \\([a,b]=\\{x\\in\\mathbb{R}\\mid a\\le x\\le b\\}\\)</li></ol>"
+    },
+    {
+      "t": "steps",
+      "alt": "أربعة أنواع من القطع على المحور",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"أربعة أنواع من القطع على المحور\" class=\"fk\"><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"24\" y=\"47\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">(a,b)</text></g><g data-step=\"1\"><line class=\"fk-line t-grid\" x1=\"110\" y1=\"40\" x2=\"430\" y2=\"40\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"1\"><line class=\"fk-line t-good\" x1=\"150\" y1=\"40\" x2=\"290\" y2=\"40\" stroke-width=\"10\" stroke-linecap=\"round\"/></g><g data-step=\"1\"><circle class=\"fk-dot hollow t-good\" cx=\"150\" cy=\"40\" r=\"11\"/></g><g data-step=\"1\"><circle class=\"fk-dot hollow t-good\" cx=\"290\" cy=\"40\" r=\"11\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"330\" y=\"47\" font-size=\"21\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">a&lt;x&lt;b</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"24\" y=\"117\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">[a,b)</text></g><g data-step=\"2\"><line class=\"fk-line t-grid\" x1=\"110\" y1=\"110\" x2=\"430\" y2=\"110\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><line class=\"fk-line t-good\" x1=\"150\" y1=\"110\" x2=\"290\" y2=\"110\" stroke-width=\"10\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-good\" cx=\"150\" cy=\"110\" r=\"11\"/></g><g data-step=\"2\"><circle class=\"fk-dot hollow t-good\" cx=\"290\" cy=\"110\" r=\"11\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"330\" y=\"117\" font-size=\"21\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">a≤x&lt;b</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"24\" y=\"187\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">(a,b]</text></g><g data-step=\"3\"><line class=\"fk-line t-grid\" x1=\"110\" y1=\"180\" x2=\"430\" y2=\"180\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line t-good\" x1=\"150\" y1=\"180\" x2=\"290\" y2=\"180\" stroke-width=\"10\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><circle class=\"fk-dot hollow t-good\" cx=\"150\" cy=\"180\" r=\"11\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"290\" cy=\"180\" r=\"11\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"330\" y=\"187\" font-size=\"21\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">a&lt;x≤b</text></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"24\" y=\"257\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">[a,b]</text></g><g data-step=\"4\"><line class=\"fk-line t-grid\" x1=\"110\" y1=\"250\" x2=\"430\" y2=\"250\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"4\"><line class=\"fk-line t-good\" x1=\"150\" y1=\"250\" x2=\"290\" y2=\"250\" stroke-width=\"10\" stroke-linecap=\"round\"/></g><g data-step=\"4\"><circle class=\"fk-dot t-good\" cx=\"150\" cy=\"250\" r=\"11\"/></g><g data-step=\"4\"><circle class=\"fk-dot t-good\" cx=\"290\" cy=\"250\" r=\"11\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"330\" y=\"257\" font-size=\"21\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">a≤x≤b</text></g></svg>",
+      "frames": [
+        {
+          "caption": "مفتوح: ما فيه الأطراف (نقطتين فاضيتين)"
+        },
+        {
+          "caption": "نصف مفتوح: a داخلة و b لأ"
+        },
+        {
+          "caption": "نصف مفتوح من الجهة التانية: b داخلة و a لأ"
+        },
+        {
+          "caption": "مغلق: الاثنين داخلين (نقطتين ممتلئتين)"
+        }
+      ],
+      "title": "القطع: نقطة فاضية = مش داخلة"
+    },
+    {
+      "t": "p",
+      "html": "<p>حدس: بالقطع المفتوح ما في أكبر عنصر ولا أصغر عنصر، وبالمغلق في الاثنين. منرجع لهاد بنفس الفصل (بالدرس الجاي).</p>"
+    },
+    {
+      "t": "h",
+      "text": "7 · الجوار (סביבה) لنقطة"
+    },
+    {
+      "t": "p",
+      "html": "<p>الجوار هو طريقة نحكي فيها \"قريب من النقطة \\(x_0\\)\": كل النقاط اللي بُعدها عنها أقل من ε.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "جوار نصف قطره epsilon حول x0",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 230\" role=\"img\" aria-label=\"جوار نصف قطره epsilon حول x0\" class=\"fk\"><line class=\"fk-line t-mut\" x1=\"30\" y1=\"110\" x2=\"430.8\" y2=\"110\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"450,110 426,120.8 426,99.2\"/><g data-step=\"1\"><circle class=\"fk-dot t-1\" cx=\"240\" cy=\"110\" r=\"12\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"240\" y=\"154\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">x₀</text></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"240\" y1=\"70\" x2=\"342.4\" y2=\"70\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"360,70 338,79.9 338,60.1\"/></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"240\" y1=\"70\" x2=\"137.6\" y2=\"70\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"120,70 142,60.1 142,79.9\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"300\" y=\"54\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">ε</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"180\" y=\"54\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">ε</text></g><g data-step=\"3\"><line class=\"fk-line t-good\" x1=\"120\" y1=\"110\" x2=\"360\" y2=\"110\" stroke-width=\"10\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><circle class=\"fk-dot hollow t-good\" cx=\"120\" cy=\"110\" r=\"11\"/></g><g data-step=\"3\"><circle class=\"fk-dot hollow t-good\" cx=\"360\" cy=\"110\" r=\"11\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"120\" y=\"154\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">x₀−ε</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"360\" y=\"154\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">x₀+ε</text></g><g data-step=\"4\"><circle class=\"fk-dot hollow t-bad\" cx=\"240\" cy=\"110\" r=\"13\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"240\" y=\"204\" font-size=\"21\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">المثقوب: x₀ نفسها مش داخلة</text></g></svg>",
+      "frames": [
+        {
+          "caption": "النقطة \\(x_0\\)"
+        },
+        {
+          "caption": "نمشي مسافة ε يمين ويسار"
+        },
+        {
+          "caption": "كل اللي بينهم: الجوار \\(U_\\epsilon(x_0)\\) (قطع مفتوح)"
+        },
+        {
+          "caption": "الجوار المثقوب: نشيل \\(x_0\\) نفسها"
+        }
+      ],
+      "title": "الجوار \\(U_\\epsilon(x_0)\\)"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 1.12</bdi>",
+      "html": "<p>ليكن \\(x_0\\in\\mathbb{R}\\) و\\(0\\lt \\epsilon\\in\\mathbb{R}\\). القطع المفتوح بنصف قطر ε حول \\(x_0\\) اسمه <b>جوار</b> (<bdi>סביבת</bdi> ε) لـ \\(x_0\\)، ونرمز له \\(U_\\epsilon(x_0)\\):</p><p>\\[U_\\epsilon(x_0)=(x_0-\\epsilon,x_0+\\epsilon)\\]</p><p>\\[=\\{x\\in\\mathbb{R}\\mid |x-x_0|\\lt \\epsilon\\}\\]</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 1.13</bdi>",
+      "html": "<p>\\[U_{0.1}(1)=(1-0.1,\\,1+0.1)=(0.9,\\,1.1)\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>أحياناً بدنا الجوار بدون النقطة نفسها. هاد الجوار المثقوب (<bdi>סביבה נקובה</bdi>).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 1.14</bdi>",
+      "html": "<p>ليكن \\(x_0\\in\\mathbb{R}\\) و\\(0\\lt \\epsilon\\in\\mathbb{R}\\). القطع المفتوح بنصف قطر ε حول \\(x_0\\) بدون \\(x_0\\) نفسها هو <b>جوار مثقوب</b> لـ \\(x_0\\)، ونرمز \\(U^*_\\epsilon(x_0)\\):</p><p>\\[U^*_\\epsilon(x_0)=(x_0-\\epsilon,x_0)\\cup(x_0,x_0+\\epsilon)\\]</p><p>\\[=\\{x\\in\\mathbb{R}\\mid 0\\lt |x-x_0|\\lt \\epsilon\\}\\]</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 1.15</bdi>",
+      "html": "<p>\\[U^*_{0.1}(1)=(0.9,1)\\cup(1,1.1)\\]</p><p>يعني: \\(0.9\\lt x\\lt 1\\) أو \\(1\\lt x\\lt 1.1\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 230\" role=\"img\" aria-label=\"الجوار والجوار المثقوب لـ 1 بنصف قطر 0.1\" class=\"fk\"><line class=\"fk-line t-grid\" x1=\"30\" y1=\"70\" x2=\"450\" y2=\"70\" stroke-width=\"3\" stroke-linecap=\"round\"/><line class=\"fk-line t-good\" x1=\"140\" y1=\"70\" x2=\"340\" y2=\"70\" stroke-width=\"10\" stroke-linecap=\"round\"/><circle class=\"fk-dot t-1\" cx=\"240\" cy=\"70\" r=\"8\"/><circle class=\"fk-dot hollow t-good\" cx=\"140\" cy=\"70\" r=\"11\"/><circle class=\"fk-dot hollow t-good\" cx=\"340\" cy=\"70\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"140\" y=\"110\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0.9</text><text class=\"fk-t t-ink\" x=\"240\" y=\"110\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-ink\" x=\"340\" y=\"110\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1.1</text><text class=\"fk-t t-ink\" x=\"24\" y=\"44\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">U₀.₁(1)</text><line class=\"fk-line t-grid\" x1=\"30\" y1=\"170\" x2=\"450\" y2=\"170\" stroke-width=\"3\" stroke-linecap=\"round\"/><line class=\"fk-line t-good\" x1=\"140\" y1=\"170\" x2=\"234\" y2=\"170\" stroke-width=\"10\" stroke-linecap=\"round\"/><line class=\"fk-line t-good\" x1=\"246\" y1=\"170\" x2=\"340\" y2=\"170\" stroke-width=\"10\" stroke-linecap=\"round\"/><circle class=\"fk-dot hollow t-bad\" cx=\"240\" cy=\"170\" r=\"11\"/><circle class=\"fk-dot hollow t-good\" cx=\"140\" cy=\"170\" r=\"11\"/><circle class=\"fk-dot hollow t-good\" cx=\"340\" cy=\"170\" r=\"11\"/><text class=\"fk-t t-ink\" x=\"140\" y=\"210\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0.9</text><text class=\"fk-t t-ink\" x=\"240\" y=\"210\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-ink\" x=\"340\" y=\"210\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1.1</text><text class=\"fk-t t-ink\" x=\"24\" y=\"144\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">U*₀.₁(1)</text></svg>",
+      "caption": "لاحظ: المثقوب فيه ثقب عند 1 بالضبط.",
+      "alt": "الجوار والجوار المثقوب لـ 1 بنصف قطر 0.1"
+    },
+    {
+      "t": "box",
+      "kind": "trap",
+      "title": "فخ",
+      "html": "<p>الجوار المثقوب بتكتب فيه الشرط \\(0\\lt |x-x_0|\\): الصفر هون هو اللي بيشيل \\(x_0\\).</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>أي عدد بينتمي لـ \\(U^*_{0.1}(1)\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(1\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(0.95\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(1.2\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(0.9\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>الجوار هو \\((0.9,1.1)\\) بدون النقطة 1، والأطراف مش داخلة.</p>",
+        "solution": "<p>1 مثقوبة، 1.2 خارج القطع، 0.9 طرف مفتوح مش داخل. الوحيد: 0.95.</p>"
+      }
+    },
+    {
+      "t": "mistakes",
+      "title": "أخطاء شائعة",
+      "rows": [
+        {
+          "no": "\\(0\\in\\mathbb{N}\\)",
+          "yes": "\\(0\\notin\\mathbb{N}\\) بهالكتيب، و\\(0\\in\\mathbb{Z}\\)"
+        },
+        {
+          "no": "\\(\\sqrt4\\) غير كسري",
+          "yes": "\\(\\sqrt4=2\\in\\mathbb{Q}\\)"
+        },
+        {
+          "no": "\\(U_\\epsilon(x_0)\\) فيها الأطراف",
+          "yes": "قطع مفتوح: الأطراف مش داخلة"
+        },
+        {
+          "no": "\\(U^*_\\epsilon(x_0)\\) فيها \\(x_0\\)",
+          "yes": "المثقوب: \\(x_0\\) محذوفة"
+        }
+      ]
+    },
+    {
+      "t": "checklist",
+      "title": "شو لازم تعرف من هالدرس",
+      "items": [
+        "\\(\\mathbb{N},\\mathbb{Z},\\mathbb{Q}\\) وكيف كل وحدة بتحتوي اللي قبلها",
+        "\\(\\mathbb{R}=\\mathbb{Q}\\cup\\mathbb{I}\\) و\\(\\sqrt2\\notin\\mathbb{Q}\\) (برهان بالتناقض، <bdi>הוכחה בדרך השלילה</bdi>)",
+        "الكثافة (<bdi>צפיפות</bdi>): بين أي نقطتين في كسر وفي غير كسر، ولا نهاية منهم",
+        "القطع الأربعة (<bdi>קטעים</bdi>) والفرق بين مفتوح ومغلق",
+        "الجوار \\(U_\\epsilon(x_0)\\) والجوار المثقوب \\(U^*_\\epsilon(x_0)\\) (<bdi>סביבה נקובה</bdi>)"
+      ]
+    },
+    {
+      "t": "card",
+      "front": "الجوار \\(U_\\epsilon(x_0)\\) (<bdi>סביבה</bdi>)",
+      "back": "\\((x_0-\\epsilon,x_0+\\epsilon)=\\{x\\mid|x-x_0|\\lt \\epsilon\\}\\)"
+    },
+    {
+      "t": "card",
+      "front": "الجوار المثقوب \\(U^*_\\epsilon(x_0)\\)",
+      "back": "\\(\\{x\\mid0\\lt |x-x_0|\\lt \\epsilon\\}\\)"
+    },
+    {
+      "t": "card",
+      "front": "المنتصف بين a و b",
+      "back": "\\(c=\\frac{a+b}{2}\\)، و\\(a\\lt c\\lt b\\)"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>\\(U_{0.5}(3)\\) هو:</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\((2.5,3.5)\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\([2.5,3.5]\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\((2.5,3)\\cup(3,3.5)\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\((3,3.5)\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>النقطة 3 والنصف قطر 0.5: ما تضيف الأطراف.</p>",
+        "solution": "<p>\\((3-0.5,\\,3+0.5)=(2.5,3.5)\\). الخيار 3 هو الجوار المثقوب.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>عدد غير كسري بين 0 و 1 حسب مبرهنة 1.7 (البناء)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(\\frac{\\sqrt2}{2}\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(\\frac12\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(\\sqrt2\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(0.7\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>بتعوّض \\(r_1=0,\\ r_2=1\\) بالصيغة \\(a=r_1+\\frac{\\sqrt2}{2}(r_2-r_1)\\).</p>",
+        "solution": "<p>\\(a=0+\\frac{\\sqrt2}{2}\\cdot1=\\frac{\\sqrt2}{2}\\approx0.707\\). غير كسري وبين 0 و 1. و\\(\\sqrt2\\) أكبر من 1.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>عبّر عن \\(\\{x\\in\\mathbb{R}\\mid -1\\lt x\\le2\\}\\) كقطع:</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\([-1,2]\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\((-1,2]\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\([-1,2)\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\((-1,2)\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>-1 مش داخلة (أصغر تماماً) و2 داخلة (أصغر أو يساوي).</p>",
+        "solution": "<p>الطرف الأيسر مفتوح والأيمن مغلق: \\((-1,2]\\).</p>"
+      }
+    }
+  ]
+}

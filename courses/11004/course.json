@@ -1,0 +1,32 @@
+{
+  "code": "11004",
+  "title": "حدوا 1 (חדו\"א 1)",
+  "desc": "أعداد حقيقية، دوال، نهايات، مشتقات وتكاملات — بترتيب حوبرة يعقوبزون وشنابل.",
+  "subject": "math",
+  "chapters": [
+    {
+      "n": 1,
+      "slug": "real-numbers",
+      "title": "مجموعة الأعداد الحقيقية (קבוצת המספרים הממשיים)",
+      "lead": "المجموعات N، Z، Q، R، وكيف منحدّ مجموعة من فوق ومن تحت.",
+      "isExam": false,
+      "lessons": [
+        "real-numbers",
+        "bounds"
+      ]
+    },
+    {
+      "n": 2,
+      "slug": "functions",
+      "title": "الدوال (פונקציות)",
+      "lead": "شو هي الدالة، المتتاليات، الدوال الأساسية وخصائصها.",
+      "isExam": false,
+      "lessons": [
+        "functions",
+        "sequences",
+        "elementary-functions",
+        "function-properties"
+      ]
+    }
+  ]
+}

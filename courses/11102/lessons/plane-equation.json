@@ -1,0 +1,411 @@
+{
+  "slug": "plane-equation",
+  "title": "معادلة المستوى (משוואת מישור)",
+  "he": "משוואת מישור",
+  "ref": "חוברת §1.3 · עמ׳ 8–10",
+  "minutes": 20,
+  "desc": "الوصف المتجهي والجبري للمستوى، النورمال، ومعادلة المستوى.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p>المستوى بالفراغ ممكن نكتبه بطريقتين. بهالدرس منوصل لمعادلة بسيطة \\(ax+by+cz+d=0\\) بدل وصف طويل بمتجهات.</p><p><b>بهالدرس:</b></p><ol><li>الوصف المتجهي والجبري للمستوى</li><li>ليش المعادلة هي \\(ax+by+cz+d=0\\)</li><li>النورمال (<bdi>נורמל</bdi>) وهو مش وحيد</li><li>مثال: معادلة من نورمال ونقطة</li><li>مثال: من وصف متجهي لمعادلة</li></ol><p><b>متى بتستعمله:</b> أي سؤال بيعطيك مستوى أو بيطلب نقطة تقاطع، ومعادلة خط مع مستوى.</p>"
+    },
+    {
+      "t": "h",
+      "text": "1 · طريقتين لوصف المستوى"
+    },
+    {
+      "t": "p",
+      "html": "<p>بالفراغ \\(\\mathbb R^3\\) في طريقتين طبيعيتين نعرّف فيهم مستوى (<bdi>מישור</bdi>): وصف <b>متجهي</b> (أو <bdi>פרמטרי</bdi>) ووصف <b>جبري</b>.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الوصف المتجهي بيقول: عندي نقطة \\(P_0\\) ومتجهين \\(\\vec v,\\vec u\\) غير صفريين وغير متناسبين. المستوى هو كل النقاط اللي بنوصلها من \\(P_0\\) بالمشي على المتجهين.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "مستوى في الفراغ: نقطة P0 ومتجهان v و u داخله، وأي نقطة في المستوى هي P0 + t v + s u",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 290\" role=\"img\" aria-label=\"مستوى في الفراغ: نقطة P0 ومتجهان v و u داخله، وأي نقطة في المستوى هي P0 + t v + s u\" class=\"fk\"><polygon class=\"fk-curve t-mut\" points=\"40,250 350,250 450,70 140,70\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><g data-step=\"2\"><line class=\"fk-line t-1\" x1=\"120\" y1=\"215\" x2=\"227.6\" y2=\"215\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"250,215 222,227.6 222,202.4\"/></g><g data-step=\"2\"><text class=\"fk-t t-1\" x=\"256\" y=\"245\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"120\" y1=\"215\" x2=\"157.6\" y2=\"158.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"170,140 165,170.3 144,156.3\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"142\" y=\"138\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u</text></g><g data-step=\"3\"><line class=\"fk-line dash t-1\" x1=\"120\" y1=\"215\" x2=\"315\" y2=\"215\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line dash t-2\" x1=\"315\" y1=\"215\" x2=\"360\" y2=\"147.5\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><text class=\"fk-t t-1\" x=\"275\" y=\"249\" font-size=\"21\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">t·v</text></g><g data-step=\"3\"><text class=\"fk-t t-2\" x=\"381\" y=\"195.2\" font-size=\"21\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">s·u</text></g><g data-step=\"4\"><circle class=\"fk-dot t-good\" cx=\"360\" cy=\"147.5\" r=\"10\"/></g><g data-step=\"4\"><text class=\"fk-t t-good\" x=\"450\" y=\"117.5\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">P₀ + t·v + s·u</text></g><circle class=\"fk-dot t-ink\" cx=\"120\" cy=\"215\" r=\"9\"/><text class=\"fk-t t-ink\" x=\"106\" y=\"249\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">P₀</text></svg>",
+      "frames": [
+        {
+          "caption": "مستوى ونقطة \\(P_0\\) عليه"
+        },
+        {
+          "caption": "متجهين \\(\\vec v,\\vec u\\) غير متناسبين داخل المستوى"
+        },
+        {
+          "caption": "منمشي \\(t\\) مرة بـ \\(\\vec v\\) و \\(s\\) مرة بـ \\(\\vec u\\)"
+        },
+        {
+          "caption": "كل نقطة بالمستوى بتطلع هيك"
+        }
+      ],
+      "title": "الطريقة الأولى: الوصف المتجهي (פרמטרי)"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "الوصف المتجهي · <bdi>הצגה וקטורית</bdi>",
+      "html": "<p>المستوى \\(E\\) المار بـ \\(P_0=\\begin{pmatrix}x_0\\\\y_0\\\\z_0\\end{pmatrix}\\) والمفتوح بـ \\(\\vec v,\\vec u\\):</p><p>\\[E=\\left\\{\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}\\in\\mathbb R^3\\ \\middle|\\ \\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}=P_0+t\\vec v+s\\vec u,\\ \\ s,t\\in\\mathbb R\\right\\}\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>شفنا بالدرس اللي فات إنه بنلاقي متجه ثالث عمودي على \\(\\vec v,\\vec u\\) بالضرب المتجهي. هو اللي بياخدنا للوصف الجبري.</p>"
+    },
+    {
+      "t": "h",
+      "text": "2 · من النורمל للمعادلة"
+    },
+    {
+      "t": "p",
+      "html": "<p>بدنا المستوى المار بنقطة \\(P_0=(x_0,y_0,z_0)\\) وعمودي على متجه معطى \\(\\vec 0\\neq\\vec v=(a,b,c)\\).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "مستوى فيه نقطة P0 والمتجه v عمودي عليه، ونقطة P أخرى والمتجه P0P داخل المستوى متعامد مع v",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"مستوى فيه نقطة P0 والمتجه v عمودي عليه، ونقطة P أخرى والمتجه P0P داخل المستوى متعامد مع v\" class=\"fk\"><polygon class=\"fk-curve t-mut\" points=\"40,250 350,250 450,70 140,70\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><g data-step=\"1\"><line class=\"fk-line t-1\" x1=\"170\" y1=\"200\" x2=\"170\" y2=\"65.6\" stroke-width=\"6\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"170,40 184.4,72 155.6,72\"/></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"184\" y=\"52\" font-size=\"22\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">v = (a,b,c)</text></g><g data-step=\"1\"><circle class=\"fk-dot t-ink\" cx=\"170\" cy=\"200\" r=\"9\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"150\" y=\"232\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">P₀</text></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"170\" y1=\"200\" x2=\"318.5\" y2=\"156.3\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"340,150 316.7,170 309.6,145.8\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-ink\" cx=\"340\" cy=\"150\" r=\"9\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"354\" y=\"180\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">P</text></g><g data-step=\"3\"><line class=\"fk-line t-ink\" x1=\"170\" y1=\"178\" x2=\"192\" y2=\"178\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line t-ink\" x1=\"192\" y1=\"178\" x2=\"192\" y2=\"200\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"250\" y=\"280\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">P₀P · v = 0</text></g></svg>",
+      "frames": [
+        {
+          "caption": "نقطة \\(P_0\\) ومتجه \\(\\vec v\\) عمودي على المستوى"
+        },
+        {
+          "caption": "أي نقطة \\(P\\) بالمستوى: المتجه \\(\\overrightarrow{P_0P}\\) داخل المستوى"
+        },
+        {
+          "caption": "إذا وفقط إذا \\(\\overrightarrow{P_0P}\\) عمودي على \\(\\vec v\\): الضرب السلمي 0"
+        }
+      ],
+      "title": "الطريقة الثانية: الوصف الجبري"
+    },
+    {
+      "t": "p",
+      "html": "<p>نقطة \\(P=(x,y,z)\\) بالمستوى إذا وفقط إذا \\(\\overrightarrow{P_0P}\\cdot\\vec v=0\\). منكتبها بالإحداثيات:</p>"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "اشتقاق",
+      "html": "<p>\\[\\begin{pmatrix}x-x_0\\\\y-y_0\\\\z-z_0\\end{pmatrix}\\cdot\\begin{pmatrix}a\\\\b\\\\c\\end{pmatrix}=0\\]</p><p>\\[ax+by+cz-ax_0-by_0-cz_0=0\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>الجزء \\(-ax_0-by_0-cz_0\\) هو مجرد عدد ثابت، منسميه \\(d\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "מסקנה 1.20",
+      "html": "<p>ليكن \\(\\vec 0\\neq\\vec v=\\begin{pmatrix}a\\\\b\\\\c\\end{pmatrix}\\in\\mathbb R^3\\). المستوى العمودي على \\(\\vec v\\) هو من الشكل:</p><p>\\[ax+by+cz+d=0\\]</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو معادلة المستوى المار ببداية المحاور وعمودي على \\((1,2,3)\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(x+2y+3z=0\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(x+2y+3z=1\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(x+2y+3z+d=0\\) مع \\(d\\neq0\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>بما إنه يمر بالأصل \\((0,0,0)\\) عوّضه وشوف \\(d\\).</p>",
+        "solution": "<p>\\(0+0+0+d=0\\) فـ \\(d=0\\). الخيارين 2 و 3 ما بيمروا بالأصل.</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "3 · النورمال"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 1.21</bdi>",
+      "html": "<p>بالرموز أعلاه، \\(\\vec v\\) يُسمّى <b>نورمال</b> (<bdi>נורמל</bdi>) للمستوى. النورمال <b>مش وحيد</b>: ممكن ناخد كنورمال أي متجه هو متوازي لـ \\(\\vec v\\).</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 280\" role=\"img\" aria-label=\"ثلاث أسهم عمودية على نفس المستوى: الأول v والثاني 2v والثالث -v فكلها نورمال للمستوى\" class=\"fk\"><polygon class=\"fk-curve t-mut\" points=\"40,250 350,250 450,70 140,70\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><line class=\"fk-line t-1\" x1=\"130\" y1=\"190\" x2=\"130\" y2=\"112.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"130,90 142.6,118 117.4,118\"/><text class=\"fk-t t-1\" x=\"144\" y=\"100\" font-size=\"24\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text><line class=\"fk-line t-good\" x1=\"250\" y1=\"200\" x2=\"250\" y2=\"52.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"250,30 262.6,58 237.4,58\"/><text class=\"fk-t t-good\" x=\"264\" y=\"50\" font-size=\"24\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">2v</text><line class=\"fk-line t-bad\" x1=\"370\" y1=\"150\" x2=\"370\" y2=\"217.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"370,240 357.4,212 382.6,212\"/><text class=\"fk-t t-bad\" x=\"384\" y=\"220\" font-size=\"24\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">−v</text></svg>",
+      "caption": "لاحظ: كلهم نورمال لنفس المستوى (نفس الخط، طول مختلف أو اتجاه معاكس).",
+      "alt": "ثلاث أسهم عمودية على نفس المستوى: الأول v والثاني 2v والثالث -v فكلها نورمال للمستوى"
+    },
+    {
+      "t": "p",
+      "html": "<p>يعني \\(2\\vec v\\) و \\(-\\vec v\\) و \\(\\frac12\\vec v\\) كلهم بيعطوا نفس المستوى. ما بيتغير إلا \\(a,b,c,d\\) كلهم مضروبين بنفس العدد.</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>أي واحد من التالي <b>مش</b> نورمال للمستوى \\(2x-y+4z=7\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\((2,-1,4)\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\((-4,2,-8)\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\((2,1,4)\\)"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "hint": "<p>النورمال = معاملات \\(x,y,z\\) أو مضاعفاتها.</p>",
+        "solution": "<p>\\((2,-1,4)\\) المعاملات نفسها؛ \\((-4,2,-8)=-2\\cdot(2,-1,4)\\). أما \\((2,1,4)\\) فالإشارة الوسطى مختلفة.</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "4 · مثال: معادلة من نورمال ونقطة"
+    },
+    {
+      "t": "steps",
+      "alt": "ثلاث خطوات: نكتب المعادلة بالنورمال، نعوض النقطة لنجد d، المعادلة النهائية",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 216\" role=\"img\" aria-label=\"ثلاث خطوات: نكتب المعادلة بالنورمال، نعوض النقطة لنجد d، المعادلة النهائية\" class=\"fk\"><g data-step=\"1\"><rect class=\"fk-chip t-1\" x=\"20\" y=\"14\" width=\"440\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"240\" y=\"46.4\" font-size=\"21\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">n=(2,−1,0): 2x − y + 0z + d = 0</text></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"20\" y=\"76\" width=\"440\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"108.3\" font-size=\"21\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">(1,0,1): 2·1 − 0 + d = 0 ⇒ d = −2</text></g><g data-step=\"3\"><rect class=\"fk-chip solid t-good\" x=\"20\" y=\"138\" width=\"440\" height=\"50\" rx=\"14\"/></g><g data-step=\"3\"><text class=\"fk-t t-on\" x=\"240\" y=\"170.3\" font-size=\"21\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2x − y − 2 = 0</text></g></svg>",
+      "frames": [
+        {
+          "caption": "النورمال بيعطينا \\(a,b,c\\)"
+        },
+        {
+          "caption": "منعوّض نقطة على المستوى ونحل \\(d\\)"
+        },
+        {
+          "caption": "المعادلة"
+        }
+      ],
+      "title": "الأمثلة 1.22 خطوة خطوة"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 1.22</bdi>",
+      "html": "<p>جد معادلة المستوى المار بالنقطة \\((1,0,1)\\) ونورمالو \\(\\vec v=(2,-1,0)\\).</p><p>\\[2x-y+0z+d=2x-y+d=0\\]</p><p>نعوّض النقطة: \\(2\\cdot1-0+d=0\\) فـ \\(d=-2\\) والمعادلة:</p><p>\\[2x-y-2=0\\]</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>المستوى \\(3x-y+2z+d=0\\) بيمر بالنقطة \\((1,1,1)\\). كم \\(d\\)؟</p>",
+        "answer": [
+          "-4"
+        ],
+        "hint": "<p>عوّض \\(x=y=z=1\\).</p>",
+        "solution": "<p>\\(3-1+2+d=0\\) يعني \\(4+d=0\\) فـ \\(d=-4\\).</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "5 · مثال: من وصف متجهي لمعادلة"
+    },
+    {
+      "t": "p",
+      "html": "<p>هلأ العكس: عندنا الوصف المتجهي وبدنا المعادلة. الفكرة: نلاقي نورمال بالضرب المتجهي، وبعدين نعوّض \\(P_0\\) نحصل على \\(d\\).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "من المتجهين نحسب الضرب المتجهي للحصول على النورمال ثم نجد d بتعويض النقطة",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 340\" role=\"img\" aria-label=\"من المتجهين نحسب الضرب المتجهي للحصول على النورمال ثم نجد d بتعويض النقطة\" class=\"fk\"><g data-step=\"1\"><rect class=\"fk-chip t-1\" x=\"20\" y=\"14\" width=\"440\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"240\" y=\"46\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v=(1,−2,2),  u=(3,0,−1)</text></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"20\" y=\"76\" width=\"440\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"108\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v × u = (2, 7, 6)</text></g><g data-step=\"3\"><rect class=\"fk-chip t-2\" x=\"20\" y=\"138\" width=\"440\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"240\" y=\"170\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2x + 7y + 6z + d = 0</text></g><g data-step=\"4\"><rect class=\"fk-chip t-1\" x=\"20\" y=\"200\" width=\"440\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"240\" y=\"232\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">(1,2,3): 34 + d = 0 ⇒ d = −34</text></g><g data-step=\"5\"><rect class=\"fk-chip solid t-good\" x=\"20\" y=\"262\" width=\"440\" height=\"50\" rx=\"14\"/></g><g data-step=\"5\"><text class=\"fk-t t-on\" x=\"240\" y=\"294\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2x + 7y + 6z − 34 = 0</text></g></svg>",
+      "frames": [
+        {
+          "caption": "المتجهين من الوصف المتجهي"
+        },
+        {
+          "caption": "النورمال بالضرب المتجهي"
+        },
+        {
+          "caption": "المعادلة بالنورمال"
+        },
+        {
+          "caption": "نعوّض \\(P_0\\) فنجد \\(d\\)"
+        },
+        {
+          "caption": "المعادلة النهائية"
+        }
+      ],
+      "title": "المثال 1.23 خطوة خطوة"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 1.23</bdi>",
+      "html": "<p>جد الوصف الجبري للمستوى</p><p>\\[P=\\left\\{\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}+s\\begin{pmatrix}1\\\\-2\\\\2\\end{pmatrix}+t\\begin{pmatrix}3\\\\0\\\\-1\\end{pmatrix}\\ \\middle|\\ s,t\\in\\mathbb R\\right\\}\\]</p><p>نسمي \\(\\vec v=(1,-2,2)\\) و \\(\\vec u=(3,0,-1)\\). النורمל:</p><p>\\[\\vec v\\times\\vec u=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\1&-2&2\\\\3&0&-1\\end{vmatrix}=\\begin{pmatrix}2\\\\7\\\\6\\end{pmatrix}\\]</p><p>فالمعادلة \\(2x+7y+6z+d=0\\). نعوّض \\((1,2,3)\\):</p><p>\\[2\\cdot1+7\\cdot2+6\\cdot3+d=34+d=0\\ \\Rightarrow\\ d=-34\\]</p><p>\\[2x+7y+6z-34=0\\]</p>"
+    },
+    {
+      "t": "box",
+      "kind": "note",
+      "title": "ملاحظة",
+      "html": "<p>بمكان تاني بالكورس منشوف كيف بننتقل من الوصف الجبري للوصف المتجهي.</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>هل النقطة \\((1,1,1)\\) على المستوى \\(2x+7y+6z-34=0\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "نعم"
+          },
+          {
+            "v": "2",
+            "html": "لأ: بتطلع \\(-19\\)"
+          },
+          {
+            "v": "3",
+            "html": "لأ: بتطلع \\(34\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>عوّض بالمعادلة.</p>",
+        "solution": "<p>\\(2+7+6-34=-19\\neq0\\) فالنقطة مش على المستوى.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>المستوى مفتوح بـ \\((1,0,0)\\) و \\((0,1,1)\\) ويمر بالأصل. المركبة الثانية للنورمال \\((1,0,0)\\times(0,1,1)\\) تساوي؟</p>",
+        "answer": [
+          "-1"
+        ],
+        "hint": "<p>المركبة الثانية هي \\(cd-af\\).</p>",
+        "solution": "<p>\\(a=1,b=0,c=0,d=0,e=1,f=1\\): \\(cd-af=0-1=-1\\). النورمال \\((0,-1,1)\\).</p>"
+      }
+    },
+    {
+      "t": "method",
+      "title": "معادلة مستوى من وصف متجهي",
+      "steps": [
+        "خد \\(\\vec v,\\vec u\\) (اتجاهي المستوى) و \\(P_0\\).",
+        "احسب النورمال \\(\\vec n=\\vec v\\times\\vec u=(a,b,c)\\).",
+        "اكتب \\(ax+by+cz+d=0\\).",
+        "عوّض \\(P_0\\) واحسب \\(d\\)."
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "أخطاء شائعة",
+      "rows": [
+        {
+          "no": "النورمال هو المتجه الوحيد \\((a,b,c)\\)",
+          "yes": "أي مضاعف غير صفري كمان نورمال"
+        },
+        {
+          "no": "نسيت أحسب \\(d\\) بتعويض نقطة",
+          "yes": "\\(d\\) بيتعلق بالنقطة؛ بدونه بتحصل على مستوى مختلف"
+        },
+        {
+          "no": "\\(\\vec v,\\vec u\\) نورمالين",
+          "yes": "\\(\\vec v,\\vec u\\) داخل المستوى؛ النورمال هو \\(\\vec v\\times\\vec u\\)"
+        }
+      ]
+    },
+    {
+      "t": "checklist",
+      "title": "شو لازم تعرف من هالدرس",
+      "items": [
+        "المستوى (<bdi>מישור</bdi>): \\(P_0+t\\vec v+s\\vec u\\) أو معادلة (<bdi>הצגה וקטורית</bdi>).",
+        "\\(\\overrightarrow{P_0P}\\cdot\\vec v=0\\) هو أصل المعادلة.",
+        "\\(ax+by+cz+d=0\\) والنورمال \\((a,b,c)\\) (<bdi>נורמל</bdi>).",
+        "النورمال مش وحيد (بدقة: متوازيين).",
+        "من وصف متجهي: النورمال = \\(\\vec v\\times\\vec u\\) ثم نجد \\(d\\)."
+      ]
+    },
+    {
+      "t": "card",
+      "front": "معادلة المستوى العمودي على \\((a,b,c)\\)",
+      "back": "\\(ax+by+cz+d=0\\)"
+    },
+    {
+      "t": "card",
+      "front": "نورمال من وصف متجهي",
+      "back": "\\(\\vec v\\times\\vec u\\)"
+    },
+    {
+      "t": "card",
+      "front": "نقطة \\(P\\) على المستوى",
+      "back": "\\(\\overrightarrow{P_0P}\\cdot\\vec n=0\\)"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>المستوى \\(x-2y+z=3\\). أي نقطة عليه؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\((1,1,1)\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\((3,0,0)\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\((0,0,0)\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>عوّض كل نقطة.</p>",
+        "solution": "<p>\\((3,0,0)\\): \\(3=3\\) صح. \\((1,1,1)\\): \\(1-2+1=0\\neq3\\). \\((0,0,0)\\): \\(0\\neq3\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>المستوى المار بـ \\((2,0,0)\\) ونورماله \\((1,1,1)\\) هو \\(x+y+z+d=0\\). كم \\(d\\)؟</p>",
+        "answer": [
+          "-2"
+        ],
+        "hint": "<p>عوّض النقطة.</p>",
+        "solution": "<p>\\(2+0+0+d=0\\) فـ \\(d=-2\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>بدك تلاقي نورمال لمستوى فيه المتجهين \\(\\vec v,\\vec u\\). شو بتعمل؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(\\vec v\\cdot\\vec u\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(\\vec v\\times\\vec u\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(\\vec v+\\vec u\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>بدك متجه عمودي على الاتنين.</p>",
+        "solution": "<p>الضرب المتجهي. الضرب السلمي بيعطي عدد، والجمع بيعطي متجه داخل المستوى.</p>"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "code": "11102",
+  "title": "جبر 1 (אלגברה 1מח)",
+  "desc": "متجهات، أعداد مركّبة، مصفوفات وفضاءات متجهية — بترتيب حوبرة أوفير شنابل.",
+  "subject": "math",
+  "chapters": [
+    {
+      "n": 1,
+      "slug": "vectors-geometry",
+      "title": "المتجهات والهندسة التحليلية (ווקטורים וגיאומטריה אנליטית)",
+      "lead": "متجهات بـ R^n، ضرب سلمي ومتجهي، مستويات وخطوط.",
+      "isExam": false,
+      "lessons": [
+        "vectors",
+        "dot-product",
+        "cross-product",
+        "plane-equation",
+        "lines"
+      ]
+    },
+    {
+      "n": 2,
+      "slug": "complex-numbers",
+      "title": "الأعداد المركّبة (מספרים מרוכבים)",
+      "lead": "شو هو العدد المركّب، العمليات عليه، والتمثيل القطبي.",
+      "isExam": false,
+      "lessons": [
+        "complex-numbers",
+        "polar-form"
+      ]
+    }
+  ]
+}

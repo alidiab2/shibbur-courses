@@ -1,0 +1,779 @@
+{
+  "slug": "polar-form",
+  "title": "التمثيل القطبي",
+  "he": "הצגה קוטבית של מספר מרוכב",
+  "ref": "חוברת §2.1 · עמ׳ 17–20",
+  "minutes": 26,
+  "desc": "الراديوس والزاوية، الضرب ودي مواڤر والمعكوس، والجذور من الرتبة n.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p>الشكل <b>a+ib</b> ممتاز للجمع، بس الضرب والقوى بتصير مرهقة فيه. الشكل القطبي بيخلّي الضرب والرفع للقوة والجذور سهلين جداً.</p><p><b>بهالدرس:</b></p><ol><li>مسافة وزاوية بدل \\((a,b)\\)</li><li>الشكل القطبي \\(r\\,\\mathrm{cis}(\\theta)\\) (<bdi>הצגה קוטבית</bdi>)</li><li>الزاوية والأرغومنت (<bdi>ארגומנט</bdi>)</li><li>التحويل بين الشكلين</li><li>ضرب الأعداد القطبية، دي مواڤر والمعكوس</li><li>الجذور من الرتبة \\(n\\) (<bdi>שורש מסדר n</bdi>)</li></ol>"
+    },
+    {
+      "t": "h",
+      "text": "1 · مسافة وزاوية بدل (a, b)"
+    },
+    {
+      "t": "p",
+      "html": "<p>لحد هسا كتبنا \\(z=a+ib\\). هاي اسمها <b>الصيغة الكرتيزية</b> أو الجبرية (<bdi>הצגה קרטזית / אלגברית</bdi>). هي سهلة للجمع والطرح، بس صعبة للضرب ولرفع العدد لقوة عالية.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>في طريقة تانية نحدد فيها النقطة \\(z\\) على المستوى: بنقول <b>كم بعيدة عن الأصل</b> و <b>بأي اتجاه</b>.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "النقطة z محددة بطريقتين: بالضلعين a و b، أو بالبعد r عن الأصل والزاوية θ",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 290\" role=\"img\" aria-label=\"النقطة z محددة بطريقتين: بالضلعين a و b، أو بالبعد r عن الأصل والزاوية θ\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"40\" y1=\"240\" x2=\"452.4\" y2=\"240\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"470,240 448,249.9 448,230.1\"/><line class=\"fk-line t-mut\" x1=\"80\" y1=\"270\" x2=\"80\" y2=\"37.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"80,20 89.9,42 70.1,42\"/><circle class=\"fk-dot t-mut\" cx=\"80\" cy=\"240\" r=\"6\"/></g><circle class=\"fk-dot t-1\" cx=\"248.5\" cy=\"98.6\" r=\"10\"/><text class=\"fk-t t-1\" x=\"260.5\" y=\"86.6\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z</text><g data-until=\"1\"><line class=\"fk-line dash t-2\" x1=\"80\" y1=\"240\" x2=\"248.5\" y2=\"240\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-until=\"1\"><line class=\"fk-line dash t-2\" x1=\"248.5\" y1=\"240\" x2=\"248.5\" y2=\"98.6\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-until=\"1\"><text class=\"fk-t t-2\" x=\"164.3\" y=\"268\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a</text></g><g data-until=\"1\"><text class=\"fk-t t-2\" x=\"262.5\" y=\"177.3\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">b</text></g><g data-step=\"2\"><line class=\"fk-line t-good\" x1=\"80\" y1=\"240\" x2=\"248.5\" y2=\"98.6\" stroke-width=\"5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"157.9\" y=\"154.9\" font-size=\"26\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">r</text></g><g data-step=\"3\"><path class=\"fk-curve t-1\" d=\"M142,240 C141.9,238.8 141.9,235.2 141.6,232.8 C141.3,230.4 140.9,228 140.3,225.7 C139.8,223.4 139.1,221 138.3,218.8 C137.4,216.5 136.5,214.3 135.4,212.2 C134.3,210 133.1,207.9 131.8,205.9 C130.5,203.9 128.2,201.1 127.5,200.1\" stroke-width=\"5\" style=\"fill:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-1\" x=\"166.5\" y=\"216.5\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">θ</text></g></svg>",
+      "frames": [
+        {
+          "caption": "الطريقة القديمة: نمشي \\(a\\) أفقياً و \\(b\\) عمودياً."
+        },
+        {
+          "caption": "الطريقة الجديدة: أول شي <b>المسافة</b> \\(r\\) عن الأصل."
+        },
+        {
+          "caption": "وبعدين <b>الزاوية</b> \\(\\theta\\) من المحور الحقيقي الموجب."
+        }
+      ],
+      "title": "طريقتين لتحديد \\(z\\)"
+    },
+    {
+      "t": "p",
+      "html": "<p>بالتفصيل: \\(r\\) اللي عرفناه قبل \\(r=|z|\\) ونسميه <b>الراديوس</b> (<bdi>רדיוס</bdi>). و \\(\\theta\\) هي الزاوية بين المحور الأفقي (<bdi>ציר Re</bdi>) وبين المتجه من الأصل لـ \\(z\\)، بعكس عقارب الساعة.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بما إنو كل عدد مركّب إله نقطة واحدة وكل نقطة إلها عدد واحد، فبنقدر نحدد \\(z\\) بالزوج \\((r,\\theta)\\) بدل \\((a,b)\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הצגה קוטבית</bdi>",
+      "html": "<ul><li>\\(r=|z|\\): بعد \\(z\\) عن الأصل (<bdi>רדיוס</bdi>)</li><li>\\(\\theta\\): الزاوية بين الاتجاه الموجب لمحور \\(\\mathrm{Re}\\) والمتجه اللي بيوصل الأصل بـ \\(z\\)</li></ul>"
+    },
+    {
+      "t": "h",
+      "text": "2 · الشكل القطبي r cis(θ)"
+    },
+    {
+      "t": "p",
+      "html": "<p>نرسم مثلث قائم الزاوية: الوتر \\(r\\) والضلعين \\(a\\) و \\(b\\). من علم المثلثات (الجيب وجيب التمام) منقدر نحسب \\(a\\) و \\(b\\) من \\(r\\) و \\(\\theta\\).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "مثلث قائم الوتر r والزاوية θ؛ الضلع الأفقي a = r cos θ والعمودي b = r sin θ",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 290\" role=\"img\" aria-label=\"مثلث قائم الوتر r والزاوية θ؛ الضلع الأفقي a = r cos θ والعمودي b = r sin θ\" class=\"fk\"><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"50\" y1=\"220\" x2=\"284.8\" y2=\"220\" stroke-width=\"5\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line t-2\" x1=\"284.8\" y1=\"220\" x2=\"284.8\" y2=\"67.5\" stroke-width=\"5\" stroke-linecap=\"round\"/></g><line class=\"fk-line t-1\" x1=\"50\" y1=\"220\" x2=\"284.8\" y2=\"67.5\" stroke-width=\"5.5\" stroke-linecap=\"round\"/><circle class=\"fk-dot t-1\" cx=\"284.8\" cy=\"67.5\" r=\"9\"/><text class=\"fk-t t-1\" x=\"294.8\" y=\"57.5\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z</text><text class=\"fk-t t-1\" x=\"153.4\" y=\"137.8\" font-size=\"26\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">r</text><path class=\"fk-curve t-1\" d=\"M116,220 C115.9,218.9 115.9,215.8 115.7,213.7 C115.5,211.6 115.2,209.5 114.8,207.4 C114.4,205.3 113.9,203.3 113.3,201.3 C112.7,199.2 112,197.2 111.2,195.3 C110.4,193.3 109.5,191.4 108.5,189.5 C107.6,187.7 105.9,185 105.4,184.1\" stroke-width=\"5\" style=\"fill:none\"/><text class=\"fk-t t-1\" x=\"142.3\" y=\"201.5\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">θ</text><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"167.4\" y=\"254\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a = r cos(θ)</text></g><g data-step=\"3\"><text class=\"fk-t t-2\" x=\"298.8\" y=\"151.8\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">b = r sin(θ)</text></g></svg>",
+      "frames": [
+        {
+          "caption": "الوتر \\(r\\) والزاوية \\(\\theta\\)."
+        },
+        {
+          "caption": "الضلع المجاور للزاوية: \\(a=r\\cos(\\theta)\\)."
+        },
+        {
+          "caption": "الضلع المقابل للزاوية: \\(b=r\\sin(\\theta)\\)."
+        }
+      ],
+      "title": "\\(a\\) و \\(b\\) من \\(r\\) و \\(\\theta\\)"
+    },
+    {
+      "t": "p",
+      "html": "<p>والعكس: من \\(a\\) و \\(b\\) منحسب \\(r\\) بفيثاغورس و \\(\\theta\\) بالـ \\(\\arctan\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "التحويل · <bdi>המעבר</bdi>",
+      "html": "<p>\\[\\begin{cases}a=r\\cos(\\theta)\\\\ b=r\\sin(\\theta)\\end{cases}\\]</p><p>\\[\\begin{cases}r=\\sqrt{a^2+b^2}\\\\ \\theta=\\arctan\\!\\left(\\tfrac ba\\right)\\end{cases}\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>هسا منعوّض \\(a\\) و \\(b\\) بالصيغة \\(z=a+ib\\) ومنخرج \\(r\\) عامل مشترك:</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>cis</bdi>",
+      "html": "<p>\\[z=a+ib=r\\cos(\\theta)+ir\\sin(\\theta)=r\\big(\\cos(\\theta)+i\\sin(\\theta)\\big):=r\\,\\mathrm{cis}(\\theta)\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>\\(\\mathrm{cis}(\\theta)\\) هو اختصار لـ \\(\\cos\\theta+i\\sin\\theta\\). مثال سريع: \\(2\\,\\mathrm{cis}(0^\\circ)=2\\) و \\(2\\,\\mathrm{cis}(90^\\circ)=2i\\).</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>ما هو الشكل القطبي لـ \\(z=1+i\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(\\sqrt2\\,\\mathrm{cis}(45^\\circ)\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(2\\,\\mathrm{cis}(45^\\circ)\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(\\sqrt2\\,\\mathrm{cis}(135^\\circ)\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(\\mathrm{cis}(45^\\circ)\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>احسب \\(r=\\sqrt{a^2+b^2}\\) أولاً، وبعدين \\(\\arctan(b/a)\\).</p>",
+        "solution": "<p>\\(r=\\sqrt{1+1}=\\sqrt2\\) و \\(\\theta=\\arctan(1)=45^\\circ\\). الخيار \\(2\\,\\mathrm{cis}\\) نسي الجذر (حسب \\(a+b\\) أو \\(a^2+b^2\\)). الخيار \\(\\mathrm{cis}(45^\\circ)\\) نسي الراديوس.</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "3 · الزاوية والأرغומنت (ארגומנט)"
+    },
+    {
+      "t": "p",
+      "html": "<p>الزاوية مش وحيدة. إذا لفّيت دورة كاملة (\\(360^\\circ\\)) بترجع لنفس النقطة، فهاي زاويا مختلفة لنفس العدد.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "الزاوية 20 درجة والزاوية 380 درجة تعطيان نفس الاتجاه، فهما نفس العدد المركب",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"الزاوية 20 درجة والزاوية 380 درجة تعطيان نفس الاتجاه، فهما نفس العدد المركب\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"110\" y1=\"150\" x2=\"432.4\" y2=\"150\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"450,150 428,159.9 428,140.1\"/><line class=\"fk-line t-mut\" x1=\"150\" y1=\"280\" x2=\"150\" y2=\"37.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"150,20 159.9,42 140.1,42\"/><circle class=\"fk-dot t-mut\" cx=\"150\" cy=\"150\" r=\"6\"/></g><line class=\"fk-line t-1\" x1=\"150\" y1=\"150\" x2=\"328.5\" y2=\"85\" stroke-width=\"5\" stroke-linecap=\"round\"/><circle class=\"fk-dot t-1\" cx=\"328.5\" cy=\"85\" r=\"9\"/><path class=\"fk-curve t-1\" d=\"M210,150 C210,149.4 210,147.7 209.9,146.5 C209.8,145.4 209.7,144.2 209.6,143 C209.5,141.9 209.3,140.7 209.1,139.6 C208.9,138.4 208.7,137.3 208.4,136.2 C208.1,135 207.8,133.9 207.5,132.8 C207.1,131.7 206.6,130 206.4,129.5\" stroke-width=\"5\" style=\"fill:none\"/><text class=\"fk-t t-1\" x=\"258\" y=\"140\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">20°</text><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M220,150 L220.1,140 L218.8,130.1 L216,120.2 L211.9,110.8 L206.4,102 L199.6,93.9 L191.7,86.8 L182.7,80.9 L172.9,76.2 L162.4,72.9 L151.5,71.1 L140.3,70.9 L129,72.3 L118,75.3 L107.4,79.8 L97.4,85.9 L88.3,93.4 L80.3,102.1 L73.5,112.1 L68.2,122.9 L64.4,134.6 L62.3,146.7 L61.9,159.2 L63.3,171.7 L66.4,184 L71.3,195.8 L77.9,206.9 L86.1,217.1 L95.7,226 L106.6,233.6 L118.5,239.7 L131.3,244 L144.6,246.5 L158.3,247.1 L172.1,245.8 L185.6,242.5 L198.7,237.3 L210.9,230.2 L222.2,221.4 L232.2,211 L240.6,199.2 L247.4,186.3 L252.3,172.4 L255.3,157.8 L256.1,142.9 L254.9,127.9 L251.5,113.1\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"250\" y=\"268\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">380°</text></g></svg>",
+      "frames": [
+        {
+          "caption": "\\(r\\,\\mathrm{cis}(20^\\circ)\\): الاتجاه \\(20^\\circ\\)."
+        },
+        {
+          "caption": "نلف دورة كاملة وزيادة \\(20^\\circ\\): \\(380^\\circ\\). نفس الاتجاه بالضبط."
+        }
+      ],
+      "title": "زاويتين لنفس النقطة"
+    },
+    {
+      "t": "box",
+      "kind": "note",
+      "title": "ملاحظة · <bdi>הערה 2.16 (1)</bdi>",
+      "html": "<p>\\(r\\,\\mathrm{cis}(20^\\circ)=r\\,\\mathrm{cis}(380^\\circ)\\) لأنو \\(380=20+360\\). لهيك الزاوية معرّفة بالضبط حتى إضافة وطرح مضاعفات \\(360^\\circ\\). منرمز لكل الزوايا المناسبة لـ \\(z\\) بـ</p><p>\\[\\arg(z)=\\{\\theta+2\\pi k:\\ k\\in\\mathbb{Z}\\}\\]</p><p>وهاد هو <b>الأرغومنت</b> (<bdi>ארגומנט</bdi>) لـ \\(z\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>المشكلة التانية: \\(\\arctan\\) بيعطي دايماً زاوية بين \\(-90^\\circ\\) و \\(90^\\circ\\)، يعني ما بيفرّق بين ربعين. لازم تتأكد بنفسك بأي ربع النقطة.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "العددان −1+i√3 و 1−i√3 لهما نفس النسبة b/a لكنهما في ربعين مختلفين: زاويتاهما 120 و 300 درجة",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 330\" role=\"img\" aria-label=\"العددان −1+i√3 و 1−i√3 لهما نفس النسبة b/a لكنهما في ربعين مختلفين: زاويتاهما 120 و 300 درجة\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"90\" y1=\"162\" x2=\"372.4\" y2=\"162\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"390,162 368,171.9 368,152.1\"/><line class=\"fk-line t-mut\" x1=\"240\" y1=\"312\" x2=\"240\" y2=\"29.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,12 249.9,34 230.1,34\"/><circle class=\"fk-dot t-mut\" cx=\"240\" cy=\"162\" r=\"6\"/></g><circle class=\"fk-dot t-1\" cx=\"170\" cy=\"40.8\" r=\"10\"/><text class=\"fk-t t-1\" x=\"158\" y=\"32.8\" font-size=\"26\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">z</text><circle class=\"fk-dot t-2\" cx=\"310\" cy=\"283.2\" r=\"10\"/><text class=\"fk-t t-2\" x=\"322\" y=\"307.2\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">w</text><g data-step=\"2\"><line class=\"fk-line dash t-mut\" x1=\"170\" y1=\"40.8\" x2=\"310\" y2=\"283.2\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line t-1\" x1=\"240\" y1=\"162\" x2=\"170\" y2=\"40.8\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><path class=\"fk-curve t-1\" d=\"M276,162 L275.6,157 L274.6,152.1 L272.9,147.4 L270.5,142.9 L267.6,138.9 L264.1,135.2 L260.1,132.2 L255.8,129.6 L251.1,127.8 L246.3,126.5 L241.3,126 L236.2,126.2 L231.3,127.1 L226.5,128.6 L222,130.8\" stroke-width=\"5\" style=\"fill:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-1\" x=\"252.1\" y=\"105.3\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">120°</text></g><g data-step=\"4\"><line class=\"fk-line t-2\" x1=\"240\" y1=\"162\" x2=\"310\" y2=\"283.2\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-step=\"4\"><path class=\"fk-curve t-2\" d=\"M328,162 L327.1,149.6 L324.5,137.4 L320.2,125.8 L314.3,114.8 L306.9,104.8 L298.1,95.9 L288.2,88.4 L277.4,82.3 L265.8,77.9 L253.6,75.1 L241.2,74 L228.8,74.7 L216.6,77.2 L204.9,81.3 L193.9,87.1 L183.8,94.3 L174.8,102.9 L167.1,112.7 L160.9,123.5 L156.2,135 L153.3,147.1 L152,159.5 L152.6,171.9 L154.8,184.2 L158.8,196 L164.4,207.1 L171.5,217.3 L180,226.4 L189.7,234.2 L200.4,240.6 L211.9,245.4 L223.9,248.5 L236.3,249.9 L248.7,249.6 L261,247.5 L272.8,243.7 L284,238.2\" stroke-width=\"5\" style=\"fill:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-2\" x=\"321.2\" y=\"242.3\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">300°</text></g></svg>",
+      "frames": [
+        {
+          "caption": "\\(z\\) بالربع الثاني و \\(w\\) بالربع الرابع."
+        },
+        {
+          "caption": "النسبة \\(\\tfrac ba=-\\sqrt3\\) نفسها للاثنين: الـ \\(\\arctan\\) لحاله ما بيفرق."
+        },
+        {
+          "caption": "من الرسمة: \\(z\\) بالربع الثاني فزاويتها \\(120^\\circ\\)."
+        },
+        {
+          "caption": "و \\(w\\) بالربع الرابع فزاويتها \\(300^\\circ\\)."
+        }
+      ],
+      "title": "\\(z=-1+i\\sqrt3\\) و \\(w=1-i\\sqrt3\\)"
+    },
+    {
+      "t": "box",
+      "kind": "note",
+      "title": "ملاحظة · <bdi>הערה 2.16 (2)</bdi>",
+      "html": "<p>عند \\(a\\neq0\\) في زاويتين \\(0\\le\\theta<2\\pi\\) بيحققوا \\(\\theta=\\arctan(\\tfrac ba)\\). لتحدد أي وحدة بتناسب \\(z\\) لازم تشوف بأي ربع هي. مثلاً \\(\\tfrac ba=-\\sqrt3\\) لـ \\(z=-1+i\\sqrt3\\) و \\(w=1-i\\sqrt3\\): \\(z\\) بالربع الثاني فزاويتها \\(120^\\circ\\)، و \\(w\\) بالرابع فزاويتها \\(300^\\circ\\).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "note",
+      "title": "تذكير (مش من الكتيب)",
+      "html": "<p>لو \\(a=0\\) ما منقدر نقسم \\(b/a\\). بهالحالة \\(z\\) على المحور التخيلي: زاويتها \\(90^\\circ\\) إذا \\(b>0\\) و \\(270^\\circ\\) إذا \\(b<0\\).</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>ملاحظة التالتة: المرافق بيعكس الزاوية.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "z = r cis θ في الأعلى ومرافقه r cis(−θ) في الأسفل بنفس الطول وزاوية معاكسة",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"z = r cis θ في الأعلى ومرافقه r cis(−θ) في الأسفل بنفس الطول وزاوية معاكسة\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"70\" y1=\"150\" x2=\"422.4\" y2=\"150\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"440,150 418,159.9 418,140.1\"/><line class=\"fk-line t-mut\" x1=\"110\" y1=\"280\" x2=\"110\" y2=\"37.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"110,20 119.9,42 100.1,42\"/><circle class=\"fk-dot t-mut\" cx=\"110\" cy=\"150\" r=\"6\"/></g><line class=\"fk-line t-1\" x1=\"110\" y1=\"150\" x2=\"248.6\" y2=\"53\" stroke-width=\"4.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"265.6,41 251.1,65.5 237.6,46.3\"/><text class=\"fk-t t-1\" x=\"275.6\" y=\"33\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z</text><path class=\"fk-curve t-1\" d=\"M170,150 C169.9,149 169.9,145.9 169.7,143.9 C169.5,141.9 169.2,139.9 168.8,137.9 C168.3,135.9 167.8,133.9 167.2,132 C166.6,130 165.9,128.1 165.1,126.2 C164.3,124.4 163.4,122.5 162.4,120.8 C161.4,119 159.7,116.4 159.1,115.6\" stroke-width=\"4.5\" style=\"fill:none\"/><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"110\" y1=\"150\" x2=\"248.6\" y2=\"247\" stroke-width=\"4.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"265.6,259 237.6,253.7 251.1,234.5\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"275.6\" y=\"285\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z̄</text></g><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M192,150 C191.9,151.4 191.9,155.6 191.6,158.3 C191.3,161.1 190.9,163.9 190.3,166.6 C189.7,169.3 189,172 188.2,174.7 C187.4,177.3 186.4,179.9 185.3,182.5 C184.2,185 183,187.5 181.6,190 C180.2,192.4 177.9,195.9 177.2,197\" stroke-width=\"4.5\" style=\"fill:none\"/></g><text class=\"fk-t t-1\" x=\"220\" y=\"130\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">θ</text><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"230\" y=\"186\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">−θ</text></g></svg>",
+      "frames": [
+        {
+          "caption": "\\(z=r\\,\\mathrm{cis}(\\theta)\\)."
+        },
+        {
+          "caption": "\\(\\overline z\\): نفس \\(r\\) وزاوية \\(-\\theta\\)."
+        }
+      ],
+      "title": "المرافق بزاوية معاكسة"
+    },
+    {
+      "t": "box",
+      "kind": "note",
+      "title": "ملاحظة · <bdi>הערה 2.16 (3)</bdi>",
+      "html": "<p>إذا \\(z=r\\,\\mathrm{cis}(\\theta)\\) فإن \\(\\overline z=r\\,\\mathrm{cis}(-\\theta)\\).</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>لـ \\(z=-1-i\\)، ما زاويتها \\(\\theta\\) بين \\(0\\) و \\(360^\\circ\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(45^\\circ\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(135^\\circ\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(225^\\circ\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(315^\\circ\\)"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "hint": "<p>\\(\\arctan(1)=45^\\circ\\) بس بأي ربع النقطة \\((-1,-1)\\)؟</p>",
+        "solution": "<p>النقطة بالربع الثالث (سالب سالب)، فالزاوية \\(45^\\circ+180^\\circ=225^\\circ\\). الخيار \\(45^\\circ\\) هو خطأ الـ \\(\\arctan\\) من غير فحص الربع.</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "4 · التحويل بين الشكلين"
+    },
+    {
+      "t": "p",
+      "html": "<p>نمرّن على الاتجاهين. أول شي من القطبي للعادي: نحسب \\(a=r\\cos\\theta\\) و \\(b=r\\sin\\theta\\).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "النقطة 3cis(270°) هي 3 وحدات تحت الأصل على المحور التخيلي: العدد −3i",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 290\" role=\"img\" aria-label=\"النقطة 3cis(270°) هي 3 وحدات تحت الأصل على المحور التخيلي: العدد −3i\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"90\" y1=\"130\" x2=\"372.4\" y2=\"130\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"390,130 368,139.9 368,120.1\"/><line class=\"fk-line t-mut\" x1=\"240\" y1=\"265\" x2=\"240\" y2=\"27.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,10 249.9,32 230.1,32\"/><circle class=\"fk-dot t-mut\" cx=\"240\" cy=\"130\" r=\"6\"/></g><g data-step=\"1\"><line class=\"fk-line t-1\" x1=\"240\" y1=\"130\" x2=\"240\" y2=\"227.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"240,250 227.4,222 252.6,222\"/></g><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M285,130 L284.5,123.6 L283.2,117.3 L280.9,111.3 L277.9,105.7 L274,100.5 L269.5,96 L264.3,92.1 L258.7,89.1 L252.7,86.8 L246.4,85.5 L240,85 L233.6,85.5 L227.3,86.8 L221.3,89.1 L215.7,92.1 L210.5,96 L206,100.5 L202.1,105.7 L199.1,111.3 L196.8,117.3 L195.5,123.6 L195,130 L195.5,136.4 L196.8,142.7 L199.1,148.7 L202.1,154.3 L206,159.5 L210.5,164 L215.7,167.9 L221.3,170.9 L227.3,173.2 L233.6,174.5 L240,175\" stroke-width=\"5\" style=\"fill:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"294\" y=\"170\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">270°</text></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"240\" cy=\"250\" r=\"11\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"254\" y=\"252\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z = −3i</text></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"252\" y=\"200\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text></g></svg>",
+      "frames": [
+        {
+          "caption": "الراديوس \\(3\\)."
+        },
+        {
+          "caption": "نلف \\(270^\\circ\\) بعكس عقارب الساعة (ثلاث أرباع دورة)."
+        },
+        {
+          "caption": "منوصل للمحور التخيلي السالب: \\(z=-3i\\)."
+        }
+      ],
+      "title": "\\(3\\,\\mathrm{cis}(270^\\circ)\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 2.17</bdi>",
+      "html": "<p>جد الصيغة الكرتيزية لـ \\(z=3\\,\\mathrm{cis}(270^\\circ)\\).</p><p>\\[\\begin{cases}a=3\\cos(270^\\circ)=0\\\\ b=3\\sin(270^\\circ)=-3\\end{cases}\\quad\\Rightarrow\\quad z=-3i\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>هسا الاتجاه التاني: من العادي للقطبي. أول \\(r\\) وبعدين \\(\\theta\\).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "العدد 1+i√3: ضلعاه 1 و √3 والوتر 2 والزاوية 60 درجة",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"العدد 1+i√3: ضلعاه 1 و √3 والوتر 2 والزاوية 60 درجة\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"40\" y1=\"240\" x2=\"432.4\" y2=\"240\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"450,240 428,249.9 428,230.1\"/><line class=\"fk-line t-mut\" x1=\"70\" y1=\"270\" x2=\"70\" y2=\"27.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"70,10 79.9,32 60.1,32\"/><circle class=\"fk-dot t-mut\" cx=\"70\" cy=\"240\" r=\"6\"/></g><line class=\"fk-line t-2\" x1=\"70\" y1=\"240\" x2=\"150\" y2=\"240\" stroke-width=\"5\" stroke-linecap=\"round\"/><line class=\"fk-line t-2\" x1=\"150\" y1=\"240\" x2=\"150\" y2=\"101.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><circle class=\"fk-dot t-1\" cx=\"150\" cy=\"101.4\" r=\"10\"/><text class=\"fk-t t-1\" x=\"162\" y=\"93.4\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z = 1 + i√3</text><g data-step=\"1\"><text class=\"fk-t t-2\" x=\"110\" y=\"270\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a = 1</text></g><g data-step=\"1\"><text class=\"fk-t t-2\" x=\"164\" y=\"178.7\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">b = √3</text></g><g data-step=\"2\"><line class=\"fk-line t-good\" x1=\"70\" y1=\"240\" x2=\"150\" y2=\"101.4\" stroke-width=\"5.5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"96\" y=\"166.7\" font-size=\"24\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">r = 2</text></g><g data-step=\"3\"><path class=\"fk-curve t-1\" d=\"M96,240 C96,239.4 95.9,237.4 95.7,236.1 C95.5,234.8 95.2,233.6 94.8,232.3 C94.5,231.1 94,229.9 93.4,228.7 C92.9,227.6 92.2,226.4 91.5,225.4 C90.8,224.3 89.9,223.3 89.1,222.3 C88.2,221.4 87.2,220.5 86.2,219.7 C85.2,218.9 83.5,217.8 83,217.5\" stroke-width=\"5\" style=\"fill:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-1\" x=\"126\" y=\"232\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">60°</text></g></svg>",
+      "frames": [
+        {
+          "caption": "الضلعان \\(a=1\\) و \\(b=\\sqrt3\\)."
+        },
+        {
+          "caption": "\\(r=\\sqrt{1+3}=2\\)."
+        },
+        {
+          "caption": "\\(\\theta=\\arctan(\\sqrt3)=60^\\circ\\)."
+        }
+      ],
+      "title": "\\(1+i\\sqrt3\\) للشكل القطبي"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 2.18</bdi>",
+      "html": "<p>جد الصيغة القطبية لـ \\(z=1+i\\sqrt3\\).</p><p>\\[\\begin{cases}r=\\sqrt{a^2+b^2}=\\sqrt4=2\\\\ \\theta=\\arctan(\\tfrac ba)=\\arctan(\\sqrt3)=60^\\circ\\end{cases}\\quad\\Rightarrow\\quad z=2\\,\\mathrm{cis}(60^\\circ)\\]</p>"
+    },
+    {
+      "t": "method",
+      "title": "من a+ib للشكل القطبي",
+      "steps": [
+        "احسب \\(r=\\sqrt{a^2+b^2}\\).",
+        "احسب \\(\\arctan(b/a)\\) (إذا \\(a\\ne0\\)).",
+        "شوف بأي ربع النقطة \\((a,b)\\) وصحّح الزاوية (زيد \\(180^\\circ\\) إذا \\(a<0\\)).",
+        "اكتب \\(z=r\\,\\mathrm{cis}(\\theta)\\) وتأكد بالرجوع: \\(r\\cos\\theta=a\\)."
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>حوّل \\(z=2\\,\\mathrm{cis}(180^\\circ)\\) للشكل \\(a+ib\\). اكتب قيمة \\(a\\).</p>",
+        "answer": [
+          "-2"
+        ],
+        "hint": "<p>\\(a=r\\cos\\theta\\) و \\(\\cos180^\\circ=-1\\).</p>",
+        "solution": "<p>\\(a=2\\cos180^\\circ=-2\\) و \\(b=2\\sin180^\\circ=0\\). يعني \\(z=-2\\).</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "5 · الضرب بالشكل القطبي"
+    },
+    {
+      "t": "p",
+      "html": "<p>هون بتظهر قوة الشكل القطبي: الضرب صار <b>ضرب أطوال وجمع زوايا</b>.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "ضرب z = 2cis(20°) في w = 1.5cis(70°): الطول 3 والزاوية 90 درجة",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"ضرب z = 2cis(20°) في w = 1.5cis(70°): الطول 3 والزاوية 90 درجة\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"40\" y1=\"260\" x2=\"432.4\" y2=\"260\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"450,260 428,269.9 428,250.1\"/><line class=\"fk-line t-mut\" x1=\"70\" y1=\"280\" x2=\"70\" y2=\"37.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"70,20 79.9,42 60.1,42\"/><circle class=\"fk-dot t-mut\" cx=\"70\" cy=\"260\" r=\"6\"/></g><g data-step=\"1\"><line class=\"fk-line t-1\" x1=\"70\" y1=\"260\" x2=\"182\" y2=\"219.2\" stroke-width=\"4.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"201.6,212.1 181.1,232 173.1,210\"/></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"209.6\" y=\"202.1\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z</text></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"70\" y1=\"260\" x2=\"98.8\" y2=\"180.9\" stroke-width=\"4.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"105.9,161.3 108,189.8 86,181.8\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"95.9\" y=\"155.3\" font-size=\"26\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">w</text></g><g data-step=\"3\"><line class=\"fk-line t-good\" x1=\"70\" y1=\"260\" x2=\"70\" y2=\"72.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"70,50 82.6,78 57.4,78\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"82\" y=\"56\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">zw</text></g><g data-step=\"3\"><path class=\"fk-curve t-1\" d=\"M170,260 C170,259 169.9,256.1 169.8,254.2 C169.7,252.3 169.5,250.3 169.3,248.4 C169.1,246.5 168.8,244.5 168.5,242.6 C168.1,240.7 167.8,238.8 167.3,236.9 C166.9,235.1 166.4,233.2 165.8,231.3 C165.2,229.5 164.3,226.7 164,225.8\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"3\"><path class=\"fk-curve t-2\" d=\"M187.5,217.2 C186.1,214.4 182.6,205.4 179.6,199.9 C176.5,194.3 173,188.9 169.2,183.9 C165.3,178.9 161,174.1 156.4,169.7 C151.9,165.3 146.9,161.2 141.7,157.6 C136.5,154 131,150.7 125.3,147.9 C119.6,145.1 113.6,142.7 107.6,140.8 C101.5,138.9 95.3,137.4 89,136.5 C82.8,135.5 73.2,135.2 70,135\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-1\" x=\"182\" y=\"254\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">20°</text></g><g data-step=\"3\"><text class=\"fk-t t-2\" x=\"170\" y=\"125\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">+70°</text></g><g data-step=\"4\"><text class=\"fk-t t-good\" x=\"280\" y=\"80\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">90° = 20° + 70°</text></g></svg>",
+      "frames": [
+        {
+          "caption": "\\(z\\): الطول \\(2\\) والزاوية \\(20^\\circ\\)."
+        },
+        {
+          "caption": "\\(w\\): الطول \\(1.5\\) والزاوية \\(70^\\circ\\)."
+        },
+        {
+          "caption": "الجداء \\(zw\\): الطول \\(2\\cdot1.5=3\\)، وبنكمّل الدوران من \\(z\\)."
+        },
+        {
+          "caption": "الزاوية جمع الزاويتين: \\(90^\\circ\\). يعني \\(zw=3i\\)."
+        }
+      ],
+      "title": "\\(2\\,\\mathrm{cis}(20^\\circ)\\cdot1.5\\,\\mathrm{cis}(70^\\circ)\\)"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "משפט 2.19 · <bdi>משפט</bdi>",
+      "html": "<p>لكل \\(z,w\\in\\mathbb{C}\\) غير صفر، إذا \\(z=r_1\\mathrm{cis}(\\theta_1)\\) و \\(w=r_2\\mathrm{cis}(\\theta_2)\\) فإن</p><p>\\[zw=r_1r_2\\,\\mathrm{cis}(\\theta_1+\\theta_2)\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>البرهان بيعتمد على جيب وجيب تمام مجموع زاويتين. منفتح الأقواس ونعرف الشكل:</p>"
+    },
+    {
+      "t": "xq",
+      "q": "<p>أثبت أن \\(zw=r_1r_2\\,\\mathrm{cis}(\\theta_1+\\theta_2)\\).</p>",
+      "steps": [
+        {
+          "label": "نكتب الجداء",
+          "body": "<p>\\[zw=r_1(\\cos\\theta_1+i\\sin\\theta_1)\\,r_2(\\cos\\theta_2+i\\sin\\theta_2)\\]</p>"
+        },
+        {
+          "label": "نفتح الأقواس",
+          "body": "<p>\\[=r_1r_2\\big((\\cos\\theta_1\\cos\\theta_2-\\sin\\theta_1\\sin\\theta_2)+i(\\sin\\theta_1\\cos\\theta_2+\\cos\\theta_1\\sin\\theta_2)\\big)\\]</p><p>(استعملنا \\(i^2=-1\\) بالحد \\(i^2\\sin\\theta_1\\sin\\theta_2\\)).</p>"
+        },
+        {
+          "label": "قوانين مجموع زاويتين",
+          "body": "<p>الأولى هي \\(\\cos(\\theta_1+\\theta_2)\\) والتانية \\(\\sin(\\theta_1+\\theta_2)\\).</p>"
+        }
+      ],
+      "a": "<p>\\[zw=r_1r_2\\big(\\cos(\\theta_1+\\theta_2)+i\\sin(\\theta_1+\\theta_2)\\big)=r_1r_2\\,\\mathrm{cis}(\\theta_1+\\theta_2)\\ \\blacksquare\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>من المبرهنة بتطلع عدة نتائج حلوة. أول وحدة: الضرب <b>هندسياً</b>.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "الضرب هندسياً",
+      "html": "<p>بالضرب \\(z\\cdot w\\): منضرب الأطوال ومنجمع الزوايا.</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>جد \\(2\\,\\mathrm{cis}(20^\\circ)\\cdot3\\,\\mathrm{cis}(40^\\circ)\\).</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(6\\,\\mathrm{cis}(60^\\circ)\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(5\\,\\mathrm{cis}(60^\\circ)\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(6\\,\\mathrm{cis}(800^\\circ)\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(6\\,\\mathrm{cis}(20^\\circ)\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>الأطوال بتنضرب والزوايا بتنجمع.</p>",
+        "solution": "<p>الطول \\(2\\cdot3=6\\) والزاوية \\(20^\\circ+40^\\circ=60^\\circ\\). الخيار \\(5\\,\\mathrm{cis}\\) جمع الأطوال. الخيار \\(\\mathrm{cis}(800^\\circ)\\) ضرب الزوايا.</p>"
+      }
+    },
+    {
+      "t": "p",
+      "html": "<p>ثاني نتيجة: رفع العدد لقوة. لو ضربنا \\(z\\) بنفسه \\(n\\) مرات، الطول بيصير \\(r^n\\) والزاوية \\(n\\theta\\).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "z و z² و z³ بالزوايا θ و 2θ و 3θ وبأطوال r و r² و r³ تكبر",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"z و z² و z³ بالزوايا θ و 2θ و 3θ وبأطوال r و r² و r³ تكبر\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"30\" y1=\"270\" x2=\"422.4\" y2=\"270\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"440,270 418,279.9 418,260.1\"/><line class=\"fk-line t-mut\" x1=\"60\" y1=\"290\" x2=\"60\" y2=\"37.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"60,20 69.9,42 50.1,42\"/><circle class=\"fk-dot t-mut\" cx=\"60\" cy=\"270\" r=\"6\"/></g><g data-step=\"1\"><line class=\"fk-line t-1\" x1=\"60\" y1=\"270\" x2=\"128.2\" y2=\"238.2\" stroke-width=\"4.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"147,229.4 128.4,251 118.5,229.8\"/></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"157\" y=\"225.4\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z</text></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"60\" y1=\"270\" x2=\"120.7\" y2=\"197.7\" stroke-width=\"4.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"134,181.8 126.3,209.2 108.4,194.1\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"144\" y=\"177.8\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z²</text></g><g data-step=\"3\"><line class=\"fk-line t-good\" x1=\"60\" y1=\"270\" x2=\"90.4\" y2=\"156.6\" stroke-width=\"4.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"95.8,136.5 100.4,164.6 77.7,158.6\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"105.8\" y=\"132.5\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z³</text></g><g data-step=\"3\"><text class=\"fk-t t-mut\" x=\"460\" y=\"40\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"rtl\">كل ضربة: الطول × <tspan direction=\"ltr\" unicode-bidi=\"isolate\">r</tspan> والزاوية + θ</text></g></svg>",
+      "frames": [
+        {
+          "caption": "\\(z=r\\,\\mathrm{cis}(\\theta)\\)."
+        },
+        {
+          "caption": "\\(z^2=r^2\\,\\mathrm{cis}(2\\theta)\\)."
+        },
+        {
+          "caption": "\\(z^3=r^3\\,\\mathrm{cis}(3\\theta)\\)."
+        }
+      ],
+      "title": "القوى: الطول يكبر والزاوية تتضاعف"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "משפט דה־מואבר · <bdi>De Moivre</bdi>",
+      "html": "<p>لكل \\(n\\in\\mathbb{Z}\\) و \\(\\theta\\in\\mathbb{R}\\):</p><p>\\[\\big(r\\,\\mathrm{cis}(\\theta)\\big)^n=r^n\\,\\mathrm{cis}(n\\theta)\\]</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>احسب \\((\\mathrm{cis}(30^\\circ))^6\\) واكتبه كعدد حقيقي.</p>",
+        "answer": [
+          "-1"
+        ],
+        "hint": "<p>طبّق دي مواڤر: الزاوية بتضرب بـ \\(6\\).</p>",
+        "solution": "<p>\\(\\mathrm{cis}(180^\\circ)=\\cos180^\\circ+i\\sin180^\\circ=-1\\).</p>"
+      }
+    },
+    {
+      "t": "p",
+      "html": "<p>ثالث نتيجة: المعكوس الضربي. من الصيغة اللي شفناها \\(z^{-1}=\\frac{\\overline z}{|z|^2}\\) منعوّض \\(z=r\\,\\mathrm{cis}(\\theta)\\):</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "z بطول r وزاوية θ، ومعكوسه بطول 1/r وزاوية −θ تحت المحور",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"z بطول r وزاوية θ، ومعكوسه بطول 1/r وزاوية −θ تحت المحور\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"30\" y1=\"150\" x2=\"422.4\" y2=\"150\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"440,150 418,159.9 418,140.1\"/><line class=\"fk-line t-mut\" x1=\"60\" y1=\"270\" x2=\"60\" y2=\"37.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"60,20 69.9,42 50.1,42\"/><circle class=\"fk-dot t-mut\" cx=\"60\" cy=\"150\" r=\"6\"/></g><line class=\"fk-line t-1\" x1=\"60\" y1=\"150\" x2=\"139.8\" y2=\"83\" stroke-width=\"4.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"155.8,69.7 143.4,95.3 128.3,77.4\"/><text class=\"fk-t t-1\" x=\"165.8\" y=\"65.7\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z</text><g data-step=\"2\"><line class=\"fk-line t-good\" x1=\"60\" y1=\"150\" x2=\"105.3\" y2=\"188.1\" stroke-width=\"4.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"121.3,201.4 93.8,193.7 108.9,175.7\"/></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"131.3\" y=\"223.4\" font-size=\"26\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">z⁻¹</text></g><path class=\"fk-curve t-1\" d=\"M94,150 C94,149.3 93.9,147.4 93.8,146.1 C93.6,144.7 93.4,143.4 93.1,142.2 C92.8,140.9 92.4,139.6 91.9,138.4 C91.5,137.1 91,135.9 90.4,134.7 C89.8,133.6 89.1,132.4 88.4,131.3 C87.7,130.2 86.4,128.7 86,128.1\" stroke-width=\"4\" style=\"fill:none\"/><g data-step=\"2\"><path class=\"fk-curve t-good\" d=\"M110,150 C109.9,151 109.9,153.9 109.7,155.8 C109.4,157.7 109.1,159.6 108.7,161.5 C108.2,163.4 107.6,165.3 107,167.1 C106.3,168.9 105.6,170.7 104.7,172.4 C103.8,174.2 102.8,175.9 101.8,177.5 C100.7,179.1 98.9,181.4 98.3,182.1\" stroke-width=\"4\" style=\"fill:none\"/></g></svg>",
+      "frames": [
+        {
+          "caption": "\\(z=r\\,\\mathrm{cis}(\\theta)\\) كبير الطول."
+        },
+        {
+          "caption": "\\(z^{-1}\\): الطول بينقلب لـ \\(\\tfrac1r\\) (قصير) والزاوية بتعكس إشارتها."
+        }
+      ],
+      "title": "المعكوس الضربي"
+    },
+    {
+      "t": "xq",
+      "q": "<p>احسب \\(z^{-1}\\) لـ \\(z=r\\,\\mathrm{cis}(\\theta)\\).</p>",
+      "steps": [
+        {
+          "label": "الصيغة",
+          "body": "<p>\\[z^{-1}=\\frac{\\overline z}{|z|^2}=\\frac1{r^2}\\overline{(r\\cos\\theta+ir\\sin\\theta)}\\]</p>"
+        },
+        {
+          "label": "المرافق",
+          "body": "<p>\\[=\\frac1{r^2}\\,(r\\cos\\theta-ir\\sin\\theta)\\]</p>"
+        },
+        {
+          "label": "نخرج r",
+          "body": "<p>\\[=\\frac1r\\big(\\cos(-\\theta)+i\\sin(-\\theta)\\big)\\]</p>"
+        }
+      ],
+      "a": "<p>يعني \\(z^{-1}\\) إله القيمة المطلقة \\(\\tfrac1r=\\tfrac1{|z|}\\) وزاويته \\(-\\theta\\).</p>"
+    },
+    {
+      "t": "h",
+      "text": "6 · الجذور من الرتبة n (שורש מסדר n)"
+    },
+    {
+      "t": "p",
+      "html": "<p>من دي مواڤر منعرف نفتش عن عدد \\(w\\) بحيث \\(w^n=z\\). خد \\(z=r\\,\\mathrm{cis}(\\theta)\\) و \\(n\\in\\mathbb{N}\\) وعرّف:</p>"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "الجذر الأول",
+      "html": "<p>\\[w_0=\\sqrt[n]{r}\\,\\mathrm{cis}\\!\\left(\\tfrac{\\theta}{n}\\right)\\ \\Rightarrow\\ w_0^n=z\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بس في كمان! لأنو \\(\\theta\\) بتتحدد بإضافة \\(2\\pi k\\)، فكل \\(k\\) بيعطي جذر:</p>"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "الجذر رقم k",
+      "html": "<p>\\[w_k=\\sqrt[n]{r}\\,\\mathrm{cis}\\!\\left(\\tfrac{\\theta+2\\pi k}{n}\\right)\\ \\Rightarrow\\ w_k^n=z\\]</p>"
+    },
+    {
+      "t": "box",
+      "kind": "note",
+      "title": "ملاحظة · <bdi>הערה 2.20</bdi>",
+      "html": "<p>\\(w_n=w_0\\)، وبشكل أعم \\(w_k=w_{k+n}\\) لكل \\(k\\). يعني بعد \\(n\\) جذور بتبدأ القيم تتكرر.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 2.21</bdi>",
+      "html": "<p>لـ \\(z\\in\\mathbb{C}\\) و \\(n\\in\\mathbb{N}\\): العدد \\(w\\in\\mathbb{C}\\) هو <b>جذر من الرتبة \\(n\\)</b> (<bdi>שורש מסדר n</bdi>) لـ \\(z\\) إذا \\(w^n=z\\).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "ثلاثة جذور تكعيبية موزعة على دائرة نصف قطرها 2 بزوايا 40 و 160 و 280 درجة، بينهما 120 درجة",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 310\" role=\"img\" aria-label=\"ثلاثة جذور تكعيبية موزعة على دائرة نصف قطرها 2 بزوايا 40 و 160 و 280 درجة، بينهما 120 درجة\" class=\"fk\"><circle class=\"fk-curve t-mut\" cx=\"240\" cy=\"155\" r=\"108\" stroke-width=\"3\" style=\"fill:none\"/><g><line class=\"fk-line t-mut\" x1=\"102\" y1=\"155\" x2=\"360.4\" y2=\"155\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"378,155 356,164.9 356,145.1\"/><line class=\"fk-line t-mut\" x1=\"240\" y1=\"295\" x2=\"240\" y2=\"32.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,15 249.9,37 230.1,37\"/><circle class=\"fk-dot t-mut\" cx=\"240\" cy=\"155\" r=\"6\"/></g><g data-step=\"5\"><polygon class=\"fk-curve t-good\" points=\"322.7,85.6 138.5,118.1 258.8,261.4\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><line class=\"fk-line t-1\" x1=\"240\" y1=\"155\" x2=\"309.3\" y2=\"96.9\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"322.7,85.6 312.2,107.3 299.5,92.1\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"322.7\" cy=\"85.6\" r=\"10\"/></g><g data-step=\"2\"><text class=\"fk-t t-1\" x=\"341.1\" y=\"78.2\" font-size=\"26\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">w₀</text></g><g data-step=\"3\"><line class=\"fk-line t-2\" x1=\"240\" y1=\"155\" x2=\"155.1\" y2=\"124.1\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"138.5,118.1 162.6,116.3 155.8,134.9\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-2\" cx=\"138.5\" cy=\"118.1\" r=\"10\"/></g><g data-step=\"3\"><text class=\"fk-t t-2\" x=\"116\" y=\"117.9\" font-size=\"26\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">w₁</text></g><g data-step=\"4\"><line class=\"fk-line t-3\" x1=\"240\" y1=\"155\" x2=\"255.7\" y2=\"244\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-3\" points=\"258.8,261.4 245.2,241.4 264.7,238\"/></g><g data-step=\"4\"><circle class=\"fk-dot t-3\" cx=\"258.8\" cy=\"261.4\" r=\"10\"/></g><g data-step=\"4\"><text class=\"fk-t t-3\" x=\"262.9\" y=\"293\" font-size=\"26\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">w₂</text></g><g data-step=\"2\"><path class=\"fk-curve t-1\" d=\"M270,155 C270,154.4 269.9,152.7 269.8,151.5 C269.7,150.4 269.5,149.2 269.2,148.1 C268.9,147 268.6,145.8 268.2,144.7 C267.8,143.6 267.3,142.6 266.8,141.5 C266.3,140.5 265.7,139.5 265.1,138.5 C264.4,137.5 263.3,136.2 263,135.7\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"3\"><path class=\"fk-curve t-2\" d=\"M275.2,125.4 L270.8,120.8 L265.7,116.9 L260.2,113.7 L254.2,111.3 L248,109.7 L241.6,109 L235.2,109.3 L228.9,110.4 L222.8,112.3 L217,115.2 L211.7,118.8 L206.9,123 L202.8,128 L199.4,133.4 L196.8,139.3\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"4\"><path class=\"fk-curve t-3\" d=\"M196.8,139.3 L195,145.4 L194.1,151.8 L194.1,158.2 L195,164.6 L196.8,170.7 L199.4,176.6 L202.8,182 L206.9,187 L211.7,191.2 L217,194.8 L222.8,197.7 L228.9,199.6 L235.2,200.7 L241.6,201 L248,200.3\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-1\" x=\"280\" y=\"147\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">40°</text></g><g data-step=\"3\"><text class=\"fk-t t-2\" x=\"227.2\" y=\"82.1\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">+120°</text></g><g data-step=\"4\"><text class=\"fk-t t-3\" x=\"183.3\" y=\"210.6\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">+120°</text></g></svg>",
+      "frames": [
+        {
+          "caption": "الدائرة: نصف قطرها \\(\\sqrt[3]{r}=2\\)."
+        },
+        {
+          "caption": "الجذر الأول \\(w_0\\) بزاوية \\(\\tfrac\\theta3=40^\\circ\\)."
+        },
+        {
+          "caption": "كل \\(k\\) بيضيف \\(\\tfrac{360^\\circ}{3}=120^\\circ\\): \\(w_1\\)."
+        },
+        {
+          "caption": "\\(w_2\\) بعد \\(120^\\circ\\) كمان."
+        },
+        {
+          "caption": "بنوصل المثلث: جذور المعادلة \\(w^3=z\\) رؤوس مثلث متساوي الأضلاع."
+        }
+      ],
+      "title": "الجذور بتتوزع بالتساوي على دائرة"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "משפט 2.22 · <bdi>משפט</bdi>",
+      "html": "<p>لـ \\(z=r\\,\\mathrm{cis}(\\theta)\\) و \\(n\\in\\mathbb{N}\\): إلـ \\(z\\) بالضبط \\(n\\) جذور مختلفة من الرتبة \\(n\\)، وهي</p><p>\\[\\left\\{w_k=\\sqrt[n]{r}\\,\\mathrm{cis}\\!\\left(\\tfrac{\\theta+2\\pi k}{n}\\right)\\right\\}_{k=0}^{n-1}\\]</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>هسا المثال \\(2.23\\): نحل \\(z^3=-4+4\\sqrt3\\,i\\).</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "ثلاث خطوات: r = 8 فجذره التكعيبي 2، الزاوية 120 درجة، فالجذور 40 و 160 و 280",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"ثلاث خطوات: r = 8 فجذره التكعيبي 2، الزاوية 120 درجة، فالجذور 40 و 160 و 280\" class=\"fk\"><g data-step=\"1\"><rect class=\"fk-chip t-1\" x=\"16\" y=\"14\" width=\"448\" height=\"52\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"240\" y=\"47.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">r = √(16 + 48) = 8 ⇒ ∛r = 2</text></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"16\" y=\"80\" width=\"448\" height=\"52\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"113.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">arctan(−√3), Q2 ⇒ θ = 120°</text></g><g data-step=\"3\"><rect class=\"fk-chip t-3\" x=\"16\" y=\"146\" width=\"448\" height=\"52\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"240\" y=\"179.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">w_k = 2cis((120° + 360°k) / 3)</text></g><g data-step=\"4\"><rect class=\"fk-chip solid t-good\" x=\"16\" y=\"212\" width=\"448\" height=\"48\" rx=\"14\"/></g><g data-step=\"4\"><text class=\"fk-t t-on\" x=\"240\" y=\"244.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">40°  ,  160°  ,  280°</text></g></svg>",
+      "frames": [
+        {
+          "caption": "الطول: \\(r=8\\) فجذره التكعيبي \\(2\\)."
+        },
+        {
+          "caption": "الزاوية: \\(\\arctan(-\\sqrt3)\\) والنقطة بالربع الثاني: \\(120^\\circ\\)."
+        },
+        {
+          "caption": "منعوّض بالصيغة \\(w_k\\)."
+        },
+        {
+          "caption": "\\(k=0,1,2\\) بيعطوا ثلاث زوايا."
+        }
+      ],
+      "title": "حل \\(z^3=-4+4\\sqrt3\\,i\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 2.23</bdi>",
+      "html": "<p>جد كل حلول \\(z^3=-4+i4\\sqrt3\\).</p><p>الراديوس: \\(r=\\sqrt{(-4)^2+(4\\sqrt3)^2}=8\\)، فـ \\(\\sqrt[3]r=2\\).</p><p>الزاوية: \\(\\theta=\\arctan\\!\\Big(\\tfrac{4\\sqrt3}{-4}\\Big)=\\arctan(-\\sqrt3)\\). العدد بالربع الثاني فالزاوية \\(120^\\circ\\).</p><p>من الصيغة:</p><p>\\[w_0=2\\,\\mathrm{cis}(40^\\circ),\\quad w_1=2\\,\\mathrm{cis}(160^\\circ),\\quad w_2=2\\,\\mathrm{cis}(280^\\circ)\\]</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>كم جذر مختلف من الرتبة \\(5\\) لعدد مركّب \\(z\\neq0\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(5\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(1\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(2\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(10\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>حسب المبرهنة 2.22: عدد الجذور = الرتبة.</p>",
+        "solution": "<p>بالضبط \\(n=5\\) جذور (\\(k=0,\\dots,4\\)). بعد ذلك بتتكرر القيم (\\(w_5=w_0\\)).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>جذور \\(z^3=8\\) هي \\(2\\,\\mathrm{cis}(120^\\circ k)\\). كم زاوية الجذر \\(w_1\\) بالدرجات؟</p>",
+        "answer": [
+          "120"
+        ],
+        "hint": "<p>\\(8=8\\,\\mathrm{cis}(0^\\circ)\\) فـ \\(\\theta=0\\). عوّض في \\(\\tfrac{\\theta+360^\\circ k}{3}\\) مع \\(k=1\\).</p>",
+        "solution": "<p>\\(\\tfrac{0+360}{3}=120^\\circ\\).</p>"
+      }
+    },
+    {
+      "t": "mistakes",
+      "title": "أخطاء شائعة",
+      "rows": [
+        {
+          "no": "\\(\\theta=\\arctan(b/a)\\) دايماً بلا فحص الربع",
+          "yes": "شوف الربع: إذا \\(a<0\\) زيد \\(180^\\circ\\)"
+        },
+        {
+          "no": "ضرب: نجمع الأطوال",
+          "yes": "نضرب الأطوال ونجمع الزوايا"
+        },
+        {
+          "no": "\\((r\\,\\mathrm{cis}\\,\\theta)^n=r\\,\\mathrm{cis}(n\\theta)\\)",
+          "yes": "\\(r^n\\,\\mathrm{cis}(n\\theta)\\) (الطول كمان بيترفع للقوة)"
+        },
+        {
+          "no": "جذر \\(n\\) واحد بس",
+          "yes": "في \\(n\\) جذور، \\(k=0,\\dots,n-1\\)"
+        }
+      ]
+    },
+    {
+      "t": "checklist",
+      "title": "شو لازم تعرف من هالدرس",
+      "items": [
+        "الشكل القطبي \\(z=r\\,\\mathrm{cis}(\\theta)\\) (<bdi>הצגה קוטבית</bdi>) مقابل الكرتيزي (<bdi>הצגה קרטזית</bdi>)",
+        "\\(r=\\sqrt{a^2+b^2}\\)، \\(a=r\\cos\\theta\\)، \\(b=r\\sin\\theta\\)",
+        "الأرغومنت \\(\\arg(z)\\) (<bdi>ארגומנט</bdi>) محدد حتى \\(2\\pi k\\)، وفحص الربع",
+        "\\(\\overline z=r\\,\\mathrm{cis}(-\\theta)\\)",
+        "\\(zw=r_1r_2\\,\\mathrm{cis}(\\theta_1+\\theta_2)\\) و (<bdi>משפט דה־מואבר</bdi>) \\((r\\,\\mathrm{cis}\\theta)^n=r^n\\mathrm{cis}(n\\theta)\\)",
+        "\\(z^{-1}=\\tfrac1r\\,\\mathrm{cis}(-\\theta)\\)",
+        "\\(n\\) جذور (<bdi>שורש מסדר n</bdi>): \\(w_k=\\sqrt[n]r\\,\\mathrm{cis}\\big(\\tfrac{\\theta+2\\pi k}{n}\\big)\\)"
+      ]
+    },
+    {
+      "t": "card",
+      "front": "\\(r\\,\\mathrm{cis}(\\theta)\\) تعني؟",
+      "back": "\\(r(\\cos\\theta+i\\sin\\theta)\\)"
+    },
+    {
+      "t": "card",
+      "front": "\\(zw\\) بالقطبي؟",
+      "back": "\\(r_1r_2\\,\\mathrm{cis}(\\theta_1+\\theta_2)\\)"
+    },
+    {
+      "t": "card",
+      "front": "دي مواڤر؟",
+      "back": "\\((r\\,\\mathrm{cis}\\theta)^n=r^n\\,\\mathrm{cis}(n\\theta)\\)"
+    },
+    {
+      "t": "card",
+      "front": "جذور \\(z=r\\,\\mathrm{cis}\\theta\\) من الرتبة \\(n\\)؟",
+      "back": "\\(\\sqrt[n]r\\,\\mathrm{cis}\\big(\\tfrac{\\theta+2\\pi k}{n}\\big),\\ k=0..n-1\\)"
+    },
+    {
+      "t": "card",
+      "front": "\\(\\overline{r\\,\\mathrm{cis}\\theta}\\)؟",
+      "back": "\\(r\\,\\mathrm{cis}(-\\theta)\\)"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>ما قيمة \\((1+i)^8\\)؟ (تلميح: \\(1+i=\\sqrt2\\,\\mathrm{cis}(45^\\circ)\\))</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(16\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(8\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(16i\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(-16\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>طبّق دي مواڤر: الطول \\((\\sqrt2)^8\\) والزاوية \\(8\\cdot45^\\circ\\).</p>",
+        "solution": "<p>\\((\\sqrt2)^8=16\\) والزاوية \\(360^\\circ\\) فـ \\(\\mathrm{cis}(360^\\circ)=1\\). النتيجة \\(16\\). الخيار \\(8\\) رفع الجذر غلط.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>حلول \\(z^2=-4\\) هي:</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(2i\\) و \\(-2i\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(2\\) و \\(-2\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(4i\\) و \\(-4i\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(2i\\) فقط"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>\\(-4=4\\,\\mathrm{cis}(180^\\circ)\\). في جذرين (\\(n=2\\)).</p>",
+        "solution": "<p>\\(w_k=2\\,\\mathrm{cis}\\big(\\tfrac{180^\\circ+360^\\circ k}{2}\\big)\\): \\(k=0\\) يعطي \\(2\\,\\mathrm{cis}(90^\\circ)=2i\\) و \\(k=1\\) يعطي \\(2\\,\\mathrm{cis}(270^\\circ)=-2i\\).</p>"
+      }
+    },
+    {
+      "t": "xq",
+      "q": "<p>جد كل حلول \\(z^2=-1+i\\sqrt3\\) بالشكل القطبي.</p>",
+      "steps": [
+        {
+          "label": "الشكل القطبي للطرف الأيمن",
+          "body": "<p>\\(r=\\sqrt{1+3}=2\\). \\(\\arctan(-\\sqrt3)\\) والنقطة بالربع الثاني فـ \\(\\theta=120^\\circ\\).</p>"
+        },
+        {
+          "label": "الصيغة",
+          "body": "<p>\\(w_k=\\sqrt2\\,\\mathrm{cis}\\big(\\tfrac{120^\\circ+360^\\circ k}{2}\\big)\\)، \\(k=0,1\\).</p>"
+        }
+      ],
+      "a": "<p>\\(w_0=\\sqrt2\\,\\mathrm{cis}(60^\\circ)\\) و \\(w_1=\\sqrt2\\,\\mathrm{cis}(240^\\circ)\\).</p>"
+    }
+  ]
+}

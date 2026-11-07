@@ -1,0 +1,401 @@
+{
+  "slug": "dot-product",
+  "title": "الضرب السلمي (מכפלה סקלרית)",
+  "he": "מכפלה סקלרית",
+  "ref": "חוברת §1.1 · עמ׳ 4–6",
+  "minutes": 20,
+  "desc": "تعريف الضرب السلمي، حسابه بالإحداثيات، الزاوية، والتعامد.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p>الضرب السلمي هو أول عملية بتعطينا <b>عدد</b> من متجهين، وبيعطينا الزوايا والتعامد. بنستعمله بالمستويات والخطوط بعد شوي.</p><p><b>بهالدرس:</b></p><ol><li>التعريف الهندسي (<bdi>מכפלה סקלרית</bdi>)</li><li>الحساب بالإحداثيات (<bdi>טענה 1.10</bdi>)</li><li>الزاوية بين متجهين</li><li>التعامد (<bdi>אורתוגונליים</bdi>)</li><li>الخصائص (<bdi>טענה 1.15</bdi>)</li></ol>"
+    },
+    {
+      "t": "h",
+      "text": "1 · التعريف الهندسي"
+    },
+    {
+      "t": "p",
+      "html": "<p>الضرب السلمي (<bdi>מכפלה סקלרית</bdi>) بياخد متجهين وبيعطي <b>عدد</b> واحد. شوف الرسمة: منضرب طول الأول بطول الثاني بجيب تمام الزاوية بينهم.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "متجهان من نفس النقطة بينهما زاوية ألفا، وظل u على v طوله |u| cos ألفا، والمجموع هو الضرب السلمي",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 290\" role=\"img\" aria-label=\"متجهان من نفس النقطة بينهما زاوية ألفا، وظل u على v طوله |u| cos ألفا، والمجموع هو الضرب السلمي\" class=\"fk\"><g data-step=\"1\"><line class=\"fk-line t-1\" x1=\"60\" y1=\"215\" x2=\"377.6\" y2=\"215\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"400,215 372,227.6 372,202.4\"/></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"394\" y=\"245\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text></g><g data-step=\"1\"><line class=\"fk-line t-2\" x1=\"60\" y1=\"215\" x2=\"206.8\" y2=\"68.2\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"222.6,52.4 211.7,81.1 193.9,63.3\"/></g><g data-step=\"1\"><text class=\"fk-t t-2\" x=\"194.6\" y=\"48.4\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u</text></g><g data-step=\"2\"><path class=\"fk-curve t-ink\" d=\"M130,215 L129.8,209.5 L129.1,204 L128.1,198.7 L126.6,193.4 L124.7,188.2 L122.4,183.2 L119.7,178.4 L116.6,173.9 L113.2,169.5 L109.5,165.5\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"150\" y=\"195\" font-size=\"26\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">α</text></g><g data-step=\"3\"><line class=\"fk-line dash t-mut\" x1=\"222.6\" y1=\"52.4\" x2=\"222.6\" y2=\"215\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line t-good\" x1=\"60\" y1=\"229\" x2=\"222.6\" y2=\"229\" stroke-width=\"7\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"141.3\" y=\"261\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|u|·cos α</text></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"250\" y=\"110\" font-size=\"21\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">v·u=|v||u|cos α</text></g></svg>",
+      "frames": [
+        {
+          "caption": "متجهين \\(\\vec v,\\vec u\\) من نفس النقطة"
+        },
+        {
+          "caption": "الزاوية بينهم \\(\\alpha\\) (بين \\(0\\) و \\(\\pi\\))"
+        },
+        {
+          "caption": "ظل \\(\\vec u\\) على \\(\\vec v\\) طوله \\(|\\vec u|\\cos\\alpha\\)"
+        },
+        {
+          "caption": "منضربه بطول \\(\\vec v\\): هاد هو الضرب السلمي"
+        }
+      ],
+      "title": "الضرب السلمي هندسيا"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 1.8</bdi>",
+      "html": "<p>ليكن \\(\\vec v,\\vec u\\in\\mathbb R^2,\\mathbb R^3\\) غير صفريين. نعرّف الضرب السلمي بينهم:</p><p>\\[\\vec v\\cdot\\vec u=|\\vec v|\\cdot|\\vec u|\\cos(\\alpha)\\]</p><p>حيث \\(0\\le\\alpha\\le\\pi\\) هي الزاوية بين المتجهين.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>بما إنه \\(\\cos\\alpha\\) هو اللي بيحدد الإشارة، الضرب ممكن يطلع موجب أو صفر أو سالب.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 240\" role=\"img\" aria-label=\"ثلاث حالات: زاوية حادة الضرب موجب، زاوية قائمة الضرب صفر، زاوية منفرجة الضرب سالب\" class=\"fk\"><line class=\"fk-line t-1\" x1=\"90\" y1=\"150\" x2=\"147.6\" y2=\"150\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"170,150 142,162.6 142,137.4\"/><line class=\"fk-line t-2\" x1=\"90\" y1=\"150\" x2=\"139.9\" y2=\"121.2\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"159.3,110 141.3,134.9 128.7,113.1\"/><text class=\"fk-t t-ink\" x=\"90\" y=\"40\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">α &lt; π/2</text><rect class=\"fk-chip t-good\" x=\"45\" y=\"185\" width=\"90\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"90\" y=\"212.3\" font-size=\"21\" font-weight=\"650\" text-anchor=\"middle\" direction=\"rtl\">موجب</text><line class=\"fk-line t-1\" x1=\"240\" y1=\"150\" x2=\"297.6\" y2=\"150\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"320,150 292,162.6 292,137.4\"/><line class=\"fk-line t-2\" x1=\"240\" y1=\"150\" x2=\"240\" y2=\"92.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"240,70 252.6,98 227.4,98\"/><text class=\"fk-t t-ink\" x=\"240\" y=\"40\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">α = π/2</text><rect class=\"fk-chip t-mut\" x=\"195\" y=\"185\" width=\"90\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"240\" y=\"212.3\" font-size=\"21\" font-weight=\"650\" text-anchor=\"middle\" direction=\"rtl\">صفر</text><line class=\"fk-line t-1\" x1=\"390\" y1=\"150\" x2=\"447.6\" y2=\"150\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"470,150 442,162.6 442,137.4\"/><line class=\"fk-line t-2\" x1=\"390\" y1=\"150\" x2=\"340.1\" y2=\"121.2\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"320.7,110 351.3,113.1 338.7,134.9\"/><text class=\"fk-t t-ink\" x=\"390\" y=\"40\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">α &gt; π/2</text><rect class=\"fk-chip t-bad\" x=\"345\" y=\"185\" width=\"90\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"390\" y=\"212.3\" font-size=\"21\" font-weight=\"650\" text-anchor=\"middle\" direction=\"rtl\">سالب</text></svg>",
+      "caption": "لاحظ: إشارة الضرب السلمي هي إشارة \\(\\cos\\alpha\\).",
+      "alt": "ثلاث حالات: زاوية حادة الضرب موجب، زاوية قائمة الضرب صفر، زاوية منفرجة الضرب سالب"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 250\" role=\"img\" aria-label=\"مثالان: متجهان متعامدان ضربهما صفر، ومتجه مع قطر الربع زاويته 45 درجة ضربهما 1\" class=\"fk\"><line class=\"fk-line t-1\" x1=\"50\" y1=\"175\" x2=\"127.6\" y2=\"175\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"150,175 122,187.6 122,162.4\"/><line class=\"fk-line t-2\" x1=\"50\" y1=\"175\" x2=\"50\" y2=\"97.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"50,75 62.6,103 37.4,103\"/><line class=\"fk-line t-ink\" x1=\"72\" y1=\"175\" x2=\"72\" y2=\"153\" stroke-width=\"3\" stroke-linecap=\"round\"/><line class=\"fk-line t-ink\" x1=\"50\" y1=\"153\" x2=\"72\" y2=\"153\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"120\" y=\"40\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">α = π/2</text><text class=\"fk-t t-good\" x=\"120\" y=\"225\" font-size=\"21\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">(1,0)·(0,1)=0</text><line class=\"fk-line t-1\" x1=\"280\" y1=\"175\" x2=\"357.6\" y2=\"175\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"380,175 352,187.6 352,162.4\"/><line class=\"fk-line t-2\" x1=\"280\" y1=\"175\" x2=\"364.2\" y2=\"90.8\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"380,75 369.1,103.7 351.3,85.9\"/><path class=\"fk-curve t-ink\" d=\"M330,175 L329.8,171.1 L329.4,167.2 L328.6,163.3 L327.6,159.5 L326.2,155.9 L324.6,152.3 L322.6,148.9 L320.5,145.6 L318,142.5 L315.4,139.6\" stroke-width=\"3.5\" style=\"fill:none\"/><text class=\"fk-t t-ink\" x=\"350\" y=\"40\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">α = π/4</text><text class=\"fk-t t-good\" x=\"350\" y=\"225\" font-size=\"21\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">(1,0)·(1,1)=1</text></svg>",
+      "caption": "لاحظ: الزاوية القائمة بتعطي صفر، والزاوية \\(45^\\circ\\) بتعطي 1.",
+      "alt": "مثالان: متجهان متعامدان ضربهما صفر، ومتجه مع قطر الربع زاويته 45 درجة ضربهما 1"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 1.9</bdi>",
+      "html": "<p>\\[\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\cdot\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}=1\\cdot1\\cdot\\cos\\tfrac{\\pi}{2}=0\\]</p><p>\\[\\begin{pmatrix}1\\\\0\\end{pmatrix}\\cdot\\begin{pmatrix}1\\\\1\\end{pmatrix}=1\\cdot\\sqrt{2}\\cos\\tfrac{\\pi}{4}=\\tfrac{\\sqrt{2}}{\\sqrt{2}}=1\\]</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>متجهان طولهما 2 و 3 والزاوية بينهم \\(\\pi\\) (عكس بعض). كم الضرب السلمي؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(6\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(-6\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(0\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>\\(\\cos\\pi\\) كم؟</p>",
+        "solution": "<p>\\(2\\cdot3\\cdot\\cos\\pi=6\\cdot(-1)=-6\\). الخيار 1 نسي إنه \\(\\cos\\pi=-1\\)؛ الخيار 3 هو حالة الزاوية القائمة.</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "2 · الحساب بالإحداثيات"
+    },
+    {
+      "t": "p",
+      "html": "<p>بدون ما نعرف الزاوية، في طريقة أسهل: نضرب الإحداثيات المتقابلة ونجمع. لاحظ بالمثال اللي فات إنه نفس النتيجة طلعت.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "ضرب متجهين بالإحداثيات: نضرب كل إحداثي بالمقابل ثم نجمع النتائج",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"ضرب متجهين بالإحداثيات: نضرب كل إحداثي بالمقابل ثم نجمع النتائج\" class=\"fk\"><text class=\"fk-t t-1\" x=\"70\" y=\"38\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text><text class=\"fk-t t-2\" x=\"200\" y=\"38\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u</text><rect class=\"fk-chip t-1\" x=\"30\" y=\"55\" width=\"80\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"70\" y=\"86.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-ink\" x=\"135\" y=\"86\" font-size=\"30\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">·</text><rect class=\"fk-chip t-2\" x=\"160\" y=\"55\" width=\"80\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"200\" y=\"86.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"270\" y=\"86\" font-size=\"26\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">=</text></g><g data-step=\"2\"><rect class=\"fk-chip t-good\" x=\"300\" y=\"55\" width=\"110\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"355\" y=\"86.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text></g><rect class=\"fk-chip t-1\" x=\"30\" y=\"117\" width=\"80\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"70\" y=\"148.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><text class=\"fk-t t-ink\" x=\"135\" y=\"148\" font-size=\"30\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">·</text><rect class=\"fk-chip t-2\" x=\"160\" y=\"117\" width=\"80\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"200\" y=\"148.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−5</text><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"270\" y=\"148\" font-size=\"26\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">=</text></g><g data-step=\"3\"><rect class=\"fk-chip t-good\" x=\"300\" y=\"117\" width=\"110\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"355\" y=\"148.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−10</text></g><rect class=\"fk-chip t-1\" x=\"30\" y=\"179\" width=\"80\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"70\" y=\"210.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text><text class=\"fk-t t-ink\" x=\"135\" y=\"210\" font-size=\"30\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">·</text><rect class=\"fk-chip t-2\" x=\"160\" y=\"179\" width=\"80\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"200\" y=\"210.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">6</text><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"270\" y=\"210\" font-size=\"26\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">=</text></g><g data-step=\"4\"><rect class=\"fk-chip t-good\" x=\"300\" y=\"179\" width=\"110\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"355\" y=\"210.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">18</text></g><g data-step=\"5\"><line class=\"fk-line t-mut\" x1=\"30\" y1=\"248\" x2=\"440\" y2=\"248\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"5\"><text class=\"fk-t t-good\" x=\"240\" y=\"285\" font-size=\"26\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4 − 10 + 18 = 12</text></g></svg>",
+      "frames": [
+        {
+          "caption": "نكتب المتجهين جنب بعض"
+        },
+        {
+          "caption": "الإحداثي الأول مع الأول: \\(1\\cdot4=4\\)"
+        },
+        {
+          "caption": "الثاني مع الثاني: \\(2\\cdot(-5)=-10\\)"
+        },
+        {
+          "caption": "الثالث مع الثالث: \\(3\\cdot6=18\\)"
+        },
+        {
+          "caption": "نجمع: \\(4-10+18=12\\)"
+        }
+      ],
+      "title": "\\((1,2,3)\\cdot(4,-5,6)\\)"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "טענה 1.10",
+      "html": "<p>ليكن \\(\\vec v_1=\\begin{pmatrix}a_1\\\\b_1\\\\c_1\\end{pmatrix},\\ \\vec v_2=\\begin{pmatrix}a_2\\\\b_2\\\\c_2\\end{pmatrix}\\in\\mathbb R^3\\). عندها:</p><p>\\[\\vec v_1\\cdot\\vec v_2=a_1a_2+b_1b_2+c_1c_2\\]</p><p>وبنفس الطريقة بـ \\(\\mathbb R^2\\) (إحداثيين بس).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "note",
+      "title": "ملاحظة",
+      "html": "<p>شوف مثال 1.9 الأول \\(\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\cdot\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}=1\\cdot0+0\\cdot1+0\\cdot0=0\\) هاد مش صدفة: الصيغة بتعطينا طريقة جبرية للحساب.</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>احسب \\(\\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix}\\cdot\\begin{pmatrix}4\\\\0\\\\-5\\end{pmatrix}\\).</p>",
+        "answer": [
+          "-7"
+        ],
+        "hint": "<p>اضرب كل زوج وبعدين اجمع الثلاث نتائج.</p>",
+        "solution": "<p>\\(8+0-15=-7\\).</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "3 · الزاوية بين متجهين"
+    },
+    {
+      "t": "p",
+      "html": "<p>من الطريقتين مع بعض بنقدر نحسب الزاوية: منحسب الضرب بالإحداثيات، والأطوال، ومنعوّض بالتعريف الهندسي.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 1.11</bdi>",
+      "html": "<p>لكل متجهين \\(\\vec v,\\vec u\\in\\mathbb R^2,\\mathbb R^3\\) غير صفريين، الزاوية \\(\\alpha\\) بينهم هي العدد في \\([0,\\pi]\\) الذي يحقق:</p><p>\\[\\cos(\\alpha)=\\frac{\\vec v\\cdot\\vec u}{|\\vec v|\\cdot|\\vec u|}\\]</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "خطوات حساب الزاوية بين (1,1,0) و (0,1,1): الضرب السلمي 1، الطولين جذر 2، جيب التمام نصف، الزاوية 60 درجة",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"خطوات حساب الزاوية بين (1,1,0) و (0,1,1): الضرب السلمي 1، الطولين جذر 2، جيب التمام نصف، الزاوية 60 درجة\" class=\"fk\"><g data-step=\"1\"><rect class=\"fk-chip t-1\" x=\"30\" y=\"20\" width=\"420\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"240\" y=\"52.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v·u = 0 + 1 + 0 = 1</text></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"30\" y=\"82\" width=\"420\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"114.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|v| = |u| = √2</text></g><g data-step=\"3\"><rect class=\"fk-chip t-1\" x=\"30\" y=\"144\" width=\"420\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"240\" y=\"176.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">cos α = 1 / (√2·√2) = 1/2</text></g><g data-step=\"4\"><rect class=\"fk-chip solid t-good\" x=\"30\" y=\"206\" width=\"420\" height=\"50\" rx=\"14\"/></g><g data-step=\"4\"><text class=\"fk-t t-on\" x=\"240\" y=\"238.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">α = π/3  (60°)</text></g></svg>",
+      "frames": [
+        {
+          "caption": "الضرب السلمي بالإحداثيات"
+        },
+        {
+          "caption": "الطولين"
+        },
+        {
+          "caption": "جيب التمام من הגדרה 1.11"
+        },
+        {
+          "caption": "الزاوية: \\(\\cos\\alpha=\\frac12\\) يعني \\(\\alpha=\\frac{\\pi}{3}\\)"
+        }
+      ],
+      "title": "الزاوية بين \\((1,1,0)\\) و \\((0,1,1)\\)"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 1.12</bdi>",
+      "html": "<p>الزاوية بين \\(\\vec v=\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) و \\(\\vec u=\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}\\): الضرب \\(=1\\)، \\(|\\vec v|=|\\vec u|=\\sqrt{2}\\)، فـ \\(\\cos\\alpha=\\frac12\\) و \\(\\alpha=\\frac\\pi3\\).</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>شو الزاوية بين \\((1,1)\\) و \\((-1,1)\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(\\frac\\pi4\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(\\frac\\pi2\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(\\pi\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>احسب الضرب أول شي.</p>",
+        "solution": "<p>\\(1\\cdot(-1)+1\\cdot1=0\\) فـ \\(\\cos\\alpha=0\\) و \\(\\alpha=\\frac\\pi2\\).</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "4 · التعامد"
+    },
+    {
+      "t": "p",
+      "html": "<p>لما الضرب السلمي بيطلع صفر، الزاوية قائمة. هاي الحالة الخاصة مهمة كثير، إلها اسم.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 1.13</bdi>",
+      "html": "<p>بنقول إنّ \\(\\vec v,\\vec u\\) <b>متعامدين</b> (<bdi>מאונכים</bdi> أو <bdi>ניצבים</bdi> أو <bdi>אורתוגונלים</bdi>) إذا</p><p>\\[\\vec v\\cdot\\vec u=0\\]</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "المتجه (3,-4) والخط المتقطع الذي يحوي كل المتجهات المتعامدة معه، والمتجه (4,3) عليه",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 330\" role=\"img\" aria-label=\"المتجه (3,-4) والخط المتقطع الذي يحوي كل المتجهات المتعامدة معه، والمتجه (4,3) عليه\" class=\"fk\"><g><line class=\"fk-line t-grid\" x1=\"60\" y1=\"15\" x2=\"60\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"96\" y1=\"15\" x2=\"96\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"132\" y1=\"15\" x2=\"132\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"168\" y1=\"15\" x2=\"168\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"204\" y1=\"15\" x2=\"204\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"240\" y1=\"15\" x2=\"240\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"276\" y1=\"15\" x2=\"276\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"312\" y1=\"15\" x2=\"312\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"348\" y1=\"15\" x2=\"348\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"384\" y1=\"15\" x2=\"384\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"420\" y1=\"15\" x2=\"420\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"303\" x2=\"420\" y2=\"303\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"267\" x2=\"420\" y2=\"267\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"231\" x2=\"420\" y2=\"231\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"195\" x2=\"420\" y2=\"195\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"159\" x2=\"420\" y2=\"159\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"123\" x2=\"420\" y2=\"123\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"87\" x2=\"420\" y2=\"87\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"51\" x2=\"420\" y2=\"51\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"60\" y1=\"15\" x2=\"420\" y2=\"15\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-mut\" x1=\"60\" y1=\"159\" x2=\"402.4\" y2=\"159\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"420,159 398,168.9 398,149.1\"/><line class=\"fk-line t-mut\" x1=\"240\" y1=\"303\" x2=\"240\" y2=\"32.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"240,15 249.9,37 230.1,37\"/></g><g data-step=\"1\"><line class=\"fk-line t-1\" x1=\"240\" y1=\"159\" x2=\"334.6\" y2=\"285.1\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"348,303 321.1,288.2 341.3,273\"/></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"358\" y=\"299\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">v=(3,−4)</text></g><g data-step=\"2\"><line class=\"fk-line dash t-2\" x1=\"124.8\" y1=\"245.4\" x2=\"355.2\" y2=\"72.6\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><path class=\"fk-curve t-ink\" d=\"M253,176.3 L270.2,163.3 L257.3,146\" stroke-width=\"3\" style=\"fill:none\"/></g><g data-step=\"3\"><line class=\"fk-line t-good\" x1=\"240\" y1=\"159\" x2=\"363.5\" y2=\"66.4\" stroke-width=\"6\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"384,51 367,81.7 349.8,58.7\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"370\" y=\"35\" font-size=\"22\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">(4,3)</text></g></svg>",
+      "frames": [
+        {
+          "caption": "المتجه \\(\\vec v=(3,-4)\\)"
+        },
+        {
+          "caption": "المتعامدين معه كلهم على هالخط"
+        },
+        {
+          "caption": "مثلا \\((4,3)\\): الزاوية قائمة والضرب 0"
+        }
+      ],
+      "title": "كل المتجهات المتعامدة مع \\((3,-4)\\)"
+    },
+    {
+      "t": "p",
+      "html": "<p>المثال بالرسمة: بدنا كل المتجهات المتعامدة مع \\(\\vec v=(3,-4)\\). نفرض متجه عام \\(\\vec u=(x,y)\\) ونكتب الضرب = 0.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 1.14</bdi>",
+      "html": "<p>\\[\\vec v\\cdot\\vec u=3x-4y=0\\ \\Rightarrow\\ 3x=4y\\]</p><p>يعني \\(\\vec u\\) هو متعامد مع \\(\\vec v\\) إذا وفقط إذا هو من الشكل</p><p>\\[t\\begin{pmatrix}4\\\\3\\end{pmatrix},\\quad t\\in\\mathbb R\\]</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>المتجه \\((k,2)\\) متعامد مع \\((3,-6)\\). كم \\(k\\)؟</p>",
+        "answer": [
+          "4"
+        ],
+        "hint": "<p>الضرب السلمي لازم يكون 0.</p>",
+        "solution": "<p>\\(3k+2\\cdot(-6)=3k-12=0\\) فـ \\(k=4\\).</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "5 · خصائص الضرب السلمي"
+    },
+    {
+      "t": "p",
+      "html": "<p>هاي الخصائص بنستعملها بكل حساب. أكثر وحدة بتفيدنا: \\(\\vec v\\cdot\\vec v\\) بيعطي مربع الطول.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "טענה 1.15",
+      "html": "<p>ليكن \\(\\vec v,\\vec u,\\vec w\\in\\mathbb R^2,\\mathbb R^3\\) و \\(\\alpha\\in\\mathbb R\\). عندها:</p><ul><li>\\(\\vec v\\cdot\\vec u=|\\vec v|\\cdot|\\vec u|\\cos(\\alpha)\\)</li><li>تبديل: \\(\\vec v\\cdot\\vec u=\\vec u\\cdot\\vec v\\)</li><li>\\((\\alpha\\vec v)\\cdot\\vec u=\\alpha(\\vec v\\cdot\\vec u)\\)</li><li>توزيع: \\((\\vec v+\\vec u)\\cdot\\vec w=\\vec v\\cdot\\vec w+\\vec u\\cdot\\vec w\\)</li><li>\\(\\vec v\\cdot\\vec v=|\\vec v|^2\\ge0\\)، والمساواة بالصفر إذا وفقط إذا \\(\\vec v=\\vec 0\\)</li></ul>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال",
+      "html": "<p>مثلا \\(\\vec v=(3,4)\\): \\(\\vec v\\cdot\\vec v=9+16=25=|\\vec v|^2\\) (الطول 5).</p>"
+    },
+    {
+      "t": "mistakes",
+      "title": "أخطاء شائعة",
+      "rows": [
+        {
+          "no": "الضرب السلمي متجه",
+          "yes": "الضرب السلمي <b>عدد</b>"
+        },
+        {
+          "no": "\\(\\vec v\\cdot\\vec u=0\\) يعني أحدهم صفري",
+          "yes": "ممكن متعامدين وكلهم غير صفريين"
+        },
+        {
+          "no": "\\(\\vec v\\cdot\\vec v=|\\vec v|\\)",
+          "yes": "\\(\\vec v\\cdot\\vec v=|\\vec v|^2\\)"
+        }
+      ]
+    },
+    {
+      "t": "checklist",
+      "title": "شو لازم تعرف من هالدرس",
+      "items": [
+        "الضرب السلمي (<bdi>מכפלה סקלרית</bdi>) = عدد: \\(|\\vec v||\\vec u|\\cos\\alpha\\).",
+        "بالإحداثيات: نضرب المتقابل ونجمع (<bdi>טענה 1.10</bdi>).",
+        "الزاوية: \\(\\cos\\alpha=\\frac{\\vec v\\cdot\\vec u}{|\\vec v||\\vec u|}\\).",
+        "متعامدين (<bdi>אורתוגונליים</bdi>) \\(\\Leftrightarrow\\) الضرب 0.",
+        "\\(\\vec v\\cdot\\vec v=|\\vec v|^2\\) وباقي الخصائص."
+      ]
+    },
+    {
+      "t": "card",
+      "front": "الضرب السلمي بالإحداثيات",
+      "back": "\\(a_1a_2+b_1b_2+c_1c_2\\)"
+    },
+    {
+      "t": "card",
+      "front": "الزاوية بين متجهين",
+      "back": "\\(\\cos\\alpha=\\dfrac{\\vec v\\cdot\\vec u}{|\\vec v||\\vec u|}\\)"
+    },
+    {
+      "t": "card",
+      "front": "متعامدين (<bdi>מאונכים</bdi>)",
+      "back": "\\(\\vec v\\cdot\\vec u=0\\)"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>\\(\\vec v=(1,2,2)\\). كم \\(\\vec v\\cdot\\vec v\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(3\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(9\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(5\\)"
+          }
+        ],
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>\\(\\vec v\\cdot\\vec v=|\\vec v|^2\\).</p>",
+        "solution": "<p>\\(1+4+4=9\\). الطول 3 والمربع 9؛ الخيار 1 هو الطول بس.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>شو جيب تمام الزاوية بين \\((1,0)\\) و \\((1,1)\\)؟ (اكتبها \\(0.71\\) أو \\(\\sqrt{2}/2\\) )</p>",
+        "answer": [
+          "0.71",
+          "0.707",
+          "sqrt(2)/2",
+          "1/sqrt(2)"
+        ],
+        "hint": "<p>الضرب 1، والأطوال 1 و \\(\\sqrt{2}\\).</p>",
+        "solution": "<p>\\(\\cos\\alpha=\\frac1{1\\cdot\\sqrt{2}}=\\frac{\\sqrt{2}}2\\approx0.71\\) والزاوية \\(\\frac\\pi4\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>لأي \\(t\\) المتجه \\(t(4,3)\\) متعامد مع \\((3,-4)\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "لكل \\(t\\) حقيقي"
+          },
+          {
+            "v": "2",
+            "html": "فقط \\(t=1\\)"
+          },
+          {
+            "v": "3",
+            "html": "فقط \\(t>0\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>احسب الضرب بدلالة \\(t\\).</p>",
+        "solution": "<p>\\(3\\cdot4t-4\\cdot3t=0\\) لكل \\(t\\) (حتى \\(t<0\\) و \\(t=0\\)).</p>"
+      }
+    }
+  ]
+}

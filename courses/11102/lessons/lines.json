@@ -1,0 +1,297 @@
+{
+  "slug": "lines",
+  "title": "الخطوط في المستوى والفراغ (ישרים במישור ובמרחב)",
+  "he": "ישרים במישור ובמרחב",
+  "ref": "חוברת §1.4 · עמ׳ 10",
+  "minutes": 15,
+  "desc": "الوصف المتجهي للخط، شو وحيد وشو لأ، وخط من نقطتين.",
+  "blocks": [
+    {
+      "t": "why",
+      "html": "<p>اللغة المتجهية بتناسب كثير نوصف فيها الخطوط بالمستوى والفراغ. وهاد الوصف بنستعمله لتقاطع خط مع مستوى ولباقي المادة.</p><p><b>بهالدرس:</b></p><ol><li>تعريف الخط (<bdi>ישר</bdi>)</li><li>شو وحيد وشو لأ (<bdi>הערה 1.25</bdi>)</li><li>خط من نقطتين</li></ol>"
+    },
+    {
+      "t": "h",
+      "text": "1 · الخط بالمتجهات"
+    },
+    {
+      "t": "p",
+      "html": "<p>خط مستقيم معروف إذا عرفنا نقطة عليه واتجاهه. شوف الرسمة: بنبلّش من النقطة ونمشي بمضاعفات متجه الاتجاه.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "نقطة u1 على خط ومتجه الاتجاه v، والنقاط u1+t v لقيم مختلفة من t كلها على نفس الخط",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"نقطة u1 على خط ومتجه الاتجاه v، والنقاط u1+t v لقيم مختلفة من t كلها على نفس الخط\" class=\"fk\"><g data-step=\"3\"><line class=\"fk-line dash t-mut\" x1=\"30\" y1=\"235\" x2=\"450\" y2=\"55\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-step=\"4\"><circle class=\"fk-dot t-good\" cx=\"80\" cy=\"201\" r=\"8\"/></g><g data-step=\"4\"><text class=\"fk-t t-good\" x=\"74\" y=\"181\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">t=−1</text></g><g data-step=\"4\"><circle class=\"fk-dot t-good\" cx=\"260\" cy=\"125\" r=\"8\"/></g><g data-step=\"4\"><text class=\"fk-t t-good\" x=\"254\" y=\"105\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">t=1</text></g><g data-step=\"4\"><circle class=\"fk-dot t-good\" cx=\"350\" cy=\"87\" r=\"8\"/></g><g data-step=\"4\"><text class=\"fk-t t-good\" x=\"344\" y=\"67\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">t=2</text></g><g data-step=\"1\"><circle class=\"fk-dot t-ink\" cx=\"170\" cy=\"163\" r=\"10\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"158\" y=\"145\" font-size=\"24\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">u₁</text></g><g data-step=\"2\"><line class=\"fk-line t-1\" x1=\"170\" y1=\"163\" x2=\"236.4\" y2=\"135\" stroke-width=\"6\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"260,125 236.1,150.7 224.9,124.2\"/></g><g data-step=\"2\"><text class=\"fk-t t-1\" x=\"210\" y=\"121\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text></g></svg>",
+      "frames": [
+        {
+          "caption": "نقطة \\(\\vec u_1\\) على الخط"
+        },
+        {
+          "caption": "متجه الاتجاه \\(\\vec v\\)"
+        },
+        {
+          "caption": "الخط كله هو امتداد \\(\\vec v\\) من الجهتين"
+        },
+        {
+          "caption": "كل قيمة \\(t\\) بتعطي نقطة: \\(\\vec u_1+t\\vec v\\)"
+        }
+      ],
+      "title": "الخط = نقطة + اتجاه"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>הגדרה 1.24</bdi>",
+      "html": "<p>خط (<bdi>ישר</bdi>) في المستوى \\(\\mathbb R^2\\) أو الفراغ \\(\\mathbb R^3\\) هو مجموعة المتجهات (أو النقاط) التي تحقق</p><p>\\[L=\\{\\vec u=\\vec u_1+t\\vec v\\ |\\ t\\in\\mathbb R\\}\\]</p><p>حيث \\(\\vec u_1\\in L\\) نقطة (أو متجه) على الخط، و \\(\\vec v\\) هو متجه اتجاه (<bdi>וקטור כיוון</bdi>) الخط.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال",
+      "html": "<p>الخط \\(\\vec u=\\begin{pmatrix}1\\\\0\\end{pmatrix}+t\\begin{pmatrix}2\\\\1\\end{pmatrix}\\): لـ \\(t=0\\) النقطة \\((1,0)\\)، لـ \\(t=1\\) النقطة \\((3,1)\\)، لـ \\(t=-1\\) النقطة \\((-1,-1)\\).</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>على الخط \\(\\vec u=(1,2,0)+t(3,-1,4)\\)، أي نقطة بتطلع لـ \\(t=2\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\((7,0,8)\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\((4,1,4)\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\((5,1,4)\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>ضرب \\(t=2\\) بكل إحداثي من متجه الاتجاه وجمعه للنقطة.</p>",
+        "solution": "<p>\\((1,2,0)+2(3,-1,4)=(1+6,\\,2-2,\\,0+8)=(7,0,8)\\). الخيار 2 هو \\(t=1\\).</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "2 · شو وحيد وشو لأ"
+    },
+    {
+      "t": "p",
+      "html": "<p>لاحظ إنه نفس الخط ممكن نكتبه بأكتر من طريقة. هاي الملاحظة بتجنّبنا أخطاء كثيرة.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"نفس الخط يمكن وصفه بنقاط بداية مختلفة وبمتجهات اتجاه مختلفة الطول أو المعاكسة\" class=\"fk\"><line class=\"fk-line dash t-mut\" x1=\"30\" y1=\"225\" x2=\"450\" y2=\"55\" stroke-width=\"4\" stroke-linecap=\"round\"/><circle class=\"fk-dot t-1\" cx=\"90\" cy=\"201\" r=\"8\"/><line class=\"fk-line t-1\" x1=\"90\" y1=\"201\" x2=\"129.2\" y2=\"185.3\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"150,177 128.7,199.1 119.3,175.7\"/><text class=\"fk-t t-1\" x=\"90\" y=\"237\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"rtl\"><tspan direction=\"ltr\" unicode-bidi=\"isolate\">u</tspan>₁، <tspan direction=\"ltr\" unicode-bidi=\"isolate\">v</tspan></text><circle class=\"fk-dot t-2\" cx=\"230\" cy=\"144\" r=\"8\"/><line class=\"fk-line t-2\" x1=\"230\" y1=\"144\" x2=\"329.2\" y2=\"104.3\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"350,96 328.7,118.1 319.3,94.7\"/><text class=\"fk-t t-2\" x=\"230\" y=\"180\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"rtl\"><tspan direction=\"ltr\" unicode-bidi=\"isolate\">u</tspan>₁'، <tspan direction=\"ltr\" unicode-bidi=\"isolate\">2v</tspan></text><circle class=\"fk-dot t-good\" cx=\"370\" cy=\"87\" r=\"8\"/><line class=\"fk-line t-good\" x1=\"370\" y1=\"87\" x2=\"330.8\" y2=\"102.7\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"310,111 331.3,88.9 340.7,112.3\"/><text class=\"fk-t t-good\" x=\"370\" y=\"123\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"rtl\"><tspan direction=\"ltr\" unicode-bidi=\"isolate\">u</tspan>₁''، <tspan direction=\"ltr\" unicode-bidi=\"isolate\">−v</tspan></text></svg>",
+      "caption": "لاحظ: النقطة والمتجه مش وحيدين، بس الخط نفسه ما بتغير.",
+      "alt": "نفس الخط يمكن وصفه بنقاط بداية مختلفة وبمتجهات اتجاه مختلفة الطول أو المعاكسة"
+    },
+    {
+      "t": "box",
+      "kind": "note",
+      "title": "הערה 1.25",
+      "html": "<ul><li>الخط بيتحدد بمتجه اتجاه ونقطة عليه.</li><li>النقطة <b>مش وحيدة</b>: بنقدر نختار أي نقطة على الخط.</li><li>متجه الاتجاه <b>مش وحيد</b>، بيتحدد لحد سكلر حقيقي غير صفري (مضاعف).</li><li>هالكتابة اسمها <b>הצגה וקטורית</b> أو <b>הצגה פרמטרית</b> للخط.</li></ul>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>هل \\((0,0)+t(1,1)\\) و \\((2,2)+s(-3,-3)\\) نفس الخط؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "نعم: النقطة \\((2,2)\\) على الأول والاتجاهين متناسبين"
+          },
+          {
+            "v": "2",
+            "html": "لأ: النقاط مختلفة"
+          },
+          {
+            "v": "3",
+            "html": "لأ: الاتجاهين مختلفين"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>فكّر: النقطة والاتجاه مش وحيدين.</p>",
+        "solution": "<p>\\((2,2)=2\\cdot(1,1)\\) على الخط الأول، و \\((-3,-3)=-3\\cdot(1,1)\\) متناسب. فهو نفس الخط.</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "3 · خط من نقطتين"
+    },
+    {
+      "t": "p",
+      "html": "<p>إذا عطونا نقطتين على الخط، متجه الاتجاه هو الفرق بينهم. بنختار أي وحدة منهم كنقطة بداية.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "النقطتان P و Q على خط، والمتجه PQ هو متجه الاتجاه، والخط يمتد من الجهتين",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"النقطتان P و Q على خط، والمتجه PQ هو متجه الاتجاه، والخط يمتد من الجهتين\" class=\"fk\"><g data-step=\"3\"><line class=\"fk-line dash t-mut\" x1=\"30\" y1=\"235\" x2=\"450\" y2=\"46\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-step=\"1\"><circle class=\"fk-dot t-ink\" cx=\"120\" cy=\"190\" r=\"10\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"114\" y=\"228\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">P</text></g><g data-step=\"1\"><circle class=\"fk-dot t-ink\" cx=\"320\" cy=\"100\" r=\"10\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"338\" y=\"138\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">Q</text></g><g data-step=\"2\"><line class=\"fk-line t-1\" x1=\"120\" y1=\"190\" x2=\"296.7\" y2=\"110.5\" stroke-width=\"6\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"320,100 296.7,126.3 284.9,100\"/></g><g data-step=\"2\"><text class=\"fk-t t-1\" x=\"190\" y=\"128\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v = PQ</text></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"60\" y=\"60\" font-size=\"24\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">L = P + t·v</text></g></svg>",
+      "frames": [
+        {
+          "caption": "نقطتين \\(P\\) و \\(Q\\)"
+        },
+        {
+          "caption": "المتجه \\(\\vec v=\\overrightarrow{PQ}\\) هو الاتجاه"
+        },
+        {
+          "caption": "الخط: نقطة \\(P\\) وبعدها \\(t\\vec v\\)"
+        }
+      ],
+      "title": "خط من نقطتين"
+    },
+    {
+      "t": "steps",
+      "alt": "من النقطتين نحسب متجه الاتجاه PQ ثم نكتب الخط بنقطة P",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 216\" role=\"img\" aria-label=\"من النقطتين نحسب متجه الاتجاه PQ ثم نكتب الخط بنقطة P\" class=\"fk\"><g data-step=\"1\"><rect class=\"fk-chip t-1\" x=\"20\" y=\"14\" width=\"440\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"240\" y=\"46.4\" font-size=\"21\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">P=(2,−1,6),  Q=(3,1,−2)</text></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"20\" y=\"76\" width=\"440\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"108.3\" font-size=\"21\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v = PQ = Q − P = (1, 2, −8)</text></g><g data-step=\"3\"><rect class=\"fk-chip solid t-good\" x=\"20\" y=\"138\" width=\"440\" height=\"50\" rx=\"14\"/></g><g data-step=\"3\"><text class=\"fk-t t-on\" x=\"240\" y=\"170.3\" font-size=\"21\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">L = (2,−1,6) + t·(1,2,−8)</text></g></svg>",
+      "frames": [
+        {
+          "caption": "النقطتين المعطاة"
+        },
+        {
+          "caption": "الاتجاه: نهاية ناقص بداية"
+        },
+        {
+          "caption": "الخط بنقطة \\(P\\)"
+        }
+      ],
+      "title": "المثال 1.26 خطوة خطوة"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 1.26</bdi>",
+      "html": "<p>جد الوصف المتجهي للخط في \\(\\mathbb R^3\\) المار بالنقطتين \\(Q=(3,1,-2)\\) و \\(P=(2,-1,6)\\).</p><p>نقطتين على الخط بتحدد متجه اتجاه:</p><p>\\[\\vec v=\\overrightarrow{PQ}=\\begin{pmatrix}1\\\\2\\\\-8\\end{pmatrix}\\]</p><p>وكنقطة على الخط نختار \\(P\\) (أو \\(Q\\)):</p><p>\\[L=\\begin{pmatrix}2\\\\-1\\\\6\\end{pmatrix}+t\\begin{pmatrix}1\\\\2\\\\-8\\end{pmatrix}\\]</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>الخط المار بـ \\(P=(1,2,3)\\) و \\(Q=(4,6,8)\\). كم المركبة الأخيرة لمتجه الاتجاه \\(\\overrightarrow{PQ}\\)؟</p>",
+        "answer": [
+          "5"
+        ],
+        "hint": "<p>نهاية ناقص بداية لكل إحداثي.</p>",
+        "solution": "<p>\\(\\overrightarrow{PQ}=(4-1,\\,6-2,\\,8-3)=(3,4,5)\\).</p>"
+      }
+    },
+    {
+      "t": "method",
+      "title": "خط من نقطتين",
+      "steps": [
+        "احسب \\(\\vec v=\\overrightarrow{PQ}=Q-P\\) (النهاية ناقص البداية).",
+        "اختار نقطة على الخط: \\(P\\) أو \\(Q\\).",
+        "اكتب \\(L=P+t\\vec v,\\ t\\in\\mathbb R\\)."
+      ]
+    },
+    {
+      "t": "mistakes",
+      "title": "أخطاء شائعة",
+      "rows": [
+        {
+          "no": "\\(\\overrightarrow{PQ}=P-Q\\)",
+          "yes": "\\(\\overrightarrow{PQ}=Q-P\\) (النهاية ناقص البداية)؛ بس \\(P-Q\\) كمان اتجاه صحيح للخط (بالعكس)"
+        },
+        {
+          "no": "للخط نقطة واحدة ومتجه اتجاه واحد بس",
+          "yes": "كل نقطة على الخط ومضاعف غير صفري للاتجاه بيصلحوا"
+        },
+        {
+          "no": "الخط في الفراغ = معادلة وحدة \\(ax+by+cz+d=0\\)",
+          "yes": "هاي معادلة مستوى؛ الخط بالفراغ بنكتبه متجهيا"
+        }
+      ]
+    },
+    {
+      "t": "checklist",
+      "title": "شو لازم تعرف من هالدرس",
+      "items": [
+        "الخط (<bdi>ישר</bdi>) \\(L=\\{\\vec u_1+t\\vec v\\}\\) (<bdi>הגדרה 1.24</bdi>).",
+        "النقطة ومتجه الاتجاه (<bdi>וקטור כיוון</bdi>) مش وحيدين (<bdi>הערה 1.25</bdi>).",
+        "الوصف المتجهي = الفرمتري (<bdi>הצגה וקטורית / פרמטרית</bdi>).",
+        "من نقطتين: \\(\\vec v=\\overrightarrow{PQ}=Q-P\\)."
+      ]
+    },
+    {
+      "t": "card",
+      "front": "الخط بالمتجهات",
+      "back": "\\(\\vec u=\\vec u_1+t\\vec v,\\quad t\\in\\mathbb R\\)"
+    },
+    {
+      "t": "card",
+      "front": "متجه اتجاه الخط من \\(P\\) و \\(Q\\)",
+      "back": "\\(\\overrightarrow{PQ}=Q-P\\)"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>أي واحد <b>مش</b> وصف صحيح للخط المار بـ \\((0,0)\\) و \\((2,4)\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(t(1,2)\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\((2,4)+t(-1,-2)\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\((1,1)+t(2,4)\\)"
+          }
+        ],
+        "answer": [
+          "3"
+        ],
+        "hint": "<p>تأكد إنه النقطة اللي بتبدأ منها على الخط.</p>",
+        "solution": "<p>\\((1,1)\\) مش على الخط (الخط \\(y=2x\\) و \\(2\\neq1\\)). الخيارات 1 و 2 صحيحة.</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>الخط المار بـ \\(P=(0,1,2)\\) و \\(Q=(2,1,0)\\) له متجه اتجاه \\(\\overrightarrow{PQ}=(2,0,k)\\). كم \\(k\\)؟</p>",
+        "answer": [
+          "-2"
+        ],
+        "hint": "<p>الإحداثي الثالث: \\(0-2\\).</p>",
+        "solution": "<p>\\(0-2=-2\\).</p>"
+      }
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "mc",
+        "prompt": "<p>بالمعادلة \\(\\vec u=(1,1,1)+t(2,0,-1)\\) ولأي \\(t\\) النقطة \\((5,1,-1)\\)؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(t=2\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(t=1\\)"
+          },
+          {
+            "v": "3",
+            "html": "ما في \\(t\\)"
+          }
+        ],
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>حل \\(1+2t=5\\) وتحقق من الباقي.</p>",
+        "solution": "<p>\\(1+2t=5\\Rightarrow t=2\\). تحقق: \\(1+0=1\\) و \\(1-2=-1\\). صح.</p>"
+      }
+    }
+  ]
+}
