@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { validateNarration } from './narration-lib.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -32,6 +33,8 @@ function validateSVG(svg, where) {
 }
 
 const errors = [];
+const warnings = [];
+const narrations = new Map(); // `${code}/${slug}` -> {data, audioDir|null}
 const err = (m) => errors.push(m);
 const readJSON = (p) => {
   try { return JSON.parse(fs.readFileSync(p, 'utf8')); }
@@ -76,6 +79,38 @@ function validateBlock(b, where) {
       for (const n of used) if (n < 1 || n > b.frames.length) err(`${where}: steps svg refers to frame ${n} but there are ${b.frames.length} frames`);
     }
   }
+}
+
+// Optional narration: courses/<code>/narration/<slug>.json (+ audio/<slug>/ files).
+function loadNarration(code, slug, L, W) {
+  const np = path.join(root, 'courses', code, 'narration', `${slug}.json`);
+  const audioDir = path.join(root, 'courses', code, 'audio', slug);
+  if (!fs.existsSync(np)) {
+    if (fs.existsSync(audioDir)) warnings.push(`${W}/audio/${slug}: audio folder without a narration file (ignored)`);
+    return null;
+  }
+  const NW = `${W}/narration/${slug}.json`;
+  const data = readJSON(np);
+  if (!data) return null;
+  const r = validateNarration(data, L, NW);
+  r.errors.forEach(err); warnings.push(...r.warnings);
+  let audioOk = false;
+  if (data.audio !== undefined) {
+    const a = data.audio, segs = Array.isArray(data.segments) ? data.segments : [];
+    if (!a || typeof a !== 'object' || !isStr(a.provider) || !Array.isArray(a.segments)) err(`${NW}: audio must be {provider, segments:[]}`);
+    else if (a.segments.length !== segs.length) err(`${NW}: audio has ${a.segments.length} segments but narration has ${segs.length}`);
+    else {
+      let ok = true;
+      a.segments.forEach((x, i) => {
+        if (!x || !isStr(x.src) || !(typeof x.dur === 'number' && x.dur > 0)) { ok = false; return err(`${NW}: audio.segments[${i}] needs src and dur`); }
+        if (x.src !== path.basename(x.src) || !fs.existsSync(path.join(audioDir, x.src))) { ok = false; err(`${NW}: audio file ${W}/audio/${slug}/${x.src} is missing`); }
+        if (x.words !== undefined && !Array.isArray(x.words)) { ok = false; err(`${NW}: audio.segments[${i}].words must be an array`); }
+      });
+      audioOk = ok;
+    }
+  } else if (fs.existsSync(audioDir)) warnings.push(`${NW}: audio folder exists but the narration has no "audio" section (run narration.mjs import)`);
+  narrations.set(`${code}/${slug}`, { data, audioDir: audioOk ? audioDir : null });
+  return { audioOk };
 }
 
 // ---------- load + validate ----------
@@ -155,6 +190,8 @@ for (const code of folders.filter((f) => listed.has(f))) {
       });
       const nq = i;
       const meta = { ...pick(L, ['slug', 'title', 'he', 'ref', 'minutes', 'desc']), questions: nq };
+      const nar = loadNarration(code, slug, L, W);
+      if (nar) { meta.narrated = true; if (nar.audioOk) meta.audio = true; }
       metas.push(meta);
       lessons.push({ v: 1, code, chapter: ch.n, ...pick(L, ['slug', 'title', 'he', 'ref', 'minutes', 'desc']), blocks });
     }
@@ -169,10 +206,12 @@ for (const code of folders.filter((f) => listed.has(f))) {
 }
 
 function fail() {
+  for (const w of warnings) console.warn(`warning: ${w}`);
   console.error(`\n${errors.length} error(s):\n` + errors.map((e) => `  - ${e}`).join('\n'));
   process.exit(1);
 }
 if (errors.length) fail();
+for (const w of warnings) console.warn(`warning: ${w}`);
 
 // ---------- hashes + summaries ----------
 const summaries = new Map();
@@ -194,7 +233,7 @@ for (const [code, d] of courses) {
 }
 
 if (check) {
-  console.log(`OK: ${courses.size} courses valid`);
+  console.log(`OK: ${courses.size} courses valid, ${narrations.size} narrations`);
   for (const [code, s] of summaries) console.log(`  ${code}: ${s.chapters} chapters, ${s.lessons} lessons, ${s.questions} questions, ${s.minutes} min`);
   process.exit(0);
 }
@@ -217,6 +256,10 @@ for (const [code, d] of courses) {
   for (const l of d.lessons) put(`lesson/${code}/${l.slug}.json`, l);
   put(`questions/${code}.json`, { v: 1, code, questions: d.questions });
   put(`bundle/${code}.json`, bundleText.get(code));
+}
+for (const [key, n] of narrations) {
+  put(`narration/${key}.json`, n.data);
+  if (n.audioDir) fs.cpSync(n.audioDir, path.join(outDir, 'audio', key), { recursive: true });
 }
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 put('index.html', `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(site.name)}</title>

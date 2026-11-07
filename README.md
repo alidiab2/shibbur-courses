@@ -58,6 +58,32 @@ python3 -m http.server 8790 -d dist            # معاينة
 
 الـ HTML مسموح فيه بس: p b strong i em code bdi span br ul ol li sub sup small table tr td th pre div details summary. الرياضيات TeX داخل `\( … \)` و`\[ … \]`. التفاصيل الكاملة بعقد الـ API (`docs/API.md` بمشروع التطبيق shibbur-ios).
 
+## صوت الدرس
+كل درس ممكن يكون إله شرح صوتي ("استمع للدرس"): مدرّس بيحكي مع الطالب، والتطبيق بيظلّل البلوك والعبارة والمعادلة وقت ما بتنقال. العقد الكامل: `docs/NARRATION.md` بمشروع التطبيق.
+
+**الملفات**
+```
+courses/<code>/narration/<slug>.json   النص المحكي (بيكتبه الـ skill)
+courses/<code>/audio/<slug>/NNN.mp3    ملف صوت لكل مقطع (000، 001، …)
+```
+البناء بيتحقق منهم (`show` لازم يكون موجود بنص البلوك، `math` ضمن عدد المعادلات، الملفات الصوتية كلها موجودة) وبينشر `narration/<code>/<slug>.json` و`audio/<code>/<slug>/`. بالـ `LessonMeta` بيطلع `narrated: true` وإذا الصوت كامل `audio: true`. إذا تغيّر الدرس بعد كتابة الشرح بيطلع تحذير "narration may be stale".
+
+**تصدير لخدمة صوت**
+```
+node scripts/narration.mjs export <code> [slug] --provider elevenlabs|gemini|openai|generic --out tts/
+```
+بيكتب `tts/<code>/<slug>.jsonl` (طلب لكل مقطع) و`README.txt`. حوّل كل سطر لملف `000.mp3`، `001.mp3`… (وإذا بتقدر خُد timings: ElevenLabs alignment أو Whisper words بملف `000.json`).
+
+**استيراد**
+```
+node scripts/narration.mjs import <code> <slug> --dir <مجلد الصوت> --provider elevenlabs
+```
+بينسخ الصوت لـ `courses/<code>/audio/<slug>/` وبيكتب قسم `audio` (المدة وتوقيت كل كلمة؛ بدون timings بيتقدّر من طول النص) جوّا ملف الشرح.
+
+`node scripts/narration.mjs stats [code]` بيعرض عدد المقاطع والحروف والدقائق المقدّرة وإذا الصوت موجود.
+
+**شو بيعمل التطبيق:** إذا في صوت بيشغّله، وإلا بيقرأ النص بصوت الآيفون العربي؛ بيظلّل البلوك والعبارة والكلمة الحالية، وبيحرّك رسمات الخطوات مع الصوت.
+
 ## النشر
 Push على `main` → GitHub Actions بيعمل `--check` وبيبني وبينشر `dist/` على Pages. الـ PR بيعمل تحقق بس.
 
