@@ -60,3 +60,12 @@ python3 -m http.server 8790 -d dist            # معاينة
 
 ## النشر
 Push على `main` → GitHub Actions بيعمل `--check` وبيبني وبينشر `dist/` على Pages. الـ PR بيعمل تحقق بس.
+
+## لون وأيقونة الكورس
+
+بـ `site.json` كل كورس إله `color` و`icon`، وكل موضوع إله `icon`:
+
+- `color`: واحد من `indigo` `coral` `teal` `amber` `violet` `green` `rose` `sky`
+- `icon`: اسم أيقونة من SF Symbols (مثلاً `function`، `cpu`، `chart.xyaxis.line`، `memorychip.fill`). بتلاقي الأسماء بتطبيق SF Symbols عالماك.
+
+إذا ما حطّيتهم، التطبيق بيختار لون وأيقونة ثابتين للكورس لحاله.

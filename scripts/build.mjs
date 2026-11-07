@@ -67,10 +67,14 @@ const folders = fs.existsSync(coursesDir)
 const listed = new Set();
 const courses = new Map(); // code -> {course, lessons:[Lesson], questions:[Question]}
 
+const HUES = ['indigo', 'coral', 'teal', 'amber', 'violet', 'green', 'rose', 'sky'];
 for (const s of site.subjects) {
+  if (s.icon !== undefined && !isStr(s.icon)) err(`site.json: subject ${s.id} icon must be an SF Symbol name`);
   for (const k of ['id', 'title', 'desc']) if (!isStr(s[k])) err(`site.json: subject missing ${k}`);
   for (const c of s.courses || []) {
     if (!isStr(c.code) || !isStr(c.tag)) err(`site.json: course entry needs code and tag`);
+    if (c.color !== undefined && !HUES.includes(c.color)) err(`site.json: course ${c.code} color "${c.color}" must be one of ${HUES.join(', ')}`);
+    if (c.icon !== undefined && !isStr(c.icon)) err(`site.json: course ${c.code} icon must be an SF Symbol name`);
     if (listed.has(c.code)) err(`site.json: course ${c.code} listed twice`);
     listed.add(c.code);
     if (!folders.includes(c.code)) err(`site.json: course ${c.code} has no folder courses/${c.code}`);
@@ -134,8 +138,9 @@ for (const code of folders.filter((f) => listed.has(f))) {
     chapters.push({ n: ch.n, slug: ch.slug, title: ch.title, lead: ch.lead, isExam: ch.isExam, lessons: metas });
   }
   for (const f of files) if (!used.has(f)) err(`${W}/lessons/${f}.json: not listed in any chapter`);
+  const look = site.subjects.flatMap((s) => s.courses || []).find((x) => x.code === code) || {};
   courses.set(code, {
-    course: { v: 1, code, title: c.title, desc: c.desc, subject: c.subject, hash: '', chapters },
+    course: { v: 1, code, title: c.title, desc: c.desc, subject: c.subject, hash: '', ...pick(look, ['color', 'icon']), chapters },
     lessons, questions,
   });
 }
@@ -160,7 +165,7 @@ for (const [code, d] of courses) {
   summaries.set(code, {
     code, title: d.course.title, desc: d.course.desc, tag: entry.tag, subject: d.course.subject,
     chapters: d.course.chapters.length, lessons: d.lessons.length, questions: d.questions.length,
-    minutes, paid: entry.paid === true, hash,
+    minutes, paid: entry.paid === true, hash, ...pick(entry, ['color', 'icon']),
   });
   manifestCourses.push({ code, hash, lessons: d.lessons.length, questions: d.questions.length, bytes: Buffer.byteLength(bundle) });
 }
@@ -182,7 +187,7 @@ put('.nojekyll', '');
 put('manifest.json', { v: 1, generated: new Date().toISOString(), courses: manifestCourses });
 put('catalog.json', {
   v: 1, site: { name: site.name, tagline: site.tagline },
-  subjects: site.subjects.map((s) => ({ id: s.id, title: s.title, desc: s.desc, courses: (s.courses || []).map((c) => summaries.get(c.code)) })),
+  subjects: site.subjects.map((s) => ({ id: s.id, title: s.title, desc: s.desc, ...pick(s, ['icon']), courses: (s.courses || []).map((c) => summaries.get(c.code)) })),
 });
 for (const [code, d] of courses) {
   put(`course/${code}.json`, d.course);
