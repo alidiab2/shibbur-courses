@@ -3,6 +3,7 @@
   "title": "حدوا 1 (חדו\"א 1)",
   "desc": "أعداد حقيقية، دوال، نهايات، مشتقات وتكاملات — بترتيب حوبرة يعقوبزون وشنابل.",
   "subject": "math",
+  "speakmath": { "lessons": { "bounds": { "pairs": "interval" }, "real-numbers": { "pairs": "interval" } } },
   "chapters": [
     {
       "n": 1,

@@ -6,7 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { spokenText, AUDIO_EXTS } from './narration-lib.mjs';
+import { spokenText, AUDIO_EXTS, resolveNarration, speakOptsFor } from './narration-lib.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -17,6 +17,13 @@ for (let i = 0; i < argv.length; i++) {
 const [cmd, ...rest] = pos;
 const die = (m) => { console.error(`error: ${m}`); process.exit(1); };
 const readJSON = (p) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch (e) { die(`${path.relative(root, p)}: ${e.message}`); } };
+// narration with every generated math reading filled in (needs the lesson for the TeX)
+const resolved = (code, slug, n) => {
+  const lp = path.join(root, 'courses', code, 'lessons', `${slug}.json`);
+  if (!fs.existsSync(lp)) die(`missing ${path.relative(root, lp)} (needed to read the math parts)`);
+  const cp = path.join(root, 'courses', code, 'course.json');
+  try { return resolveNarration(n, readJSON(lp), speakOptsFor(fs.existsSync(cp) ? readJSON(cp) : null, slug)); } catch (e) { die(`${code}/${slug}: ${e.message}`); }
+};
 const nnn = (i) => String(i).padStart(3, '0');
 const narrationPath = (code, slug) => path.join(root, 'courses', code, 'narration', `${slug}.json`);
 const listNarrated = (code) => {
@@ -100,7 +107,7 @@ function doExport() {
   for (const s of slugs) {
     const p = narrationPath(code, s);
     if (!fs.existsSync(p)) die(`missing ${path.relative(root, p)}`);
-    const n = readJSON(p);
+    const n = resolved(code, s, readJSON(p));
     const lines = n.segments.map((seg, i) => JSON.stringify(buildRequest(provider, code, s, i, seg, n.voice)));
     fs.writeFileSync(path.join(out, code, `${s}.jsonl`), lines.join('\n') + '\n');
     total += lines.length;
@@ -211,10 +218,11 @@ function doImport() {
   const np = narrationPath(code, slug);
   if (!fs.existsSync(np)) die(`missing ${path.relative(root, np)}`);
   const n = readJSON(np);
+  const rn = resolved(code, slug, n); // same text the export sent to the TTS
   const dir = path.resolve(flags.dir);
   const dest = path.join(root, 'courses', code, 'audio', slug);
   const segs = [];
-  n.segments.forEach((seg, i) => {
+  rn.segments.forEach((seg, i) => {
     const ext = AUDIO_EXTS.find((x) => fs.existsSync(path.join(dir, nnn(i) + x)));
     if (!ext) die(`segment ${i}: ${nnn(i)}.mp3 not found in ${dir}`);
     const file = nnn(i) + ext, buf = fs.readFileSync(path.join(dir, file));
@@ -256,7 +264,7 @@ function doStats() {
   let tc = 0, ts = 0;
   for (const code of codes) {
     for (const slug of listNarrated(code)) {
-      const n = readJSON(narrationPath(code, slug));
+      const n = resolved(code, slug, readJSON(narrationPath(code, slug)));
       const chars = n.segments.reduce((a, s) => a + [...spokenText(s)].length, 0);
       const audio = !!(n.audio && n.audio.segments && n.audio.segments.length === n.segments.length);
       const real = audio ? n.audio.segments.reduce((a, s) => a + s.dur, 0) : null;

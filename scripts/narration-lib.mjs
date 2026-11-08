@@ -1,5 +1,6 @@
 // Shared narration helpers (contract: shibbur-ios/docs/NARRATION.md). No dependencies.
 import crypto from 'node:crypto';
+import { speak } from './speakmath.mjs';
 
 export const EMOTIONS = ['calm', 'warm', 'curious', 'excited', 'encouraging', 'serious', 'playful', 'emphatic', 'reassuring', 'surprised'];
 export const PACES = ['slow', 'normal', 'fast'];
@@ -61,11 +62,37 @@ export function texCount(b) {
   return n;
 }
 
+// The TeX strings of a block in the order `math: k` and texCount() number them: a math block's own `tex` first,
+// then every \( ... \) / \[ ... \] of its visible fields in document order.
+export function blockTex(b) {
+  const out = [];
+  if (b && b.t === 'math') out.push(isStr(b.tex) ? b.tex : '');
+  for (const f of blockFields(b)) for (const m of f.matchAll(TEX_RE)) out.push(m[1] ?? m[2]);
+  return out;
+}
+
+// A math part reads its formula by code (speakmath) unless it is hand-written AND marked "keep": true.
+export const isKept = (p) => p.keep === true && isStr(p.say) && !!p.say.trim();
+// Per-lesson reading hints live in course.json: "speakmath": {"lessons": {"<slug>": {"pairs": "interval"}}}
+export const speakOptsFor = (course, slug) => ((course && course.speakmath && course.speakmath.lessons && course.speakmath.lessons[slug]) || {});
+export function mathReading(p, block, opts) {
+  return speak(blockTex(block)[p.math], opts); // throws SpeakMathError
+}
+export function resolvePart(p, block, opts) {
+  if (!p || typeof p !== 'object' || p.math === undefined || isKept(p)) return p;
+  return { ...p, say: mathReading(p, block, opts) };
+}
+// Copy of a narration with every generated math `say` filled in (throws SpeakMathError on a formula it cannot read).
+export function resolveNarration(n, lesson, opts) {
+  const blocks = lesson.blocks;
+  return { ...n, segments: n.segments.map((s) => ({ ...s, say: s.say.map((p) => resolvePart(p, blocks[s.block], opts)) })) };
+}
+
 export const partSpoken = (p) => (isStr(p) ? p : p && (isStr(p.say) ? p.say : isStr(p.show) ? p.show : ''));
 export const spokenText = (seg) => (seg.say || []).map(partSpoken).join(' ');
 
 // Returns { errors:[], warnings:[] }.
-export function validateNarration(n, lesson, where) {
+export function validateNarration(n, lesson, where, opts) {
   const errors = [], warnings = [];
   const err = (m) => errors.push(`${where}: ${m}`);
   const warn = (m) => warnings.push(`${where}: ${m}`);
@@ -95,6 +122,7 @@ export function validateNarration(n, lesson, where) {
     if (s.pause !== undefined && !(typeof s.pause === 'number' && s.pause >= 0 && s.pause <= 3)) err(`${W}: pause must be a number 0..3`);
     if (s.style !== undefined && !isStr(s.style)) err(`${W}: style must be a string`);
     if (!Array.isArray(s.say) || !s.say.length) return err(`${W}: say must be a non-empty array`);
+    const generated = new Map();
     s.say.forEach((p, pi) => {
       const P = `${W} part ${pi}`;
       if (isStr(p)) { if (!p.trim()) err(`${P}: empty string`); return; }
@@ -106,10 +134,16 @@ export function validateNarration(n, lesson, where) {
       } else if (p.math !== undefined) {
         if (!Number.isInteger(p.math) || p.math < 0) err(`${P}: math must be a non-negative integer`);
         else if (blockOk && p.math >= info(bi).tex) err(`${P}: math ${p.math} but block ${bi} has only ${info(bi).tex} formula(s)`);
-        if (!isStr(p.say) || !p.say.trim()) err(`${P}: math part needs a non-empty say`);
+        if (p.say !== undefined && (!isStr(p.say) || !p.say.trim())) err(`${P}: say must be a non-empty string`);
+        if (p.keep !== undefined && typeof p.keep !== 'boolean') err(`${P}: keep must be true or false`);
+        if (p.keep === true && p.say === undefined) warn(`${P}: keep without a hand-written say (the reading is generated)`);
+        if (blockOk && Number.isInteger(p.math) && p.math >= 0 && p.math < info(bi).tex && !isKept(p)) {
+          try { generated.set(p, mathReading(p, blocks[bi], opts)); } catch (e) { err(`${P}: ${e.message}`); }
+        }
       } else err(`${P}: must have show or math`);
     });
-    const len = [...spokenText(s)].length;
+    const spokenOf = (p) => (generated.has(p) ? generated.get(p) : partSpoken(p));
+    const len = [...s.say.map(spokenOf).join(' ')].length;
     if (len > 600) err(`${W}: spoken text is ${len} chars (max 600)`);
     else if (len > 400) warn(`${W}: spoken text is ${len} chars (over 400, consider splitting)`);
   });

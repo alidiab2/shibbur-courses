@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { validateNarration } from './narration-lib.mjs';
+import { validateNarration, resolveNarration, speakOptsFor } from './narration-lib.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -82,7 +82,7 @@ function validateBlock(b, where) {
 }
 
 // Optional narration: courses/<code>/narration/<slug>.json (+ audio/<slug>/ files).
-function loadNarration(code, slug, L, W) {
+function loadNarration(code, slug, L, W, sopts) {
   const np = path.join(root, 'courses', code, 'narration', `${slug}.json`);
   const audioDir = path.join(root, 'courses', code, 'audio', slug);
   if (!fs.existsSync(np)) {
@@ -92,8 +92,9 @@ function loadNarration(code, slug, L, W) {
   const NW = `${W}/narration/${slug}.json`;
   const data = readJSON(np);
   if (!data) return null;
-  const r = validateNarration(data, L, NW);
+  const r = validateNarration(data, L, NW, sopts);
   r.errors.forEach(err); warnings.push(...r.warnings);
+  const resolved = r.errors.length ? data : resolveNarration(data, L, sopts); // math parts get their reading from speakmath
   let audioOk = false;
   if (data.audio !== undefined) {
     const a = data.audio, segs = Array.isArray(data.segments) ? data.segments : [];
@@ -109,7 +110,7 @@ function loadNarration(code, slug, L, W) {
       audioOk = ok;
     }
   } else if (fs.existsSync(audioDir)) warnings.push(`${NW}: audio folder exists but the narration has no "audio" section (run narration.mjs import)`);
-  narrations.set(`${code}/${slug}`, { data, audioDir: audioOk ? audioDir : null });
+  narrations.set(`${code}/${slug}`, { data: resolved, audioDir: audioOk ? audioDir : null });
   return { audioOk };
 }
 
@@ -190,7 +191,7 @@ for (const code of folders.filter((f) => listed.has(f))) {
       });
       const nq = i;
       const meta = { ...pick(L, ['slug', 'title', 'he', 'ref', 'minutes', 'desc']), questions: nq };
-      const nar = loadNarration(code, slug, L, W);
+      const nar = loadNarration(code, slug, L, W, speakOptsFor(c, slug));
       if (nar) { meta.narrated = true; if (nar.audioOk) meta.audio = true; }
       metas.push(meta);
       lessons.push({ v: 1, code, chapter: ch.n, ...pick(L, ['slug', 'title', 'he', 'ref', 'minutes', 'desc']), blocks });
