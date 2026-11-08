@@ -40,7 +40,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent
 CACHE_FILE = HERE / "lexicon-cache.json"
-CLEAN_VERSION = "c3"          # bump when the cleaning/assembly logic changes -> hashes change -> segments regenerate
+CLEAN_VERSION = "c4"          # bump when the cleaning/assembly logic changes -> hashes change -> segments regenerate
 
 # --------------------------------------------------------------------------------------------------------------------
 # Emotion / pace -> Chatterbox controls.  Exaggeration is quantised to 5 levels so the voice-conditionals cache works
@@ -186,7 +186,7 @@ def tokenize(text: str) -> list[Tok]:
 
 
 BREAK_OF = {".": "sentence", "!": "sentence", "؟": "question", "?": "question", "،": "comma", ",": "comma", "؛": "comma",
-            ";": "comma", ":": "comma", "…": "comma"}
+            ";": "comma", ":": "comma", "…": "sentence"}
 BREAK_RANK = {None: 0, "soft": 1, "comma": 2, "sentence": 3, "question": 4}
 
 
@@ -332,35 +332,167 @@ def make_pieces(items):
     return pieces
 
 
-def split_long(p):
-    """Split one piece at the nearest word starting with «و» (or in the middle) until it fits."""
+_HARAKAT_RE = re.compile(r"[\u064B-\u0652\u0670\u0640]")
+
+
+def norm_word(w: str) -> str:
+    """spoken word without harakat/tatweel, alef variants folded -> for list lookups"""
+    return _HARAKAT_RE.sub("", w).replace("أ", "ا").replace("إ", "ا").replace("آ", "ا")
+
+
+INTERJ = {"اهلين", "اهلا", "طيب", "هيك", "يلا", "لا", "لاا", "اه", "ايوه", "تمام", "ماشي", "منيح", "خلص", "شوف", "هلق", "يعني"}
+INTERJ_N = {norm_word(x) for x in INTERJ} | {"لأ", "لا"}
+DANGLING = {norm_word(x) for x in "زائد ناقص ضرب على بيساوي يساوي من ل القوس جذر أس فوقه وتحته اللي".split()}
+NO_SPLIT_AFTER = {norm_word(x) for x in "أصغر أكبر أو مش سكر أس بإندكس الصف العمود نقطة".split()} | {"اصغر", "اكبر"}
+LONG_WORDS, LONG_CHARS = 18, MAX_CHARS            # a piece longer than this is split at a natural joint (gap = comma)
+LABEL_NOUNS = {"الصف", "العمود"}
+EQ_WORDS = {"بيساوي", "يساوي"}
+JOINT_WORDS = {"يعني", "اذا", "لكل", "بحيث"}
+NOT_CONJ = {"واحد", "واحده", "وحده", "واحدة", "وحدة", "وحدات", "وسط", "وين", "وقت", "وجه"}   # start with «و» but are not «و + word»
+
+
+def _pw(ws, k):
+    return norm_word(ws[k]["t"])
+
+
+def split_allowed(ws, k):
+    """may a piece boundary go right before ws[k]?  (never inside a 2-word unit, never after a dangling word)"""
+    p, c = _pw(ws, k - 1), _pw(ws, k)
+    if p in DANGLING and not (p == "القوس" and k >= 2 and _pw(ws, k - 2) == "سكر"):
+        return False
+    if p in NO_SPLIT_AFTER or p.startswith("بإندكس") or p.startswith("باندكس"):
+        return False
+    if c == "نقطة" and k + 1 < len(ws) and _pw(ws, k + 1) not in ("تالتة", "ثالثة", "اولي", "اولى", "ثانية", "تانية"):
+        return False                                   # decimal «صفر نقطة تسعة»
+    if c.startswith("درجة") or c.startswith("درجه") or c == "الدرجة":
+        return False                                   # number word + «درجة»
+    if c in ("من", "او") and p in ("اصغر", "اكبر"):
+        return False
+    if c in EQ_WORDS and p in ("مش", "او"):
+        return False                                   # «مش بيساوي», «أكبر أو بيساوي»
+    if k >= 2 and _pw(ws, k - 2) in LABEL_NOUNS:
+        return False                                   # «الصف الأول» | first item
+    return True
+
+
+def joint_tier(ws, k, eq_seen):
+    c = _pw(ws, k)
+    if c in EQ_WORDS and eq_seen:
+        return 1
+    if c in JOINT_WORDS or (c == "اللي" and k + 1 < len(ws) and _pw(ws, k + 1).startswith("بتحقق")) \
+            or (c.startswith("و") and len(c) > 2 and c not in NOT_CONJ):
+        return 2
+    return 3
+
+
+def split_long(p, _eq_before=0):
+    """Split a piece longer than LONG_WORDS (or LONG_CHARS) at natural joints; every cut is a «comma» gap."""
     ws = p["words"]
-    if len(ws) <= MAX_WORDS and nchars(ws) <= MAX_CHARS:
+    if len(ws) <= LONG_WORDS and nchars(ws) <= LONG_CHARS:
         return [p]
-    mid = len(ws) / 2
-    cands = [k for k in range(MIN_TARGET, len(ws) - MIN_TARGET + 1)
-             if len(re.sub(r"[ً-ْ]", "", ws[k]["t"])) > 2 and ws[k]["t"].startswith("و")]
-    k = min(cands, key=lambda x: abs(x - mid)) if cands else int(mid)
-    k = max(1, min(len(ws) - 1, k))
-    return split_long({"words": ws[:k], "brk": "soft"}) + split_long({"words": ws[k:], "brk": p["brk"]})
+    n, mid = len(ws), len(ws) / 2
+    eq_seen, eqs = _eq_before > 0, []
+    for k in range(1, n):
+        if _pw(ws, k - 1) in EQ_WORDS:
+            eq_seen = True
+        eqs.append(eq_seen)
+    # eqs[k-1]: an equality word occurs before position k  (so the 1st one is never a cut, the 2nd+ are)
+    ok = [k for k in range(2, n - 1) if split_allowed(ws, k)]
+    pick = None
+    for tiers, mh in (((1, 2), 3), ((1, 2), 2), ((3,), 3), ((3,), 2)):
+        cands = [k for k in ok if k >= mh and n - k >= mh and joint_tier(ws, k, eqs[k - 1]) in tiers]
+        for tier in tiers:
+            c2 = [k for k in cands if joint_tier(ws, k, eqs[k - 1]) == tier]
+            if c2:
+                pick = min(c2, key=lambda x: abs(x - mid))
+                break
+        if pick:
+            break
+    if pick is None:
+        pick = max(2, min(n - 2, int(mid))) if n >= 4 else max(1, n // 2)
+    left = {"words": ws[:pick], "brk": "comma"}
+    right = {"words": ws[pick:], "brk": p["brk"]}
+    nxt_eq = _eq_before + sum(1 for w in ws[:pick] if norm_word(w["t"]) in EQ_WORDS)
+    return split_long(left, _eq_before) + split_long(right, nxt_eq)
+
+
+def _fix_short(pieces):
+    """The textgate needs >= 2 words per call: only 1-word pieces are merged (forward into the next piece when it is an
+    opener/interjection or was followed by a comma, else backward); the gap of the boundary that remains is kept."""
+    i = 0
+    while len(pieces) > 1 and i < len(pieces):
+        p = pieces[i]
+        if len(p["words"]) >= 2:
+            i += 1
+            continue
+        w = norm_word(p["words"][0]["t"])
+        fwd = w in INTERJ_N or p["brk"] in ("comma", "soft")
+        if p["brk"] == "question":
+            fwd = False
+        if i == 0:
+            fwd = True
+        elif i == len(pieces) - 1:
+            fwd = False
+        if fwd:
+            pieces[i + 1] = {"words": p["words"] + pieces[i + 1]["words"], "brk": pieces[i + 1]["brk"]}
+            del pieces[i]
+        else:
+            pieces[i - 1] = {"words": pieces[i - 1]["words"] + p["words"], "brk": p["brk"]}
+            del pieces[i]
+            i -= 1
+        if i < 0:
+            i = 0
+    return pieces
+
+
+def _merge_comma_short(pieces, min_words=4):
+    """Chatterbox hallucinates on 2-3 word inputs: a piece under `min_words` joins its neighbour when the boundary
+    between them is a COMMA (forward preferred; backward if forward is impossible or would exceed LONG_WORDS).
+    Sentence / question boundaries are never crossed."""
+    changed = True
+    while changed:
+        changed = False
+        for i, p in enumerate(pieces):
+            n = len(p["words"])
+            if n >= min_words:
+                continue
+            if p["brk"] in ("comma", "soft") and i + 1 < len(pieces) and n + len(pieces[i + 1]["words"]) <= LONG_WORDS:
+                pieces[i + 1] = {"words": p["words"] + pieces[i + 1]["words"], "brk": pieces[i + 1]["brk"]}
+                del pieces[i]
+            elif i > 0 and pieces[i - 1]["brk"] in ("comma", "soft") and n + len(pieces[i - 1]["words"]) <= LONG_WORDS:
+                pieces[i - 1] = {"words": pieces[i - 1]["words"] + p["words"], "brk": p["brk"]}
+                del pieces[i]
+            else:
+                continue
+            changed = True
+            break
+    return pieces
+
+
+def _fix_dangling(pieces):
+    """A clause/long-split cut never lands after a structural word (زائد، بيساوي، من، القوس …): move it one word later.
+    (A real sentence end . ؟ ! is never moved: sentences are never merged.)"""
+    i = 0
+    while i < len(pieces) - 1:
+        p, q = pieces[i], pieces[i + 1]
+        ws = p["words"]
+        last = norm_word(ws[-1]["t"])
+        if p["brk"] not in ("sentence", "question") and last in DANGLING and not (last == "القوس" and len(ws) >= 2 and norm_word(ws[-2]["t"]) == "سكر"):
+            if len(q["words"]) <= 2:
+                pieces[i:i + 2] = [{"words": ws + q["words"], "brk": q["brk"]}]
+            else:
+                pieces[i] = {"words": ws + q["words"][:1], "brk": "comma"}
+                pieces[i + 1] = {"words": q["words"][1:], "brk": q["brk"]}
+            continue
+        i += 1
+    return pieces
 
 
 def make_sentences(items):
-    pieces = make_pieces(items)
-    merged, i = [], 0
-    while i < len(pieces):
-        p = pieces[i]
-        if len(p["words"]) < MIN_TARGET and i + 1 < len(pieces):
-            nxt = pieces[i + 1]
-            pieces[i + 1] = {"words": p["words"] + nxt["words"], "brk": nxt["brk"]}
-        else:
-            merged.append(p)
-        i += 1
-    if len(merged) >= 2 and len(merged[-1]["words"]) < MIN_TARGET:          # short tail joins the previous sentence
-        last = merged.pop()
-        merged[-1] = {"words": merged[-1]["words"] + last["words"], "brk": last["brk"]}
+    pieces = _merge_comma_short(_fix_short(make_pieces(items)))
+    pieces = _fix_dangling(pieces)
     out = []
-    for p in merged:
+    for p in pieces:
         out += split_long(p)
     return [{"words": [w["t"] for w in p["words"]], "src": [w["src"] for w in p["words"]], "brk": p["brk"],
              "text": " ".join(w["t"] for w in p["words"])} for p in out]
