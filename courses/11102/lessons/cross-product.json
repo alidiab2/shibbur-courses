@@ -1,425 +1,359 @@
 {
   "slug": "cross-product",
-  "title": "الضرب المتجهي (מכפלה וקטורית)",
+  "title": "الضرب المتجهي",
   "he": "מכפלה וקטורית",
   "ref": "חוברת §1.2 · עמ׳ 6–8",
-  "minutes": 18,
-  "desc": "تعريف الضرب المتجهي، قاعدة اليد اليمنى، الصيغة بالإحداثيات والخصائص.",
+  "minutes": 8,
+  "desc": "سهم عمودي على متجهين، طوله مساحة المتوازي، وصيغة حسابه من الإحداثيات.",
   "blocks": [
     {
       "t": "why",
-      "html": "<p>الضرب المتجهي بياخد متجهين من \\(\\mathbb R^3\\) وبيعطي <b>متجه</b> عمودي عليهم. هو اللي بيعطينا معادلة المستوى بالدرس الجاي.</p><p><b>بهالدرس:</b></p><ol><li>الفكرة: متجه عمودي على المستوى</li><li>التعريف (<bdi>הגדרה 1.16</bdi>) بثلاث شروط</li><li>قاعدة اليد اليمنى</li><li>الصيغة التحليلية بـ \\(\\vec i,\\vec j,\\vec k\\)</li><li>مثال وتحقق</li><li>الخصائص (<bdi>טענה 1.19</bdi>)</li></ol>"
+      "html": "<p>عندك متجهين على الأرض: \\(\\overrightarrow{v}=(2,0,0)\\) و\\(\\overrightarrow{u}=(0,3,0)\\). بدنا سهم ثالث <b>واقف</b> بزاوية قائمة على الاثنين، وطوله بيساوي مساحة المتوازي اللي بينهم.</p><p>خمّن: لفوق ولا لتحت؟ وقديش طوله؟ الأداة اسمها <b>الضرب المتجهي</b> (<bdi>מכפלה וקטורית</bdi>)، وهي اللي بتعطيك الاتجاه العمودي على أي مستوى بالفراغ.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 210\" role=\"img\" aria-label=\"متجهان على الأرض وسهم ثالث عمودي عليهما، لفوق أو لتحت؟\" class=\"fk\"><polygon class=\"fk-curve t-1\" points=\"170,112 114,148 264,148 320,112\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-1\" x=\"66\" y=\"137\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v=(2,0,0)</text><text class=\"fk-t t-2\" x=\"290\" y=\"95\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u=(0,3,0)</text><line class=\"fk-line t-1\" x1=\"170\" y1=\"112\" x2=\"130.2\" y2=\"137.6\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"114,148 128.3,125.9 140,144.1\"/><line class=\"fk-line t-2\" x1=\"170\" y1=\"112\" x2=\"300.8\" y2=\"112\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"320,112 296,122.8 296,101.2\"/><line class=\"fk-line dash t-3\" x1=\"170\" y1=\"106\" x2=\"170\" y2=\"77.2\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-3\" points=\"170,58 180.8,82 159.2,82\"/><line class=\"fk-line dash t-3\" x1=\"170\" y1=\"118\" x2=\"170\" y2=\"146.8\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-3\" points=\"170,166 159.2,142 180.8,142\"/><text class=\"fk-t t-3\" x=\"198\" y=\"66\" font-size=\"30\" font-weight=\"600\" text-anchor=\"middle\" direction=\"rtl\">؟</text><text class=\"fk-t t-3\" x=\"198\" y=\"162\" font-size=\"30\" font-weight=\"600\" text-anchor=\"middle\" direction=\"rtl\">؟</text></svg>",
+      "caption": "لاحظ: المتجهان على الأرض، والسهم الثالث بيطلع لفوق أو لتحت.",
+      "alt": "متجهان على الأرض وسهم ثالث عمودي عليهما، لفوق أو لتحت؟"
     },
     {
       "t": "h",
-      "text": "1 · الفكرة: متجه عمودي"
+      "text": "1 · ليش بدنا متجه ثالث؟"
     },
     {
       "t": "p",
-      "html": "<p>بالفراغ، كل متجهين مش متناسبين بيفتحوا <b>مستوى</b> بيمر ببداية المحاور. المستوى هاد إله اتجاه عمودي عليه.</p>"
-    },
-    {
-      "t": "p",
-      "html": "<p>بدنا نحدد متجه ثالث \\(\\vec w\\) بشكل وحيد. بنحتاج نعرف <b>طوله</b> و<b>اتجاهه</b> بالضبط (من ضمن الاتنين اللي بيعاكسوا بعض).</p>"
+      "html": "<p>متجهين غير متناسبين (واحد مش مضاعف للتاني) بيفردوا <b>مستوى</b> (<bdi>מישור</bdi>). كل المتجهات العمودية عليه بتقع على خط واحد، فأي واحد منهم بدنا؟</p>"
     },
     {
       "t": "steps",
-      "alt": "مستوى بشكل متوازي أضلاع يمر ببداية المحاور ومتجه w عمودي عليه نحو الأعلى",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"مستوى بشكل متوازي أضلاع يمر ببداية المحاور ومتجه w عمودي عليه نحو الأعلى\" class=\"fk\"><g data-step=\"1\"><line class=\"fk-line t-1\" x1=\"90\" y1=\"240\" x2=\"277.6\" y2=\"240\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"300,240 272,252.6 272,227.4\"/></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"304\" y=\"272\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text></g><g data-step=\"1\"><line class=\"fk-line t-2\" x1=\"90\" y1=\"240\" x2=\"181.1\" y2=\"182\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"200,170 183.1,195.7 169.6,174.4\"/></g><g data-step=\"1\"><text class=\"fk-t t-2\" x=\"170\" y=\"164\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u</text></g><g data-step=\"2\"><polygon class=\"fk-curve t-mut\" points=\"90,240 300,240 410,170 200,170\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"250\" y=\"212\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"rtl\">مساحة</text></g><g data-step=\"3\"><line class=\"fk-line t-good\" x1=\"90\" y1=\"240\" x2=\"90\" y2=\"75.6\" stroke-width=\"6\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"90,50 104.4,82 75.6,82\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"106\" y=\"60\" font-size=\"26\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">w</text></g><g data-step=\"3\"><line class=\"fk-line t-ink\" x1=\"90\" y1=\"218\" x2=\"112\" y2=\"218\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line t-ink\" x1=\"112\" y1=\"218\" x2=\"112\" y2=\"240\" stroke-width=\"3\" stroke-linecap=\"round\"/></g></svg>",
+      "alt": "متجهان يفردان مستوى، وكل المتجهات العمودية عليه على خط واحد، نختار واحداً بالطول والاتجاه",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 210\" role=\"img\" aria-label=\"متجهان يفردان مستوى، وكل المتجهات العمودية عليه على خط واحد، نختار واحداً بالطول والاتجاه\" class=\"fk\"><polygon class=\"fk-curve t-1\" points=\"170,112 114,148 264,148 320,112\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><line class=\"fk-line t-1\" x1=\"170\" y1=\"112\" x2=\"130.2\" y2=\"137.6\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"114,148 128.3,125.9 140,144.1\"/><line class=\"fk-line t-2\" x1=\"170\" y1=\"112\" x2=\"300.8\" y2=\"112\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"320,112 296,122.8 296,101.2\"/><g data-until=\"2\"><text class=\"fk-t t-ink\" x=\"262\" y=\"133\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"rtl\">المستوى</text></g><text class=\"fk-t t-1\" x=\"70\" y=\"142\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text><text class=\"fk-t t-2\" x=\"330\" y=\"100\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u</text><g data-step=\"2\" data-until=\"2\"><line class=\"fk-line dash t-3\" x1=\"170\" y1=\"172\" x2=\"170\" y2=\"30\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"2\" data-until=\"2\"><circle class=\"fk-dot t-3\" cx=\"170\" cy=\"85\" r=\"7\"/></g><g data-step=\"2\" data-until=\"2\"><text class=\"fk-t t-3\" x=\"200\" y=\"92\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">w</text></g><g data-step=\"2\" data-until=\"2\"><circle class=\"fk-dot t-3\" cx=\"170\" cy=\"58\" r=\"7\"/></g><g data-step=\"2\" data-until=\"2\"><text class=\"fk-t t-3\" x=\"200\" y=\"65\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2w</text></g><g data-step=\"2\" data-until=\"2\"><circle class=\"fk-dot t-3\" cx=\"170\" cy=\"139\" r=\"7\"/></g><g data-step=\"2\" data-until=\"2\"><text class=\"fk-t t-3\" x=\"200\" y=\"146\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−w</text></g><g data-step=\"3\"><polygon class=\"fk-curve t-good\" points=\"170,112 114,148 264,148 320,112\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\" data-until=\"3\"><text class=\"fk-t t-good\" x=\"262\" y=\"133\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"rtl\">المساحة</text></g><g data-step=\"3\"><line class=\"fk-line t-good\" x1=\"170\" y1=\"106\" x2=\"170\" y2=\"80.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"170,58 182.6,86 157.4,86\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"204\" y=\"66\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|w|</text></g><g data-step=\"4\"><path class=\"fk-curve t-mut\" d=\"M148,127 C150,128.8 153.7,136.3 160,138 C166.3,139.7 178.3,138.8 186,137 C193.7,135.2 202.7,128.7 206,127\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"4\"><line class=\"fk-line t-mut\" x1=\"186\" y1=\"137\" x2=\"190.3\" y2=\"134.9\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"206,127 190.8,145.7 181.9,128\"/></g><g data-step=\"4\"><line class=\"fk-line dash t-bad\" x1=\"170\" y1=\"118\" x2=\"170\" y2=\"128.8\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"170,148 159.2,124 180.8,124\"/></g><g data-step=\"4\"><text class=\"fk-t t-bad\" x=\"200\" y=\"152\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">✗</text></g></svg>",
       "frames": [
         {
-          "caption": "متجهين \\(\\vec v,\\vec u\\) مش متناسبين"
+          "caption": "المتجهان \\(\\overrightarrow{v}\\) و\\(\\overrightarrow{u}\\) بيفردوا مستوى"
         },
         {
-          "caption": "هم بيفتحوا مستوى (متوازي أضلاع بينهم)"
+          "caption": "كل متجه عمودي على المستوى بيقع على خط واحد"
         },
         {
-          "caption": "بدنا \\(\\vec w\\) عمودي على المستوى كله"
+          "caption": "المساحة بتحدد الطول"
+        },
+        {
+          "caption": "اليد اليمين بتحدد الاتجاه"
         }
       ],
-      "title": "شو بدنا من المتجه الثالث"
+      "title": "كيف منختار المتجه الثالث w"
     },
     {
-      "t": "p",
-      "html": "<p>الطول: بنختاره يساوي مساحة متوازي الأضلاع اللي بيفتحه \\(\\vec v,\\vec u\\). الاتجاه: بقاعدة اليد اليمنى.</p>"
+      "t": "box",
+      "kind": "idea",
+      "title": "فكرة · شيئين بيحددوا \\(\\overrightarrow{w}\\)",
+      "html": "<p><b>الطول:</b> مساحة المتوازي (<bdi>שטח המקבילית</bdi>).</p><p><b>الاتجاه:</b> قاعدة اليد اليمين (<bdi>כלל יד ימין</bdi>)، أو قاعدة البرغي (<bdi>כלל הבורג</bdi>).</p>"
     },
     {
       "t": "h",
       "text": "2 · التعريف"
     },
     {
+      "t": "box",
+      "kind": "note",
+      "title": "تذكير",
+      "html": "<p>\\(\\overrightarrow{v}\\perp \\overrightarrow{w}\\) يعني \\(\\overrightarrow{v}\\cdot \\overrightarrow{w}=0\\): الضرب السلمي صفر = متعامدين.</p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>كيف منحسب المساحة من الطولين والزاوية؟ قاعدة × ارتفاع.</p>"
+    },
+    {
       "t": "steps",
-      "alt": "متوازي أضلاع ضلعاه v و u وزاوية ألفا بينهما والارتفاع |u| sin ألفا، فالمساحة |v||u| sin ألفا",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"متوازي أضلاع ضلعاه v و u وزاوية ألفا بينهما والارتفاع |u| sin ألفا، فالمساحة |v||u| sin ألفا\" class=\"fk\"><g data-step=\"1\"><polygon class=\"fk-curve t-mut\" points=\"70,215 300,215 386,92.1 156,92.1\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><line class=\"fk-line t-1\" x1=\"70\" y1=\"215\" x2=\"277.6\" y2=\"215\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"300,215 272,227.6 272,202.4\"/></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"185\" y=\"248\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|v|</text></g><g data-step=\"1\"><line class=\"fk-line t-2\" x1=\"70\" y1=\"215\" x2=\"143.2\" y2=\"110.5\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"156,92.1 150.3,122.3 129.7,107.8\"/></g><g data-step=\"1\"><text class=\"fk-t t-2\" x=\"86\" y=\"153.6\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|u|</text></g><g data-step=\"2\"><path class=\"fk-curve t-ink\" d=\"M110,215 L109.8,211.5 L109.4,208.1 L108.6,204.6 L107.6,201.3 L106.3,198.1 L104.6,195 L102.8,192.1 L100.6,189.3 L98.3,186.7 L95.7,184.4 L92.9,182.2\" stroke-width=\"3\" style=\"fill:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"132\" y=\"199\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">α</text></g><g data-step=\"3\"><line class=\"fk-line dash t-good\" x1=\"156\" y1=\"92.1\" x2=\"156\" y2=\"215\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"166\" y=\"153.6\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">h = |u|sin α</text></g><g data-step=\"4\"><text class=\"fk-t t-good\" x=\"240\" y=\"36\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|w| = |v|·|u|·sin α</text></g></svg>",
+      "alt": "متوازي أضلاع طول ضلعيه 4 و3 والزاوية 30 درجة، ارتفاعه 1.5 ومساحته 6",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 250\" role=\"img\" aria-label=\"متوازي أضلاع طول ضلعيه 4 و3 والزاوية 30 درجة، ارتفاعه 1.5 ومساحته 6\" class=\"fk\"><g data-step=\"2\"><polygon class=\"fk-curve t-good\" points=\"60,205 240,205 356.9,137.5 176.9,137.5\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><line class=\"fk-line t-1\" x1=\"60\" y1=\"205\" x2=\"220.8\" y2=\"205\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"240,205 216,215.8 216,194.2\"/><line class=\"fk-line t-2\" x1=\"60\" y1=\"205\" x2=\"160.3\" y2=\"147.1\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"176.9,137.5 161.5,158.9 150.7,140.1\"/><g><path class=\"fk-curve t-mut\" d=\"M106,205 L105.8,201 L105.3,197 L104.4,193.1 L103.2,189.3 L101.7,185.6 L99.8,182\" stroke-width=\"3\" style=\"fill:none\"/><text class=\"fk-t t-ink\" x=\"119.8\" y=\"196\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">α</text></g><text class=\"fk-t t-1\" x=\"180\" y=\"236\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|v|=4</text><text class=\"fk-t t-2\" x=\"88\" y=\"150\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|u|=3</text><g data-step=\"2\"><line class=\"fk-line dash t-bad\" x1=\"176.9\" y1=\"137.5\" x2=\"176.9\" y2=\"205\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><path class=\"fk-curve t-mut\" d=\"M176.9,191 L162.9,191 L162.9,205\" stroke-width=\"3\" style=\"fill:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-bad\" x=\"256.9\" y=\"176\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">h=|u|sinα</text></g><g data-step=\"3\"><rect class=\"fk-chip t-good\" x=\"200\" y=\"28\" width=\"262\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"331\" y=\"55\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|w| = 4·3·sin30° = 6</text></g></svg>",
       "frames": [
         {
-          "caption": "متوازي الأضلاع الذي يفتحه \\(\\vec v,\\vec u\\)"
+          "caption": "\\(|\\overrightarrow{v}|=4\\)، \\(|\\overrightarrow{u}|=3\\)، والزاوية \\(\\alpha=30^\\circ\\)"
         },
         {
-          "caption": "الزاوية بينهم \\(\\alpha\\)"
+          "caption": "الارتفاع هو \\(|\\overrightarrow{u}|\\sin\\alpha\\)"
         },
         {
-          "caption": "الارتفاع \\(h=|\\vec u|\\sin\\alpha\\)"
-        },
-        {
-          "caption": "المساحة = القاعدة × الارتفاع = \\(|\\vec w|\\)"
+          "caption": "المساحة بتطلع طول \\(\\overrightarrow{w}\\)"
         }
       ],
-      "title": "الطول = مساحة متوازي الأضلاع"
+      "title": "المساحة = القاعدة × الارتفاع"
     },
     {
       "t": "box",
       "kind": "def",
       "title": "تعريف · <bdi>הגדרה 1.16</bdi>",
-      "html": "<p>ليكن \\(\\vec v,\\vec u\\in\\mathbb R^3\\). الضرب المتجهي (<bdi>מכפלה וקטורית</bdi>) \\(\\vec w=\\vec v\\times\\vec u\\) هو المتجه الذي يحقق:</p><ol><li>\\(\\vec v\\perp\\vec w,\\quad \\vec u\\perp\\vec w\\)</li><li>\\(|\\vec w|=|\\vec u|\\cdot|\\vec v|\\,|\\sin(\\alpha)|\\) حيث \\(\\alpha\\) الزاوية بين \\(\\vec v\\) و \\(\\vec u\\)</li><li>\\(\\langle\\vec v,\\vec u,\\vec w\\rangle\\) منظومة يد يمين (<bdi>מערכת יד ימין</bdi>)</li></ol>"
-    },
-    {
-      "t": "p",
-      "html": "<p>طبعا هالتعريف مش مريح للحساب. بعد شوي منعطي صيغة جاهزة بالإحداثيات.</p>"
+      "html": "<p>ليكن \\(\\overrightarrow{v},\\overrightarrow{u}\\in\\mathbb R^3\\). الضرب المتجهي (<bdi>מכפלה וקטורית</bdi>) \\(\\overrightarrow{w}=\\overrightarrow{v}\\times \\overrightarrow{u}\\) هو المتجه الذي يحقق:</p><ol><li>\\(\\overrightarrow{v}\\perp \\overrightarrow{w}\\) و\\(\\overrightarrow{u}\\perp \\overrightarrow{w}\\)</li><li>\\(|\\overrightarrow{w}|=|\\overrightarrow{u}|\\cdot|\\overrightarrow{v}|\\sin(\\alpha)\\)، حيث \\(\\alpha\\) الزاوية بين \\(\\overrightarrow{v}\\) و\\(\\overrightarrow{u}\\)</li><li>\\(\\langle \\overrightarrow{v},\\overrightarrow{u},\\overrightarrow{w}\\rangle\\) جملة يد يمنى (<bdi>מערכת יד ימין</bdi>)</li></ol><p><small>لو \\(\\overrightarrow{v},\\overrightarrow{u}\\) متناسبين فالزاوية صفر، والـ\\(\\sin\\) صفر، فالطول صفر والناتج المتجه الصفر.</small></p>"
     },
     {
       "t": "quiz",
       "q": {
         "kind": "mc",
-        "prompt": "<p>\\(|\\vec v|=2\\)، \\(|\\vec u|=3\\) والزاوية بينهم \\(30^\\circ\\). كم \\(|\\vec v\\times\\vec u|\\)؟</p>",
+        "prompt": "<p>\\(|\\overrightarrow{v}|=2\\)، \\(|\\overrightarrow{u}|=5\\)، والزاوية بينهم \\(30^\\circ\\). احسب طول \\(\\overrightarrow{v}\\times \\overrightarrow{u}\\) وانتبه للدالة.</p>",
         "options": [
           {
             "v": "1",
-            "html": "\\(6\\)"
+            "html": "\\(5\\sqrt3\\)"
           },
           {
             "v": "2",
-            "html": "\\(3\\)"
+            "html": "\\(10\\)"
           },
           {
             "v": "3",
-            "html": "\\(3\\sqrt{3}\\)"
+            "html": "\\(5\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\(0\\)"
           }
         ],
         "answer": [
-          "2"
+          "3"
         ],
-        "hint": "<p>استعمل \\(\\sin\\) مش \\(\\cos\\).</p>",
-        "solution": "<p>\\(2\\cdot3\\cdot\\sin30^\\circ=6\\cdot\\frac12=3\\). الخيار 1 نسي الجيب؛ الخيار 3 استعمل \\(\\cos30^\\circ\\).</p>"
+        "hint": "<p>الطول بيستعمل \\(\\sin\\) مش \\(\\cos\\)، و\\(\\sin30^\\circ\\) معروفة.</p>",
+        "solution": "<p>\\(|\\overrightarrow{v}\\times \\overrightarrow{u}|=2\\cdot5\\cdot\\sin30^\\circ=5\\). الخيار \\(5\\sqrt3\\) جاي من \\(\\cos30^\\circ\\) (غلطة الضرب السلمي)، و\\(10\\) نسيت فيه \\(\\sin\\)، و\\(0\\) بيصح بس لما المتجهين متناسبين.</p>"
       }
     },
     {
       "t": "h",
-      "text": "3 · قاعدة اليد اليمنى"
+      "text": "3 · الصيغة بالإحداثيات"
     },
     {
       "t": "p",
-      "html": "<p>الشرط الثالث بيقول أي واحد من الاتجاهين العموديين نختار. إذا لفينا أصابع اليد اليمنى من \\(\\vec v\\) نحو \\(\\vec u\\)، الإبهام بيشير لـ \\(\\vec w\\).</p>"
-    },
-    {
-      "t": "steps",
-      "alt": "قاعدة اليد اليمنى: نلف الأصابع من v نحو u فيشير الإبهام نحو w",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 290\" role=\"img\" aria-label=\"قاعدة اليد اليمنى: نلف الأصابع من v نحو u فيشير الإبهام نحو w\" class=\"fk\"><g data-step=\"1\"><line class=\"fk-line t-1\" x1=\"130\" y1=\"235\" x2=\"327.6\" y2=\"235\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"350,235 322,247.6 322,222.4\"/></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"356\" y=\"263\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text></g><g data-step=\"1\"><line class=\"fk-line t-2\" x1=\"130\" y1=\"235\" x2=\"199.2\" y2=\"152.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"213.6,135.4 205.2,165 185.9,148.8\"/></g><g data-step=\"1\"><text class=\"fk-t t-2\" x=\"225.6\" y=\"127.4\" font-size=\"24\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">u</text></g><g data-step=\"2\"><path class=\"fk-curve t-ink\" d=\"M205,235 L204.7,228.5 L203.9,222 L202.4,215.6 L200.5,209.3 L198,203.3 L195,197.5 L191.4,192 L187.5,186.8\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"2\"><line class=\"fk-line t-ink\" x1=\"191.4\" y1=\"192\" x2=\"191.2\" y2=\"191.7\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-ink\" points=\"178.2,177.5 202.4,187.9 186.5,202.5\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"183\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"rtl\">ندور</text></g><g data-step=\"3\"><line class=\"fk-line t-good\" x1=\"130\" y1=\"235\" x2=\"130\" y2=\"65.6\" stroke-width=\"6\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"130,40 144.4,72 115.6,72\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"146\" y=\"52\" font-size=\"22\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">w = v × u</text></g></svg>",
-      "frames": [
-        {
-          "caption": "نحط \\(\\vec v\\) ثم \\(\\vec u\\) بنفس المستوى"
-        },
-        {
-          "caption": "نلف أصابع اليد اليمنى من \\(\\vec v\\) نحو \\(\\vec u\\)"
-        },
-        {
-          "caption": "الإبهام بيشير لاتجاه \\(\\vec w=\\vec v\\times\\vec u\\)"
-        }
-      ],
-      "title": "قاعدة اليد اليمنى"
-    },
-    {
-      "t": "p",
-      "html": "<p>هيك الترتيب مهم: \\(\\vec v\\times\\vec u\\) غير \\(\\vec u\\times\\vec v\\). بنرجع له بالخصائص.</p>"
-    },
-    {
-      "t": "h",
-      "text": "4 · الصيغة التحليلية"
-    },
-    {
-      "t": "p",
-      "html": "<p>للحساب بنستعمل ثلاث متجهات خاصة (الترميز المقبول):</p>"
-    },
-    {
-      "t": "p",
-      "html": "<p>\\[\\vec i=\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix},\\quad \\vec j=\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix},\\quad \\vec k=\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\]</p>"
-    },
-    {
-      "t": "steps",
-      "alt": "مصفوفة 3 في 3 صفها الأول i j k ونحذف عمود كل مرة لنحسب مركبة من النتيجة",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"مصفوفة 3 في 3 صفها الأول i j k ونحذف عمود كل مرة لنحسب مركبة من النتيجة\" class=\"fk\"><g><text class=\"fk-t t-ink\" x=\"74\" y=\"74.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">i</text><text class=\"fk-t t-ink\" x=\"130\" y=\"74.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">j</text><text class=\"fk-t t-ink\" x=\"186\" y=\"74.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">k</text><text class=\"fk-t t-ink\" x=\"74\" y=\"126.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a</text><text class=\"fk-t t-ink\" x=\"130\" y=\"126.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">b</text><text class=\"fk-t t-ink\" x=\"186\" y=\"126.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">c</text><text class=\"fk-t t-ink\" x=\"74\" y=\"178.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">d</text><text class=\"fk-t t-ink\" x=\"130\" y=\"178.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">e</text><text class=\"fk-t t-ink\" x=\"186\" y=\"178.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">f</text><path class=\"fk-curve t-mut\" d=\"M42,42 L32,42 L32,194 L42,194\" stroke-width=\"4\" style=\"fill:none\"/><path class=\"fk-curve t-mut\" d=\"M218,42 L228,42 L228,194 L218,194\" stroke-width=\"4\" style=\"fill:none\"/></g><line class=\"fk-line t-ink\" x1=\"18\" y1=\"36\" x2=\"18\" y2=\"200\" stroke-width=\"3\" stroke-linecap=\"round\"/><line class=\"fk-line t-ink\" x1=\"210\" y1=\"36\" x2=\"210\" y2=\"200\" stroke-width=\"3\" stroke-linecap=\"round\"/><g data-only=\"2\"><rect class=\"fk-curve t-2\" x=\"90\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"2\"><rect class=\"fk-curve t-2\" x=\"146\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"2\"><rect class=\"fk-curve t-2\" x=\"90\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"2\"><rect class=\"fk-curve t-2\" x=\"146\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"2\"><rect class=\"fk-curve t-1\" x=\"34\" y=\"44\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><rect class=\"fk-chip t-good\" x=\"228\" y=\"46\" width=\"230\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"343\" y=\"76\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">bf − ce</text></g><g data-only=\"3\"><rect class=\"fk-curve t-2\" x=\"34\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"3\"><rect class=\"fk-curve t-2\" x=\"146\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"3\"><rect class=\"fk-curve t-2\" x=\"34\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"3\"><rect class=\"fk-curve t-2\" x=\"146\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"3\"><rect class=\"fk-curve t-1\" x=\"90\" y=\"44\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><rect class=\"fk-chip t-good\" x=\"228\" y=\"102\" width=\"230\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"343\" y=\"132\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">cd − af</text></g><g data-only=\"4\"><rect class=\"fk-curve t-2\" x=\"34\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"4\"><rect class=\"fk-curve t-2\" x=\"90\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"4\"><rect class=\"fk-curve t-2\" x=\"34\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"4\"><rect class=\"fk-curve t-2\" x=\"90\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"4\"><rect class=\"fk-curve t-1\" x=\"146\" y=\"44\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><rect class=\"fk-chip t-good\" x=\"228\" y=\"158\" width=\"230\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"343\" y=\"188\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">ae − bd</text></g></svg>",
-      "frames": [
-        {
-          "caption": "نكتب المتجهات بصفين تحت \\(\\vec i,\\vec j,\\vec k\\)"
-        },
-        {
-          "caption": "المركبة الأولى: نحذف عمود \\(\\vec i\\): \\(bf-ce\\)"
-        },
-        {
-          "caption": "الثانية: نحذف عمود \\(\\vec j\\) (بإشارة معكوسة): \\(cd-af\\)"
-        },
-        {
-          "caption": "الثالثة: نحذف عمود \\(\\vec k\\): \\(ae-bd\\)"
-        }
-      ],
-      "title": "الصيغة خطوة خطوة"
-    },
-    {
-      "t": "box",
-      "kind": "thm",
-      "title": "טענה 1.17",
-      "html": "<p>ليكن \\(\\vec v=\\begin{pmatrix}a\\\\b\\\\c\\end{pmatrix},\\ \\vec u=\\begin{pmatrix}d\\\\e\\\\f\\end{pmatrix}\\in\\mathbb R^3\\). عندها:</p><p>\\[\\vec v\\times\\vec u=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\ a&b&c\\\\ d&e&f\\end{vmatrix}=\\begin{pmatrix}bf-ce\\\\ cd-af\\\\ ae-bd\\end{pmatrix}\\]</p>"
+      "html": "<p>التعريف ما بيفيد بالحساب: كيف بدنا نلاقي \\(\\overrightarrow{w}\\) من الأرقام بس؟ بدنا صيغة بالإحداثيات.</p>"
     },
     {
       "t": "box",
       "kind": "note",
-      "title": "ملاحظة",
-      "html": "<p>الصيغة بتتعلق بمفهوم المحدد (<bdi>דטרמיננטה</bdi>) اللي منشوفه لاحقا بالكورس، والمحاضر هون بيعطي الصيغة بدون برهان.</p>"
-    },
-    {
-      "t": "box",
-      "kind": "idea",
-      "title": "واجب بيتي من المحاضر",
-      "html": "<p>تحقق إنّ المتجه اللي بيطلع بالصيغة بيحقق الشرطين الأولين من التعريف: عمودي على \\(\\vec v\\) وعلى \\(\\vec u\\). منعمله بالمثال تحت.</p>"
-    },
-    {
-      "t": "h",
-      "text": "5 · مثال وتحقق"
+      "title": "ترميز · متجهات الأساس",
+      "html": "<p>\\(\\overrightarrow{i}=\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\)، \\(\\overrightarrow{j}=\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}\\)، \\(\\overrightarrow{k}=\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\)</p>"
     },
     {
       "t": "steps",
-      "alt": "حساب الضرب المتجهي للمتجهين (1,-1,0) و (0,1,2) فتطلع النتيجة (-2,-2,1)",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"حساب الضرب المتجهي للمتجهين (1,-1,0) و (0,1,2) فتطلع النتيجة (-2,-2,1)\" class=\"fk\"><g><text class=\"fk-t t-ink\" x=\"74\" y=\"74.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">i</text><text class=\"fk-t t-ink\" x=\"130\" y=\"74.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">j</text><text class=\"fk-t t-ink\" x=\"186\" y=\"74.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">k</text><text class=\"fk-t t-ink\" x=\"74\" y=\"126.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-ink\" x=\"130\" y=\"126.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−1</text><text class=\"fk-t t-ink\" x=\"186\" y=\"126.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text><text class=\"fk-t t-ink\" x=\"74\" y=\"178.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text><text class=\"fk-t t-ink\" x=\"130\" y=\"178.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-ink\" x=\"186\" y=\"178.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><path class=\"fk-curve t-mut\" d=\"M42,42 L32,42 L32,194 L42,194\" stroke-width=\"4\" style=\"fill:none\"/><path class=\"fk-curve t-mut\" d=\"M218,42 L228,42 L228,194 L218,194\" stroke-width=\"4\" style=\"fill:none\"/></g><line class=\"fk-line t-ink\" x1=\"18\" y1=\"36\" x2=\"18\" y2=\"200\" stroke-width=\"3\" stroke-linecap=\"round\"/><line class=\"fk-line t-ink\" x1=\"210\" y1=\"36\" x2=\"210\" y2=\"200\" stroke-width=\"3\" stroke-linecap=\"round\"/><g data-only=\"2\"><rect class=\"fk-curve t-2\" x=\"90\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"2\"><rect class=\"fk-curve t-2\" x=\"146\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"2\"><rect class=\"fk-curve t-2\" x=\"90\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"2\"><rect class=\"fk-curve t-2\" x=\"146\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"2\"><rect class=\"fk-curve t-1\" x=\"34\" y=\"44\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><rect class=\"fk-chip t-good\" x=\"228\" y=\"46\" width=\"230\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"343\" y=\"76\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">(−1)·2 − 0·1 = −2</text></g><g data-only=\"3\"><rect class=\"fk-curve t-2\" x=\"34\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"3\"><rect class=\"fk-curve t-2\" x=\"146\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"3\"><rect class=\"fk-curve t-2\" x=\"34\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"3\"><rect class=\"fk-curve t-2\" x=\"146\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"3\"><rect class=\"fk-curve t-1\" x=\"90\" y=\"44\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><rect class=\"fk-chip t-good\" x=\"228\" y=\"102\" width=\"230\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"343\" y=\"132\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0·0 − 1·2 = −2</text></g><g data-only=\"4\"><rect class=\"fk-curve t-2\" x=\"34\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"4\"><rect class=\"fk-curve t-2\" x=\"90\" y=\"96\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"4\"><rect class=\"fk-curve t-2\" x=\"34\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"4\"><rect class=\"fk-curve t-2\" x=\"90\" y=\"148\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-only=\"4\"><rect class=\"fk-curve t-1\" x=\"146\" y=\"44\" width=\"48\" height=\"44\" rx=\"8\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><rect class=\"fk-chip t-good\" x=\"228\" y=\"158\" width=\"230\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"343\" y=\"188\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1·1 − (−1)·0 = 1</text></g></svg>",
+      "alt": "مصفوفة i j k فوق v وu، وبتغطية كل عمود بنطلع مركّب من النتيجة",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 240\" role=\"img\" aria-label=\"مصفوفة i j k فوق v وu، وبتغطية كل عمود بنطلع مركّب من النتيجة\" class=\"fk\"><g data-only=\"1\"><g><text class=\"fk-t t-ink\" x=\"64\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">i</text><text class=\"fk-t t-ink\" x=\"120\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">j</text><text class=\"fk-t t-ink\" x=\"176\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">k</text><text class=\"fk-t t-ink\" x=\"64\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a</text><text class=\"fk-t t-ink\" x=\"120\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">b</text><text class=\"fk-t t-ink\" x=\"176\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">c</text><text class=\"fk-t t-ink\" x=\"64\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">d</text><text class=\"fk-t t-ink\" x=\"120\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">e</text><text class=\"fk-t t-ink\" x=\"176\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">f</text><path class=\"fk-curve t-mut\" d=\"M32,42 L22,42 L22,194 L32,194\" stroke-width=\"4\" style=\"fill:none\"/><path class=\"fk-curve t-mut\" d=\"M208,42 L218,42 L218,194 L208,194\" stroke-width=\"4\" style=\"fill:none\"/></g></g><g data-only=\"2\"><g><rect class=\"fk-curve t-1\" x=\"39\" y=\"43\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"95\" y=\"95\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"151\" y=\"95\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"95\" y=\"147\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"151\" y=\"147\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">i</text><text class=\"fk-t t-ink\" x=\"120\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">j</text><text class=\"fk-t t-ink\" x=\"176\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">k</text><text class=\"fk-t t-ink\" x=\"64\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a</text><text class=\"fk-t t-ink\" x=\"120\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">b</text><text class=\"fk-t t-ink\" x=\"176\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">c</text><text class=\"fk-t t-ink\" x=\"64\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">d</text><text class=\"fk-t t-ink\" x=\"120\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">e</text><text class=\"fk-t t-ink\" x=\"176\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">f</text><path class=\"fk-curve t-mut\" d=\"M32,42 L22,42 L22,194 L32,194\" stroke-width=\"4\" style=\"fill:none\"/><path class=\"fk-curve t-mut\" d=\"M208,42 L218,42 L218,194 L208,194\" stroke-width=\"4\" style=\"fill:none\"/></g></g><g data-only=\"3\"><g><rect class=\"fk-curve t-1\" x=\"95\" y=\"43\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"39\" y=\"95\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"151\" y=\"95\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"39\" y=\"147\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"151\" y=\"147\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">i</text><text class=\"fk-t t-ink\" x=\"120\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">j</text><text class=\"fk-t t-ink\" x=\"176\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">k</text><text class=\"fk-t t-ink\" x=\"64\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a</text><text class=\"fk-t t-ink\" x=\"120\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">b</text><text class=\"fk-t t-ink\" x=\"176\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">c</text><text class=\"fk-t t-ink\" x=\"64\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">d</text><text class=\"fk-t t-ink\" x=\"120\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">e</text><text class=\"fk-t t-ink\" x=\"176\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">f</text><path class=\"fk-curve t-mut\" d=\"M32,42 L22,42 L22,194 L32,194\" stroke-width=\"4\" style=\"fill:none\"/><path class=\"fk-curve t-mut\" d=\"M208,42 L218,42 L218,194 L208,194\" stroke-width=\"4\" style=\"fill:none\"/></g></g><g data-only=\"4\"><g><rect class=\"fk-curve t-1\" x=\"151\" y=\"43\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"39\" y=\"95\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"95\" y=\"95\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"39\" y=\"147\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><rect class=\"fk-curve t-2\" x=\"95\" y=\"147\" width=\"50\" height=\"46\" rx=\"10\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"64\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">i</text><text class=\"fk-t t-ink\" x=\"120\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">j</text><text class=\"fk-t t-ink\" x=\"176\" y=\"73.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">k</text><text class=\"fk-t t-ink\" x=\"64\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a</text><text class=\"fk-t t-ink\" x=\"120\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">b</text><text class=\"fk-t t-ink\" x=\"176\" y=\"125.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">c</text><text class=\"fk-t t-ink\" x=\"64\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">d</text><text class=\"fk-t t-ink\" x=\"120\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">e</text><text class=\"fk-t t-ink\" x=\"176\" y=\"177.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">f</text><path class=\"fk-curve t-mut\" d=\"M32,42 L22,42 L22,194 L32,194\" stroke-width=\"4\" style=\"fill:none\"/><path class=\"fk-curve t-mut\" d=\"M208,42 L218,42 L218,194 L208,194\" stroke-width=\"4\" style=\"fill:none\"/></g></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"262\" y=\"124\" font-size=\"32\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">=</text></g><g data-step=\"2\"><path class=\"fk-curve t-mut\" d=\"M312,40 L300,40 L300,196 L312,196\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"2\"><path class=\"fk-curve t-mut\" d=\"M438,40 L450,40 L450,196 L438,196\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"375\" y=\"73\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">bf − ce</text></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"375\" y=\"125\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">cd − af</text></g><g data-step=\"4\"><text class=\"fk-t t-good\" x=\"375\" y=\"177\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">ae − bd</text></g></svg>",
       "frames": [
         {
-          "caption": "\\(\\vec v=(1,-1,0)\\) و \\(\\vec u=(0,1,2)\\)"
+          "caption": "الصف الأول \\(\\overrightarrow{i},\\overrightarrow{j},\\overrightarrow{k}\\)، وتحته \\(\\overrightarrow{v}\\) و\\(\\overrightarrow{u}\\)"
         },
         {
-          "caption": "المركبة الأولى: \\(-2\\)"
+          "caption": "غطّينا عمود \\(\\overrightarrow{i}\\)، بقي \\(b,c,e,f\\)"
         },
         {
-          "caption": "المركبة الثانية: \\(-2\\)"
+          "caption": "غطّينا عمود \\(\\overrightarrow{j}\\)، بقي \\(a,c,d,f\\)"
         },
         {
-          "caption": "الثالثة: \\(1\\)"
+          "caption": "غطّينا عمود \\(\\overrightarrow{k}\\)، بقي \\(a,b,d,e\\)"
         }
       ],
-      "title": "الضرب المتجهي للمثال 1.18"
-    },
-    {
-      "t": "box",
-      "kind": "ex",
-      "title": "مثال · <bdi>דוגמה 1.18</bdi>",
-      "html": "<p>ليكن \\(\\vec v=(1,-1,0)\\) و \\(\\vec u=(0,1,2)\\) في \\(\\mathbb R^3\\). عندها:</p><p>\\[\\vec v\\times\\vec u=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\1&-1&0\\\\0&1&2\\end{vmatrix}=\\begin{pmatrix}-2\\\\-2\\\\1\\end{pmatrix}\\]</p>"
-    },
-    {
-      "t": "box",
-      "kind": "ex",
-      "title": "تحقق (الواجب)",
-      "html": "<p>نضرب سلميا بكل متجه أصلي:</p><p>\\[\\vec w\\cdot\\vec v=-2+2+0=0\\]</p><p>\\[\\vec w\\cdot\\vec u=0-2+2=0\\]</p><p>الاتنين صفر يعني \\(\\vec w\\) عمودي عليهم. (قاعدة جيدة تتحقق فيها من حسابك.)</p>"
-    },
-    {
-      "t": "quiz",
-      "q": {
-        "kind": "mc",
-        "prompt": "<p>\\(\\vec i\\times\\vec j\\) بيطلع:</p>",
-        "options": [
-          {
-            "v": "1",
-            "html": "\\(\\vec k\\)"
-          },
-          {
-            "v": "2",
-            "html": "\\(-\\vec k\\)"
-          },
-          {
-            "v": "3",
-            "html": "\\(\\vec 0\\)"
-          }
-        ],
-        "answer": [
-          "1"
-        ],
-        "hint": "<p>\\(\\vec i=(1,0,0),\\ \\vec j=(0,1,0)\\). طبّق الصيغة.</p>",
-        "solution": "<p>\\(a=1,b=0,c=0,d=0,e=1,f=0\\): \\((0,\\,0,\\,1\\cdot1-0)=(0,0,1)=\\vec k\\). يد يمنى: من \\(x\\) لـ \\(y\\) والإبهام لـ \\(z\\).</p>"
-      }
-    },
-    {
-      "t": "h",
-      "text": "6 · الخصائص"
-    },
-    {
-      "t": "steps",
-      "alt": "v×u يشير للأعلى و u×v يشير للأسفل بنفس الطول فهما متعاكسان",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 280\" role=\"img\" aria-label=\"v×u يشير للأعلى و u×v يشير للأسفل بنفس الطول فهما متعاكسان\" class=\"fk\"><g data-step=\"1\"><line class=\"fk-line t-good\" x1=\"200\" y1=\"140\" x2=\"200\" y2=\"55.6\" stroke-width=\"6\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"200,30 214.4,62 185.6,62\"/></g><g data-step=\"1\"><text class=\"fk-t t-good\" x=\"216\" y=\"50\" font-size=\"22\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">v × u</text></g><g data-step=\"2\"><line class=\"fk-line t-bad\" x1=\"200\" y1=\"140\" x2=\"200\" y2=\"224.4\" stroke-width=\"6\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"200,250 185.6,218 214.4,218\"/></g><g data-step=\"2\"><text class=\"fk-t t-bad\" x=\"216\" y=\"245\" font-size=\"22\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">u × v</text></g><line class=\"fk-line t-1\" x1=\"200\" y1=\"140\" x2=\"307.9\" y2=\"156.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"330,160 300.4,168.2 304.2,143.3\"/><text class=\"fk-t t-1\" x=\"336\" y=\"186\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text><line class=\"fk-line t-2\" x1=\"200\" y1=\"140\" x2=\"248\" y2=\"130.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"270,126 245,143.8 240.1,119.1\"/><text class=\"fk-t t-2\" x=\"266\" y=\"114\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u</text></svg>",
-      "frames": [
-        {
-          "caption": "\\(\\vec v\\times\\vec u\\) للأعلى"
-        },
-        {
-          "caption": "\\(\\vec u\\times\\vec v=-\\vec v\\times\\vec u\\): نفس الطول واتجاه معاكس"
-        }
-      ],
-      "title": "تبديل المتجهين بيعكس الاتجاه"
+      "title": "الصيغة: غطّي عمود وتصالب"
     },
     {
       "t": "box",
       "kind": "thm",
-      "title": "טענה 1.19",
-      "html": "<p>ليكن \\(\\vec v_1,\\vec v_2,\\vec v_3\\in\\mathbb R^3\\). عندها:</p><ul><li>\\(\\vec v_1\\times\\vec v_2=-\\vec v_2\\times\\vec v_1\\)</li><li>\\((\\alpha\\vec v_1)\\times\\vec v_2=\\alpha(\\vec v_1\\times\\vec v_2)\\)</li><li>\\((\\vec v_1+\\vec v_2)\\times\\vec v_3=\\vec v_1\\times\\vec v_3+\\vec v_2\\times\\vec v_3\\)</li></ul>"
-    },
-    {
-      "t": "p",
-      "html": "<p>هاي الخصائص بتتبرهن من التعريف أو من الصيغة. أهم شي: الضرب المتجهي <b>مش تبديلي</b>.</p>"
+      "title": "ادّعاء · <bdi>טענה 1.17</bdi>",
+      "html": "<p>ليكن \\(\\overrightarrow{v}=\\begin{pmatrix}a\\\\b\\\\c\\end{pmatrix}\\) و\\(\\overrightarrow{u}=\\begin{pmatrix}d\\\\e\\\\f\\end{pmatrix}\\) في \\(\\mathbb R^3\\). الضرب المتجهي بيُحسب هيك:</p><p>\\[\\begin{aligned}\\overrightarrow{v}\\times \\overrightarrow{u}&=\\begin{vmatrix}\\overrightarrow{i}&\\overrightarrow{j}&\\overrightarrow{k}\\\\a&b&c\\\\d&e&f\\end{vmatrix}\\\\&=\\begin{pmatrix}bf-ce\\\\cd-af\\\\ae-bd\\end{pmatrix}\\end{aligned}\\]</p><p><small>بدون برهان هون. منتأكد منها بمثال بعد شوي.</small></p>"
     },
     {
       "t": "box",
-      "kind": "ex",
-      "title": "مثال",
-      "html": "<p>مثلا \\(\\vec j\\times\\vec i=-\\vec k\\) بينما \\(\\vec i\\times\\vec j=\\vec k\\).</p>"
+      "kind": "idea",
+      "title": "فكرة · ليش الأوسط معكوس؟",
+      "html": "<p>الدور دائري: المركّب الأول من \\((y,z)\\)، التاني من \\((z,x)\\)، التالت من \\((x,y)\\). عشان هيك التاني \\(cd-af\\) مش \\(af-cd\\) — وهاي غلطة شائعة.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "حساب (1,-1,0) ضرب متجهي (0,1,2) والتأكد من النتيجة",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 252\" role=\"img\" aria-label=\"حساب (1,-1,0) ضرب متجهي (0,1,2) والتأكد من النتيجة\" class=\"fk\"><g><text class=\"fk-t t-ink\" x=\"58\" y=\"57.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">i</text><text class=\"fk-t t-ink\" x=\"114\" y=\"57.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">j</text><text class=\"fk-t t-ink\" x=\"170\" y=\"57.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">k</text><text class=\"fk-t t-ink\" x=\"58\" y=\"109.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-ink\" x=\"114\" y=\"109.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−1</text><text class=\"fk-t t-ink\" x=\"170\" y=\"109.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text><text class=\"fk-t t-ink\" x=\"58\" y=\"161.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text><text class=\"fk-t t-ink\" x=\"114\" y=\"161.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-ink\" x=\"170\" y=\"161.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><path class=\"fk-curve t-mut\" d=\"M26,26 L16,26 L16,178 L26,178\" stroke-width=\"4\" style=\"fill:none\"/><path class=\"fk-curve t-mut\" d=\"M202,26 L212,26 L212,178 L202,178\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-only=\"2\"><text class=\"fk-t t-ink\" x=\"236\" y=\"50\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">(−1)·2 − 0·1 = −2</text></g><g data-only=\"2\"><text class=\"fk-t t-ink\" x=\"236\" y=\"102\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">0·0 − 1·2 = −2</text></g><g data-only=\"2\"><text class=\"fk-t t-ink\" x=\"236\" y=\"154\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">1·1 − (−1)·0 = 1</text></g><g data-step=\"3\"><rect class=\"fk-chip t-good\" x=\"14\" y=\"196\" width=\"200\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"114\" y=\"223.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">w = (−2, −2, 1)</text></g><g data-only=\"3\"><text class=\"fk-t t-good\" x=\"236\" y=\"50\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">w·v = −2 + 2 + 0 = 0</text></g><g data-only=\"3\"><text class=\"fk-t t-good\" x=\"236\" y=\"102\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">w·u = 0 − 2 + 2 = 0</text></g><g data-only=\"4\"><text class=\"fk-t t-good\" x=\"236\" y=\"50\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">|w|² = 4 + 4 + 1 = 9</text></g><g data-only=\"4\"><text class=\"fk-t t-2\" x=\"236\" y=\"102\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">|v|²|u|² − (v·u)²</text></g><g data-only=\"4\"><text class=\"fk-t t-2\" x=\"236\" y=\"154\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">= 2·5 − (−1)² = 9</text></g></svg>",
+      "frames": [
+        {
+          "caption": "\\(\\overrightarrow{v}\\) بالصف التاني و\\(\\overrightarrow{u}\\) بالتالت"
+        },
+        {
+          "caption": "حسبنا المركّبات الثلاثة"
+        },
+        {
+          "caption": "الناتج \\(\\overrightarrow{w}\\)، وضربه السلمي بالاتنين صفر"
+        },
+        {
+          "caption": "\\(\\sin^2\\alpha=1-\\cos^2\\alpha\\) بتعطي نفس التسعة"
+        }
+      ],
+      "title": "مثال 1.18: \\((1,-1,0)\\times(0,1,2)\\)"
     },
     {
       "t": "quiz",
       "q": {
         "kind": "mc",
-        "prompt": "<p>\\(\\vec v\\times\\vec u=(1,2,3)\\). كم \\(\\vec u\\times\\vec v\\)؟</p>",
+        "prompt": "<p>احسب \\(\\overrightarrow{v}\\times \\overrightarrow{u}\\) للمتجهين \\(\\overrightarrow{v}=(1,2,3)\\) و\\(\\overrightarrow{u}=(4,5,6)\\)، وانتبه للإشارات.</p>",
         "options": [
           {
             "v": "1",
-            "html": "\\((1,2,3)\\)"
+            "html": "\\((-3,-6,-3)\\)"
           },
           {
             "v": "2",
-            "html": "\\((-1,-2,-3)\\)"
+            "html": "\\((-3,6,-3)\\)"
           },
           {
             "v": "3",
-            "html": "\\((3,2,1)\\)"
+            "html": "\\((3,-6,3)\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\((4,10,18)\\)"
           }
         ],
         "answer": [
           "2"
         ],
-        "hint": "<p>تبديل الترتيب بيعمل شو؟</p>",
-        "solution": "<p>\\(\\vec u\\times\\vec v=-\\vec v\\times\\vec u=(-1,-2,-3)\\).</p>"
+        "hint": "<p>المركّب الأوسط هو \\(cd-af\\).</p>",
+        "solution": "<p>الصيغة بتعطي \\((12-15,\\ 12-6,\\ 5-8)=(-3,6,-3)\\). الخيار الأول كتب الأوسط \\(af-cd=-6\\) (معكوس)، والتالت هو \\(\\overrightarrow{u}\\times \\overrightarrow{v}\\) (الترتيب معكوس)، والرابع ضرب الأرقام المتقابلة وهاد مش ضرب متجهي.</p>"
       }
-    },
-    {
-      "t": "method",
-      "title": "حساب \\(\\vec v\\times\\vec u\\) بالإحداثيات",
-      "steps": [
-        "اكتب \\(\\vec v=(a,b,c)\\) و \\(\\vec u=(d,e,f)\\) بحسب الترتيب المطلوب.",
-        "الأولى: \\(bf-ce\\)، الثانية: \\(cd-af\\)، الثالثة: \\(ae-bd\\).",
-        "تحقق: النتيجة ضرب سلمي بكل متجه أصلي = 0."
-      ]
-    },
-    {
-      "t": "mistakes",
-      "title": "أخطاء شائعة",
-      "rows": [
-        {
-          "no": "\\(\\vec v\\times\\vec u=\\vec u\\times\\vec v\\)",
-          "yes": "\\(\\vec v\\times\\vec u=-\\vec u\\times\\vec v\\)"
-        },
-        {
-          "no": "الضرب المتجهي عدد",
-          "yes": "الضرب المتجهي <b>متجه</b> (والسلمي هو العدد)"
-        },
-        {
-          "no": "المركبة الثانية \\(af-cd\\)",
-          "yes": "المركبة الثانية \\(cd-af\\) (إشارة معكوسة)"
-        }
-      ]
-    },
-    {
-      "t": "checklist",
-      "title": "شو لازم تعرف من هالدرس",
-      "items": [
-        "الضرب المتجهي (<bdi>מכפלה וקטורית</bdi>) متجه عمودي على المتجهين.",
-        "طوله \\(|\\vec v||\\vec u||\\sin\\alpha|\\) = مساحة متوازي الأضلاع.",
-        "اتجاهه بقاعدة اليد اليمنى (<bdi>מערכת יד ימין</bdi>).",
-        "الصيغة \\((bf-ce,\\ cd-af,\\ ae-bd)\\) (<bdi>טענה 1.17</bdi>).",
-        "تقلب الإشارة عند تبديل الترتيب (<bdi>טענה 1.19</bdi>)."
-      ]
-    },
-    {
-      "t": "card",
-      "front": "\\(\\vec v\\times\\vec u\\)",
-      "back": "\\((bf-ce,\\ cd-af,\\ ae-bd)\\)"
-    },
-    {
-      "t": "card",
-      "front": "طول الضرب المتجهي",
-      "back": "\\(|\\vec v|\\,|\\vec u|\\,|\\sin\\alpha|\\) = مساحة متوازي الأضلاع"
-    },
-    {
-      "t": "card",
-      "front": "\\(\\vec u\\times\\vec v\\)",
-      "back": "\\(-\\vec v\\times\\vec u\\)"
     },
     {
       "t": "quiz",
       "q": {
         "kind": "text",
-        "prompt": "<p>احسب \\(\\begin{pmatrix}2\\\\0\\\\1\\end{pmatrix}\\times\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) واكتب المركبة الأخيرة.</p>",
+        "prompt": "<p>المتجه \\(\\overrightarrow{v}=(1,2,0)\\) و\\(\\overrightarrow{u}=(0,0,k)\\)، و\\(\\overrightarrow{v}\\times \\overrightarrow{u}=(6,-3,0)\\). جد \\(k\\) واكتب عدد.</p>",
         "answer": [
-          "2"
+          "3"
         ],
-        "hint": "<p>المركبة الثالثة هي \\(ae-bd\\).</p>",
-        "solution": "<p>\\(a=2,b=0,d=1,e=1\\): \\(2\\cdot1-0\\cdot1=2\\). النتيجة كاملة \\((-1,1,2)\\).</p>"
+        "hint": "<p>حط \\(a=1,b=2,c=0\\) و\\(d=0,e=0,f=k\\) بالصيغة، وساوِ أول مركّب بـ 6.</p>",
+        "solution": "<p>المركّب الأول: \\(bf-ce=2k=6\\) فـ\\(k=3\\). والتاني: \\(cd-af=-k=-3\\) بيأكد نفس القيمة.</p>"
       }
+    },
+    {
+      "t": "h",
+      "text": "4 · الخصائص"
+    },
+    {
+      "t": "p",
+      "html": "<p>شو بيصير لو بدّلنا ترتيب المتجهين؟ خمّن قبل ما تكبس.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "v ضرب u بيطلع لفوق، وبتبديل الترتيب u ضرب v بيطلع لتحت بنفس الطول",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 210\" role=\"img\" aria-label=\"v ضرب u بيطلع لفوق، وبتبديل الترتيب u ضرب v بيطلع لتحت بنفس الطول\" class=\"fk\"><polygon class=\"fk-curve t-1\" points=\"170,112 114,148 264,148 320,112\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><line class=\"fk-line t-1\" x1=\"170\" y1=\"112\" x2=\"130.2\" y2=\"137.6\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"114,148 128.3,125.9 140,144.1\"/><line class=\"fk-line t-2\" x1=\"170\" y1=\"112\" x2=\"300.8\" y2=\"112\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"320,112 296,122.8 296,101.2\"/><text class=\"fk-t t-1\" x=\"70\" y=\"142\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v</text><text class=\"fk-t t-2\" x=\"330\" y=\"100\" font-size=\"24\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u</text><g data-only=\"1\"><path class=\"fk-curve t-mut\" d=\"M148,127 C150,128.8 153.7,136.3 160,138 C166.3,139.7 178.3,138.8 186,137 C193.7,135.2 202.7,128.7 206,127\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-only=\"1\"><line class=\"fk-line t-mut\" x1=\"186\" y1=\"137\" x2=\"190.3\" y2=\"134.9\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"206,127 190.8,145.7 181.9,128\"/></g><g data-only=\"1\"><line class=\"fk-line t-good\" x1=\"170\" y1=\"106\" x2=\"170\" y2=\"80.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"170,58 182.6,86 157.4,86\"/></g><g data-only=\"1\"><text class=\"fk-t t-good\" x=\"226\" y=\"68\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v×u</text></g><g data-only=\"2\"><path class=\"fk-curve t-mut\" d=\"M206,127 C202.7,128.7 193.7,135.2 186,137 C178.3,138.8 166.3,139.7 160,138 C153.7,136.3 150,128.8 148,127\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-only=\"2\"><line class=\"fk-line t-mut\" x1=\"160\" y1=\"138\" x2=\"161\" y2=\"138.9\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"148,127 170.9,134.6 157.5,149.2\"/></g><g data-only=\"2\"><line class=\"fk-line t-bad\" x1=\"170\" y1=\"118\" x2=\"170\" y2=\"143.6\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-bad\" points=\"170,166 157.4,138 182.6,138\"/></g><g data-only=\"2\"><text class=\"fk-t t-bad\" x=\"226\" y=\"162\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u×v</text></g></svg>",
+      "frames": [
+        {
+          "caption": "\\(\\overrightarrow{v}\\times \\overrightarrow{u}\\): الإبهام لفوق"
+        },
+        {
+          "caption": "\\(\\overrightarrow{u}\\times \\overrightarrow{v}\\): نفس الطول، الإبهام لتحت"
+        }
+      ],
+      "title": "بدّلنا الترتيب"
+    },
+    {
+      "t": "box",
+      "kind": "thm",
+      "title": "ادّعاء · <bdi>טענה 1.19</bdi>",
+      "html": "<p>ليكن \\(\\overrightarrow{v_1},\\overrightarrow{v_2},\\overrightarrow{v_3}\\in\\mathbb R^3\\) و\\(\\alpha\\in\\mathbb R\\). عندها:</p><p>\\[\\begin{aligned}\\overrightarrow{v_1}\\times \\overrightarrow{v_2}&=-\\overrightarrow{v_2}\\times \\overrightarrow{v_1}\\\\(\\alpha \\overrightarrow{v_1})\\times \\overrightarrow{v_2}&=\\alpha(\\overrightarrow{v_1}\\times \\overrightarrow{v_2})\\\\(\\overrightarrow{v_1}+\\overrightarrow{v_2})\\times \\overrightarrow{v_3}&=\\overrightarrow{v_1}\\times \\overrightarrow{v_3}\\\\&\\quad+\\overrightarrow{v_2}\\times \\overrightarrow{v_3}\\end{aligned}\\]</p><p><small>بتنبرهن من التعريف أو من الصيغة.</small></p>"
+    },
+    {
+      "t": "p",
+      "html": "<p>وإذا ضربنا متجه بنفسه، الناتج بيساوي سالب نفسه، يعني المتجه الصفر.</p>"
     },
     {
       "t": "quiz",
       "q": {
         "kind": "mc",
-        "prompt": "<p>كم مساحة متوازي الأضلاع الذي يفتحه \\((3,0,0)\\) و \\((0,4,0)\\)؟</p>",
+        "prompt": "<p>معطى \\(\\overrightarrow{v}\\times \\overrightarrow{u}=(2,-1,4)\\). احسب \\((2\\overrightarrow{u})\\times \\overrightarrow{v}\\) من غير ما تعرف \\(\\overrightarrow{v}\\) و\\(\\overrightarrow{u}\\).</p>",
         "options": [
           {
             "v": "1",
-            "html": "\\(7\\)"
+            "html": "\\((4,-2,8)\\)"
           },
           {
             "v": "2",
-            "html": "\\(12\\)"
+            "html": "\\((-2,1,-4)\\)"
           },
           {
             "v": "3",
-            "html": "\\(0\\)"
+            "html": "\\((2,-1,4)\\)"
+          },
+          {
+            "v": "4",
+            "html": "\\((-4,2,-8)\\)"
           }
         ],
         "answer": [
-          "2"
+          "4"
         ],
-        "hint": "<p>المساحة = طول الضرب المتجهي.</p>",
-        "solution": "<p>\\((3,0,0)\\times(0,4,0)=(0,0,12)\\) وطوله 12. (الزاوية قائمة: \\(3\\cdot4\\cdot1\\).)</p>"
+        "hint": "<p>خطوتين: بدّل الترتيب، وطلّع العدد 2 برا.</p>",
+        "solution": "<p>\\((2\\overrightarrow{u})\\times \\overrightarrow{v}=2(\\overrightarrow{u}\\times \\overrightarrow{v})=-2(\\overrightarrow{v}\\times \\overrightarrow{u})=(-4,2,-8)\\). الأول نسي إشارة التبديل، والتاني نسي الـ2، والتالت نسي الاتنين.</p>"
       }
+    },
+    {
+      "t": "h",
+      "text": "تمرين وخلاصة"
+    },
+    {
+      "t": "mistakes",
+      "title": "أخطاء الامتحان",
+      "rows": [
+        {
+          "no": "\\(\\overrightarrow{v}\\times \\overrightarrow{u}\\) عدد",
+          "yes": "متجه! العدد هو الضرب السلمي \\(\\overrightarrow{v}\\cdot \\overrightarrow{u}\\)"
+        },
+        {
+          "no": "\\(\\overrightarrow{v}\\times \\overrightarrow{u}=\\overrightarrow{u}\\times \\overrightarrow{v}\\)",
+          "yes": "\\(\\overrightarrow{v}\\times \\overrightarrow{u}=-\\overrightarrow{u}\\times \\overrightarrow{v}\\) — بيتساووا بس لما الناتج صفر"
+        },
+        {
+          "no": "\\(|\\overrightarrow{v}\\times \\overrightarrow{u}|=|\\overrightarrow{v}||\\overrightarrow{u}|\\cos\\alpha\\)",
+          "yes": "\\(\\sin\\alpha\\) — الـ\\(\\cos\\) للضرب السلمي، وبتصح بس لما \\(\\alpha=45^\\circ\\)"
+        },
+        {
+          "no": "المركّب الأوسط \\(af-cd\\)",
+          "yes": "\\(cd-af\\) — الدور دائري"
+        }
+      ]
     },
     {
       "t": "quiz",
       "q": {
-        "kind": "mc",
-        "prompt": "<p>كم \\(\\vec v\\times\\vec v\\)؟</p>",
-        "options": [
-          {
-            "v": "1",
-            "html": "\\(|\\vec v|^2\\)"
-          },
-          {
-            "v": "2",
-            "html": "\\(\\vec 0\\)"
-          },
-          {
-            "v": "3",
-            "html": "\\(\\vec v\\)"
-          }
-        ],
+        "kind": "text",
+        "prompt": "<p>احسب \\((1,2,3)\\times(2,4,6)\\) واكتب الجواب على شكل \\((x,y,z)\\).</p>",
         "answer": [
-          "2"
+          "(0,0,0)",
+          "0"
         ],
-        "hint": "<p>الزاوية بين متجه ونفسه كم؟</p>",
-        "solution": "<p>\\(\\sin0=0\\) فالطول 0 والنتيجة \\(\\vec 0\\). (الخيار 1 هو \\(\\vec v\\cdot\\vec v\\) السلمي.)</p>"
+        "hint": "<p>المتجه التاني مضاعف للأول. قديش \\(\\sin\\) الزاوية بينهم؟</p>",
+        "solution": "<p>\\(bf-ce=12-12=0\\)، و\\(cd-af=6-6=0\\)، و\\(ae-bd=4-4=0\\). الصفر لأنه المتجهين متناسبين: الزاوية صفر، والمساحة صفر.</p>"
       }
+    },
+    {
+      "t": "steps",
+      "alt": "الجواب: السهم لفوق وطوله 6 يساوي مساحة المتوازي",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 210\" role=\"img\" aria-label=\"الجواب: السهم لفوق وطوله 6 يساوي مساحة المتوازي\" class=\"fk\"><polygon class=\"fk-curve t-1\" points=\"170,112 114,148 264,148 320,112\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-1\" x=\"66\" y=\"137\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">v=(2,0,0)</text><text class=\"fk-t t-2\" x=\"290\" y=\"95\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">u=(0,3,0)</text><line class=\"fk-line t-1\" x1=\"170\" y1=\"112\" x2=\"130.2\" y2=\"137.6\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"114,148 128.3,125.9 140,144.1\"/><line class=\"fk-line t-2\" x1=\"170\" y1=\"112\" x2=\"300.8\" y2=\"112\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"320,112 296,122.8 296,101.2\"/><line class=\"fk-line t-good\" x1=\"170\" y1=\"106\" x2=\"170\" y2=\"80.4\" stroke-width=\"5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-good\" points=\"170,58 182.6,86 157.4,86\"/><g data-step=\"1\" data-until=\"1\"><rect class=\"fk-chip t-good\" x=\"30\" y=\"54\" width=\"116\" height=\"36\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\" data-until=\"1\"><text class=\"fk-t t-ink\" x=\"88\" y=\"79.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">(0,0,6)</text></g><g data-step=\"2\"><polygon class=\"fk-curve t-good\" points=\"170,112 114,148 264,148 320,112\" stroke-width=\"0\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"262\" y=\"133\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2·3 = 6</text></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"100\" y=\"66\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">|w|=6</text></g><g data-step=\"2\"><path class=\"fk-curve t-mut\" d=\"M148,127 C150,128.8 153.7,136.3 160,138 C166.3,139.7 178.3,138.8 186,137 C193.7,135.2 202.7,128.7 206,127\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\"><line class=\"fk-line t-mut\" x1=\"186\" y1=\"137\" x2=\"190.3\" y2=\"134.9\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"206,127 190.8,145.7 181.9,128\"/></g></svg>",
+      "frames": [
+        {
+          "caption": "الصيغة بتعطي \\((0,0,6)\\)"
+        },
+        {
+          "caption": "طول السهم يساوي المساحة، واتجاهه لفوق"
+        }
+      ],
+      "title": "جواب السؤال الأول"
+    },
+    {
+      "t": "card",
+      "front": "الضرب المتجهي <bdi>מכפלה וקטורית</bdi> — تعريف",
+      "back": "\\(\\overrightarrow{w}=\\overrightarrow{v}\\times \\overrightarrow{u}\\): عمودي على \\(\\overrightarrow{v}\\) و\\(\\overrightarrow{u}\\)، طوله \\(|\\overrightarrow{v}||\\overrightarrow{u}|\\sin\\alpha\\) (المساحة)، واتجاهه يد يمنى. الناتج متجه مش عدد."
+    },
+    {
+      "t": "card",
+      "front": "الصيغة بالإحداثيات <bdi>טענה 1.17</bdi>",
+      "back": "\\(\\overrightarrow{v}\\times \\overrightarrow{u}=\\begin{pmatrix}bf-ce\\\\cd-af\\\\ae-bd\\end{pmatrix}\\) — الأوسط معكوس."
+    },
+    {
+      "t": "card",
+      "front": "ترتيب الضرب المتجهي <bdi>טענה 1.19</bdi>",
+      "back": "\\(\\overrightarrow{v_1}\\times \\overrightarrow{v_2}=-\\overrightarrow{v_2}\\times \\overrightarrow{v_1}\\)، وبيساوي صفر لما المتجهين متناسبين."
     }
   ]
 }

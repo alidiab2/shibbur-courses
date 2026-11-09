@@ -1,176 +1,337 @@
 #!/usr/bin/env python3
-"""Lesson `cross-product` (section 1.2 + 1.2.1, booklet p6-8). Run: python3 cross_product.py -> ../lessons/cross-product.json"""
-import math
-from _ch1lib import *
+"""cross_product.py - the ONE generator for lesson `cross-product` (11102, section 1.2).
+Builds the figures, assembles lessons/cross-product.json AND narration/cross-product.json.
+Run from the repo root:  FK_KEEP_GOING=1 python3 courses/11102/figs/cross_product.py
+"""
+import hashlib, json, os, sys
+sys.path.insert(0, os.path.expanduser("~/Developer/ali-skills/ali-skills-shibbur-course/scripts"))
+from fk import Fig
 
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+OUT_L = os.path.join(ROOT, "courses/11102/lessons/cross-product.json")
+OUT_N = os.path.join(ROOT, "courses/11102/narration/cross-product.json")
 
-def fig_idea():
-    f = Fig(480, 300, alt="مستوى بشكل متوازي أضلاع يمر ببداية المحاور ومتجه w عمودي عليه نحو الأعلى")
-    O, A, B, C = (90, 240), (300, 240), (200, 170), (410, 170)
-    f.arrow(*O, *A, c="1", w=5, step=1); f.text(A[0] + 4, A[1] + 32, "v", c="1", size=24, step=1)
-    f.arrow(*O, *B, c="2", w=5, step=1); f.text(B[0] - 30, B[1] - 6, "u", c="2", size=24, step=1)
-    f.polygon([O, A, C, B], c="mut", fill="soft", step=2)
-    f.text(250, 212, "مساحة", c="ink", size=20, step=2)
-    f.arrow(*O, O[0], 50, c="good", w=6, step=3)
-    f.text(O[0] + 16, 60, "w", c="good", size=26, step=3, anchor="left")
-    f.line(O[0], O[1] - 22, O[0] + 22, O[1] - 22, c="ink", w=3, step=3)
-    f.line(O[0] + 22, O[1] - 22, O[0] + 22, O[1], c="ink", w=3, step=3)
-    return f.block("", kind="steps", title="شو بدنا من المتجه الثالث",
-                   frames=["متجهين \\(\\vec v,\\vec u\\) مش متناسبين", "هم بيفتحوا مستوى (متوازي أضلاع بينهم)", "بدنا \\(\\vec w\\) عمودي على المستوى كله"])
+# ---------------------------------------------------------------- 3D floor schematic (x toward viewer, y right, z up)
+OX, OY = 170, 112
+def P(x, y, z):
+    return (OX - 28 * x + 50 * y, OY + 18 * x - 9 * z)
 
+A_, B_, C_ = P(2, 0, 0), P(2, 3, 0), P(0, 3, 0)
+FLOOR = [P(0, 0, 0), A_, B_, C_]
 
-def fig_area():
-    f = Fig(480, 270, alt="متوازي أضلاع ضلعاه v و u وزاوية ألفا بينهما والارتفاع |u| sin ألفا، فالمساحة |v||u| sin ألفا")
-    O, A = (70, 215), (300, 215)
-    ang = 55; L = 150
-    B = (O[0] + L * math.cos(math.radians(ang)), O[1] - L * math.sin(math.radians(ang)))
-    C = (A[0] + B[0] - O[0], B[1])
-    f.polygon([O, A, C, B], c="mut", fill="soft", step=1)
-    f.arrow(*O, *A, c="1", w=5, step=1); f.text(185, 248, "|v|", c="1", size=22, step=1)
-    f.arrow(*O, *B, c="2", w=5, step=1); f.text(B[0] - 70, (B[1] + O[1]) / 2, "|u|", c="2", size=22, step=1)
-    pts = [(O[0] + 40 * math.cos(math.radians(a)), O[1] - 40 * math.sin(math.radians(a))) for a in range(0, ang + 1, 5)]
-    f.curve(pts, c="ink", w=3, smooth=False, step=2)
-    f.text(O[0] + 62, O[1] - 16, "α", c="ink", size=22, step=2)
-    f.line(B[0], B[1], B[0], O[1], c="good", w=4, dash=True, step=3)
-    f.text(B[0] + 10, (B[1] + O[1]) / 2, "h = |u|sin α", c="good", size=20, anchor="left", step=3)
-    f.text(240, 36, "|w| = |v|·|u|·sin α", c="good", size=22, step=4)
-    return f.block("", kind="steps", title="الطول = مساحة متوازي الأضلاع",
-                   frames=["متوازي الأضلاع الذي يفتحه \\(\\vec v,\\vec u\\)", "الزاوية بينهم \\(\\alpha\\)", "الارتفاع \\(h=|\\vec u|\\sin\\alpha\\)", "المساحة = القاعدة × الارتفاع = \\(|\\vec w|\\)"])
+def floor(f, labels=True, shade=None, ushade=None):
+    f.polygon(FLOOR, "1", step=None)
+    if labels:
+        f.text(66, OY + 25, "v=(2,0,0)", "1", 20, ltr=True)
+        f.text(290, OY - 17, "u=(0,3,0)", "2", 20, ltr=True)
+    f.arrow(*P(0, 0, 0), *A_, c="1", w=4)
+    f.arrow(*P(0, 0, 0), *C_, c="2", w=4)
 
+def hook_fig():
+    f = Fig(480, 210, alt="متجهان على الأرض وسهم ثالث عمودي عليهما، لفوق أو لتحت؟")
+    floor(f)
+    f.arrow(OX, OY - 6, OX, P(0, 0, 6)[1], c="3", w=4, dash=True)
+    f.arrow(OX, OY + 6, OX, P(0, 0, -6)[1], c="3", w=4, dash=True)
+    f.text(OX + 28, P(0, 0, 6)[1] + 8, "؟", "3", 30)
+    f.text(OX + 28, P(0, 0, -6)[1] - 4, "؟", "3", 30)
+    return f.block("لاحظ: المتجهان على الأرض، والسهم الثالث بيطلع لفوق أو لتحت.")
 
-def fig_hand():
-    f = Fig(480, 290, alt="قاعدة اليد اليمنى: نلف الأصابع من v نحو u فيشير الإبهام نحو w")
-    O = (130, 235)
-    A = (O[0] + 220, O[1])
-    B = (O[0] + 130 * math.cos(math.radians(50)), O[1] - 130 * math.sin(math.radians(50)))
-    f.arrow(*O, *A, c="1", w=5, step=1); f.text(A[0] + 6, A[1] + 28, "v", c="1", size=24, step=1)
-    f.arrow(*O, *B, c="2", w=5, step=1); f.text(B[0] + 12, B[1] - 8, "u", c="2", size=24, step=1, anchor="left")
-    pts = [(O[0] + 75 * math.cos(math.radians(a)), O[1] - 75 * math.sin(math.radians(a))) for a in range(0, 41, 5)]
-    f.curve(pts, c="ink", w=4, smooth=False, step=2)
-    f.arrow(pts[-2][0], pts[-2][1], *( (O[0] + 75 * math.cos(math.radians(50)), O[1] - 75 * math.sin(math.radians(50))) ), c="ink", w=4, step=2)
-    f.text(O[0] + 110, O[1] - 52, "ندور", c="ink", size=20, step=2, anchor="left")
-    f.arrow(*O, O[0], 40, c="good", w=6, step=3)
-    f.text(O[0] + 16, 52, "w = v × u", c="good", size=22, step=3, anchor="left")
-    return f.block("", kind="steps", title="قاعدة اليد اليمنى",
-                   frames=["نحط \\(\\vec v\\) ثم \\(\\vec u\\) بنفس المستوى", "نلف أصابع اليد اليمنى من \\(\\vec v\\) نحو \\(\\vec u\\)", "الإبهام بيشير لاتجاه \\(\\vec w=\\vec v\\times\\vec u\\)"])
+def curl(f, rev=False, **kw):
+    """curved arrow around O from v towards u (or back)"""
+    pts = [(148, OY + 15), (160, OY + 26), (186, OY + 25), (206, OY + 15)]
+    if rev: pts = pts[::-1]
+    f.curve(pts, c="mut", w=3.5, **kw)
+    (x1, y1), (x2, y2) = pts[-2], pts[-1]
+    f.arrow(x1, y1, x2, y2, c="mut", w=3.5, **kw)
 
+def idea_steps():
+    f = Fig(480, 210, alt="متجهان يفردان مستوى، وكل المتجهات العمودية عليه على خط واحد، نختار واحداً بالطول والاتجاه")
+    floor(f, labels=False)
+    f.text(262, OY + 21, "المستوى", "ink", 20, until=2)
+    f.text(70, OY + 30, "v", "1", 24, ltr=True)
+    f.text(330, OY - 12, "u", "2", 24, ltr=True)
+    # frame 2: the line of candidates
+    f.line(OX, 172, OX, 30, c="3", w=3, dash=True, step=2, until=2)
+    for z, lab in ((3, "w"), (6, "2w"), (-3, "−w")):
+        x, y = P(0, 0, z)
+        f.dot(x, y, c="3", r=7, step=2, until=2)
+        f.text(x + 30, y + 7, lab, "3", 20, ltr=True, step=2, until=2)
+    # frame 3: length = area
+    f.polygon(FLOOR, "good", step=3)
+    f.text(262, OY + 21, "المساحة", "good", 20, step=3, until=3)
+    f.arrow(OX, OY - 6, OX, P(0, 0, 6)[1], c="good", w=5, step=3)
+    f.text(OX + 34, P(0, 0, 6)[1] + 8, "|w|", "good", 22, ltr=True, step=3)
+    # frame 4: direction
+    curl(f, step=4)
+    f.arrow(OX, OY + 6, OX, P(0, 0, -4)[1], c="bad", w=4, dash=True, step=4)
+    f.text(OX + 30, P(0, 0, -4)[1] + 4, "✗", "bad", 24, step=4)
+    return f.block(kind="steps", title="كيف منختار المتجه الثالث w", frames=[
+        "المتجهان \\(v\\) و\\(u\\) بيفردوا مستوى",
+        "كل متجه عمودي على المستوى بيقع على خط واحد",
+        "المساحة بتحدد الطول",
+        "اليد اليمين بتحدد الاتجاه"])
 
-def mat(f, x, y, rows, cs=70, rh=50):
-    f.matrix(x, y, rows, cell_w=cs, cell_h=rh, size=24)
-    f.line(x - 12, y - 4, x - 12, y + rh * 3 + 4, c="ink", w=3)
-    f.line(x + cs * 3 + 12, y - 4, x + cs * 3 + 12, y + rh * 3 + 4, c="ink", w=3)
+def sin_steps():
+    f = Fig(480, 250, alt="متوازي أضلاع طول ضلعيه 4 و3 والزاوية 30 درجة، ارتفاعه 1.5 ومساحته 6")
+    ox, oy, s = 60, 205, 45
+    import math
+    vt = (ox + 4 * s, oy)
+    ut = (ox + 3 * s * math.cos(math.radians(30)), oy - 3 * s * math.sin(math.radians(30)))
+    ft = (vt[0] + ut[0] - ox, ut[1])
+    f.polygon([(ox, oy), vt, ft, ut], "good", step=2)
+    f.arrow(ox, oy, *vt, c="1", w=4)
+    f.arrow(ox, oy, *ut, c="2", w=4)
+    f.angle(ox, oy, 46, 0, 30, "α", c="mut")
+    f.text((ox + vt[0]) / 2 + 30, 236, "|v|=4", "1", 20, ltr=True)
+    f.text(88, 150, "|u|=3", "2", 20, ltr=True)
+    f.line(ut[0], ut[1], ut[0], oy, c="bad", w=3, dash=True, step=2)
+    f.right_angle(ut[0], oy, 90, 180, 14, step=2)
+    f.text(ut[0] + 80, 176, "h=|u|sinα", "bad", 20, ltr=True, step=2)
+    f.chip(200, 28, 262, 40, "|w| = 4·3·sin30° = 6", c="good", size=20, ltr=True, step=3)
+    return f.block(kind="steps", title="المساحة = القاعدة × الارتفاع", frames=[
+        "\\(|v|=4\\)، \\(|u|=3\\)، والزاوية \\(\\alpha=30^\\circ\\)",
+        "الارتفاع هو \\(|u|\\sin\\alpha\\)",
+        "المساحة بتطلع طول \\(w\\)"])
 
+# ---- matrices
+BR = lambda x, y, H: None
 
-def det_fig(rows, comps, title, alt, frames, x=30, y=40):
-    f = Fig(480, 260, alt=alt)
-    cs, rh = 56, 52
-    mat(f, x, y, rows, cs, rh)
-    cover = [[(1, 1), (1, 2), (2, 1), (2, 2)], [(1, 0), (1, 2), (2, 0), (2, 2)], [(1, 0), (1, 1), (2, 0), (2, 1)]]
-    for k in range(3):
-        for r, c in cover[k]:
-            f.rect(x + c * cs + 4, y + r * rh + 4, cs - 8, rh - 8, c="2", fill="soft", r=8, only=k + 2)
-        f.rect(x + k * cs + 4, y + 4, cs - 8, rh - 8, c="1", fill="soft", r=8, only=k + 2)
-        f.chip(x + cs * 3 + 30, y + 6 + k * 56, 230, 46, comps[k], c="good", size=20, step=k + 2)
-    return f.block("", kind="steps", title=title, frames=frames)
+def vec_col(f, x0, x1, y0, y1, **kw):
+    f.path("M%s,%s L%s,%s L%s,%s L%s,%s" % (x0 + 12, y0, x0, y0, x0, y1, x0 + 12, y1), "mut", "none", 4, **kw)
+    f.path("M%s,%s L%s,%s L%s,%s L%s,%s" % (x1 - 12, y0, x1, y0, x1, y1, x1 - 12, y1), "mut", "none", 4, **kw)
 
+ROWS_Y = [66, 118, 170]
+def formula_steps():
+    f = Fig(480, 240, alt="مصفوفة i j k فوق v وu، وبتغطية كل عمود بنطلع مركّب من النتيجة")
+    rows = [["i", "j", "k"], ["a", "b", "c"], ["d", "e", "f"]]
+    hls = {2: {(0, 0): "1", (1, 1): "2", (1, 2): "2", (2, 1): "2", (2, 2): "2"},
+           3: {(0, 1): "1", (1, 0): "2", (1, 2): "2", (2, 0): "2", (2, 2): "2"},
+           4: {(0, 2): "1", (1, 0): "2", (1, 1): "2", (2, 0): "2", (2, 1): "2"}}
+    with f.group(only=1): f.matrix(20, 40, rows, 56, 52)
+    for k, hl in hls.items():
+        with f.group(only=k): f.matrix(20, 40, rows, 56, 52, hl=hl)
+    f.text(262, 124, "=", "ink", 32, step=2)
+    vec_col(f, 300, 450, 40, 196, step=2)
+    for k, t in zip((2, 3, 4), ("bf − ce", "cd − af", "ae − bd")):
+        f.text(375, ROWS_Y[k - 2] + 7, t, "good", 22, ltr=True, step=k)
+    return f.block(kind="steps", title="الصيغة: غطّي عمود وتصالب", frames=[
+        "الصف الأول \\(i,j,k\\)، وتحته \\(v\\) و\\(u\\)",
+        "غطّينا عمود \\(i\\)، بقي \\(b,c,e,f\\)",
+        "غطّينا عمود \\(j\\)، بقي \\(a,c,d,f\\)",
+        "غطّينا عمود \\(k\\)، بقي \\(a,b,d,e\\)"])
 
-def fig_props():
-    f = Fig(480, 280, alt="v×u يشير للأعلى و u×v يشير للأسفل بنفس الطول فهما متعاكسان")
-    O = (200, 140)
-    f.arrow(*O, O[0], 30, c="good", w=6, step=1); f.text(O[0] + 16, 50, "v × u", c="good", size=22, step=1, anchor="left")
-    f.arrow(*O, O[0], 250, c="bad", w=6, step=2); f.text(O[0] + 16, 245, "u × v", c="bad", size=22, step=2, anchor="left")
-    f.arrow(*O, O[0] + 130, O[1] + 20, c="1", w=5); f.text(O[0] + 136, O[1] + 46, "v", c="1", size=22)
-    f.arrow(*O, O[0] + 70, O[1] - 14, c="2", w=5); f.text(O[0] + 66, O[1] - 26, "u", c="2", size=22)
-    return f.block("", kind="steps", title="تبديل المتجهين بيعكس الاتجاه",
-                   frames=["\\(\\vec v\\times\\vec u\\) للأعلى", "\\(\\vec u\\times\\vec v=-\\vec v\\times\\vec u\\): نفس الطول واتجاه معاكس"])
+def example_steps():
+    f = Fig(480, 252, alt="حساب (1,-1,0) ضرب متجهي (0,1,2) والتأكد من النتيجة")
+    rows = [["i", "j", "k"], ["1", "−1", "0"], ["0", "1", "2"]]
+    f.matrix(14, 24, rows, 56, 52)
+    L = 236
+    for y, t in zip(ROWS_Y, ("(−1)·2 − 0·1 = −2", "0·0 − 1·2 = −2", "1·1 − (−1)·0 = 1")):
+        f.text(L, y - 16, t, "ink", 20, anchor="left", ltr=True, only=2)
+    f.chip(14, 196, 200, 40, "w = (−2, −2, 1)", c="good", size=22, ltr=True, step=3)
+    f.text(L, ROWS_Y[0] - 16, "w·v = −2 + 2 + 0 = 0", "good", 20, anchor="left", ltr=True, only=3)
+    f.text(L, ROWS_Y[1] - 16, "w·u = 0 − 2 + 2 = 0", "good", 20, anchor="left", ltr=True, only=3)
+    f.text(L, ROWS_Y[0] - 16, "|w|² = 4 + 4 + 1 = 9", "good", 20, anchor="left", ltr=True, only=4)
+    f.text(L, ROWS_Y[1] - 16, "|v|²|u|² − (v·u)²", "2", 20, anchor="left", ltr=True, only=4)
+    f.text(L, ROWS_Y[2] - 16, "= 2·5 − (−1)² = 9", "2", 20, anchor="left", ltr=True, only=4)
+    return f.block(kind="steps", title="مثال 1.18: \\((1,-1,0)\\times(0,1,2)\\)", frames=[
+        "\\(v\\) بالصف التاني و\\(u\\) بالتالت",
+        "حسبنا المركّبات الثلاثة",
+        "الناتج \\(w\\)، وضربه السلمي بالاتنين صفر",
+        "\\(\\sin^2\\alpha=1-\\cos^2\\alpha\\) بتعطي نفس التسعة"])
 
+def swap_steps():
+    f = Fig(480, 210, alt="v ضرب u بيطلع لفوق، وبتبديل الترتيب u ضرب v بيطلع لتحت بنفس الطول")
+    floor(f, labels=False)
+    f.text(70, OY + 30, "v", "1", 24, ltr=True)
+    f.text(330, OY - 12, "u", "2", 24, ltr=True)
+    curl(f, only=1)
+    f.arrow(OX, OY - 6, OX, P(0, 0, 6)[1], c="good", w=5, only=1)
+    f.text(OX + 56, P(0, 0, 6)[1] + 10, "v×u", "good", 22, ltr=True, only=1)
+    curl(f, rev=True, only=2)
+    f.arrow(OX, OY + 6, OX, P(0, 0, -6)[1], c="bad", w=5, only=2)
+    f.text(OX + 56, P(0, 0, -6)[1] - 4, "u×v", "bad", 22, ltr=True, only=2)
+    return f.block(kind="steps", title="بدّلنا الترتيب", frames=[
+        "\\(v\\times u\\): الإبهام لفوق",
+        "\\(u\\times v\\): نفس الطول، الإبهام لتحت"])
 
-def build():
-    b = []
-    b.append(WHY("الضرب المتجهي بياخد متجهين من \\(\\mathbb R^3\\) وبيعطي <b>متجه</b> عمودي عليهم. هو اللي بيعطينا معادلة المستوى بالدرس الجاي.",
-                 ["الفكرة: متجه عمودي على المستوى", "التعريف (<bdi>הגדרה 1.16</bdi>) بثلاث شروط", "قاعدة اليد اليمنى", "الصيغة التحليلية بـ \\(\\vec i,\\vec j,\\vec k\\)", "مثال وتحقق", "الخصائص (<bdi>טענה 1.19</bdi>)"]))
+def answer_steps():
+    f = Fig(480, 210, alt="الجواب: السهم لفوق وطوله 6 يساوي مساحة المتوازي")
+    floor(f)
+    f.arrow(OX, OY - 6, OX, P(0, 0, 6)[1], c="good", w=5)
+    f.chip(OX - 140, P(0, 0, 6)[1] - 4, 116, 36, "(0,0,6)", c="good", size=22, ltr=True, step=1, until=1)
+    f.polygon(FLOOR, "good", step=2)
+    f.text(262, OY + 21, "2·3 = 6", "good", 20, ltr=True, step=2)
+    f.text(OX - 70, P(0, 0, 6)[1] + 8, "|w|=6", "good", 22, ltr=True, step=2)
+    curl(f, step=2)
+    return f.block(kind="steps", title="جواب السؤال الأول", frames=[
+        "الصيغة بتعطي \\((0,0,6)\\)",
+        "طول السهم يساوي المساحة، واتجاهه لفوق"])
 
-    b += [H("1 · الفكرة: متجه عمودي"),
-          P("بالفراغ، كل متجهين مش متناسبين بيفتحوا <b>مستوى</b> بيمر ببداية المحاور. المستوى هاد إله اتجاه عمودي عليه."),
-          P("بدنا نحدد متجه ثالث \\(\\vec w\\) بشكل وحيد. بنحتاج نعرف <b>طوله</b> و<b>اتجاهه</b> بالضبط (من ضمن الاتنين اللي بيعاكسوا بعض)."),
-          fig_idea(),
-          P("الطول: بنختاره يساوي مساحة متوازي الأضلاع اللي بيفتحه \\(\\vec v,\\vec u\\). الاتجاه: بقاعدة اليد اليمنى.")]
+# ================================================================= LESSON
+blocks, N = [], {}
+def add(name, b):
+    N[name] = len(blocks); blocks.append(b)
+def H(t): return {"t": "h", "text": t}
+def Pp(h): return {"t": "p", "html": "<p>%s</p>" % h}
+def Box(kind, title, html): return {"t": "box", "kind": kind, "title": title, "html": html}
+def Mc(prompt, opts, ans, hint, sol):
+    return {"t": "quiz", "q": {"kind": "mc", "prompt": "<p>%s</p>" % prompt,
+            "options": [{"v": str(i + 1), "html": o} for i, o in enumerate(opts)], "answer": [str(ans)],
+            "hint": "<p>%s</p>" % hint, "solution": "<p>%s</p>" % sol}}
+def Tx(prompt, ans, hint, sol):
+    return {"t": "quiz", "q": {"kind": "text", "prompt": "<p>%s</p>" % prompt, "answer": ans,
+            "hint": "<p>%s</p>" % hint, "solution": "<p>%s</p>" % sol}}
 
-    b += [H("2 · التعريف"),
-          fig_area(),
-          BOX("def", "تعريف · <bdi>הגדרה 1.16</bdi>", "<p>ليكن \\(\\vec v,\\vec u\\in\\mathbb R^3\\). الضرب المتجهي (<bdi>מכפלה וקטורית</bdi>) \\(\\vec w=\\vec v\\times\\vec u\\) هو المتجه الذي يحقق:</p><ol>"
-              "<li>\\(\\vec v\\perp\\vec w,\\quad \\vec u\\perp\\vec w\\)</li>"
-              "<li>\\(|\\vec w|=|\\vec u|\\cdot|\\vec v|\\,|\\sin(\\alpha)|\\) حيث \\(\\alpha\\) الزاوية بين \\(\\vec v\\) و \\(\\vec u\\)</li>"
-              "<li>\\(\\langle\\vec v,\\vec u,\\vec w\\rangle\\) منظومة يد يمين (<bdi>מערכת יד ימין</bdi>)</li></ol>"),
-          P("طبعا هالتعريف مش مريح للحساب. بعد شوي منعطي صيغة جاهزة بالإحداثيات."),
-          MC("\\(|\\vec v|=2\\)، \\(|\\vec u|=3\\) والزاوية بينهم \\(30^\\circ\\). كم \\(|\\vec v\\times\\vec u|\\)؟",
-             ["\\(6\\)", "\\(3\\)", "\\(3\\sqrt{3}\\)"], 2,
-             "استعمل \\(\\sin\\) مش \\(\\cos\\).", "\\(2\\cdot3\\cdot\\sin30^\\circ=6\\cdot\\frac12=3\\). الخيار 1 نسي الجيب؛ الخيار 3 استعمل \\(\\cos30^\\circ\\).")]
+add("why", {"t": "why", "html":
+  "<p>عندك متجهين على الأرض: \\(v=(2,0,0)\\) و\\(u=(0,3,0)\\). بدنا سهم ثالث <b>واقف</b> بزاوية قائمة على الاثنين، وطوله بيساوي مساحة المتوازي اللي بينهم.</p>"
+  "<p>خمّن: لفوق ولا لتحت؟ وقديش طوله؟ الأداة اسمها <b>الضرب المتجهي</b> (<bdi>מכפלה וקטורית</bdi>)، وهي اللي بتعطيك الاتجاه العمودي على أي مستوى بالفراغ.</p>"})
+add("hook", hook_fig())
 
-    b += [H("3 · قاعدة اليد اليمنى"),
-          P("الشرط الثالث بيقول أي واحد من الاتجاهين العموديين نختار. إذا لفينا أصابع اليد اليمنى من \\(\\vec v\\) نحو \\(\\vec u\\)، الإبهام بيشير لـ \\(\\vec w\\)."),
-          fig_hand(),
-          P("هيك الترتيب مهم: \\(\\vec v\\times\\vec u\\) غير \\(\\vec u\\times\\vec v\\). بنرجع له بالخصائص.")]
+add("h1", H("1 · ليش بدنا متجه ثالث؟"))
+add("p1", Pp("متجهين غير متناسبين (واحد مش مضاعف للتاني) بيفردوا <b>مستوى</b> (<bdi>מישור</bdi>). كل المتجهات العمودية عليه بتقع على خط واحد، فأي واحد منهم بدنا؟"))
+add("s1", idea_steps())
+add("b1", Box("idea", "فكرة · شيئين بيحددوا \\(w\\)",
+  "<p><b>الطول:</b> مساحة المتوازي (<bdi>שטח המקבילית</bdi>).</p><p><b>الاتجاه:</b> قاعدة اليد اليمين (<bdi>כלל יד ימין</bdi>)، أو قاعدة البرغي (<bdi>כלל הבורג</bdi>).</p>"))
 
-    b += [H("4 · الصيغة التحليلية"),
-          P("للحساب بنستعمل ثلاث متجهات خاصة (الترميز المقبول):"),
-          P("\\[\\vec i=\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix},\\quad \\vec j=\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix},\\quad \\vec k=\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\]"),
-          det_fig([["i", "j", "k"], ["a", "b", "c"], ["d", "e", "f"]],
-                  ["bf − ce", "cd − af", "ae − bd"], "الصيغة خطوة خطوة", "مصفوفة 3 في 3 صفها الأول i j k ونحذف عمود كل مرة لنحسب مركبة من النتيجة",
-                  ["نكتب المتجهات بصفين تحت \\(\\vec i,\\vec j,\\vec k\\)", "المركبة الأولى: نحذف عمود \\(\\vec i\\): \\(bf-ce\\)", "الثانية: نحذف عمود \\(\\vec j\\) (بإشارة معكوسة): \\(cd-af\\)", "الثالثة: نحذف عمود \\(\\vec k\\): \\(ae-bd\\)"]),
-          BOX("thm", "טענה 1.17", "<p>ليكن \\(\\vec v=\\begin{pmatrix}a\\\\b\\\\c\\end{pmatrix},\\ \\vec u=\\begin{pmatrix}d\\\\e\\\\f\\end{pmatrix}\\in\\mathbb R^3\\). عندها:</p><p>\\[\\vec v\\times\\vec u=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\ a&b&c\\\\ d&e&f\\end{vmatrix}=\\begin{pmatrix}bf-ce\\\\ cd-af\\\\ ae-bd\\end{pmatrix}\\]</p>"),
-          BOX("note", "ملاحظة", "<p>الصيغة بتتعلق بمفهوم المحدد (<bdi>דטרמיננטה</bdi>) اللي منشوفه لاحقا بالكورس، والمحاضر هون بيعطي الصيغة بدون برهان.</p>"),
-          BOX("idea", "واجب بيتي من المحاضر", "<p>تحقق إنّ المتجه اللي بيطلع بالصيغة بيحقق الشرطين الأولين من التعريف: عمودي على \\(\\vec v\\) وعلى \\(\\vec u\\). منعمله بالمثال تحت.</p>")]
+add("h2", H("2 · التعريف"))
+add("n2", Box("note", "تذكير", "<p>\\(v\\perp w\\) يعني \\(v\\cdot w=0\\): الضرب السلمي صفر = متعامدين.</p>"))
+add("p2", Pp("كيف منحسب المساحة من الطولين والزاوية؟ قاعدة × ارتفاع."))
+add("s2", sin_steps())
+add("b2", Box("def", "تعريف · <bdi>הגדרה 1.16</bdi>",
+  "<p>ليكن \\(v,u\\in\\mathbb R^3\\). الضرب المتجهي (<bdi>מכפלה וקטורית</bdi>) \\(w=v\\times u\\) هو المتجه الذي يحقق:</p>"
+  "<ol><li>\\(v\\perp w\\) و\\(u\\perp w\\)</li>"
+  "<li>\\(|w|=|u|\\cdot|v|\\sin(\\alpha)\\)، حيث \\(\\alpha\\) الزاوية بين \\(v\\) و\\(u\\)</li>"
+  "<li>\\(\\langle v,u,w\\rangle\\) جملة يد يمنى (<bdi>מערכת יד ימין</bdi>)</li></ol>"
+  "<p><small>لو \\(v,u\\) متناسبين فالزاوية صفر، والـ\\(\\sin\\) صفر، فالطول صفر والناتج المتجه الصفر.</small></p>"))
+add("q1", Mc("\\(|v|=2\\)، \\(|u|=5\\)، والزاوية بينهم \\(30^\\circ\\). احسب طول \\(v\\times u\\) وانتبه للدالة.",
+  ["\\(5\\sqrt3\\)", "\\(10\\)", "\\(5\\)", "\\(0\\)"], 3,
+  "الطول بيستعمل \\(\\sin\\) مش \\(\\cos\\)، و\\(\\sin30^\\circ\\) معروفة.",
+  "\\(|v\\times u|=2\\cdot5\\cdot\\sin30^\\circ=5\\). الخيار \\(5\\sqrt3\\) جاي من \\(\\cos30^\\circ\\) (غلطة الضرب السلمي)، و\\(10\\) نسيت فيه \\(\\sin\\)، و\\(0\\) بيصح بس لما المتجهين متناسبين."))
 
-    b += [H("5 · مثال وتحقق"),
-          det_fig([["i", "j", "k"], ["1", "−1", "0"], ["0", "1", "2"]],
-                  ["(−1)·2 − 0·1 = −2", "0·0 − 1·2 = −2", "1·1 − (−1)·0 = 1"], "الضرب المتجهي للمثال 1.18", "حساب الضرب المتجهي للمتجهين (1,-1,0) و (0,1,2) فتطلع النتيجة (-2,-2,1)",
-                  ["\\(\\vec v=(1,-1,0)\\) و \\(\\vec u=(0,1,2)\\)", "المركبة الأولى: \\(-2\\)", "المركبة الثانية: \\(-2\\)", "الثالثة: \\(1\\)"]),
-          BOX("ex", "مثال · <bdi>דוגמה 1.18</bdi>", "<p>ليكن \\(\\vec v=(1,-1,0)\\) و \\(\\vec u=(0,1,2)\\) في \\(\\mathbb R^3\\). عندها:</p><p>\\[\\vec v\\times\\vec u=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\1&-1&0\\\\0&1&2\\end{vmatrix}=\\begin{pmatrix}-2\\\\-2\\\\1\\end{pmatrix}\\]</p>"),
-          BOX("ex", "تحقق (الواجب)", "<p>نضرب سلميا بكل متجه أصلي:</p><p>\\[\\vec w\\cdot\\vec v=-2+2+0=0\\]</p><p>\\[\\vec w\\cdot\\vec u=0-2+2=0\\]</p><p>الاتنين صفر يعني \\(\\vec w\\) عمودي عليهم. (قاعدة جيدة تتحقق فيها من حسابك.)</p>"),
-          MC("\\(\\vec i\\times\\vec j\\) بيطلع:",
-             ["\\(\\vec k\\)", "\\(-\\vec k\\)", "\\(\\vec 0\\)"], 1,
-             "\\(\\vec i=(1,0,0),\\ \\vec j=(0,1,0)\\). طبّق الصيغة.", "\\(a=1,b=0,c=0,d=0,e=1,f=0\\): \\((0,\\,0,\\,1\\cdot1-0)=(0,0,1)=\\vec k\\). يد يمنى: من \\(x\\) لـ \\(y\\) والإبهام لـ \\(z\\).")]
+add("h3", H("3 · الصيغة بالإحداثيات"))
+add("p3", Pp("التعريف ما بيفيد بالحساب: كيف بدنا نلاقي \\(w\\) من الأرقام بس؟ بدنا صيغة بالإحداثيات."))
+add("n3", Box("note", "ترميز · متجهات الأساس",
+  "<p>\\(i=\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\)، \\(j=\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}\\)، \\(k=\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\)</p>"))
+add("s3", formula_steps())
+add("b3", Box("thm", "ادّعاء · <bdi>טענה 1.17</bdi>",
+  "<p>ليكن \\(v=\\begin{pmatrix}a\\\\b\\\\c\\end{pmatrix}\\) و\\(u=\\begin{pmatrix}d\\\\e\\\\f\\end{pmatrix}\\) في \\(\\mathbb R^3\\). الضرب المتجهي بيُحسب هيك:</p>"
+  "<p>\\[\\begin{aligned}v\\times u&=\\begin{vmatrix}i&j&k\\\\a&b&c\\\\d&e&f\\end{vmatrix}\\\\&=\\begin{pmatrix}bf-ce\\\\cd-af\\\\ae-bd\\end{pmatrix}\\end{aligned}\\]</p>"
+  "<p><small>بدون برهان هون. منتأكد منها بمثال بعد شوي.</small></p>"))
+add("i3", Box("idea", "فكرة · ليش الأوسط معكوس؟",
+  "<p>الدور دائري: المركّب الأول من \\((y,z)\\)، التاني من \\((z,x)\\)، التالت من \\((x,y)\\). عشان هيك التاني \\(cd-af\\) مش \\(af-cd\\) — وهاي غلطة شائعة."
+  "</p>"))
+add("s4", example_steps())
+add("q3", Mc("احسب \\(v\\times u\\) للمتجهين \\(v=(1,2,3)\\) و\\(u=(4,5,6)\\)، وانتبه للإشارات.",
+  ["\\((-3,-6,-3)\\)", "\\((-3,6,-3)\\)", "\\((3,-6,3)\\)", "\\((4,10,18)\\)"], 2,
+  "المركّب الأوسط هو \\(cd-af\\).",
+  "الصيغة بتعطي \\((12-15,\\ 12-6,\\ 5-8)=(-3,6,-3)\\). الخيار الأول كتب الأوسط \\(af-cd=-6\\) (معكوس)، والتالت هو \\(u\\times v\\) (الترتيب معكوس)، والرابع ضرب الأرقام المتقابلة وهاد مش ضرب متجهي."))
+add("q4", Tx("المتجه \\(v=(1,2,0)\\) و\\(u=(0,0,k)\\)، و\\(v\\times u=(6,-3,0)\\). جد \\(k\\) واكتب عدد.", ["3"],
+  "حط \\(a=1,b=2,c=0\\) و\\(d=0,e=0,f=k\\) بالصيغة، وساوِ أول مركّب بـ 6.",
+  "المركّب الأول: \\(bf-ce=2k=6\\) فـ\\(k=3\\). والتاني: \\(cd-af=-k=-3\\) بيأكد نفس القيمة."))
 
-    b += [H("6 · الخصائص"),
-          fig_props(),
-          BOX("thm", "טענה 1.19", "<p>ليكن \\(\\vec v_1,\\vec v_2,\\vec v_3\\in\\mathbb R^3\\). عندها:</p><ul>"
-              "<li>\\(\\vec v_1\\times\\vec v_2=-\\vec v_2\\times\\vec v_1\\)</li>"
-              "<li>\\((\\alpha\\vec v_1)\\times\\vec v_2=\\alpha(\\vec v_1\\times\\vec v_2)\\)</li>"
-              "<li>\\((\\vec v_1+\\vec v_2)\\times\\vec v_3=\\vec v_1\\times\\vec v_3+\\vec v_2\\times\\vec v_3\\)</li></ul>"),
-          P("هاي الخصائص بتتبرهن من التعريف أو من الصيغة. أهم شي: الضرب المتجهي <b>مش تبديلي</b>."),
-          BOX("ex", "مثال", "<p>مثلا \\(\\vec j\\times\\vec i=-\\vec k\\) بينما \\(\\vec i\\times\\vec j=\\vec k\\).</p>"),
-          MC("\\(\\vec v\\times\\vec u=(1,2,3)\\). كم \\(\\vec u\\times\\vec v\\)؟",
-             ["\\((1,2,3)\\)", "\\((-1,-2,-3)\\)", "\\((3,2,1)\\)"], 2,
-             "تبديل الترتيب بيعمل شو؟", "\\(\\vec u\\times\\vec v=-\\vec v\\times\\vec u=(-1,-2,-3)\\).")]
+add("h4", H("4 · الخصائص"))
+add("p4", Pp("شو بيصير لو بدّلنا ترتيب المتجهين؟ خمّن قبل ما تكبس."))
+add("s5", swap_steps())
+add("b4", Box("thm", "ادّعاء · <bdi>טענה 1.19</bdi>",
+  "<p>ليكن \\(v_1,v_2,v_3\\in\\mathbb R^3\\) و\\(\\alpha\\in\\mathbb R\\). عندها:</p>"
+  "<p>\\[\\begin{aligned}v_1\\times v_2&=-v_2\\times v_1\\\\(\\alpha v_1)\\times v_2&=\\alpha(v_1\\times v_2)\\\\(v_1+v_2)\\times v_3&=v_1\\times v_3\\\\&\\quad+v_2\\times v_3\\end{aligned}\\]</p>"
+  "<p><small>بتنبرهن من التعريف أو من الصيغة.</small></p>"))
+add("p5", Pp("وإذا ضربنا متجه بنفسه، الناتج بيساوي سالب نفسه، يعني المتجه الصفر."))
+add("q5", Mc("معطى \\(v\\times u=(2,-1,4)\\). احسب \\((2u)\\times v\\) من غير ما تعرف \\(v\\) و\\(u\\).",
+  ["\\((4,-2,8)\\)", "\\((-2,1,-4)\\)", "\\((2,-1,4)\\)", "\\((-4,2,-8)\\)"], 4,
+  "خطوتين: بدّل الترتيب، وطلّع العدد 2 برا.",
+  "\\((2u)\\times v=2(u\\times v)=-2(v\\times u)=(-4,2,-8)\\). الأول نسي إشارة التبديل، والتاني نسي الـ2، والتالت نسي الاتنين."))
 
-    b += [METHOD("حساب \\(\\vec v\\times\\vec u\\) بالإحداثيات", [
-              "اكتب \\(\\vec v=(a,b,c)\\) و \\(\\vec u=(d,e,f)\\) بحسب الترتيب المطلوب.",
-              "الأولى: \\(bf-ce\\)، الثانية: \\(cd-af\\)، الثالثة: \\(ae-bd\\).",
-              "تحقق: النتيجة ضرب سلمي بكل متجه أصلي = 0."]),
-          MISTAKES("أخطاء شائعة", [
-              ("\\(\\vec v\\times\\vec u=\\vec u\\times\\vec v\\)", "\\(\\vec v\\times\\vec u=-\\vec u\\times\\vec v\\)"),
-              ("الضرب المتجهي عدد", "الضرب المتجهي <b>متجه</b> (والسلمي هو العدد)"),
-              ("المركبة الثانية \\(af-cd\\)", "المركبة الثانية \\(cd-af\\) (إشارة معكوسة)")]),
-          CHECK(["الضرب المتجهي (<bdi>מכפלה וקטורית</bdi>) متجه عمودي على المتجهين.",
-                 "طوله \\(|\\vec v||\\vec u||\\sin\\alpha|\\) = مساحة متوازي الأضلاع.",
-                 "اتجاهه بقاعدة اليد اليمنى (<bdi>מערכת יד ימין</bdi>).",
-                 "الصيغة \\((bf-ce,\\ cd-af,\\ ae-bd)\\) (<bdi>טענה 1.17</bdi>).",
-                 "تقلب الإشارة عند تبديل الترتيب (<bdi>טענה 1.19</bdi>)."]),
-          CARD("\\(\\vec v\\times\\vec u\\)", "\\((bf-ce,\\ cd-af,\\ ae-bd)\\)"),
-          CARD("طول الضرب المتجهي", "\\(|\\vec v|\\,|\\vec u|\\,|\\sin\\alpha|\\) = مساحة متوازي الأضلاع"),
-          CARD("\\(\\vec u\\times\\vec v\\)", "\\(-\\vec v\\times\\vec u\\)"),
-          TQ("احسب \\(\\begin{pmatrix}2\\\\0\\\\1\\end{pmatrix}\\times\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) واكتب المركبة الأخيرة.", ["2"],
-             "المركبة الثالثة هي \\(ae-bd\\).", "\\(a=2,b=0,d=1,e=1\\): \\(2\\cdot1-0\\cdot1=2\\). النتيجة كاملة \\((-1,1,2)\\)."),
-          MC("كم مساحة متوازي الأضلاع الذي يفتحه \\((3,0,0)\\) و \\((0,4,0)\\)؟",
-             ["\\(7\\)", "\\(12\\)", "\\(0\\)"], 2,
-             "المساحة = طول الضرب المتجهي.", "\\((3,0,0)\\times(0,4,0)=(0,0,12)\\) وطوله 12. (الزاوية قائمة: \\(3\\cdot4\\cdot1\\).)"),
-          MC("كم \\(\\vec v\\times\\vec v\\)؟",
-             ["\\(|\\vec v|^2\\)", "\\(\\vec 0\\)", "\\(\\vec v\\)"], 2,
-             "الزاوية بين متجه ونفسه كم؟", "\\(\\sin0=0\\) فالطول 0 والنتيجة \\(\\vec 0\\). (الخيار 1 هو \\(\\vec v\\cdot\\vec v\\) السلمي.)")]
-    write_lesson("cross-product", "الضرب المتجهي (מכפלה וקטורית)", "מכפלה וקטורית", "חוברת §1.2 · עמ׳ 6–8",
-                 "تعريف الضرب المتجهي، قاعدة اليد اليمنى، الصيغة بالإحداثيات والخصائص.", b)
+add("hc", H("تمرين وخلاصة"))
+add("mis", {"t": "mistakes", "title": "أخطاء الامتحان", "rows": [
+  {"no": "\\(v\\times u\\) عدد", "yes": "متجه! العدد هو الضرب السلمي \\(v\\cdot u\\)"},
+  {"no": "\\(v\\times u=u\\times v\\)", "yes": "\\(v\\times u=-u\\times v\\) — بيتساووا بس لما الناتج صفر"},
+  {"no": "\\(|v\\times u|=|v||u|\\cos\\alpha\\)", "yes": "\\(\\sin\\alpha\\) — الـ\\(\\cos\\) للضرب السلمي، وبتصح بس لما \\(\\alpha=45^\\circ\\)"},
+  {"no": "المركّب الأوسط \\(af-cd\\)", "yes": "\\(cd-af\\) — الدور دائري"}]})
+add("q6", Tx("احسب \\((1,2,3)\\times(2,4,6)\\) واكتب الجواب على شكل \\((x,y,z)\\).", ["(0,0,0)", "0"],
+  "المتجه التاني مضاعف للأول. قديش \\(\\sin\\) الزاوية بينهم؟",
+  "\\(bf-ce=12-12=0\\)، و\\(cd-af=6-6=0\\)، و\\(ae-bd=4-4=0\\). الصفر لأنه المتجهين متناسبين: الزاوية صفر، والمساحة صفر."))
+add("s6", answer_steps())
+add("c1", {"t": "card", "front": "الضرب المتجهي <bdi>מכפלה וקטורית</bdi> — تعريف",
+  "back": "\\(w=v\\times u\\): عمودي على \\(v\\) و\\(u\\)، طوله \\(|v||u|\\sin\\alpha\\) (المساحة)، واتجاهه يد يمنى. الناتج متجه مش عدد."})
+add("c2", {"t": "card", "front": "الصيغة بالإحداثيات <bdi>טענה 1.17</bdi>",
+  "back": "\\(v\\times u=\\begin{pmatrix}bf-ce\\\\cd-af\\\\ae-bd\\end{pmatrix}\\) — الأوسط معكوس."})
+add("c3", {"t": "card", "front": "ترتيب الضرب المتجهي <bdi>טענה 1.19</bdi>",
+  "back": "\\(v_1\\times v_2=-v_2\\times v_1\\)، وبيساوي صفر لما المتجهين متناسبين."})
 
+import re
+_MATH = re.compile(r"(\\\(.*?\\\)|\\\[.*?\\\])", re.S)
+def _arrow_math(m, letters):
+    return re.sub(r"(?<![\\A-Za-z{])([%s])(_\d)?(?![A-Za-z])" % letters,
+                  lambda g: "\\overrightarrow{%s%s}" % (g.group(1), g.group(2) or ""), m)
+def arrowize(o, letters, key=None):
+    if isinstance(o, str):
+        return o if key in ("svg", "alt") else _MATH.sub(lambda m: _arrow_math(m.group(0), letters), o)
+    if isinstance(o, list): return [arrowize(x, letters) for x in o]
+    if isinstance(o, dict): return {k: arrowize(v, letters, k) for k, v in o.items()}
+    return o
+_IJK = {N["n3"], N["b3"], N["s3"]}
+blocks[:] = [arrowize(b, "vuwijk" if i in _IJK else "vuw") for i, b in enumerate(blocks)]
 
-if __name__ == "__main__":
-    build()
+LESSON = {"slug": "cross-product", "title": "الضرب المتجهي", "he": "מכפלה וקטורית",
+          "ref": "חוברת §1.2 · עמ׳ 6–8", "minutes": 8,
+          "desc": "سهم عمودي على متجهين، طوله مساحة المتوازي، وصيغة حسابه من الإحداثيات.",
+          "blocks": blocks}
+
+# ================================================================= NARRATION
+def S(block, say, emotion="calm", pace="normal", pause=0.4, frame=None, style=None):
+    d = {"block": N[block]}
+    if frame: d["frame"] = frame
+    d.update({"emotion": emotion, "pace": pace})
+    if style: d["style"] = style
+    d.update({"pause": pause, "say": say})
+    return d
+sh = lambda t, s=None: ({"show": t} if s is None else {"show": t, "say": s})
+
+SEGS = [
+ S("why", ["سؤال قبل ما نبلّش: عندك سهمين مرسومين على الأرض، واحد طوله اتنين وواحد طوله تلاتة. بدك سهم تالت واقف عليهم بزاوية قائمة… لفوق ولا لتحت؟ وقديش طوله؟"], "curious", pause=1.0),
+ S("why", ["بآخر الدرس بتجاوب بثانية. الأداة اسمها", sh("الضرب المتجهي"), "، وبالعبري بيحكوله", sh("מכפלה וקטורית"), ". يلا."], "warm", pause=0.4),
+ S("s1", ["متجهين مش مضاعفات بعض بيفردوا مستوى، متل لوح خشب مسطّح."], "calm", pause=0.3, frame=1),
+ S("s1", ["هلّق، المسامير اللي بتنغرز بزاوية قائمة بهاللوح… كلها على نفس الخط، بس بأطوال مختلفة. أي مسمار بدنا؟"], "curious", pause=0.9, frame=2),
+ S("s1", ["الطول بيجي من المساحة. اللوح مساحته ستة؟ المسمار طوله ستة."], "calm", pause=0.3, frame=3),
+ S("s1", ["وبقي الاتجاه، لفوق ولا لتحت؟ لفّ أصابع إيدك اليمين من الأول للتاني، والإبهام بيشاور على المسمار."], "emphatic", pause=0.5, frame=4),
+ S("s1", ["عمودي، مساحة، إيد يمين. هي التلات كلمات اللي بتحدد المتجه الثالث."], "warm", pause=0.4, frame=4),
+ S("b1", ["وبالامتحان بيسموها", sh("כלל יד ימין"), "، فاحفظ الاسم."], "calm", pause=0.3),
+ S("s2", ["نطّلع على اللوح من فوق. الطولين أربعة وتلاتة، والزاوية تلاتين درجة."], "calm", pause=0.3, frame=1),
+ S("s2", ["مساحة المتوازي قاعدة ضرب ارتفاع. شو الارتفاع؟ …طول ألفا من فوق، ضرب ساين الزاوية."], "curious", pause=0.8, frame=2),
+ S("s2", ["أربعة ضرب تلاتة ضرب نص… ستة! وهاي المساحة هي بالضبط طول المسمار."], "excited", pause=0.4, frame=3),
+ S("b2", ["التعريف بيجمع التلات: عمودي على الاتنين، طوله بالساين، واتجاهه", sh("جملة يد يمنى"), ". واللي لازم تتذكره: ساين، مش كوس."], "serious", pace="slow", pause=0.5),
+ S("q1", ["قبل ما تحسب… اسأل حالك: كوس ولا ساين؟"], "encouraging", pause=0.9),
+ S("p3", ["التعريف حلو بالفكرة، بس مين بدو يقيس زاوية بالامتحان؟ بدنا صيغة من الأرقام بس."], "curious", pause=0.6),
+ S("s3", ["هاي هي الصيغة. صف فيه الأساس، وتحته متجهينا. اللي لازم تعرفه: كيف بيطلع كل مركّب."], "calm", pause=0.3, frame=1),
+ S("s3", ["الأول: غطّي عمود آي، وخد اللي بقي. بي ضرب إف، ناقص سي ضرب إي."], "calm", pause=0.3, frame=2),
+ S("s3", ["التاني: غطّي عمود جاي… وانتبه! بنبدأ من سي ضرب دي، وبعدين ناقص إيه ضرب إف."], "serious", pause=0.4, frame=3),
+ S("s3", ["والتالت: إيه ضرب إي، ناقص بي ضرب دي."], "calm", pause=0.3, frame=4),
+ S("b3", ["هاي هي الصيغة اللي بتحسب فيها بالامتحان. وبعد شوي بنتأكد منها بمثال."], "serious", pace="slow", pause=0.4),
+ S("i3", ["الأوسط بيجي معكوس. السبب إنه الدور دائري: واي زِد، وبعدين زِد إكس، وبعدين إكس واي. هيك ما بتنسى."], "emphatic", pause=0.5),
+ S("s4", ["حط الأول بالصف التاني والتاني بالتالت. قبل ما تضغط، توقّع: شو بيطلع؟"], "curious", pause=0.9, frame=1),
+ S("s4", ["الأول: ناقص اتنين. التاني: ناقص اتنين كمان. والتالت: واحد."], "calm", pause=0.4, frame=2),
+ S("s4", ["شوف! الضرب السلمي مع كل واحد منهم صفر. يعني فعلاً عمودي على الاتنين."], "excited", pause=0.4, frame=3),
+ S("s4", ["والطول: تسعة من الجهتين. يعني الطول تلاتة، زي ما التعريف بده. هيك تأكدنا من الصيغة بإيدينا."], "reassuring", pause=0.5, frame=4),
+ S("q3", ["رتّب الأحرف الأول، وبعدين المركّب الأوسط."], "encouraging", pause=0.3),
+ S("p4", ["شو بيصير لو بدّلنا الترتيب؟ خمّن."], "curious", pause=0.9),
+ S("s5", ["عنا الأول ضرب التاني، والإبهام لفوق."], "calm", pause=0.3, frame=1),
+ S("s5", ["هلّق بدّلنا… نفس الطول، بس الإبهام نزل لتحت! الإشارة انقلبت."], "surprised", pause=0.5, frame=2),
+ S("b4", ["الأولى هي المهمة: بدّل الترتيب بتقلب الإشارة. والباقي زي الأرقام العادية، بتطلّع العدد برا وبتوزّع الجمع."], "calm", pause=0.4),
+ S("mis", ["أخطر غلطة: تنسى إشارة التبديل، أو تحط كوس مكان ساين."], "emphatic", pause=0.4),
+ S("s6", ["نرجع لسؤالنا. بالصيغة: الأول صفر، التاني صفر، والتالت ستة."], "curious", pause=0.5, frame=1),
+ S("s6", ["لفوق وطوله ستة، بالضبط مساحة المتوازي اتنين ضرب تلاتة!"], "excited", pause=0.5, frame=2),
+ S("s6", ["عمودي، مساحة، إيد يمين. بالتوفيق!"], "warm", pause=0.3, frame=2),
+]
+
+def lesson_hash():
+    return hashlib.sha1(json.dumps(blocks, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()[:8]
+
+NARR = {"v": 1, "lessonHash": lesson_hash(),
+        "voice": {"persona": "مدرّس شاب، صاحب، بيحكي فلسطيني/شامي", "gender": "male"},
+        "segments": SEGS}
+
+for path, obj in ((OUT_L, LESSON), (OUT_N, NARR)):
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(obj, fh, ensure_ascii=False, indent=2); fh.write("\n")
+print("blocks", len(blocks), "segments", len(SEGS))

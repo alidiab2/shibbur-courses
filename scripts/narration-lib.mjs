@@ -146,6 +146,55 @@ export function validateNarration(n, lesson, where, opts) {
     const len = [...s.say.map(spokenOf).join(' ')].length;
     if (len > 600) err(`${W}: spoken text is ${len} chars (max 600)`);
     else if (len > 400) warn(`${W}: spoken text is ${len} chars (over 400, consider splitting)`);
+    // a word mixing Arabic and Hebrew letters (الטענה) is unreadable for the TTS
+    for (const p of s.say) {
+      const txt = isStr(p) ? p : (p && typeof p === 'object' ? [p.show, p.say].filter(isStr).join(' ') : '');
+      for (const w of txt.split(/[\s.,،؛:!?؟()«»"'\-–—…]+/)) {
+        if (/[֐-׿]/.test(w) && /[؀-ۿ]/.test(w)) err(`${W}: word "${w}" mixes Arabic and Hebrew letters — write the Arabic word and the Hebrew term separately`);
+      }
+    }
+    // a question to the student needs time to think before the answer
+    {
+      const last = String(s.say.map(spokenOf).join(' ')).trim();
+      if (/[؟?]$/.test(last) && !(typeof s.pause === 'number' && s.pause >= 0.8)) warn(`${W}: STYLE ends on a question but pause is ${s.pause ?? 'default'} — give the student ≥ 0.8 s to think before the answer`);
+    }
+    // listening quality: a segment that mostly re-reads the block's own text adds nothing
+    if (blockOk) {
+      const norm = (t) => String(t).replace(/[\u064B-\u0652\u0640]/g, '').split(/[^\p{L}\p{N}]+/u).filter((w) => [...w].length >= 3);
+      const screen = new Set(norm(info(bi).text));
+      const words = norm(s.say.map(spokenOf).join(' '));
+      if (words.length >= 5) {
+        const on = words.filter((w) => screen.has(w)).length / words.length;
+        if (on >= 0.6) warn(`${W}: STYLE ${Math.round(on * 100)}% of its words are already on screen — the voice re-reads the block; say the why, a link, or a warning instead (or cut it)`);
+      }
+    }
+    // listening quality: a formula read symbol by symbol longer than an ear can hold
+    for (const p of s.say) {
+      if (p && typeof p === 'object' && p.math !== undefined) {
+        const words = String(spokenOf(p) || '').trim().split(/\s+/).filter(Boolean).length;
+        if (words > 10) warn(`${W}: STYLE formula ${p.math} is read as ${words} words — too long to follow by ear; say what it means in words and read at most its key part`);
+      }
+    }
   });
+  // listening quality: every steps figure is talked through frame by frame
+  const narrated = new Map();
+  n.segments.forEach((s) => { if (s && Number.isInteger(s.block)) { const f = narrated.get(s.block) || new Set(); f.add(s.frame !== undefined ? s.frame : 1); /* no frame = plays over frame 1 */ narrated.set(s.block, f); } });
+  blocks.forEach((b, bi) => {
+    if (b.t !== 'steps') return;
+    if (!narrated.has(bi)) return warn(`STYLE steps block ${bi} is silent — give each frame its own segment (what changed, why it matters)`);
+    const f = narrated.get(bi);
+    const missing = b.frames.map((_, i) => i + 1).filter((k) => !f.has(k));
+    if (missing.length) warn(`STYLE steps block ${bi}: no segment for frame(s) ${missing.join(', ')}`);
+  });
+  // rhythm: a long run of the same emotion sounds flat
+  { let run = 1, start = 0;
+    for (let i = 1; i <= n.segments.length; i++) {
+      const a = n.segments[i - 1] && n.segments[i - 1].emotion, b = n.segments[i] && n.segments[i].emotion;
+      if (i < n.segments.length && a && a === b) { run++; continue; }
+      if (run > 4) warn(`STYLE segments ${start}–${i - 1}: ${run} in a row are "${a}" — vary the emotion (a question, a surprise, a challenge)`);
+      run = 1; start = i;
+    } }
+  const emos = new Set(n.segments.map((s) => s && s.emotion).filter(Boolean));
+  if (n.segments.length >= 20 && emos.size < 4) warn(`STYLE only ${emos.size} emotion(s) used — a real tutor varies (curious, surprised, playful, emphatic…)`);
   return { errors, warnings };
 }

@@ -63,11 +63,31 @@ function validateQuestion(q, where) {
   }
 }
 
+// RTL text whose sentence/paragraph ENDS with inline math (or digits) renders its punctuation on the wrong
+// side and can scramble the line — catch it before rendering.
+function bidiLint(b, where) {
+  const texts = [];
+  const walk = (v, k) => {
+    if (typeof v === 'string') { if (k !== 'svg' && /[\u0600-\u06FF]/.test(v)) texts.push([k, v]); }
+    else if (Array.isArray(v)) v.forEach((x) => walk(x, k));
+    else if (v && typeof v === 'object') for (const [kk, x] of Object.entries(v)) walk(x, kk);
+  };
+  walk(b, '');
+  for (const [k, v] of texts) {
+    for (const part of v.split(/<\/(?:p|li|td|th|summary)>|<br\s*\/?>/)) {
+      const t = part.replace(/<[^>]+>/g, '').trim();
+      if (!/[\u0600-\u06FF]/.test(t)) continue;
+      if (/\\\)\s*[.،؟?!:؛]$/.test(t) && !/^[^A-Za-z0-9\\]*[\u0600-\u06FF]/.test(t)) warnings.push(`${where}: BIDI (look at it in the render) — "${k}" starts with math/Latin and ends with math + punctuation (the line takes LTR direction and scrambles): "…${t.slice(-40)}" — end the sentence with an Arabic word or put the formula on its own \\[ \\] line`);
+    }
+  }
+}
+
 function validateBlock(b, where) {
   if (!b || typeof b !== 'object' || !isStr(b.t)) return err(`${where}: block without "t"`);
   if (!(b.t in BLOCKS)) return err(`${where}: unknown block type "${b.t}"`);
   for (const k of BLOCKS[b.t]) if (b[k] === undefined || b[k] === null) err(`${where}: block "${b.t}" missing "${k}"`);
   if (b.t === 'quiz') validateQuestion(b.q, where);
+  bidiLint(b, where);
   if (b.t === 'figure') validateSVG(b.svg, where);
   if (b.t === 'steps') {
     const svg = validateSVG(b.svg, where);

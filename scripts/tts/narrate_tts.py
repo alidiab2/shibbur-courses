@@ -526,8 +526,9 @@ def seg_cfg(base: dict, vid: str, emotion: str, pace: str) -> dict:
     base_ex = float(base.get("exaggeration", 0.45))
     vex = prof.get("exaggeration")
     vex = base_ex if vex is None else float(vex)
-    level = quantise(EMOTION_EX.get(emotion, 0.45) + (vex - base_ex))        # the voice's own energy shifts every emotion
-    prof_speed = float(prof.get("speed") or 1.0)
+    shift = float(os.environ.get("SHIBBUR_EX_SHIFT", "0"))                   # voice experiments: more/less expressive overall
+    level = quantise(EMOTION_EX.get(emotion, 0.45) + (vex - base_ex) + shift)  # the voice's own energy shifts every emotion
+    prof_speed = float(prof.get("speed") or 1.0) * float(os.environ.get("SHIBBUR_SPEED", "1"))
     over = {"exaggeration": level, "cfg_weight": CFG_OF_LEVEL[level], "speed": round(prof_speed * PACE_SPEED.get(pace, 1.0), 3),
             "max_tries": 3}
     return VB.tts_cfg(base, vid, over)
@@ -983,6 +984,8 @@ def main():
     args.pilot_idx = [int(x) for x in args.pilot.split(",")] if args.pilot else None
     from studio.paths import load_config
     base = dict(load_config()["tts"])
+    if os.environ.get("SHIBBUR_MIN_FREE_GB"):                                   # e.g. while simulators are running
+        base["min_free_gb"] = float(os.environ["SHIBBUR_MIN_FREE_GB"])
     lessons = export_segments(args.course, args.slugs)
     if not lessons:
         raise SystemExit("no narration found")

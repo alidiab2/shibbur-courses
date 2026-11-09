@@ -1,0 +1,10 @@
+# prep: cross-product (1.2 מכפלה וקטורית, pp 6-8)
+1. One idea: given two arrows in space, build the third one: perpendicular to both, length = area of their parallelogram, direction by right hand. Formula: covering columns of a 3x3.
+2. Why: dot product gives a number; in R^3 we also need "the direction perpendicular to a plane" (normal for planes, next section 1.3). Hook: v=(2,0,0), u=(0,3,0): up or down, how long -> (0,0,6).
+3. Chain: v,u not proportional -> span a plane -> perpendicular vectors = one line (multiples of w) -> fix length (area = |v||u| sin a, base x height) -> fix sign (right hand) -> definition 1.16 -> not computable by hand (angles) -> formula 1.17 (stated, no proof) -> numeric check: dots with v,u are 0 and |w|^2 = |v|^2|u|^2-(v.u)^2 (sin^2=1-cos^2; link to dot product) -> swapping rows/order flips direction -> 1.19.
+4. Hard: (a) sin vs cos (dot product habit) -> quiz q1 + mistakes row; (b) middle component sign -> cyclic rule box + quiz q3; (c) result is a vector not a number; (d) order matters (sign flip) -> swap steps + quiz q5; (e) parallel vectors -> 0 (hard case: alpha=0, area 0) -> quiz q6; (f) right-hand rule is only a picture -> drawn curl arrow.
+5. Exam: compute v x u from coordinates; find k/parameter given the result; use anticommutativity/linearity; (next lesson) normal to a plane. Lost points: middle sign, order.
+6. Central image: nail standing on a parallelogram board: perpendicular, length = area, direction by right hand. Breaks nowhere for R^3 (degenerate: board of area 0, no nail).
+7. Cut list: no hand drawing, no proof of 1.17 (PDF gives none), no triangle area, no scalar/distributive proofs (one line: follow from the formula). Homework in PDF (check first two properties) done numerically in example 1.18.
+8. Hard case: obtuse angle in example 1.18 (cos = -1/sqrt10) still gives sin>0, |w|=3 matches via sin^2=1-cos^2. Parallel: sin=0 -> w=0.
+9. Intuition: sin from height of parallelogram (u sin a). v x v = -(v x v) => 0. Condition "non-proportional" matters: otherwise no plane, w=0.

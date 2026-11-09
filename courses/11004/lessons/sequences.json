@@ -1,385 +1,506 @@
 {
   "slug": "sequences",
-  "title": "المتتاليات: حسابية وهندسية وبالتكرار",
+  "title": "المتتاليات",
   "he": "סדרות",
   "ref": "חוברת §2.1 · עמ׳ 11–13",
-  "minutes": 25,
-  "desc": "المتتالية كدالة من الأعداد الطبيعية، الحسابية والهندسية ومجاميعها، وفيبوناتشي.",
+  "minutes": 11,
+  "desc": "المتتالية كدالة، الحسابية والهندسية ومجموعهم، والتراجعية (فيبوناتشي).",
   "blocks": [
     {
       "t": "why",
-      "html": "<p>المتتالية (<bdi>סדרה</bdi>) هي دالة عادية، بس مجالها الأعداد الطبيعية. كل الفصل الجاي (النهايات) عن المتتاليات، فلازم نعرفها منيح من هون.</p><p><b>بهالدرس:</b></p><ol><li>المتتالية كدالة من \\(\\mathbb{N}\\)</li><li>متتالية حسابية (<bdi>סדרה חשבונית</bdi>)</li><li>مجموع المتتالية الحسابية</li><li>متتالية هندسية (<bdi>סדרה הנדסית</bdi>)</li><li>مجموع المتتالية الهندسية</li><li>متتالية بالتكرار (<bdi>נסיגה</bdi>) وفيبوناتشي</li></ol>"
+      "html": "<p>عنا ستّ أرقام: \\(4,\\ 7,\\ 10,\\ 13,\\ 16,\\ 19\\). كل رقم أكبر من اللي قبله بـ \\(3\\). مجموعهم؟ ممكن تجمعهم واحد واحد… بس لو كانوا مية رقم؟</p><p>جوّا هالدرس بنتعلم <b>المتتاليات</b> (<bdi>סדרות</bdi>)، وصيغة بتجيب المجموع بثانية. بآخر الدرس بتجاوب على السؤال.</p>"
+    },
+    {
+      "t": "figure",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 280\" role=\"img\" aria-label=\"ستة أعمدة ارتفاعها 4 و7 و10 و13 و16 و19 والسؤال: مجموعها؟\" class=\"fk\"><rect class=\"fk-curve t-1\" x=\"37\" y=\"208\" width=\"46\" height=\"28\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"60\" y=\"198\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><rect class=\"fk-curve t-1\" x=\"109\" y=\"187\" width=\"46\" height=\"49\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"132\" y=\"177\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">7</text><rect class=\"fk-curve t-1\" x=\"181\" y=\"166\" width=\"46\" height=\"70\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"204\" y=\"156\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">10</text><rect class=\"fk-curve t-1\" x=\"253\" y=\"145\" width=\"46\" height=\"91\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"276\" y=\"135\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">13</text><rect class=\"fk-curve t-1\" x=\"325\" y=\"124\" width=\"46\" height=\"112\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"348\" y=\"114\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">16</text><rect class=\"fk-curve t-1\" x=\"397\" y=\"103\" width=\"46\" height=\"133\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"420\" y=\"93\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">19</text><line class=\"fk-line t-mut\" x1=\"24\" y1=\"236\" x2=\"456\" y2=\"236\" stroke-width=\"3\" stroke-linecap=\"round\"/><rect class=\"fk-chip t-2\" x=\"90\" y=\"6\" width=\"300\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"240\" y=\"33.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"rtl\"><tspan direction=\"ltr\" unicode-bidi=\"isolate\">4+7+10+13+16+19</tspan> = ؟</text></svg>",
+      "caption": "لاحظ: كل عمود أطول من اللي قبله بنفس المقدار",
+      "alt": "ستة أعمدة ارتفاعها 4 و7 و10 و13 و16 و19 والسؤال: مجموعها؟"
     },
     {
       "t": "h",
-      "text": "1 · المتتالية هي دالة"
+      "text": "1 · شو هي المتتالية؟"
     },
     {
       "t": "p",
-      "html": "<p>المتتالية هي دالة مجالها \\(\\mathbb{N}=\\{1,2,3,\\dots\\}\\). المدخل هو رقم المكان \\(n\\)، والمخرج هو العدد اللي بالمكان هاد.</p>"
+      "html": "<p>بالمدرسة حكيتوا عن متتاليات. شو بيميّزها عن أي دالة تانية؟ شوف الرسمة.</p>"
     },
     {
       "t": "steps",
-      "alt": "نقاط (n, 1/n) للمتتالية الهارمونية والصورة على المحور العمودي",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 290\" role=\"img\" aria-label=\"نقاط (n, 1/n) للمتتالية الهارمونية والصورة على المحور العمودي\" class=\"fk\"><g><line class=\"fk-line t-grid\" x1=\"70\" y1=\"20\" x2=\"70\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"112.2\" y1=\"20\" x2=\"112.2\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"154.4\" y1=\"20\" x2=\"154.4\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"196.7\" y1=\"20\" x2=\"196.7\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"238.9\" y1=\"20\" x2=\"238.9\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"281.1\" y1=\"20\" x2=\"281.1\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"323.3\" y1=\"20\" x2=\"323.3\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"365.6\" y1=\"20\" x2=\"365.6\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"407.8\" y1=\"20\" x2=\"407.8\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"450\" y1=\"20\" x2=\"450\" y2=\"245\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"70\" y1=\"227.7\" x2=\"450\" y2=\"227.7\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"70\" y1=\"141.2\" x2=\"450\" y2=\"141.2\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"70\" y1=\"54.6\" x2=\"450\" y2=\"54.6\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-mut\" x1=\"70\" y1=\"227.7\" x2=\"432.4\" y2=\"227.7\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"450,227.7 428,237.6 428,217.8\"/><line class=\"fk-line t-mut\" x1=\"70\" y1=\"245\" x2=\"70\" y2=\"37.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"70,20 79.9,42 60.1,42\"/><text class=\"fk-t t-mut\" x=\"112.2\" y=\"273\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-mut\" x=\"154.4\" y=\"273\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><text class=\"fk-t t-mut\" x=\"196.7\" y=\"273\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text><text class=\"fk-t t-mut\" x=\"238.9\" y=\"273\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><text class=\"fk-t t-mut\" x=\"281.1\" y=\"273\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">5</text><text class=\"fk-t t-mut\" x=\"323.3\" y=\"273\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">6</text><text class=\"fk-t t-mut\" x=\"365.6\" y=\"273\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">7</text><text class=\"fk-t t-mut\" x=\"407.8\" y=\"273\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">8</text><text class=\"fk-t t-mut\" x=\"450\" y=\"273\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">9</text><text class=\"fk-t t-mut\" x=\"60\" y=\"148.2\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">0.5</text><text class=\"fk-t t-mut\" x=\"60\" y=\"61.6\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-ink\" x=\"450\" y=\"213.7\" font-size=\"22\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">n</text><text class=\"fk-t t-ink\" x=\"84\" y=\"34\" font-size=\"22\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">aₙ</text></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"112.2\" cy=\"54.6\" r=\"8\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"154.4\" cy=\"141.2\" r=\"8\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"196.7\" cy=\"170\" r=\"8\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"238.9\" cy=\"184.4\" r=\"8\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"281.1\" cy=\"193.1\" r=\"8\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"323.3\" cy=\"198.8\" r=\"8\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"365.6\" cy=\"203\" r=\"8\"/></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"407.8\" cy=\"206.1\" r=\"8\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"70\" cy=\"54.6\" r=\"7\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"70\" cy=\"141.2\" r=\"7\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"70\" cy=\"170\" r=\"7\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"70\" cy=\"184.4\" r=\"7\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"70\" cy=\"193.1\" r=\"7\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"70\" cy=\"198.8\" r=\"7\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"70\" cy=\"203\" r=\"7\"/></g><g data-step=\"3\"><circle class=\"fk-dot t-good\" cx=\"70\" cy=\"206.1\" r=\"7\"/></g></svg>",
+      "alt": "الأعداد الطبيعية 1 و2 و3 و4 بتروح بأسهم للقيم 3 و5 و7 و9، وتحتها a1 إلى a4، ومجموعة القيم Im(f)",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 300\" role=\"img\" aria-label=\"الأعداد الطبيعية 1 و2 و3 و4 بتروح بأسهم للقيم 3 و5 و7 و9، وتحتها a1 إلى a4، ومجموعة القيم Im(f)\" class=\"fk\"><text class=\"fk-t t-mut\" x=\"40\" y=\"52\" font-size=\"28\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">ℕ</text><rect class=\"fk-chip t-1\" x=\"88\" y=\"24\" width=\"64\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"120\" y=\"51\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><rect class=\"fk-chip t-1\" x=\"178\" y=\"24\" width=\"64\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"210\" y=\"51\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><rect class=\"fk-chip t-1\" x=\"268\" y=\"24\" width=\"64\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"300\" y=\"51\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text><rect class=\"fk-chip t-1\" x=\"358\" y=\"24\" width=\"64\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"390\" y=\"51\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><text class=\"fk-t t-mut\" x=\"450\" y=\"52\" font-size=\"26\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">…</text><text class=\"fk-t t-mut\" x=\"30\" y=\"160\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">A ⊆ ℝ</text><g data-until=\"1\"><rect class=\"fk-chip dash t-mut\" x=\"88\" y=\"132\" width=\"64\" height=\"40\" rx=\"14\"/></g><g data-step=\"2\"><line class=\"fk-line t-1\" x1=\"120\" y1=\"70\" x2=\"120\" y2=\"110\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"120,126 111,106 129,106\"/></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"88\" y=\"132\" width=\"64\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"120\" y=\"159\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"120\" y=\"204\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁=f(1)</text></g><g data-until=\"1\"><rect class=\"fk-chip dash t-mut\" x=\"178\" y=\"132\" width=\"64\" height=\"40\" rx=\"14\"/></g><g data-step=\"2\"><line class=\"fk-line t-1\" x1=\"210\" y1=\"70\" x2=\"210\" y2=\"110\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"210,126 201,106 219,106\"/></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"178\" y=\"132\" width=\"64\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"210\" y=\"159\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">5</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"210\" y=\"204\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₂=f(2)</text></g><g data-until=\"1\"><rect class=\"fk-chip dash t-mut\" x=\"268\" y=\"132\" width=\"64\" height=\"40\" rx=\"14\"/></g><g data-step=\"2\"><line class=\"fk-line t-1\" x1=\"300\" y1=\"70\" x2=\"300\" y2=\"110\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"300,126 291,106 309,106\"/></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"268\" y=\"132\" width=\"64\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"300\" y=\"159\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">7</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"300\" y=\"204\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₃=f(3)</text></g><g data-until=\"1\"><rect class=\"fk-chip dash t-mut\" x=\"358\" y=\"132\" width=\"64\" height=\"40\" rx=\"14\"/></g><g data-step=\"2\"><line class=\"fk-line t-1\" x1=\"390\" y1=\"70\" x2=\"390\" y2=\"110\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"390,126 381,106 399,106\"/></g><g data-step=\"2\"><rect class=\"fk-chip t-2\" x=\"358\" y=\"132\" width=\"64\" height=\"40\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"390\" y=\"159\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">9</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"390\" y=\"204\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₄=f(4)</text></g><text class=\"fk-t t-mut\" x=\"450\" y=\"160\" font-size=\"26\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">…</text><g data-step=\"2\"><text class=\"fk-t t-1\" x=\"136\" y=\"104\" font-size=\"24\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">f</text></g><g data-step=\"4\"><rect class=\"fk-chip t-good\" x=\"70\" y=\"238\" width=\"340\" height=\"44\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"240\" y=\"267.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">Im(f) = {3, 5, 7, 9, …}</text></g></svg>",
       "frames": [
         {
-          "caption": "المحاور: \\(n\\) أفقي وقيمة المتتالية \\(a_n\\) عمودي."
+          "caption": "المدخلات: بس الأعداد الطبيعية \\(\\mathbb N\\)"
         },
         {
-          "caption": "لكل \\(n\\) منحط نقطة \\((n,\\tfrac1n)\\). هاي المتتالية الهارمونية."
+          "caption": "كل \\(n\\) بيروح لقيمة حقيقية \\(f(n)\\)"
         },
         {
-          "caption": "الصورة هي القيم اللي طلعت على المحور العمودي: \\(1,\\tfrac12,\\tfrac13,\\dots\\)"
+          "caption": "منسمي القيمة اللي بتطلع من \\(n\\) \\(a_n\\)، ومنكتب \\(a_n=f(n)\\)"
+        },
+        {
+          "caption": "كل القيم مع بعض: الصورة \\(\\mathrm{Im}(f)\\) — مجموعة، مش ترتيب"
         }
       ],
-      "title": "غراف المتتالية \\(a_n=\\tfrac1n\\)"
+      "title": "دالة مدخلاتها \\(1,2,3,\\dots\\)"
     },
     {
       "t": "box",
       "kind": "def",
       "title": "تعريف · <bdi>הגדרה 2.19</bdi>",
-      "html": "<p>لمجموعة \\(A\\subseteq\\mathbb{R}\\)، دالة \\(f:\\mathbb{N}\\to A\\) تسمى <b>סדרה</b>. بالأخص إذا \\(A\\subseteq\\mathbb{R}\\) هي <b>סדרת מספרים ממשיים</b>.</p><p>الصورة \\(\\operatorname{Im}(f)=\\{f(1),f(2),f(3),\\dots\\}\\) منكتبها ببساطة \\(\\{f(n)\\}_{n=1}^{\\infty}\\).</p><p>العادة نكتب \\(a_n=f(n)\\) والمتتالية \\(\\{a_n\\}_{n=1}^{\\infty}\\).</p>"
+      "html": "<p>لأي مجموعة \\(A\\)، الدالة \\(f:\\mathbb N\\to A\\) بتسمى <b>متتالية</b> (<bdi>סדרה</bdi>). وإذا كانت \\(A\\subseteq\\mathbb R\\) بنقول <b>متتالية أعداد حقيقية</b> (<bdi>סדרת מספרים ממשיים</bdi>).</p>"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "ترميز · <bdi>סימון</bdi>",
+      "html": "<p>مجموعة القيم (<bdi>תמונה</bdi>) بنكتبها</p><p>\\[\\begin{aligned}\\mathrm{Im}(f)&=\\{f(1),f(2),f(3),\\dots\\}\\\\ &=\\{f(n)\\}_{n=1}^{\\infty}\\end{aligned}\\]</p><p>وقيمة الدالة بنسميها \\(a_n=f(n)\\)، والمتتالية كلها بالرمز</p><p>\\[\\{a_n\\}_{n=1}^{\\infty}\\]</p>"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>المتتالية \\(a_n=(-1)^n\\) بتعطي \\(-1,\\ 1,\\ -1,\\ 1,\\dots\\). كم عنصر مختلف في مجموعة قيمها؟ (اكتب رقم)</p>",
+        "answer": [
+          "2"
+        ],
+        "hint": "<p>المجموعة ما بتكرر نفس العنصر.</p>",
+        "solution": "<p>القيم بتتكرر: \\(-1\\) و \\(1\\) بس، فمجموعة القيم \\(\\{-1,1\\}\\) فيها عنصرين. بس المتتالية إلها حدود لا نهائية — الترتيب والتكرار بيدخلوا.</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "2 · المتتالية التوافقية"
     },
     {
       "t": "box",
       "kind": "ex",
       "title": "مثال · <bdi>דוגמה 2.20</bdi>",
-      "html": "<p><b>הסדרה ההרמונית</b> معرفة بالدالة \\(h:\\mathbb{N}\\to\\mathbb{R}\\)، \\(h(n)=\\tfrac1n\\). نكتب \\(a_n=\\tfrac1n\\) أو باختصار \\(\\{\\tfrac1n\\}_{n=1}^{\\infty}\\).</p><p>غرافها نقاط منفصلة كما بالرسم، وصورتها \\(\\{1,\\tfrac12,\\tfrac13,\\dots\\}\\).</p>"
+      "html": "<p><b>المتتالية التوافقية</b> (<bdi>הסדרה ההרמונית</bdi>) هي الدالة \\(h:\\mathbb N\\to\\mathbb R\\) المعرّفة بـ</p><p>\\[h(n)=\\frac1n\\]</p><p>بنكتبها \\(a_n=\\frac1n\\) أو باختصار</p><p>\\[\\left\\{\\frac1n\\right\\}_{n=1}^{\\infty}\\]</p>"
     },
     {
       "t": "p",
-      "html": "<p>الكتاب بيطلب نتذكر مثالين من المدرسة: المتتالية الحسابية والمتتالية الهندسية. خلّينا نشوفهم.</p>"
-    },
-    {
-      "t": "h",
-      "text": "2 · المتتالية الحسابية"
-    },
-    {
-      "t": "p",
-      "html": "<p>بالمتتالية الحسابية كل عدد بيزيد على اللي قبله <b>نفس المقدار</b>. المقدار هاد اسمه الفرق (<bdi>הפרש</bdi>) ونرمز له \\(d\\). مثلاً \\(-3,5,13,21,\\dots\\) فيها \\(d=8\\).</p>"
+      "html": "<p>الكتيب بيطلب نرسمها. شو بتتوقع: خط ولا نقط؟</p>"
     },
     {
       "t": "steps",
-      "alt": "خط أعداد: القفزات +8 من -3 إلى 5 إلى 13 إلى 21",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 210\" role=\"img\" aria-label=\"خط أعداد: القفزات +8 من -3 إلى 5 إلى 13 إلى 21\" class=\"fk\"><g><line class=\"fk-line t-mut\" x1=\"22\" y1=\"140\" x2=\"438.8\" y2=\"140\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"458,140 434,150.8 434,129.2\"/><line class=\"fk-line t-mut\" x1=\"100\" y1=\"131\" x2=\"100\" y2=\"149\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"100\" y=\"180\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text><line class=\"fk-line t-mut\" x1=\"240\" y1=\"131\" x2=\"240\" y2=\"149\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"240\" y=\"180\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">10</text><line class=\"fk-line t-mut\" x1=\"380\" y1=\"131\" x2=\"380\" y2=\"149\" stroke-width=\"3\" stroke-linecap=\"round\"/><text class=\"fk-t t-ink\" x=\"380\" y=\"180\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">20</text></g><g data-step=\"1\"><circle class=\"fk-dot t-1\" cx=\"58\" cy=\"140\" r=\"11\"/></g><g data-step=\"1\"><text class=\"fk-t t-1\" x=\"58\" y=\"100\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁</text></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"170\" cy=\"140\" r=\"11\"/></g><g data-step=\"2\"><text class=\"fk-t t-1\" x=\"170\" y=\"100\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₂</text></g><g data-step=\"3\"><circle class=\"fk-dot t-1\" cx=\"282\" cy=\"140\" r=\"11\"/></g><g data-step=\"3\"><text class=\"fk-t t-1\" x=\"282\" y=\"100\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₃</text></g><g data-step=\"4\"><circle class=\"fk-dot t-1\" cx=\"394\" cy=\"140\" r=\"11\"/></g><g data-step=\"4\"><text class=\"fk-t t-1\" x=\"394\" y=\"100\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₄</text></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"66\" y1=\"70\" x2=\"142.8\" y2=\"70\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"162,70 138,80.8 138,59.2\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"114\" y=\"56\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">+d</text></g><g data-step=\"3\"><line class=\"fk-line t-2\" x1=\"178\" y1=\"70\" x2=\"254.8\" y2=\"70\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"274,70 250,80.8 250,59.2\"/></g><g data-step=\"3\"><text class=\"fk-t t-2\" x=\"226\" y=\"56\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">+d</text></g><g data-step=\"4\"><line class=\"fk-line t-2\" x1=\"290\" y1=\"70\" x2=\"366.8\" y2=\"70\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"386,70 362,80.8 362,59.2\"/></g><g data-step=\"4\"><text class=\"fk-t t-2\" x=\"338\" y=\"56\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">+d</text></g></svg>",
+      "alt": "نقاط منفصلة (n, 1/n) عند n=1,2,3,… وما في خط بينها",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"نقاط منفصلة (n, 1/n) عند n=1,2,3,… وما في خط بينها\" class=\"fk\"><g><line class=\"fk-line t-grid\" x1=\"56\" y1=\"24\" x2=\"56\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"112\" y1=\"24\" x2=\"112\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"168\" y1=\"24\" x2=\"168\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"224\" y1=\"24\" x2=\"224\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"280\" y1=\"24\" x2=\"280\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"336\" y1=\"24\" x2=\"336\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"392\" y1=\"24\" x2=\"392\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"448\" y1=\"24\" x2=\"448\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"56\" y1=\"224\" x2=\"448\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"56\" y1=\"140.7\" x2=\"448\" y2=\"140.7\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"56\" y1=\"57.3\" x2=\"448\" y2=\"57.3\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-mut\" x1=\"56\" y1=\"224\" x2=\"430.4\" y2=\"224\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"448,224 426,233.9 426,214.1\"/><line class=\"fk-line t-mut\" x1=\"56\" y1=\"224\" x2=\"56\" y2=\"41.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"56,24 65.9,46 46.1,46\"/><text class=\"fk-t t-mut\" x=\"112\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-mut\" x=\"168\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><text class=\"fk-t t-mut\" x=\"224\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text><text class=\"fk-t t-mut\" x=\"280\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><text class=\"fk-t t-mut\" x=\"336\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">5</text><text class=\"fk-t t-mut\" x=\"392\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">6</text><text class=\"fk-t t-mut\" x=\"448\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">7</text><text class=\"fk-t t-mut\" x=\"46\" y=\"147.7\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">0.5</text><text class=\"fk-t t-mut\" x=\"46\" y=\"64.3\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-ink\" x=\"448\" y=\"210\" font-size=\"22\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">n</text><text class=\"fk-t t-ink\" x=\"70\" y=\"38\" font-size=\"22\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">h(n)</text></g><g data-step=\"1\"><circle class=\"fk-dot t-1\" cx=\"112\" cy=\"57.3\" r=\"9\"/><text class=\"fk-t t-1\" x=\"126\" y=\"43.3\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">1</text></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"168\" cy=\"140.7\" r=\"9\"/><text class=\"fk-t t-1\" x=\"182\" y=\"126.7\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">1/2</text></g><g data-step=\"2\"><circle class=\"fk-dot t-1\" cx=\"224\" cy=\"168.4\" r=\"9\"/><text class=\"fk-t t-1\" x=\"238\" y=\"154.4\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">1/3</text></g><g data-step=\"3\"><circle class=\"fk-dot t-1\" cx=\"280\" cy=\"182.3\" r=\"9\"/><text class=\"fk-t t-1\" x=\"294\" y=\"168.3\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">1/4</text></g><g data-step=\"3\"><circle class=\"fk-dot t-1\" cx=\"336\" cy=\"190.7\" r=\"9\"/><text class=\"fk-t t-1\" x=\"350\" y=\"176.7\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">1/5</text></g><g data-step=\"3\"><circle class=\"fk-dot t-1\" cx=\"392\" cy=\"196.2\" r=\"9\"/><text class=\"fk-t t-1\" x=\"406\" y=\"182.2\" font-size=\"20\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">1/6</text></g><g data-step=\"4\"><circle class=\"fk-dot hollow t-bad\" cx=\"140\" cy=\"112.9\" r=\"9\"/></g><g data-step=\"4\"><text class=\"fk-t t-bad\" x=\"134\" y=\"88.9\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">n=1.5 ✗</text></g></svg>",
       "frames": [
         {
-          "caption": "\\(a_1=-3\\) هو أول عدد."
+          "caption": "أول نقطة: \\(n=1\\) و \\(h(1)=1\\)"
         },
         {
-          "caption": "قفزة بمقدار \\(d=8\\): \\(a_2=-3+8=5\\)."
+          "caption": "كل \\(n\\) بيعطي نقطة وحدة"
         },
         {
-          "caption": "قفزة تانية: \\(a_3=5+8=13\\)."
+          "caption": "وهيك بتكمل لجوّا لجهة اليمين"
         },
         {
-          "caption": "وهيك لـ \\(a_4=21\\). كل مرة نفس القفزة."
+          "caption": "بين النقط ما في إشي: \\(n=1.5\\) مش موجود"
         }
       ],
-      "title": "كل قفزة بنفس الطول"
+      "title": "رسم \\(\\frac1n\\)"
+    },
+    {
+      "t": "h",
+      "text": "3 · المتتالية الحسابية"
+    },
+    {
+      "t": "p",
+      "html": "<p>بالمدرسة عرفتوا نوعين مشهورين. الأول: كل حد بيزيد نفس المقدار عن اللي قبله.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "نقاط متتالية حسابية 2 و5 و8 و11 و14: كل نقطة أعلى من اللي قبلها بـ 3، أربع قفزات بين خمس نقاط",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 270\" role=\"img\" aria-label=\"نقاط متتالية حسابية 2 و5 و8 و11 و14: كل نقطة أعلى من اللي قبلها بـ 3، أربع قفزات بين خمس نقاط\" class=\"fk\"><g><line class=\"fk-line t-grid\" x1=\"56\" y1=\"24\" x2=\"56\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"121.3\" y1=\"24\" x2=\"121.3\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"186.7\" y1=\"24\" x2=\"186.7\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"252\" y1=\"24\" x2=\"252\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"317.3\" y1=\"24\" x2=\"317.3\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"382.7\" y1=\"24\" x2=\"382.7\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"448\" y1=\"24\" x2=\"448\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"56\" y1=\"224\" x2=\"448\" y2=\"224\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"56\" y1=\"174\" x2=\"448\" y2=\"174\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"56\" y1=\"124\" x2=\"448\" y2=\"124\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"56\" y1=\"74\" x2=\"448\" y2=\"74\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-grid\" x1=\"56\" y1=\"24\" x2=\"448\" y2=\"24\" stroke-width=\"2\" stroke-linecap=\"round\"/><line class=\"fk-line t-mut\" x1=\"56\" y1=\"224\" x2=\"430.4\" y2=\"224\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"448,224 426,233.9 426,214.1\"/><line class=\"fk-line t-mut\" x1=\"56\" y1=\"224\" x2=\"56\" y2=\"41.6\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-mut\" points=\"56,24 65.9,46 46.1,46\"/><text class=\"fk-t t-mut\" x=\"121.3\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><text class=\"fk-t t-mut\" x=\"186.7\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><text class=\"fk-t t-mut\" x=\"252\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text><text class=\"fk-t t-mut\" x=\"317.3\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><text class=\"fk-t t-mut\" x=\"382.7\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">5</text><text class=\"fk-t t-mut\" x=\"448\" y=\"252\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">6</text><text class=\"fk-t t-mut\" x=\"46\" y=\"181\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><text class=\"fk-t t-mut\" x=\"46\" y=\"131\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">8</text><text class=\"fk-t t-mut\" x=\"46\" y=\"81\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">12</text><text class=\"fk-t t-mut\" x=\"46\" y=\"31\" font-size=\"20\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">16</text><text class=\"fk-t t-ink\" x=\"448\" y=\"210\" font-size=\"22\" font-weight=\"600\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\">n</text><text class=\"fk-t t-ink\" x=\"70\" y=\"38\" font-size=\"22\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">aₙ</text></g><g data-step=\"2\"><line class=\"fk-line dash t-2\" x1=\"131.3\" y1=\"199\" x2=\"186.7\" y2=\"199\" stroke-width=\"3.5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><line class=\"fk-line dash t-2\" x1=\"186.7\" y1=\"199\" x2=\"186.7\" y2=\"171.5\" stroke-width=\"3.5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"198.7\" y=\"187.2\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">+3</text></g><g data-step=\"2\"><line class=\"fk-line dash t-2\" x1=\"196.7\" y1=\"161.5\" x2=\"252\" y2=\"161.5\" stroke-width=\"3.5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><line class=\"fk-line dash t-2\" x1=\"252\" y1=\"161.5\" x2=\"252\" y2=\"134\" stroke-width=\"3.5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"264\" y=\"149.8\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">+3</text></g><g data-step=\"2\"><line class=\"fk-line dash t-2\" x1=\"262\" y1=\"124\" x2=\"317.3\" y2=\"124\" stroke-width=\"3.5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><line class=\"fk-line dash t-2\" x1=\"317.3\" y1=\"124\" x2=\"317.3\" y2=\"96.5\" stroke-width=\"3.5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"329.3\" y=\"112.2\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">+3</text></g><g data-step=\"2\"><line class=\"fk-line dash t-2\" x1=\"327.3\" y1=\"86.5\" x2=\"382.7\" y2=\"86.5\" stroke-width=\"3.5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><line class=\"fk-line dash t-2\" x1=\"382.7\" y1=\"86.5\" x2=\"382.7\" y2=\"59\" stroke-width=\"3.5\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"394.7\" y=\"74.8\" font-size=\"20\" font-weight=\"600\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">+3</text></g><g><circle class=\"fk-dot t-1\" cx=\"121.3\" cy=\"199\" r=\"9\"/><text class=\"fk-t t-1\" x=\"107.3\" y=\"185\" font-size=\"20\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">2</text></g><g><circle class=\"fk-dot t-1\" cx=\"186.7\" cy=\"161.5\" r=\"9\"/><text class=\"fk-t t-1\" x=\"172.7\" y=\"147.5\" font-size=\"20\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">5</text></g><g><circle class=\"fk-dot t-1\" cx=\"252\" cy=\"124\" r=\"9\"/><text class=\"fk-t t-1\" x=\"238\" y=\"110\" font-size=\"20\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">8</text></g><g><circle class=\"fk-dot t-1\" cx=\"317.3\" cy=\"86.5\" r=\"9\"/><text class=\"fk-t t-1\" x=\"303.3\" y=\"72.5\" font-size=\"20\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">11</text></g><g><circle class=\"fk-dot t-1\" cx=\"382.7\" cy=\"49\" r=\"9\"/><text class=\"fk-t t-1\" x=\"368.7\" y=\"35\" font-size=\"20\" font-weight=\"700\" text-anchor=\"end\" direction=\"ltr\" unicode-bidi=\"isolate\" style=\"stroke:var(--paper);stroke-width:7;paint-order:stroke;stroke-linejoin:round\">14</text></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"215\" y=\"52\" font-size=\"22\" font-weight=\"600\" text-anchor=\"middle\" direction=\"rtl\"><tspan direction=\"ltr\" unicode-bidi=\"isolate\">5</tspan> حدود ← <tspan direction=\"ltr\" unicode-bidi=\"isolate\">4</tspan> قفزات</text></g></svg>",
+      "frames": [
+        {
+          "caption": "خمس حدود، كل حد فوق اللي قبله"
+        },
+        {
+          "caption": "نفس القفزة كل مرة: الفرق \\(d\\) (هون \\(3\\))"
+        },
+        {
+          "caption": "الحد رقم \\(n\\) فيه \\(n-1\\) قفزة، مش \\(n\\)"
+        }
+      ],
+      "title": "متتالية حسابية"
     },
     {
       "t": "box",
       "kind": "def",
       "title": "تعريف · <bdi>הגדרה 2.21</bdi>",
-      "html": "<p>متتالية \\(\\{a_n\\}_{n=1}^{\\infty}\\) تسمى <b>סדרה חשבונית</b> إذا يوجد عدد ثابت \\(d\\in\\mathbb{R}\\) (<bdi>ההפרש</bdi>) بحيث لكل \\(i\\in\\mathbb{N}\\) يتحقق\\[a_{i+1}-a_i=d.\\]</p><p>عملياً، حدود المتتالية بتنكتب بدلالة \\(a_1\\) و \\(d\\). أول \\(n\\) حدود هم\\[a_1,\\ a_1+d,\\ a_1+2d,\\ \\dots,\\ a_1+(n-1)d.\\]</p>"
+      "html": "<p>متتالية \\(\\{a_n\\}_{n=1}^{\\infty}\\) بتسمى <b>حسابية</b> (<bdi>סדרה חשבונית</bdi>) إذا في عدد ثابت \\(d\\in\\mathbb R\\) بحيث لكل \\(i\\in\\mathbb N\\)</p><p>\\[a_{i+1}-a_i=d\\]</p><p>و \\(d\\) اسمه <b>الفرق</b> (<bdi>הפרש</bdi>). فالحدود \\(n\\) الأولى هي</p><p>\\[\\begin{aligned}&a_1,\\ a_1+d,\\ a_1+2d,\\\\ &\\dots,\\ a_1+(n-1)d\\end{aligned}\\]</p>"
     },
     {
       "t": "quiz",
       "q": {
-        "kind": "text",
-        "prompt": "<p>متتالية حسابية فيها \\(a_1=5\\) و \\(d=3\\). احسب \\(a_{10}\\).</p>",
-        "answer": [
-          "32"
+        "kind": "mc",
+        "prompt": "<p>متتالية حسابية فيها \\(a_1=5\\) و \\(d=3\\). شو الحد العاشر؟</p>",
+        "options": [
+          {
+            "v": "1",
+            "html": "\\(27\\)"
+          },
+          {
+            "v": "2",
+            "html": "\\(35\\)"
+          },
+          {
+            "v": "3",
+            "html": "\\(32\\)"
+          }
         ],
-        "hint": "<p>الحد \\(n\\) هو \\(a_1+(n-1)d\\). كم قفزة بين \\(a_1\\) و \\(a_{10}\\)؟</p>",
-        "solution": "<p>بين \\(a_1\\) و \\(a_{10}\\) في 9 قفزات. \\(a_{10}=5+9\\cdot3=32\\). الخطأ الشائع: ضرب 10 بدل 9.</p>"
+        "answer": [
+          "3"
+        ],
+        "hint": "<p>كم قفزة بين الحد الأول والعاشر؟</p>",
+        "solution": "<p>بين الحد الأول والعاشر \\(9\\) قفزات: \\(a_{10}=5+9\\cdot3=32\\). الخطأ الشائع \\(5+10\\cdot3=35\\) (عدّوا القفزات \\(10\\))، و \\(9\\cdot3=27\\) نسيوا \\(a_1\\).</p>"
       }
     },
     {
       "t": "h",
-      "text": "3 · مجموع المتتالية الحسابية"
+      "text": "4 · مجموع المتتالية الحسابية"
     },
     {
       "t": "p",
-      "html": "<p>بدنا نجمع أول \\(n\\) حدود. الحيلة: نجمع الأول مع الأخير، والتاني مع اللي قبل الأخير، وهيك. كل زوج إله <b>نفس المجموع</b>. شوف على \\(2,4,6,8,10,12\\).</p>"
+      "html": "<p>رجعنا لسؤال البداية: كيف بنجمع بدون ما نجمع واحد واحد؟</p>"
     },
     {
       "t": "steps",
-      "alt": "الأعداد 2,4,6,8,10,12 مرتبة في أزواج مجموع كل زوج 14",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 260\" role=\"img\" aria-label=\"الأعداد 2,4,6,8,10,12 مرتبة في أزواج مجموع كل زوج 14\" class=\"fk\"><rect class=\"fk-chip t-1\" x=\"30\" y=\"24\" width=\"60\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"60\" y=\"57.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><rect class=\"fk-chip t-1\" x=\"96\" y=\"24\" width=\"60\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"126\" y=\"57.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><rect class=\"fk-chip t-1\" x=\"162\" y=\"24\" width=\"60\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"192\" y=\"57.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">6</text><rect class=\"fk-chip t-1\" x=\"228\" y=\"24\" width=\"60\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"258\" y=\"57.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">8</text><rect class=\"fk-chip t-1\" x=\"294\" y=\"24\" width=\"60\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"324\" y=\"57.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">10</text><rect class=\"fk-chip t-1\" x=\"360\" y=\"24\" width=\"60\" height=\"50\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"390\" y=\"57.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">12</text><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M60,78 L60,198 L390,198 L390,78\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"225\" y=\"188\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">14</text></g><g data-step=\"3\"><path class=\"fk-curve t-good\" d=\"M126,78 L126,162 L324,162 L324,78\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"225\" y=\"152\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">14</text></g><g data-step=\"4\"><path class=\"fk-curve t-3\" d=\"M192,78 L192,126 L258,126 L258,78\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-3\" x=\"225\" y=\"116\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">14</text></g><g data-step=\"5\"><rect class=\"fk-chip solid t-good\" x=\"130\" y=\"212\" width=\"220\" height=\"40\" rx=\"14\"/></g><g data-step=\"5\"><text class=\"fk-t t-on\" x=\"240\" y=\"240.4\" font-size=\"24\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3 × 14 = 42</text></g></svg>",
+      "alt": "ستة أعمدة a1 إلى a6 بتتحول لثلاثة أعمدة متساوية الطول، كل واحد a1+a6 وهيك",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 280\" role=\"img\" aria-label=\"ستة أعمدة a1 إلى a6 بتتحول لثلاثة أعمدة متساوية الطول، كل واحد a1+a6 وهيك\" class=\"fk\"><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"37\" y=\"208\" width=\"46\" height=\"28\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"60\" y=\"198\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"109\" y=\"187\" width=\"46\" height=\"49\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"132\" y=\"177\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₂</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"181\" y=\"166\" width=\"46\" height=\"70\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"204\" y=\"156\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₃</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"253\" y=\"145\" width=\"46\" height=\"91\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"276\" y=\"135\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₄</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"325\" y=\"124\" width=\"46\" height=\"112\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"348\" y=\"114\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₅</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"397\" y=\"103\" width=\"46\" height=\"133\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"420\" y=\"93\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₆</text></g><g data-until=\"1\"><line class=\"fk-line t-mut\" x1=\"24\" y1=\"236\" x2=\"456\" y2=\"236\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><rect class=\"fk-curve t-1\" x=\"80\" y=\"103\" width=\"80\" height=\"133\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><rect class=\"fk-curve t-2\" x=\"80\" y=\"75\" width=\"80\" height=\"28\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"120\" y=\"176.5\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₆</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"120\" y=\"96\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁</text></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"120\" y=\"63\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁+a₆</text></g><g data-step=\"2\"><rect class=\"fk-curve t-1\" x=\"200\" y=\"124\" width=\"80\" height=\"112\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><rect class=\"fk-curve t-2\" x=\"200\" y=\"75\" width=\"80\" height=\"49\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"187\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₅</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"106.5\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₂</text></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"240\" y=\"63\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₂+a₅</text></g><g data-step=\"2\"><rect class=\"fk-curve t-1\" x=\"320\" y=\"145\" width=\"80\" height=\"91\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><rect class=\"fk-curve t-2\" x=\"320\" y=\"75\" width=\"80\" height=\"70\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"360\" y=\"197.5\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₄</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"360\" y=\"117\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₃</text></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"360\" y=\"63\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₃+a₄</text></g><g data-step=\"2\"><line class=\"fk-line t-mut\" x1=\"24\" y1=\"236\" x2=\"456\" y2=\"236\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><rect class=\"fk-chip t-good\" x=\"70\" y=\"4\" width=\"340\" height=\"38\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"240\" y=\"30.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">S = 3 × (a₁+a₆)</text></g></svg>",
       "frames": [
         {
-          "caption": "ستة حدود: \\(2,4,6,8,10,12\\)."
+          "caption": "ستة أعمدة: \\(a_1\\) لـ \\(a_6\\)، كل واحد أطول بـ \\(d\\)"
         },
         {
-          "caption": "الأول مع الأخير: \\(2+12=14\\)."
+          "caption": "منقلب النص التاني فوق الأول: الأول مع الأخير، التاني مع قبل الأخير"
         },
         {
-          "caption": "التاني مع اللي قبل الأخير: \\(4+10=14\\). نفس المجموع."
-        },
-        {
-          "caption": "الأخيرين: \\(6+8=14\\). ثلاث أزواج كلها 14."
-        },
-        {
-          "caption": "المجموع: \\(3\\cdot14=42\\)، يعني \\(\\tfrac{2+12}{2}\\cdot 6\\)."
+          "caption": "كل الأعمدة نفس الطول: ثلاثة، يعني \\(n/2\\)"
         }
       ],
-      "title": "خدعة الأزواج"
-    },
-    {
-      "t": "p",
-      "html": "<p>بالصيغة: مجموع كل زوج هو \\(a_1+a_n\\)، وعدد الأزواج \\(\\tfrac n2\\). لذلك المجموع هو \\(\\tfrac{a_1+a_n}{2}\\cdot n\\).</p>"
+      "title": "الأول مع الأخير"
     },
     {
       "t": "box",
       "kind": "key",
-      "title": "صيغة · مجموع \\(n\\) حدود",
-      "html": "<p>لمتتالية حسابية فرقها \\(d\\):\\[S_n=a_1+a_2+\\dots+a_n\\]\\[=\\frac{a_1+a_n}{2}\\cdot n\\]\\[=\\frac{2a_1+d(n-1)}{2}\\cdot n.\\]</p>"
+      "title": "مجموع أول \\(n\\) حد · <bdi>סכום n האיברים הראשונים</bdi>",
+      "html": "<p>\\[\\begin{aligned}S_n&=a_1+a_2+\\dots+a_n\\\\ &=\\frac{a_1+a_n}{2}\\cdot n\\\\ &=\\frac{2a_1+d(n-1)}{2}\\cdot n\\end{aligned}\\]</p><p>الأولى من الرسمة. التانية بنحصل عليها بتعويض \\(a_n=a_1+(n-1)d\\) مكان الحد الأخير.</p>"
     },
     {
       "t": "box",
       "kind": "ex",
       "title": "مثال · <bdi>דוגמה 2.22</bdi>",
-      "html": "<p>المتتالية \\(\\{-3,5,13,21,\\dots\\}\\): \\(a_1=-3\\) و \\(d=8\\). مجموع أول 10 حدود:\\[S_{10}=\\frac{2\\cdot(-3)+8\\cdot9}{2}\\cdot10\\]\\[=\\frac{66}{2}\\cdot10=330.\\]</p>"
-    },
-    {
-      "t": "h",
-      "text": "4 · المتتالية الهندسية"
-    },
-    {
-      "t": "p",
-      "html": "<p>بالمتتالية الهندسية كل عدد هو اللي قبله <b>مضروب بنفس العدد</b>. العدد هاد اسمه المنسوب (<bdi>מנה</bdi>) ونرمز له \\(q\\). مثلاً \\(3,6,12,24,\\dots\\) فيها \\(q=2\\).</p>"
+      "html": "<p>جد مجموع أول \\(10\\) حدود للمتتالية الحسابية \\(-3,\\ 5,\\ 13,\\ 21,\\dots\\)</p>"
     },
     {
       "t": "steps",
-      "alt": "الأعداد 3 و6 و12 و24 وبينها أسهم ضرب في 2",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 170\" role=\"img\" aria-label=\"الأعداد 3 و6 و12 و24 وبينها أسهم ضرب في 2\" class=\"fk\"><g data-step=\"1\"><rect class=\"fk-chip t-1\" x=\"20\" y=\"80\" width=\"80\" height=\"56\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"60\" y=\"117.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text></g><g data-step=\"2\"><rect class=\"fk-chip t-1\" x=\"140\" y=\"80\" width=\"80\" height=\"56\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"180\" y=\"117.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">6</text></g><g data-step=\"3\"><rect class=\"fk-chip t-1\" x=\"260\" y=\"80\" width=\"80\" height=\"56\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"300\" y=\"117.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">12</text></g><g data-step=\"4\"><rect class=\"fk-chip t-1\" x=\"380\" y=\"80\" width=\"80\" height=\"56\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"420\" y=\"117.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">24</text></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"74\" y1=\"70\" x2=\"146.8\" y2=\"70\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"166,70 142,80.8 142,59.2\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"120\" y=\"50\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">×2</text></g><g data-step=\"3\"><line class=\"fk-line t-2\" x1=\"194\" y1=\"70\" x2=\"266.8\" y2=\"70\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"286,70 262,80.8 262,59.2\"/></g><g data-step=\"3\"><text class=\"fk-t t-2\" x=\"240\" y=\"50\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">×2</text></g><g data-step=\"4\"><line class=\"fk-line t-2\" x1=\"314\" y1=\"70\" x2=\"386.8\" y2=\"70\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"406,70 382,80.8 382,59.2\"/></g><g data-step=\"4\"><text class=\"fk-t t-2\" x=\"360\" y=\"50\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">×2</text></g></svg>",
+      "alt": "المتتالية -3 و5 و13 و21: كل مرة +8، ثم حساب S10 = 330",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 240\" role=\"img\" aria-label=\"المتتالية -3 و5 و13 و21: كل مرة +8، ثم حساب S10 = 330\" class=\"fk\"><rect class=\"fk-chip t-1\" x=\"36\" y=\"66\" width=\"68\" height=\"44\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"70\" y=\"95\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−3</text><rect class=\"fk-chip t-1\" x=\"136\" y=\"66\" width=\"68\" height=\"44\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"170\" y=\"95\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">5</text><rect class=\"fk-chip t-1\" x=\"236\" y=\"66\" width=\"68\" height=\"44\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"270\" y=\"95\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">13</text><rect class=\"fk-chip t-1\" x=\"336\" y=\"66\" width=\"68\" height=\"44\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/><text class=\"fk-t t-ink\" x=\"370\" y=\"95\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">21</text><text class=\"fk-t t-mut\" x=\"440\" y=\"96\" font-size=\"26\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">…</text><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M88.0,62.0 Q120.0,18.0 152.0,62.0\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"137.9\" y1=\"46.9\" x2=\"140\" y2=\"49.1\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"152,62 129.8,52.7 144.2,39.2\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"120\" y=\"28\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">+8</text></g><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M188.0,62.0 Q220.0,18.0 252.0,62.0\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"237.9\" y1=\"46.9\" x2=\"240\" y2=\"49.1\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"252,62 229.8,52.7 244.2,39.2\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"220\" y=\"28\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">+8</text></g><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M288.0,62.0 Q320.0,18.0 352.0,62.0\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"337.9\" y1=\"46.9\" x2=\"340\" y2=\"49.1\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"352,62 329.8,52.7 344.2,39.2\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"320\" y=\"28\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">+8</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"240\" y=\"162\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">S₁₀ = (2·(−3) + 8·9) / 2 · 10</text></g><g data-step=\"4\"><text class=\"fk-t t-good\" x=\"240\" y=\"206\" font-size=\"24\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">= 66/2 · 10 = 330</text></g></svg>",
       "frames": [
         {
-          "caption": "\\(a_1=3\\)."
+          "caption": "المتتالية معطاة"
         },
         {
-          "caption": "نضرب بـ \\(q=2\\): \\(a_2=6\\)."
+          "caption": "الفرق \\(d=8\\) (\\(5-(-3)\\))"
         },
         {
-          "caption": "نضرب مرة تانية: \\(a_3=12\\)."
+          "caption": "منعوّض \\(a_1=-3\\) و \\(d=8\\) و \\(n=10\\)"
         },
         {
-          "caption": "ومرة: \\(a_4=24\\)."
+          "caption": "الجواب: \\(330\\)"
         }
       ],
-      "title": "كل خطوة ×q"
+      "title": "الحل"
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>اجمع الأعداد الفردية \\(1+3+5+\\dots+19\\). اكتب الجواب.</p>",
+        "answer": [
+          "100"
+        ],
+        "hint": "<p>قبل الصيغة: كم حد؟ خلّي \\(a_n=19\\) وجد \\(n\\).</p>",
+        "solution": "<p>\\(d=2\\) و \\(a_1=1\\). من \\(19=1+(n-1)\\cdot2\\) بيطلع \\(n=10\\). فالمجموع \\(\\frac{1+19}{2}\\cdot10\\) بيساوي \\(100\\) بالضبط.</p>"
+      }
+    },
+    {
+      "t": "h",
+      "text": "5 · المتتالية الهندسية"
+    },
+    {
+      "t": "p",
+      "html": "<p>النوع التاني: كل حد بيتضرب بنفس العدد.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "أعمدة 1 و2 و4 و8: كل عمود ضعف اللي قبله، والأعمدة a1 و a1·q و a1·q² و a1·q³",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 290\" role=\"img\" aria-label=\"أعمدة 1 و2 و4 و8: كل عمود ضعف اللي قبله، والأعمدة a1 و a1·q و a1·q² و a1·q³\" class=\"fk\"><rect class=\"fk-curve t-1\" x=\"62\" y=\"222\" width=\"56\" height=\"16\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"90\" y=\"212\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><rect class=\"fk-curve t-1\" x=\"162\" y=\"206\" width=\"56\" height=\"32\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"190\" y=\"196\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><rect class=\"fk-curve t-1\" x=\"262\" y=\"174\" width=\"56\" height=\"64\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"290\" y=\"164\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><rect class=\"fk-curve t-1\" x=\"362\" y=\"110\" width=\"56\" height=\"128\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/><text class=\"fk-t t-ink\" x=\"390\" y=\"100\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">8</text><line class=\"fk-line t-mut\" x1=\"30\" y1=\"238\" x2=\"450\" y2=\"238\" stroke-width=\"3\" stroke-linecap=\"round\"/><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M100.0,190.0 Q140.0,146.0 180.0,174.0\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"162.4\" y1=\"165.2\" x2=\"164.3\" y2=\"166.1\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"180,174 155.9,173 164.8,155.3\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"140\" y=\"154\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">×q</text></g><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M200.0,174.0 Q240.0,122.0 280.0,142.0\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"262.4\" y1=\"136.7\" x2=\"263.2\" y2=\"136.9\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"280,142 256.1,145.1 261.8,126.2\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"240\" y=\"130\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">×q</text></g><g data-step=\"2\"><path class=\"fk-curve t-2\" d=\"M300.0,142.0 Q340.0,74.0 380.0,78.0\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\"><line class=\"fk-line t-2\" x1=\"362.4\" y1=\"79.7\" x2=\"362.5\" y2=\"79.7\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"380,78 359.1,90 357.1,70.3\"/></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"340\" y=\"82\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">×q</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"90\" y=\"270\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"190\" y=\"270\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁·q</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"290\" y=\"270\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁·q²</text></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"390\" y=\"270\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁·q³</text></g></svg>",
+      "frames": [
+        {
+          "caption": "كل عمود ضعف اللي قبله (هون \\(q=2\\))"
+        },
+        {
+          "caption": "من عمود للي بعده: ضرب بـ \\(q\\)"
+        },
+        {
+          "caption": "الأُس بيعدّ الأسهم: \\(q^{n-1}\\)، مش \\(q^n\\)"
+        }
+      ],
+      "title": "متتالية هندسية"
     },
     {
       "t": "box",
       "kind": "def",
       "title": "تعريف · <bdi>הגדרה 2.23</bdi>",
-      "html": "<p>متتالية \\(\\{a_n\\}_{n=1}^{\\infty}\\) تسمى <b>סדרה הנדסית</b> إذا يوجد عدد ثابت \\(q\\in\\mathbb{R}\\) (<bdi>המנה</bdi>) بحيث لكل \\(n\\in\\mathbb{N}\\) يتحقق \\(a_n=a_1q^{n-1}\\).</p><p>عملياً، أول \\(n\\) حدود هم\\[a_1,\\ a_1q,\\ a_1q^2,\\ \\dots,\\ a_1q^{n-1}.\\]</p>"
-    },
-    {
-      "t": "h",
-      "text": "5 · مجموع المتتالية الهندسية"
-    },
-    {
-      "t": "p",
-      "html": "<p>لمتتالية هندسية <b>غير ثابتة</b> (يعني \\(q\\ne1\\)) في صيغة جاهزة لمجموع أول \\(n\\) حدود.</p>"
-    },
-    {
-      "t": "box",
-      "kind": "key",
-      "title": "صيغة · مجموع \\(n\\) حدود",
-      "html": "<p>لمتتالية هندسية منسوبها \\(q\\ne1\\):\\[S_n=a_1+a_2+\\dots+a_n\\]\\[=a_1\\,\\frac{1-q^n}{1-q}.\\]</p>"
-    },
-    {
-      "t": "p",
-      "html": "<p>تحقق سريع على \\(1,2,4\\) (\\(a_1=1,\\ q=2,\\ n=3\\)): الصيغة بتعطي \\(\\tfrac{1-8}{1-2}=7\\) وفعلاً \\(1+2+4=7\\).</p>"
-    },
-    {
-      "t": "box",
-      "kind": "ex",
-      "title": "مثال · <bdi>דוגמה 2.24</bdi>",
-      "html": "<p>احسب مجموع أول 10 حدود بمتتالية هندسية فيها \\(a_1=3\\) و \\(q=2\\):\\[S_{10}=3\\cdot\\frac{1-2^{10}}{1-2}\\]\\[=3(2^{10}-1).\\]</p>"
+      "html": "<p>متتالية \\(\\{a_n\\}_{n=1}^{\\infty}\\) بتسمى <b>هندسية</b> (<bdi>סדרה הנדסית</bdi>) إذا في \\(q\\in\\mathbb R\\) بحيث لكل \\(n\\in\\mathbb N\\)</p><p>\\[a_n=a_1q^{n-1}\\]</p><p>و \\(q\\) اسمه <b>الأساس</b> (<bdi>מנה</bdi>). فالحدود \\(n\\) الأولى هي</p><p>\\[a_1,\\ a_1q,\\ a_1q^2,\\ \\dots,\\ a_1q^{n-1}\\]</p>"
     },
     {
       "t": "quiz",
       "q": {
         "kind": "mc",
-        "prompt": "<p>متتالية هندسية \\(a_1=2\\) و \\(q=3\\). كم \\(S_4\\)؟</p>",
+        "prompt": "<p>متتالية هندسية فيها \\(a_1=2\\) و \\(q=3\\). شو الحد الرابع \\(a_4\\)؟</p>",
         "options": [
           {
             "v": "1",
-            "html": "\\(80\\)"
-          },
-          {
-            "v": "2",
             "html": "\\(54\\)"
           },
           {
+            "v": "2",
+            "html": "\\(162\\)"
+          },
+          {
             "v": "3",
-            "html": "\\(26\\)"
+            "html": "\\(24\\)"
           }
         ],
         "answer": [
           "1"
         ],
-        "hint": "<p>طبّق \\(a_1\\frac{1-q^n}{1-q}\\) مع \\(n=4\\). أو اجمع الحدود: \\(2,6,18,54\\).</p>",
-        "solution": "<p>\\(S_4=2\\cdot\\frac{1-81}{1-3}=2\\cdot40=80\\). \\(54\\) هو الحد الرابع لحاله، و \\(26\\) هو مجموع ثلاثة حدود فقط.</p>"
+        "hint": "<p>كم مرة بنضرب بـ \\(q\\) لحد ما نوصل للحد الرابع؟</p>",
+        "solution": "<p>ثلاث ضربات: \\(a_4=2\\cdot3^3=54\\). الخطأ: \\(2\\cdot3^4=162\\) (الأُس \\(n\\) بدل \\(n-1\\)).</p>"
       }
     },
     {
       "t": "h",
-      "text": "6 · متتالية بالتكرار"
-    },
-    {
-      "t": "p",
-      "html": "<p>في طريقة تانية نعرّف متتالية: بدل صيغة لـ \\(a_n\\)، منعطي <b>قاعدة</b> بتحسب الحد الجاي من الحدود اللي قبله. هاي متتالية معرفة بـ <b>נסיגה</b> (<bdi>רקורסיה</bdi>).</p>"
-    },
-    {
-      "t": "box",
-      "kind": "note",
-      "title": "رسمياً · <bdi>נסיגה</bdi>",
-      "html": "<p>بعطاء أول \\(n\\) حدود لمتتالية \\(\\{a_n\\}_{n=1}^{\\infty}\\)، الحد الجاي بيتحدد بقاعدة\\[a_{n+1}=f(a_1,a_2,\\dots,a_n)\\]وهيك للحد بعده، وهكذا.</p>"
+      "text": "6 · مجموع المتتالية الهندسية"
     },
     {
       "t": "steps",
-      "alt": "فيبوناتشي: 1 و2 ثم كل حد مجموع الحدين قبله: 3 و5 و8 و13",
-      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 230\" role=\"img\" aria-label=\"فيبوناتشي: 1 و2 ثم كل حد مجموع الحدين قبله: 3 و5 و8 و13\" class=\"fk\"><g data-step=\"1\"><rect class=\"fk-chip t-1\" x=\"30\" y=\"120\" width=\"60\" height=\"54\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"60\" y=\"156.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text></g><g data-step=\"1\"><rect class=\"fk-chip t-1\" x=\"102\" y=\"120\" width=\"60\" height=\"54\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"132\" y=\"156.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text></g><g data-step=\"2\"><rect class=\"fk-chip t-good\" x=\"174\" y=\"120\" width=\"60\" height=\"54\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"204\" y=\"156.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text></g><g data-step=\"3\"><rect class=\"fk-chip t-good\" x=\"246\" y=\"120\" width=\"60\" height=\"54\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"276\" y=\"156.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">5</text></g><g data-step=\"4\"><rect class=\"fk-chip t-good\" x=\"318\" y=\"120\" width=\"60\" height=\"54\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"348\" y=\"156.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">8</text></g><g data-step=\"5\"><rect class=\"fk-chip t-good\" x=\"390\" y=\"120\" width=\"60\" height=\"54\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"5\"><text class=\"fk-t t-ink\" x=\"420\" y=\"156.1\" font-size=\"26\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">13</text></g><g data-step=\"2\" data-until=\"2\"><path class=\"fk-curve t-2\" d=\"M60,118 Q132.0,60 204,118\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\" data-until=\"2\"><path class=\"fk-curve t-2\" d=\"M132,118 Q168.0,50 204,118\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"2\" data-until=\"2\"><text class=\"fk-t t-2\" x=\"204\" y=\"198\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1 + 2</text></g><g data-step=\"3\" data-until=\"3\"><path class=\"fk-curve t-2\" d=\"M132,118 Q204.0,60 276,118\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"3\" data-until=\"3\"><path class=\"fk-curve t-2\" d=\"M204,118 Q240.0,50 276,118\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"3\" data-until=\"3\"><text class=\"fk-t t-2\" x=\"276\" y=\"198\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2 + 3</text></g><g data-step=\"4\" data-until=\"4\"><path class=\"fk-curve t-2\" d=\"M204,118 Q276.0,60 348,118\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"4\" data-until=\"4\"><path class=\"fk-curve t-2\" d=\"M276,118 Q312.0,50 348,118\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"4\" data-until=\"4\"><text class=\"fk-t t-2\" x=\"348\" y=\"198\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3 + 5</text></g><g data-step=\"5\" data-until=\"5\"><path class=\"fk-curve t-2\" d=\"M276,118 Q348.0,60 420,118\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"5\" data-until=\"5\"><path class=\"fk-curve t-2\" d=\"M348,118 Q384.0,50 420,118\" stroke-width=\"3.5\" style=\"fill:none\"/></g><g data-step=\"5\" data-until=\"5\"><text class=\"fk-t t-2\" x=\"420\" y=\"198\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">5 + 8</text></g></svg>",
+      "alt": "المجموع S وتحته q·S مزاحة خانة، الحدود الوسطى بتنلغي، فبيضل a1 − a1·qⁿ",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 296\" role=\"img\" aria-label=\"المجموع S وتحته q·S مزاحة خانة، الحدود الوسطى بتنلغي، فبيضل a1 − a1·qⁿ\" class=\"fk\"><text class=\"fk-t t-1\" x=\"6\" y=\"47\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">S</text><text class=\"fk-t t-1\" x=\"90\" y=\"47\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁</text><text class=\"fk-t t-1\" x=\"162\" y=\"47\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁q</text><text class=\"fk-t t-1\" x=\"234\" y=\"47\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁q²</text><text class=\"fk-t t-1\" x=\"306\" y=\"47\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">⋯</text><text class=\"fk-t t-1\" x=\"378\" y=\"47\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁qⁿ⁻¹</text><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"6\" y=\"107\" font-size=\"24\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">qS</text></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"162\" y=\"107\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁q</text></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"234\" y=\"107\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁q²</text></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"306\" y=\"107\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">⋯</text></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"378\" y=\"107\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁qⁿ⁻¹</text></g><g data-step=\"2\"><text class=\"fk-t t-2\" x=\"450\" y=\"107\" font-size=\"20\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁qⁿ</text></g><g data-step=\"3\"><line class=\"fk-line dash t-mut\" x1=\"162\" y1=\"58\" x2=\"162\" y2=\"74\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line dash t-mut\" x1=\"234\" y1=\"58\" x2=\"234\" y2=\"74\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line dash t-mut\" x1=\"306\" y1=\"58\" x2=\"306\" y2=\"74\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><line class=\"fk-line dash t-mut\" x1=\"378\" y1=\"58\" x2=\"378\" y2=\"74\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"6\" y=\"171\" font-size=\"22\" font-weight=\"700\" text-anchor=\"start\" direction=\"ltr\" unicode-bidi=\"isolate\">S−qS</text></g><g data-step=\"3\"><text class=\"fk-t t-good\" x=\"90\" y=\"171\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁</text></g><g data-step=\"3\"><text class=\"fk-t t-mut\" x=\"162\" y=\"171\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text></g><g data-step=\"3\"><text class=\"fk-t t-mut\" x=\"234\" y=\"171\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text></g><g data-step=\"3\"><text class=\"fk-t t-mut\" x=\"306\" y=\"171\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text></g><g data-step=\"3\"><text class=\"fk-t t-mut\" x=\"378\" y=\"171\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">0</text></g><g data-step=\"3\"><text class=\"fk-t t-bad\" x=\"450\" y=\"171\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">−a₁qⁿ</text></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"240\" y=\"216\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">S(1−q) = a₁(1−qⁿ)</text></g><g data-step=\"4\"><rect class=\"fk-chip t-good\" x=\"100\" y=\"236\" width=\"280\" height=\"46\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"240\" y=\"266.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">S = a₁(1−qⁿ)/(1−q)</text></g></svg>",
       "frames": [
         {
-          "caption": "نبدأ بحدين معطيين: \\(a_1=1\\) و \\(a_2=2\\)."
+          "caption": "المجموع \\(S\\) كما هو"
         },
         {
-          "caption": "\\(a_3=a_1+a_2=1+2=3\\)."
+          "caption": "منضربه بـ \\(q\\): كل حد بيتزحلق خانة لقدام"
         },
         {
-          "caption": "\\(a_4=a_2+a_3=2+3=5\\)."
+          "caption": "منطرح: الحدود الوسطى بتنلغي، بيضل الأول والأخير"
         },
         {
-          "caption": "\\(a_5=a_3+a_4=3+5=8\\)."
-        },
-        {
-          "caption": "\\(a_6=a_4+a_5=5+8=13\\)."
+          "caption": "منقسم على \\(1-q\\) — لهيك لازم \\(q\\ne1\\)"
         }
       ],
-      "title": "كل حد = مجموع اللي قبله"
+      "title": "ليش صيغة المجموع؟"
+    },
+    {
+      "t": "box",
+      "kind": "key",
+      "title": "مجموع أول \\(n\\) حد · <bdi>סכום n האיברים הראשונים</bdi>",
+      "html": "<p>لما \\(q\\ne1\\) (يعني المتتالية مش ثابتة):</p><p>\\[\\begin{aligned}S_n&=a_1+a_2+\\dots+a_n\\\\ &=a_1\\frac{1-q^n}{1-q}\\end{aligned}\\]</p><p>ولو \\(q=1\\) كل الحدود \\(a_1\\)، فالمجموع بيطلع \\(n\\cdot a_1\\) مباشرة.</p>"
     },
     {
       "t": "box",
       "kind": "ex",
-      "title": "مثال · <bdi>דוגמה 2.25</bdi>",
-      "html": "<p><b>סדרת פיבונאצ'י</b> معرفة بالقاعدة\\[a_{n+2}=a_n+a_{n+1}.\\]مع \\(a_1,a_2\\) معطيين. مثلاً \\(a_1=1,\\ a_2=2\\) بتعطي \\(\\{1,2,3,5,8,13,\\dots\\}\\).</p><p>هاي المتتالية بتجاوب على لغز الدرج: بكم طريقة نطلع \\(n\\) درجات إذا كل مرة بنطلع درجة أو درجتين؟</p>"
-    },
-    {
-      "t": "quiz",
-      "q": {
-        "kind": "text",
-        "prompt": "<p>فيبوناتشي مع \\(a_1=1,\\ a_2=2\\). كم \\(a_7\\)؟</p>",
-        "answer": [
-          "21"
-        ],
-        "hint": "<p>كمّل بعد \\(13\\): \\(a_7=a_5+a_6\\).</p>",
-        "solution": "<p>\\(a_5=8\\)، \\(a_6=13\\). فـ \\(a_7=8+13=21\\).</p>"
-      }
-    },
-    {
-      "t": "mistakes",
-      "title": "أخطاء شائعة",
-      "rows": [
-        {
-          "no": "\\(a_n=a_1+nd\\)",
-          "yes": "\\(a_n=a_1+(n-1)d\\) (أول حد ما فيه قفزة)"
-        },
-        {
-          "no": "\\(a_n=a_1q^{n}\\)",
-          "yes": "\\(a_n=a_1q^{n-1}\\)"
-        },
-        {
-          "no": "صيغة مجموع الهندسية مع \\(q=1\\)",
-          "yes": "الصيغة بتحتاج \\(q\\ne1\\) (لأنه \\(1-q\\) بالمقام)"
-        },
-        {
-          "no": "فيبوناتشي: \\(a_{n+2}=a_{n+1}+1\\)",
-          "yes": "\\(a_{n+2}=a_n+a_{n+1}\\) (مجموع حدين)"
-        }
-      ]
-    },
-    {
-      "t": "checklist",
-      "title": "شو لازم تعرف من هالدرس",
-      "items": [
-        "סדרה = دالة \\(f:\\mathbb{N}\\to A\\) و \\(a_n=f(n)\\)، \\(\\{a_n\\}_{n=1}^\\infty\\).",
-        "סדרה הרמונית \\(a_n=\\tfrac1n\\).",
-        "סדרה חשבונית: \\(a_{i+1}-a_i=d\\) و \\(S_n=\\tfrac{a_1+a_n}{2}n\\).",
-        "סדרה הנדסית: \\(a_n=a_1q^{n-1}\\) و \\(S_n=a_1\\tfrac{1-q^n}{1-q}\\).",
-        "נסיגה: \\(a_{n+1}=f(a_1,\\dots,a_n)\\)، فيبوناتشي \\(a_{n+2}=a_n+a_{n+1}\\)."
-      ]
-    },
-    {
-      "t": "card",
-      "front": "مجموع حسابية (<bdi>סדרה חשבונית</bdi>)",
-      "back": "\\(S_n=\\dfrac{a_1+a_n}{2}\\cdot n=\\dfrac{2a_1+d(n-1)}{2}\\cdot n\\)"
-    },
-    {
-      "t": "card",
-      "front": "مجموع هندسية (<bdi>סדרה הנדסית</bdi>)",
-      "back": "\\(S_n=a_1\\dfrac{1-q^n}{1-q}\\)، \\(q\\ne1\\)"
-    },
-    {
-      "t": "card",
-      "front": "فيبوناتشي",
-      "back": "\\(a_{n+2}=a_n+a_{n+1}\\)"
-    },
-    {
-      "t": "quiz",
-      "q": {
-        "kind": "text",
-        "prompt": "<p>احسب \\(1+2+3+\\dots+100\\).</p>",
-        "answer": [
-          "5050"
-        ],
-        "hint": "<p>متتالية حسابية: \\(a_1=1\\)، \\(d=1\\)، \\(n=100\\).</p>",
-        "solution": "<p>\\(S_{100}=\\frac{1+100}{2}\\cdot100=5050\\).</p>"
-      }
+      "title": "مثال · <bdi>דוגמה 2.24</bdi>",
+      "html": "<p>جد مجموع أول \\(10\\) حدود بمتتالية هندسية \\(a_1=3\\) و \\(q=2\\).</p><p>\\[\\begin{aligned}S_{10}&=3\\cdot\\frac{1-2^{10}}{1-2}\\\\ &=3(2^{10}-1)=3069\\end{aligned}\\]</p><p>تحقق على \\(3\\) حدود: \\(3+6+12=21=3(2^3-1)\\) ✓</p>"
     },
     {
       "t": "quiz",
       "q": {
         "kind": "mc",
-        "prompt": "<p>المتتالية \\(7,4,1,-2,\\dots\\) هي:</p>",
+        "prompt": "<p>جد \\(1+3+9+27+81\\) بصيغة المجموع الهندسي.</p>",
         "options": [
           {
             "v": "1",
-            "html": "هندسية \\(q=-\\tfrac{4}{7}\\)"
+            "html": "\\(121\\)"
           },
           {
             "v": "2",
-            "html": "حسابية \\(d=-3\\)"
+            "html": "\\(40\\)"
           },
           {
             "v": "3",
-            "html": "حسابية \\(d=3\\)"
+            "html": "\\(364\\)"
           }
         ],
         "answer": [
-          "2"
+          "1"
         ],
-        "hint": "<p>احسب \\(a_2-a_1\\) و \\(a_3-a_2\\). هل هم نفس العدد؟</p>",
-        "solution": "<p>\\(4-7=-3\\)، \\(1-4=-3\\)، \\(-2-1=-3\\). الفرق ثابت \\(-3\\): حسابية. النسبة \\(\\tfrac47\\) و \\(\\tfrac14\\) مش ثابتة.</p>"
+        "hint": "<p>شو \\(a_1\\) و \\(q\\) و \\(n\\)؟ بالمجموع الأُس \\(n\\).</p>",
+        "solution": "<p>\\(a_1=1,\\ q=3,\\ n=5\\): \\(\\frac{1-3^5}{1-3}=\\frac{-242}{-2}=121\\). الخطأ \\(3^4\\) بيعطي \\(40\\). و \\(364\\) هو مجموع ست حدود.</p>"
       }
+    },
+    {
+      "t": "h",
+      "text": "7 · المتتالية التراجعية"
+    },
+    {
+      "t": "p",
+      "html": "<p>النوع الأخير: الحد الجاي بيطلع من اللي قبله، مش من \\(n\\) مباشرة.</p>"
+    },
+    {
+      "t": "box",
+      "kind": "def",
+      "title": "تعريف · <bdi>סדרה המוגדרת על פי כלל נסיגה (רקורסיה)</bdi>",
+      "html": "<p>بنعطي أول حدود، وقاعدة بتحسب الحد الجاي منها. يعني لكل \\(n\\) حدود أولى، الحد الجاي هو</p><p>\\[a_{n+1}=f(a_1,a_2,\\dots,a_n)\\]</p>"
+    },
+    {
+      "t": "box",
+      "kind": "ex",
+      "title": "مثال · <bdi>דוגמה 2.25</bdi>",
+      "html": "<p><b>متتالية فيبوناتشي</b> (<bdi>סדרת פיבונאצ'י</bdi>) بالقاعدة</p><p>\\[a_{n+2}=a_n+a_{n+1}\\]</p><p>لما \\(a_1,a_2\\) معطيين. مثلاً \\(a_1=1,\\ a_2=2\\) بتعطي</p><p>\\[1,\\ 2,\\ 3,\\ 5,\\ 8,\\ 13,\\ \\dots\\]</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "فيبوناتشي 1 و2 و3 و5 و8 و13: كل حد مجموع اللي قبله بحدين",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 225\" role=\"img\" aria-label=\"فيبوناتشي 1 و2 و3 و5 و8 و13: كل حد مجموع اللي قبله بحدين\" class=\"fk\"><g data-step=\"1\"><rect class=\"fk-chip t-2\" x=\"25\" y=\"112\" width=\"60\" height=\"48\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"55\" y=\"143.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text></g><g data-step=\"1\"><text class=\"fk-t t-mut\" x=\"55\" y=\"192\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₁</text></g><g data-step=\"1\"><rect class=\"fk-chip t-2\" x=\"105\" y=\"112\" width=\"60\" height=\"48\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"1\"><text class=\"fk-t t-ink\" x=\"135\" y=\"143.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text></g><g data-step=\"1\"><text class=\"fk-t t-mut\" x=\"135\" y=\"192\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₂</text></g><g data-step=\"2\"><rect class=\"fk-chip t-good\" x=\"185\" y=\"112\" width=\"60\" height=\"48\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"215\" y=\"143.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text></g><g data-step=\"2\"><text class=\"fk-t t-mut\" x=\"215\" y=\"192\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₃</text></g><g data-step=\"3\"><rect class=\"fk-chip t-good\" x=\"265\" y=\"112\" width=\"60\" height=\"48\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"295\" y=\"143.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">5</text></g><g data-step=\"3\"><text class=\"fk-t t-mut\" x=\"295\" y=\"192\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₄</text></g><g data-step=\"4\"><rect class=\"fk-chip t-good\" x=\"345\" y=\"112\" width=\"60\" height=\"48\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"375\" y=\"143.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">8</text></g><g data-step=\"4\"><text class=\"fk-t t-mut\" x=\"375\" y=\"192\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₅</text></g><g data-step=\"4\"><rect class=\"fk-chip t-good\" x=\"415\" y=\"112\" width=\"60\" height=\"48\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"445\" y=\"143.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">13</text></g><g data-step=\"4\"><text class=\"fk-t t-mut\" x=\"445\" y=\"192\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₆</text></g><g data-only=\"2\"><path class=\"fk-curve t-1\" d=\"M55.0,106.0 Q130.0,14.0 205.0,106.0\" stroke-width=\"3\" style=\"fill:none\"/></g><g data-only=\"2\"><line class=\"fk-line t-1\" x1=\"172\" y1=\"74.4\" x2=\"193.4\" y2=\"94.9\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"205,106 184.3,98.7 196.8,85.7\"/></g><g data-only=\"2\"><path class=\"fk-curve t-1\" d=\"M135.0,106.0 Q180.0,34.0 225.0,106.0\" stroke-width=\"3\" style=\"fill:none\"/></g><g data-only=\"2\"><line class=\"fk-line t-1\" x1=\"205.2\" y1=\"81.3\" x2=\"215\" y2=\"93.5\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"225,106 205.5,96 219.5,84.8\"/></g><g data-only=\"3\"><path class=\"fk-curve t-1\" d=\"M135.0,106.0 Q210.0,14.0 285.0,106.0\" stroke-width=\"3\" style=\"fill:none\"/></g><g data-only=\"3\"><line class=\"fk-line t-1\" x1=\"252\" y1=\"74.4\" x2=\"273.4\" y2=\"94.9\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"285,106 264.3,98.7 276.8,85.7\"/></g><g data-only=\"3\"><path class=\"fk-curve t-1\" d=\"M215.0,106.0 Q260.0,34.0 305.0,106.0\" stroke-width=\"3\" style=\"fill:none\"/></g><g data-only=\"3\"><line class=\"fk-line t-1\" x1=\"285.2\" y1=\"81.3\" x2=\"295\" y2=\"93.5\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"305,106 285.5,96 299.5,84.8\"/></g><g data-only=\"4\"><path class=\"fk-curve t-1\" d=\"M215.0,106.0 Q290.0,14.0 365.0,106.0\" stroke-width=\"3\" style=\"fill:none\"/></g><g data-only=\"4\"><line class=\"fk-line t-1\" x1=\"332\" y1=\"74.4\" x2=\"353.4\" y2=\"94.9\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"365,106 344.3,98.7 356.8,85.7\"/></g><g data-only=\"4\"><path class=\"fk-curve t-1\" d=\"M295.0,106.0 Q340.0,34.0 385.0,106.0\" stroke-width=\"3\" style=\"fill:none\"/></g><g data-only=\"4\"><line class=\"fk-line t-1\" x1=\"365.2\" y1=\"81.3\" x2=\"375\" y2=\"93.5\" stroke-width=\"3\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"385,106 365.5,96 379.5,84.8\"/></g></svg>",
+      "frames": [
+        {
+          "caption": "أول حدين معطيين: \\(1\\) و \\(2\\)"
+        },
+        {
+          "caption": "\\(a_3=a_1+a_2=3\\)"
+        },
+        {
+          "caption": "\\(a_4=a_2+a_3=5\\)"
+        },
+        {
+          "caption": "\\(a_5=a_3+a_4=8\\)، وبعدها \\(13\\) وهيك"
+        }
+      ],
+      "title": "فيبوناتشي حد بحد"
+    },
+    {
+      "t": "p",
+      "html": "<p>وهاي المتتالية بتجاوب على سؤال: بكم طريقة بتطلع \\(n\\) درجة، إذا كل مرة بتطلع درجة أو درجتين؟</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "درج من أربع درجات: الدرجة الرابعة بتوصلها إما من الثالثة بخطوة (3 طرق) أو من الثانية بخطوتين (طريقتين) فالمجموع 5",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 280\" role=\"img\" aria-label=\"درج من أربع درجات: الدرجة الرابعة بتوصلها إما من الثالثة بخطوة (3 طرق) أو من الثانية بخطوتين (طريقتين) فالمجموع 5\" class=\"fk\"><path class=\"fk-curve t-mut\" d=\"M24,236 L100,236 L100,196 L190,196 L190,156 L280,156 L280,116 L370,116 L370,76 L456,76\" stroke-width=\"4\" style=\"fill:none\"/><circle class=\"fk-dot t-mut\" cx=\"62\" cy=\"224\" r=\"7\"/><circle class=\"fk-dot t-1\" cx=\"145\" cy=\"184\" r=\"9\"/><text class=\"fk-t t-mut\" x=\"145\" y=\"222\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">1</text><circle class=\"fk-dot t-1\" cx=\"235\" cy=\"144\" r=\"9\"/><text class=\"fk-t t-mut\" x=\"235\" y=\"182\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">2</text><circle class=\"fk-dot t-1\" cx=\"325\" cy=\"104\" r=\"9\"/><text class=\"fk-t t-mut\" x=\"325\" y=\"142\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3</text><circle class=\"fk-dot t-1\" cx=\"413\" cy=\"64\" r=\"9\"/><text class=\"fk-t t-mut\" x=\"413\" y=\"102\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text><g data-step=\"2\"><line class=\"fk-line t-1\" x1=\"335\" y1=\"98\" x2=\"387.5\" y2=\"74\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-1\" points=\"405,66 387.7,85.8 378.7,66.2\"/></g><g data-step=\"2\"><text class=\"fk-t t-1\" x=\"325\" y=\"168\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₃ = 3</text></g><g data-step=\"3\"><path class=\"fk-curve t-2\" d=\"M235.0,132.0 Q321.0,60.0 407.0,52.0\" stroke-width=\"4\" style=\"fill:none\"/></g><g data-step=\"3\"><line class=\"fk-line t-2\" x1=\"369.2\" y1=\"58.6\" x2=\"388.1\" y2=\"55.3\" stroke-width=\"4\" stroke-linecap=\"round\"/><polygon class=\"fk-head t-2\" points=\"407,52 385.2,66.8 381.5,45.5\"/></g><g data-step=\"3\"><text class=\"fk-t t-2\" x=\"235\" y=\"202\" font-size=\"22\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₂ = 2</text></g><g data-step=\"4\"><rect class=\"fk-chip t-good\" x=\"60\" y=\"4\" width=\"360\" height=\"38\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"4\"><text class=\"fk-t t-ink\" x=\"240\" y=\"30.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">a₄ = a₃ + a₂ = 3 + 2 = 5</text></g></svg>",
+      "frames": [
+        {
+          "caption": "أربع درجات: كم طريقة بتوصل؟ كل مرة درجة أو درجتين"
+        },
+        {
+          "caption": "آخر خطوة درجة وحدة: جاي من الدرجة 3 (3 طرق)"
+        },
+        {
+          "caption": "أو آخر خطوة درجتين: جاي من الدرجة 2 (طريقتين)"
+        },
+        {
+          "caption": "منجمع الحالتين: \\(a_4=5\\)، وهي نفس قاعدة فيبوناتشي"
+        }
+      ],
+      "title": "درج وفيبوناتشي"
     },
     {
       "t": "quiz",
       "q": {
         "kind": "text",
-        "prompt": "<p>حسابية فيها \\(a_1=-3\\) و \\(d=8\\). كم \\(S_5\\)؟</p>",
+        "prompt": "<p>\\(a_1=1,\\ a_2=3\\) و \\(a_{n+2}=a_n+a_{n+1}\\). اكتب قيمة الحد الخامس.</p>",
         "answer": [
-          "65"
+          "11"
         ],
-        "hint": "<p>اكتب الحدود: \\(-3,5,13,21,29\\) واجمع، أو استعمل الصيغة.</p>",
-        "solution": "<p>\\(S_5=\\frac{2(-3)+8\\cdot4}{2}\\cdot5=\\frac{26}{2}\\cdot5=65\\). ونتأكد: \\(-3+5+13+21+29=65\\).</p>"
+        "hint": "<p>احسب واحد واحد: \\(a_3\\) بعدين \\(a_4\\).</p>",
+        "solution": "<p>\\(a_3=1+3=4\\)، \\(a_4=3+4=7\\)، \\(a_5=4+7=11\\) والجواب هو الحد الخامس.</p>"
       }
+    },
+    {
+      "t": "h",
+      "text": "تمرين وخلاصة"
+    },
+    {
+      "t": "mistakes",
+      "title": "أخطاء الامتحان",
+      "rows": [
+        {
+          "no": "\\(a_n=a_1+nd\\)",
+          "yes": "\\(a_n=a_1+(n-1)d\\)<br>بنعدّ القفزات مش الحدود (الأولى صح بس لو بلّشنا من \\(a_0\\))"
+        },
+        {
+          "no": "\\(S_n=a_1\\frac{1-q^{n-1}}{1-q}\\)",
+          "yes": "الأُس \\(n\\) بالمجموع، و \\(n-1\\) بس بالحد العام"
+        },
+        {
+          "no": "\\(\\mathrm{Im}(f)\\) هي المتتالية",
+          "yes": "\\(\\mathrm{Im}(f)\\) مجموعة بدون ترتيب وتكرار (صح بس لما كل القيم مختلفة)"
+        },
+        {
+          "no": "حتى لو كان الأساس \\(q=1\\) بتشتغل الصيغة",
+          "yes": "مع \\(q=1\\) القسمة على صفر. المجموع بيطلع \\(n\\cdot a_1\\) فعلاً"
+        }
+      ]
+    },
+    {
+      "t": "quiz",
+      "q": {
+        "kind": "text",
+        "prompt": "<p>بمتتالية حسابية \\(a_3=7\\) و \\(a_5=13\\). اكتب \\(a_1\\).</p>",
+        "answer": [
+          "1"
+        ],
+        "hint": "<p>بين \\(a_3\\) و \\(a_5\\) كم قفزة؟ منها جيب \\(d\\).</p>",
+        "solution": "<p>قفزتين فرقهم \\(6\\)، فـ \\(d=3\\). وبعدين \\(a_1=a_3-2d=7-6=1\\).</p>"
+      }
+    },
+    {
+      "t": "p",
+      "html": "<p>رجعنا لـ \\(4,\\ 7,\\ 10,\\ 13,\\ 16,\\ 19\\): نفس الرسمة. الأول مع الأخير، بالأزواج، وتطلع الأعمدة متساوية.</p>"
+    },
+    {
+      "t": "steps",
+      "alt": "الأعمدة 4 و7 و10 و13 و16 و19 بتتحول لثلاثة أعمدة طول كل واحد 23 فالمجموع 69",
+      "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 280\" role=\"img\" aria-label=\"الأعمدة 4 و7 و10 و13 و16 و19 بتتحول لثلاثة أعمدة طول كل واحد 23 فالمجموع 69\" class=\"fk\"><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"37\" y=\"208\" width=\"46\" height=\"28\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"60\" y=\"198\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"109\" y=\"187\" width=\"46\" height=\"49\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"132\" y=\"177\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">7</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"181\" y=\"166\" width=\"46\" height=\"70\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"204\" y=\"156\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">10</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"253\" y=\"145\" width=\"46\" height=\"91\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"276\" y=\"135\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">13</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"325\" y=\"124\" width=\"46\" height=\"112\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"348\" y=\"114\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">16</text></g><g data-until=\"1\"><rect class=\"fk-curve t-1\" x=\"397\" y=\"103\" width=\"46\" height=\"133\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-until=\"1\"><text class=\"fk-t t-ink\" x=\"420\" y=\"93\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">19</text></g><g data-until=\"1\"><line class=\"fk-line t-mut\" x1=\"24\" y1=\"236\" x2=\"456\" y2=\"236\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"2\"><rect class=\"fk-curve t-1\" x=\"80\" y=\"103\" width=\"80\" height=\"133\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><rect class=\"fk-curve t-2\" x=\"80\" y=\"75\" width=\"80\" height=\"28\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"120\" y=\"176.5\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">19</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"120\" y=\"96\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">4</text></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"120\" y=\"63\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">23</text></g><g data-step=\"2\"><rect class=\"fk-curve t-1\" x=\"200\" y=\"124\" width=\"80\" height=\"112\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><rect class=\"fk-curve t-2\" x=\"200\" y=\"75\" width=\"80\" height=\"49\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"187\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">16</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"240\" y=\"106.5\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">7</text></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"240\" y=\"63\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">23</text></g><g data-step=\"2\"><rect class=\"fk-curve t-1\" x=\"320\" y=\"145\" width=\"80\" height=\"91\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><rect class=\"fk-curve t-2\" x=\"320\" y=\"75\" width=\"80\" height=\"70\" rx=\"6\" stroke-width=\"3\" style=\"fill:var(--c);fill-opacity:0.16\"/></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"360\" y=\"197.5\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">13</text></g><g data-step=\"2\"><text class=\"fk-t t-ink\" x=\"360\" y=\"117\" font-size=\"20\" font-weight=\"600\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">10</text></g><g data-step=\"2\"><text class=\"fk-t t-good\" x=\"360\" y=\"63\" font-size=\"20\" font-weight=\"700\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">23</text></g><g data-step=\"2\"><line class=\"fk-line t-mut\" x1=\"24\" y1=\"236\" x2=\"456\" y2=\"236\" stroke-width=\"3\" stroke-linecap=\"round\"/></g><g data-step=\"3\"><rect class=\"fk-chip t-good\" x=\"70\" y=\"4\" width=\"340\" height=\"38\" rx=\"14\" style=\"fill:var(--c);fill-opacity:0.16;stroke:none\"/></g><g data-step=\"3\"><text class=\"fk-t t-ink\" x=\"240\" y=\"30.7\" font-size=\"22\" font-weight=\"650\" text-anchor=\"middle\" direction=\"ltr\" unicode-bidi=\"isolate\">3 × 23 = 69</text></g></svg>",
+      "frames": [
+        {
+          "caption": "نفس الأعمدة، بس هلّق بنعرف نرتبهم"
+        },
+        {
+          "caption": "أزواج من الطرفين: \\(4+19\\) و \\(7+16\\) و \\(10+13\\)، كلهم \\(23\\)"
+        },
+        {
+          "caption": "ثلاث أعمدة × \\(23\\): نفس \\(\\frac{4+19}{2}\\cdot6\\)"
+        }
+      ],
+      "title": "جواب السؤال"
+    },
+    {
+      "t": "card",
+      "front": "متتالية (<bdi>סדרה</bdi>)",
+      "back": "<p>دالة \\(f:\\mathbb N\\to A\\) و \\(a_n=f(n)\\). فخ: \\(\\mathrm{Im}(f)\\) مجموعة، بدون ترتيب وتكرار.</p>"
+    },
+    {
+      "t": "card",
+      "front": "حسابية (<bdi>סדרה חשבונית</bdi>): الحد والمجموع",
+      "back": "<p>\\(a_n=a_1+(n-1)d\\)، \\(S_n=\\frac{a_1+a_n}{2}\\cdot n\\). فخ: بنعدّ القفزات \\(n-1\\) مش \\(n\\) حد.</p>"
+    },
+    {
+      "t": "card",
+      "front": "هندسية (<bdi>סדרה הנדסית</bdi>): الحد والمجموع",
+      "back": "<p>\\(a_n=a_1q^{n-1}\\)، \\(S_n=a_1\\frac{1-q^n}{1-q}\\) لـ \\(q\\ne1\\). فخ: \\(n-1\\) بالحد و \\(n\\) بالمجموع.</p>"
+    },
+    {
+      "t": "card",
+      "front": "متتالية تراجعية (<bdi>רקורסיה</bdi>)",
+      "back": "<p>\\(a_{n+1}=f(a_1,\\dots,a_n)\\). مثلاً فيبوناتشي: \\(a_{n+2}=a_n+a_{n+1}\\) هيك.</p>"
     }
   ]
 }
